@@ -1,0 +1,14 @@
+# MCP / Claude Code (contiene tokens — nunca subir)
+.claude/settings.json
+
+# Next.js
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# Env
+.env
+.env.local
+.env*.local
