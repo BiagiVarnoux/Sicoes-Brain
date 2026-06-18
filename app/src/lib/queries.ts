@@ -98,8 +98,18 @@ export async function getTopEntidadesPorMonto(limit = 10) {
   return (data ?? []) as { entidad: string; monto: number }[]
 }
 
-export async function getTopProductos(limit = 15) {
-  const { data } = await supabase.rpc('get_top_productos', { limit_n: limit })
+export async function getTopProductos(params?: {
+  limit?: number
+  q?: string
+  entidad?: string
+  orderBy?: 'monto' | 'veces'
+}) {
+  const { data } = await supabase.rpc('get_top_productos', {
+    limit_n:  params?.limit    ?? 50,
+    q:        params?.q        ?? '',
+    p_entidad: params?.entidad ?? '',
+    order_by: params?.orderBy  ?? 'monto',
+  })
   return (data ?? []) as {
     descripcion: string
     clase: string
