@@ -1,9 +1,8 @@
 """
-SICOES Items Scraper — CDP Edition
-====================================
-Conecta a un Chrome ya abierto por el usuario (via CDP) para evitar
-que Cloudflare Turnstile detecte automatización. El Turnstile invisible
-de verFormulario() se resuelve solo en un browser real.
+SICOES Items Scraper — CDP Edition v2
+======================================
+Abre TODOS los formularios disponibles por proceso (FORM200, FORM220, FORM110,
+FORM100, FORM170, FORM500) en lugar de solo uno.
 
 ANTES DE CORRER:
   1. Cerrar Chrome completamente.
@@ -16,11 +15,11 @@ ANTES DE CORRER:
      Cerrar el popup de comunicados si aparece.
      Ir al tab "Búsqueda Avanzada" y dejar la página lista.
   4. Correr este script:
-       python3 scraper/sicoes_items_cdp.py --max-paginas 2
+       python3 scraper/sicoes_items_cdp.py --max-paginas 2 --anio 2024
 
 DEPENDENCIAS:
-  pip install playwright beautifulsoup4 lxml
-  playwright install chromium  (solo si no está instalado)
+  pip install playwright beautifulsoup4 lxml python-dotenv
+  playwright install chromium
 """
 
 import asyncio
@@ -32,115 +31,79 @@ import random
 import urllib.request
 import urllib.error
 import urllib.parse
+from datetime import datetime
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
-
-# ─── CONFIGURACIÓN ────────────────────────────────────────────────────────────
-# Crea un archivo .env en el mismo directorio con:
-#   SUPABASE_URL=https://....supabase.co
-#   SUPABASE_KEY=sb_secret_...
 
 try:
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
-    pass  # dotenv opcional — también funciona con variables de entorno del sistema
+    pass
 
 SUPABASE_URL = os.environ["SUPABASE_URL"]
 SUPABASE_KEY = os.environ["SUPABASE_KEY"]
 
 CDP_URL = "http://localhost:9222"
 
-# Entidades de prueba — para el completo reemplazar con la lista de 82
 ENTIDADES_PRUEBA = [
     {"codigo": "0905-09", "nombre": "Hospital Daniel Bracamonte"},
 ]
 
-ANIO = 2026
-DELAY_PAGINA = (3.0, 6.0)    # rango aleatorio entre páginas (segundos)
-DELAY_FORM   = (5.0, 12.0)   # rango aleatorio entre formularios
-DELAY_RETRY  = (90.0, 150.0) # rango aleatorio tras 3 "sin contenido" seguidos
+ANIO = 2024
+DELAY_PAGINA = (3.0, 6.0)
+DELAY_FORM   = (5.0, 12.0)
+DELAY_RETRY  = (90.0, 150.0)
+
+# Formularios que queremos procesar, en orden de prioridad
+FORMS_ITEMS      = {"FORM200", "FORM220", "FORM110", "FORM100", "FORM170"}
+FORMS_RECEPCION  = {"FORM500"}
+TODOS_LOS_FORMS  = FORMS_ITEMS | FORMS_RECEPCION
 
 # ─── SUPABASE ─────────────────────────────────────────────────────────────────
 
-def supabase_insert(tabla: str, rows: list) -> dict:
-    if not rows:
-        return {"count": 0}
-    url = f"{SUPABASE_URL}/rest/v1/{tabla}"
-    data = json.dumps(rows).encode("utf-8")
-    req = urllib.request.Request(
-        url, data=data, method="POST",
-        headers={
-            "apikey": SUPABASE_KEY,
-            "Authorization": f"Bearer {SUPABASE_KEY}",
-            "Content-Type": "application/json",
-            "Prefer": "resolution=ignore-duplicates,return=minimal",
-        }
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            return {"status": resp.status, "count": len(rows)}
-    except urllib.error.HTTPError as e:
-        body = e.read().decode()
-        return {"error": body}
-
-def supabase_upsert_proveedor(nombre: str) -> int | None:
-    url = f"{SUPABASE_URL}/rest/v1/proveedores"
-    payload = json.dumps([{"nombre": nombre}]).encode()
-    req = urllib.request.Request(
-        url, data=payload, method="POST",
-        headers={
-            "apikey": SUPABASE_KEY,
-            "Authorization": f"Bearer {SUPABASE_KEY}",
-            "Content-Type": "application/json",
-            "Prefer": "resolution=merge-duplicates,return=representation",
-        }
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            data = json.loads(resp.read())
-            return data[0]["id"] if data else None
-    except urllib.error.HTTPError as e:
-        # Si ya existe (409 o similar), buscar por nombre
-        pass
-    params = f"?nombre=eq.{urllib.parse.quote(nombre)}&select=id&limit=1"
-    req2 = urllib.request.Request(
-        url + params,
-        headers={
-            "apikey": SUPABASE_KEY,
-            "Authorization": f"Bearer {SUPABASE_KEY}",
-        }
-    )
-    try:
-        with urllib.request.urlopen(req2, timeout=10) as resp:
-            data = json.loads(resp.read())
-            return data[0]["id"] if data else None
-    except:
-        return None
-
-def supabase_ya_procesado(cuce: str) -> bool:
-    url = f"{SUPABASE_URL}/rest/v1/procesos?cuce=eq.{urllib.parse.quote(cuce)}&select=items_procesados&limit=1"
-    req = urllib.request.Request(url, headers={
+def _headers(extra: dict = {}) -> dict:
+    base = {
         "apikey": SUPABASE_KEY,
         "Authorization": f"Bearer {SUPABASE_KEY}",
-    })
-    try:
-        with urllib.request.urlopen(req, timeout=8) as resp:
-            data = json.loads(resp.read())
-            return bool(data and data[0].get("items_procesados"))
-    except:
-        return False
+        "Content-Type": "application/json",
+    }
+    base.update(extra)
+    return base
 
-def supabase_marcar_procesado(cuce: str) -> None:
-    url = f"{SUPABASE_URL}/rest/v1/procesos?cuce=eq.{urllib.parse.quote(cuce)}"
-    payload = json.dumps({"items_procesados": True}).encode()
+def supabase_get(path: str) -> list:
     req = urllib.request.Request(
-        url, data=payload, method="PATCH",
-        headers={
-            "apikey": SUPABASE_KEY,
-            "Authorization": f"Bearer {SUPABASE_KEY}",
-            "Content-Type": "application/json",
-        }
+        f"{SUPABASE_URL}/rest/v1/{path}",
+        headers={"apikey": SUPABASE_KEY, "Authorization": f"Bearer {SUPABASE_KEY}"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=10) as r:
+            return json.loads(r.read())
+    except:
+        return []
+
+def supabase_post(tabla: str, rows: list, prefer: str = "resolution=ignore-duplicates,return=minimal") -> dict:
+    if not rows:
+        return {"count": 0}
+    req = urllib.request.Request(
+        f"{SUPABASE_URL}/rest/v1/{tabla}",
+        data=json.dumps(rows).encode(),
+        method="POST",
+        headers=_headers({"Prefer": prefer}),
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as r:
+            body = r.read()
+            return {"status": r.status, "count": len(rows), "data": json.loads(body) if body else []}
+    except urllib.error.HTTPError as e:
+        return {"error": e.read().decode()}
+
+def supabase_patch(tabla: str, filters: str, payload: dict) -> None:
+    req = urllib.request.Request(
+        f"{SUPABASE_URL}/rest/v1/{tabla}?{filters}",
+        data=json.dumps(payload).encode(),
+        method="PATCH",
+        headers=_headers(),
     )
     try:
         with urllib.request.urlopen(req, timeout=10):
@@ -148,13 +111,47 @@ def supabase_marcar_procesado(cuce: str) -> None:
     except:
         pass
 
+def supabase_upsert_proveedor(nombre: str) -> int | None:
+    res = supabase_post("proveedores", [{"nombre": nombre}],
+                        prefer="resolution=merge-duplicates,return=representation")
+    if "data" in res and res["data"]:
+        return res["data"][0]["id"]
+    # Fallback: buscar por nombre
+    rows = supabase_get(f"proveedores?nombre=eq.{urllib.parse.quote(nombre)}&select=id&limit=1")
+    return rows[0]["id"] if rows else None
+
+def supabase_forms_procesados(cuce: str) -> set:
+    rows = supabase_get(f"procesos?cuce=eq.{urllib.parse.quote(cuce)}&select=forms_procesados&limit=1")
+    if rows and rows[0].get("forms_procesados"):
+        return set(rows[0]["forms_procesados"])
+    return set()
+
+def supabase_marcar_form(cuce: str, form_name: str) -> None:
+    """Agrega form_name al array forms_procesados del proceso."""
+    # Usar RPC array append para evitar race conditions
+    req = urllib.request.Request(
+        f"{SUPABASE_URL}/rest/v1/rpc/append_form_procesado",
+        data=json.dumps({"p_cuce": cuce, "p_form": form_name}).encode(),
+        method="POST",
+        headers=_headers(),
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=10):
+            pass
+    except:
+        # Fallback: leer, agregar, escribir
+        forms = list(supabase_forms_procesados(cuce))
+        if form_name not in forms:
+            forms.append(form_name)
+            supabase_patch("procesos", f"cuce=eq.{urllib.parse.quote(cuce)}",
+                          {"forms_procesados": forms, "items_procesados": True})
+
 # ─── HELPERS ──────────────────────────────────────────────────────────────────
 
 def limpiar(texto) -> str:
     return re.sub(r'\s+', ' ', str(texto).strip()) if texto else ""
 
 def codigo_unspsc_valido(codigo: str) -> str | None:
-    # Rechaza vacíos, todo-ceros, y longitud incorrecta
     if not codigo or len(codigo) != 8 or all(c == '0' for c in codigo):
         return None
     return codigo
@@ -167,9 +164,20 @@ def parse_numero(texto) -> float | None:
     if len(partes) > 2:
         texto = ''.join(partes[:-1]) + '.' + partes[-1]
     try:
-        return float(texto)
+        v = float(texto)
+        return v if v > 0 else None
     except:
         return None
+
+def parse_fecha(texto) -> str | None:
+    """Convierte 'dd/mm/yyyy' a 'yyyy-mm-dd' para Postgres."""
+    if not texto:
+        return None
+    texto = limpiar(texto)
+    m = re.match(r'(\d{1,2})/(\d{1,2})/(\d{4})', texto)
+    if m:
+        return f"{m.group(3)}-{m.group(2).zfill(2)}-{m.group(1).zfill(2)}"
+    return None
 
 def parsear_descripcion(celda_html: str) -> tuple[str, str]:
     soup = BeautifulSoup(celda_html, "lxml")
@@ -178,6 +186,13 @@ def parsear_descripcion(celda_html: str) -> tuple[str, str]:
     texto_completo = limpiar(soup.get_text(separator=" "))
     descripcion = texto_completo.replace(categoria, "").strip()
     return categoria, descripcion
+
+def armar_descripcion(categoria: str, descripcion: str) -> str:
+    if categoria and descripcion:
+        return f"{categoria} — {descripcion}"
+    return categoria or descripcion or ""
+
+# ─── PARSERS ──────────────────────────────────────────────────────────────────
 
 def extraer_contratos_form200(soup: BeautifulSoup) -> dict:
     """Devuelve {nro_contrato: nombre_proveedor} desde la tabla de sección 3 de FORM200."""
@@ -200,14 +215,10 @@ def extraer_contratos_form200(soup: BeautifulSoup) -> dict:
             contratos[nro_doc] = nombre
     return contratos
 
-# ─── PARSERS DE FORMULARIOS ───────────────────────────────────────────────────
-
 def parsear_form200_100(html: str, cuce: str, form_name: str) -> list[dict]:
     soup = BeautifulSoup(html, "lxml")
     items = []
     es_200 = form_name == "FORM200"
-
-    # FORM200: build contract→provider map from section 3 table
     contratos_200 = extraer_contratos_form200(soup) if es_200 else {}
 
     for tabla in soup.find_all("table"):
@@ -222,11 +233,10 @@ def parsear_form200_100(html: str, cuce: str, form_name: str) -> list[dict]:
                 continue
             codigo = limpiar(celdas[1].get_text()).zfill(8)
             if es_200:
-                # FORM200 cols: [0]=Nro [1]=Código [2]=Partida [3]=Descripción
-                #               [4]=Nro.Contrato [5]=Unidad [6]=Precio unit
-                #               [7]=La cantidad es [8]=Cantidad [9]=Monto [10]=Origen
                 if len(celdas) < 10:
                     continue
+                # [0]=Nro [1]=Código [2]=Partida [3]=Descripción [4]=Nro.Contrato
+                # [5]=Unidad [6]=P.Unit [7]=TipoQty [8]=Cantidad [9]=Monto [10]=Origen
                 cat, desc = parsear_descripcion(str(celdas[3]))
                 nro_contrato = limpiar(celdas[4].get_text())
                 proveedor = contratos_200.get(nro_contrato)
@@ -234,12 +244,13 @@ def parsear_form200_100(html: str, cuce: str, form_name: str) -> list[dict]:
                     "cuce": cuce,
                     "nro_item": int(nro_text),
                     "unspsc_codigo": codigo_unspsc_valido(codigo),
-                    "descripcion_producto": f"{cat} — {desc}".strip(" —"),
+                    "descripcion_producto": armar_descripcion(cat, desc),
                     "unidad_medida": limpiar(celdas[5].get_text()) if len(celdas) > 5 else "",
                     "precio_adjudicado": parse_numero(celdas[6].get_text()) if len(celdas) > 6 else None,
                     "cantidad": parse_numero(celdas[8].get_text()) if len(celdas) > 8 else None,
                     "monto_total": parse_numero(celdas[9].get_text()) if len(celdas) > 9 else None,
                     "origen": limpiar(celdas[10].get_text()) if len(celdas) > 10 else None,
+                    "nro_contrato": nro_contrato or None,
                     "estado_item": "adjudicado",
                     "fuente_formulario": form_name,
                 }
@@ -247,6 +258,8 @@ def parsear_form200_100(html: str, cuce: str, form_name: str) -> list[dict]:
                     item["_proveedor_nombre"] = proveedor
                 items.append(item)
             else:
+                # FORM100 desierto: [0]=Nro [1]=Código [2]=Descripción [3]=Unidad
+                #                   [4]=Cantidad [5]=P.Ref [6]=Monto
                 if len(celdas) < 6:
                     continue
                 cat, desc = parsear_descripcion(str(celdas[2]))
@@ -254,7 +267,7 @@ def parsear_form200_100(html: str, cuce: str, form_name: str) -> list[dict]:
                     "cuce": cuce,
                     "nro_item": int(nro_text),
                     "unspsc_codigo": codigo_unspsc_valido(codigo),
-                    "descripcion_producto": f"{cat} — {desc}".strip(" —"),
+                    "descripcion_producto": armar_descripcion(cat, desc),
                     "unidad_medida": limpiar(celdas[3].get_text()) if len(celdas) > 3 else "",
                     "cantidad": parse_numero(celdas[4].get_text()) if len(celdas) > 4 else None,
                     "precio_referencial": parse_numero(celdas[5].get_text()) if len(celdas) > 5 else None,
@@ -272,22 +285,17 @@ def parsear_form220_110(html: str, cuce: str, form_name: str) -> list[dict]:
 
     for tabla in soup.find_all("table"):
         texto = tabla.get_text().upper()
-        es_contratados = "CONTRATADOS" in texto and "NO CONTRATADOS" not in texto and "REQUERIDOS" not in texto
-        es_no_cont = "NO CONTRATADOS" in texto
-        es_requeridos = "REQUERIDOS" in texto  # FORM110: ítems referencia de CM desierto
+        es_contratados  = "CONTRATADOS" in texto and "NO CONTRATADOS" not in texto and "REQUERIDOS" not in texto
+        es_no_cont      = "NO CONTRATADOS" in texto
+        es_requeridos   = "REQUERIDOS" in texto
         if not (es_contratados or es_no_cont or es_requeridos):
             continue
 
-        if es_contratados:
-            estado_item = "adjudicado"
-        else:
-            estado_item = "desierto"
+        estado_item = "adjudicado" if es_contratados else "requerido" if es_requeridos else "desierto"
 
-        # FORM110 "REQUERIDOS": no tiene columna Partida
-        #   [0]=# [1]=Código [2]=Descripción [3]=Unidad [4]=Cantidad [5]=P.Unit [6]=P.Total
-        # FORM220 CONTRATADOS/NO CONTRATADOS: tiene Partida en [2]
-        #   [0]=Nro [1]=Código [2]=Partida [3]=Descripción [4]=Unidad [5]=P.Presel [6]=Proveedor/Cantidad
-        desc_idx = 2 if es_requeridos else 3
+        # FORM110 requeridos: [0]=# [1]=Código [2]=Descripción [3]=Unidad [4]=Cantidad [5]=P.Unit [6]=P.Total
+        # FORM220 todos:      [0]=Nro [1]=Código [2]=Partida [3]=Descripción [4]=Unidad ...
+        desc_idx  = 2 if es_requeridos else 3
         unidad_idx = 3 if es_requeridos else 4
 
         for fila in tabla.find_all("tr"):
@@ -303,17 +311,19 @@ def parsear_form220_110(html: str, cuce: str, form_name: str) -> list[dict]:
                 "cuce": cuce,
                 "nro_item": int(nro_text),
                 "unspsc_codigo": codigo_unspsc_valido(codigo),
-                "descripcion_producto": f"{cat} — {desc}".strip(" —"),
+                "descripcion_producto": armar_descripcion(cat, desc),
                 "unidad_medida": limpiar(celdas[unidad_idx].get_text()) if len(celdas) > unidad_idx else "",
                 "precio_referencial": parse_numero(celdas[5].get_text()) if len(celdas) > 5 else None,
                 "estado_item": estado_item,
                 "fuente_formulario": form_name,
             }
             if es_220 and es_contratados and len(celdas) > 9:
-                row["_proveedor_nombre"] = limpiar(celdas[6].get_text())
-                row["precio_adjudicado"] = parse_numero(celdas[7].get_text())
-                row["cantidad"] = parse_numero(celdas[8].get_text())
-                row["monto_total"] = parse_numero(celdas[9].get_text())
+                # [5]=P.Presel [6]=Proveedor [7]=P.Adj [8]=Cantidad [9]=Monto
+                row["precio_preseleccionado"] = parse_numero(celdas[5].get_text())
+                row["_proveedor_nombre"]      = limpiar(celdas[6].get_text())
+                row["precio_adjudicado"]      = parse_numero(celdas[7].get_text())
+                row["cantidad"]               = parse_numero(celdas[8].get_text())
+                row["monto_total"]            = parse_numero(celdas[9].get_text())
             elif es_requeridos:
                 row["cantidad"] = parse_numero(celdas[4].get_text()) if len(celdas) > 4 else None
             else:
@@ -344,7 +354,7 @@ def parsear_form170(html: str, cuce: str) -> list[dict]:
                 "cuce": cuce,
                 "nro_item": int(nro_text),
                 "unspsc_codigo": codigo_unspsc_valido(codigo),
-                "descripcion_producto": f"{cat} — {desc}".strip(" —"),
+                "descripcion_producto": armar_descripcion(cat, desc),
                 "unidad_medida": limpiar(celdas[4].get_text()) if len(celdas) > 4 else "",
                 "precio_referencial": parse_numero(celdas[5].get_text()) if len(celdas) > 5 else None,
                 "estado_item": estado_item,
@@ -353,32 +363,60 @@ def parsear_form170(html: str, cuce: str) -> list[dict]:
             if es_adj and len(celdas) > 9:
                 row["_proveedor_nombre"] = limpiar(celdas[6].get_text())
                 row["precio_adjudicado"] = parse_numero(celdas[7].get_text())
-                row["cantidad"] = parse_numero(celdas[8].get_text())
-                row["monto_total"] = parse_numero(celdas[9].get_text())
+                row["cantidad"]          = parse_numero(celdas[8].get_text())
+                row["monto_total"]       = parse_numero(celdas[9].get_text())
             else:
                 row["cantidad"] = parse_numero(celdas[6].get_text()) if len(celdas) > 6 else None
             items.append(row)
     return items
 
-def formulario_a_procesar(modalidad: str, estado: str, tokens: dict) -> tuple[str, str] | None:
-    es_cm = modalidad == "CM"
-    estado_l = estado.lower()
-    if "contratado" in estado_l:
-        form = "FORM220" if es_cm else "FORM200"
-        return (form, tokens[form]) if form in tokens else None
-    if "desierto" in estado_l or "anulado desde la convocatoria" in estado_l:
-        form = "FORM110" if es_cm else "FORM100"
-        if form in tokens:
-            return form, tokens[form]
-        if "FORM170" in tokens:
-            return "FORM170", tokens["FORM170"]
-        return None
-    if "adjudicado" in estado_l:
-        form = "FORM220" if es_cm else "FORM200"
-        return (form, tokens[form]) if form in tokens else None
-    return None
+def parsear_form500(html: str, cuce: str) -> list[dict]:
+    """
+    FORM500 — Recepción de bienes.
+    Sección 3 columnas:
+    [0]=# [1]=Nro.contrato [2]=Fecha firma [3]=Proveedor [4]=Descripción
+    [5]=Estado recepción [6]=Cant.solicitada [7]=Cant.recepcionada
+    [8]=Fecha recep.según contrato [9]=Fecha recep.provisional [10]=Fecha recep.definitiva
+    [11]=Monto ejecutado
+    """
+    soup = BeautifulSoup(html, "lxml")
+    recepciones = []
+    for tabla in soup.find_all("table"):
+        texto = tabla.get_text().upper()
+        if "RECEPCIÓN DE BIENES" not in texto and "RECEPCION DE BIENES" not in texto:
+            continue
+        for fila in tabla.find_all("tr"):
+            celdas = fila.find_all("td")
+            if len(celdas) < 8:
+                continue
+            nro_text = limpiar(celdas[0].get_text())
+            if not nro_text.isdigit():
+                continue
+            cat, desc = parsear_descripcion(str(celdas[4]))
+            rec = {
+                "cuce": cuce,
+                "nro_contrato": limpiar(celdas[1].get_text()) or None,
+                "fecha_firma_contrato": parse_fecha(celdas[2].get_text()),
+                "descripcion_bien": armar_descripcion(cat, desc),
+                "estado_recepcion": limpiar(celdas[5].get_text()) or None,
+                "cantidad_solicitada": parse_numero(celdas[6].get_text()),
+                "cantidad_recepcionada": parse_numero(celdas[7].get_text()),
+                "fecha_recepcion_contrato": parse_fecha(celdas[8].get_text()) if len(celdas) > 8 else None,
+                "fecha_recepcion_provisional": parse_fecha(celdas[9].get_text()) if len(celdas) > 9 else None,
+                "fecha_recepcion_definitiva": parse_fecha(celdas[10].get_text()) if len(celdas) > 10 else None,
+                "monto_ejecutado": parse_numero(celdas[11].get_text()) if len(celdas) > 11 else None,
+                "fuente_formulario": "FORM500",
+            }
+            proveedor = limpiar(celdas[3].get_text())
+            if proveedor:
+                rec["_proveedor_nombre"] = proveedor
+            recepciones.append(rec)
+        break
+    return recepciones
 
-def procesar_e_insertar(items_raw: list) -> int:
+# ─── INSERCIÓN ────────────────────────────────────────────────────────────────
+
+def procesar_e_insertar_items(items_raw: list) -> int:
     if not items_raw:
         return 0
     items_limpios = []
@@ -392,19 +430,33 @@ def procesar_e_insertar(items_raw: list) -> int:
             else:
                 print(f"        ⚠ proveedor no insertado: {prov[:40]}")
         items_limpios.append(row)
-    result = supabase_insert("items", items_limpios)
+    result = supabase_post("items", items_limpios)
     if "error" in result:
         print(f"        ✗ insert error: {result['error'][:120]}")
         return 0
-    count = result.get("count", 0)
-    if count > 0 and items_limpios:
-        supabase_marcar_procesado(items_limpios[0]["cuce"])
-    return count
+    return result.get("count", 0)
+
+def procesar_e_insertar_recepciones(recs_raw: list) -> int:
+    if not recs_raw:
+        return 0
+    recs_limpias = []
+    for rec in recs_raw:
+        row = {k: v for k, v in rec.items() if not k.startswith("_")}
+        prov = rec.get("_proveedor_nombre")
+        if prov and prov.strip():
+            prov_id = supabase_upsert_proveedor(prov.strip())
+            if prov_id:
+                row["proveedor_id"] = prov_id
+        recs_limpias.append(row)
+    result = supabase_post("recepciones", recs_limpias)
+    if "error" in result:
+        print(f"        ✗ recepcion insert error: {result['error'][:120]}")
+        return 0
+    return result.get("count", 0)
 
 # ─── NAVEGACIÓN ───────────────────────────────────────────────────────────────
 
 async def ir_a_buscador(page):
-    """Navega al buscador avanzado de SICOES."""
     await page.evaluate("""
         () => {
             document.querySelectorAll("button.close[data-dismiss='modal']").forEach(b => b.click());
@@ -503,7 +555,6 @@ async def extraer_filas(page, ent_codigo: str) -> list[dict]:
                     tokens = extraer_tokens(html_celda)
                     break
             if not tokens:
-                print(f"      {cuce}: sin tokens (estado={estado})")
                 continue
             print(f"      {cuce}: {list(tokens.keys())} [{estado}]")
             filas_data.append({"cuce": cuce, "modalidad": modalidad, "estado": estado, "tokens": tokens})
@@ -511,21 +562,18 @@ async def extraer_filas(page, ent_codigo: str) -> list[dict]:
         print(f"    Error extrayendo filas: {e}")
     return filas_data
 
-# ─── ABRIR FORMULARIO Y EXTRAER ───────────────────────────────────────────────
+# ─── ABRIR FORMULARIO ─────────────────────────────────────────────────────────
 
-async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> list[dict]:
+async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> tuple[list, list]:
+    """Devuelve (items, recepciones)."""
     print(f"        {form_name}...", end=" ", flush=True)
 
-    # Llamar verFormulario — Turnstile invisible se resuelve solo en Chrome real
     await page.evaluate(f"verFormulario('{token}')")
-
-    # Esperar que el modal cargue contenido real (tabla dentro del div)
     try:
         await page.wait_for_selector("#visualizarformulario0 table", timeout=15000)
         await page.wait_for_timeout(300)
     except:
         print("sin contenido")
-        # Cerrar modal si quedó abierto
         await page.evaluate("""
             () => {
                 document.querySelectorAll('.modal').forEach(m => {
@@ -535,7 +583,7 @@ async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> list[
                 document.body.classList.remove('modal-open');
             }
         """)
-        return []
+        return [], []
 
     html = await page.evaluate("""
         () => { var el = document.getElementById('visualizarformulario0'); return el ? el.innerHTML : ''; }
@@ -543,15 +591,17 @@ async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> list[
 
     if not html or len(html) < 100:
         print("HTML vacío")
-        return []
+        return [], []
 
-    items = []
+    items, recepciones = [], []
     if form_name in ("FORM200", "FORM100"):
         items = parsear_form200_100(html, cuce, form_name)
     elif form_name in ("FORM220", "FORM110"):
         items = parsear_form220_110(html, cuce, form_name)
     elif form_name == "FORM170":
         items = parsear_form170(html, cuce)
+    elif form_name == "FORM500":
+        recepciones = parsear_form500(html, cuce)
 
     # Cerrar modal
     await page.evaluate("""
@@ -569,13 +619,18 @@ async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> list[
     """)
     await page.wait_for_timeout(800)
 
-    print(f"{len(items)} ítems")
-    return items
+    if form_name == "FORM500":
+        print(f"{len(recepciones)} recepciones")
+    else:
+        print(f"{len(items)} ítems")
+
+    return items, recepciones
 
 # ─── MAIN ─────────────────────────────────────────────────────────────────────
 
 async def scraping(entidades: list, anio: int, max_paginas: int):
     total_items = 0
+    total_recepciones = 0
     total_procesos = 0
 
     async with async_playwright() as p:
@@ -591,34 +646,27 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
             return
 
         print("✓ Conectado")
-
-        # Usar el contexto existente del Chrome real (tiene las cookies/sesión)
         contexts = browser.contexts
         if not contexts:
-            print("❌ Chrome no tiene contexto activo. Abrí una pestaña en SICOES.")
+            print("❌ Chrome no tiene contexto activo.")
             return
 
         context = contexts[0]
-
-        # Buscar pestaña de SICOES o abrir una nueva
         page = None
         for p_tab in context.pages:
             if "sicoes" in p_tab.url:
                 page = p_tab
-                print(f"✓ Usando pestaña existente: {p_tab.url[:60]}")
+                print(f"✓ Usando pestaña: {p_tab.url[:60]}")
                 break
-
         if not page:
             page = await context.new_page()
-            print("✓ Abriendo nueva pestaña en SICOES...")
             await page.goto("https://www.sicoes.gob.bo/portal/index.php",
                            wait_until="domcontentloaded", timeout=60000)
             await page.wait_for_timeout(3000)
 
         print("Navegando al buscador...")
         await ir_a_buscador(page)
-        print("✓ Buscador listo")
-        print(f"Entidades: {len(entidades)} | Año: {anio} | Max págs: {max_paginas}")
+        print(f"✓ Buscador listo | Entidades: {len(entidades)} | Año: {anio} | Max págs: {max_paginas}")
         print("=" * 60)
 
         for ent in entidades:
@@ -647,53 +695,76 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
                     if not filas:
                         paginas_vacias += 1
                         if paginas_vacias >= 3:
-                            print("    → 3 vacías consecutivas, pasando al siguiente estado")
+                            print("    → 3 páginas vacías, pasando al siguiente estado")
                             break
                     else:
                         paginas_vacias = 0
 
                     items_pagina = 0
+                    recs_pagina  = 0
                     vacios_consecutivos = 0
-                    for fila in filas:
-                        if supabase_ya_procesado(fila["cuce"]):
-                            print(f"        ↩ {fila['cuce']}: ya procesado, saltando")
-                            continue
-                        form_info = formulario_a_procesar(fila["modalidad"], fila["estado"], fila["tokens"])
-                        if not form_info:
-                            continue
-                        form_name, token = form_info
-                        items = await abrir_formulario(page, token, form_name, fila["cuce"])
-                        if items:
-                            vacios_consecutivos = 0
-                            insertados = procesar_e_insertar(items)
-                            items_pagina += insertados
-                            total_items += insertados
-                            total_procesos += 1
-                        else:
-                            vacios_consecutivos += 1
-                            if vacios_consecutivos >= 3:
-                                pausa = random.uniform(*DELAY_RETRY)
-                                print(f"        ⏸ 3 vacíos seguidos — pausa {pausa:.0f}s para reset de rate limit...")
-                                await asyncio.sleep(pausa)
-                                vacios_consecutivos = 0
-                        await asyncio.sleep(random.uniform(*DELAY_FORM))
 
-                    print(f"    → {items_pagina} ítems insertados en pág {pag}")
+                    for fila in filas:
+                        cuce = fila["cuce"]
+                        tokens = fila["tokens"]
+                        forms_ya_hechos = supabase_forms_procesados(cuce)
+
+                        # Determinar qué forms de esta fila todavía no procesamos
+                        forms_disponibles = set(tokens.keys()) & TODOS_LOS_FORMS
+                        forms_pendientes  = forms_disponibles - forms_ya_hechos
+
+                        if not forms_pendientes:
+                            print(f"        ↩ {cuce}: todos los forms ya procesados {sorted(forms_ya_hechos)}")
+                            continue
+
+                        print(f"        {cuce}: pendientes={sorted(forms_pendientes)} ya={sorted(forms_ya_hechos)}")
+
+                        for form_name in sorted(forms_pendientes):
+                            token = tokens[form_name]
+                            items, recepciones = await abrir_formulario(page, token, form_name, cuce)
+
+                            if items:
+                                vacios_consecutivos = 0
+                                insertados = procesar_e_insertar_items(items)
+                                items_pagina += insertados
+                                total_items  += insertados
+                            elif recepciones:
+                                vacios_consecutivos = 0
+                                insertados = procesar_e_insertar_recepciones(recepciones)
+                                recs_pagina       += insertados
+                                total_recepciones += insertados
+                            else:
+                                vacios_consecutivos += 1
+                                if vacios_consecutivos >= 3:
+                                    pausa = random.uniform(*DELAY_RETRY)
+                                    print(f"        ⏸ 3 vacíos seguidos — pausa {pausa:.0f}s...")
+                                    await asyncio.sleep(pausa)
+                                    vacios_consecutivos = 0
+
+                            # Marcar form como procesado aunque haya salido vacío
+                            # (para no volver a abrirlo en re-runs)
+                            supabase_marcar_form(cuce, form_name)
+                            await asyncio.sleep(random.uniform(*DELAY_FORM))
+
+                        total_procesos += 1
+
+                    print(f"    → {items_pagina} ítems + {recs_pagina} recepciones en pág {pag}")
                     pag += 1
                     if pag <= max_paginas:
                         await ir_pagina(page, pag)
                         await asyncio.sleep(random.uniform(*DELAY_PAGINA))
 
-        # NO cerrar el browser — es el Chrome del usuario
         print(f"\n{'='*60}")
-        print(f"COMPLETADO — Procesos: {total_procesos} | Ítems: {total_items}")
+        print(f"COMPLETADO — Procesos: {total_procesos} | Ítems: {total_items} | Recepciones: {total_recepciones}")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="SICOES Items Scraper (CDP)")
-    parser.add_argument("--max-paginas", type=int, default=2, help="Páginas por estado/entidad (default: 2)")
-    parser.add_argument("--anio", type=int, default=2026, help="Año CUCE (default: 2026)")
+    parser = argparse.ArgumentParser(description="SICOES Items Scraper v2 (CDP)")
+    parser.add_argument("--max-paginas", type=int, default=2,
+                        help="Páginas por estado/entidad (default: 2)")
+    parser.add_argument("--anio", type=int, default=2024,
+                        help="Año CUCE a scrapear (default: 2024)")
     args = parser.parse_args()
 
-    print(f"SICOES Items Scraper CDP — año {args.anio} | max {args.max_paginas} págs/estado")
+    print(f"SICOES Items Scraper v2 — año {args.anio} | max {args.max_paginas} págs/estado")
     asyncio.run(scraping(ENTIDADES_PRUEBA, args.anio, args.max_paginas))
