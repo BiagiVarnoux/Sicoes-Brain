@@ -17,12 +17,21 @@ type Props = {
   data: DataItem[]
   color?: string
   layout?: 'vertical' | 'horizontal'
-  formatValue?: (v: number) => string
+  format?: 'count' | 'monto'
+}
+
+function fmt(format: 'count' | 'monto' = 'count', v: number): string {
+  if (format === 'monto') {
+    if (v >= 1_000_000) return `${(v / 1_000_000).toFixed(0)}M`
+    if (v >= 1_000) return `${(v / 1_000).toFixed(0)}K`
+    return String(v)
+  }
+  return v.toLocaleString('es-BO')
 }
 
 const BLUE = '#2563eb'
 
-export default function BarChart({ data, color = BLUE, layout = 'horizontal', formatValue }: Props) {
+export default function BarChart({ data, color = BLUE, layout = 'horizontal', format = 'count' }: Props) {
   if (layout === 'vertical') {
     return (
       <ResponsiveContainer width="100%" height={Math.max(data.length * 36, 200)}>
@@ -31,7 +40,7 @@ export default function BarChart({ data, color = BLUE, layout = 'horizontal', fo
           <XAxis
             type="number"
             tick={{ fontSize: 11, fill: '#6b7280' }}
-            tickFormatter={formatValue}
+            tickFormatter={(v) => fmt(format, v)}
             axisLine={false}
             tickLine={false}
           />
@@ -44,10 +53,7 @@ export default function BarChart({ data, color = BLUE, layout = 'horizontal', fo
             tickLine={false}
           />
           <Tooltip
-            formatter={(v) => {
-              const n = typeof v === 'number' ? v : Number(v)
-              return [formatValue ? formatValue(n) : n.toLocaleString('es-BO'), '']
-            }}
+            formatter={(v) => [fmt(format, typeof v === 'number' ? v : Number(v)), '']}
             contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e5e7eb' }}
             cursor={{ fill: '#f9fafb' }}
           />
@@ -78,13 +84,10 @@ export default function BarChart({ data, color = BLUE, layout = 'horizontal', fo
           tick={{ fontSize: 11, fill: '#6b7280' }}
           axisLine={false}
           tickLine={false}
-          tickFormatter={formatValue}
+          tickFormatter={(v) => fmt(format, v)}
         />
         <Tooltip
-          formatter={(v) => {
-            const n = typeof v === 'number' ? v : Number(v)
-            return [formatValue ? formatValue(n) : n.toLocaleString('es-BO'), '']
-          }}
+          formatter={(v) => [fmt(format, typeof v === 'number' ? v : Number(v)), '']}
           contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #e5e7eb' }}
           cursor={{ fill: '#f9fafb' }}
         />

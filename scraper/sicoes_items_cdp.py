@@ -8,8 +8,8 @@ de verFormulario() se resuelve solo en un browser real.
 ANTES DE CORRER:
   1. Cerrar Chrome completamente.
   2. Abrir Chrome con debugging habilitado:
-       /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
-         --remote-debugging-port=9222 \
+       /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+         --remote-debugging-port=9222
          --user-data-dir="/tmp/chrome-sicoes"
   3. Navegar manualmente a:
        https://www.sicoes.gob.bo/portal/index.php
@@ -57,8 +57,8 @@ ENTIDADES_PRUEBA = [
 
 ANIO = 2026
 DELAY = 2.0          # entre páginas
-DELAY_FORM = 2.5     # entre formularios (evita rate limit de SICOES)
-DELAY_RETRY = 45.0   # pausa si hay 3 "sin contenido" seguidos
+DELAY_FORM = 3.0     # entre formularios (evita rate limit de SICOES)
+DELAY_RETRY = 90.0   # pausa si hay 3 "sin contenido" seguidos
 
 # ─── SUPABASE ─────────────────────────────────────────────────────────────────
 
@@ -116,6 +116,19 @@ def supabase_upsert_proveedor(nombre: str) -> int | None:
             return data[0]["id"] if data else None
     except:
         return None
+
+def supabase_ya_procesado(cuce: str) -> bool:
+    url = f"{SUPABASE_URL}/rest/v1/procesos?cuce=eq.{urllib.parse.quote(cuce)}&select=items_procesados&limit=1"
+    req = urllib.request.Request(url, headers={
+        "apikey": SUPABASE_KEY,
+        "Authorization": f"Bearer {SUPABASE_KEY}",
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            data = json.loads(resp.read())
+            return bool(data and data[0].get("items_procesados"))
+    except:
+        return False
 
 def supabase_marcar_procesado(cuce: str) -> None:
     url = f"{SUPABASE_URL}/rest/v1/procesos?cuce=eq.{urllib.parse.quote(cuce)}"
@@ -641,6 +654,9 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
                     items_pagina = 0
                     vacios_consecutivos = 0
                     for fila in filas:
+                        if supabase_ya_procesado(fila["cuce"]):
+                            print(f"        ↩ {fila['cuce']}: ya procesado, saltando")
+                            continue
                         form_info = formulario_a_procesar(fila["modalidad"], fila["estado"], fila["tokens"])
                         if not form_info:
                             continue

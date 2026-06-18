@@ -14,12 +14,6 @@ function formatMonto(n: number) {
   return `Bs. ${n.toLocaleString('es-BO')}`
 }
 
-function formatMontoEje(n: number) {
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(0)}M`
-  if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K`
-  return String(n)
-}
-
 function StatCard({
   label,
   value,
@@ -138,7 +132,7 @@ export default async function DashboardPage() {
             data={entidadData}
             layout="vertical"
             color="#059669"
-            formatValue={formatMontoEje}
+            format="monto"
           />
         </ChartCard>
       </div>
