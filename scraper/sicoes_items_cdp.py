@@ -28,6 +28,7 @@ import re
 import json
 import argparse
 import os
+import random
 import urllib.request
 import urllib.error
 import urllib.parse
@@ -56,9 +57,9 @@ ENTIDADES_PRUEBA = [
 ]
 
 ANIO = 2026
-DELAY = 2.0          # entre páginas
-DELAY_FORM = 3.0     # entre formularios (evita rate limit de SICOES)
-DELAY_RETRY = 90.0   # pausa si hay 3 "sin contenido" seguidos
+DELAY_PAGINA = (3.0, 6.0)    # rango aleatorio entre páginas (segundos)
+DELAY_FORM   = (5.0, 12.0)   # rango aleatorio entre formularios
+DELAY_RETRY  = (90.0, 150.0) # rango aleatorio tras 3 "sin contenido" seguidos
 
 # ─── SUPABASE ─────────────────────────────────────────────────────────────────
 
@@ -671,16 +672,17 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
                         else:
                             vacios_consecutivos += 1
                             if vacios_consecutivos >= 3:
-                                print(f"        ⏸ 3 vacíos seguidos — pausa {DELAY_RETRY:.0f}s para reset de rate limit...")
-                                await asyncio.sleep(DELAY_RETRY)
+                                pausa = random.uniform(*DELAY_RETRY)
+                                print(f"        ⏸ 3 vacíos seguidos — pausa {pausa:.0f}s para reset de rate limit...")
+                                await asyncio.sleep(pausa)
                                 vacios_consecutivos = 0
-                        await asyncio.sleep(DELAY_FORM)
+                        await asyncio.sleep(random.uniform(*DELAY_FORM))
 
                     print(f"    → {items_pagina} ítems insertados en pág {pag}")
                     pag += 1
                     if pag <= max_paginas:
                         await ir_pagina(page, pag)
-                        await asyncio.sleep(DELAY)
+                        await asyncio.sleep(random.uniform(*DELAY_PAGINA))
 
         # NO cerrar el browser — es el Chrome del usuario
         print(f"\n{'='*60}")
