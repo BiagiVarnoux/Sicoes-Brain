@@ -240,12 +240,27 @@ def parsear_form200_100(html: str, cuce: str, form_name: str) -> list[dict]:
                 cat, desc = parsear_descripcion(str(celdas[3]))
                 nro_contrato = limpiar(celdas[4].get_text())
                 proveedor = contratos_200.get(nro_contrato)
+                val5 = limpiar(celdas[5].get_text()) if len(celdas) > 5 else ""
+                # Detectar layout CNC: celdas[5] contiene nombre del proveedor (no numérico ni unidad corta)
+                # Layout estándar: [5]=Unidad [6]=P.Unit [7]=TipoQty [8]=Cantidad [9]=Monto
+                # Layout CNC:      [5]=Proveedor [6]=P.Unit [7]=Unidad [8]=Cantidad [9]=Monto
+                es_layout_cnc = (parse_numero(val5) is None and len(val5) > 6
+                                 and any(c.isalpha() for c in val5))
+                if es_layout_cnc:
+                    unidad_val = limpiar(celdas[7].get_text()) if len(celdas) > 7 else ""
+                    # Si la unidad tampoco parece una unidad (es numérica), dejarla vacía
+                    if parse_numero(unidad_val) is not None:
+                        unidad_val = ""
+                    if not proveedor:
+                        proveedor = val5  # usar celdas[5] como proveedor si no se extrajo antes
+                else:
+                    unidad_val = val5
                 item = {
                     "cuce": cuce,
                     "nro_item": int(nro_text),
                     "unspsc_codigo": codigo_unspsc_valido(codigo),
                     "descripcion_producto": armar_descripcion(cat, desc),
-                    "unidad_medida": limpiar(celdas[5].get_text()) if len(celdas) > 5 else "",
+                    "unidad_medida": unidad_val,
                     "precio_adjudicado": parse_numero(celdas[6].get_text()) if len(celdas) > 6 else None,
                     "cantidad": parse_numero(celdas[8].get_text()) if len(celdas) > 8 else None,
                     "monto_total": parse_numero(celdas[9].get_text()) if len(celdas) > 9 else None,
@@ -374,23 +389,41 @@ def parsear_form170(html: str, cuce: str) -> list[dict]:
             seen.add(nro)
             codigo = limpiar(celdas[1].get_text()).zfill(8)
             cat, desc = parsear_descripcion(str(celdas[3]))
+            val4 = limpiar(celdas[4].get_text()) if len(celdas) > 4 else ""
+            # Detectar layout por contenido de celdas[4]:
+            # - LP/CNC: celdas[4] es precio unitario referencial (numérico)
+            #   → [4]=P.Unit.Ref [5]=Unidad [6]=P.Unit.Adj [7]=Qty [8]=Monto [9]=Proveedor
+            # - ANPE/CD: celdas[4] es unidad de medida (texto)
+            #   → [4]=Unidad [5]=P.Ref [6]=Proveedor [7]=P.Adj [8]=Qty [9]=Monto
+            es_layout_lp = parse_numero(val4) is not None
             row = {
                 "cuce": cuce,
                 "nro_item": nro,
                 "unspsc_codigo": codigo_unspsc_valido(codigo),
                 "descripcion_producto": armar_descripcion(cat, desc),
-                "unidad_medida": limpiar(celdas[4].get_text()) if len(celdas) > 4 else "",
-                "precio_referencial": parse_numero(celdas[5].get_text()) if len(celdas) > 5 else None,
                 "estado_item": estado_item,
                 "fuente_formulario": "FORM170",
             }
             if es_adj and len(celdas) > 9:
-                row["_proveedor_nombre"] = limpiar(celdas[6].get_text())
-                row["precio_adjudicado"] = parse_numero(celdas[7].get_text())
-                row["cantidad"]          = parse_numero(celdas[8].get_text())
-                row["monto_total"]       = parse_numero(celdas[9].get_text())
+                if es_layout_lp:
+                    # LP/CNC: precio en [4], unidad en [5], p.adj en [6], qty en [7], monto en [8], proveedor en [9]
+                    row["unidad_medida"]      = limpiar(celdas[5].get_text()) if len(celdas) > 5 else ""
+                    row["precio_referencial"] = parse_numero(val4)
+                    row["precio_adjudicado"]  = parse_numero(celdas[6].get_text()) if len(celdas) > 6 else None
+                    row["cantidad"]           = parse_numero(celdas[7].get_text()) if len(celdas) > 7 else None
+                    row["monto_total"]        = parse_numero(celdas[8].get_text()) if len(celdas) > 8 else None
+                    row["_proveedor_nombre"]  = limpiar(celdas[9].get_text()) if len(celdas) > 9 else None
+                else:
+                    # ANPE/CD: unidad en [4], p.ref en [5], proveedor en [6], p.adj en [7], qty en [8], monto en [9]
+                    row["unidad_medida"]      = val4
+                    row["precio_referencial"] = parse_numero(celdas[5].get_text()) if len(celdas) > 5 else None
+                    row["precio_adjudicado"]  = parse_numero(celdas[7].get_text()) if len(celdas) > 7 else None
+                    row["cantidad"]           = parse_numero(celdas[8].get_text()) if len(celdas) > 8 else None
+                    row["monto_total"]        = parse_numero(celdas[9].get_text()) if len(celdas) > 9 else None
+                    row["_proveedor_nombre"]  = limpiar(celdas[6].get_text()) if len(celdas) > 6 else None
             else:
-                row["cantidad"] = parse_numero(celdas[6].get_text()) if len(celdas) > 6 else None
+                row["unidad_medida"] = "" if es_layout_lp else val4
+                row["cantidad"]      = parse_numero(celdas[6].get_text()) if len(celdas) > 6 else None
             items.append(row)
     return items
 
