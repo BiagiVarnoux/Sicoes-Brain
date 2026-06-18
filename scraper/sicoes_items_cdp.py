@@ -258,20 +258,20 @@ def parsear_form200_100(html: str, cuce: str, form_name: str) -> list[dict]:
                     item["_proveedor_nombre"] = proveedor
                 items.append(item)
             else:
-                # FORM100 desierto: [0]=Nro [1]=Código [2]=Descripción [3]=Unidad
-                #                   [4]=Cantidad [5]=P.Ref [6]=Monto
+                # FORM100 desierto: [0]=Nro [1]=Código [2]=Obj.Gasto [3]=Descripción
+                #                   [4]=Unidad [5]=Cantidad [6]=P.Ref [7]=Monto
                 if len(celdas) < 6:
                     continue
-                cat, desc = parsear_descripcion(str(celdas[2]))
+                cat, desc = parsear_descripcion(str(celdas[3]))
                 items.append({
                     "cuce": cuce,
                     "nro_item": int(nro_text),
                     "unspsc_codigo": codigo_unspsc_valido(codigo),
                     "descripcion_producto": armar_descripcion(cat, desc),
-                    "unidad_medida": limpiar(celdas[3].get_text()) if len(celdas) > 3 else "",
-                    "cantidad": parse_numero(celdas[4].get_text()) if len(celdas) > 4 else None,
-                    "precio_referencial": parse_numero(celdas[5].get_text()) if len(celdas) > 5 else None,
-                    "monto_total": parse_numero(celdas[6].get_text()) if len(celdas) > 6 else None,
+                    "unidad_medida": limpiar(celdas[4].get_text()) if len(celdas) > 4 else "",
+                    "cantidad": parse_numero(celdas[5].get_text()) if len(celdas) > 5 else None,
+                    "precio_referencial": parse_numero(celdas[6].get_text()) if len(celdas) > 6 else None,
+                    "monto_total": parse_numero(celdas[7].get_text()) if len(celdas) > 7 else None,
                     "estado_item": "desierto",
                     "fuente_formulario": form_name,
                 })
@@ -438,6 +438,12 @@ def procesar_e_insertar_items(items_raw: list) -> int:
             else:
                 print(f"        ⚠ proveedor no insertado: {prov[:40]}")
         items_limpios.append(row)
+
+    # Supabase exige que todas las filas del batch tengan exactamente las mismas claves
+    # (PGRST102). Unificar con None para las claves que faltan en algunas filas.
+    todas_claves = set().union(*[r.keys() for r in items_limpios])
+    items_limpios = [{k: r.get(k, None) for k in todas_claves} for r in items_limpios]
+
     result = supabase_post("items", items_limpios)
     if "error" in result:
         print(f"        ✗ insert error: {result['error'][:120]}")
@@ -456,6 +462,9 @@ def procesar_e_insertar_recepciones(recs_raw: list) -> int:
             if prov_id:
                 row["proveedor_id"] = prov_id
         recs_limpias.append(row)
+    todas_claves = set().union(*[r.keys() for r in recs_limpias])
+    recs_limpias = [{k: r.get(k, None) for k in todas_claves} for r in recs_limpias]
+
     result = supabase_post("recepciones", recs_limpias)
     if "error" in result:
         print(f"        ✗ recepcion insert error: {result['error'][:120]}")
