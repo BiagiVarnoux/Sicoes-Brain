@@ -598,6 +598,23 @@ async def ir_pagina(page, n):
     except:
         await page.wait_for_timeout(2000)
 
+async def detectar_total_paginas(page) -> int:
+    """Lee el paginador de SICOES y devuelve el número real de páginas."""
+    try:
+        max_pag = await page.evaluate("""
+            () => {
+                let max = 1;
+                document.querySelectorAll('[onclick*="busquedadraw"]').forEach(el => {
+                    const m = (el.getAttribute('onclick') || '').match(/busquedadraw\('(\d+)'\)/);
+                    if (m) max = Math.max(max, parseInt(m[1]));
+                });
+                return max;
+            }
+        """)
+        return int(max_pag)
+    except:
+        return 1
+
 # ─── EXTRACCIÓN DE TOKENS ─────────────────────────────────────────────────────
 
 def extraer_tokens(td_html: str) -> dict:
@@ -746,7 +763,8 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
 
         print("Navegando al buscador...")
         await ir_a_buscador(page)
-        print(f"✓ Buscador listo | Entidades: {len(entidades)} | Año: {anio} | Max págs: {max_paginas}")
+        cap_str = f"cap {max_paginas} págs" if max_paginas else "sin límite"
+        print(f"✓ Buscador listo | Entidades: {len(entidades)} | Año: {anio} | {cap_str}")
         print("=" * 60)
 
         for ent in entidades:
@@ -764,18 +782,25 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
                 except:
                     await page.wait_for_timeout(3000)
 
+                paginas_reales = await detectar_total_paginas(page)
+                paginas_a_recorrer = min(paginas_reales, max_paginas) if max_paginas else paginas_reales
+                print(f"    → {paginas_reales} página(s) detectada(s)", end="")
+                if max_paginas and paginas_reales > max_paginas:
+                    print(f" (cap: {max_paginas})", end="")
+                print()
+
                 paginas_vacias = 0
                 pag = 1
 
-                while pag <= max_paginas:
-                    print(f"    Página {pag}...", end=" ", flush=True)
+                while pag <= paginas_a_recorrer:
+                    print(f"    Página {pag}/{paginas_a_recorrer}...", end=" ", flush=True)
                     filas = await extraer_filas(page, ent["codigo"])
                     print(f"{len(filas)} procesos con tokens")
 
                     if not filas:
                         paginas_vacias += 1
-                        if paginas_vacias >= 3:
-                            print("    → 3 páginas vacías, pasando al siguiente estado")
+                        if paginas_vacias >= 2:
+                            print("    → 2 páginas vacías seguidas, saliendo")
                             break
                     else:
                         paginas_vacias = 0
@@ -830,7 +855,7 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
 
                     print(f"    → {items_pagina} ítems + {recs_pagina} recepciones en pág {pag}")
                     pag += 1
-                    if pag <= max_paginas:
+                    if pag <= paginas_a_recorrer:
                         await ir_pagina(page, pag)
                         await asyncio.sleep(random.uniform(*DELAY_PAGINA))
 
@@ -840,11 +865,12 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="SICOES Items Scraper v2 (CDP)")
-    parser.add_argument("--max-paginas", type=int, default=2,
-                        help="Páginas por estado/entidad (default: 2)")
+    parser.add_argument("--max-paginas", type=int, default=0,
+                        help="Cap de páginas por estado/entidad (default: 0 = sin límite, usa paginador real)")
     parser.add_argument("--anio", type=int, default=2024,
                         help="Año CUCE a scrapear (default: 2024)")
     args = parser.parse_args()
 
-    print(f"SICOES Items Scraper v2 — año {args.anio} | max {args.max_paginas} págs/estado")
+    cap = f"cap {args.max_paginas} págs" if args.max_paginas else "sin límite de páginas"
+    print(f"SICOES Items Scraper v2 — año {args.anio} | {cap}")
     asyncio.run(scraping(ENTIDADES_PRUEBA, args.anio, args.max_paginas))
