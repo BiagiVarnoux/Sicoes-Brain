@@ -227,7 +227,14 @@ export default async function ProductoPage({ params }: Props) {
                       <span className="line-clamp-2">{h.entidad_nombre ?? '—'}</span>
                     </td>
                     <td className="px-4 py-3 text-xs text-gray-500 max-w-[160px]">
-                      <span className="line-clamp-2">{h.proveedor_nombre ?? '—'}</span>
+                      {h.proveedor_id ? (
+                        <Link href={`/proveedor/${h.proveedor_id}`}
+                          className="line-clamp-2 hover:text-blue-600 transition-colors">
+                          {h.proveedor_nombre ?? '—'}
+                        </Link>
+                      ) : (
+                        <span className="line-clamp-2">{h.proveedor_nombre ?? '—'}</span>
+                      )}
                     </td>
                     <td className="px-4 py-3 text-xs text-right tabular-nums font-medium text-gray-900">
                       {fmt(h.precio_adjudicado)}

@@ -294,9 +294,14 @@ export default async function DashboardPage({ searchParams }: Props) {
                 </thead>
                 <tbody className="divide-y divide-gray-50">
                   {topProveedores.map((p, i) => (
-                    <tr key={i} className="hover:bg-gray-50">
+                    <tr key={i} className="hover:bg-gray-50 group">
                       <td className="px-4 py-2.5 text-xs font-medium text-gray-800 max-w-[200px]">
-                        <span className="line-clamp-1">{p.proveedor}</span>
+                        <Link
+                          href={`/proveedor/${p.proveedor_id}`}
+                          className="line-clamp-1 hover:text-blue-600 transition-colors"
+                        >
+                          {p.proveedor}
+                        </Link>
                       </td>
                       <td className="px-4 py-2.5 text-xs text-gray-500 text-right tabular-nums">{p.contratos}</td>
                       <td className="px-4 py-2.5 text-xs font-semibold text-emerald-700 text-right tabular-nums">

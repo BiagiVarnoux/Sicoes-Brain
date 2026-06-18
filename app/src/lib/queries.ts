@@ -122,7 +122,38 @@ export async function getTopProductos(params?: {
 
 export async function getTopProveedores(limit = 10) {
   const { data } = await supabase.rpc('get_top_proveedores', { limit_n: limit })
-  return (data ?? []) as { proveedor: string; contratos: number; monto_total: number }[]
+  return (data ?? []) as { proveedor_id: number; proveedor: string; contratos: number; monto_total: number }[]
+}
+
+export async function getProveedorStats(id: number) {
+  const { data } = await supabase.rpc('get_proveedor_stats', { p_id: id })
+  const d = data as {
+    nombre: string; monto_total: number; total_contratos: number
+    total_entidades: number; total_productos: number
+  } | null
+  return d
+}
+
+export async function getProveedorContratos(id: number) {
+  const { data } = await supabase.rpc('get_proveedor_contratos', { p_id: id })
+  return (data ?? []) as {
+    cuce: string; descripcion_producto: string; unidad_medida: string | null
+    cantidad: number | null; precio_adjudicado: number | null; monto_total: number | null
+    entidad_nombre: string; fecha_publicacion: string | null; modalidad: string | null
+  }[]
+}
+
+export async function getProveedorTopProductos(id: number) {
+  const { data } = await supabase.rpc('get_proveedor_top_productos', { p_id: id, limit_n: 10 })
+  return (data ?? []) as {
+    descripcion: string; veces: number; monto_total: number
+    precio_min: number; precio_max: number
+  }[]
+}
+
+export async function getProveedorById(id: number) {
+  const { data } = await supabase.from('proveedores').select('id,nombre').eq('id', id).single()
+  return data as { id: number; nombre: string } | null
 }
 
 export type ItemRow = {
@@ -160,6 +191,7 @@ export type ProductoHistorialRow = {
   unspsc_codigo: string | null
   clase_nombre: string | null
   familia_nombre: string | null
+  proveedor_id: number | null
   proveedor_nombre: string | null
   entidad_nombre: string | null
   entidad_codigo: string | null
