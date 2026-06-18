@@ -293,10 +293,13 @@ def parsear_form220_110(html: str, cuce: str, form_name: str) -> list[dict]:
 
         estado_item = "adjudicado" if es_contratados else "requerido" if es_requeridos else "desierto"
 
-        # FORM110 requeridos: [0]=# [1]=Código [2]=Descripción [3]=Unidad [4]=Cantidad [5]=P.Unit [6]=P.Total
-        # FORM220 todos:      [0]=Nro [1]=Código [2]=Partida [3]=Descripción [4]=Unidad ...
-        desc_idx  = 2 if es_requeridos else 3
-        unidad_idx = 3 if es_requeridos else 4
+        # FORM110 requeridos:
+        #   [0]=# [1]=Código [2]=Obj.Gasto [3]=Descripción [4]=Unidad [5]=Cantidad [6]=P.Unit [7]=P.Total
+        # FORM220 contratados/no-contratados:
+        #   [0]=Nro [1]=Código [2]=Partida [3]=Descripción [4]=Unidad [5]=P.Presel [6]=Proveedor ...
+        # Ambos tienen desc en [3] y unidad en [4] — la diferencia es lo que viene después
+        desc_idx   = 3
+        unidad_idx = 4
 
         for fila in tabla.find_all("tr"):
             celdas = fila.find_all("td")
@@ -313,21 +316,25 @@ def parsear_form220_110(html: str, cuce: str, form_name: str) -> list[dict]:
                 "unspsc_codigo": codigo_unspsc_valido(codigo),
                 "descripcion_producto": armar_descripcion(cat, desc),
                 "unidad_medida": limpiar(celdas[unidad_idx].get_text()) if len(celdas) > unidad_idx else "",
-                "precio_referencial": parse_numero(celdas[5].get_text()) if len(celdas) > 5 else None,
                 "estado_item": estado_item,
                 "fuente_formulario": form_name,
             }
             if es_220 and es_contratados and len(celdas) > 9:
                 # [5]=P.Presel [6]=Proveedor [7]=P.Adj [8]=Cantidad [9]=Monto
                 row["precio_preseleccionado"] = parse_numero(celdas[5].get_text())
+                row["precio_referencial"]     = parse_numero(celdas[5].get_text())
                 row["_proveedor_nombre"]      = limpiar(celdas[6].get_text())
                 row["precio_adjudicado"]      = parse_numero(celdas[7].get_text())
                 row["cantidad"]               = parse_numero(celdas[8].get_text())
                 row["monto_total"]            = parse_numero(celdas[9].get_text())
             elif es_requeridos:
-                row["cantidad"] = parse_numero(celdas[4].get_text()) if len(celdas) > 4 else None
+                # FORM110: [5]=Cantidad [6]=P.Unit.Presel
+                row["cantidad"]           = parse_numero(celdas[5].get_text()) if len(celdas) > 5 else None
+                row["precio_referencial"] = parse_numero(celdas[6].get_text()) if len(celdas) > 6 else None
             else:
-                row["cantidad"] = parse_numero(celdas[6].get_text()) if len(celdas) > 6 else None
+                # FORM220 no contratados: [5]=P.Presel [6]=Cantidad
+                row["precio_referencial"] = parse_numero(celdas[5].get_text()) if len(celdas) > 5 else None
+                row["cantidad"]           = parse_numero(celdas[6].get_text()) if len(celdas) > 6 else None
             items.append(row)
     return items
 
@@ -383,7 +390,8 @@ def parsear_form500(html: str, cuce: str) -> list[dict]:
     recepciones = []
     for tabla in soup.find_all("table"):
         texto = tabla.get_text().upper()
-        if "RECEPCIÓN DE BIENES" not in texto and "RECEPCION DE BIENES" not in texto:
+        # Buscar por columnas únicas de sección 3 — más robusto que buscar título con acento
+        if "CANTIDAD SOLICITADA" not in texto and "CANTIDAD RECEPCIONADA" not in texto:
             continue
         for fila in tabla.find_all("tr"):
             celdas = fila.find_all("td")
@@ -603,6 +611,9 @@ async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> tuple
     elif form_name == "FORM500":
         recepciones = parsear_form500(html, cuce)
 
+    # Pausa antes de cerrar — simula lectura humana, reduce detección
+    await asyncio.sleep(random.uniform(2.5, 5.0))
+
     # Cerrar modal
     await page.evaluate("""
         () => {
@@ -617,7 +628,7 @@ async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> tuple
             }
         }
     """)
-    await page.wait_for_timeout(800)
+    await page.wait_for_timeout(random.randint(800, 1800))
 
     if form_name == "FORM500":
         print(f"{len(recepciones)} recepciones")
