@@ -42,8 +42,10 @@ function ChartCard({ title, children }: { title: string; children: React.ReactNo
   )
 }
 
+const PAGE_SIZE = 10
+
 type Props = {
-  searchParams: Promise<{ q?: string; entidad?: string; order?: string }>
+  searchParams: Promise<{ q?: string; entidad?: string; order?: string; page?: string }>
 }
 
 export default async function DashboardPage({ searchParams }: Props) {
@@ -51,6 +53,7 @@ export default async function DashboardPage({ searchParams }: Props) {
   const q        = sp.q        ?? ''
   const entidad  = sp.entidad  ?? ''
   const orderBy  = (sp.order === 'veces' ? 'veces' : 'monto') as 'monto' | 'veces'
+  const page     = Math.max(1, parseInt(sp.page ?? '1', 10))
 
   const [kpis, topEntidades, topProductos, topProveedores, entidades] = await Promise.all([
     getKPIsGlobales(),
@@ -65,7 +68,21 @@ export default async function DashboardPage({ searchParams }: Props) {
     value: r.monto,
   }))
 
-  const hayFiltros = q !== '' || entidad !== ''
+  const hayFiltros   = q !== '' || entidad !== ''
+  const totalItems   = topProductos.length
+  const totalPages   = Math.max(1, Math.ceil(totalItems / PAGE_SIZE))
+  const currentPage  = Math.min(page, totalPages)
+  const pageItems    = topProductos.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+
+  function pageUrl(p: number) {
+    const params = new URLSearchParams()
+    if (q) params.set('q', q)
+    if (entidad) params.set('entidad', entidad)
+    if (orderBy !== 'monto') params.set('order', orderBy)
+    if (p > 1) params.set('page', String(p))
+    const qs = params.toString()
+    return `/dashboard${qs ? `?${qs}` : ''}`
+  }
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -129,6 +146,14 @@ export default async function DashboardPage({ searchParams }: Props) {
               />
             </Suspense>
           </div>
+          <div className="mb-1 flex items-center justify-between">
+            <p className="text-xs text-gray-400">
+              {hayFiltros
+                ? `${totalItems} resultado${totalItems !== 1 ? 's' : ''}`
+                : `${totalItems} productos`}
+              {totalPages > 1 && ` · página ${currentPage} de ${totalPages}`}
+            </p>
+          </div>
 
           {topProductos.length === 0 ? (
             <div className="bg-white rounded-xl border border-gray-200 p-10 text-center">
@@ -160,7 +185,7 @@ export default async function DashboardPage({ searchParams }: Props) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-50">
-                  {topProductos.map((p, i) => (
+                  {pageItems.map((p, i) => (
                     <tr key={i} className="hover:bg-gray-50 group">
                       <td className="px-4 py-3 max-w-xs">
                         <Link
@@ -198,6 +223,48 @@ export default async function DashboardPage({ searchParams }: Props) {
                   ))}
                 </tbody>
               </table>
+
+              {/* Paginación */}
+              {totalPages > 1 && (
+                <div className="px-4 py-3 border-t border-gray-100 flex items-center justify-between">
+                  <span className="text-xs text-gray-400">
+                    {(currentPage - 1) * PAGE_SIZE + 1}–{Math.min(currentPage * PAGE_SIZE, totalItems)} de {totalItems}
+                  </span>
+                  <div className="flex items-center gap-1">
+                    {currentPage > 1 && (
+                      <Link
+                        href={pageUrl(currentPage - 1)}
+                        className="px-3 py-1.5 text-xs border border-gray-200 rounded-lg
+                                   text-gray-600 hover:bg-gray-50 transition-colors"
+                      >
+                        ← Anterior
+                      </Link>
+                    )}
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+                      <Link
+                        key={p}
+                        href={pageUrl(p)}
+                        className={`px-3 py-1.5 text-xs rounded-lg transition-colors ${
+                          p === currentPage
+                            ? 'bg-blue-600 text-white'
+                            : 'border border-gray-200 text-gray-600 hover:bg-gray-50'
+                        }`}
+                      >
+                        {p}
+                      </Link>
+                    ))}
+                    {currentPage < totalPages && (
+                      <Link
+                        href={pageUrl(currentPage + 1)}
+                        className="px-3 py-1.5 text-xs border border-gray-200 rounded-lg
+                                   text-gray-600 hover:bg-gray-50 transition-colors"
+                      >
+                        Siguiente →
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </section>
