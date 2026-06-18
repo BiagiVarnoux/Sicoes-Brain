@@ -64,73 +64,32 @@ export async function getEntidades() {
 }
 
 export async function getKPIsGlobales() {
-  const [
-    { count: totalProcesos },
-    { data: montoData },
-    { count: totalItems },
-    { count: totalProveedores },
-  ] = await Promise.all([
-    supabase.from('procesos').select('*', { count: 'exact', head: true }),
-    supabase.from('procesos').select('monto_adjudicado').not('monto_adjudicado', 'is', null),
-    supabase.from('items').select('*', { count: 'exact', head: true }),
-    supabase.from('proveedores').select('*', { count: 'exact', head: true }),
-  ])
-
-  const montoTotal = (montoData ?? []).reduce(
-    (sum, r) => sum + (r.monto_adjudicado ?? 0), 0
-  )
-
+  const { data } = await supabase.rpc('get_kpis_globales')
+  const kpis = data as {
+    total_procesos: number
+    monto_total: number
+    total_items: number
+    total_proveedores: number
+  } | null
   return {
-    totalProcesos: totalProcesos ?? 0,
-    montoTotal,
-    totalItems: totalItems ?? 0,
-    totalProveedores: totalProveedores ?? 0,
+    totalProcesos: kpis?.total_procesos ?? 0,
+    montoTotal: Number(kpis?.monto_total ?? 0),
+    totalItems: kpis?.total_items ?? 0,
+    totalProveedores: kpis?.total_proveedores ?? 0,
   }
 }
 
 export async function getProcesosporModalidad() {
-  const { data } = await supabase
-    .from('procesos')
-    .select('modalidad')
-  if (!data) return []
-  const counts: Record<string, number> = {}
-  for (const r of data) {
-    const m = r.modalidad ?? 'Sin datos'
-    counts[m] = (counts[m] ?? 0) + 1
-  }
-  return Object.entries(counts)
-    .map(([modalidad, total]) => ({ modalidad, total }))
-    .sort((a, b) => b.total - a.total)
+  const { data } = await supabase.rpc('get_procesos_por_modalidad')
+  return (data ?? []) as { modalidad: string; total: number }[]
 }
 
 export async function getProcesosporEstado() {
-  const { data } = await supabase
-    .from('procesos')
-    .select('estado')
-  if (!data) return []
-  const counts: Record<string, number> = {}
-  for (const r of data) {
-    const e = r.estado ?? 'Sin datos'
-    counts[e] = (counts[e] ?? 0) + 1
-  }
-  return Object.entries(counts)
-    .map(([estado, total]) => ({ estado, total }))
-    .sort((a, b) => b.total - a.total)
+  const { data } = await supabase.rpc('get_procesos_por_estado')
+  return (data ?? []) as { estado: string; total: number }[]
 }
 
 export async function getTopEntidadesPorMonto(limit = 10) {
-  const { data } = await supabase
-    .from('procesos')
-    .select('entidad_nombre,monto_adjudicado')
-    .not('monto_adjudicado', 'is', null)
-  if (!data) return []
-  const montos: Record<string, number> = {}
-  for (const r of data) {
-    const e = r.entidad_nombre ?? 'Sin nombre'
-    montos[e] = (montos[e] ?? 0) + (r.monto_adjudicado ?? 0)
-  }
-  return Object.entries(montos)
-    .map(([entidad, monto]) => ({ entidad, monto }))
-    .sort((a, b) => b.monto - a.monto)
-    .slice(0, limit)
+  const { data } = await supabase.rpc('get_top_entidades_por_monto', { limit_n: limit })
+  return (data ?? []) as { entidad: string; monto: number }[]
 }
