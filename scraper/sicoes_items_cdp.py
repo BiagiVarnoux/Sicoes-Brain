@@ -341,13 +341,26 @@ def parsear_form220_110(html: str, cuce: str, form_name: str) -> list[dict]:
 def parsear_form170(html: str, cuce: str) -> list[dict]:
     soup = BeautifulSoup(html, "lxml")
     items = []
+    # Procesar secciones adjudicados y desiertos por separado para evitar
+    # que tablas contenedoras dupliquen filas con el mismo nro_item.
+    seen_adj = set()
+    seen_des = set()
     for tabla in soup.find_all("table"):
         texto = tabla.get_text().upper()
-        es_adj = "ADJUDICADOS" in texto and "DESIERTOS" not in texto
-        es_des = "DESIERTOS" in texto
+        # Detectar qué tipo de tabla es por su TÍTULO (primer texto de la tabla),
+        # no por contenido completo, para evitar que la tabla padre englobe a ambas.
+        header_text = " ".join(tabla.find("tr").get_text().upper().split()) if tabla.find("tr") else ""
+        es_adj = "ADJUDICADOS" in header_text
+        es_des = "DESIERTOS" in header_text and not es_adj
+        # Fallback: si el header no distingue, usar texto completo pero solo si
+        # la tabla no contiene otras tablas (no es contenedora).
+        if not (es_adj or es_des) and not tabla.find("table"):
+            es_adj = "ADJUDICADOS" in texto and "DESIERTOS" not in texto
+            es_des = "DESIERTOS" in texto and not es_adj
         if not (es_adj or es_des):
             continue
         estado_item = "adjudicado" if es_adj else "desierto"
+        seen = seen_adj if es_adj else seen_des
         for fila in tabla.find_all("tr"):
             celdas = fila.find_all("td")
             if len(celdas) < 5:
@@ -355,11 +368,15 @@ def parsear_form170(html: str, cuce: str) -> list[dict]:
             nro_text = limpiar(celdas[0].get_text())
             if not nro_text.isdigit():
                 continue
+            nro = int(nro_text)
+            if nro in seen:
+                continue
+            seen.add(nro)
             codigo = limpiar(celdas[1].get_text()).zfill(8)
             cat, desc = parsear_descripcion(str(celdas[3]))
             row = {
                 "cuce": cuce,
-                "nro_item": int(nro_text),
+                "nro_item": nro,
                 "unspsc_codigo": codigo_unspsc_valido(codigo),
                 "descripcion_producto": armar_descripcion(cat, desc),
                 "unidad_medida": limpiar(celdas[4].get_text()) if len(celdas) > 4 else "",
@@ -438,6 +455,16 @@ def procesar_e_insertar_items(items_raw: list) -> int:
             else:
                 print(f"        ⚠ proveedor no insertado: {prov[:40]}")
         items_limpios.append(row)
+
+    # Deduplicar por (cuce, nro_item, fuente_formulario) antes de insertar.
+    seen_keys = set()
+    deduped = []
+    for row in items_limpios:
+        key = (row.get("cuce"), row.get("nro_item"), row.get("fuente_formulario"))
+        if key not in seen_keys:
+            seen_keys.add(key)
+            deduped.append(row)
+    items_limpios = deduped
 
     # Supabase exige que todas las filas del batch tengan exactamente las mismas claves
     # (PGRST102). Unificar con None para las claves que faltan en algunas filas.

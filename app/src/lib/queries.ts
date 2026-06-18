@@ -52,7 +52,18 @@ export async function getItemsByProceso(cuce: string) {
     `)
     .eq('cuce', cuce)
     .order('nro_item')
-  return data ?? []
+    .order('estado_item') // adjudicado < contratado < desierto < requerido alfabéticamente
+  const rows = data ?? []
+  // Dedup: por (nro_item) preferir adjudicado > contratado > requerido > desierto
+  const priority: Record<string, number> = { adjudicado: 1, contratado: 2, requerido: 3, desierto: 4 }
+  const best = new Map<number, typeof rows[0]>()
+  for (const row of rows) {
+    const existing = best.get(row.nro_item)
+    const p = priority[row.estado_item ?? ''] ?? 5
+    const ep = priority[existing?.estado_item ?? ''] ?? 5
+    if (!existing || p < ep) best.set(row.nro_item, row)
+  }
+  return Array.from(best.values()).sort((a, b) => a.nro_item - b.nro_item)
 }
 
 export async function getEntidades() {

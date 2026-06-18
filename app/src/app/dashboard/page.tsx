@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import Link from 'next/link'
 
 import {
@@ -79,19 +81,15 @@ function TableCard({
               <tr key={i} className="hover:bg-gray-50">
                 {row.map((cell, j) => (
                   <td key={j} className={`px-4 py-2.5 text-xs ${j === 0 ? 'text-gray-800 font-medium max-w-xs' : 'text-gray-500 tabular-nums text-right'}`}>
-                    {(() => {
-                      if (j === 0 && cell !== null && typeof cell === 'object' && 'href' in cell) {
-                        return (
-                          <Link href={cell.href} className="hover:text-blue-600 line-clamp-1">
-                            {cell.text}
-                          </Link>
-                        )
-                      }
-                      const simple = cell as string | number | null
-                      return j === 0
-                        ? <span className="line-clamp-1">{simple}</span>
-                        : (simple ?? '—')
-                    })()}
+                    {cell !== null && typeof cell === 'object' && 'href' in cell ? (
+                      <Link href={cell.href} className="hover:text-blue-600 line-clamp-1">
+                        {cell.text}
+                      </Link>
+                    ) : j === 0 ? (
+                      <span className="line-clamp-1">{cell as string | number | null}</span>
+                    ) : (
+                      (cell as string | number | null) ?? '—'
+                    )}
                   </td>
                 ))}
               </tr>
