@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getProcesoBySlug } from '@/lib/queries'
+import { getProcesoBySlug, getItemsByProceso } from '@/lib/queries'
 import EstadoBadge from '@/components/EstadoBadge'
 
 type Props = {
@@ -37,7 +37,11 @@ function Campo({ label, value }: { label: string; value: React.ReactNode }) {
 export default async function ProcesoPage({ params }: Props) {
   const { cuce } = await params
   const cuce_decoded = decodeURIComponent(cuce)
-  const proceso = await getProcesoBySlug(cuce_decoded)
+
+  const [proceso, items] = await Promise.all([
+    getProcesoBySlug(cuce_decoded),
+    getItemsByProceso(cuce_decoded),
+  ])
 
   if (!proceso) notFound()
 
@@ -47,7 +51,7 @@ export default async function ProcesoPage({ params }: Props) {
     <main className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-5">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-5">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <span className="text-white text-xs font-bold">S</span>
@@ -60,7 +64,7 @@ export default async function ProcesoPage({ params }: Props) {
         </div>
       </header>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-6">
         {/* Breadcrumb */}
         <nav className="text-sm text-gray-500">
           <Link href="/" className="hover:text-blue-600">Procesos</Link>
@@ -70,13 +74,11 @@ export default async function ProcesoPage({ params }: Props) {
 
         {/* Card principal */}
         <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-6">
-          {/* Título + estado */}
           <div className="flex items-start justify-between gap-4">
             <h2 className="text-xl font-semibold text-gray-900 leading-snug">{proceso.objeto}</h2>
             <EstadoBadge estado={proceso.estado} />
           </div>
 
-          {/* Grid de campos */}
           <dl className="grid grid-cols-2 sm:grid-cols-3 gap-6">
             <Campo label="CUCE" value={<span className="font-mono text-xs">{proceso.cuce}</span>} />
             <Campo label="Modalidad" value={
@@ -95,7 +97,6 @@ export default async function ProcesoPage({ params }: Props) {
             <Campo label="Año CUCE" value={proceso.cuce_anio ? `${2000 + proceso.cuce_anio}` : '—'} />
           </dl>
 
-          {/* Enlace a SICOES */}
           <div className="pt-4 border-t border-gray-100">
             <a
               href={sicoesUrl}
@@ -111,12 +112,85 @@ export default async function ProcesoPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Placeholder ítems */}
+        {/* Ítems */}
         <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <h3 className="text-sm font-semibold text-gray-700 mb-3">Ítems del proceso</h3>
-          <p className="text-sm text-gray-400">
-            Disponible cuando se procesen los formularios PDF de este proceso.
-          </p>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-sm font-semibold text-gray-700">
+              Ítems del proceso
+              {items.length > 0 && (
+                <span className="ml-2 text-xs font-normal text-gray-400">({items.length} productos)</span>
+              )}
+            </h3>
+          </div>
+
+          {items.length === 0 ? (
+            <p className="text-sm text-gray-400">
+              Los ítems de este proceso aún no fueron procesados.
+            </p>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-sm divide-y divide-gray-100">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-500 w-10">#</th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-500">Producto</th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-500 w-24">Unidad</th>
+                    <th className="px-3 py-2 text-right text-xs font-semibold text-gray-500 w-20">Cantidad</th>
+                    <th className="px-3 py-2 text-right text-xs font-semibold text-gray-500 w-28">P. Referencial</th>
+                    <th className="px-3 py-2 text-right text-xs font-semibold text-gray-500 w-28">P. Adjudicado</th>
+                    <th className="px-3 py-2 text-right text-xs font-semibold text-gray-500 w-28">Total</th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-500 w-32">Proveedor</th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-500 w-20">Estado</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-50">
+                  {items.map((item: any) => (
+                    <tr key={item.id} className="hover:bg-gray-50">
+                      <td className="px-3 py-2 text-gray-400 text-xs">{item.nro_item}</td>
+                      <td className="px-3 py-2">
+                        <div className="text-gray-800 font-medium text-xs leading-tight">
+                          {item.descripcion_producto}
+                        </div>
+                        {item.unspsc_catalogo && (
+                          <div className="text-gray-400 text-xs mt-0.5">
+                            {item.unspsc_catalogo.clase_nombre ?? item.unspsc_catalogo.familia_nombre}
+                            {item.unspsc_codigo && (
+                              <span className="ml-1 font-mono text-gray-300">{item.unspsc_codigo}</span>
+                            )}
+                          </div>
+                        )}
+                      </td>
+                      <td className="px-3 py-2 text-gray-500 text-xs">{item.unidad_medida || '—'}</td>
+                      <td className="px-3 py-2 text-right text-gray-700 text-xs">
+                        {item.cantidad ? Number(item.cantidad).toLocaleString('es-BO') : '—'}
+                      </td>
+                      <td className="px-3 py-2 text-right text-gray-500 text-xs">
+                        {formatMonto(item.precio_referencial)}
+                      </td>
+                      <td className="px-3 py-2 text-right text-gray-700 text-xs font-medium">
+                        {formatMonto(item.precio_adjudicado)}
+                      </td>
+                      <td className="px-3 py-2 text-right text-gray-700 text-xs font-medium">
+                        {formatMonto(item.monto_total)}
+                      </td>
+                      <td className="px-3 py-2 text-xs text-gray-500">
+                        {item.proveedores?.nombre ?? '—'}
+                      </td>
+                      <td className="px-3 py-2">
+                        <span className={`text-xs px-1.5 py-0.5 rounded-full ${
+                          item.estado_item === 'adjudicado'
+                            ? 'bg-green-100 text-green-700'
+                            : 'bg-red-100 text-red-700'
+                        }`}>
+                          {item.estado_item}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </div>
     </main>
