@@ -38,6 +38,7 @@ export default async function Home({ searchParams }: Props) {
             </div>
             <nav className="flex items-center gap-4 text-sm">
               <Link href="/" className="text-blue-600 font-medium">Procesos</Link>
+              <Link href="/items" className="text-gray-500 hover:text-gray-800">Bienes</Link>
               <Link href="/dashboard" className="text-gray-500 hover:text-gray-800">Dashboard</Link>
             </nav>
           </div>

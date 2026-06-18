@@ -93,3 +93,74 @@ export async function getTopEntidadesPorMonto(limit = 10) {
   const { data } = await supabase.rpc('get_top_entidades_por_monto', { limit_n: limit })
   return (data ?? []) as { entidad: string; monto: number }[]
 }
+
+export async function getTopProductos(limit = 15) {
+  const { data } = await supabase.rpc('get_top_productos', { limit_n: limit })
+  return (data ?? []) as {
+    descripcion: string
+    clase: string
+    veces: number
+    monto_total: number
+    precio_min: number
+    precio_max: number
+  }[]
+}
+
+export async function getTopProveedores(limit = 10) {
+  const { data } = await supabase.rpc('get_top_proveedores', { limit_n: limit })
+  return (data ?? []) as { proveedor: string; contratos: number; monto_total: number }[]
+}
+
+export type ItemRow = {
+  id: number
+  cuce: string
+  nro_item: number
+  descripcion_producto: string
+  unidad_medida: string
+  cantidad: number
+  precio_referencial: number | null
+  precio_adjudicado: number | null
+  monto_total: number | null
+  estado_item: string
+  fuente_formulario: string
+  unspsc_codigo: string | null
+  clase_nombre: string | null
+  familia_nombre: string | null
+  proveedor_nombre: string | null
+  entidad_nombre: string | null
+  fecha_publicacion: string | null
+  modalidad: string | null
+}
+
+export async function searchItems(params: {
+  q?: string
+  entidad?: string
+  estado?: string
+  page?: number
+}) {
+  const page = Number(params.page ?? 1)
+  const limit = 50
+  const offset = (page - 1) * limit
+
+  const [{ data }, { data: countData }] = await Promise.all([
+    supabase.rpc('search_items', {
+      q: params.q ?? '',
+      p_entidad: params.entidad ?? '',
+      p_estado: params.estado ?? '',
+      p_limit: limit,
+      p_offset: offset,
+    }),
+    supabase.rpc('search_items_count', {
+      q: params.q ?? '',
+      p_entidad: params.entidad ?? '',
+      p_estado: params.estado ?? '',
+    }),
+  ])
+
+  return {
+    items: (data ?? []) as ItemRow[],
+    total: Number(countData ?? 0),
+    page,
+    pages: Math.ceil(Number(countData ?? 0) / limit),
+  }
+}
