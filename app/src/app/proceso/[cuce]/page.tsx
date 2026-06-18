@@ -153,9 +153,9 @@ export default async function ProcesoPage({ params }: Props) {
                         <div className="text-gray-800 font-medium text-xs leading-tight">
                           {item.descripcion_producto}
                         </div>
-                        {item.unspsc_catalogo && (
+                        {(item.clase_nombre ?? item.familia_nombre) && (
                           <div className="text-gray-400 text-xs mt-0.5">
-                            {item.unspsc_catalogo.clase_nombre ?? item.unspsc_catalogo.familia_nombre}
+                            {item.clase_nombre ?? item.familia_nombre}
                             {item.unspsc_codigo && (
                               <span className="ml-1 font-mono text-gray-300">{item.unspsc_codigo}</span>
                             )}
@@ -176,7 +176,7 @@ export default async function ProcesoPage({ params }: Props) {
                         {formatMonto(item.monto_total)}
                       </td>
                       <td className="px-3 py-2 text-xs text-gray-500">
-                        {item.proveedores?.nombre ?? '—'}
+                        {item.proveedor_nombre ?? '—'}
                       </td>
                       <td className="px-3 py-2">
                         <span className={`text-xs px-1.5 py-0.5 rounded-full ${

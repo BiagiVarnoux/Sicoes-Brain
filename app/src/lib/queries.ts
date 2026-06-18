@@ -40,30 +40,23 @@ export async function getProcesoBySlug(cuce: string) {
 }
 
 export async function getItemsByProceso(cuce: string) {
-  const { data } = await supabase
-    .from('items')
-    .select(`
-      id, nro_item, unspsc_codigo, descripcion_producto,
-      unidad_medida, cantidad, precio_referencial, precio_adjudicado,
-      monto_total, origen, estado_item, fuente_formulario,
-      proveedor_id,
-      unspsc_catalogo ( producto_nombre, clase_nombre, familia_nombre ),
-      proveedores ( nombre )
-    `)
-    .eq('cuce', cuce)
-    .order('nro_item')
-    .order('estado_item') // adjudicado < contratado < desierto < requerido alfabéticamente
-  const rows = data ?? []
-  // Dedup: por (nro_item) preferir adjudicado > contratado > requerido > desierto
-  const priority: Record<string, number> = { adjudicado: 1, contratado: 2, requerido: 3, desierto: 4 }
-  const best = new Map<number, typeof rows[0]>()
-  for (const row of rows) {
-    const existing = best.get(row.nro_item)
-    const p = priority[row.estado_item ?? ''] ?? 5
-    const ep = priority[existing?.estado_item ?? ''] ?? 5
-    if (!existing || p < ep) best.set(row.nro_item, row)
-  }
-  return Array.from(best.values()).sort((a, b) => a.nro_item - b.nro_item)
+  const { data } = await supabase.rpc('get_items_by_proceso', { p_cuce: cuce })
+  return (data ?? []) as {
+    id: number
+    nro_item: number
+    unspsc_codigo: string | null
+    descripcion_producto: string
+    unidad_medida: string | null
+    cantidad: number | null
+    precio_referencial: number | null
+    precio_adjudicado: number | null
+    monto_total: number | null
+    estado_item: string
+    fuente_formulario: string
+    clase_nombre: string | null
+    familia_nombre: string | null
+    proveedor_nombre: string | null
+  }[]
 }
 
 export async function getEntidades() {
