@@ -174,10 +174,16 @@ export default async function ItemsPage({ searchParams }: PageProps) {
                       <tr key={item.id} className="hover:bg-gray-50 transition-colors">
                         <td className="px-4 py-3">
                           <Link
-                            href={`/proceso/${item.cuce}`}
+                            href={`/producto/${encodeURIComponent(item.descripcion_producto)}`}
                             className="font-medium text-gray-900 hover:text-blue-600 line-clamp-2 max-w-xs"
                           >
                             {item.descripcion_producto}
+                          </Link>
+                          <Link
+                            href={`/proceso/${item.cuce}`}
+                            className="block text-xs text-gray-400 hover:text-blue-500 mt-0.5 font-mono"
+                          >
+                            {item.cuce}
                           </Link>
                           <div className="text-xs text-gray-400 mt-0.5 lg:hidden">
                             {item.entidad_nombre ?? '—'}

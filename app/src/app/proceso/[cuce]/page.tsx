@@ -94,7 +94,7 @@ export default async function ProcesoPage({ params }: Props) {
             <Campo label="Monto adjudicado" value={
               <span className="font-medium text-green-700">{formatMonto(proceso.monto_adjudicado)}</span>
             } />
-            <Campo label="Año CUCE" value={proceso.cuce_anio ? `${2000 + proceso.cuce_anio}` : '—'} />
+            <Campo label="Año CUCE" value={proceso.cuce_anio ?? '—'} />
           </dl>
 
           <div className="pt-4 border-t border-gray-100">

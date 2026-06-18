@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import {
   getKPIsGlobales,
   getTopEntidadesPorMonto,
@@ -44,6 +45,8 @@ function ChartCard({ title, children }: { title: string; children: React.ReactNo
   )
 }
 
+type CellValue = string | number | null | { text: string; href: string }
+
 function TableCard({
   title,
   headers,
@@ -52,7 +55,8 @@ function TableCard({
 }: {
   title: string
   headers: string[]
-  rows: (string | number | null)[][]
+  rows: CellValue[][]
+
   note?: string
 }) {
   return (
@@ -75,11 +79,19 @@ function TableCard({
               <tr key={i} className="hover:bg-gray-50">
                 {row.map((cell, j) => (
                   <td key={j} className={`px-4 py-2.5 text-xs ${j === 0 ? 'text-gray-800 font-medium max-w-xs' : 'text-gray-500 tabular-nums text-right'}`}>
-                    {j === 0 ? (
-                      <span className="line-clamp-1">{cell}</span>
-                    ) : (
-                      cell ?? '—'
-                    )}
+                    {(() => {
+                      if (j === 0 && cell !== null && typeof cell === 'object' && 'href' in cell) {
+                        return (
+                          <Link href={cell.href} className="hover:text-blue-600 line-clamp-1">
+                            {cell.text}
+                          </Link>
+                        )
+                      }
+                      const simple = cell as string | number | null
+                      return j === 0
+                        ? <span className="line-clamp-1">{simple}</span>
+                        : (simple ?? '—')
+                    })()}
                   </td>
                 ))}
               </tr>
@@ -105,7 +117,7 @@ export default async function DashboardPage() {
   }))
 
   const productosRows = topProductos.map((p) => [
-    p.descripcion,
+    { text: p.descripcion, href: `/producto/${encodeURIComponent(p.descripcion)}` },
     p.clase,
     p.veces,
     formatMonto(p.monto_total),

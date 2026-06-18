@@ -132,6 +132,50 @@ export type ItemRow = {
   modalidad: string | null
 }
 
+export type ProductoHistorialRow = {
+  id: number
+  cuce: string
+  nro_item: number
+  unidad_medida: string
+  cantidad: number
+  precio_referencial: number | null
+  precio_adjudicado: number | null
+  monto_total: number | null
+  estado_item: string
+  fuente_formulario: string
+  unspsc_codigo: string | null
+  clase_nombre: string | null
+  familia_nombre: string | null
+  proveedor_nombre: string | null
+  entidad_nombre: string | null
+  entidad_codigo: string | null
+  fecha_publicacion: string | null
+  modalidad: string | null
+}
+
+export type ProductoStats = {
+  total_compras: number
+  total_adjudicadas: number
+  cantidad_total: number
+  monto_total: number
+  precio_min: number | null
+  precio_max: number | null
+  precio_promedio: number | null
+  total_proveedores: number
+  total_entidades: number
+}
+
+export async function getProductoHistorial(descripcion: string) {
+  const { data } = await supabase.rpc('get_producto_historial', { p_descripcion: descripcion })
+  return (data ?? []) as ProductoHistorialRow[]
+}
+
+export async function getProductoStats(descripcion: string) {
+  const { data } = await supabase.rpc('get_producto_stats', { p_descripcion: descripcion })
+  const row = (data as ProductoStats[] | null)?.[0]
+  return row ?? null
+}
+
 export async function searchItems(params: {
   q?: string
   entidad?: string
