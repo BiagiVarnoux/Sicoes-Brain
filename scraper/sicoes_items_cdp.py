@@ -728,20 +728,59 @@ async def activar_sesion_con_formulario(page) -> bool:
         print(f"fallo ({e})")
         return False
 
+async def _cerrar_modales(page):
+    await page.evaluate("""
+        () => {
+            document.querySelectorAll('.modal').forEach(m => {
+                m.style.display='none'; m.classList.remove('show','in');
+            });
+            document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = 'auto';
+        }
+    """)
+
 async def recuperar_sesion(page, cuce2, cuce3, anio, estado_val, pag) -> bool:
-    """Re-establece la sesión de SICOES siguiendo el flujo descubierto:
-      1. Esperar 90s
-      2. Actualizar la página (redirige a inicio)
-      3. Cerrar el popup e ir a convocatorias
-      4. Llenar los filtros de la entidad (página 1)
-      5. Descargar un archivo cualquiera → renueva el token
-      6. Volver a la página donde se había quedado
-    Devuelve True si logró volver a la página con resultados."""
-    print(f"\n    ♻️  Sesión expirada — esperando 90s antes de recuperar...", flush=True)
+    """Recupera la sesión de SICOES. Estrategia en dos niveles:
+
+    NIVEL 1 (preferido — no pierde el filtro):
+      La página de resultados sigue cargada con la entidad correcta. Solo
+      cerramos el modal trabado, esperamos 90s y descargamos un archivo de
+      la página actual para renovar el token. Reintentamos la MISMA página.
+
+    NIVEL 2 (fallback, solo si la página actual ya no tiene resultados):
+      reload → cerrar popup → convocatorias → re-filtrar → descargar archivo
+      → volver a la página `pag`. Verifica que los resultados sean de la
+      entidad correcta antes de dar éxito.
+
+    Devuelve True si logró renovar la sesión sobre la página correcta."""
+    print(f"\n    ♻️  Posible sesión expirada — esperando 90s...", flush=True)
     await asyncio.sleep(90)
-    print(f"    ♻️  Recuperando sesión (objetivo: página {pag})...", flush=True)
+
+    # ── NIVEL 1: descargar desde la página actual (sin re-navegar) ──────────
     try:
-        # 2. Actualizar la página — SICOES suele redirigir a la portada
+        await _cerrar_modales(page)
+        await page.wait_for_timeout(1000)
+        hay_archivos = await page.query_selector('a[onclick*="descargarArchivo"]')
+        primera_celda = await page.evaluate(
+            "() => { const td = document.querySelector('#tablaAvanzada tbody tr td'); return td ? td.innerText.trim() : ''; }"
+        )
+        # La página actual sirve si todavía muestra resultados de la entidad.
+        # El código de entidad (CUCE2-CUCE3) aparece dentro del CUCE: aa-CUCE2-CUCE3-...
+        ent_codigo = f"{cuce2}-{cuce3}"
+        en_entidad = bool(primera_celda) and ent_codigo in primera_celda
+        if hay_archivos and en_entidad:
+            print(f"    ♻️  Recuperando en la página actual (pág {pag}, {primera_celda[:24]})...", flush=True)
+            if await descargar_archivo_cualquiera(page):
+                await page.wait_for_timeout(2000)
+                print("    ✓ Sesión recuperada (sin re-navegar)\n", flush=True)
+                return True
+    except Exception as e:
+        print(f"    · nivel 1 no aplicable ({e})", flush=True)
+
+    # ── NIVEL 2: reload completo + re-filtrar + volver a la página ──────────
+    print(f"    ♻️  Recuperación completa (reload + re-filtrar, objetivo pág {pag})...", flush=True)
+    try:
         try:
             await page.reload(wait_until="domcontentloaded", timeout=60000)
         except Exception:
@@ -749,27 +788,37 @@ async def recuperar_sesion(page, cuce2, cuce3, anio, estado_val, pag) -> bool:
                             wait_until="domcontentloaded", timeout=60000)
         await page.wait_for_timeout(2500)
 
-        # 3. Cerrar popup + ir a convocatorias + tab avanzada
         await ir_a_buscador(page)
-
-        # 4. Llenar filtros y traer página 1
         await buscar(page, cuce2, cuce3, anio, estado_val)
         await page.evaluate("busquedadraw('1')")
-        await page.wait_for_timeout(2000)
-        await page.wait_for_selector("table tbody tr td", timeout=15000)
+        await page.wait_for_timeout(2500)
+        # Selector específico de la tabla de resultados (no cualquier tabla)
+        await page.wait_for_selector("#tablaAvanzada tbody tr td", timeout=15000)
         await page.wait_for_timeout(800)
 
-        # 5. Descargar un archivo real para reactivar la sesión
+        # Verificar que el filtro se aplicó (primer CUCE de la entidad correcta)
+        primera_celda = await page.evaluate(
+            "() => { const td = document.querySelector('#tablaAvanzada tbody tr td'); return td ? td.innerText.trim() : ''; }"
+        )
+        ent_codigo = f"{cuce2}-{cuce3}"
+        if ent_codigo not in (primera_celda or ""):
+            print(f"    ✗ El filtro no se aplicó (primer resultado: {primera_celda[:24]}) — reintentando búsqueda", flush=True)
+            await buscar(page, cuce2, cuce3, anio, estado_val)
+            await page.evaluate("busquedadraw('1')")
+            await page.wait_for_timeout(2500)
+            await page.wait_for_selector("#tablaAvanzada tbody tr td", timeout=15000)
+
+        # Descargar archivo para renovar token
         if not await descargar_archivo_cualquiera(page):
             await activar_sesion_con_formulario(page)
         await page.wait_for_timeout(1500)
 
-        # 6. Volver a la página donde estábamos
+        # Volver a la página donde estábamos
         if pag > 1:
             await ir_pagina(page, pag)
-        await page.wait_for_selector("table tbody tr td", timeout=15000)
+        await page.wait_for_selector("#tablaAvanzada tbody tr td", timeout=15000)
         await page.wait_for_timeout(1000)
-        print("    ✓ Sesión recuperada\n", flush=True)
+        print("    ✓ Sesión recuperada (recuperación completa)\n", flush=True)
         return True
     except Exception as e:
         print(f"    ✗ No se pudo recuperar sesión: {e}\n", flush=True)
