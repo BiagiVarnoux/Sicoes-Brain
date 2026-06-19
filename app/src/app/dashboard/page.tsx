@@ -9,9 +9,11 @@ import {
   getTopProductos,
   getTopProveedores,
   getEntidades,
+  getMontoPorMes,
 } from '@/lib/queries'
 import BarChart from '@/components/BarChart'
 import DashboardSearch from '@/components/DashboardSearch'
+import MontoMensualChart from '@/components/MontoMensualChart'
 import SiteHeader from '@/components/SiteHeader'
 
 function formatMonto(n: number) {
@@ -56,13 +58,36 @@ export default async function DashboardPage({ searchParams }: Props) {
   const orderBy  = (sp.order === 'veces' ? 'veces' : 'monto') as 'monto' | 'veces'
   const page     = Math.max(1, parseInt(sp.page ?? '1', 10))
 
-  const [kpis, topEntidades, topProductos, topProveedores, entidades] = await Promise.all([
+  const [kpis, topEntidades, topProductos, topProveedores, entidades, montoPorMes] = await Promise.all([
     getKPIsGlobales(),
     getTopEntidadesPorMonto(10),
     getTopProductos({ limit: 50, q, entidad, orderBy }),
     getTopProveedores(10),
     getEntidades(),
+    getMontoPorMes(),
   ])
+
+  // Panel de análisis — computado de los resultados filtrados
+  const filtroMonto    = topProductos.reduce((s, p) => s + (p.monto_total ?? 0), 0)
+  const filtroVeces    = topProductos.reduce((s, p) => s + (p.veces ?? 0), 0)
+  const filtroPrecioMin = topProductos.length
+    ? Math.min(...topProductos.map((p) => p.precio_min ?? Infinity).filter((v) => v !== Infinity))
+    : null
+  const filtroPrecioMax = topProductos.length
+    ? Math.max(...topProductos.map((p) => p.precio_max ?? 0))
+    : null
+
+  // Distribución por categoría
+  const claseMap = new Map<string, { monto: number; veces: number }>()
+  topProductos.forEach((p) => {
+    const k = p.clase || 'Sin categoría'
+    const prev = claseMap.get(k) ?? { monto: 0, veces: 0 }
+    claseMap.set(k, { monto: prev.monto + (p.monto_total ?? 0), veces: prev.veces + (p.veces ?? 0) })
+  })
+  const claseData = Array.from(claseMap.entries())
+    .map(([label, v]) => ({ label, ...v }))
+    .sort((a, b) => b.monto - a.monto)
+    .slice(0, 5)
 
   const entidadData = topEntidades.map((r) => ({
     label: r.entidad.length > 32 ? r.entidad.slice(0, 30) + '…' : r.entidad,
@@ -103,6 +128,15 @@ export default async function DashboardPage({ searchParams }: Props) {
             sub="empresas y personas" color="bg-amber-500" />
         </section>
 
+        {/* Gráfico mensual */}
+        {montoPorMes.length > 0 && (
+          <section className="bg-white rounded-xl border border-gray-200 p-6">
+            <h3 className="text-sm font-semibold text-gray-700 mb-0.5">Monto adjudicado por mes</h3>
+            <p className="text-xs text-gray-400 mb-4">Suma de contratos cerrados — todas las entidades</p>
+            <MontoMensualChart data={montoPorMes} />
+          </section>
+        )}
+
         {/* Bienes — sección principal */}
         <section>
           <div className="flex items-center justify-between mb-3">
@@ -117,6 +151,58 @@ export default async function DashboardPage({ searchParams }: Props) {
               </p>
             </div>
           </div>
+
+          {/* Panel de análisis — visible solo cuando hay filtros activos */}
+          {hayFiltros && topProductos.length > 0 && (
+            <div className="mb-4 bg-blue-50 border border-blue-100 rounded-xl p-4 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-semibold text-blue-700 uppercase tracking-wide">Resumen del filtro</span>
+                <span className="text-xs text-blue-400">{topProductos.length} producto{topProductos.length !== 1 ? 's' : ''}</span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="bg-white rounded-lg border border-blue-100 p-3">
+                  <div className="text-xs text-gray-500 mb-0.5">Monto total</div>
+                  <div className="text-sm font-bold text-emerald-700 tabular-nums">{formatMonto(filtroMonto)}</div>
+                </div>
+                <div className="bg-white rounded-lg border border-blue-100 p-3">
+                  <div className="text-xs text-gray-500 mb-0.5">Total contratos</div>
+                  <div className="text-sm font-bold text-gray-800 tabular-nums">{filtroVeces.toLocaleString('es-BO')}</div>
+                </div>
+                <div className="bg-white rounded-lg border border-blue-100 p-3">
+                  <div className="text-xs text-gray-500 mb-0.5">Precio mínimo</div>
+                  <div className="text-sm font-bold text-gray-800 tabular-nums">
+                    {filtroPrecioMin != null && filtroPrecioMin !== Infinity ? formatMonto(filtroPrecioMin) : '—'}
+                  </div>
+                </div>
+                <div className="bg-white rounded-lg border border-blue-100 p-3">
+                  <div className="text-xs text-gray-500 mb-0.5">Precio máximo</div>
+                  <div className="text-sm font-bold text-gray-800 tabular-nums">
+                    {filtroPrecioMax ? formatMonto(filtroPrecioMax) : '—'}
+                  </div>
+                </div>
+              </div>
+              {claseData.length > 1 && (
+                <div>
+                  <div className="text-xs text-blue-600 font-medium mb-2">Por categoría</div>
+                  <div className="space-y-1.5">
+                    {claseData.map((c) => {
+                      const pct = filtroMonto > 0 ? Math.round((c.monto / filtroMonto) * 100) : 0
+                      return (
+                        <div key={c.label} className="flex items-center gap-2">
+                          <div className="text-xs text-gray-600 w-40 truncate flex-shrink-0">{c.label}</div>
+                          <div className="flex-1 bg-blue-100 rounded-full h-1.5 overflow-hidden">
+                            <div className="h-full bg-blue-500 rounded-full" style={{ width: `${pct}%` }} />
+                          </div>
+                          <div className="text-xs text-gray-500 tabular-nums w-8 text-right">{pct}%</div>
+                          <div className="text-xs text-emerald-700 font-medium tabular-nums w-20 text-right">{formatMonto(c.monto)}</div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Barra de búsqueda y filtros */}
           <div className="mb-4">

@@ -222,6 +222,11 @@ export async function getProductoStats(descripcion: string) {
   return row ?? null
 }
 
+export async function getMontoPorMes() {
+  const { data } = await supabase.rpc('get_monto_por_mes')
+  return (data ?? []) as { anio: number; mes: number; monto: number; total_items: number }[]
+}
+
 export async function searchItems(params: {
   q?: string
   entidad?: string
