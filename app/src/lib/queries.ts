@@ -122,7 +122,7 @@ export async function getTopProductos(params?: {
   limit?: number
   q?: string
   entidad?: string
-  orderBy?: 'monto' | 'veces' | 'cantidad'
+  orderBy?: 'monto' | 'veces' | 'compras'
   anio?: number | null
 }) {
   const { data } = await supabase.rpc('get_top_productos', {

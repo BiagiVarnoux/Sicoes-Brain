@@ -46,7 +46,7 @@ export default async function DashboardPage({ searchParams }: Props) {
   const q       = sp.q       ?? ''
   const entidad = sp.entidad ?? ''
   const anio    = sp.anio    ?? ''
-  const orderBy = (['veces','cantidad'].includes(sp.order ?? '') ? sp.order : 'monto') as 'monto' | 'veces' | 'cantidad'
+  const orderBy = (['veces','compras'].includes(sp.order ?? '') ? sp.order : 'monto') as 'monto' | 'veces' | 'compras'
   const page    = Math.max(1, parseInt(sp.page ?? '1', 10))
 
   const anioNum = anio ? parseInt(anio, 10) : null
