@@ -55,8 +55,12 @@ DELAY_PAGINA = (3.0, 6.0)
 DELAY_FORM   = (5.0, 12.0)
 DELAY_RETRY  = (90.0, 150.0)
 
-# Formularios que queremos procesar, en orden de prioridad
-FORMS_ITEMS      = {"FORM200", "FORM220", "FORM110", "FORM100", "FORM170"}
+# Formularios que queremos procesar (simplificado — solo contratados):
+#   ANPE/ANPP → FORM200 (detalle de ítems adjudicados)
+#   CM        → FORM220 (detalle de ítems adjudicados)
+#   Todos     → FORM500 (recepción/ejecución del contrato)
+# Se descartan FORM100 (requerimiento), FORM110 (requeridos CM) y FORM170.
+FORMS_ITEMS      = {"FORM200", "FORM220"}
 FORMS_RECEPCION  = {"FORM500"}
 TODOS_LOS_FORMS  = FORMS_ITEMS | FORMS_RECEPCION
 
@@ -914,7 +918,7 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
             cuce2, cuce3 = ent["codigo"].split("-")
             print(f"\n[{ent['codigo']}] {ent['nombre']}")
 
-            for estado_label, estado_val in [("Contratados", "2C"), ("Desiertos", "2D")]:
+            for estado_label, estado_val in [("Contratados", "2C")]:
                 print(f"  → {estado_label}")
                 await buscar(page, cuce2, cuce3, anio, estado_val)
                 await page.evaluate("busquedadraw('1')")
