@@ -83,6 +83,26 @@ export async function getKPIsGlobales() {
   }
 }
 
+export async function getKPIsFiltrados(anio?: number | null, entidad?: string) {
+  const { data } = await supabase.rpc('get_kpis_filtrados', {
+    p_anio: anio ?? null,
+    p_entidad: entidad ?? '',
+  })
+  const rows = data as { total_procesos: number; monto_total: number; total_items: number; total_proveedores: number }[] | null
+  const kpis = rows?.[0]
+  return {
+    totalProcesos: Number(kpis?.total_procesos ?? 0),
+    montoTotal: Number(kpis?.monto_total ?? 0),
+    totalItems: Number(kpis?.total_items ?? 0),
+    totalProveedores: Number(kpis?.total_proveedores ?? 0),
+  }
+}
+
+export async function getAniosDisponibles() {
+  const { data } = await supabase.rpc('get_anios_disponibles')
+  return (data ?? []) as { anio: number }[]
+}
+
 export async function getProcesosporModalidad() {
   const { data } = await supabase.rpc('get_procesos_por_modalidad')
   return (data ?? []) as { modalidad: string; total: number }[]
@@ -93,8 +113,8 @@ export async function getProcesosporEstado() {
   return (data ?? []) as { estado: string; total: number }[]
 }
 
-export async function getTopEntidadesPorMonto(limit = 10) {
-  const { data } = await supabase.rpc('get_top_entidades_por_monto', { limit_n: limit })
+export async function getTopEntidadesPorMonto(limit = 10, anio?: number | null) {
+  const { data } = await supabase.rpc('get_top_entidades_por_monto', { limit_n: limit, p_anio: anio ?? null })
   return (data ?? []) as { entidad: string; monto: number }[]
 }
 
@@ -103,12 +123,14 @@ export async function getTopProductos(params?: {
   q?: string
   entidad?: string
   orderBy?: 'monto' | 'veces'
+  anio?: number | null
 }) {
   const { data } = await supabase.rpc('get_top_productos', {
-    limit_n:  params?.limit    ?? 50,
-    q:        params?.q        ?? '',
-    p_entidad: params?.entidad ?? '',
-    order_by: params?.orderBy  ?? 'monto',
+    limit_n:   params?.limit    ?? 50,
+    q:         params?.q        ?? '',
+    p_entidad: params?.entidad  ?? '',
+    order_by:  params?.orderBy  ?? 'monto',
+    p_anio:    params?.anio     ?? null,
   })
   return (data ?? []) as {
     descripcion: string
@@ -120,8 +142,8 @@ export async function getTopProductos(params?: {
   }[]
 }
 
-export async function getTopProveedores(limit = 10) {
-  const { data } = await supabase.rpc('get_top_proveedores', { limit_n: limit })
+export async function getTopProveedores(limit = 10, anio?: number | null, entidad?: string) {
+  const { data } = await supabase.rpc('get_top_proveedores', { limit_n: limit, p_anio: anio ?? null, p_entidad: entidad ?? '' })
   return (data ?? []) as { proveedor_id: number; proveedor: string; contratos: number; monto_total: number }[]
 }
 

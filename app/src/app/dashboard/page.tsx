@@ -4,16 +4,15 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 
 import {
-  getKPIsGlobales,
+  getKPIsFiltrados,
   getTopEntidadesPorMonto,
   getTopProductos,
   getTopProveedores,
   getEntidades,
-  getMontoPorMes,
+  getAniosDisponibles,
 } from '@/lib/queries'
 import BarChart from '@/components/BarChart'
 import DashboardSearch from '@/components/DashboardSearch'
-import MontoMensualChart from '@/components/MontoMensualChart'
 import SiteHeader from '@/components/SiteHeader'
 
 function formatMonto(n: number) {
@@ -36,48 +35,52 @@ function StatCard({ label, value, sub, color }: {
   )
 }
 
-function ChartCard({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="bg-white rounded-xl border border-gray-200 p-6">
-      <h3 className="text-sm font-semibold text-gray-700 mb-4">{title}</h3>
-      {children}
-    </div>
-  )
-}
-
 const PAGE_SIZE = 10
 
 type Props = {
-  searchParams: Promise<{ q?: string; entidad?: string; order?: string; page?: string }>
+  searchParams: Promise<{ q?: string; entidad?: string; anio?: string; order?: string; page?: string }>
 }
 
 export default async function DashboardPage({ searchParams }: Props) {
-  const sp = await searchParams
-  const q        = sp.q        ?? ''
-  const entidad  = sp.entidad  ?? ''
-  const orderBy  = (sp.order === 'veces' ? 'veces' : 'monto') as 'monto' | 'veces'
-  const page     = Math.max(1, parseInt(sp.page ?? '1', 10))
+  const sp      = await searchParams
+  const q       = sp.q       ?? ''
+  const entidad = sp.entidad ?? ''
+  const anio    = sp.anio    ?? ''
+  const orderBy = (sp.order === 'veces' ? 'veces' : 'monto') as 'monto' | 'veces'
+  const page    = Math.max(1, parseInt(sp.page ?? '1', 10))
 
-  const [kpis, topEntidades, topProductos, topProveedores, entidades, montoPorMes] = await Promise.all([
-    getKPIsGlobales(),
-    getTopEntidadesPorMonto(10),
-    getTopProductos({ limit: 50, q, entidad, orderBy }),
-    getTopProveedores(10),
+  const anioNum = anio ? parseInt(anio, 10) : null
+
+  const [kpis, topEntidades, topProductos, topProveedores, entidades, aniosDisponibles] = await Promise.all([
+    getKPIsFiltrados(anioNum, entidad),
+    getTopEntidadesPorMonto(10, anioNum),
+    getTopProductos({ limit: 50, q, entidad, orderBy, anio: anioNum }),
+    getTopProveedores(10, anioNum, entidad),
     getEntidades(),
-    getMontoPorMes(),
+    getAniosDisponibles(),
   ])
 
+  const entidadData = topEntidades.map((r) => ({
+    label: r.entidad.length > 32 ? r.entidad.slice(0, 30) + '…' : r.entidad,
+    value: r.monto,
+  }))
+
+  const hayFiltros  = q !== '' || entidad !== '' || anio !== ''
+  const totalItems  = topProductos.length
+  const totalPages  = Math.max(1, Math.ceil(totalItems / PAGE_SIZE))
+  const currentPage = Math.min(page, totalPages)
+  const pageItems   = topProductos.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+
   // Panel de análisis — computado de los resultados filtrados
-  const filtroMonto    = topProductos.reduce((s, p) => s + (p.monto_total ?? 0), 0)
-  const filtroVeces    = topProductos.reduce((s, p) => s + (p.veces ?? 0), 0)
+  const filtroMonto     = topProductos.reduce((s, p) => s + (p.monto_total ?? 0), 0)
+  const filtroVeces     = topProductos.reduce((s, p) => s + (p.veces ?? 0), 0)
   const filtroPrecioMin = topProductos.length
-    ? Math.min(...topProductos.map((p) => p.precio_min ?? Infinity).filter((v) => v !== Infinity))
+    ? Math.min(...topProductos.map((p) => p.precio_min ?? Infinity).filter((v) => isFinite(v)))
     : null
   const filtroPrecioMax = topProductos.length
     ? Math.max(...topProductos.map((p) => p.precio_max ?? 0))
     : null
 
-  // Distribución por categoría
   const claseMap = new Map<string, { monto: number; veces: number }>()
   topProductos.forEach((p) => {
     const k = p.clase || 'Sin categoría'
@@ -89,61 +92,70 @@ export default async function DashboardPage({ searchParams }: Props) {
     .sort((a, b) => b.monto - a.monto)
     .slice(0, 5)
 
-  const entidadData = topEntidades.map((r) => ({
-    label: r.entidad.length > 32 ? r.entidad.slice(0, 30) + '…' : r.entidad,
-    value: r.monto,
-  }))
-
-  const hayFiltros   = q !== '' || entidad !== ''
-  const totalItems   = topProductos.length
-  const totalPages   = Math.max(1, Math.ceil(totalItems / PAGE_SIZE))
-  const currentPage  = Math.min(page, totalPages)
-  const pageItems    = topProductos.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
-
   function pageUrl(p: number) {
     const params = new URLSearchParams()
     if (q) params.set('q', q)
     if (entidad) params.set('entidad', entidad)
+    if (anio) params.set('anio', anio)
     if (orderBy !== 'monto') params.set('order', orderBy)
     if (p > 1) params.set('page', String(p))
     const qs = params.toString()
     return `/dashboard${qs ? `?${qs}` : ''}`
   }
 
+  const entidadNombre = entidades.find((e) => e.codigo === entidad)?.nombre
+  const subtitulo = [
+    entidadNombre ?? (entidad ? entidad : null),
+    anio || null,
+  ].filter(Boolean).join(' · ')
+
   return (
     <main className="min-h-screen bg-gray-50">
       <SiteHeader maxWidth="max-w-6xl" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-6">
 
-        {/* KPI Cards */}
+        {/* Título + filtros globales */}
+        <div>
+          <h2 className="text-xl font-bold text-gray-900">
+            Dashboard
+            {subtitulo && (
+              <span className="ml-2 text-base font-normal text-blue-600">{subtitulo}</span>
+            )}
+          </h2>
+          <p className="text-xs text-gray-400 mt-0.5">
+            Seleccioná un año o entidad para ver los datos filtrados en todos los paneles
+          </p>
+        </div>
+
+        <Suspense>
+          <DashboardSearch
+            entidades={entidades.map(e => ({ codigo: e.codigo, nombre: e.nombre }))}
+            anios={aniosDisponibles.map(a => a.anio)}
+            q={q}
+            entidad={entidad}
+            anio={anio}
+            orderBy={orderBy}
+          />
+        </Suspense>
+
+        {/* KPI Cards — reflejan los filtros activos */}
         <section className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <StatCard label="Procesos indexados" value={kpis.totalProcesos.toLocaleString('es-BO')}
-            sub="de todas las entidades" color="bg-blue-500" />
+          <StatCard label="Procesos" value={kpis.totalProcesos.toLocaleString('es-BO')}
+            sub={subtitulo || 'todas las entidades'} color="bg-blue-500" />
           <StatCard label="Monto adjudicado" value={formatMonto(kpis.montoTotal)}
-            sub="en contratos cerrados" color="bg-emerald-500" />
-          <StatCard label="Ítems únicos" value={kpis.totalItems.toLocaleString('es-BO')}
+            sub="contratos cerrados" color="bg-emerald-500" />
+          <StatCard label="Ítems adjudicados" value={kpis.totalItems.toLocaleString('es-BO')}
             sub="bienes y servicios" color="bg-violet-500" />
-          <StatCard label="Proveedores únicos" value={kpis.totalProveedores.toLocaleString('es-BO')}
+          <StatCard label="Proveedores" value={kpis.totalProveedores.toLocaleString('es-BO')}
             sub="empresas y personas" color="bg-amber-500" />
         </section>
 
-        {/* Gráfico mensual */}
-        {montoPorMes.length > 0 && (
-          <section className="bg-white rounded-xl border border-gray-200 p-6">
-            <h3 className="text-sm font-semibold text-gray-700 mb-0.5">Monto adjudicado por mes</h3>
-            <p className="text-xs text-gray-400 mb-4">Suma de contratos cerrados — todas las entidades</p>
-            <MontoMensualChart data={montoPorMes} />
-          </section>
-        )}
-
-        {/* Bienes — sección principal */}
+        {/* Bienes — tabla con búsqueda de texto */}
         <section>
           <div className="flex items-center justify-between mb-3">
             <div>
-              <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-                Bienes contratados
-              </h2>
+              <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Bienes contratados</h2>
               <p className="text-xs text-gray-400 mt-0.5">
                 {hayFiltros
                   ? `${topProductos.length} resultado${topProductos.length !== 1 ? 's' : ''}`
@@ -152,12 +164,12 @@ export default async function DashboardPage({ searchParams }: Props) {
             </div>
           </div>
 
-          {/* Panel de análisis — visible solo cuando hay filtros activos */}
-          {hayFiltros && topProductos.length > 0 && (
+          {/* Panel de análisis — cuando hay búsqueda de texto */}
+          {q !== '' && topProductos.length > 0 && (
             <div className="mb-4 bg-blue-50 border border-blue-100 rounded-xl p-4 space-y-3">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold text-blue-700 uppercase tracking-wide">Resumen del filtro</span>
-                <span className="text-xs text-blue-400">{topProductos.length} producto{topProductos.length !== 1 ? 's' : ''}</span>
+                <span className="text-xs font-semibold text-blue-700 uppercase tracking-wide">Resumen</span>
+                <span className="text-xs text-blue-400">"{q}" · {topProductos.length} producto{topProductos.length !== 1 ? 's' : ''}</span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <div className="bg-white rounded-lg border border-blue-100 p-3">
@@ -171,7 +183,7 @@ export default async function DashboardPage({ searchParams }: Props) {
                 <div className="bg-white rounded-lg border border-blue-100 p-3">
                   <div className="text-xs text-gray-500 mb-0.5">Precio mínimo</div>
                   <div className="text-sm font-bold text-gray-800 tabular-nums">
-                    {filtroPrecioMin != null && filtroPrecioMin !== Infinity ? formatMonto(filtroPrecioMin) : '—'}
+                    {filtroPrecioMin != null && isFinite(filtroPrecioMin) ? formatMonto(filtroPrecioMin) : '—'}
                   </div>
                 </div>
                 <div className="bg-white rounded-lg border border-blue-100 p-3">
@@ -203,26 +215,6 @@ export default async function DashboardPage({ searchParams }: Props) {
               )}
             </div>
           )}
-
-          {/* Barra de búsqueda y filtros */}
-          <div className="mb-4">
-            <Suspense>
-              <DashboardSearch
-                entidades={entidades.map(e => ({ codigo: e.codigo, nombre: e.nombre }))}
-                q={q}
-                entidad={entidad}
-                orderBy={orderBy}
-              />
-            </Suspense>
-          </div>
-          <div className="mb-1 flex items-center justify-between">
-            <p className="text-xs text-gray-400">
-              {hayFiltros
-                ? `${totalItems} resultado${totalItems !== 1 ? 's' : ''}`
-                : `${totalItems} productos`}
-              {totalPages > 1 && ` · página ${currentPage} de ${totalPages}`}
-            </p>
-          </div>
 
           {topProductos.length === 0 ? (
             <div className="bg-white rounded-xl border border-gray-200 p-10 text-center">
@@ -270,14 +262,10 @@ export default async function DashboardPage({ searchParams }: Props) {
                       </td>
                       <td className="px-4 py-3 text-right tabular-nums">
                         <span className="text-xs font-semibold text-gray-700">{p.veces}</span>
-                        <span className="text-xs text-gray-400 ml-1">
-                          {p.veces === 1 ? 'vez' : 'veces'}
-                        </span>
+                        <span className="text-xs text-gray-400 ml-1">{p.veces === 1 ? 'vez' : 'veces'}</span>
                       </td>
                       <td className="px-4 py-3 text-right tabular-nums">
-                        <span className="text-xs font-semibold text-emerald-700">
-                          {formatMonto(p.monto_total)}
-                        </span>
+                        <span className="text-xs font-semibold text-emerald-700">{formatMonto(p.monto_total)}</span>
                       </td>
                       <td className="px-4 py-3 text-right tabular-nums hidden md:table-cell">
                         {p.precio_min === p.precio_max ? (
@@ -293,7 +281,6 @@ export default async function DashboardPage({ searchParams }: Props) {
                 </tbody>
               </table>
 
-              {/* Paginación */}
               {totalPages > 1 && (
                 <div className="px-4 py-3 border-t border-gray-100 flex items-center justify-between">
                   <span className="text-xs text-gray-400">
@@ -301,33 +288,22 @@ export default async function DashboardPage({ searchParams }: Props) {
                   </span>
                   <div className="flex items-center gap-1">
                     {currentPage > 1 && (
-                      <Link
-                        href={pageUrl(currentPage - 1)}
-                        className="px-3 py-1.5 text-xs border border-gray-200 rounded-lg
-                                   text-gray-600 hover:bg-gray-50 transition-colors"
-                      >
+                      <Link href={pageUrl(currentPage - 1)}
+                        className="px-3 py-1.5 text-xs border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50">
                         ← Anterior
                       </Link>
                     )}
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                      <Link
-                        key={p}
-                        href={pageUrl(p)}
+                      <Link key={p} href={pageUrl(p)}
                         className={`px-3 py-1.5 text-xs rounded-lg transition-colors ${
-                          p === currentPage
-                            ? 'bg-blue-600 text-white'
-                            : 'border border-gray-200 text-gray-600 hover:bg-gray-50'
-                        }`}
-                      >
+                          p === currentPage ? 'bg-blue-600 text-white' : 'border border-gray-200 text-gray-600 hover:bg-gray-50'
+                        }`}>
                         {p}
                       </Link>
                     ))}
                     {currentPage < totalPages && (
-                      <Link
-                        href={pageUrl(currentPage + 1)}
-                        className="px-3 py-1.5 text-xs border border-gray-200 rounded-lg
-                                   text-gray-600 hover:bg-gray-50 transition-colors"
-                      >
+                      <Link href={pageUrl(currentPage + 1)}
+                        className="px-3 py-1.5 text-xs border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50">
                         Siguiente →
                       </Link>
                     )}
@@ -338,17 +314,22 @@ export default async function DashboardPage({ searchParams }: Props) {
           )}
         </section>
 
-        {/* Segunda fila: Top entidades + Top proveedores */}
+        {/* Segunda fila: Top entidades + Top proveedores — ambos filtrados */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <section>
-            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Por entidad</h2>
-            <ChartCard title="Top 10 entidades por monto adjudicado">
+            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+              Por entidad {anio && <span className="font-normal text-gray-400">· {anio}</span>}
+            </h2>
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="text-sm font-semibold text-gray-700 mb-4">Top 10 por monto adjudicado</h3>
               <BarChart data={entidadData} layout="vertical" color="#2563eb" format="monto" />
-            </ChartCard>
+            </div>
           </section>
 
           <section>
-            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Proveedores</h2>
+            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+              Proveedores {subtitulo && <span className="font-normal text-gray-400">· {subtitulo}</span>}
+            </h2>
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
               <div className="px-4 py-3 border-b border-gray-100">
                 <h3 className="text-sm font-semibold text-gray-700">Top 10 por monto adjudicado</h3>
@@ -365,10 +346,8 @@ export default async function DashboardPage({ searchParams }: Props) {
                   {topProveedores.map((p, i) => (
                     <tr key={i} className="hover:bg-gray-50 group">
                       <td className="px-4 py-2.5 text-xs font-medium text-gray-800 max-w-[200px]">
-                        <Link
-                          href={`/proveedor/${p.proveedor_id}`}
-                          className="line-clamp-1 hover:text-blue-600 transition-colors"
-                        >
+                        <Link href={`/proveedor/${p.proveedor_id}`}
+                          className="line-clamp-1 hover:text-blue-600 transition-colors">
                           {p.proveedor}
                         </Link>
                       </td>
