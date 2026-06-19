@@ -136,7 +136,7 @@ export async function getTopProductos(params?: {
     descripcion: string
     clase: string
     veces: number
-    cantidad_total: number
+    compras: number
     monto_total: number
     precio_min: number
     precio_max: number

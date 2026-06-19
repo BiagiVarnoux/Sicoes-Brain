@@ -239,6 +239,9 @@ export default async function DashboardPage({ searchParams }: Props) {
                     <th className="text-right px-4 py-3 font-medium text-gray-500 text-xs">
                       {orderBy === 'veces' ? '↓ Procesos' : 'Procesos'}
                     </th>
+                    <th className="text-right px-4 py-3 font-medium text-gray-500 text-xs hidden sm:table-cell">
+                      Compras registradas
+                    </th>
                     <th className="text-right px-4 py-3 font-medium text-gray-500 text-xs">
                       {orderBy === 'monto' ? '↓ Monto total' : 'Monto total'}
                     </th>
@@ -263,6 +266,9 @@ export default async function DashboardPage({ searchParams }: Props) {
                       <td className="px-4 py-3 text-right tabular-nums">
                         <span className="text-xs font-semibold text-gray-700">{p.veces}</span>
                         <span className="text-xs text-gray-400 ml-1">{p.veces === 1 ? 'proceso' : 'procesos'}</span>
+                      </td>
+                      <td className="px-4 py-3 text-right tabular-nums hidden sm:table-cell">
+                        <span className="text-xs text-gray-600">{Number(p.compras).toLocaleString('es-BO')}</span>
                       </td>
                       <td className="px-4 py-3 text-right tabular-nums">
                         <span className="text-xs font-semibold text-emerald-700">{formatMonto(p.monto_total)}</span>
