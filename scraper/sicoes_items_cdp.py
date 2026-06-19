@@ -31,7 +31,7 @@ import random
 import urllib.request
 import urllib.error
 import urllib.parse
-from datetime import datetime
+from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
 
@@ -140,6 +140,36 @@ def supabase_upsert_proveedor(nombre: str) -> int | None:
     # Fallback: buscar por nombre
     rows = supabase_get(f"proveedores?nombre=eq.{urllib.parse.quote(nombre)}&select=id&limit=1")
     return rows[0]["id"] if rows else None
+
+def supabase_guardar_html_crudo(cuce: str, tipo_formulario: str, token: str, html: str) -> bool:
+    """Guarda el HTML crudo de un formulario en formularios_descargados.
+    Una fila por (cuce, tipo_formulario) — upsert. Permite reprocesar/parsear
+    después con IA sin volver a SICOES. Se llama ANTES de parsear, así el HTML
+    queda guardado aunque el parser falle."""
+    row = {
+        "cuce": cuce,
+        "tipo_formulario": tipo_formulario,
+        "token": token,
+        "html_crudo": html,
+        "longitud_html": len(html) if html else 0,
+        "descargado": True,
+        "fecha_descarga": datetime.now(timezone.utc).isoformat(),
+    }
+    req = urllib.request.Request(
+        f"{SUPABASE_URL}/rest/v1/formularios_descargados?on_conflict=cuce,tipo_formulario",
+        data=json.dumps([row]).encode(),
+        method="POST",
+        headers=_headers({"Prefer": "resolution=merge-duplicates,return=minimal"}),
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20):
+            return True
+    except urllib.error.HTTPError as e:
+        print(f"        ⚠ html crudo no guardado: {e.read().decode()[:120]}")
+        return False
+    except Exception as e:
+        print(f"        ⚠ html crudo no guardado: {e}")
+        return False
 
 def supabase_forms_procesados(cuce: str) -> set:
     rows = supabase_get(f"procesos?cuce=eq.{urllib.parse.quote(cuce)}&select=forms_procesados&limit=1")
@@ -834,15 +864,22 @@ async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> tuple
         print("HTML vacío")
         return [], []
 
+    # Guardar el HTML crudo SIEMPRE antes de parsear — así queda disponible para
+    # reprocesar con IA aunque el parser tenga un bug o cambie el layout.
+    supabase_guardar_html_crudo(cuce, form_name, token, html)
+
     items, recepciones = [], []
-    if form_name in ("FORM200", "FORM100"):
-        items = parsear_form200_100(html, cuce, form_name)
-    elif form_name in ("FORM220", "FORM110"):
-        items = parsear_form220_110(html, cuce, form_name)
-    elif form_name == "FORM170":
-        items = parsear_form170(html, cuce)
-    elif form_name == "FORM500":
-        recepciones = parsear_form500(html, cuce)
+    try:
+        if form_name in ("FORM200", "FORM100"):
+            items = parsear_form200_100(html, cuce, form_name)
+        elif form_name in ("FORM220", "FORM110"):
+            items = parsear_form220_110(html, cuce, form_name)
+        elif form_name == "FORM170":
+            items = parsear_form170(html, cuce)
+        elif form_name == "FORM500":
+            recepciones = parsear_form500(html, cuce)
+    except Exception as e:
+        print(f"(parse falló: {e}) ", end="")
 
     # Pausa antes de cerrar — simula lectura humana, reduce detección
     await asyncio.sleep(random.uniform(2.5, 5.0))
