@@ -111,7 +111,24 @@ def supabase_patch(tabla: str, filters: str, payload: dict) -> None:
     except:
         pass
 
+def nombre_proveedor_valido(nombre: str) -> str | None:
+    """Normaliza y valida un nombre de proveedor. Devuelve None si no es usable
+    (vacío, solo símbolos, o menos de 3 caracteres alfanuméricos)."""
+    if not nombre:
+        return None
+    limpio = limpiar(nombre)
+    alfanum = sum(c.isalnum() for c in limpio)
+    if alfanum < 3:
+        return None
+    # Descartar placeholders comunes
+    if limpio.lower() in {"n/a", "na", "s/n", "sin nombre", "-", "---", "."}:
+        return None
+    return limpio
+
 def supabase_upsert_proveedor(nombre: str) -> int | None:
+    nombre = nombre_proveedor_valido(nombre)
+    if not nombre:
+        return None
     res = supabase_post("proveedores", [{"nombre": nombre}],
                         prefer="resolution=merge-duplicates,return=representation")
     if "data" in res and res["data"]:
@@ -598,10 +615,54 @@ async def ir_pagina(page, n):
     except:
         await page.wait_for_timeout(2000)
 
+async def descargar_archivo_cualquiera(page) -> bool:
+    """Dispara una descarga REAL de un documento desde la página de resultados.
+    Este request de archivo es lo que reactiva la sesión de SICOES (descubierto
+    empíricamente: abrir el modal del formulario no alcanza — hay que bajar un
+    archivo para que el servidor renueve el token)."""
+    selectores = [
+        'a[onclick*="descargarArchivo"]', 'a[onclick*="descargar"]',
+        'a[onclick*="Descargar"]', 'a[onclick*="Archivo"]', 'a[onclick*="archivo"]',
+        'a[onclick*="Pliego"]', 'a[onclick*="DBC"]', 'a[onclick*="documento"]',
+        'a[href*="archivo"]', 'a[href*=".pdf"]', 'a[href*="documento"]', 'a[href*="descarga"]',
+        'img[src*="pdf"]', 'i.fa-download', 'i.fa-file-pdf-o', 'i.fa-file-pdf',
+        '.fa-download', '.fa-file-pdf-o', '.fa-file-pdf',
+    ]
+    for sel in selectores:
+        try:
+            elementos = await page.query_selector_all(sel)
+        except Exception:
+            continue
+        for el in elementos:
+            try:
+                if not await el.is_visible():
+                    continue
+                print(f"        ⬇ Descargando archivo ({sel})...", end=" ", flush=True)
+                async with page.expect_download(timeout=15000) as di:
+                    await el.click()
+                download = await di.value
+                ruta = f"/tmp/sicoes_keepalive_{download.suggested_filename or 'archivo'}"
+                await download.save_as(ruta)
+                print(f"OK ({download.suggested_filename})")
+                return True
+            except Exception:
+                # Ese elemento abrió un modal u otra cosa en vez de descargar → limpiar y seguir
+                await page.evaluate("""
+                    () => {
+                        document.querySelectorAll('.modal').forEach(m => {
+                            m.style.display='none'; m.classList.remove('show','in');
+                        });
+                        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+                        document.body.classList.remove('modal-open');
+                    }
+                """)
+                continue
+    print("        ⚠ No se encontró archivo descargable")
+    return False
+
 async def activar_sesion_con_formulario(page) -> bool:
-    """Abre y cierra el primer formulario visible para renovar el token de sesión.
-    Este es el paso clave descubierto: SICOES requiere una interacción real con
-    el servidor de formularios (no solo navegación) para reactivar la sesión."""
+    """Fallback: abre y cierra el primer formulario visible para renovar el token.
+    Se usa solo si no se encontró ningún archivo descargable."""
     try:
         primer_token = await page.evaluate(r"""
             () => {
@@ -613,10 +674,9 @@ async def activar_sesion_con_formulario(page) -> bool:
         """)
         if not primer_token:
             return False
-        print("        🔑 Activando sesión con formulario...", end=" ", flush=True)
+        print("        🔑 Activando sesión con formulario (fallback)...", end=" ", flush=True)
         await page.evaluate(f"verFormulario('{primer_token}')")
         await page.wait_for_timeout(4000)
-        # Cerrar modal sin importar si cargó o no
         await page.evaluate("""
             () => {
                 document.querySelectorAll('.modal').forEach(m => {
@@ -634,22 +694,42 @@ async def activar_sesion_con_formulario(page) -> bool:
         return False
 
 async def recuperar_sesion(page, cuce2, cuce3, anio, estado_val, pag) -> bool:
-    """Re-establece la sesión de SICOES y vuelve a la página `pag`.
-    Estrategia: espera 90s → vuelve al buscador → abre un formulario para
-    activar el token → vuelve a la página objetivo."""
+    """Re-establece la sesión de SICOES siguiendo el flujo descubierto:
+      1. Esperar 90s
+      2. Actualizar la página (redirige a inicio)
+      3. Cerrar el popup e ir a convocatorias
+      4. Llenar los filtros de la entidad (página 1)
+      5. Descargar un archivo cualquiera → renueva el token
+      6. Volver a la página donde se había quedado
+    Devuelve True si logró volver a la página con resultados."""
     print(f"\n    ♻️  Sesión expirada — esperando 90s antes de recuperar...", flush=True)
     await asyncio.sleep(90)
-    print(f"    ♻️  Recuperando sesión (página {pag})...", flush=True)
+    print(f"    ♻️  Recuperando sesión (objetivo: página {pag})...", flush=True)
     try:
+        # 2. Actualizar la página — SICOES suele redirigir a la portada
+        try:
+            await page.reload(wait_until="domcontentloaded", timeout=60000)
+        except Exception:
+            await page.goto("https://www.sicoes.gob.bo/portal/index.php",
+                            wait_until="domcontentloaded", timeout=60000)
+        await page.wait_for_timeout(2500)
+
+        # 3. Cerrar popup + ir a convocatorias + tab avanzada
         await ir_a_buscador(page)
+
+        # 4. Llenar filtros y traer página 1
         await buscar(page, cuce2, cuce3, anio, estado_val)
         await page.evaluate("busquedadraw('1')")
         await page.wait_for_timeout(2000)
+        await page.wait_for_selector("table tbody tr td", timeout=15000)
+        await page.wait_for_timeout(800)
 
-        # Paso clave: abrir un formulario en página 1 para renovar el token
-        await activar_sesion_con_formulario(page)
+        # 5. Descargar un archivo real para reactivar la sesión
+        if not await descargar_archivo_cualquiera(page):
+            await activar_sesion_con_formulario(page)
+        await page.wait_for_timeout(1500)
 
-        # Volver a la página donde estábamos
+        # 6. Volver a la página donde estábamos
         if pag > 1:
             await ir_pagina(page, pag)
         await page.wait_for_selector("table tbody tr td", timeout=15000)
