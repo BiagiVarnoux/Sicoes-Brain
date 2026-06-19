@@ -46,7 +46,7 @@ export default async function DashboardPage({ searchParams }: Props) {
   const q       = sp.q       ?? ''
   const entidad = sp.entidad ?? ''
   const anio    = sp.anio    ?? ''
-  const orderBy = (sp.order === 'veces' ? 'veces' : 'monto') as 'monto' | 'veces'
+  const orderBy = (['veces','cantidad'].includes(sp.order ?? '') ? sp.order : 'monto') as 'monto' | 'veces' | 'cantidad'
   const page    = Math.max(1, parseInt(sp.page ?? '1', 10))
 
   const anioNum = anio ? parseInt(anio, 10) : null
@@ -237,10 +237,13 @@ export default async function DashboardPage({ searchParams }: Props) {
                     <th className="text-left px-4 py-3 font-medium text-gray-500 text-xs">Descripción</th>
                     <th className="text-left px-4 py-3 font-medium text-gray-500 text-xs hidden sm:table-cell">Categoría</th>
                     <th className="text-right px-4 py-3 font-medium text-gray-500 text-xs">
-                      {orderBy === 'veces' ? '↓ Frecuencia' : 'Frecuencia'}
+                      {orderBy === 'veces' ? '↓ Procesos' : 'Procesos'}
+                    </th>
+                    <th className="text-right px-4 py-3 font-medium text-gray-500 text-xs hidden sm:table-cell">
+                      {orderBy === 'cantidad' ? '↓ Cant. comprada' : 'Cant. comprada'}
                     </th>
                     <th className="text-right px-4 py-3 font-medium text-gray-500 text-xs">
-                      {orderBy === 'monto' || !orderBy ? '↓ Monto total' : 'Monto total'}
+                      {orderBy === 'monto' ? '↓ Monto total' : 'Monto total'}
                     </th>
                     <th className="text-right px-4 py-3 font-medium text-gray-500 text-xs hidden md:table-cell">Precio unitario</th>
                   </tr>
@@ -262,7 +265,12 @@ export default async function DashboardPage({ searchParams }: Props) {
                       </td>
                       <td className="px-4 py-3 text-right tabular-nums">
                         <span className="text-xs font-semibold text-gray-700">{p.veces}</span>
-                        <span className="text-xs text-gray-400 ml-1">{p.veces === 1 ? 'vez' : 'veces'}</span>
+                        <span className="text-xs text-gray-400 ml-1">{p.veces === 1 ? 'proceso' : 'procesos'}</span>
+                      </td>
+                      <td className="px-4 py-3 text-right tabular-nums hidden sm:table-cell">
+                        {p.cantidad_total
+                          ? <span className="text-xs text-gray-600">{Number(p.cantidad_total).toLocaleString('es-BO')} u.</span>
+                          : <span className="text-xs text-gray-300">—</span>}
                       </td>
                       <td className="px-4 py-3 text-right tabular-nums">
                         <span className="text-xs font-semibold text-emerald-700">{formatMonto(p.monto_total)}</span>

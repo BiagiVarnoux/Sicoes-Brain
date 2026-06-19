@@ -9,7 +9,7 @@ interface Props {
   q: string
   entidad: string
   anio: string
-  orderBy: string
+  orderBy: 'monto' | 'veces' | 'cantidad'
 }
 
 export default function DashboardSearch({ entidades, anios, q, entidad, anio, orderBy }: Props) {
@@ -104,26 +104,17 @@ export default function DashboardSearch({ entidades, anios, q, entidad, anio, or
         </div>
 
         <div className="flex rounded-lg border border-gray-200 overflow-hidden bg-white text-sm">
-          <button
-            onClick={() => update({ order: 'monto' })}
-            className={`px-3 py-2 font-medium transition-colors ${
-              orderBy === 'monto' || !orderBy
-                ? 'bg-blue-600 text-white'
-                : 'text-gray-600 hover:bg-gray-50'
-            }`}
-          >
-            Por monto
-          </button>
-          <button
-            onClick={() => update({ order: 'veces' })}
-            className={`px-3 py-2 font-medium transition-colors border-l border-gray-200 ${
-              orderBy === 'veces'
-                ? 'bg-blue-600 text-white'
-                : 'text-gray-600 hover:bg-gray-50'
-            }`}
-          >
-            Por frecuencia
-          </button>
+          {(['monto', 'veces', 'cantidad'] as const).map((opt, i) => (
+            <button
+              key={opt}
+              onClick={() => update({ order: opt })}
+              className={`px-3 py-2 font-medium transition-colors ${i > 0 ? 'border-l border-gray-200' : ''} ${
+                orderBy === opt ? 'bg-blue-600 text-white' : 'text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              {opt === 'monto' ? 'Por monto' : opt === 'veces' ? 'Por procesos' : 'Por cantidad'}
+            </button>
+          ))}
         </div>
       </div>
     </div>
