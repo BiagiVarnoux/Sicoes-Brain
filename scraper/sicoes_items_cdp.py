@@ -619,46 +619,47 @@ async def descargar_archivo_cualquiera(page) -> bool:
     """Dispara una descarga REAL de un documento desde la página de resultados.
     Este request de archivo es lo que reactiva la sesión de SICOES (descubierto
     empíricamente: abrir el modal del formulario no alcanza — hay que bajar un
-    archivo para que el servidor renueve el token)."""
-    selectores = [
-        'a[onclick*="descargarArchivo"]', 'a[onclick*="descargar"]',
-        'a[onclick*="Descargar"]', 'a[onclick*="Archivo"]', 'a[onclick*="archivo"]',
-        'a[onclick*="Pliego"]', 'a[onclick*="DBC"]', 'a[onclick*="documento"]',
-        'a[href*="archivo"]', 'a[href*=".pdf"]', 'a[href*="documento"]', 'a[href*="descarga"]',
-        'img[src*="pdf"]', 'i.fa-download', 'i.fa-file-pdf-o', 'i.fa-file-pdf',
-        '.fa-download', '.fa-file-pdf-o', '.fa-file-pdf',
-    ]
-    for sel in selectores:
-        try:
-            elementos = await page.query_selector_all(sel)
-        except Exception:
-            continue
-        for el in elementos:
-            try:
-                if not await el.is_visible():
-                    continue
-                print(f"        ⬇ Descargando archivo ({sel})...", end=" ", flush=True)
-                async with page.expect_download(timeout=15000) as di:
-                    await el.click()
-                download = await di.value
-                ruta = f"/tmp/sicoes_keepalive_{download.suggested_filename or 'archivo'}"
-                await download.save_as(ruta)
-                print(f"OK ({download.suggested_filename})")
-                return True
-            except Exception:
-                # Ese elemento abrió un modal u otra cosa en vez de descargar → limpiar y seguir
-                await page.evaluate("""
-                    () => {
-                        document.querySelectorAll('.modal').forEach(m => {
-                            m.style.display='none'; m.classList.remove('show','in');
-                        });
-                        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
-                        document.body.classList.remove('modal-open');
-                    }
-                """)
-                continue
-    print("        ⚠ No se encontró archivo descargable")
-    return False
+    archivo para que el servidor renueve el token).
+
+    En SICOES la columna 'Archivos' tiene links:
+        <a onclick="descargarArchivo('TOKEN')">Convocatoria</a>
+    Llamamos a la función JS directamente con el primer token disponible."""
+    token = await page.evaluate(r"""
+        () => {
+            const a = document.querySelector('a[onclick*="descargarArchivo"]');
+            if (!a) return null;
+            const m = (a.getAttribute('onclick') || '').match(/descargarArchivo\('([^']+)'\)/);
+            return m ? m[1] : null;
+        }
+    """)
+    if not token:
+        print("        ⚠ No se encontró archivo descargable (sin descargarArchivo en la página)")
+        return False
+
+    print("        ⬇ Descargando archivo (keep-alive)...", end=" ", flush=True)
+    paginas_antes = set(page.context.pages)
+    try:
+        async with page.expect_download(timeout=20000) as di:
+            await page.evaluate(f"descargarArchivo('{token}')")
+        download = await di.value
+        ruta = f"/tmp/sicoes_keepalive_{download.suggested_filename or 'archivo'}"
+        await download.save_as(ruta)
+        print(f"OK ({download.suggested_filename})")
+        ok = True
+    except Exception:
+        # No disparó evento de descarga (quizá abrió pestaña o respondió inline).
+        # El request al servidor igual se hizo → la sesión queda renovada.
+        print("request enviado (sin evento download)")
+        ok = True
+    finally:
+        # Cerrar cualquier pestaña nueva que se haya abierto (visor de PDF, etc.)
+        for p_extra in list(page.context.pages):
+            if p_extra is not page and p_extra not in paginas_antes:
+                try:
+                    await p_extra.close()
+                except Exception:
+                    pass
+    return ok
 
 async def activar_sesion_con_formulario(page) -> bool:
     """Fallback: abre y cierra el primer formulario visible para renovar el token.
