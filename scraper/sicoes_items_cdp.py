@@ -884,33 +884,40 @@ async def extraer_filas(page, ent_codigo: str) -> list[dict]:
 
 # ─── ABRIR FORMULARIO ─────────────────────────────────────────────────────────
 
-async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> tuple[list, list]:
-    """Devuelve (items, recepciones)."""
-    print(f"        {form_name}...", end=" ", flush=True)
+async def _abrir_form_intento(page, token: str, timeout_ms: int) -> str:
+    """Un intento de abrir el formulario. Devuelve el HTML interno o '' si no cargó."""
+    # Limpiar cualquier modal previo antes de abrir (evita interferencia entre forms)
+    await _cerrar_modales(page)
+    await page.wait_for_timeout(500)
 
     await page.evaluate(f"verFormulario('{token}')")
     try:
-        await page.wait_for_selector("#visualizarformulario0 table", timeout=15000)
-        await page.wait_for_timeout(300)
-    except:
-        print("sin contenido")
-        await page.evaluate("""
-            () => {
-                document.querySelectorAll('.modal').forEach(m => {
-                    m.style.display='none'; m.classList.remove('show','in');
-                });
-                document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
-                document.body.classList.remove('modal-open');
-            }
-        """)
-        return [], []
-
+        await page.wait_for_selector("#visualizarformulario0 table", timeout=timeout_ms)
+        await page.wait_for_timeout(400)
+    except Exception:
+        return ""
     html = await page.evaluate("""
         () => { var el = document.getElementById('visualizarformulario0'); return el ? el.innerHTML : ''; }
     """)
+    return html or ""
+
+async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> tuple[list, list]:
+    """Devuelve (items, recepciones).
+    Reintenta una vez si el formulario no carga a tiempo — muchos 'sin contenido'
+    son falsos negativos (el form tarda más en cargar de lo esperado)."""
+    print(f"        {form_name}...", end=" ", flush=True)
+
+    # Intento 1 (25s). Si falla, cerrar, esperar y reintentar con más tiempo (30s).
+    html = await _abrir_form_intento(page, token, 25000)
+    if not html or len(html) < 100:
+        await _cerrar_modales(page)
+        await page.wait_for_timeout(random.uniform(2.0, 4.0) * 1000)
+        print("reintentando...", end=" ", flush=True)
+        html = await _abrir_form_intento(page, token, 30000)
 
     if not html or len(html) < 100:
-        print("HTML vacío")
+        print("sin contenido (tras reintento)")
+        await _cerrar_modales(page)
         return [], []
 
     # Guardar el HTML crudo SIEMPRE antes de parsear — así queda disponible para
