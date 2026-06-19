@@ -598,10 +598,30 @@ async def ir_pagina(page, n):
     except:
         await page.wait_for_timeout(2000)
 
+async def recuperar_sesion(page, cuce2, cuce3, anio, estado_val, pag) -> bool:
+    """Re-establece la sesión de SICOES y vuelve a la página `pag`.
+    Se usa cuando varios formularios devuelven vacío (token expirado).
+    Devuelve True si logró volver a la página con resultados."""
+    print(f"\n    ♻️  Recuperando sesión (volviendo a pág {pag})...", flush=True)
+    try:
+        await ir_a_buscador(page)
+        await buscar(page, cuce2, cuce3, anio, estado_val)
+        await page.evaluate("busquedadraw('1')")
+        await page.wait_for_timeout(1500)
+        if pag > 1:
+            await ir_pagina(page, pag)
+        await page.wait_for_selector("table tbody tr td", timeout=12000)
+        await page.wait_for_timeout(800)
+        print("    ✓ Sesión recuperada\n", flush=True)
+        return True
+    except Exception as e:
+        print(f"    ✗ No se pudo recuperar sesión: {e}\n", flush=True)
+        return False
+
 async def detectar_total_paginas(page) -> int:
     """Lee el paginador de SICOES y devuelve el número real de páginas."""
     try:
-        max_pag = await page.evaluate("""
+        max_pag = await page.evaluate(r"""
             () => {
                 let max = 1;
                 document.querySelectorAll('[onclick*="busquedadraw"]').forEach(el => {
@@ -739,7 +759,7 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
             print("\nAsegurate de que Chrome esté abierto con:")
             print('  /Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome \\')
             print('    --remote-debugging-port=9222 \\')
-            print('    --user-data-dir="/tmp/chrome-sicoes"')
+            print('    --user-data-dir="/tmp/brave-sicoes"')
             return
 
         print("✓ Conectado")
@@ -791,6 +811,7 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
 
                 paginas_vacias = 0
                 pag = 1
+                recuperaciones_pag = 0   # intentos de recuperación en la pág actual
 
                 while pag <= paginas_a_recorrer:
                     print(f"    Página {pag}/{paginas_a_recorrer}...", end=" ", flush=True)
@@ -808,6 +829,8 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
                     items_pagina = 0
                     recs_pagina  = 0
                     vacios_consecutivos = 0
+                    exitos_pagina = 0          # forms con contenido en esta página
+                    repetir_pagina = False     # se setea si recuperamos sesión
 
                     for fila in filas:
                         cuce = fila["cuce"]
@@ -830,31 +853,62 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
 
                             if items:
                                 vacios_consecutivos = 0
+                                exitos_pagina += 1
                                 insertados = procesar_e_insertar_items(items)
                                 items_pagina += insertados
                                 total_items  += insertados
+                                supabase_marcar_form(cuce, form_name)
                             elif recepciones:
                                 vacios_consecutivos = 0
+                                exitos_pagina += 1
                                 insertados = procesar_e_insertar_recepciones(recepciones)
                                 recs_pagina       += insertados
                                 total_recepciones += insertados
+                                supabase_marcar_form(cuce, form_name)
                             else:
+                                # Vacío. Solo lo marcamos como procesado si la sesión
+                                # está viva (ya hubo éxitos en esta página) o si ya
+                                # intentamos recuperar la sesión sin éxito (vacío real).
                                 vacios_consecutivos += 1
-                                if vacios_consecutivos >= 3:
-                                    pausa = random.uniform(*DELAY_RETRY)
-                                    print(f"        ⏸ 3 vacíos seguidos — pausa {pausa:.0f}s...")
-                                    await asyncio.sleep(pausa)
-                                    vacios_consecutivos = 0
+                                sesion_viva = exitos_pagina > 0 or recuperaciones_pag >= 2
+                                if sesion_viva and vacios_consecutivos < 3:
+                                    supabase_marcar_form(cuce, form_name)
+                                elif vacios_consecutivos >= 3:
+                                    if recuperaciones_pag >= 2:
+                                        # Ya recuperamos 2 veces y sigue vacío:
+                                        # son formularios genuinamente vacíos → marcar.
+                                        print(f"        ⚠️ {cuce}: vacío persistente, marcando")
+                                        supabase_marcar_form(cuce, form_name)
+                                        vacios_consecutivos = 0
+                                    else:
+                                        # Probable sesión muerta → recuperar y repetir
+                                        ok = await recuperar_sesion(
+                                            page, cuce2, cuce3, anio, estado_val, pag)
+                                        recuperaciones_pag += 1
+                                        if ok:
+                                            repetir_pagina = True
+                                        else:
+                                            pausa = random.uniform(*DELAY_RETRY)
+                                            print(f"        ⏸ pausa {pausa:.0f}s...")
+                                            await asyncio.sleep(pausa)
+                                        vacios_consecutivos = 0
+                                        break
 
-                            # Marcar form como procesado aunque haya salido vacío
-                            # (para no volver a abrirlo en re-runs)
-                            supabase_marcar_form(cuce, form_name)
                             await asyncio.sleep(random.uniform(*DELAY_FORM))
 
+                        if repetir_pagina:
+                            break
                         total_procesos += 1
+
+                    if repetir_pagina:
+                        # No avanzamos: re-extraemos la página con tokens frescos
+                        print(f"    ↻ Repitiendo página {pag} tras recuperar sesión")
+                        await asyncio.sleep(random.uniform(*DELAY_PAGINA))
+                        continue
 
                     print(f"    → {items_pagina} ítems + {recs_pagina} recepciones en pág {pag}")
                     pag += 1
+                    recuperaciones_pag = 0
                     if pag <= paginas_a_recorrer:
                         await ir_pagina(page, pag)
                         await asyncio.sleep(random.uniform(*DELAY_PAGINA))
