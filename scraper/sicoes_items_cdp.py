@@ -598,20 +598,62 @@ async def ir_pagina(page, n):
     except:
         await page.wait_for_timeout(2000)
 
+async def activar_sesion_con_formulario(page) -> bool:
+    """Abre y cierra el primer formulario visible para renovar el token de sesión.
+    Este es el paso clave descubierto: SICOES requiere una interacción real con
+    el servidor de formularios (no solo navegación) para reactivar la sesión."""
+    try:
+        primer_token = await page.evaluate(r"""
+            () => {
+                const links = document.querySelectorAll('a[onclick*="verFormulario"]');
+                if (!links.length) return null;
+                const m = (links[0].getAttribute('onclick') || '').match(/verFormulario\('([^']+)'\)/);
+                return m ? m[1] : null;
+            }
+        """)
+        if not primer_token:
+            return False
+        print("        🔑 Activando sesión con formulario...", end=" ", flush=True)
+        await page.evaluate(f"verFormulario('{primer_token}')")
+        await page.wait_for_timeout(4000)
+        # Cerrar modal sin importar si cargó o no
+        await page.evaluate("""
+            () => {
+                document.querySelectorAll('.modal').forEach(m => {
+                    m.style.display='none'; m.classList.remove('show','in');
+                });
+                document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+                document.body.classList.remove('modal-open');
+            }
+        """)
+        await page.wait_for_timeout(1500)
+        print("OK")
+        return True
+    except Exception as e:
+        print(f"fallo ({e})")
+        return False
+
 async def recuperar_sesion(page, cuce2, cuce3, anio, estado_val, pag) -> bool:
     """Re-establece la sesión de SICOES y vuelve a la página `pag`.
-    Se usa cuando varios formularios devuelven vacío (token expirado).
-    Devuelve True si logró volver a la página con resultados."""
-    print(f"\n    ♻️  Recuperando sesión (volviendo a pág {pag})...", flush=True)
+    Estrategia: espera 90s → vuelve al buscador → abre un formulario para
+    activar el token → vuelve a la página objetivo."""
+    print(f"\n    ♻️  Sesión expirada — esperando 90s antes de recuperar...", flush=True)
+    await asyncio.sleep(90)
+    print(f"    ♻️  Recuperando sesión (página {pag})...", flush=True)
     try:
         await ir_a_buscador(page)
         await buscar(page, cuce2, cuce3, anio, estado_val)
         await page.evaluate("busquedadraw('1')")
-        await page.wait_for_timeout(1500)
+        await page.wait_for_timeout(2000)
+
+        # Paso clave: abrir un formulario en página 1 para renovar el token
+        await activar_sesion_con_formulario(page)
+
+        # Volver a la página donde estábamos
         if pag > 1:
             await ir_pagina(page, pag)
-        await page.wait_for_selector("table tbody tr td", timeout=12000)
-        await page.wait_for_timeout(800)
+        await page.wait_for_selector("table tbody tr td", timeout=15000)
+        await page.wait_for_timeout(1000)
         print("    ✓ Sesión recuperada\n", flush=True)
         return True
     except Exception as e:
