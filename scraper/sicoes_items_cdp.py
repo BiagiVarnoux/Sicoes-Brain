@@ -740,46 +740,54 @@ async def _cerrar_modales(page):
         }
     """)
 
+async def _buscar_y_verificar(page, cuce2, cuce3, anio, estado_val, intentos=3) -> bool:
+    """Re-aplica el filtro de la entidad y verifica que el primer resultado
+    realmente pertenezca a ella (SICOES a veces muestra los resultados por
+    defecto antes de aplicar el filtro). Reintenta hasta `intentos` veces."""
+    ent_codigo = f"{cuce2}-{cuce3}"
+    for i in range(intentos):
+        await ir_a_buscador(page)
+        await buscar(page, cuce2, cuce3, anio, estado_val)
+        await page.evaluate("busquedadraw('1')")
+        await page.wait_for_timeout(2500)
+        try:
+            await page.wait_for_selector("#tablaAvanzada tbody tr td", timeout=15000)
+        except Exception:
+            continue
+        await page.wait_for_timeout(800)
+        primera = await page.evaluate(
+            "() => { const td = document.querySelector('#tablaAvanzada tbody tr td'); return td ? td.innerText.trim() : ''; }"
+        )
+        if ent_codigo in (primera or ""):
+            return True
+        print(f"    · filtro aún no aplica (1er resultado: {primera[:24]}) — reintento {i+1}/{intentos}", flush=True)
+        await page.wait_for_timeout(1500)
+    return False
+
 async def recuperar_sesion(page, cuce2, cuce3, anio, estado_val, pag) -> bool:
-    """Recupera la sesión de SICOES. Estrategia en dos niveles:
-
-    NIVEL 1 (preferido — no pierde el filtro):
-      La página de resultados sigue cargada con la entidad correcta. Solo
-      cerramos el modal trabado, esperamos 90s y descargamos un archivo de
-      la página actual para renovar el token. Reintentamos la MISMA página.
-
-    NIVEL 2 (fallback, solo si la página actual ya no tiene resultados):
-      reload → cerrar popup → convocatorias → re-filtrar → descargar archivo
-      → volver a la página `pag`. Verifica que los resultados sean de la
-      entidad correcta antes de dar éxito.
-
-    Devuelve True si logró renovar la sesión sobre la página correcta."""
+    """Recupera la sesión de SICOES con el flujo confirmado empíricamente:
+      1. Esperar 90s
+      2. Descargar un archivo de la página actual (renueva el token en el servidor)
+      3. RECARGAR la página (clave: solo descargar no basta, hay que refrescar)
+      4. Cerrar popup → convocatorias → re-filtrar la entidad (con verificación)
+      5. Volver a la página `pag`
+    Devuelve True si quedó sobre la página correcta de la entidad."""
     print(f"\n    ♻️  Posible sesión expirada — esperando 90s...", flush=True)
     await asyncio.sleep(90)
 
-    # ── NIVEL 1: descargar desde la página actual (sin re-navegar) ──────────
+    # 2. Descargar un archivo desde la página actual (si todavía tiene resultados)
     try:
         await _cerrar_modales(page)
-        await page.wait_for_timeout(1000)
-        hay_archivos = await page.query_selector('a[onclick*="descargarArchivo"]')
-        primera_celda = await page.evaluate(
-            "() => { const td = document.querySelector('#tablaAvanzada tbody tr td'); return td ? td.innerText.trim() : ''; }"
-        )
-        # La página actual sirve si todavía muestra resultados de la entidad.
-        # El código de entidad (CUCE2-CUCE3) aparece dentro del CUCE: aa-CUCE2-CUCE3-...
-        ent_codigo = f"{cuce2}-{cuce3}"
-        en_entidad = bool(primera_celda) and ent_codigo in primera_celda
-        if hay_archivos and en_entidad:
-            print(f"    ♻️  Recuperando en la página actual (pág {pag}, {primera_celda[:24]})...", flush=True)
-            if await descargar_archivo_cualquiera(page):
-                await page.wait_for_timeout(2000)
-                print("    ✓ Sesión recuperada (sin re-navegar)\n", flush=True)
-                return True
+        await page.wait_for_timeout(800)
+        if await page.query_selector('a[onclick*="descargarArchivo"]'):
+            print("    ♻️  Renovando token con descarga...", flush=True)
+            await descargar_archivo_cualquiera(page)
+            await page.wait_for_timeout(1500)
     except Exception as e:
-        print(f"    · nivel 1 no aplicable ({e})", flush=True)
+        print(f"    · descarga previa no aplicable ({e})", flush=True)
 
-    # ── NIVEL 2: reload completo + re-filtrar + volver a la página ──────────
-    print(f"    ♻️  Recuperación completa (reload + re-filtrar, objetivo pág {pag})...", flush=True)
+    # 3-5. Recargar + re-filtrar + volver a la página
+    print(f"    ♻️  Recargando y re-filtrando (objetivo pág {pag})...", flush=True)
     try:
         try:
             await page.reload(wait_until="domcontentloaded", timeout=60000)
@@ -788,29 +796,12 @@ async def recuperar_sesion(page, cuce2, cuce3, anio, estado_val, pag) -> bool:
                             wait_until="domcontentloaded", timeout=60000)
         await page.wait_for_timeout(2500)
 
-        await ir_a_buscador(page)
-        await buscar(page, cuce2, cuce3, anio, estado_val)
-        await page.evaluate("busquedadraw('1')")
-        await page.wait_for_timeout(2500)
-        # Selector específico de la tabla de resultados (no cualquier tabla)
-        await page.wait_for_selector("#tablaAvanzada tbody tr td", timeout=15000)
-        await page.wait_for_timeout(800)
+        if not await _buscar_y_verificar(page, cuce2, cuce3, anio, estado_val):
+            print("    ✗ No se pudo re-aplicar el filtro de la entidad", flush=True)
+            return False
 
-        # Verificar que el filtro se aplicó (primer CUCE de la entidad correcta)
-        primera_celda = await page.evaluate(
-            "() => { const td = document.querySelector('#tablaAvanzada tbody tr td'); return td ? td.innerText.trim() : ''; }"
-        )
-        ent_codigo = f"{cuce2}-{cuce3}"
-        if ent_codigo not in (primera_celda or ""):
-            print(f"    ✗ El filtro no se aplicó (primer resultado: {primera_celda[:24]}) — reintentando búsqueda", flush=True)
-            await buscar(page, cuce2, cuce3, anio, estado_val)
-            await page.evaluate("busquedadraw('1')")
-            await page.wait_for_timeout(2500)
-            await page.wait_for_selector("#tablaAvanzada tbody tr td", timeout=15000)
-
-        # Descargar archivo para renovar token
-        if not await descargar_archivo_cualquiera(page):
-            await activar_sesion_con_formulario(page)
+        # Descargar un archivo más, ya sobre la página filtrada (refuerza el token)
+        await descargar_archivo_cualquiera(page)
         await page.wait_for_timeout(1500)
 
         # Volver a la página donde estábamos
@@ -818,7 +809,7 @@ async def recuperar_sesion(page, cuce2, cuce3, anio, estado_val, pag) -> bool:
             await ir_pagina(page, pag)
         await page.wait_for_selector("#tablaAvanzada tbody tr td", timeout=15000)
         await page.wait_for_timeout(1000)
-        print("    ✓ Sesión recuperada (recuperación completa)\n", flush=True)
+        print("    ✓ Sesión recuperada\n", flush=True)
         return True
     except Exception as e:
         print(f"    ✗ No se pudo recuperar sesión: {e}\n", flush=True)
@@ -1051,6 +1042,7 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
                     vacios_consecutivos = 0
                     exitos_pagina = 0          # forms con contenido en esta página
                     repetir_pagina = False     # se setea si recuperamos sesión
+                    saltar_pagina  = False     # se setea si hay demasiadas recuperaciones
 
                     for fila in filas:
                         cuce = fila["cuce"]
@@ -1086,37 +1078,34 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
                                 total_recepciones += insertados
                                 supabase_marcar_form(cuce, form_name)
                             else:
-                                # Vacío. Solo lo marcamos como procesado si la sesión
-                                # está viva (ya hubo éxitos en esta página) o si ya
-                                # intentamos recuperar la sesión sin éxito (vacío real).
+                                # Form vacío: NUNCA lo marcamos como procesado.
+                                # Un vacío = carga lenta o sesión muerta, no un form
+                                # genuinamente sin datos (FORM200/220/500 de contratados
+                                # siempre tienen contenido). Queda pendiente y se reintenta
+                                # —en esta página tras recuperar, o en la próxima corrida—.
                                 vacios_consecutivos += 1
-                                sesion_viva = exitos_pagina > 0 or recuperaciones_pag >= 2
-                                if sesion_viva and vacios_consecutivos < 3:
-                                    supabase_marcar_form(cuce, form_name)
-                                elif vacios_consecutivos >= 3:
-                                    if recuperaciones_pag >= 2:
-                                        # Ya recuperamos 2 veces y sigue vacío:
-                                        # son formularios genuinamente vacíos → marcar.
-                                        print(f"        ⚠️ {cuce}: vacío persistente, marcando")
-                                        supabase_marcar_form(cuce, form_name)
-                                        vacios_consecutivos = 0
-                                    else:
-                                        # Probable sesión muerta → recuperar y repetir
-                                        ok = await recuperar_sesion(
-                                            page, cuce2, cuce3, anio, estado_val, pag)
-                                        recuperaciones_pag += 1
-                                        if ok:
-                                            repetir_pagina = True
-                                        else:
-                                            pausa = random.uniform(*DELAY_RETRY)
-                                            print(f"        ⏸ pausa {pausa:.0f}s...")
-                                            await asyncio.sleep(pausa)
-                                        vacios_consecutivos = 0
+                                print(f"        ⚠️ {cuce}/{form_name}: vacío — NO se marca, se reintentará")
+                                if vacios_consecutivos >= 2:
+                                    if recuperaciones_pag >= 3:
+                                        print(f"    ⚠️ Demasiadas recuperaciones en pág {pag} — sigo a la próxima; "
+                                              f"los forms pendientes se reintentarán en otra corrida")
+                                        saltar_pagina = True
                                         break
+                                    # Probable sesión muerta → recuperar (descarga + reload + refiltrar)
+                                    ok = await recuperar_sesion(
+                                        page, cuce2, cuce3, anio, estado_val, pag)
+                                    recuperaciones_pag += 1
+                                    vacios_consecutivos = 0
+                                    repetir_pagina = True  # re-extraer la página y reintentar pendientes
+                                    if not ok:
+                                        pausa = random.uniform(*DELAY_RETRY)
+                                        print(f"        ⏸ pausa {pausa:.0f}s...")
+                                        await asyncio.sleep(pausa)
+                                    break
 
                             await asyncio.sleep(random.uniform(*DELAY_FORM))
 
-                        if repetir_pagina:
+                        if repetir_pagina or saltar_pagina:
                             break
                         total_procesos += 1
 
@@ -1125,6 +1114,9 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
                         print(f"    ↻ Repitiendo página {pag} tras recuperar sesión")
                         await asyncio.sleep(random.uniform(*DELAY_PAGINA))
                         continue
+
+                    if saltar_pagina:
+                        print(f"    ⏭ Saltando resto de pág {pag} (pendientes quedan sin marcar)")
 
                     print(f"    → {items_pagina} ítems + {recs_pagina} recepciones en pág {pag}")
                     pag += 1
