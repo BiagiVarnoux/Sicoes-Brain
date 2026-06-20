@@ -28,6 +28,7 @@ import json
 import argparse
 import os
 import random
+import time
 import urllib.request
 import urllib.error
 import urllib.parse
@@ -75,15 +76,35 @@ def _headers(extra: dict = {}) -> dict:
     base.update(extra)
     return base
 
+def _urlopen_retry(req, timeout: int = 15, intentos: int = 4):
+    """Abre la request reintentando ante errores de red transitorios
+    (Connection reset, timeouts, DNS, etc.) con backoff 1/2/4/8s.
+    Los HTTPError (respuestas del servidor 4xx/5xx) NO se reintentan: se
+    relanzan para que el caller los maneje."""
+    ultimo = None
+    for i in range(intentos):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.status, r.read()
+        except urllib.error.HTTPError:
+            raise
+        except Exception as e:
+            ultimo = e
+            espera = 2 ** i
+            print(f"        ⚠ red falló ({type(e).__name__}: {e}); reintento {i+1}/{intentos} en {espera}s...",
+                  flush=True)
+            time.sleep(espera)
+    raise ultimo
+
 def supabase_get(path: str) -> list:
     req = urllib.request.Request(
         f"{SUPABASE_URL}/rest/v1/{path}",
         headers={"apikey": SUPABASE_KEY, "Authorization": f"Bearer {SUPABASE_KEY}"},
     )
     try:
-        with urllib.request.urlopen(req, timeout=10) as r:
-            return json.loads(r.read())
-    except:
+        _status, body = _urlopen_retry(req, timeout=15)
+        return json.loads(body)
+    except Exception:
         return []
 
 def supabase_post(tabla: str, rows: list, prefer: str = "resolution=ignore-duplicates,return=minimal",
@@ -100,11 +121,14 @@ def supabase_post(tabla: str, rows: list, prefer: str = "resolution=ignore-dupli
         headers=_headers({"Prefer": prefer}),
     )
     try:
-        with urllib.request.urlopen(req, timeout=15) as r:
-            body = r.read()
-            return {"status": r.status, "count": len(rows), "data": json.loads(body) if body else []}
+        status, body = _urlopen_retry(req, timeout=20)
+        return {"status": status, "count": len(rows), "data": json.loads(body) if body else []}
     except urllib.error.HTTPError as e:
         return {"error": e.read().decode()}
+    except Exception as e:
+        # Red caída tras reintentos — no crashea, devuelve error para que el
+        # caller no marque el form como procesado y se reintente en otra corrida.
+        return {"error": f"red: {e}"}
 
 def supabase_patch(tabla: str, filters: str, payload: dict) -> None:
     req = urllib.request.Request(
@@ -114,9 +138,8 @@ def supabase_patch(tabla: str, filters: str, payload: dict) -> None:
         headers=_headers(),
     )
     try:
-        with urllib.request.urlopen(req, timeout=10):
-            pass
-    except:
+        _urlopen_retry(req, timeout=15)
+    except Exception:
         pass
 
 def nombre_proveedor_valido(nombre: str) -> str | None:
@@ -166,8 +189,8 @@ def supabase_guardar_html_crudo(cuce: str, tipo_formulario: str, token: str, htm
         headers=_headers({"Prefer": "resolution=merge-duplicates,return=minimal"}),
     )
     try:
-        with urllib.request.urlopen(req, timeout=20):
-            return True
+        _urlopen_retry(req, timeout=25)
+        return True
     except urllib.error.HTTPError as e:
         print(f"        ⚠ html crudo no guardado: {e.read().decode()[:120]}")
         return False
@@ -191,9 +214,8 @@ def supabase_marcar_form(cuce: str, form_name: str) -> None:
         headers=_headers(),
     )
     try:
-        with urllib.request.urlopen(req, timeout=10):
-            pass
-    except:
+        _urlopen_retry(req, timeout=15)
+    except Exception:
         # Fallback: leer, agregar, escribir
         forms = list(supabase_forms_procesados(cuce))
         if form_name not in forms:
