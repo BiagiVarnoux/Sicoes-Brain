@@ -86,11 +86,15 @@ def supabase_get(path: str) -> list:
     except:
         return []
 
-def supabase_post(tabla: str, rows: list, prefer: str = "resolution=ignore-duplicates,return=minimal") -> dict:
+def supabase_post(tabla: str, rows: list, prefer: str = "resolution=ignore-duplicates,return=minimal",
+                  on_conflict: str = "") -> dict:
     if not rows:
         return {"count": 0}
+    url = f"{SUPABASE_URL}/rest/v1/{tabla}"
+    if on_conflict:
+        url += f"?on_conflict={on_conflict}"
     req = urllib.request.Request(
-        f"{SUPABASE_URL}/rest/v1/{tabla}",
+        url,
         data=json.dumps(rows).encode(),
         method="POST",
         headers=_headers({"Prefer": prefer}),
@@ -504,6 +508,7 @@ def parsear_form500(html: str, cuce: str) -> list[dict]:
             cat, desc = parsear_descripcion(str(celdas[4]))
             rec = {
                 "cuce": cuce,
+                "nro_linea": int(nro_text),
                 "nro_contrato": limpiar(celdas[1].get_text()) or None,
                 "fecha_firma_contrato": parse_fecha(celdas[2].get_text()),
                 "descripcion_bien": armar_descripcion(cat, desc),
@@ -573,10 +578,22 @@ def procesar_e_insertar_recepciones(recs_raw: list) -> int:
             if prov_id:
                 row["proveedor_id"] = prov_id
         recs_limpias.append(row)
+
+    # Deduplicar por (cuce, fuente_formulario, nro_linea) antes de insertar
+    seen = set()
+    deduped = []
+    for row in recs_limpias:
+        key = (row.get("cuce"), row.get("fuente_formulario"), row.get("nro_linea"))
+        if key not in seen:
+            seen.add(key)
+            deduped.append(row)
+    recs_limpias = deduped
+
     todas_claves = set().union(*[r.keys() for r in recs_limpias])
     recs_limpias = [{k: r.get(k, None) for k in todas_claves} for r in recs_limpias]
 
-    result = supabase_post("recepciones", recs_limpias)
+    result = supabase_post("recepciones", recs_limpias,
+                           on_conflict="cuce,fuente_formulario,nro_linea")
     if "error" in result:
         print(f"        ✗ recepcion insert error: {result['error'][:120]}")
         return 0
