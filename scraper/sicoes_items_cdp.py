@@ -1086,14 +1086,21 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
                                 insertados = procesar_e_insertar_items(items)
                                 items_pagina += insertados
                                 total_items  += insertados
-                                supabase_marcar_form(cuce, form_name)
+                                # Solo marcar si el insert tuvo éxito (no error de DB)
+                                if insertados > 0:
+                                    supabase_marcar_form(cuce, form_name)
+                                else:
+                                    print(f"        ⚠️ {cuce}/{form_name}: insert sin éxito — NO se marca")
                             elif recepciones:
                                 vacios_consecutivos = 0
                                 exitos_pagina += 1
                                 insertados = procesar_e_insertar_recepciones(recepciones)
                                 recs_pagina       += insertados
                                 total_recepciones += insertados
-                                supabase_marcar_form(cuce, form_name)
+                                if insertados > 0:
+                                    supabase_marcar_form(cuce, form_name)
+                                else:
+                                    print(f"        ⚠️ {cuce}/{form_name}: insert sin éxito — NO se marca")
                             else:
                                 # Form vacío: NUNCA lo marcamos como procesado.
                                 # Un vacío = carga lenta o sesión muerta, no un form
