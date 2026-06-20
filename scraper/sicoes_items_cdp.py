@@ -1063,10 +1063,17 @@ async def _abrir_form_intento(page, token: str, timeout_ms: int) -> str:
     """)
     return html or ""
 
-async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> tuple[list, list]:
-    """Devuelve (items, recepciones).
-    Reintenta una vez si el formulario no carga a tiempo — muchos 'sin contenido'
-    son falsos negativos (el form tarda más en cargar de lo esperado)."""
+async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> tuple[list, list, str]:
+    """Devuelve (items, recepciones, estado_carga).
+
+    estado_carga distingue tres situaciones:
+      - "ok"          → el form cargó y trajo datos
+      - "vacio_real"  → el form cargó (HTML válido) pero sin filas. NO es un
+                        error de sesión: típico de un FORM500 cuyos bienes aún no
+                        se entregaron. Se re-chequea en otra corrida.
+      - "fallo_carga" → el modal no cargó tras reintento (sesión lenta/muerta).
+
+    Reintenta una vez si el formulario no carga a tiempo."""
     print(f"        {form_name}...", end=" ", flush=True)
 
     # Intento 1 (25s). Si falla, cerrar, esperar y reintentar con más tiempo (30s).
@@ -1080,7 +1087,7 @@ async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> tuple
     if not html or len(html) < 100:
         print("sin contenido (tras reintento)")
         await _cerrar_modales(page)
-        return [], []
+        return [], [], "fallo_carga"
 
     # Guardar el HTML crudo SIEMPRE antes de parsear — así queda disponible para
     # reprocesar con IA aunque el parser tenga un bug o cambie el layout.
@@ -1118,12 +1125,18 @@ async def abrir_formulario(page, token: str, form_name: str, cuce: str) -> tuple
     """)
     await page.wait_for_timeout(random.randint(800, 1800))
 
+    # El HTML cargó bien (lo guardamos). Si no hay filas → vacío real (no sesión).
+    estado_carga = "ok" if (items or recepciones) else "vacio_real"
+
     if form_name == "FORM500":
-        print(f"{len(recepciones)} recepciones")
+        if recepciones:
+            print(f"{len(recepciones)} recepciones")
+        else:
+            print("0 recepciones (sin entrega aún)")
     else:
         print(f"{len(items)} ítems")
 
-    return items, recepciones
+    return items, recepciones, estado_carga
 
 # ─── MAIN ─────────────────────────────────────────────────────────────────────
 
@@ -1238,7 +1251,7 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
 
                         for form_name in sorted(forms_pendientes):
                             token = tokens[form_name]
-                            items, recepciones = await abrir_formulario(page, token, form_name, cuce)
+                            items, recepciones, estado_carga = await abrir_formulario(page, token, form_name, cuce)
 
                             if items:
                                 vacios_consecutivos = 0
@@ -1261,14 +1274,21 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
                                     supabase_marcar_form(cuce, form_name)
                                 else:
                                     print(f"        ⚠️ {cuce}/{form_name}: insert sin éxito — NO se marca")
+                            elif estado_carga == "vacio_real":
+                                # El form CARGÓ bien pero sin filas. NO es problema de
+                                # sesión. Caso típico: FORM500 cuyos bienes aún no se
+                                # entregaron. No marcamos (se re-chequea en otra corrida)
+                                # y NO disparamos recuperación. La sesión está viva.
+                                exitos_pagina += 1
+                                vacios_consecutivos = 0
+                                print(f"        ℹ️ {cuce}/{form_name}: cargó vacío (ej. sin entrega aún) — "
+                                      f"se re-chequeará en otra corrida")
                             else:
-                                # Form vacío: NUNCA lo marcamos como procesado.
-                                # Un vacío = carga lenta o sesión muerta, no un form
-                                # genuinamente sin datos (FORM200/220/500 de contratados
-                                # siempre tienen contenido). Queda pendiente y se reintenta
-                                # —en esta página tras recuperar, o en la próxima corrida—.
+                                # estado_carga == "fallo_carga": el modal NO cargó.
+                                # Probable sesión lenta/muerta. NUNCA marcamos; queda
+                                # pendiente y se reintenta tras recuperar o en otra corrida.
                                 vacios_consecutivos += 1
-                                print(f"        ⚠️ {cuce}/{form_name}: vacío — NO se marca, se reintentará")
+                                print(f"        ⚠️ {cuce}/{form_name}: no cargó — NO se marca, se reintentará")
                                 if vacios_consecutivos >= 2:
                                     if recuperaciones_pag >= 3:
                                         print(f"    ⚠️ Demasiadas recuperaciones en pág {pag} — sigo a la próxima; "
