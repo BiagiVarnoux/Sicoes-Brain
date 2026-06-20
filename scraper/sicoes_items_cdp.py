@@ -47,8 +47,93 @@ SUPABASE_KEY = os.environ["SUPABASE_KEY"]
 
 CDP_URL = "http://localhost:9222"
 
-ENTIDADES_PRUEBA = [
+# 84 entidades de salud. Se selecciona cuáles correr con --entidades (por código),
+# o se corren todas si no se pasa el flag.
+ENTIDADES = [
+    {"codigo": "0046-22", "nombre": "Seguro Social Universitario Sucre"},
+    {"codigo": "0424-04", "nombre": "Caja De Salud Cordes Regional Sucre"},
+    {"codigo": "1101-04", "nombre": "Hospital San Pedro Claver"},
+    {"codigo": "1101-05", "nombre": "Hospital Materno Infantil Poconas"},
+    {"codigo": "0418-11", "nombre": "Caja Petrolera De Salud Sucre"},
+    {"codigo": "1101-06", "nombre": "Establecimientos De Salud Primer Nivel Chuquisaca"},
+    {"codigo": "0417-06", "nombre": "Caja Nacional De Salud Regional Chuquisaca"},
+    {"codigo": "0901-02", "nombre": "Servicio Departamental De Salud Chuquisaca"},
+    {"codigo": "0902-35", "nombre": "Banco De Sangre El Alto"},
+    {"codigo": "0046-37", "nombre": "Agemed"},
+    {"codigo": "0902-34", "nombre": "Hospital El Alto Sur"},
+    {"codigo": "0046-20", "nombre": "Seguro Social Universitario La Paz"},
+    {"codigo": "0902-43", "nombre": "Hospital Del Norte"},
+    {"codigo": "0417-09", "nombre": "Caja Nacional De Salud Regional La Paz"},
+    {"codigo": "0418-02", "nombre": "Caja Petrolera De Salud La Paz"},
+    {"codigo": "0418-00", "nombre": "Caja Petrolera De Salud Nacional"},
+    {"codigo": "0249-00", "nombre": "Central De Abastecimiento Y Suministros De Salud"},
+    {"codigo": "0390-00", "nombre": "Instituto Gastroenterologico Del Bicentenario"},
+    {"codigo": "0902-01", "nombre": "Servicio Departamental De Salud La Paz"},
+    {"codigo": "0382-00", "nombre": "Agencia De Infraestructura En Salud"},
+    {"codigo": "0046-00", "nombre": "Ministerio De Salud Y Deportes"},
+    {"codigo": "0411-00", "nombre": "Cossmil"},
+    {"codigo": "0902-40", "nombre": "Hospital Del Nino Ovidio Aliaga"},
+    {"codigo": "0046-26", "nombre": "Inlasa"},
+    {"codigo": "0046-45", "nombre": "Escuela Nacional De Salud"},
+    {"codigo": "0423-00", "nombre": "Caja De Salud De Caminos"},
+    {"codigo": "0902-21", "nombre": "Hospital De Clinicas"},
+    {"codigo": "0902-39", "nombre": "Hospital De La Mujer"},
+    {"codigo": "0015-04", "nombre": "Direccion Nacional De Salud Policia Nacional"},
+    {"codigo": "0902-03", "nombre": "Inamen"},
+    {"codigo": "0424-01", "nombre": "Caja De Salud Cordes Regional La Paz"},
+    {"codigo": "0422-00", "nombre": "Caja Bancaria Estatal De Salud"},
+    {"codigo": "0251-00", "nombre": "Instituto Nacional De Salud Ocupacional"},
+    {"codigo": "0417-00", "nombre": "Caja Nacional De Salud CNS"},
+    {"codigo": "0417-04", "nombre": "Caja Nacional De Salud Regional Cochabamba"},
+    {"codigo": "0903-18", "nombre": "Hospital Materno Infantil German Urquidi"},
+    {"codigo": "0418-40", "nombre": "Instituto Oncologico Nacional"},
+    {"codigo": "0046-13", "nombre": "Escuela Tecnica De Salud Boliviano Japonesa"},
+    {"codigo": "0424-08", "nombre": "Caja De Salud Cordes Regional Cochabamba"},
+    {"codigo": "0903-17", "nombre": "Hospital Del Nino Manuel Ascencio Villarroel"},
+    {"codigo": "0903-19", "nombre": "Hospital Clinico Viedma"},
+    {"codigo": "0046-21", "nombre": "Seguro Social Universitario Cochabamba"},
+    {"codigo": "0903-16", "nombre": "Servicio Departamental De Salud Cochabamba"},
+    {"codigo": "0903-20", "nombre": "Hospital Villa Tunari"},
+    {"codigo": "0418-03", "nombre": "Caja Petrolera De Salud Cochabamba"},
+    {"codigo": "0904-04", "nombre": "Hospital General San Juan De Dios"},
+    {"codigo": "0417-05", "nombre": "Caja Nacional De Salud Regional Oruro"},
+    {"codigo": "0426-00", "nombre": "Seguro Social Universitario Oruro"},
+    {"codigo": "1401-03", "nombre": "Secretaria Municipal De Salud Oruro"},
+    {"codigo": "0904-03", "nombre": "Servicio Departamental De Salud Oruro"},
+    {"codigo": "0418-24", "nombre": "Caja Petrolera De Salud Oruro"},
+    {"codigo": "0905-11", "nombre": "Servicio Departamental De Salud Potosi"},
+    {"codigo": "0418-35", "nombre": "Caja Petrolera De Salud Potosi"},
+    {"codigo": "0905-07", "nombre": "Hospital Tercer Nivel Potosi"},
+    {"codigo": "0433-00", "nombre": "Seguro Social Universitario Potosi"},
+    {"codigo": "1501-05", "nombre": "Direccion Tecnica Municipal De Salud Potosi"},
+    {"codigo": "0417-08", "nombre": "Caja Nacional De Salud Regional Potosi"},
     {"codigo": "0905-09", "nombre": "Hospital Daniel Bracamonte"},
+    {"codigo": "0418-36", "nombre": "Caja Petrolera De Salud Villamontes"},
+    {"codigo": "0418-37", "nombre": "Caja Petrolera De Salud Bermejo"},
+    {"codigo": "0418-38", "nombre": "Caja Petrolera De Salud Yacuiba"},
+    {"codigo": "0906-03", "nombre": "Servicio Departamental De Salud Tarija"},
+    {"codigo": "0906-38", "nombre": "Hospital Virgen De Chaguaya"},
+    {"codigo": "0424-07", "nombre": "Caja De Salud Cordes Regional Tarija"},
+    {"codigo": "0432-00", "nombre": "Seguro Social Universitario Tarija"},
+    {"codigo": "0417-01", "nombre": "Caja Nacional De Salud Regional Tarija"},
+    {"codigo": "0906-39", "nombre": "Hospital Materno Infantil Jijena Duran"},
+    {"codigo": "0418-16", "nombre": "Caja Petrolera De Salud Tarija"},
+    {"codigo": "0417-03", "nombre": "Caja Nacional De Salud Regional Santa Cruz"},
+    {"codigo": "0418-10", "nombre": "Caja Petrolera De Salud Camiri"},
+    {"codigo": "0435-00", "nombre": "Seguro Integral De Salud Sinec"},
+    {"codigo": "0418-07", "nombre": "Caja Petrolera De Salud Santa Cruz"},
+    {"codigo": "0424-06", "nombre": "Caja De Salud Cordes Regional Santa Cruz"},
+    {"codigo": "0424-03", "nombre": "Caja De Salud Cordes Regional Guabira"},
+    {"codigo": "0046-31", "nombre": "Seguro Social Universitario Santa Cruz"},
+    {"codigo": "0418-28", "nombre": "Caja Petrolera De Salud Trinidad"},
+    {"codigo": "0424-05", "nombre": "Caja De Salud Cordes Regional Trinidad"},
+    {"codigo": "0908-36", "nombre": "Hospital Materno Infantil Boliviano Japones"},
+    {"codigo": "0417-07", "nombre": "Caja Nacional De Salud Regional Beni"},
+    {"codigo": "0908-06", "nombre": "Servicio Departamental De Salud Beni"},
+    {"codigo": "0908-35", "nombre": "Hospital Presidente German Busch"},
+    {"codigo": "0434-00", "nombre": "Seguro Social Universitario Beni"},
+    {"codigo": "0417-02", "nombre": "Caja Nacional De Salud Regional Cobija"},
+    {"codigo": "0424-02", "nombre": "Caja De Salud Cordes Regional Cobija"},
 ]
 
 ANIO = 2024
@@ -222,6 +307,43 @@ def supabase_marcar_form(cuce: str, form_name: str) -> None:
             forms.append(form_name)
             supabase_patch("procesos", f"cuce=eq.{urllib.parse.quote(cuce)}",
                           {"forms_procesados": forms, "items_procesados": True})
+
+def _parse_cuce_partes(cuce: str):
+    """'24-0905-09-1509184-1-1' → (anio=2024, convocatoria=1, version=1)."""
+    partes = cuce.split("-")
+    anio = conv = ver = None
+    if len(partes) >= 6:
+        if partes[0].isdigit():
+            anio = 2000 + int(partes[0])
+        if partes[4].isdigit():
+            conv = int(partes[4])
+        if partes[5].isdigit():
+            ver = int(partes[5])
+    return anio, conv, ver
+
+def supabase_upsert_proceso(fila: dict, ent_codigo: str) -> None:
+    """Inserta/actualiza el proceso en la tabla `procesos` con los datos de la
+    fila de resultados. Hace al scraper auto-suficiente: no depende del scraper
+    de convocatorias ni de re-importar CSV — captura procesos nuevos al vuelo.
+    NO toca forms_procesados (merge-duplicates solo actualiza las claves enviadas)."""
+    cuce = fila["cuce"]
+    anio, conv, ver = _parse_cuce_partes(cuce)
+    row = {
+        "cuce": cuce,
+        "entidad_codigo": ent_codigo,
+        "entidad_nombre": fila.get("entidad_nombre") or None,
+        "objeto": fila.get("objeto") or None,
+        "modalidad": fila.get("modalidad") or None,
+        "tipo_contratacion": fila.get("tipo_contratacion") or None,
+        "estado": fila.get("estado") or None,
+        "fecha_publicacion": parse_fecha(fila.get("fecha_publicacion")),
+        "fecha_presentacion": parse_fecha(fila.get("fecha_presentacion")),
+        "cuce_anio": anio, "cuce_convocatoria": conv, "cuce_version": ver,
+    }
+    row = {k: v for k, v in row.items() if v is not None}
+    supabase_post("procesos", [row],
+                  prefer="resolution=merge-duplicates,return=minimal",
+                  on_conflict="cuce")
 
 # ─── HELPERS ──────────────────────────────────────────────────────────────────
 
@@ -894,7 +1016,12 @@ async def extraer_filas(page, ent_codigo: str) -> list[dict]:
             partes = cuce.split("-")
             if len(partes) >= 3 and f"{partes[1]}-{partes[2]}" != ent_codigo:
                 continue
+            entidad_nombre = limpiar(await celdas[1].inner_text()) if len(celdas) > 1 else ""
+            tipo_contratacion = limpiar(await celdas[2].inner_text()) if len(celdas) > 2 else ""
             modalidad = limpiar(await celdas[3].inner_text())
+            objeto = limpiar(await celdas[4].inner_text()) if len(celdas) > 4 else ""
+            fecha_publicacion = limpiar(await celdas[6].inner_text()) if len(celdas) > 6 else ""
+            fecha_presentacion = limpiar(await celdas[7].inner_text()) if len(celdas) > 7 else ""
             estado = limpiar(await celdas[8].inner_text())
             if not any(s in estado.lower() for s in ["contratado", "desierto", "adjudicado"]):
                 continue
@@ -907,7 +1034,12 @@ async def extraer_filas(page, ent_codigo: str) -> list[dict]:
             if not tokens:
                 continue
             print(f"      {cuce}: {list(tokens.keys())} [{estado}]")
-            filas_data.append({"cuce": cuce, "modalidad": modalidad, "estado": estado, "tokens": tokens})
+            filas_data.append({
+                "cuce": cuce, "modalidad": modalidad, "estado": estado, "tokens": tokens,
+                "entidad_nombre": entidad_nombre, "tipo_contratacion": tipo_contratacion,
+                "objeto": objeto, "fecha_publicacion": fecha_publicacion,
+                "fecha_presentacion": fecha_presentacion,
+            })
     except Exception as e:
         print(f"    Error extrayendo filas: {e}")
     return filas_data
@@ -1086,6 +1218,12 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
                     for fila in filas:
                         cuce = fila["cuce"]
                         tokens = fila["tokens"]
+
+                        # Opción B: upsert del proceso ANTES de los ítems. Garantiza
+                        # que la fila exista en `procesos` (satisface la FK) y captura
+                        # procesos nuevos que aún no estén en la base.
+                        supabase_upsert_proceso(fila, ent["codigo"])
+
                         forms_ya_hechos = supabase_forms_procesados(cuce)
 
                         # Determinar qué forms de esta fila todavía no procesamos
@@ -1175,14 +1313,41 @@ async def scraping(entidades: list, anio: int, max_paginas: int):
         print(f"COMPLETADO — Procesos: {total_procesos} | Ítems: {total_items} | Recepciones: {total_recepciones}")
 
 
+def seleccionar_entidades(codigos_csv: str) -> list:
+    """Filtra ENTIDADES según los códigos pasados en --entidades (separados por
+    coma). Si no se pasa nada, devuelve TODAS. Mantiene el orden de la lista."""
+    if not codigos_csv:
+        return ENTIDADES
+    pedidos = [c.strip() for c in codigos_csv.split(",") if c.strip()]
+    seleccionadas = [e for e in ENTIDADES if e["codigo"] in pedidos]
+    # Avisar si algún código no se encontró
+    encontrados = {e["codigo"] for e in seleccionadas}
+    for c in pedidos:
+        if c not in encontrados:
+            print(f"⚠️  Código de entidad no reconocido (se ignora): {c}")
+    return seleccionadas
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="SICOES Items Scraper v2 (CDP)")
     parser.add_argument("--max-paginas", type=int, default=0,
                         help="Cap de páginas por estado/entidad (default: 0 = sin límite, usa paginador real)")
     parser.add_argument("--anio", type=int, default=2024,
                         help="Año CUCE a scrapear (default: 2024)")
+    parser.add_argument("--entidades", type=str, default="0905-09",
+                        help="Códigos de entidad separados por coma (ej: '0905-09,0046-22'). "
+                             "Usar 'all' para TODAS las 84. Default: solo Bracamonte (0905-09).")
     args = parser.parse_args()
+
+    if args.entidades.strip().lower() == "all":
+        entidades_sel = ENTIDADES
+    else:
+        entidades_sel = seleccionar_entidades(args.entidades)
+
+    if not entidades_sel:
+        print("❌ Ninguna entidad seleccionada. Revisá --entidades.")
+        raise SystemExit(1)
 
     cap = f"cap {args.max_paginas} págs" if args.max_paginas else "sin límite de páginas"
     print(f"SICOES Items Scraper v2 — año {args.anio} | {cap}")
-    asyncio.run(scraping(ENTIDADES_PRUEBA, args.anio, args.max_paginas))
+    print(f"Entidades ({len(entidades_sel)}): {', '.join(e['codigo'] for e in entidades_sel)}")
+    asyncio.run(scraping(entidades_sel, args.anio, args.max_paginas))
