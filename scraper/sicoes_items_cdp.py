@@ -209,7 +209,11 @@ def supabase_post(tabla: str, rows: list, prefer: str = "resolution=ignore-dupli
         status, body = _urlopen_retry(req, timeout=20)
         return {"status": status, "count": len(rows), "data": json.loads(body) if body else []}
     except urllib.error.HTTPError as e:
-        return {"error": e.read().decode()}
+        try:
+            body = e.read().decode()
+        except Exception:
+            body = f"HTTP {e.code} (cuerpo ilegible — red caída)"
+        return {"error": body}
     except Exception as e:
         # Red caída tras reintentos — no crashea, devuelve error para que el
         # caller no marque el form como procesado y se reintente en otra corrida.
