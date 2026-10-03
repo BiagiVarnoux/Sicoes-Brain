@@ -183,23 +183,27 @@ def fila_para_db(c: dict) -> dict:
 
 
 async def descargar_dbcs(page, relevantes: list[dict]):
-    """Descarga todos los archivos de cada convocatoria relevante."""
-    print(f"\n  ⬇ Descargando DBC de {len(relevantes)} convocatorias relevantes...", flush=True)
+    """Descarga los archivos de cada convocatoria relevante, los convierte a PDF
+    (los Word), los renombra según la convención y los sube a Supabase Storage."""
+    import dbc_store
+    print(f"\n  ⬇ Descargando + subiendo DBC de {len(relevantes)} convocatorias relevantes...", flush=True)
     for c in relevantes:
         cuce = c.get("cuce")
+        modalidad = c.get("modalidad", "")
         archivos = c.get("archivos", [])
         if not archivos:
             print(f"    · {cuce}: sin archivos", flush=True)
             continue
         carpeta = os.path.join(DIR_DBC, cuce.replace("/", "_"))
-        bajados = 0
+        locales = []
         for a in archivos:
             ruta = await nav.descargar_token(page, a["token"], carpeta, a.get("nombre", ""))
             if ruta:
-                bajados += 1
-        if bajados:
-            db.marcar_dbc(cuce, carpeta)
-        print(f"    · {cuce}: {bajados}/{len(archivos)} archivo(s)", flush=True)
+                locales.append({"ruta": ruta, "nombre": a.get("nombre", "")})
+        subidos = dbc_store.procesar(cuce, modalidad, locales) if locales else []
+        if subidos:
+            db.marcar_dbc(cuce, carpeta, subidos)
+        print(f"    · {cuce}: {len(locales)} bajado(s), {len(subidos)} subido(s) a Storage", flush=True)
 
 
 async def correr(desde: str, hasta: str, max_paginas: int, usar_ia: bool, descargar: bool):

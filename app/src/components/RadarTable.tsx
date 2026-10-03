@@ -97,9 +97,22 @@ export default function RadarTable({ rows }: { rows: ConvocatoriaRadar[] }) {
                     )}
                   </div>
                 </td>
-                <td className="px-3 py-3 whitespace-nowrap text-xs">
-                  {r.dbc_descargado ? (
-                    <span className="text-emerald-600">✓ {(r.archivos ?? []).length} arch.</span>
+                <td className="px-3 py-3 text-xs max-w-[200px]">
+                  {(r.dbc_archivos ?? []).length > 0 ? (
+                    <div className="flex flex-col gap-1">
+                      {(r.dbc_archivos ?? []).map((a, i) => (
+                        <a
+                          key={i}
+                          href={a.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 hover:underline truncate"
+                          title={a.nombre}
+                        >
+                          ⬇ {a.nombre}
+                        </a>
+                      ))}
+                    </div>
                   ) : (
                     <span className="text-gray-400">{(r.archivos ?? []).length} arch.</span>
                   )}

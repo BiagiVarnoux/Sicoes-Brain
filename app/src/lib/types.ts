@@ -28,6 +28,7 @@ export type ConvocatoriaRadar = {
   match_ia_razon: string | null
   relevante: boolean
   archivos: { nombre: string; token: string }[] | null
+  dbc_archivos: { nombre: string; url: string }[] | null
   dbc_path: string | null
   dbc_descargado: boolean
   visto: boolean

@@ -85,11 +85,14 @@ def upsert(rows: list[dict]) -> dict:
         return {"error": f"red: {e}"}
 
 
-def marcar_dbc(cuce: str, dbc_path: str) -> None:
-    """Actualiza la ruta del DBC descargado para un CUCE."""
+def marcar_dbc(cuce: str, dbc_path: str, dbc_archivos: list | None = None) -> None:
+    """Actualiza la ruta local y los archivos subidos (URLs) del DBC para un CUCE."""
+    payload = {"dbc_path": dbc_path, "dbc_descargado": True}
+    if dbc_archivos is not None:
+        payload["dbc_archivos"] = dbc_archivos
     req = urllib.request.Request(
         f"{SUPABASE_URL}/rest/v1/{TABLA}?cuce=eq.{urllib.parse.quote(cuce)}",
-        data=json.dumps({"dbc_path": dbc_path, "dbc_descargado": True}).encode(),
+        data=json.dumps(payload).encode(),
         method="PATCH", headers=_headers(),
     )
     try:
