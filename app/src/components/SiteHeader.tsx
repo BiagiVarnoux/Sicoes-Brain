@@ -7,6 +7,7 @@ const NAV = [
   { href: '/', label: 'Procesos' },
   { href: '/items', label: 'Bienes' },
   { href: '/dashboard', label: 'Dashboard' },
+  { href: '/radar', label: 'Radar' },
 ]
 
 interface Props {

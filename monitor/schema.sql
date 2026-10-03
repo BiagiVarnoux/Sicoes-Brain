@@ -1,0 +1,45 @@
+-- Tabla del radar de convocatorias (Supabase proyecto Sicoes Brain).
+-- Aplicada vía migración `crear_convocatorias_radar` el 2026-10-03.
+-- Independiente de procesos/items; no tocar esas tablas.
+
+create table if not exists public.convocatorias_radar (
+  cuce                   text primary key,
+  entidad                text,
+  objeto                 text,
+  modalidad              text,          -- codigo: CM / LP / ANPE / ANPP
+  tipo_contratacion      text,          -- Bienes, Obras, etc.
+  departamento           text,
+  monto                  numeric,
+  fecha_publicacion      date,
+  fecha_presentacion     date,
+  fecha_presentacion_raw text,
+  estado                 text,
+
+  -- doble filtro
+  match_dicc             boolean default false,
+  match_dicc_terminos    text[]  default '{}',
+  match_ia               boolean default false,
+  match_ia_razon         text,
+  relevante              boolean default false,   -- OR de los dos filtros
+
+  -- archivos / DBC
+  archivos               jsonb   default '[]'::jsonb,  -- [{nombre, token}]
+  dbc_path               text,
+  dbc_descargado         boolean default false,
+
+  -- gestion del usuario en el dashboard
+  visto                  boolean default false,
+  descartado             boolean default false,
+
+  creado_en              timestamptz default now(),
+  actualizado_en         timestamptz default now()
+);
+
+create index if not exists idx_radar_fecha_pub  on public.convocatorias_radar (fecha_publicacion desc);
+create index if not exists idx_radar_fecha_pres on public.convocatorias_radar (fecha_presentacion);
+create index if not exists idx_radar_relevante  on public.convocatorias_radar (relevante) where relevante = true;
+
+alter table public.convocatorias_radar enable row level security;
+
+create policy "public_read_radar"   on public.convocatorias_radar for select to anon using (true);
+create policy "public_update_radar" on public.convocatorias_radar for update to anon using (true) with check (true);

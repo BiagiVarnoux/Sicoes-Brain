@@ -12,6 +12,29 @@ export type Proceso = {
   tipo_contratacion: string | null
 }
 
+export type ConvocatoriaRadar = {
+  cuce: string
+  entidad: string | null
+  objeto: string | null
+  modalidad: string | null
+  tipo_contratacion: string | null
+  fecha_publicacion: string | null
+  fecha_presentacion: string | null
+  fecha_presentacion_raw: string | null
+  estado: string | null
+  match_dicc: boolean
+  match_dicc_terminos: string[] | null
+  match_ia: boolean
+  match_ia_razon: string | null
+  relevante: boolean
+  archivos: { nombre: string; token: string }[] | null
+  dbc_path: string | null
+  dbc_descargado: boolean
+  visto: boolean
+  descartado: boolean
+  creado_en: string
+}
+
 export type Entidad = {
   codigo: string
   nombre: string
