@@ -67,16 +67,24 @@ TERMINOS_SUBSTRING = [
 ]
 
 # Cortos/ambiguos — se exigen con límite de palabra.
+# OJO: "led" se quitó a propósito — en SICOES casi siempre es alumbrado
+# público / luminarias / lámparas, no pantallas. Generaba muchos falsos
+# positivos. Las pantallas se pescan con "monitor"/"pantalla"/"televisor".
 TERMINOS_PALABRA = [
     "pc", "cpu", "ram", "ssd", "hdd", "ssds", "usb", "ups", "nas",
-    "cpus", "gpu", "led", "lcd", "lto", "pdu", "pvc", "nvr",
+    "cpus", "gpu", "lcd", "lto", "pdu", "pvc", "nvr",
 ]
 
 # Si aparece alguno de estos, se descarta el match (cortar falsos positivos).
 # Empezamos vacío; se llena cuando veamos ruido real en los objetos.
 EXCLUIR = [
-    # p.ej. "servicio de impresion" si solo buscamos el bien físico:
-    # "servicio de impresion",
+    # Falsos positivos reales vistos en corridas (si aparecen, descartar aunque
+    # matcheen algún término como "monitor" o "impresora"):
+    "signos vitales",       # "monitor de signos vitales" (equipo médico)
+    "impresora 3d",         # impresoras 3D (no es su rubro)
+    "impresion 3d",
+    "alumbrado publico",    # redundante con quitar "led", pero por si acaso
+    "luminaria",
 ]
 
 
