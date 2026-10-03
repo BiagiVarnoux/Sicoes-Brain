@@ -59,24 +59,21 @@ async def ir_a_buscador(page):
 async def buscar_por_fechas(page, desde: str, hasta: str, estado_val: str = "11"):
     """Busca convocatorias de Bienes publicadas en [desde, hasta] (dd/mm/yyyy).
     estado_val='11' = Vigente. OJO: SICOES a veces ignora el filtro de tipo/estado,
-    por eso el radar RE-filtra localmente (tipo, modalidad, estado, fecha límite)."""
-    # limpiar form
-    await page.evaluate("""
-        () => {
-            var tab = document.querySelector('a[href="#f-avanzada"]'); if (tab) tab.click();
-            document.querySelectorAll('#f-avanzada input[type="text"], #f-avanzada input[type="number"]')
-                .forEach(el => el.value = '');
-            ['codigoModalidad','r1','codigoContrato','codigoDpto','codigoNormativa']
-                .forEach(n => { var el = document.getElementById(n); if (el) el.value = ''; });
-        }
-    """)
-    await page.wait_for_timeout(300)
-    # setear filtros (con dispatch de 'change' para mejorar que apliquen)
+    por eso el radar RE-filtra localmente (tipo, modalidad, estado, fecha límite).
+
+    IMPORTANTE: hay DOS formularios con los mismos campos (formSimple y
+    formAvanzada) y DOS tablas (tablaSimple y tablaAvanzada). Hay que setear los
+    campos en #formAvanzada, clickear SU botón Buscar, y forzar el redibujado con
+    busquedadraw('1') para que #tablaAvanzada se llene con los resultados."""
     await page.evaluate("""
         (a) => {
-            var cont = document.querySelector('#f-avanzada') || document;
+            var tab = document.querySelector('a[href="#f-avanzada"]'); if (tab) tab.click();
+            var form = document.querySelector('#formAvanzada');
+            if (!form) return;
+            // limpiar solo el form avanzado
+            form.querySelectorAll('input[type="text"], input[type="number"]').forEach(el => el.value = '');
             var set = (name, val) => {
-                var el = cont.querySelector('[name="'+name+'"]') || document.getElementById(name);
+                var el = form.querySelector('[name="'+name+'"]');
                 if (el) { el.value = val; el.dispatchEvent(new Event('change', {bubbles:true})); }
             };
             set('publicacionDesde', a.desde);
@@ -86,17 +83,22 @@ async def buscar_por_fechas(page, desde: str, hasta: str, estado_val: str = "11"
         }
     """, {"desde": desde, "hasta": hasta, "estado": estado_val})
     await page.wait_for_timeout(400)
-    # click Buscar
+    # click Buscar DENTRO de formAvanzada
     await page.evaluate("""
         () => {
-            for (var b of document.querySelectorAll('.btn-primary, button[type="submit"], input[type="submit"]')) {
-                var t = (b.textContent || b.value || '');
-                if (b.offsetParent !== null && t.includes('Buscar')) { b.click(); return; }
-            }
+            var form = document.querySelector('#formAvanzada');
+            var btn = form && form.querySelector('input.busquedaForm[value="Buscar"], button[type="submit"], input[type="submit"]');
+            if (btn) btn.click();
         }
     """)
+    await page.wait_for_timeout(2000)
+    # forzar render de la primera página de resultados avanzados
     try:
-        await page.wait_for_selector("table tbody tr td", timeout=15000)
+        await page.evaluate("busquedadraw('1')")
+    except Exception:
+        pass
+    try:
+        await page.wait_for_selector("#tablaAvanzada tbody tr td", timeout=15000)
         await page.wait_for_timeout(800)
     except Exception:
         await page.wait_for_timeout(4000)
@@ -134,7 +136,7 @@ async def ir_pagina(page, n: int):
     await page.evaluate(f"busquedadraw('{n}')")
     await page.wait_for_timeout(1000)
     try:
-        await page.wait_for_selector("table tbody tr td", timeout=10000)
+        await page.wait_for_selector("#tablaAvanzada tbody tr td", timeout=10000)
         await page.wait_for_timeout(300)
     except Exception:
         await page.wait_for_timeout(2500)
@@ -142,12 +144,14 @@ async def ir_pagina(page, n: int):
 
 async def leer_tabla(page) -> list[dict]:
     """Lee la página actual de resultados → lista de convocatorias con sus archivos.
-    Columnas: CUCE, Entidad, Tipo Contratación, Modalidad, Objeto, Subasta,
-    Fecha Publicación, Fecha Presentación, Estado, Archivos, Formularios, Reportes."""
+    Lee #tablaAvanzada (la tabla de la búsqueda avanzada; existe también
+    #tablaSimple oculta — NO usar esa). Columnas: 0 CUCE, 1 Entidad,
+    2 Tipo Contratación, 3 Modalidad, 4 Objeto, 5 Subasta, 6 Fecha Publicación,
+    7 Fecha Presentación, 8 Estado, 9 Archivos (links descargarArchivo)."""
     filas = await page.evaluate(r"""
         () => {
             const out = [];
-            const tbl = document.querySelector('table');
+            const tbl = document.querySelector('#tablaAvanzada');
             if (!tbl) return out;
             tbl.querySelectorAll('tbody tr').forEach(tr => {
                 const tds = tr.querySelectorAll('td');
@@ -211,7 +215,8 @@ async def keepalive(page) -> bool:
     """Descarga el primer archivo disponible para renovar la sesión."""
     token = await page.evaluate(r"""
         () => {
-            const a = document.querySelector('a[onclick*="descargarArchivo"]');
+            const scope = document.querySelector('#tablaAvanzada') || document;
+            const a = scope.querySelector('a[onclick*="descargarArchivo"]');
             if (!a) return null;
             const m = (a.getAttribute('onclick')||'').match(/descargarArchivo\('([^']+)'\)/);
             return m ? m[1] : null;
