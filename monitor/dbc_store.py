@@ -30,17 +30,29 @@ _SOFFICE_CANDIDATOS = [
     "libreoffice",
 ]
 
+# Navegadores Chromium para HTML→PDF headless (macOS / PATH)
+_CHROMIUM_CANDIDATOS = [
+    "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "/Applications/Chromium.app/Contents/MacOS/Chromium",
+    "google-chrome",
+    "chromium",
+]
 
-def _soffice() -> str | None:
-    for c in _SOFFICE_CANDIDATOS:
+
+def _buscar(cands: list[str]) -> str | None:
+    from shutil import which
+    for c in cands:
         if c.startswith("/"):
             if os.path.exists(c):
                 return c
-        else:
-            from shutil import which
-            if which(c):
-                return c
+        elif which(c):
+            return c
     return None
+
+
+def _soffice() -> str | None:
+    return _buscar(_SOFFICE_CANDIDATOS)
 
 
 def cuce4(cuce: str) -> str:
@@ -63,16 +75,10 @@ def _sanitizar(txt: str) -> str:
     return t[:60]
 
 
-def convertir_a_pdf(ruta: str) -> str:
-    """Si es Word, convierte a PDF con LibreOffice headless y devuelve la ruta
-    del PDF. Si ya es PDF u otro formato, devuelve la ruta original."""
-    ext = os.path.splitext(ruta)[1].lower()
-    if ext not in (".doc", ".docx", ".odt", ".rtf"):
-        return ruta
+def _conv_libreoffice(ruta: str) -> str | None:
     soffice = _soffice()
     if not soffice:
-        print("      ⚠ LibreOffice no disponible; dejo el Word sin convertir.", flush=True)
-        return ruta
+        return None
     outdir = os.path.dirname(ruta)
     try:
         subprocess.run(
@@ -81,15 +87,59 @@ def convertir_a_pdf(ruta: str) -> str:
             env={**os.environ, "HOME": os.environ.get("HOME", "/tmp")},
         )
         pdf = os.path.splitext(ruta)[0] + ".pdf"
-        if os.path.exists(pdf):
-            if pdf != ruta:
-                try:
-                    os.remove(ruta)  # borrar el Word original
-                except OSError:
-                    pass
-            return pdf
-    except Exception as e:
-        print(f"      ⚠ Falló conversión a PDF ({type(e).__name__}); dejo original.", flush=True)
+        return pdf if os.path.exists(pdf) else None
+    except Exception:
+        return None
+
+
+def _conv_textutil_chromium(ruta: str) -> str | None:
+    """Word→HTML con textutil (nativo macOS) y HTML→PDF con Chromium headless.
+    No requiere instalar nada (usa Brave/Chrome ya instalado)."""
+    chromium = _buscar(_CHROMIUM_CANDIDATOS)
+    if not chromium:
+        return None
+    base = os.path.splitext(ruta)[0]
+    html = base + ".__conv.html"
+    pdf = base + ".pdf"
+    try:
+        subprocess.run(["textutil", "-convert", "html", ruta, "-output", html],
+                       check=True, capture_output=True, timeout=60)
+        # OJO: NO usar --user-data-dir con un perfil nuevo: Brave se cuelga
+        # inicializándolo en headless. El perfil por defecto funciona y no choca
+        # con el scraper (que corre con --user-data-dir=/tmp/brave-sicoes).
+        subprocess.run(
+            [chromium, "--headless=new", "--disable-gpu",
+             "--no-first-run", "--no-default-browser-check", "--no-pdf-header-footer",
+             f"--print-to-pdf={pdf}", "file://" + os.path.abspath(html)],
+            check=True, capture_output=True, timeout=90,
+        )
+        return pdf if os.path.exists(pdf) else None
+    except Exception:
+        return None
+    finally:
+        if os.path.exists(html):
+            try:
+                os.remove(html)
+            except OSError:
+                pass
+
+
+def convertir_a_pdf(ruta: str) -> str:
+    """Si es Word, lo convierte a PDF y devuelve la ruta del PDF (borrando el
+    Word). Si ya es PDF u otro formato, devuelve la ruta original.
+    Intenta LibreOffice y, si no está, textutil + Chromium headless (Brave/Chrome)."""
+    ext = os.path.splitext(ruta)[1].lower()
+    if ext not in (".doc", ".docx", ".odt", ".rtf"):
+        return ruta
+    pdf = _conv_libreoffice(ruta) or _conv_textutil_chromium(ruta)
+    if pdf and os.path.exists(pdf):
+        if pdf != ruta:
+            try:
+                os.remove(ruta)  # borrar el Word original
+            except OSError:
+                pass
+        return pdf
+    print(f"      ⚠ No se pudo convertir a PDF ({os.path.basename(ruta)}); dejo original.", flush=True)
     return ruta
 
 
