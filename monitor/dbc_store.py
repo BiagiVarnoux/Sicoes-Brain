@@ -124,23 +124,47 @@ def _conv_textutil_chromium(ruta: str) -> str | None:
                 pass
 
 
-def convertir_a_pdf(ruta: str) -> str:
-    """Si es Word, lo convierte a PDF y devuelve la ruta del PDF (borrando el
-    Word). Si ya es PDF u otro formato, devuelve la ruta original.
-    Intenta LibreOffice y, si no está, textutil + Chromium headless (Brave/Chrome)."""
+def convertir_a_pdf(ruta: str, borrar_original: bool = True) -> str:
+    """Si es Word, lo convierte a PDF y devuelve la ruta del PDF. Si ya es PDF u
+    otro formato, devuelve la ruta original. Usa LibreOffice (fiel al formato) y,
+    si no está, textutil + Chromium headless como último recurso.
+    `borrar_original=False` conserva el .docx (para guardar docx Y pdf)."""
     ext = os.path.splitext(ruta)[1].lower()
     if ext not in (".doc", ".docx", ".odt", ".rtf"):
         return ruta
     pdf = _conv_libreoffice(ruta) or _conv_textutil_chromium(ruta)
     if pdf and os.path.exists(pdf):
-        if pdf != ruta:
+        if borrar_original and pdf != ruta:
             try:
-                os.remove(ruta)  # borrar el Word original
+                os.remove(ruta)
             except OSError:
                 pass
         return pdf
     print(f"      ⚠ No se pudo convertir a PDF ({os.path.basename(ruta)}); dejo original.", flush=True)
     return ruta
+
+
+def _norm(s: str) -> str:
+    s = unicodedata.normalize("NFKD", s or "")
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    return s.lower()
+
+
+def seleccionar_objetivo(modalidad: str, archivos: list[dict]) -> dict | None:
+    """Devuelve el ÚNICO archivo que interesa por convocatoria:
+    - CM → 'Oferta del Proveedor'
+    - ANPE/ANPP/LP (y resto) → 'Documento Base de Contratación'
+    archivos: [{token, nombre}]. None si no se encuentra el objetivo."""
+    if not archivos:
+        return None
+    es_cm = (modalidad or "").strip().upper() == "CM"
+    for a in archivos:
+        n = _norm(a.get("nombre", ""))
+        if es_cm and "oferta" in n:
+            return a
+        if not es_cm and ("documento base" in n or n.strip() == "dbc"):
+            return a
+    return None
 
 
 def _content_type(ext: str) -> str:
@@ -186,34 +210,67 @@ def subir(ruta_local: str, path_remoto: str) -> str | None:
         return None
 
 
-def nombre_archivo(cuce: str, modalidad: str, rol: str, idx: int, total: int, ext: str) -> str:
-    base = f"{prefijo(modalidad)} - {cuce4(cuce)}"
-    if total > 1:
-        etiqueta = _sanitizar(rol) or f"{idx+1}"
-        base = f"{base} - {etiqueta}"
-    return base + ext
+def limpiar_storage(cuce: str) -> None:
+    """Borra todos los objetos bajo '{cuce}/' en el bucket (para no dejar PDFs
+    viejos mal convertidos ni nombres antiguos al re-subir)."""
+    try:
+        req = urllib.request.Request(
+            f"{SUPABASE_URL}/storage/v1/object/list/{BUCKET}",
+            data=json.dumps({"prefix": f"{cuce}/", "limit": 100}).encode(),
+            method="POST",
+            headers={"apikey": SUPABASE_KEY, "Authorization": f"Bearer {SUPABASE_KEY}",
+                     "Content-Type": "application/json"},
+        )
+        objs = json.loads(urllib.request.urlopen(req, timeout=30).read())
+        prefixes = [f"{cuce}/{o['name']}" for o in objs if o.get("name")]
+        if not prefixes:
+            return
+        req = urllib.request.Request(
+            f"{SUPABASE_URL}/storage/v1/object/{BUCKET}",
+            data=json.dumps({"prefixes": prefixes}).encode(),
+            method="DELETE",
+            headers={"apikey": SUPABASE_KEY, "Authorization": f"Bearer {SUPABASE_KEY}",
+                     "Content-Type": "application/json"},
+        )
+        urllib.request.urlopen(req, timeout=30).read()
+    except Exception as e:
+        print(f"      ⚠ No se pudo limpiar Storage de {cuce}: {e}", flush=True)
 
 
 def procesar(cuce: str, modalidad: str, archivos_locales: list[dict]) -> list[dict]:
-    """archivos_locales: [{ruta, nombre}] ya descargados.
-    Convierte, renombra, sube; devuelve [{nombre, url}] para el dashboard."""
-    total = len(archivos_locales)
+    """archivos_locales: [{ruta, nombre}] — normalmente UN solo archivo objetivo
+    (el DBC para ANPE/ANPP/LP, o la Oferta para CM). Para los Word guarda AMBOS
+    formatos (.docx original + .pdf convertido con LibreOffice); para PDF guarda el
+    PDF. Nombre: '<CM|DBC> - <cuce4>.<ext>'. Devuelve [{nombre, url}]."""
+    base = f"{prefijo(modalidad)} - {cuce4(cuce)}"
+    limpiar_storage(cuce)  # borrar objetos viejos antes de subir los nuevos
     salida = []
-    usados = set()
-    for idx, a in enumerate(archivos_locales):
+    for a in archivos_locales:
         ruta = a.get("ruta")
         if not ruta or not os.path.exists(ruta):
             continue
-        ruta = convertir_a_pdf(ruta)
-        ext = os.path.splitext(ruta)[1].lower()
-        fname = nombre_archivo(cuce, modalidad, a.get("nombre", ""), idx, total, ext)
-        # evitar colisiones de nombre dentro de la misma convocatoria
-        if fname in usados:
-            raiz, e = os.path.splitext(fname)
-            fname = f"{raiz} ({idx+1}){e}"
-        usados.add(fname)
-        path_remoto = f"{cuce}/{fname}"
-        url = subir(ruta, path_remoto)
-        if url:
-            salida.append({"nombre": fname, "url": url})
+        ext0 = os.path.splitext(ruta)[1].lower()
+        if ext0 in (".doc", ".docx", ".odt", ".rtf"):
+            # 1) subir el Word original tal cual
+            fdoc = base + ext0
+            url = subir(ruta, f"{cuce}/{fdoc}")
+            if url:
+                salida.append({"nombre": fdoc, "url": url})
+            # 2) convertir a PDF (sin borrar el original) y subir
+            pdf = convertir_a_pdf(ruta, borrar_original=False)
+            if pdf and os.path.exists(pdf) and pdf.lower().endswith(".pdf"):
+                fpdf = base + ".pdf"
+                url = subir(pdf, f"{cuce}/{fpdf}")
+                if url:
+                    salida.append({"nombre": fpdf, "url": url})
+        elif ext0 == ".pdf":
+            fpdf = base + ".pdf"
+            url = subir(ruta, f"{cuce}/{fpdf}")
+            if url:
+                salida.append({"nombre": fpdf, "url": url})
+        else:
+            fo = base + ext0
+            url = subir(ruta, f"{cuce}/{fo}")
+            if url:
+                salida.append({"nombre": fo, "url": url})
     return salida

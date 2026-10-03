@@ -20,7 +20,11 @@ No toca las tablas `procesos` / `items`; usa su propia tabla `convocatorias_rada
    - **A — Diccionario** (`rubros.py`): términos conocidos en el objeto.
    - **B — IA (Groq)** (`clasificador_ia.py`): analiza el objeto semánticamente.
    - `relevante = A or B`. Se guardan los dos veredictos por separado.
-4. **Descargar los DBC** de las relevantes a `dbc/<cuce>/`.
+4. **Descargar el documento objetivo** de cada relevante (UNO solo):
+   ANPE/ANPP/LP → "Documento Base de Contratación"; CM → "Oferta del Proveedor".
+   Se guarda en **ambos formatos**: el Word original (`.docx`) y el PDF convertido
+   con LibreOffice (`DBC - <cuce4>.docx` + `DBC - <cuce4>.pdf`; prefijo `CM` para CM).
+   Se suben al bucket público `dbc` de Supabase Storage.
 5. **Guardar** todas las candidatas en Supabase (`convocatorias_radar`).
 6. **Exportar** `salidas/objetos_<fecha>.csv` con todos los objetos y sus
    veredictos → sirve para **refinar el diccionario** (`rubros.py`).

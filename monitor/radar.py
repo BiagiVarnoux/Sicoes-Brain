@@ -195,15 +195,19 @@ async def descargar_dbcs(page, relevantes: list[dict]):
             print(f"    · {cuce}: sin archivos", flush=True)
             continue
         carpeta = os.path.join(DIR_DBC, cuce.replace("/", "_"))
-        locales = []
-        for a in archivos:
-            ruta = await nav.descargar_token(page, a["token"], carpeta, a.get("nombre", ""))
-            if ruta:
-                locales.append({"ruta": ruta, "nombre": a.get("nombre", "")})
+        # Un solo documento objetivo por convocatoria:
+        #   ANPE/ANPP/LP → Documento Base de Contratación; CM → Oferta del Proveedor
+        objetivo = dbc_store.seleccionar_objetivo(modalidad, archivos)
+        if not objetivo:
+            print(f"    · {cuce}: no se encontró el documento objetivo "
+                  f"({'Oferta' if modalidad=='CM' else 'DBC'})", flush=True)
+            continue
+        ruta = await nav.descargar_token(page, objetivo["token"], carpeta, objetivo.get("nombre", ""))
+        locales = [{"ruta": ruta, "nombre": objetivo.get("nombre", "")}] if ruta else []
         subidos = dbc_store.procesar(cuce, modalidad, locales) if locales else []
         if subidos:
             db.marcar_dbc(cuce, carpeta, subidos)
-        print(f"    · {cuce}: {len(locales)} bajado(s), {len(subidos)} subido(s) a Storage", flush=True)
+        print(f"    · {cuce}: {objetivo.get('nombre','')} → {len(subidos)} archivo(s) a Storage", flush=True)
 
 
 async def correr(desde: str, hasta: str, max_paginas: int, usar_ia: bool, descargar: bool):

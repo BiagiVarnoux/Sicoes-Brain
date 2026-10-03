@@ -106,13 +106,15 @@ async def main():
                         os.remove(os.path.join(carpeta, f))
                     except OSError:
                         pass
-            locales = []
-            for a in fila["archivos"]:
-                ruta = await nav.descargar_token(page, a["token"], carpeta, a.get("nombre", ""))
-                estado = "✓" if ruta else "✗"
-                print(f"    {estado} {a.get('nombre','')}", flush=True)
-                if ruta:
-                    locales.append({"ruta": ruta, "nombre": a.get("nombre", "")})
+            objetivo = dbc_store.seleccionar_objetivo(modalidad, fila["archivos"])
+            if not objetivo:
+                print("    · no se encontró el documento objetivo "
+                      f"({'Oferta' if modalidad=='CM' else 'DBC'}); archivos: "
+                      + ", ".join(a.get('nombre','') for a in fila['archivos']), flush=True)
+                continue
+            ruta = await nav.descargar_token(page, objetivo["token"], carpeta, objetivo.get("nombre", ""))
+            print(f"    {'✓' if ruta else '✗'} {objetivo.get('nombre','')}", flush=True)
+            locales = [{"ruta": ruta, "nombre": objetivo.get("nombre", "")}] if ruta else []
             subidos = dbc_store.procesar(cuce, modalidad, locales) if locales else []
             if subidos:
                 db.marcar_dbc(cuce, carpeta, subidos)
