@@ -45,7 +45,13 @@ def cuce4(cuce: str) -> str:
 
 
 async def main():
+    import sys
     rows = relevantes()
+    # Filtro opcional: pasar uno o más fragmentos de CUCE (p.ej. el 4º grupo) como args
+    filtros = [a for a in sys.argv[1:] if not a.startswith("-")]
+    if filtros:
+        rows = [r for r in rows if any(f in r["cuce"] for f in filtros)]
+        print(f"Filtrando a {len(rows)} por: {filtros}")
     print(f"Relevantes a re-descargar: {len(rows)}")
     async with async_playwright() as p:
         try:
@@ -55,15 +61,35 @@ async def main():
             return
         await nav.ir_a_buscador(page)
 
+        async def reconectar():
+            """Si Brave se cerró/hipó, reconectar y volver al buscador."""
+            nonlocal browser, page
+            print("    ↻ reconectando a Brave...", flush=True)
+            await page.wait_for_timeout(2000)
+            browser, page = await nav.conectar(p)
+            await nav.ir_a_buscador(page)
+
         for i, r in enumerate(rows, 1):
             cuce = r["cuce"]
             modalidad = r.get("modalidad", "")
             print(f"\n[{i}/{len(rows)}] {cuce} ({modalidad})", flush=True)
-            try:
-                await nav.buscar_por_cuce4(page, cuce4(cuce))
-                filas = await nav.leer_tabla(page)
-            except Exception as e:
-                print(f"    ✗ búsqueda falló: {e}", flush=True)
+            filas = None
+            for intento in range(2):
+                try:
+                    await nav.buscar_por_cuce4(page, cuce4(cuce))
+                    filas = await nav.leer_tabla(page)
+                    break
+                except Exception as e:
+                    print(f"    ✗ búsqueda falló: {e}", flush=True)
+                    if intento == 0 and ("closed" in str(e).lower() or "crash" in str(e).lower()):
+                        try:
+                            await reconectar()
+                        except Exception as e2:
+                            print(f"    ✗ no se pudo reconectar: {e2}", flush=True)
+                            break
+                    else:
+                        break
+            if filas is None:
                 continue
             fila = next((f for f in filas if f.get("cuce") == cuce), None)
             if not fila:

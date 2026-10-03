@@ -252,18 +252,30 @@ async def _esperar_guard(page):
         pass
 
 
-async def descargar_token(page, token: str, carpeta: str, nombre_sugerido: str = "") -> str | None:
-    """Descarga UN archivo por su token. Devuelve la ruta guardada o None.
+async def descargar_token(page, token: str, carpeta: str, nombre_sugerido: str = "",
+                          intentos: int = 3) -> str | None:
+    """Descarga UN archivo por su token, con reintentos. Devuelve la ruta o None.
 
     SICOES envía el archivo con un form target=_blank: los Word disparan un evento
     de descarga, pero los PDF se ABREN INLINE en una pestaña nueva (sin evento).
     Por eso capturamos de las dos formas: (1) evento download, o (2) los bytes de
     la respuesta de descargarArchivo.php (sirve para los inline). Además esperamos
     el guard del sitio para no pisar una descarga con la siguiente (hay captcha
-    Turnstile invisible que el navegador real resuelve solo)."""
-    os.makedirs(carpeta, exist_ok=True)
-    await _esperar_guard(page)
+    Turnstile invisible que el navegador real resuelve solo). El 2º archivo de un
+    par a veces se pierde por timing → reintentamos."""
+    for n in range(intentos):
+        await _esperar_guard(page)
+        ruta = await _intento_descarga(page, token, carpeta, nombre_sugerido)
+        if ruta:
+            return ruta
+        if n < intentos - 1:
+            print(f"        ↻ reintento descarga ({n+2}/{intentos})...", flush=True)
+            await page.wait_for_timeout(2000)
+    return None
 
+
+async def _intento_descarga(page, token: str, carpeta: str, nombre_sugerido: str = "") -> str | None:
+    os.makedirs(carpeta, exist_ok=True)
     ctx = page.context
     capturado: dict = {}
     descarga: dict = {}
@@ -321,8 +333,10 @@ async def descargar_token(page, token: str, carpeta: str, nombre_sugerido: str =
             page.remove_listener("download", on_download)
         except Exception:
             pass
+        # Cerrar TODOS los popups (visor PDF del target=_blank), no solo los
+        # nuevos: así no se acumulan y no saturan/cierran Brave en equipos lentos.
         for extra in list(ctx.pages):
-            if extra is not page and extra not in paginas_antes:
+            if extra is not page:
                 try:
                     await extra.close()
                 except Exception:
