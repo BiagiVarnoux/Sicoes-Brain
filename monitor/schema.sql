@@ -23,7 +23,8 @@ create table if not exists public.convocatorias_radar (
   relevante              boolean default false,   -- OR de los dos filtros
 
   -- archivos / DBC
-  archivos               jsonb   default '[]'::jsonb,  -- [{nombre, token}]
+  archivos               jsonb   default '[]'::jsonb,  -- [{nombre, token}] (tokens SICOES)
+  dbc_archivos           jsonb   default '[]'::jsonb,  -- [{nombre, url}] subidos a Storage
   dbc_path               text,
   dbc_descargado         boolean default false,
 
