@@ -42,7 +42,7 @@ SYSTEM_PROMPT = (
 )
 
 
-def _request(payload: dict, intentos: int = 3) -> dict | None:
+def _request(payload: dict, intentos: int = 5) -> dict | None:
     data = json.dumps(payload).encode()
     req = urllib.request.Request(
         GROQ_URL, data=data, method="POST",
@@ -68,7 +68,8 @@ def _request(payload: dict, intentos: int = 3) -> dict | None:
                 pass
             # 429 (rate limit) → esperar y reintentar; otros 4xx no se reintentan
             if e.code == 429 and i < intentos - 1:
-                espera = 5 * (i + 1)
+                # TPM se resetea por minuto → esperar ~el minuto completo
+                espera = min(65, 30 * (i + 1))
                 print(f"      ⚠ Groq 429 rate limit; espero {espera}s...", flush=True)
                 time.sleep(espera)
                 continue
@@ -135,7 +136,7 @@ def estructurar_c1(texto: str) -> list[dict]:
         "model": GROQ_MODEL, "temperature": 0,
         "messages": [
             {"role": "system", "content": C1_SYSTEM},
-            {"role": "user", "content": "Texto del Formulario C-1:\n" + texto[:12000]},
+            {"role": "user", "content": "Texto del Formulario C-1:\n" + texto[:8000]},
         ],
     }
     resp = _request(payload)

@@ -23,6 +23,7 @@ Uso:
 import os
 import sys
 import json
+import time
 import urllib.request
 import urllib.parse
 
@@ -64,12 +65,16 @@ def _dest(method: str, path: str, rows=None, prefer: str = "") -> None:
 
 
 def _ya_parseados() -> set:
+    """Docs ya resueltos: con ítems, o marcados escaneados (ocr_pendiente). Los que
+    quedaron vacíos (ej. por rate limit) NO cuentan → se reintentan."""
     req = urllib.request.Request(
-        f"{DEST_URL}/rest/v1/erp_c1?select=doc_path",
+        f"{DEST_URL}/rest/v1/erp_c1?select=doc_path,items,metodo",
         headers={"apikey": DEST_KEY, "Authorization": f"Bearer {DEST_KEY}"})
     try:
         with urllib.request.urlopen(req, timeout=20) as r:
-            return {x["doc_path"] for x in json.loads(r.read())}
+            rows = json.loads(r.read())
+        return {x["doc_path"] for x in rows
+                if (x.get("items") or x.get("metodo") == "ocr_pendiente")}
     except Exception:
         return set()
 
@@ -134,6 +139,7 @@ def main():
             "metodo": "texto"}], "resolution=merge-duplicates,return=minimal")
         nuevos += 1
         print(f"      ✓ {len(items)} ítem(s) estructurados", flush=True)
+        time.sleep(15)  # throttle para no pegar contra el TPM de Groq (8000 tok/min)
 
     print(f"\n✅ C-1: {nuevos} parseados, {escaneados} escaneados pendientes de OCR.")
 
