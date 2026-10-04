@@ -49,9 +49,25 @@ import sicoes_nav as nav
 AQUI = os.path.dirname(os.path.abspath(__file__))
 DIR_DBC = os.path.join(AQUI, "dbc")
 DIR_SALIDAS = os.path.join(AQUI, "salidas")
+ARCHIVO_ULTIMA = os.path.join(AQUI, ".ultima_corrida")
 
 MODALIDADES_OK = {"CM", "LP", "ANPE", "ANPP"}
 KEEPALIVE_CADA = 5  # páginas
+
+
+# ─── Memoria de la última corrida (modo --auto) ─────────────────────────────────
+def leer_ultima_corrida() -> date | None:
+    """Fecha de la última corrida guardada, o None si nunca corrió en --auto."""
+    try:
+        with open(ARCHIVO_ULTIMA, encoding="utf-8") as fh:
+            return datetime.strptime(fh.read().strip(), "%Y-%m-%d").date()
+    except (FileNotFoundError, ValueError):
+        return None
+
+
+def guardar_ultima_corrida(d: date) -> None:
+    with open(ARCHIVO_ULTIMA, "w", encoding="utf-8") as fh:
+        fh.write(d.isoformat())
 
 
 # ─── Utilidades de fecha ───────────────────────────────────────────────────────
@@ -213,7 +229,8 @@ async def descargar_dbcs(page, relevantes: list[dict]):
         print(f"    · {cuce}: {objetivo.get('nombre','')} → {len(subidos)} archivo(s) a Storage", flush=True)
 
 
-async def correr(desde: str, hasta: str, max_paginas: int, usar_ia: bool, descargar: bool):
+async def correr(desde: str, hasta: str, max_paginas: int, usar_ia: bool, descargar: bool,
+                 marcar_corrida: bool = False):
     hoy = date.today()
     async with async_playwright() as p:
         print(f"Conectando a Chrome ({nav.CDP_URL})...", flush=True)
@@ -263,6 +280,10 @@ async def correr(desde: str, hasta: str, max_paginas: int, usar_ia: bool, descar
         if descargar and relevantes:
             await descargar_dbcs(page, relevantes)
 
+        if marcar_corrida:
+            guardar_ultima_corrida(hoy)
+            print(f"  🗓  Última corrida guardada: {hoy.isoformat()}", flush=True)
+
         print("\n✅ Radar terminado.", flush=True)
 
 
@@ -276,11 +297,33 @@ def main():
     ap.add_argument("--max-paginas", type=int, default=0, help="Límite de páginas (0 = todas).")
     ap.add_argument("--no-ia", action="store_true", help="Desactivar filtro IA (solo diccionario).")
     ap.add_argument("--no-descargar", action="store_true", help="No descargar DBC.")
+    ap.add_argument("--auto", action="store_true",
+                    help="Corre desde la última corrida guardada hasta AYER (ignora el día actual). "
+                         "Al terminar guarda la fecha de hoy. Ignora --desde/--hasta.")
     args = ap.parse_args()
 
+    desde, hasta, marcar = args.desde, args.hasta, False
+    if args.auto:
+        marcar = True
+        ayer = hoy - timedelta(days=1)
+        ultima = leer_ultima_corrida()
+        if ultima is None:
+            # Primera corrida en --auto: arranca una semana atrás.
+            ultima = hoy - timedelta(days=7)
+            print(f"ℹ Sin corrida previa registrada. Arranco desde {ultima.strftime('%d/%m/%Y')}.", flush=True)
+        if ultima > ayer:
+            # Ya corrió hoy (o en el futuro): no hay días completos nuevos que revisar.
+            print(f"✓ Ya se corrió el {ultima.strftime('%d/%m/%Y')}. "
+                  f"No hay días nuevos cerrados para revisar. Nada que hacer.", flush=True)
+            return
+        desde = ultima.strftime("%d/%m/%Y")
+        hasta = ayer.strftime("%d/%m/%Y")
+        print(f"🤖 Modo auto: desde {desde} hasta {hasta} (sin incluir hoy).", flush=True)
+
     asyncio.run(correr(
-        desde=args.desde, hasta=args.hasta, max_paginas=args.max_paginas,
+        desde=desde, hasta=hasta, max_paginas=args.max_paginas,
         usar_ia=not args.no_ia, descargar=not args.no_descargar,
+        marcar_corrida=marcar,
     ))
 
 
