@@ -115,6 +115,38 @@ def _bloque_ejemplos(pos: list[str] | None, neg: list[str] | None) -> str:
             "respetalo:\n" + "\n\n".join(partes))
 
 
+C1_SYSTEM = (
+    "Eres un asistente que extrae datos del Formulario C-1 de una licitación pública "
+    "boliviana (SICOES). El C-1 lista, por ítem, lo que REQUIERE la entidad y lo que "
+    "OFRECE el proveedor. Del texto dado, devolvé EXCLUSIVAMENTE un array JSON, un "
+    "objeto por ítem, con la forma: "
+    '[{"item":<nº o texto>,"requerimiento_entidad":"<lo que pide la entidad>",'
+    '"ofertado":"<lo que ofrece el proveedor>","marca":"","modelo":"",'
+    '"especificaciones":"","cantidad":<nº o null>,"precio_unitario":<nº o null>}]. '
+    "Si un campo no aparece, usá \"\" o null. No inventes. Sin texto fuera del array."
+)
+
+
+def estructurar_c1(texto: str) -> list[dict]:
+    """Convierte el texto crudo de un C-1 en items estructurados. [] si falla."""
+    if not texto or not texto.strip() or not GROQ_API_KEY:
+        return []
+    payload = {
+        "model": GROQ_MODEL, "temperature": 0,
+        "messages": [
+            {"role": "system", "content": C1_SYSTEM},
+            {"role": "user", "content": "Texto del Formulario C-1:\n" + texto[:12000]},
+        ],
+    }
+    resp = _request(payload)
+    if not resp:
+        return []
+    try:
+        return _parse_array(resp["choices"][0]["message"]["content"])
+    except Exception:
+        return []
+
+
 def _bloque_catalogo(catalogo: list[str] | None) -> str:
     """Catálogo real del usuario (del ERP): la señal positiva más fuerte."""
     if not catalogo:

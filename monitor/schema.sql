@@ -77,3 +77,18 @@ alter table public.erp_licitaciones enable row level security;
 alter table public.erp_productos    enable row level security;
 create policy "public_read_erp_lic"  on public.erp_licitaciones for select to anon using (true);
 create policy "public_read_erp_prod" on public.erp_productos    for select to anon using (true);
+
+-- Caché del parseo del Formulario C-1 (una vez por documento). Lo puebla c1_parse.py.
+create table if not exists public.erp_c1 (
+  id             bigint generated always as identity primary key,
+  numero_sicoes  text not null,             -- = cuce4
+  doc_nombre     text,
+  doc_path       text unique not null,
+  items          jsonb default '[]'::jsonb, -- [{item,requerimiento_entidad,ofertado,marca,modelo,especificaciones,cantidad,precio_unitario}]
+  texto_crudo    text,
+  metodo         text,                       -- 'texto' | 'ocr_pendiente'
+  parseado_en    timestamptz default now()
+);
+create index if not exists idx_erp_c1_sicoes on public.erp_c1(numero_sicoes);
+alter table public.erp_c1 enable row level security;
+create policy "public_read_erp_c1" on public.erp_c1 for select to anon using (true);
