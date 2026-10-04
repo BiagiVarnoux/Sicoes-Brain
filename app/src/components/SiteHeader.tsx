@@ -3,10 +3,9 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+// Solo el Radar en el nav. Las páginas históricas (procesos/bienes/dashboard)
+// siguen existiendo por URL pero ya no se enlazan desde la principal.
 const NAV = [
-  { href: '/', label: 'Procesos' },
-  { href: '/items', label: 'Bienes' },
-  { href: '/dashboard', label: 'Dashboard' },
   { href: '/radar', label: 'Radar' },
 ]
 
@@ -18,14 +17,12 @@ interface Props {
 export default function SiteHeader({ maxWidth = 'max-w-6xl' }: Props) {
   const pathname = usePathname()
 
-  const isActive = (href: string) =>
-    href === '/' ? pathname === '/' || pathname.startsWith('/proceso')
-                 : pathname.startsWith(href)
+  const isActive = (href: string) => pathname.startsWith(href)
 
   return (
     <header className="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-gray-200">
       <div className={`${maxWidth} mx-auto px-4 sm:px-6 py-4 flex items-center justify-between`}>
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/radar" className="flex items-center gap-3 group">
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center
                           group-hover:bg-blue-700 transition-colors">
             <span className="text-white text-xs font-bold">S</span>
