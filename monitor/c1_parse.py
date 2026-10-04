@@ -11,12 +11,10 @@ specs/precio). Vive SOLO como PDF en el Storage privado del ERP (bucket
      cantidad, precio),
   4. lo cachea en `erp_c1` (Sicoes Brain). Re-correr NO re-parsea lo ya hecho.
 
-⚠️ Descargar de un bucket PRIVADO requiere una credencial con acceso a Storage.
-El acceso de SOLO LECTURA por RPC (erp_sync) NO alcanza para Storage. Por eso este
-paso puntual usa la SERVICE_ROLE del ERP, SERVER-SIDE y de una sola vez (se puede
-rotar después). Config en monitor/.env:
-  ERP_SUPABASE_URL=...
-  ERP_SERVICE_KEY=<service_role del ERP>     (solo para este parseo; gitignored)
+Lee el ERP SIN modificar su base: usa la Secret key (sb_secret_..., backend) para
+listar los documentos C-1 y descargar los PDF del Storage privado. Config en
+monitor/.env:
+  ERP_SUPABASE_URL, ERP_SERVICE_KEY (Secret key sb_secret_...)
 
 Uso:
   ../scraper/venv/bin/python c1_parse.py            # parsea los pendientes
@@ -35,23 +33,16 @@ import pymupdf  # PyMuPDF
 import clasificador_ia
 
 ERP_URL = os.environ.get("ERP_SUPABASE_URL", "").rstrip("/")
-ERP_SERVICE_KEY = os.environ.get("ERP_SERVICE_KEY", "")
+ERP_KEY = os.environ.get("ERP_SERVICE_KEY", "")        # Secret key sb_secret_...
 DEST_URL = os.environ["SUPABASE_URL"].rstrip("/")
 DEST_KEY = os.environ["SUPABASE_KEY"]
 BUCKET = "licitacion-files"
 
 
-def _erp_get(path: str) -> list:
-    req = urllib.request.Request(f"{ERP_URL}/rest/v1/{path}", headers={
-        "apikey": ERP_SERVICE_KEY, "Authorization": f"Bearer {ERP_SERVICE_KEY}"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read())
-
-
 def _erp_download(storage_path: str) -> bytes | None:
     url = f"{ERP_URL}/storage/v1/object/{BUCKET}/{urllib.parse.quote(storage_path)}"
     req = urllib.request.Request(url, headers={
-        "apikey": ERP_SERVICE_KEY, "Authorization": f"Bearer {ERP_SERVICE_KEY}"})
+        "apikey": ERP_KEY, "Authorization": f"Bearer {ERP_KEY}"})
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             return r.read()
@@ -93,10 +84,14 @@ def _texto_pdf(data: bytes) -> str:
 
 
 def listar_c1() -> list[dict]:
-    """Documentos C-1 del ERP (categoria FORMULARIOS, nombre ~ 'C-1')."""
+    """Documentos C-1 del ERP (lectura directa con la Secret key)."""
     sel = "nombre,path,licitaciones(numero_sicoes)"
-    docs = _erp_get(f"licitacion_documentos?categoria=eq.FORMULARIOS"
-                    f"&nombre=ilike.*C-1*&select={urllib.parse.quote(sel)}")
+    url = (f"{ERP_URL}/rest/v1/licitacion_documentos?categoria=eq.FORMULARIOS"
+           f"&nombre=ilike.*C-1*&select={urllib.parse.quote(sel)}")
+    req = urllib.request.Request(url, headers={
+        "apikey": ERP_KEY, "Authorization": f"Bearer {ERP_KEY}"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        docs = json.loads(r.read()) or []
     out = []
     for d in docs:
         ns = ((d.get("licitaciones") or {}) or {}).get("numero_sicoes")
@@ -106,9 +101,8 @@ def listar_c1() -> list[dict]:
 
 
 def main():
-    if not ERP_URL or not ERP_SERVICE_KEY:
-        print("❌ Falta ERP_SUPABASE_URL / ERP_SERVICE_KEY en monitor/.env "
-              "(service_role del ERP; solo para este parseo de Storage).")
+    if not ERP_URL or not ERP_KEY:
+        print("❌ Falta ERP_SUPABASE_URL / ERP_SERVICE_KEY (Secret key sb_secret_...) en monitor/.env")
         return
     reparse = "--reparse" in sys.argv
     docs = listar_c1()
