@@ -11,6 +11,7 @@ ahorrar requests. Si la IA falla, devuelve relevante=False sin crashear (el
 filtro de diccionario sigue funcionando en paralelo).
 """
 import os
+import re
 import json
 import time
 import urllib.request
@@ -146,6 +147,98 @@ def estructurar_c1(texto: str) -> list[dict]:
         return _parse_array(resp["choices"][0]["message"]["content"])
     except Exception:
         return []
+
+
+DBC_SYSTEM = (
+    "Eres un asistente que extrae las ESPECIFICACIONES TÉCNICAS DEL PRODUCTO "
+    "requeridas por la entidad en un pliego/DBC de una licitación pública boliviana. "
+    "Del texto dado, identificá cada ítem/producto solicitado y SOLO sus requisitos "
+    "TÉCNICOS del bien (capacidad, dimensiones, velocidad, interfaz, potencia, "
+    "conectividad, material, resolución, marca/modelo si se exige, norma técnica, "
+    "etc.) — los que sirven para encontrar/comprar el producto. "
+    "IGNORÁ las condiciones comerciales y administrativas: garantía, plazo de "
+    "entrega, multas, forma/lugar de pago, lugar de entrega, 'producto nuevo/"
+    "original', 'manifestar aceptación', embalaje y similares. "
+    "Devolvé EXCLUSIVAMENTE un array JSON, un objeto por ítem: "
+    '[{"item":<nº o texto>,"descripcion":"<nombre/producto>",'
+    '"especificaciones":["<req técnico 1>","<req técnico 2>", ...],'
+    '"cantidad":<nº o null>,"unidad":"<unidad o \\"\\">"}]. '
+    "No inventes; si no hay specs técnicas claras, dejá la lista vacía. "
+    "Sin texto fuera del array."
+)
+
+
+_RE_MARCADOR_SPECS = re.compile(
+    r"especificaci[oó]n\w*\s+t[eé]cnic|caracter[ií]sticas", re.IGNORECASE)
+
+
+def _region_specs(texto: str, ancho_max: int = 45000) -> str:
+    """El DBC es largo (decenas de páginas) y las fichas técnicas (Formulario C-1)
+    están en la segunda mitad. La PRIMERA mención de 'especificaciones técnicas' es
+    solo la instrucción; la tabla real es un CLUSTER de menciones más adentro.
+    Arranca la región en el primer marcador que tiene otro cerca (el cluster)."""
+    pos = [m.start() for m in _RE_MARCADOR_SPECS.finditer(texto)]
+    if not pos:
+        return texto[:ancho_max]
+    inicio = pos[0]
+    for i, p in enumerate(pos):
+        if i + 1 < len(pos) and pos[i + 1] - p <= 5000:
+            inicio = p
+            break
+    inicio = max(0, inicio - 300)
+    return texto[inicio:inicio + ancho_max]
+
+
+def _dedup_items(items: list[dict]) -> list[dict]:
+    """Une ítems de chunks distintos; ante misma descripción, deja el que tiene
+    más especificaciones."""
+    out: dict[str, dict] = {}
+    orden: list[str] = []
+    import unicodedata
+    for it in items:
+        if not isinstance(it, dict):
+            continue
+        d = unicodedata.normalize("NFKD", str(it.get("descripcion", "")))
+        d = "".join(c for c in d if not unicodedata.combining(c)).strip().lower()
+        k = d[:80] or str(len(orden))
+        n = len(it.get("especificaciones") or [])
+        if k not in out:
+            out[k] = it
+            orden.append(k)
+        elif n > len(out[k].get("especificaciones") or []):
+            out[k] = it
+    return [out[k] for k in orden]
+
+
+def estructurar_dbc(texto: str, chunk: int = 11000, solapa: int = 800,
+                    max_chunks: int = 4) -> list[dict]:
+    """Extrae ítems + specs requeridas del DBC. Procesa la región de fichas técnicas
+    por chunks (el DBC supera el TPM de Groq en un solo request) y une los ítems."""
+    if not texto or not texto.strip() or not GROQ_API_KEY:
+        return []
+    region = _region_specs(texto)
+    items: list[dict] = []
+    i = n = 0
+    while i < len(region) and n < max_chunks:
+        trozo = region[i:i + chunk]
+        payload = {
+            "model": GROQ_MODEL, "temperature": 0,
+            "messages": [
+                {"role": "system", "content": DBC_SYSTEM},
+                {"role": "user", "content": "Texto del DBC / fichas técnicas:\n" + trozo},
+            ],
+        }
+        resp = _request(payload)
+        if resp:
+            try:
+                items += _parse_array(resp["choices"][0]["message"]["content"])
+            except Exception:
+                pass
+        i += chunk - solapa
+        n += 1
+        if i < len(region) and n < max_chunks:
+            time.sleep(30)  # throttle entre chunks (TPM Groq 8000)
+    return _dedup_items(items)
 
 
 def _bloque_catalogo(catalogo: list[str] | None) -> str:

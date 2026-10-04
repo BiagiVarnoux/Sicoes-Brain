@@ -92,3 +92,15 @@ create table if not exists public.erp_c1 (
 create index if not exists idx_erp_c1_sicoes on public.erp_c1(numero_sicoes);
 alter table public.erp_c1 enable row level security;
 create policy "public_read_erp_c1" on public.erp_c1 for select to anon using (true);
+
+-- Especificaciones técnicas requeridas por la entidad, extraídas del DBC de cada
+-- convocatoria (base para buscar/cotizar el producto). Lo puebla dbc_specs.py.
+create table if not exists public.convocatoria_specs (
+  cuce          text primary key references public.convocatorias_radar(cuce) on delete cascade,
+  items         jsonb default '[]'::jsonb, -- [{item,descripcion,especificaciones[],cantidad,unidad}]
+  texto_crudo   text,
+  metodo        text,                       -- 'texto' | 'ocr_pendiente'
+  extraido_en   timestamptz default now()
+);
+alter table public.convocatoria_specs enable row level security;
+create policy "public_read_conv_specs" on public.convocatoria_specs for select to anon using (true);
