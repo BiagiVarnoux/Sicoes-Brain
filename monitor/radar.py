@@ -144,10 +144,13 @@ def clasificar(candidatas: list[dict], usar_ia: bool) -> list[dict]:
     # Filtro B — IA (con few-shot del criterio real del usuario: relevantes que
     # dejó + descartes por 'producto')
     if usar_ia and candidatas:
+        catalogo = db.catalogo_erp()
         pos, neg = db.ejemplos_entrenamiento()
-        extra = f" | ejemplos: {len(pos)}✓ / {len(neg)}✗" if (pos or neg) else ""
+        extra = (f" | catálogo ERP: {len(catalogo)}"
+                 + (f" | ejemplos: {len(pos)}✓/{len(neg)}✗" if (pos or neg) else ""))
         print(f"  → Clasificando {len(candidatas)} objetos con IA (Groq){extra}...", flush=True)
-        veredictos = clasificador_ia.clasificar_lote(objetos, ejemplos_pos=pos, ejemplos_neg=neg)
+        veredictos = clasificador_ia.clasificar_lote(
+            objetos, ejemplos_pos=pos, ejemplos_neg=neg, catalogo=catalogo)
     else:
         veredictos = [{"relevante": False, "razon": "IA desactivada"} for _ in candidatas]
 

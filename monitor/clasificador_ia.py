@@ -115,18 +115,31 @@ def _bloque_ejemplos(pos: list[str] | None, neg: list[str] | None) -> str:
             "respetalo:\n" + "\n\n".join(partes))
 
 
+def _bloque_catalogo(catalogo: list[str] | None) -> str:
+    """Catálogo real del usuario (del ERP): la señal positiva más fuerte."""
+    if not catalogo:
+        return ""
+    return ("\n\nCATÁLOGO REAL del usuario — productos que EFECTIVAMENTE oferta en "
+            "licitaciones (su negocio real). Tratá como relevante (relevante=true) "
+            "toda convocatoria de estos productos o equivalentes/variantes:\n"
+            + "\n".join(f"- {t}" for t in catalogo[:80]))
+
+
 def clasificar_lote(objetos: list[str], ejemplos_pos: list[str] | None = None,
-                    ejemplos_neg: list[str] | None = None) -> list[dict]:
+                    ejemplos_neg: list[str] | None = None,
+                    catalogo: list[str] | None = None) -> list[dict]:
     """objetos: lista de textos. Devuelve lista alineada de
     {relevante: bool, razon: str}. Ante fallo total, todo relevante=False.
-    ejemplos_pos/neg: few-shot del criterio real del usuario (opcional)."""
+    catalogo: productos reales del ERP (positivo fuerte). ejemplos_pos/neg:
+    few-shot de las decisiones del usuario en el radar."""
     if not objetos:
         return []
     if not GROQ_API_KEY:
         print("      ⚠ GROQ_API_KEY no configurada; filtro IA desactivado.", flush=True)
         return [{"relevante": False, "razon": "IA sin API key"} for _ in objetos]
 
-    system_prompt = SYSTEM_PROMPT + _bloque_ejemplos(ejemplos_pos, ejemplos_neg)
+    system_prompt = (SYSTEM_PROMPT + _bloque_catalogo(catalogo)
+                     + _bloque_ejemplos(ejemplos_pos, ejemplos_neg))
 
     resultados: list[dict] = [None] * len(objetos)  # type: ignore
 

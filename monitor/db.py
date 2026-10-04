@@ -63,6 +63,35 @@ def cuces_existentes(cuces: list[str]) -> set:
     return vistos
 
 
+def catalogo_erp(limite: int = 80) -> list[str]:
+    """Catálogo REAL del usuario: productos que efectivamente ofertó en el ERP
+    (tabla espejo erp_productos). Deduplicado, 'nombre — especificacion'. Es la
+    señal positiva más fuerte para la IA (lo que de verdad maneja/vende)."""
+    req = urllib.request.Request(
+        f"{SUPABASE_URL}/rest/v1/erp_productos?select=nombre,especificacion&limit=1000",
+        headers=_headers())
+    try:
+        _s, body = _urlopen_retry(req, timeout=15)
+        rows = json.loads(body)
+    except Exception:
+        return []
+    vistos, out = set(), []
+    for r in rows:
+        nombre = (r.get("nombre") or "").strip()
+        if not nombre:
+            continue
+        espec = (r.get("especificacion") or "").strip()
+        texto = f"{nombre} — {espec}" if espec else nombre
+        clave = texto.lower()
+        if clave in vistos:
+            continue
+        vistos.add(clave)
+        out.append(texto)
+        if len(out) >= limite:
+            break
+    return out
+
+
 def ejemplos_entrenamiento(limite: int = 25) -> tuple[list[str], list[str]]:
     """Devuelve (positivos, negativos) para enseñarle a la IA el criterio real:
     - positivos: objetos marcados relevantes que el usuario NO descartó.
