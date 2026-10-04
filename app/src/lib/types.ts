@@ -39,6 +39,17 @@ export type ConvocatoriaRadar = {
   creado_en: string
 }
 
+// Espejo del historial del ERP (por numero_sicoes = cuce4 del radar)
+export type ErpLicitacion = {
+  numero_sicoes: string
+  nombre: string | null
+  entidad: string | null
+  tipo_proceso: string | null
+  estado: string | null
+  ganada: boolean | null
+  fecha_presentacion: string | null
+}
+
 // Motivos de descarte. Solo 'producto' entrena los filtros (diccionario + IA);
 // el resto son específicos de la convocatoria y solo se registran.
 export const MOTIVOS_DESCARTE: { code: string; label: string; entrena: boolean }[] = [

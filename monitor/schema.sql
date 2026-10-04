@@ -47,3 +47,33 @@ alter table public.convocatorias_radar enable row level security;
 
 create policy "public_read_radar"   on public.convocatorias_radar for select to anon using (true);
 create policy "public_update_radar" on public.convocatorias_radar for update to anon using (true) with check (true);
+
+-- ─────────────────────────────────────────────────────────────────────────────
+-- Espejo (solo lectura) del historial del ERP "Contabilidad", para enriquecer el
+-- radar y entrenar la IA. numero_sicoes == cuce4 del radar. Lo puebla erp_sync.py.
+-- Solo campos NO sensibles (sin costos/piso/margen).
+create table if not exists public.erp_licitaciones (
+  numero_sicoes      text primary key,            -- = cuce4 del radar
+  nombre             text,
+  entidad            text,
+  tipo_proceso       text,
+  estado             text,                          -- ADJUDICADA/PERDIDA/ENTREGADA/COBRADA/DESIERTA/...
+  ganada             boolean,                        -- estado in (ADJUDICADA,ENTREGADA,COBRADA)
+  fecha_presentacion date,
+  sincronizado_en    timestamptz default now()
+);
+create table if not exists public.erp_productos (
+  id             bigint generated always as identity primary key,
+  numero_sicoes  text not null references public.erp_licitaciones(numero_sicoes) on delete cascade,
+  orden          integer,
+  nombre         text,     -- producto + modelo (texto libre del ERP)
+  especificacion text,     -- specs cumplidas
+  cantidad       numeric,
+  precio_entidad numeric,  -- referencia de la entidad
+  precio_ofertado numeric  -- a cuánto se ofertó
+);
+create index if not exists idx_erp_prod_sicoes on public.erp_productos(numero_sicoes);
+alter table public.erp_licitaciones enable row level security;
+alter table public.erp_productos    enable row level security;
+create policy "public_read_erp_lic"  on public.erp_licitaciones for select to anon using (true);
+create policy "public_read_erp_prod" on public.erp_productos    for select to anon using (true);

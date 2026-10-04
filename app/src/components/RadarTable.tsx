@@ -3,7 +3,30 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
-import { type ConvocatoriaRadar, MOTIVOS_DESCARTE } from '@/lib/types'
+import { type ConvocatoriaRadar, type ErpLicitacion, MOTIVOS_DESCARTE } from '@/lib/types'
+
+function cuce4(cuce: string): string {
+  const p = (cuce ?? '').split('-')
+  return p[3] ?? ''
+}
+
+function HistorialBadge({ hist }: { hist: ErpLicitacion }) {
+  const ganada = hist.ganada === true
+  const perdida = hist.estado === 'PERDIDA'
+  const cls = ganada
+    ? 'bg-emerald-100 text-emerald-800'
+    : perdida
+      ? 'bg-red-100 text-red-700'
+      : 'bg-amber-100 text-amber-800'
+  return (
+    <span
+      className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[11px] font-medium ${cls}`}
+      title={hist.nombre ?? ''}
+    >
+      🗂 Ya trabajada · {hist.estado}
+    </span>
+  )
+}
 
 function diasRestantes(fecha: string | null): number | null {
   if (!fecha) return null
@@ -17,7 +40,9 @@ function labelMotivo(code: string) {
   return MOTIVOS_DESCARTE.find((m) => m.code === code)?.label ?? code
 }
 
-export default function RadarTable({ rows }: { rows: ConvocatoriaRadar[] }) {
+export default function RadarTable(
+  { rows, erpMap = {} }: { rows: ConvocatoriaRadar[]; erpMap?: Record<string, ErpLicitacion> },
+) {
   const router = useRouter()
   const [busy, setBusy] = useState<string | null>(null)
 
@@ -112,6 +137,11 @@ export default function RadarTable({ rows }: { rows: ConvocatoriaRadar[] }) {
                   <td className="px-4 py-3 max-w-md">
                     <div className="font-medium text-gray-900 leading-snug">{r.objeto}</div>
                     <div className="text-xs text-gray-400 mt-0.5 font-mono">{r.cuce}</div>
+                    {erpMap[cuce4(r.cuce)] && (
+                      <div className="mt-1">
+                        <HistorialBadge hist={erpMap[cuce4(r.cuce)]} />
+                      </div>
+                    )}
                     {r.descartado && (r.motivo_descarte ?? []).length > 0 && (
                       <div className="mt-1.5 flex flex-wrap gap-1">
                         {(r.motivo_descarte ?? []).map((m) => (
