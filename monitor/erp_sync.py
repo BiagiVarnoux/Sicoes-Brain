@@ -8,10 +8,14 @@ Enlace: ERP `licitaciones.numero_sicoes` == radar `cuce4` (4º grupo del CUCE).
 Copia SOLO campos no sensibles (sin costos/piso/margen) a las tablas
 `erp_licitaciones` y `erp_productos` de Sicoes Brain.
 
+Acceso de SOLO LECTURA: se lee vía la función RPC `radar_export_licitaciones`
+del ERP (SECURITY DEFINER, solo columnas no sensibles) con la ANON key + un token.
+No se usa service_role ni se exponen costos/márgenes.
+
 Config en monitor/.env:
   ERP_SUPABASE_URL=https://glhflhqpsjlyrymquzsn.supabase.co
-  ERP_SUPABASE_KEY=<key del ERP con permiso de LECTURA de licitaciones>
-      (server-side; NO ponerla en el frontend ni en el proyecto Sicoes Brain)
+  ERP_SUPABASE_KEY=<anon key del ERP>            (pública; va en .env igual)
+  ERP_EXPORT_TOKEN=<token de la función RPC>      (secreto; server-side, gitignored)
   SUPABASE_URL / SUPABASE_KEY  → ya existentes (destino Sicoes Brain)
 
 Uso:
@@ -20,22 +24,27 @@ Uso:
 import os
 import json
 import urllib.request
-import urllib.parse
 
 from dotenv import load_dotenv
 load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
 ERP_URL = os.environ.get("ERP_SUPABASE_URL", "").rstrip("/")
 ERP_KEY = os.environ.get("ERP_SUPABASE_KEY", "")
+ERP_TOKEN = os.environ.get("ERP_EXPORT_TOKEN", "")
 DEST_URL = os.environ["SUPABASE_URL"].rstrip("/")
 DEST_KEY = os.environ["SUPABASE_KEY"]
 
 
-def _get(url: str, key: str) -> list:
-    req = urllib.request.Request(url, headers={
-        "apikey": key, "Authorization": f"Bearer {key}"})
+def _rpc_export() -> list:
+    """Llama a la función de solo-lectura del ERP y devuelve las licitaciones
+    (con sus productos embebidos en 'productos')."""
+    req = urllib.request.Request(
+        f"{ERP_URL}/rest/v1/rpc/radar_export_licitaciones",
+        data=json.dumps({"p_token": ERP_TOKEN}).encode(), method="POST",
+        headers={"apikey": ERP_KEY, "Authorization": f"Bearer {ERP_KEY}",
+                 "Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read())
+        return json.loads(r.read()) or []
 
 
 def _send(method: str, path: str, rows=None, prefer: str = "") -> None:
@@ -51,16 +60,12 @@ def _send(method: str, path: str, rows=None, prefer: str = "") -> None:
 
 
 def main():
-    if not ERP_URL or not ERP_KEY:
-        print("❌ Falta ERP_SUPABASE_URL / ERP_SUPABASE_KEY en monitor/.env")
+    if not ERP_URL or not ERP_KEY or not ERP_TOKEN:
+        print("❌ Falta ERP_SUPABASE_URL / ERP_SUPABASE_KEY / ERP_EXPORT_TOKEN en monitor/.env")
         return
 
-    # 1) leer del ERP: licitaciones con numero_sicoes + sus productos (embebidos)
-    sel = ("numero_sicoes,nombre,entidad,tipo_proceso,estado,fecha_presentacion,"
-           "licitacion_productos(orden,nombre,especificacion,cantidad,precio_entidad,precio_ofertado)")
-    url = (f"{ERP_URL}/rest/v1/licitaciones?select={urllib.parse.quote(sel)}"
-           f"&numero_sicoes=neq.&order=numero_sicoes")
-    licis = _get(url, ERP_KEY)
+    # 1) leer del ERP (solo lectura, vía RPC con token): licitaciones + productos
+    licis = _rpc_export()
     print(f"ERP: {len(licis)} licitaciones con numero_sicoes")
 
     GANADA = {"ADJUDICADA", "ENTREGADA", "COBRADA"}
@@ -78,7 +83,7 @@ def main():
             "ganada": (l.get("estado") or "") in GANADA,
             "fecha_presentacion": l.get("fecha_presentacion"),
         })
-        for p in (l.get("licitacion_productos") or []):
+        for p in (l.get("productos") or []):
             prod_rows.append({
                 "numero_sicoes": ns,
                 "orden": p.get("orden"),
