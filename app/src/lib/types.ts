@@ -50,6 +50,16 @@ export type ErpLicitacion = {
   fecha_presentacion: string | null
 }
 
+// Producto ofertado en el historial del ERP (espejo), con su resultado.
+export type ErpProducto = {
+  numero_sicoes: string
+  nombre: string | null
+  especificacion: string | null
+  cantidad: number | null
+  precio_entidad: number | null
+  precio_ofertado: number | null
+}
+
 // Motivos de descarte. Solo 'producto' entrena los filtros (diccionario + IA);
 // el resto son específicos de la convocatoria y solo se registran.
 export const MOTIVOS_DESCARTE: { code: string; label: string; entrena: boolean }[] = [

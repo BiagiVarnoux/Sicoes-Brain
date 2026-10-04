@@ -3,11 +3,77 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
-import { type ConvocatoriaRadar, type ErpLicitacion, MOTIVOS_DESCARTE } from '@/lib/types'
+import {
+  type ConvocatoriaRadar, type ErpLicitacion, type ErpProducto, MOTIVOS_DESCARTE,
+} from '@/lib/types'
 
 function cuce4(cuce: string): string {
   const p = (cuce ?? '').split('-')
   return p[3] ?? ''
+}
+
+function norm(s: string | null): string {
+  return (s ?? '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase()
+}
+
+// Tipos de producto para cruzar la convocatoria con el catálogo del ERP.
+const TIPOS: { key: string; rx: RegExp }[] = [
+  { key: 'ssd', rx: /\bssd\b|disco solido|estado solido|nvme/ },
+  { key: 'hdd', rx: /\bhdd\b|disco duro/ },
+  { key: 'ram', rx: /\bram\b|memoria ram|memorias ram|\bddr\d?\b/ },
+  { key: 'backup', rx: /cinta|\blto\b|lto\d|backup/ },
+  { key: 'etiqueta', rx: /etiqueta|dk-?2205|autoadhesiv/ },
+  { key: 'tarjeta', rx: /tarjeta|\bpvc\b|ribbon|ymcko|zebra|zxp/ },
+  { key: 'escaner', rx: /escaner|scanner/ },
+  { key: 'impresion', rx: /impresora|toner|tinta|fotocopiadora/ },
+  { key: 'periferico', rx: /periferic|teclado|mouse|raton|\bhub\b|adaptador|conversor|hdmi|\bvga\b|estabilizador|\bups\b|switch|regleta|altavoz|parlante|cable/ },
+  { key: 'computo', rx: /computador|laptop|notebook|\bcpu\b|equipo de computacion|equipos de computacion|equipo informatico|equipos informaticos/ },
+  { key: 'monitor', rx: /monitor|pantalla/ },
+]
+
+function tiposDe(texto: string): Set<string> {
+  const n = norm(texto)
+  const out = new Set<string>()
+  for (const t of TIPOS) if (t.rx.test(n)) out.add(t.key)
+  return out
+}
+
+type Referencia = { nombre: string; precio: number | null; ganada: boolean | null; estado: string | null }
+
+function referenciasDe(
+  objeto: string | null,
+  productos: ErpProducto[],
+  erpMap: Record<string, ErpLicitacion>,
+): Referencia[] {
+  const tconv = tiposDe(objeto ?? '')
+  if (tconv.size === 0) return []
+  const refs: Referencia[] = []
+  const vistos = new Set<string>()
+  for (const p of productos) {
+    const tp = tiposDe(`${p.nombre ?? ''} ${p.especificacion ?? ''}`)
+    let comparte = false
+    for (const k of tp) if (tconv.has(k)) { comparte = true; break }
+    if (!comparte) continue
+    const lic = erpMap[p.numero_sicoes]
+    const nombre = (p.nombre ?? '').trim() || '(sin nombre)'
+    const clave = `${nombre}|${p.precio_ofertado}`
+    if (vistos.has(clave)) continue
+    vistos.add(clave)
+    refs.push({
+      nombre,
+      precio: p.precio_ofertado,
+      ganada: lic?.ganada ?? null,
+      estado: lic?.estado ?? null,
+    })
+  }
+  // ganadas primero, luego por precio
+  refs.sort((a, b) => Number(b.ganada) - Number(a.ganada) || (a.precio ?? 0) - (b.precio ?? 0))
+  return refs
+}
+
+function fmtBs(n: number | null): string {
+  if (n == null) return '—'
+  return 'Bs ' + n.toLocaleString('es-BO', { minimumFractionDigits: 0, maximumFractionDigits: 2 })
 }
 
 function HistorialBadge({ hist }: { hist: ErpLicitacion }) {
@@ -41,7 +107,11 @@ function labelMotivo(code: string) {
 }
 
 export default function RadarTable(
-  { rows, erpMap = {} }: { rows: ConvocatoriaRadar[]; erpMap?: Record<string, ErpLicitacion> },
+  { rows, erpMap = {}, erpProductos = [] }: {
+    rows: ConvocatoriaRadar[]
+    erpMap?: Record<string, ErpLicitacion>
+    erpProductos?: ErpProducto[]
+  },
 ) {
   const router = useRouter()
   const [busy, setBusy] = useState<string | null>(null)
@@ -132,6 +202,10 @@ export default function RadarTable(
             {rows.map((r) => {
               const dias = diasRestantes(r.fecha_presentacion)
               const urgente = dias !== null && dias <= 3
+              const refs = referenciasDe(r.objeto, erpProductos, erpMap)
+              const precios = refs.map((x) => x.precio).filter((x): x is number => x != null)
+              const ganadas = refs.filter((x) => x.ganada === true).length
+              const perdidas = refs.filter((x) => x.ganada === false).length
               return (
                 <tr key={r.cuce} className={`align-top ${r.visto ? 'bg-gray-50/60' : ''}`}>
                   <td className="px-4 py-3 max-w-md">
@@ -141,6 +215,33 @@ export default function RadarTable(
                       <div className="mt-1">
                         <HistorialBadge hist={erpMap[cuce4(r.cuce)]} />
                       </div>
+                    )}
+                    {refs.length > 0 && (
+                      <details className="mt-1.5 group">
+                        <summary className="cursor-pointer text-xs text-emerald-700 hover:underline list-none">
+                          💡 Tu historial: {refs.length} oferta{refs.length === 1 ? '' : 's'} similar
+                          {precios.length > 0 && (
+                            <span className="text-gray-500">
+                              {' · '}{fmtBs(Math.min(...precios))}–{fmtBs(Math.max(...precios))}
+                            </span>
+                          )}
+                          {(ganadas > 0 || perdidas > 0) && (
+                            <span className="text-gray-500"> · ✓{ganadas}/✗{perdidas}</span>
+                          )}
+                        </summary>
+                        <div className="mt-1 pl-1 flex flex-col gap-0.5">
+                          {refs.slice(0, 8).map((x, i) => (
+                            <div key={i} className="text-[11px] text-gray-600 flex items-center gap-1.5">
+                              <span className={x.ganada ? 'text-emerald-600' : x.ganada === false ? 'text-red-500' : 'text-gray-400'}>
+                                {x.ganada ? '✓' : x.ganada === false ? '✗' : '•'}
+                              </span>
+                              <span className="font-medium text-gray-800">{fmtBs(x.precio)}</span>
+                              <span className="truncate max-w-[220px]" title={x.nombre}>{x.nombre}</span>
+                              <span className="text-gray-400">{x.estado}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </details>
                     )}
                     {r.descartado && (r.motivo_descarte ?? []).length > 0 && (
                       <div className="mt-1.5 flex flex-wrap gap-1">
