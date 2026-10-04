@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import {
-  type ConvocatoriaRadar, type ErpLicitacion, type ErpProducto, MOTIVOS_DESCARTE,
+  type ConvocatoriaRadar, type ErpLicitacion, type ErpProducto,
+  type ConvocatoriaSpecs, MOTIVOS_DESCARTE,
 } from '@/lib/types'
 
 function cuce4(cuce: string): string {
@@ -107,10 +108,11 @@ function labelMotivo(code: string) {
 }
 
 export default function RadarTable(
-  { rows, erpMap = {}, erpProductos = [] }: {
+  { rows, erpMap = {}, erpProductos = [], specsMap = {} }: {
     rows: ConvocatoriaRadar[]
     erpMap?: Record<string, ErpLicitacion>
     erpProductos?: ErpProducto[]
+    specsMap?: Record<string, ConvocatoriaSpecs>
   },
 ) {
   const router = useRouter()
@@ -206,6 +208,8 @@ export default function RadarTable(
               const precios = refs.map((x) => x.precio).filter((x): x is number => x != null)
               const ganadas = refs.filter((x) => x.ganada === true).length
               const perdidas = refs.filter((x) => x.ganada === false).length
+              const specs = (specsMap[r.cuce]?.items ?? []).filter(
+                (it) => it && (it.descripcion || (it.especificaciones?.length ?? 0) > 0))
               return (
                 <tr key={r.cuce} className={`align-top ${r.visto ? 'bg-gray-50/60' : ''}`}>
                   <td className="px-4 py-3 max-w-md">
@@ -238,6 +242,34 @@ export default function RadarTable(
                               <span className="font-medium text-gray-800">{fmtBs(x.precio)}</span>
                               <span className="truncate max-w-[220px]" title={x.nombre}>{x.nombre}</span>
                               <span className="text-gray-400">{x.estado}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </details>
+                    )}
+                    {specs.length > 0 && (
+                      <details className="mt-1.5">
+                        <summary className="cursor-pointer text-xs text-indigo-700 hover:underline list-none">
+                          📋 Qué pide la entidad: {specs.length} ítem{specs.length === 1 ? '' : 's'}
+                        </summary>
+                        <div className="mt-1 pl-1 flex flex-col gap-1.5">
+                          {specs.map((it, i) => (
+                            <div key={i} className="text-[11px]">
+                              <div className="font-medium text-gray-800">
+                                {it.descripcion || `Ítem ${it.item ?? i + 1}`}
+                                {it.cantidad != null && (
+                                  <span className="text-gray-500 font-normal">
+                                    {' '}· {it.cantidad}{it.unidad ? ` ${it.unidad.toLowerCase()}` : ''}
+                                  </span>
+                                )}
+                              </div>
+                              {(it.especificaciones?.length ?? 0) > 0 && (
+                                <ul className="mt-0.5 ml-3 list-disc text-gray-600 space-y-0.5">
+                                  {(it.especificaciones ?? []).map((e, j) => (
+                                    <li key={j}>{e}</li>
+                                  ))}
+                                </ul>
+                              )}
                             </div>
                           ))}
                         </div>

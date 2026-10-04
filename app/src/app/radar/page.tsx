@@ -4,7 +4,9 @@ import Link from 'next/link'
 import SiteHeader from '@/components/SiteHeader'
 import RadarTable from '@/components/RadarTable'
 import { supabase } from '@/lib/supabase'
-import type { ConvocatoriaRadar, ErpLicitacion, ErpProducto } from '@/lib/types'
+import type {
+  ConvocatoriaRadar, ErpLicitacion, ErpProducto, ConvocatoriaSpecs,
+} from '@/lib/types'
 
 type PageProps = {
   searchParams: Promise<{ vista?: string }>
@@ -60,10 +62,21 @@ async function getErpProductos(): Promise<ErpProducto[]> {
   return (data ?? []) as ErpProducto[]
 }
 
+async function getSpecsMap(): Promise<Record<string, ConvocatoriaSpecs>> {
+  const { data, error } = await supabase
+    .from('convocatoria_specs')
+    .select('cuce,items')
+  if (error) {
+    console.error('getSpecsMap', error)
+    return {}
+  }
+  return Object.fromEntries((data ?? []).map((e) => [e.cuce, e as ConvocatoriaSpecs]))
+}
+
 export default async function RadarPage({ searchParams }: PageProps) {
   const { vista = 'relevantes' } = await searchParams
-  const [rows, erpMap, erpProductos] = await Promise.all([
-    getRadar(vista), getErpMap(), getErpProductos(),
+  const [rows, erpMap, erpProductos, specsMap] = await Promise.all([
+    getRadar(vista), getErpMap(), getErpProductos(), getSpecsMap(),
   ])
 
   const relevantes = rows.filter((r) => r.relevante).length
@@ -107,7 +120,7 @@ export default async function RadarPage({ searchParams }: PageProps) {
           </div>
         </div>
 
-        <RadarTable rows={rows} erpMap={erpMap} erpProductos={erpProductos} />
+        <RadarTable rows={rows} erpMap={erpMap} erpProductos={erpProductos} specsMap={specsMap} />
 
         {vista === 'relevantes' && (
           <p className="text-xs text-gray-400 mt-4">

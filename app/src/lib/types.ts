@@ -50,6 +50,19 @@ export type ErpLicitacion = {
   fecha_presentacion: string | null
 }
 
+// Especificaciones técnicas requeridas por la entidad, extraídas del DBC.
+export type SpecItem = {
+  item?: string | number
+  descripcion?: string
+  especificaciones?: string[]
+  cantidad?: number | null
+  unidad?: string
+}
+export type ConvocatoriaSpecs = {
+  cuce: string
+  items: SpecItem[] | null
+}
+
 // Producto ofertado en el historial del ERP (espejo), con su resultado.
 export type ErpProducto = {
   numero_sicoes: string
