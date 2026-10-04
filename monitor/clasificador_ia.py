@@ -99,14 +99,34 @@ def _parse_array(contenido: str) -> list[dict]:
         return []
 
 
-def clasificar_lote(objetos: list[str]) -> list[dict]:
+def _bloque_ejemplos(pos: list[str] | None, neg: list[str] | None) -> str:
+    """Few-shot con el criterio real del usuario (de sus decisiones en el radar)."""
+    partes = []
+    if pos:
+        partes.append("Ejemplos que el usuario SÍ considera relevantes (relevante=true):\n"
+                      + "\n".join(f"- {t}" for t in pos[:25]))
+    if neg:
+        partes.append("Ejemplos que el usuario DESCARTÓ porque NO maneja ese producto "
+                      "(relevante=false; aprendé a descartar esa categoría):\n"
+                      + "\n".join(f"- {t}" for t in neg[:25]))
+    if not partes:
+        return ""
+    return ("\n\nCriterio aprendido de las decisiones reales del usuario — "
+            "respetalo:\n" + "\n\n".join(partes))
+
+
+def clasificar_lote(objetos: list[str], ejemplos_pos: list[str] | None = None,
+                    ejemplos_neg: list[str] | None = None) -> list[dict]:
     """objetos: lista de textos. Devuelve lista alineada de
-    {relevante: bool, razon: str}. Ante fallo total, todo relevante=False."""
+    {relevante: bool, razon: str}. Ante fallo total, todo relevante=False.
+    ejemplos_pos/neg: few-shot del criterio real del usuario (opcional)."""
     if not objetos:
         return []
     if not GROQ_API_KEY:
         print("      ⚠ GROQ_API_KEY no configurada; filtro IA desactivado.", flush=True)
         return [{"relevante": False, "razon": "IA sin API key"} for _ in objetos]
+
+    system_prompt = SYSTEM_PROMPT + _bloque_ejemplos(ejemplos_pos, ejemplos_neg)
 
     resultados: list[dict] = [None] * len(objetos)  # type: ignore
 
@@ -117,7 +137,7 @@ def clasificar_lote(objetos: list[str]) -> list[dict]:
             "model": GROQ_MODEL,
             "temperature": 0,
             "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "system", "content": system_prompt},
                 {"role": "user", "content": "Clasifica estos objetos de contratación:\n" + listado},
             ],
         }

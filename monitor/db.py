@@ -63,6 +63,25 @@ def cuces_existentes(cuces: list[str]) -> set:
     return vistos
 
 
+def ejemplos_entrenamiento(limite: int = 25) -> tuple[list[str], list[str]]:
+    """Devuelve (positivos, negativos) para enseñarle a la IA el criterio real:
+    - positivos: objetos marcados relevantes que el usuario NO descartó.
+    - negativos: objetos descartados específicamente por motivo 'producto'
+      (los únicos que son señal de que esa CATEGORÍA de producto no va).
+    Los descartes por precio/plazos/especificaciones/etc. NO entran (son de la
+    convocatoria puntual, no del producto)."""
+    def _objetos(path: str) -> list[str]:
+        req = urllib.request.Request(f"{SUPABASE_URL}/rest/v1/{path}", headers=_headers())
+        try:
+            _s, body = _urlopen_retry(req, timeout=15)
+            return [r["objeto"] for r in json.loads(body) if r.get("objeto")]
+        except Exception:
+            return []
+    pos = _objetos(f"{TABLA}?relevante=eq.true&descartado=eq.false&select=objeto&limit={limite}")
+    neg = _objetos(f"{TABLA}?descartado=eq.true&motivo_descarte=cs.%7Bproducto%7D&select=objeto&limit={limite}")
+    return pos, neg
+
+
 def upsert(rows: list[dict]) -> dict:
     """Inserta/actualiza por CUCE. Devuelve {ok, count} o {error}."""
     if not rows:

@@ -31,6 +31,9 @@ create table if not exists public.convocatorias_radar (
   -- gestion del usuario en el dashboard
   visto                  boolean default false,
   descartado             boolean default false,
+  motivo_descarte        text[]  default '{}',   -- producto/precio/especificaciones/garantias/marca/plazos/otro
+  nota_descarte          text,                   -- nota libre (ej. "no hago impresoras 3D")
+  descartado_en          timestamptz,            -- solo 'producto' entrena los filtros
 
   creado_en              timestamptz default now(),
   actualizado_en         timestamptz default now()

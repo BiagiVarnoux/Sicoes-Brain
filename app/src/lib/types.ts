@@ -33,8 +33,23 @@ export type ConvocatoriaRadar = {
   dbc_descargado: boolean
   visto: boolean
   descartado: boolean
+  motivo_descarte: string[] | null
+  nota_descarte: string | null
+  descartado_en: string | null
   creado_en: string
 }
+
+// Motivos de descarte. Solo 'producto' entrena los filtros (diccionario + IA);
+// el resto son específicos de la convocatoria y solo se registran.
+export const MOTIVOS_DESCARTE: { code: string; label: string; entrena: boolean }[] = [
+  { code: 'producto', label: 'Producto (no lo manejo / no va)', entrena: true },
+  { code: 'precio', label: 'Precio', entrena: false },
+  { code: 'especificaciones', label: 'Especificaciones técnicas', entrena: false },
+  { code: 'garantias', label: 'Garantías', entrena: false },
+  { code: 'marca', label: 'Representación de marca', entrena: false },
+  { code: 'plazos', label: 'Plazos', entrena: false },
+  { code: 'otro', label: 'Otro', entrena: false },
+]
 
 export type Entidad = {
   codigo: string
