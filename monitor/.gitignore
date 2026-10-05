@@ -3,3 +3,4 @@ venv/
 __pycache__/
 dbc/
 salidas/
+.ultima_corrida
