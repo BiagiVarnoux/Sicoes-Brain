@@ -103,12 +103,23 @@ async def recolectar(page, max_paginas: int) -> list[dict]:
     print(f"  → {total_reg} registros, {total_pag} páginas (recorro {pags})", flush=True)
 
     todas = []
+    vacias_seguidas = 0
     for n in range(1, pags + 1):
         if n > 1:
             await nav.ir_pagina(page, n)
         filas = await nav.leer_tabla(page)
         todas.extend(filas)
         print(f"    · pág {n}/{pags}: {len(filas)} filas (acum {len(todas)})", flush=True)
+        if filas:
+            vacias_seguidas = 0
+        else:
+            vacias_seguidas += 1
+            # El SICOES a veces reporta más páginas de las que sirve (tope ~1000
+            # resultados). Si varias vienen vacías seguidas, los datos se acabaron.
+            if vacias_seguidas >= 3:
+                print(f"    → corto: {vacias_seguidas} páginas vacías seguidas "
+                      f"(datos agotados en ~pág {n - vacias_seguidas}).", flush=True)
+                break
         if n % KEEPALIVE_CADA == 0 and n < pags:
             await nav.keepalive(page)
     return todas
