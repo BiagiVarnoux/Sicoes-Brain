@@ -16,17 +16,28 @@ echo "   RADAR SICOES — corrida completa"
 echo "════════════════════════════════════"
 
 # 1) Brave con debugging (reutiliza si ya está abierto)
-if curl -s -m 3 http://localhost:9222/json/version >/dev/null 2>&1; then
+puerto_ok() { curl -s -m 2 http://localhost:9222/json/version >/dev/null 2>&1; }
+
+if puerto_ok; then
   echo "✓ Brave con debugging ya está abierto."
 else
-  echo "Abriendo Brave..."
+  echo "Abriendo Brave (en este equipo puede tardar un minuto)..."
   "$BRAVE" --remote-debugging-port=9222 --user-data-dir="$PERFIL" >/dev/null 2>&1 &
-  for i in $(seq 1 30); do
-    curl -s -m 2 http://localhost:9222/json/version >/dev/null 2>&1 && break
-    sleep 1
+  printf "Esperando a que Brave esté listo"
+  LISTO=0
+  for i in $(seq 1 120); do
+    if puerto_ok; then LISTO=1; break; fi
+    printf "."; sleep 1
   done
-  if ! curl -s -m 2 http://localhost:9222/json/version >/dev/null 2>&1; then
-    echo "✗ No se pudo abrir Brave con debugging."
+  echo ""
+  if [ "$LISTO" -ne 1 ]; then
+    echo "Brave está tardando más de lo normal."
+    read -r -p "Cuando la ventana de Brave YA esté abierta, presioná Enter para seguir..." _
+    for i in $(seq 1 40); do puerto_ok && { LISTO=1; break; }; sleep 1; done
+  fi
+  if [ "$LISTO" -ne 1 ]; then
+    echo "✗ No se pudo conectar a Brave con debugging."
+    echo "  Probá cerrar Brave del todo y volvé a dar doble clic."
     read -r -p "Enter para cerrar..." _; exit 1
   fi
   echo "✓ Brave listo."
