@@ -1,8 +1,9 @@
 #!/bin/bash
 # ───────────────────────────────────────────────────────────────────────────
-# Doble clic para correr el Radar completo (sin escribir nada en la terminal).
+# Doble clic para correr el Radar (sin escribir nada en la terminal).
 # Abre Brave con debugging (si no está), y corre:
-#   radar.py --auto  →  dbc_specs.py  →  erp_sync.py
+#   radar.py --auto  →  dbc_specs.py
+# (El historial del ERP se sincroniza aparte con erp_sync.py cuando quieras.)
 # ───────────────────────────────────────────────────────────────────────────
 MONITOR="/Users/fabriziocuellar/Sicoes-Brain/monitor"
 PY="/Users/fabriziocuellar/Sicoes-Brain/scraper/venv/bin/python"
@@ -32,16 +33,12 @@ else
 fi
 
 # 2) Radar (busca, filtra, baja DBC, clasifica) — fecha automática
-echo ""; echo ">>> 1/3  Radar (buscando convocatorias nuevas)..."
+echo ""; echo ">>> 1/2  Radar (buscando convocatorias nuevas)..."
 "$PY" radar.py --auto || echo "⚠ radar.py terminó con error (sigo)."
 
 # 3) Especificaciones del DBC
-echo ""; echo ">>> 2/3  Extrayendo especificaciones del DBC..."
+echo ""; echo ">>> 2/2  Extrayendo especificaciones del DBC..."
 "$PY" dbc_specs.py || echo "⚠ dbc_specs.py terminó con error (sigo)."
-
-# 4) Refrescar historial del ERP (badge, catálogo, precios)
-echo ""; echo ">>> 3/3  Sincronizando historial del ERP..."
-"$PY" erp_sync.py || echo "⚠ erp_sync.py terminó con error (sigo)."
 
 echo ""
 echo "✅ Listo. Abrí el dashboard (Radar) para ver las novedades."
