@@ -103,6 +103,34 @@ def normalizar(texto: str) -> str:
 _RE_PALABRA = {t: re.compile(rf"\b{re.escape(t)}\b") for t in TERMINOS_PALABRA}
 
 
+# Compuerta AMPLIA: términos que indican que un objeto PODRÍA ser de tus rubros
+# (computación/electrónica/oficina/etiquetas). Es a propósito laxa — sirve para NO
+# mandar a la IA los Bienes obviamente ajenos (medicamentos, alimentos, obras,
+# mobiliario, vehículos, etc.), que son la gran mayoría. La IA solo juzga lo que
+# pasa esta compuerta (o lo que ya matcheó el diccionario preciso).
+_GATE_TERMINOS = [
+    "comput", "informat", "electronic", "tecnolog", "periferic", "accesorio",
+    "hardware",
+    "disco", "memoria", "ram", "ssd", "hdd", "almacenamiento", "nvme",
+    "procesador", "placa madre", "tarjeta de", "tarjeta pvc", "usb", "pendrive",
+    "monitor", "televisor", "proyector", "teclado", "mouse", "raton",
+    "webcam", "parlante", "altavoz", "audifono", "auricular", "microfono",
+    "adaptador", "conversor", "docking", "hdmi", "router", "switch",
+    "access point", "servidor", "rack", "estabilizador",
+    "impres", "escaner", "scanner", "fotocopiad", "plotter", "toner",
+    "cartucho", "tinta", "ribbon", "cinta lto", "lto", "backup",
+    "etiqueta", "autoadhesiv", "rotulo", "sticker", "codigo de barras",
+    "carnet", "ymcko", "zebra", "laptop", "notebook", "portatil", "tablet",
+]
+
+
+def posible_tech(objeto: str) -> bool:
+    """Compuerta amplia: True si el objeto PODRÍA ser de los rubros (para filtrar
+    antes de la IA). Laxa a propósito (prioriza no perder nada)."""
+    n = normalizar(objeto)
+    return any(t in n for t in _GATE_TERMINOS)
+
+
 def match_rubros(objeto: str) -> list[str]:
     """Devuelve la lista de términos que matchearon (vacía si ninguno)."""
     n = normalizar(objeto)

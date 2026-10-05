@@ -21,9 +21,13 @@ GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 # gpt-oss-120b es el modelo de texto más potente disponible en esta cuenta Groq.
 # (Los Llama no estaban habilitados para la key actual.) Configurable por .env.
 GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
+# Para la clasificación masiva (relevante sí/no) se usa un modelo más liviano y de
+# mayor throughput; el 120b se reserva para estructurar C-1/DBC (donde importa la
+# calidad). Configurable por .env.
+GROQ_MODEL_CLAS = os.environ.get("GROQ_MODEL_CLAS", "openai/gpt-oss-20b")
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
-LOTE = 20  # objetos por request
+LOTE = 40  # objetos por request (menos requests = menos repeticiones del catálogo)
 
 SYSTEM_PROMPT = (
     "Eres un asistente que clasifica licitaciones públicas de Bolivia (SICOES). "
@@ -68,10 +72,11 @@ def _request(payload: dict, intentos: int = 5) -> dict | None:
             except Exception:
                 pass
             # 429 (rate limit) → esperar y reintentar; otros 4xx no se reintentan
-            if e.code == 429 and i < intentos - 1:
-                # TPM se resetea por minuto → esperar ~el minuto completo
-                espera = min(65, 30 * (i + 1))
-                print(f"      ⚠ Groq 429 rate limit; espero {espera}s...", flush=True)
+            if e.code in (429, 503) and i < intentos - 1:
+                # 429 = rate limit (TPM por minuto); 503 = modelo saturado.
+                espera = min(65, 30 * (i + 1)) if e.code == 429 else min(40, 8 * (i + 1))
+                etiqueta = "429 rate limit" if e.code == 429 else "503 saturado"
+                print(f"      ⚠ Groq {etiqueta}; espero {espera}s...", flush=True)
                 time.sleep(espera)
                 continue
             print(f"      ✗ Groq HTTP {e.code}: {cuerpo}", flush=True)
@@ -273,7 +278,7 @@ def clasificar_lote(objetos: list[str], ejemplos_pos: list[str] | None = None,
         trozo = objetos[base:base + LOTE]
         listado = "\n".join(f"{i}. {t}" for i, t in enumerate(trozo))
         payload = {
-            "model": GROQ_MODEL,
+            "model": GROQ_MODEL_CLAS,
             "temperature": 0,
             "messages": [
                 {"role": "system", "content": system_prompt},

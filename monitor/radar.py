@@ -143,31 +143,36 @@ def pre_filtrar(filas: list[dict], hoy: date) -> list[dict]:
 
 
 def clasificar(candidatas: list[dict], usar_ia: bool) -> list[dict]:
-    """Agrega match_dicc / match_ia / relevante a cada candidata."""
-    objetos = [c.get("objeto", "") for c in candidatas]
+    """Agrega match_dicc / match_ia / relevante a cada candidata.
 
-    # Filtro A — diccionario
+    Para no saturar la IA (Groq tiene TPM bajo en el plan gratuito), la IA SOLO
+    juzga los que pasan una compuerta amplia (posible_tech) y que el diccionario
+    NO matcheó. Los que ya matchean el diccionario son relevantes sin IA; los que
+    ni pasan la compuerta se descartan sin IA (son Bienes obviamente ajenos)."""
     for c in candidatas:
         terms = rubros.match_rubros(c.get("objeto", ""))
         c["_dicc_terms"] = terms
         c["_match_dicc"] = len(terms) > 0
+        c["_match_ia"] = False
+        c["_ia_razon"] = ""
 
-    # Filtro B — IA (con few-shot del criterio real del usuario: relevantes que
-    # dejó + descartes por 'producto')
-    if usar_ia and candidatas:
-        catalogo = db.catalogo_erp()
-        pos, neg = db.ejemplos_entrenamiento()
-        extra = (f" | catálogo ERP: {len(catalogo)}"
-                 + (f" | ejemplos: {len(pos)}✓/{len(neg)}✗" if (pos or neg) else ""))
-        print(f"  → Clasificando {len(candidatas)} objetos con IA (Groq){extra}...", flush=True)
-        veredictos = clasificador_ia.clasificar_lote(
-            objetos, ejemplos_pos=pos, ejemplos_neg=neg, catalogo=catalogo)
-    else:
-        veredictos = [{"relevante": False, "razon": "IA desactivada"} for _ in candidatas]
+    if usar_ia:
+        a_ia = [c for c in candidatas
+                if not c["_match_dicc"] and rubros.posible_tech(c.get("objeto", ""))]
+        if a_ia:
+            catalogo = db.catalogo_erp()
+            pos, neg = db.ejemplos_entrenamiento()
+            print(f"  → IA (Groq): {len(a_ia)} a clasificar (de {len(candidatas)}; "
+                  f"el resto ya resuelto por diccionario/compuerta) | catálogo {len(catalogo)}",
+                  flush=True)
+            veredictos = clasificador_ia.clasificar_lote(
+                [c.get("objeto", "") for c in a_ia],
+                ejemplos_pos=pos, ejemplos_neg=neg, catalogo=catalogo)
+            for c, v in zip(a_ia, veredictos):
+                c["_match_ia"] = bool(v.get("relevante"))
+                c["_ia_razon"] = v.get("razon", "")
 
-    for c, v in zip(candidatas, veredictos):
-        c["_match_ia"] = bool(v.get("relevante"))
-        c["_ia_razon"] = v.get("razon", "")
+    for c in candidatas:
         c["_relevante"] = c["_match_dicc"] or c["_match_ia"]
     return candidatas
 
