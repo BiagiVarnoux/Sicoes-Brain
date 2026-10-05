@@ -31,12 +31,41 @@ async def conectar(p):
             break
     if not page:
         page = await context.new_page()
-        await page.goto(PORTAL, wait_until="domcontentloaded", timeout=60000)
-        await page.wait_for_timeout(3000)
+    # Garantizar que el portal esté cargado (el equipo puede ser lento).
+    await _asegurar_portal(page)
     return browser, page
 
 
+async def _asegurar_portal(page) -> bool:
+    """Deja la página en el portal del SICOES con irLink() ya cargado. Reintenta la
+    carga si hace falta y espera (hasta ~60s) a que el JS del sitio esté listo —
+    clave en equipos lentos, donde la página tarda en cargar."""
+    async def tiene_irlink() -> bool:
+        try:
+            return bool(await page.evaluate("() => typeof irLink === 'function'"))
+        except Exception:
+            return False
+
+    for _ in range(3):
+        if await tiene_irlink():
+            return True
+        try:
+            await page.goto(PORTAL, wait_until="domcontentloaded", timeout=90000)
+        except Exception:
+            pass
+        try:
+            await page.wait_for_function("() => typeof irLink === 'function'", timeout=60000)
+            await page.wait_for_timeout(500)
+            return True
+        except Exception:
+            await page.wait_for_timeout(2000)
+    return False
+
+
 async def ir_a_buscador(page):
+    # Asegurar que el portal (irLink) esté cargado antes de navegar.
+    if not await _asegurar_portal(page):
+        raise RuntimeError("No se pudo cargar el portal del SICOES (irLink no disponible).")
     # cerrar modal de comunicados si aparece
     await page.evaluate("""
         () => {
@@ -52,8 +81,18 @@ async def ir_a_buscador(page):
     """)
     await page.wait_for_timeout(500)
     await page.evaluate(f"irLink('{BUSCADOR}')")
-    await page.wait_for_timeout(2500)
-    await page.evaluate("document.querySelector('a[href=\"#f-avanzada\"]').click()")
+    # esperar a que el buscador cargue (en vez de un timeout fijo)
+    try:
+        await page.wait_for_function(
+            "() => !!document.querySelector('a[href=\"#f-avanzada\"]') "
+            "|| !!document.querySelector('#formAvanzada')", timeout=30000)
+    except Exception:
+        await page.wait_for_timeout(3000)
+    await page.wait_for_timeout(600)
+    try:
+        await page.evaluate("var t=document.querySelector('a[href=\"#f-avanzada\"]'); if(t) t.click();")
+    except Exception:
+        pass
     await page.wait_for_timeout(800)
 
 
