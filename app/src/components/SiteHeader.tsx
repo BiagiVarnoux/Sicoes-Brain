@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 // siguen existiendo por URL pero ya no se enlazan desde la principal.
 const NAV = [
   { href: '/radar', label: 'Radar' },
+  { href: '/metricas', label: 'Métricas' },
 ]
 
 interface Props {

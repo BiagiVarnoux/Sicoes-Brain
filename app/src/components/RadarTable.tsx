@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import {
@@ -213,7 +214,10 @@ export default function RadarTable(
               return (
                 <tr key={r.cuce} className={`align-top ${r.visto ? 'bg-gray-50/60' : ''}`}>
                   <td className="px-4 py-3 max-w-md">
-                    <div className="font-medium text-gray-900 leading-snug">{r.objeto}</div>
+                    <Link href={`/radar/${encodeURIComponent(r.cuce)}`}
+                      className="font-medium text-gray-900 leading-snug hover:text-blue-700 hover:underline">
+                      {r.objeto}
+                    </Link>
                     <div className="text-xs text-gray-400 mt-0.5 font-mono">{r.cuce}</div>
                     {erpMap[cuce4(r.cuce)] && (
                       <div className="mt-1">
