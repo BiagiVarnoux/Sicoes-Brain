@@ -45,6 +45,7 @@ fi
 
 # 2) Radar (busca, filtra, baja DBC, clasifica) — fecha automática
 echo ""; echo ">>> 1/2  Radar (buscando convocatorias nuevas)..."
+echo "    (No uses Brave mientras corre — lo maneja el script.)"
 "$PY" radar.py --auto || echo "⚠ radar.py terminó con error (sigo)."
 
 # 3) Especificaciones del DBC
