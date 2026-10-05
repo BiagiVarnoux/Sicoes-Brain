@@ -121,6 +121,10 @@ _GATE_TERMINOS = [
     "cartucho", "tinta", "ribbon", "cinta lto", "lto", "backup",
     "etiqueta", "autoadhesiv", "rotulo", "sticker", "codigo de barras",
     "carnet", "ymcko", "zebra", "laptop", "notebook", "portatil", "tablet",
+    # electrónica / comunicaciones (recupera lo que la IA sí pescaba)
+    "comunicacion", "fibra optica", "fibra", "cable", "telefon", "camara",
+    "video", "audio", "sonido", "antena", "radio", "bateria", "cargador",
+    "fuente de poder", "energia solar", "panel solar", "sensor", "gps",
 ]
 
 
