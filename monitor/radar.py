@@ -52,7 +52,7 @@ DIR_SALIDAS = os.path.join(AQUI, "salidas")
 ARCHIVO_ULTIMA = os.path.join(AQUI, ".ultima_corrida")
 
 MODALIDADES_OK = {"CM", "LP", "ANPE", "ANPP"}
-KEEPALIVE_CADA = 5  # páginas
+KEEPALIVE_CADA = 10  # páginas (menos agresivo: menos chance de romper la paginación)
 
 
 # ─── Memoria de la última corrida (modo --auto) ─────────────────────────────────
@@ -95,33 +95,63 @@ def modalidad_ok(cel: str) -> bool:
 
 
 # ─── Pipeline ──────────────────────────────────────────────────────────────────
-async def recolectar(page, max_paginas: int) -> list[dict]:
-    """Recorre todas las páginas de resultados y junta las filas crudas."""
+async def recolectar(page, max_paginas: int, desde: str, hasta: str) -> list[dict]:
+    """Recorre las páginas de resultados y junta las filas crudas.
+
+    Robusto ante páginas vacías 'falsas': si una página sale vacía pero todavía
+    faltan registros (acum < total), intenta RECUPERAR la sesión (re-buscar y
+    volver a esa página) antes de rendirse — así no se pierden datos. Solo corta
+    de verdad cuando ya tiene ~todos los registros, o tras muchas vacías sin poder
+    recuperar."""
     total_reg = await nav.total_registros(page)
     total_pag = await nav.detectar_total_paginas(page)
     pags = min(total_pag, max_paginas) if max_paginas else total_pag
     print(f"  → {total_reg} registros, {total_pag} páginas (recorro {pags})", flush=True)
 
-    todas = []
+    todas: list[dict] = []
     vacias_seguidas = 0
-    for n in range(1, pags + 1):
+    recuperaciones = 0
+    n = 1
+    while n <= pags:
         if n > 1:
             await nav.ir_pagina(page, n)
         filas = await nav.leer_tabla(page)
+
+        # ¿Vacía pero faltan datos? → recuperar sesión y reintentar esta página.
+        if (not filas and total_reg > 0 and len(todas) < total_reg
+                and recuperaciones < 3):
+            recuperaciones += 1
+            print(f"    ↻ pág {n} vacía pero faltan datos ({len(todas)}/{total_reg}); "
+                  f"recupero sesión (intento {recuperaciones})...", flush=True)
+            try:
+                await nav.buscar_por_fechas(page, desde, hasta)
+                await nav.ir_pagina(page, n)
+                filas = await nav.leer_tabla(page)
+            except Exception as e:
+                print(f"    ⚠ recuperación falló: {e}", flush=True)
+            if filas:
+                vacias_seguidas = 0
+
         todas.extend(filas)
         print(f"    · pág {n}/{pags}: {len(filas)} filas (acum {len(todas)})", flush=True)
+
         if filas:
             vacias_seguidas = 0
         else:
             vacias_seguidas += 1
-            # El SICOES a veces reporta más páginas de las que sirve (tope ~1000
-            # resultados). Si varias vienen vacías seguidas, los datos se acabaron.
-            if vacias_seguidas >= 3:
-                print(f"    → corto: {vacias_seguidas} páginas vacías seguidas "
-                      f"(datos agotados en ~pág {n - vacias_seguidas}).", flush=True)
+            # Cortar solo si ya tenemos ~todos los registros...
+            if vacias_seguidas >= 2 and total_reg > 0 and len(todas) >= total_reg:
+                print(f"    → completo: {len(todas)}/{total_reg} registros leídos.", flush=True)
                 break
+            # ...o como salvaguarda, tras muchas vacías sin poder recuperar.
+            if vacias_seguidas >= 6:
+                print(f"    → corto: {vacias_seguidas} páginas vacías seguidas "
+                      f"({len(todas)}/{total_reg}).", flush=True)
+                break
+
         if n % KEEPALIVE_CADA == 0 and n < pags:
             await nav.keepalive(page)
+        n += 1
     return todas
 
 
@@ -267,7 +297,7 @@ async def correr(desde: str, hasta: str, max_paginas: int, usar_ia: bool, descar
         print(f"\n🔎 Buscando Bienes publicados {desde} → {hasta} (Vigentes)", flush=True)
         await nav.buscar_por_fechas(page, desde, hasta)
 
-        filas = await recolectar(page, max_paginas)
+        filas = await recolectar(page, max_paginas, desde, hasta)
         print(f"\n  Total filas leídas: {len(filas)}", flush=True)
 
         candidatas = pre_filtrar(filas, hoy)

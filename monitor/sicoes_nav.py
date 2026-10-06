@@ -206,14 +206,32 @@ async def total_registros(page) -> int:
         return 0
 
 
-async def ir_pagina(page, n: int):
-    await page.evaluate(f"busquedadraw('{n}')")
-    await page.wait_for_timeout(1000)
+async def _tabla_tiene_filas(page) -> bool:
     try:
-        await page.wait_for_selector("#tablaAvanzada tbody tr td", timeout=10000)
-        await page.wait_for_timeout(300)
+        return bool(await page.evaluate(
+            "() => { const t=document.querySelector('#tablaAvanzada');"
+            " return t ? t.querySelectorAll('tbody tr td').length>0 : false; }"))
     except Exception:
-        await page.wait_for_timeout(2500)
+        return False
+
+
+async def ir_pagina(page, n: int):
+    """Navega a la página n reintentando el redibujado si la tabla queda vacía
+    (clave en equipos lentos o ante un fallo transitorio del AJAX)."""
+    for intento in range(3):
+        try:
+            await page.evaluate(f"busquedadraw('{n}')")
+        except Exception:
+            pass
+        await page.wait_for_timeout(900 + 400 * intento)
+        try:
+            await page.wait_for_selector("#tablaAvanzada tbody tr td", timeout=10000)
+        except Exception:
+            pass
+        await page.wait_for_timeout(300)
+        if await _tabla_tiene_filas(page):
+            return
+        await page.wait_for_timeout(1200 * (intento + 1))
 
 
 async def leer_tabla(page) -> list[dict]:
