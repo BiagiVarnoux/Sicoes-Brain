@@ -8,15 +8,22 @@ import type {
   ConvocatoriaRadar, ErpLicitacion, ErpProducto, ConvocatoriaSpecs,
 } from '@/lib/types'
 
-type PageProps = {
-  searchParams: Promise<{ vista?: string }>
-}
+type Params = { vista?: string; mod?: string; urg?: string; sinver?: string }
+type PageProps = { searchParams: Promise<Params> }
 
 const VISTAS = [
   { key: 'relevantes', label: 'Relevantes' },
+  { key: 'interesan', label: '★ Interesan' },
   { key: 'todas', label: 'Todas' },
   { key: 'descartadas', label: 'Descartadas' },
 ]
+const MODALIDADES = ['CM', 'ANPE', 'ANPP', 'LP']
+
+function dias(fecha: string | null): number | null {
+  if (!fecha) return null
+  const hoy = new Date(); hoy.setHours(0, 0, 0, 0)
+  return Math.round((new Date(fecha + 'T00:00:00').getTime() - hoy.getTime()) / 86_400_000)
+}
 
 async function getRadar(vista: string): Promise<ConvocatoriaRadar[]> {
   let q = supabase
@@ -26,6 +33,8 @@ async function getRadar(vista: string): Promise<ConvocatoriaRadar[]> {
 
   if (vista === 'relevantes') {
     q = q.eq('relevante', true).eq('descartado', false)
+  } else if (vista === 'interesan') {
+    q = q.eq('interesa', true).eq('descartado', false)
   } else if (vista === 'descartadas') {
     q = q.eq('descartado', true)
   } else {
@@ -44,10 +53,7 @@ async function getErpMap(): Promise<Record<string, ErpLicitacion>> {
   const { data, error } = await supabase
     .from('erp_licitaciones')
     .select('numero_sicoes,nombre,entidad,tipo_proceso,estado,ganada,fecha_presentacion')
-  if (error) {
-    console.error('getErpMap', error)
-    return {}
-  }
+  if (error) { console.error('getErpMap', error); return {} }
   return Object.fromEntries((data ?? []).map((e) => [e.numero_sicoes, e as ErpLicitacion]))
 }
 
@@ -55,32 +61,42 @@ async function getErpProductos(): Promise<ErpProducto[]> {
   const { data, error } = await supabase
     .from('erp_productos')
     .select('numero_sicoes,nombre,especificacion,cantidad,precio_entidad,precio_ofertado')
-  if (error) {
-    console.error('getErpProductos', error)
-    return []
-  }
+  if (error) { console.error('getErpProductos', error); return [] }
   return (data ?? []) as ErpProducto[]
 }
 
 async function getSpecsMap(): Promise<Record<string, ConvocatoriaSpecs>> {
-  const { data, error } = await supabase
-    .from('convocatoria_specs')
-    .select('cuce,items')
-  if (error) {
-    console.error('getSpecsMap', error)
-    return {}
-  }
+  const { data, error } = await supabase.from('convocatoria_specs').select('cuce,items')
+  if (error) { console.error('getSpecsMap', error); return {} }
   return Object.fromEntries((data ?? []).map((e) => [e.cuce, e as ConvocatoriaSpecs]))
 }
 
 export default async function RadarPage({ searchParams }: PageProps) {
-  const { vista = 'relevantes' } = await searchParams
-  const [rows, erpMap, erpProductos, specsMap] = await Promise.all([
+  const sp = await searchParams
+  const vista = sp.vista ?? 'relevantes'
+  const { mod, urg, sinver } = sp
+  const [rowsRaw, erpMap, erpProductos, specsMap] = await Promise.all([
     getRadar(vista), getErpMap(), getErpProductos(), getSpecsMap(),
   ])
 
-  const relevantes = rows.filter((r) => r.relevante).length
+  // Filtros combinables (sobre la vista)
+  let rows = rowsRaw
+  if (mod) rows = rows.filter((r) => (r.modalidad ?? '') === mod)
+  if (urg) rows = rows.filter((r) => { const d = dias(r.fecha_presentacion); return d !== null && d >= 0 && d <= 7 })
+  if (sinver) rows = rows.filter((r) => !r.visto)
+
   const nuevas = rows.filter((r) => !r.visto).length
+
+  const buildUrl = (ov: Partial<Params>) => {
+    const p = new URLSearchParams()
+    const m: Params = { vista, mod, urg, sinver, ...ov }
+    Object.entries(m).forEach(([k, v]) => { if (v) p.set(k, String(v)) })
+    return `/radar?${p.toString()}`
+  }
+  const chip = (active: boolean) =>
+    `px-2.5 py-1 rounded-full text-xs border transition-colors ${
+      active ? 'bg-blue-600 text-white border-blue-600'
+             : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'}`
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -94,25 +110,21 @@ export default async function RadarPage({ searchParams }: PageProps) {
           </p>
         </div>
 
-        <div className="flex items-center justify-between mb-4">
+        {/* Pestañas */}
+        <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
           <div className="flex gap-1">
             {VISTAS.map((v) => (
-              <Link
-                key={v.key}
-                href={`/radar?vista=${v.key}`}
+              <Link key={v.key} href={buildUrl({ vista: v.key })}
                 className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
-                  vista === v.key
-                    ? 'bg-blue-50 text-blue-700 font-medium'
-                    : 'text-gray-500 hover:text-gray-800 hover:bg-gray-100'
-                }`}
-              >
+                  vista === v.key ? 'bg-blue-50 text-blue-700 font-medium'
+                                  : 'text-gray-500 hover:text-gray-800 hover:bg-gray-100'}`}>
                 {v.label}
               </Link>
             ))}
           </div>
           <div className="text-xs text-gray-500">
             {rows.length} convocatoria{rows.length === 1 ? '' : 's'}
-            {vista === 'relevantes' && nuevas > 0 && (
+            {nuevas > 0 && (
               <span className="ml-2 inline-flex px-2 py-0.5 rounded-full bg-blue-600 text-white font-medium">
                 {nuevas} sin ver
               </span>
@@ -120,12 +132,27 @@ export default async function RadarPage({ searchParams }: PageProps) {
           </div>
         </div>
 
+        {/* Filtros */}
+        <div className="flex items-center gap-2 mb-4 flex-wrap">
+          <span className="text-xs text-gray-400">Filtros:</span>
+          <Link href={buildUrl({ urg: urg ? '' : '7' })} className={chip(!!urg)}>⏰ Cierran ≤ 7 días</Link>
+          <Link href={buildUrl({ sinver: sinver ? '' : '1' })} className={chip(!!sinver)}>👁 Sin ver</Link>
+          <span className="mx-1 text-gray-300">·</span>
+          {MODALIDADES.map((m) => (
+            <Link key={m} href={buildUrl({ mod: mod === m ? '' : m })} className={chip(mod === m)}>{m}</Link>
+          ))}
+          {(mod || urg || sinver) && (
+            <Link href={buildUrl({ mod: '', urg: '', sinver: '' })} className="text-xs text-gray-400 hover:text-gray-700 underline ml-1">
+              limpiar
+            </Link>
+          )}
+        </div>
+
         <RadarTable rows={rows} erpMap={erpMap} erpProductos={erpProductos} specsMap={specsMap} />
 
-        {vista === 'relevantes' && (
+        {vista === 'interesan' && rows.length === 0 && (
           <p className="text-xs text-gray-400 mt-4">
-            Mostrando {relevantes} relevantes no descartadas, ordenadas por fecha de cierre
-            (las más urgentes primero).
+            Todavía no marcaste ninguna con ★. Usá el botón “☆ Me interesa” en las convocatorias.
           </p>
         )}
       </main>

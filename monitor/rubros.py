@@ -22,7 +22,9 @@ import unicodedata
 # Multi-palabra o inequívocos (substring sobre texto normalizado sin acentos).
 TERMINOS_SUBSTRING = [
     # Computación — equipos
-    "computador", "computadora", "computadoras", "laptop", "notebook",
+    "computador", "computadora", "computadoras", "computacional",
+    "equipo computacional", "equipos computacionales", "equipo de computo",
+    "equipos de computo", "laptop", "notebook",
     "estacion de trabajo", "workstation", "all in one", "mini pc",
     "equipo de computacion", "equipos de computacion", "equipo informatico",
     "equipos informaticos", "material informatico", "hardware",

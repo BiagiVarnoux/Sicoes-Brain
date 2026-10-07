@@ -135,6 +135,17 @@ export default function RadarTable(
     router.refresh()
   }
 
+  async function toggleInteresa(cuce: string, interesa: boolean) {
+    setBusy(cuce + 'int')
+    const { error } = await supabase
+      .from('convocatorias_radar')
+      .update({ interesa, actualizado_en: new Date().toISOString() })
+      .eq('cuce', cuce)
+    setBusy(null)
+    if (error) return alert('No se pudo actualizar: ' + error.message)
+    router.refresh()
+  }
+
   async function recuperar(cuce: string) {
     setBusy(cuce + 'rec')
     const { error } = await supabase
@@ -216,6 +227,7 @@ export default function RadarTable(
                   <td className="px-4 py-3 max-w-md">
                     <Link href={`/radar/${encodeURIComponent(r.cuce)}`}
                       className="font-medium text-gray-900 leading-snug hover:text-blue-700 hover:underline">
+                      {r.interesa && <span className="text-amber-500" title="Me interesa">★ </span>}
                       {r.objeto}
                     </Link>
                     <div className="text-xs text-gray-400 mt-0.5 font-mono">{r.cuce}</div>
@@ -339,6 +351,15 @@ export default function RadarTable(
                   </td>
                   <td className="px-3 py-3 whitespace-nowrap">
                     <div className="flex flex-col gap-1.5">
+                      <button
+                        onClick={() => toggleInteresa(r.cuce, !r.interesa)}
+                        disabled={busy === r.cuce + 'int'}
+                        className={`text-xs px-2 py-1 rounded border disabled:opacity-50 ${
+                          r.interesa
+                            ? 'border-amber-300 bg-amber-50 text-amber-700'
+                            : 'border-gray-200 text-gray-600 hover:bg-amber-50 hover:text-amber-700'}`}>
+                        {r.interesa ? '★ Me interesa' : '☆ Me interesa'}
+                      </button>
                       <button
                         onClick={() => toggleVisto(r.cuce, !r.visto)}
                         disabled={busy === r.cuce + 'visto'}

@@ -32,6 +32,7 @@ export type ConvocatoriaRadar = {
   dbc_path: string | null
   dbc_descargado: boolean
   visto: boolean
+  interesa: boolean
   descartado: boolean
   motivo_descarte: string[] | null
   nota_descarte: string | null
