@@ -135,6 +135,49 @@ def posible_tech(objeto: str) -> bool:
     return any(t in n for t in _GATE_TERMINOS)
 
 
+# Categorías de Bienes CLARAMENTE ajenas a los rubros (salud, alimentos, obras,
+# vehículos, mobiliario, limpieza, agro...). Si el objeto cae acá, NO se manda a la
+# IA (sería gastar API en algo seguro-no). Es una exclusión conservadora: ante la
+# duda NO se excluye (que lo juzgue la IA). El diccionario igual corre siempre.
+_AJENO_TERMINOS = [
+    # salud / médico
+    "medicament", "farmac", "insumo medico", "insumos medicos", "material medico",
+    "reactivo", "quirurgic", "odontolog", "suero", "vacuna", "jeringa", "gasa",
+    "sonda", "cateter", "protesis", "ortesis", "biomedic", "dispositivo medico",
+    "material de curacion", "oxigeno medic", "nutricional", "complemento nutri",
+    "medico ", "hospitalari", "sanitario para", "leche ", "micronutri",
+    # alimentos
+    "aliment", "viver", "comestible", "racion", "desayuno", "refrigerio",
+    "abarrote", "carne", "pollo", "verdura", "fruta", "pan ", "harina", "arroz",
+    "azucar", "aceite comestible",
+    # obras / construcción
+    "obra ", "obras ", "construccion", "paviment", "asfalt", "hormigon",
+    "cemento", "agregado", "ripio", "arena", "ladrillo", "alcantarill",
+    "material de construccion", "fierro de construccion", "tuberia", "pvc sanitari",
+    "aridos", "enlosetado", "adoquin", "refaccion de", "mantenimiento de infraestru",
+    # vehículos / combustible
+    "vehiculo", "automovil", "camion", "camioneta", "motocicleta", "llanta",
+    "neumatic", "combustible", "gasolina", "diesel", "lubricante", "repuesto automotriz",
+    "repuestos para vehic",
+    # mobiliario / textil / vestuario
+    "mobiliario", "mueble", "silla ", "sillas ", "estante", "textil", "uniforme",
+    "ropa ", "calzado", "tela ", "cortina", "colchon", "frazada", "vestuario",
+    # limpieza / aseo
+    "limpieza", "material de aseo", "detergente", "desinfectante", "higienic",
+    # agro
+    "semilla", "fertilizante", "agroquimic", "plaguicida", "pecuari", "ganado",
+    "agricol", "sistema de riego", "veterinari",
+]
+
+
+def es_claramente_ajeno(objeto: str) -> bool:
+    """True si el objeto es de una categoría obviamente ajena a los rubros. Si NO
+    matchea el diccionario y NO es claramente ajeno, se manda a la IA para que lo
+    juzgue por contexto."""
+    n = normalizar(objeto)
+    return any(t in n for t in _AJENO_TERMINOS)
+
+
 def match_rubros(objeto: str) -> list[str]:
     """Devuelve la lista de términos que matchearon (vacía si ninguno)."""
     n = normalizar(objeto)

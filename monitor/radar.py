@@ -188,12 +188,12 @@ def clasificar(candidatas: list[dict], usar_ia: bool) -> list[dict]:
 
     if usar_ia:
         a_ia = [c for c in candidatas
-                if not c["_match_dicc"] and rubros.posible_tech(c.get("objeto", ""))]
+                if not c["_match_dicc"] and not rubros.es_claramente_ajeno(c.get("objeto", ""))]
         if a_ia:
             catalogo = db.catalogo_erp()
             pos, neg = db.ejemplos_entrenamiento()
-            print(f"  → IA (Groq): {len(a_ia)} a clasificar (de {len(candidatas)}; "
-                  f"el resto ya resuelto por diccionario/compuerta) | catálogo {len(catalogo)}",
+            print(f"  → IA (Groq): {len(a_ia)} a clasificar por contexto (de {len(candidatas)}; "
+                  f"el resto ya es relevante por diccionario o claramente ajeno) | catálogo {len(catalogo)}",
                   flush=True)
             veredictos = clasificador_ia.clasificar_lote(
                 [c.get("objeto", "") for c in a_ia],

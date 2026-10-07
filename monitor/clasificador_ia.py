@@ -308,4 +308,7 @@ def clasificar_lote(objetos: list[str], ejemplos_pos: list[str] | None = None,
                     "relevante": bool(obj.get("relevante")),
                     "razon": str(obj.get("razon", ""))[:120],
                 }
+        # pausa entre lotes para no pegar contra el límite de tokens/min de Groq
+        if base + LOTE < len(objetos):
+            time.sleep(8)
     return resultados
