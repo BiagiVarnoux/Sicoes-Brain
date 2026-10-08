@@ -27,7 +27,7 @@ GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
 GROQ_MODEL_CLAS = os.environ.get("GROQ_MODEL_CLAS", "openai/gpt-oss-20b")
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
-LOTE = 40  # objetos por request (menos requests = menos repeticiones del catálogo)
+LOTE = 12  # objetos por request (chico: cada request pesa poco → no supera el TPM)
 
 SYSTEM_PROMPT = (
     "Eres un asistente que clasifica licitaciones públicas de Bolivia (SICOES). "
@@ -111,11 +111,11 @@ def _bloque_ejemplos(pos: list[str] | None, neg: list[str] | None) -> str:
     partes = []
     if pos:
         partes.append("Ejemplos que el usuario SÍ considera relevantes (relevante=true):\n"
-                      + "\n".join(f"- {t}" for t in pos[:25]))
+                      + "\n".join(f"- {t}" for t in pos[:8]))
     if neg:
         partes.append("Ejemplos que el usuario DESCARTÓ porque NO maneja ese producto "
                       "(relevante=false; aprendé a descartar esa categoría):\n"
-                      + "\n".join(f"- {t}" for t in neg[:25]))
+                      + "\n".join(f"- {t}" for t in neg[:8]))
     if not partes:
         return ""
     return ("\n\nCriterio aprendido de las decisiones reales del usuario — "
@@ -253,7 +253,7 @@ def _bloque_catalogo(catalogo: list[str] | None) -> str:
     return ("\n\nCATÁLOGO REAL del usuario — productos que EFECTIVAMENTE oferta en "
             "licitaciones (su negocio real). Tratá como relevante (relevante=true) "
             "toda convocatoria de estos productos o equivalentes/variantes:\n"
-            + "\n".join(f"- {t}" for t in catalogo[:80]))
+            + "\n".join(f"- {t}" for t in catalogo[:18]))
 
 
 def clasificar_lote(objetos: list[str], ejemplos_pos: list[str] | None = None,
@@ -274,41 +274,66 @@ def clasificar_lote(objetos: list[str], ejemplos_pos: list[str] | None = None,
 
     resultados: list[dict] = [None] * len(objetos)  # type: ignore
 
-    for base in range(0, len(objetos), LOTE):
-        trozo = objetos[base:base + LOTE]
+    def _pedir(trozo: list[str]):
+        """Pide un lote a Groq. Devuelve {indice: obj} o None si la request falló."""
         listado = "\n".join(f"{i}. {t}" for i, t in enumerate(trozo))
         payload = {
-            "model": GROQ_MODEL_CLAS,
-            "temperature": 0,
+            "model": GROQ_MODEL_CLAS, "temperature": 0,
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": "Clasifica estos objetos de contratación:\n" + listado},
             ],
         }
         resp = _request(payload)
-        parsed = []
-        if resp:
-            try:
-                parsed = _parse_array(resp["choices"][0]["message"]["content"])
-            except Exception:
-                parsed = []
-        # mapear por indice
+        if not resp:
+            return None
+        try:
+            parsed = _parse_array(resp["choices"][0]["message"]["content"])
+        except Exception:
+            parsed = []
         por_i = {}
         for obj in parsed:
             try:
                 por_i[int(obj.get("i"))] = obj
             except Exception:
                 continue
+        return por_i
+
+    def _aplicar(base: int, trozo: list[str], por_i) -> None:
         for k in range(len(trozo)):
-            obj = por_i.get(k)
+            obj = (por_i or {}).get(k)
             if obj is None:
                 resultados[base + k] = {"relevante": False, "razon": "IA sin respuesta"}
             else:
-                resultados[base + k] = {
-                    "relevante": bool(obj.get("relevante")),
-                    "razon": str(obj.get("razon", ""))[:120],
-                }
-        # pausa entre lotes para no pegar contra el límite de tokens/min de Groq
-        if base + LOTE < len(objetos):
-            time.sleep(8)
+                resultados[base + k] = {"relevante": bool(obj.get("relevante")),
+                                        "razon": str(obj.get("razon", ""))[:120]}
+
+    bases = list(range(0, len(objetos), LOTE))
+    fallidos: list[int] = []
+    for idx, base in enumerate(bases):
+        trozo = objetos[base:base + LOTE]
+        por_i = _pedir(trozo)
+        if por_i is None:
+            fallidos.append(base)  # se reintenta al final
+        else:
+            _aplicar(base, trozo, por_i)
+        if idx < len(bases) - 1:
+            time.sleep(11)
+
+    # Reintento de los lotes que fallaron (casi siempre por rate limit): esperar a
+    # que el TPM de Groq se resetee y volver a pedirlos, para NO perder candidatos.
+    if fallidos:
+        print(f"      ↻ reintentando {len(fallidos)} lote(s) que fallaron (espero 60s)...", flush=True)
+        time.sleep(60)
+        quedan = 0
+        for base in fallidos:
+            trozo = objetos[base:base + LOTE]
+            por_i = _pedir(trozo)
+            _aplicar(base, trozo, por_i)
+            if por_i is None:
+                quedan += len(trozo)
+            time.sleep(11)
+        if quedan:
+            print(f"      ⚠ {quedan} objetos no pudieron ser juzgados por la IA "
+                  f"(límite de Groq); se tratan como no relevantes.", flush=True)
     return resultados
