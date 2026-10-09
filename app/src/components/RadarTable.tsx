@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
@@ -108,12 +108,60 @@ function labelMotivo(code: string) {
   return MOTIVOS_DESCARTE.find((m) => m.code === code)?.label ?? code
 }
 
+// Encabezado legible para la agrupación por fecha de publicación.
+function labelFechaPub(fecha: string | null): string {
+  if (!fecha) return 'Sin fecha de publicación'
+  const hoy = new Date(); hoy.setHours(0, 0, 0, 0)
+  const f = new Date(fecha + 'T00:00:00')
+  const d = Math.round((hoy.getTime() - f.getTime()) / 86_400_000)
+  const texto = f.toLocaleDateString('es-BO', { weekday: 'long', day: 'numeric', month: 'long' })
+  const rel = d === 0 ? 'hoy' : d === 1 ? 'ayer' : d > 0 ? `hace ${d} días` : ''
+  return rel ? `${texto[0].toUpperCase()}${texto.slice(1)} · ${rel}` : `${texto[0].toUpperCase()}${texto.slice(1)}`
+}
+
+// Agrupa las filas por fecha de publicación (más recientes primero) con un
+// encabezado por grupo. Reutiliza el mismo render de fila que la vista plana.
+function renderAgrupado(
+  rows: ConvocatoriaRadar[],
+  renderRow: (r: ConvocatoriaRadar) => ReactNode,
+): ReactNode[] {
+  const grupos = new Map<string, ConvocatoriaRadar[]>()
+  for (const r of rows) {
+    const k = r.fecha_publicacion ?? ''
+    if (!grupos.has(k)) grupos.set(k, [])
+    grupos.get(k)!.push(r)
+  }
+  // Fechas con valor primero (desc); el grupo "sin fecha" al final.
+  const claves = [...grupos.keys()].sort((a, b) => {
+    if (!a) return 1
+    if (!b) return -1
+    return b.localeCompare(a)
+  })
+  const out: ReactNode[] = []
+  for (const k of claves) {
+    const items = grupos.get(k)!
+    out.push(
+      <tr key={`h-${k || 'sin'}`} className="bg-gray-100/80 border-y border-gray-200">
+        <td colSpan={7} className="px-4 py-2 text-xs font-semibold text-gray-600">
+          🗓 {labelFechaPub(k || null)}
+          <span className="ml-2 font-normal text-gray-400">
+            {items.length} convocatoria{items.length === 1 ? '' : 's'}
+          </span>
+        </td>
+      </tr>,
+    )
+    for (const r of items) out.push(renderRow(r))
+  }
+  return out
+}
+
 export default function RadarTable(
-  { rows, erpMap = {}, erpProductos = [], specsMap = {} }: {
+  { rows, erpMap = {}, erpProductos = [], specsMap = {}, agrupar = false }: {
     rows: ConvocatoriaRadar[]
     erpMap?: Record<string, ErpLicitacion>
     erpProductos?: ErpProducto[]
     specsMap?: Record<string, ConvocatoriaSpecs>
+    agrupar?: boolean
   },
 ) {
   const router = useRouter()
@@ -197,23 +245,7 @@ export default function RadarTable(
 
   const entrenaSel = motivosSel.some((c) => MOTIVOS_DESCARTE.find((m) => m.code === c)?.entrena)
 
-  return (
-    <>
-      <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="text-left text-xs uppercase tracking-wide text-gray-500 border-b border-gray-200">
-              <th className="px-4 py-3">Objeto</th>
-              <th className="px-3 py-3">Entidad</th>
-              <th className="px-3 py-3 whitespace-nowrap">Modalidad</th>
-              <th className="px-3 py-3 whitespace-nowrap">Cierra</th>
-              <th className="px-3 py-3">Filtros</th>
-              <th className="px-3 py-3">DBC</th>
-              <th className="px-3 py-3"></th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100">
-            {rows.map((r) => {
+  const renderRow = (r: ConvocatoriaRadar) => {
               const dias = diasRestantes(r.fecha_presentacion)
               const urgente = dias !== null && dias <= 3
               const refs = referenciasDe(r.objeto, erpProductos, erpMap)
@@ -384,7 +416,27 @@ export default function RadarTable(
                   </td>
                 </tr>
               )
-            })}
+  }
+
+  const filas = agrupar ? renderAgrupado(rows, renderRow) : rows.map(renderRow)
+
+  return (
+    <>
+      <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="text-left text-xs uppercase tracking-wide text-gray-500 border-b border-gray-200">
+              <th className="px-4 py-3">Objeto</th>
+              <th className="px-3 py-3">Entidad</th>
+              <th className="px-3 py-3 whitespace-nowrap">Modalidad</th>
+              <th className="px-3 py-3 whitespace-nowrap">Cierra</th>
+              <th className="px-3 py-3">Filtros</th>
+              <th className="px-3 py-3">DBC</th>
+              <th className="px-3 py-3"></th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100">
+            {filas}
           </tbody>
         </table>
       </div>

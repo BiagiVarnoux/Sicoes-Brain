@@ -8,8 +8,15 @@ import type {
   ConvocatoriaRadar, ErpLicitacion, ErpProducto, ConvocatoriaSpecs,
 } from '@/lib/types'
 
-type Params = { vista?: string; mod?: string; urg?: string; sinver?: string }
+type Params = { vista?: string; mod?: string; urg?: string; sinver?: string; pub?: string; agr?: string }
 type PageProps = { searchParams: Promise<Params> }
+
+// Buckets de recencia por fecha de publicación (días desde que se publicó).
+const PUBS = [
+  { key: '1', label: '📅 Hoy' },
+  { key: '3', label: 'Últimos 3 días' },
+  { key: '7', label: 'Última semana' },
+]
 
 const VISTAS = [
   { key: 'relevantes', label: 'Relevantes' },
@@ -25,10 +32,18 @@ function dias(fecha: string | null): number | null {
   return Math.round((new Date(fecha + 'T00:00:00').getTime() - hoy.getTime()) / 86_400_000)
 }
 
+// Días transcurridos desde la publicación (0 = hoy, positivo = pasado).
+function diasDesde(fecha: string | null): number | null {
+  if (!fecha) return null
+  const hoy = new Date(); hoy.setHours(0, 0, 0, 0)
+  return Math.round((hoy.getTime() - new Date(fecha + 'T00:00:00').getTime()) / 86_400_000)
+}
+
 async function getRadar(vista: string): Promise<ConvocatoriaRadar[]> {
   let q = supabase
     .from('convocatorias_radar')
     .select('*')
+    .order('fecha_publicacion', { ascending: false, nullsFirst: false })
     .order('fecha_presentacion', { ascending: true })
 
   if (vista === 'relevantes') {
@@ -74,7 +89,8 @@ async function getSpecsMap(): Promise<Record<string, ConvocatoriaSpecs>> {
 export default async function RadarPage({ searchParams }: PageProps) {
   const sp = await searchParams
   const vista = sp.vista ?? 'relevantes'
-  const { mod, urg, sinver } = sp
+  const { mod, urg, sinver, pub, agr } = sp
+  const agrupar = agr === '1'
   const [rowsRaw, erpMap, erpProductos, specsMap] = await Promise.all([
     getRadar(vista), getErpMap(), getErpProductos(), getSpecsMap(),
   ])
@@ -84,12 +100,13 @@ export default async function RadarPage({ searchParams }: PageProps) {
   if (mod) rows = rows.filter((r) => (r.modalidad ?? '') === mod)
   if (urg) rows = rows.filter((r) => { const d = dias(r.fecha_presentacion); return d !== null && d >= 0 && d <= 7 })
   if (sinver) rows = rows.filter((r) => !r.visto)
+  if (pub) rows = rows.filter((r) => { const d = diasDesde(r.fecha_publicacion); return d !== null && d >= 0 && d <= Number(pub) })
 
   const nuevas = rows.filter((r) => !r.visto).length
 
   const buildUrl = (ov: Partial<Params>) => {
     const p = new URLSearchParams()
-    const m: Params = { vista, mod, urg, sinver, ...ov }
+    const m: Params = { vista, mod, urg, sinver, pub, agr, ...ov }
     Object.entries(m).forEach(([k, v]) => { if (v) p.set(k, String(v)) })
     return `/radar?${p.toString()}`
   }
@@ -138,17 +155,24 @@ export default async function RadarPage({ searchParams }: PageProps) {
           <Link href={buildUrl({ urg: urg ? '' : '7' })} className={chip(!!urg)}>⏰ Cierran ≤ 7 días</Link>
           <Link href={buildUrl({ sinver: sinver ? '' : '1' })} className={chip(!!sinver)}>👁 Sin ver</Link>
           <span className="mx-1 text-gray-300">·</span>
+          <span className="text-xs text-gray-400">Publicación:</span>
+          {PUBS.map((pb) => (
+            <Link key={pb.key} href={buildUrl({ pub: pub === pb.key ? '' : pb.key })} className={chip(pub === pb.key)}>{pb.label}</Link>
+          ))}
+          <span className="mx-1 text-gray-300">·</span>
           {MODALIDADES.map((m) => (
             <Link key={m} href={buildUrl({ mod: mod === m ? '' : m })} className={chip(mod === m)}>{m}</Link>
           ))}
-          {(mod || urg || sinver) && (
-            <Link href={buildUrl({ mod: '', urg: '', sinver: '' })} className="text-xs text-gray-400 hover:text-gray-700 underline ml-1">
+          <span className="mx-1 text-gray-300">·</span>
+          <Link href={buildUrl({ agr: agrupar ? '' : '1' })} className={chip(agrupar)}>🗓 Agrupar por publicación</Link>
+          {(mod || urg || sinver || pub || agrupar) && (
+            <Link href={buildUrl({ mod: '', urg: '', sinver: '', pub: '', agr: '' })} className="text-xs text-gray-400 hover:text-gray-700 underline ml-1">
               limpiar
             </Link>
           )}
         </div>
 
-        <RadarTable rows={rows} erpMap={erpMap} erpProductos={erpProductos} specsMap={specsMap} />
+        <RadarTable rows={rows} erpMap={erpMap} erpProductos={erpProductos} specsMap={specsMap} agrupar={agrupar} />
 
         {vista === 'interesan' && rows.length === 0 && (
           <p className="text-xs text-gray-400 mt-4">
