@@ -17,7 +17,29 @@ import time
 import urllib.request
 import urllib.error
 
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
+def _cargar_keys() -> list[str]:
+    """Lee las API keys de Groq del entorno. Soporta FAILOVER entre varias cuentas:
+    el límite de Groq es POR ORGANIZACIÓN, así que una key de otra cuenta tiene su
+    propio cupo diario (TPD) separado. Prioridad:
+      1) GROQ_API_KEYS = "key1,key2,..." (lista separada por comas), o
+      2) GROQ_API_KEY, GROQ_API_KEY_2, GROQ_API_KEY_3, ... (una por variable)."""
+    multi = os.environ.get("GROQ_API_KEYS", "").strip()
+    if multi:
+        keys = [k.strip() for k in multi.split(",") if k.strip()]
+    else:
+        keys = []
+        for nombre in ("GROQ_API_KEY", "GROQ_API_KEY_2", "GROQ_API_KEY_3",
+                       "GROQ_API_KEY_4", "GROQ_API_KEY_5"):
+            v = os.environ.get(nombre, "").strip()
+            if v:
+                keys.append(v)
+    # quita duplicados conservando el orden (por si repetís una key)
+    vistas: set[str] = set()
+    return [k for k in keys if not (k in vistas or vistas.add(k))]
+
+
+GROQ_API_KEYS = _cargar_keys()
+GROQ_API_KEY = GROQ_API_KEYS[0] if GROQ_API_KEYS else ""  # compat / 1ra key
 # gpt-oss-120b es el modelo de texto más potente disponible en esta cuenta Groq.
 # (Los Llama no estaban habilitados para la key actual.) Configurable por .env.
 GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
@@ -47,44 +69,93 @@ SYSTEM_PROMPT = (
 )
 
 
+# Índice de la key en uso y keys agotadas por cupo DIARIO (TPD) en esta corrida.
+# Se comparten entre todas las llamadas del proceso: si una key se quedó sin cupo
+# diario, no se vuelve a intentar hasta el próximo día (no sirve esperar segundos).
+_key_idx = 0
+_tpd_agotadas: set[int] = set()
+
+
+def _es_tpd(cuerpo: str) -> bool:
+    """¿El 429 es por límite DIARIO (TPD) y no por minuto (TPM)?"""
+    c = cuerpo.lower()
+    return "tpd" in c or "per day" in c or "requests per day" in c
+
+
 def _request(payload: dict, intentos: int = 5) -> dict | None:
+    """POST a Groq con FAILOVER entre keys/cuentas.
+    - 429 por día (TPD): la key quedó sin cupo hoy → se marca agotada y se salta a la
+      siguiente cuenta de inmediato (esperar no la libera hasta medianoche UTC).
+    - 429 por minuto (TPM) / 503: si hay otra key libre se cambia a ella (más rápido
+      que esperar); si no, se espera y reintenta como antes.
+    Devuelve None solo si todas las keys agotaron su cupo o se acabaron los intentos."""
+    global _key_idx
+    if not GROQ_API_KEYS:
+        return None
     data = json.dumps(payload).encode()
-    req = urllib.request.Request(
-        GROQ_URL, data=data, method="POST",
-        headers={
-            "Authorization": f"Bearer {GROQ_API_KEY}",
-            "Content-Type": "application/json",
-            # Groq está detrás de Cloudflare: sin un User-Agent "de navegador"
-            # devuelve 403 (error 1010) bloqueando el UA de python-urllib.
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                          "AppleWebKit/537.36 (KHTML, like Gecko) "
-                          "Chrome/124.0 Safari/537.36",
-        },
-    )
-    for i in range(intentos):
+    i = 0
+    while i < intentos:
+        if len(_tpd_agotadas) >= len(GROQ_API_KEYS):
+            print("      ✗ Todas las API keys de Groq agotaron su cupo diario (TPD). "
+                  "Se reanuda tras el reset (medianoche UTC / 20:00 Bolivia).", flush=True)
+            return None
+        # avanzar hasta una key que todavía tenga cupo diario
+        while _key_idx in _tpd_agotadas:
+            _key_idx = (_key_idx + 1) % len(GROQ_API_KEYS)
+        req = urllib.request.Request(
+            GROQ_URL, data=data, method="POST",
+            headers={
+                "Authorization": f"Bearer {GROQ_API_KEYS[_key_idx]}",
+                "Content-Type": "application/json",
+                # Groq está detrás de Cloudflare: sin un User-Agent "de navegador"
+                # devuelve 403 (error 1010) bloqueando el UA de python-urllib.
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                              "AppleWebKit/537.36 (KHTML, like Gecko) "
+                              "Chrome/124.0 Safari/537.36",
+            },
+        )
+        etiqueta_key = f"key #{_key_idx + 1}/{len(GROQ_API_KEYS)}"
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
                 return json.loads(r.read())
         except urllib.error.HTTPError as e:
             cuerpo = ""
             try:
-                cuerpo = e.read().decode()[:200]
+                cuerpo = e.read().decode()[:300]
             except Exception:
                 pass
-            # 429 (rate limit) → esperar y reintentar; otros 4xx no se reintentan
-            if e.code in (429, 503) and i < intentos - 1:
-                # 429 = rate limit (TPM por minuto); 503 = modelo saturado.
-                espera = min(65, 30 * (i + 1)) if e.code == 429 else min(40, 8 * (i + 1))
-                etiqueta = "429 rate limit" if e.code == 429 else "503 saturado"
-                print(f"      ⚠ Groq {etiqueta}; espero {espera}s...", flush=True)
-                time.sleep(espera)
-                continue
-            print(f"      ✗ Groq HTTP {e.code}: {cuerpo}", flush=True)
+            if e.code == 429 and _es_tpd(cuerpo):
+                # Cupo DIARIO agotado en esta cuenta → saltar a otra sin esperar.
+                _tpd_agotadas.add(_key_idx)
+                otras = len(GROQ_API_KEYS) - len(_tpd_agotadas)
+                print(f"      ⚠ Groq {etiqueta_key}: sin cupo DIARIO (TPD). "
+                      + (f"Cambio a otra cuenta ({otras} con cupo)." if otras > 0
+                         else "No quedan cuentas con cupo."), flush=True)
+                _key_idx = (_key_idx + 1) % len(GROQ_API_KEYS)
+                continue  # no cuenta como intento: está acotado por nº de keys
+            if e.code in (429, 503):
+                # TPM (por minuto) o modelo saturado. Si hay otra key libre, usarla.
+                libres = [k for k in range(len(GROQ_API_KEYS)) if k not in _tpd_agotadas]
+                if len(libres) > 1:
+                    _key_idx = next(k for k in libres if k != _key_idx)
+                    print(f"      ⚠ Groq {etiqueta_key}: {'429 TPM' if e.code == 429 else '503'}; "
+                          f"cambio a otra cuenta.", flush=True)
+                    i += 1
+                    continue
+                if i < intentos - 1:
+                    espera = min(65, 30 * (i + 1)) if e.code == 429 else min(40, 8 * (i + 1))
+                    etiqueta = "429 rate limit" if e.code == 429 else "503 saturado"
+                    print(f"      ⚠ Groq {etiqueta_key}: {etiqueta}; espero {espera}s...", flush=True)
+                    time.sleep(espera)
+                    i += 1
+                    continue
+            print(f"      ✗ Groq {etiqueta_key} HTTP {e.code}: {cuerpo}", flush=True)
             return None
         except Exception as e:
             espera = 2 ** i
             print(f"      ⚠ Groq red falló ({type(e).__name__}); reintento en {espera}s...", flush=True)
             time.sleep(espera)
+            i += 1
     return None
 
 
@@ -136,7 +207,7 @@ C1_SYSTEM = (
 
 def estructurar_c1(texto: str) -> list[dict]:
     """Convierte el texto crudo de un C-1 en items estructurados. [] si falla."""
-    if not texto or not texto.strip() or not GROQ_API_KEY:
+    if not texto or not texto.strip() or not GROQ_API_KEYS:
         return []
     payload = {
         "model": GROQ_MODEL, "temperature": 0,
@@ -219,7 +290,7 @@ def estructurar_dbc(texto: str, chunk: int = 11000, solapa: int = 800,
                     max_chunks: int = 4) -> list[dict]:
     """Extrae ítems + specs requeridas del DBC. Procesa la región de fichas técnicas
     por chunks (el DBC supera el TPM de Groq en un solo request) y une los ítems."""
-    if not texto or not texto.strip() or not GROQ_API_KEY:
+    if not texto or not texto.strip() or not GROQ_API_KEYS:
         return []
     region = _region_specs(texto)
     items: list[dict] = []
@@ -265,7 +336,7 @@ def clasificar_lote(objetos: list[str], ejemplos_pos: list[str] | None = None,
     few-shot de las decisiones del usuario en el radar."""
     if not objetos:
         return []
-    if not GROQ_API_KEY:
+    if not GROQ_API_KEYS:
         print("      ⚠ GROQ_API_KEY no configurada; filtro IA desactivado.", flush=True)
         return [{"relevante": False, "razon": "IA sin API key"} for _ in objetos]
 
