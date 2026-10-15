@@ -133,6 +133,26 @@ def upsert(rows: list[dict]) -> dict:
         return {"error": f"red: {e}"}
 
 
+def registrar_corrida(fecha_corrida: str, fecha_desde: str | None = None,
+                      fecha_hasta: str | None = None) -> None:
+    """Agrega una fila a la bitácora `radar_corridas`: cuándo corrió el radar y qué
+    rango de fechas de publicación escaneó. Fechas en ISO (yyyy-mm-dd). No crashea."""
+    payload = {"fecha_corrida": fecha_corrida}
+    if fecha_desde:
+        payload["fecha_desde"] = fecha_desde
+    if fecha_hasta:
+        payload["fecha_hasta"] = fecha_hasta
+    req = urllib.request.Request(
+        f"{SUPABASE_URL}/rest/v1/radar_corridas",
+        data=json.dumps([payload]).encode(), method="POST",
+        headers=_headers({"Prefer": "return=minimal"}),
+    )
+    try:
+        _urlopen_retry(req)
+    except Exception as e:
+        print(f"      ⚠ No se pudo registrar la corrida en radar_corridas: {e}", flush=True)
+
+
 def marcar_dbc(cuce: str, dbc_path: str, dbc_archivos: list | None = None) -> None:
     """Actualiza la ruta local y los archivos subidos (URLs) del DBC para un CUCE."""
     payload = {"dbc_path": dbc_path, "dbc_descargado": True}

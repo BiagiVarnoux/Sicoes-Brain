@@ -76,7 +76,8 @@ def main():
     hechos = set()
     if not reparse:
         for x in _get("convocatoria_specs?select=cuce,items,metodo"):
-            if x.get("items") or x.get("metodo") == "ocr_pendiente":
+            # ya hecho si tiene items, o ya pasó por el flujo OCR (pendiente/ocr/sin_texto)
+            if x.get("items") or (x.get("metodo") or "").startswith("ocr"):
                 hechos.add(x["cuce"])
 
     print(f"Relevantes con DBC a procesar: "

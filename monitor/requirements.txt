@@ -1,3 +1,5 @@
 playwright>=1.44
 python-dotenv>=1.0
 pymupdf>=1.24
+pytesseract>=0.3.13   # OCR de DBC escaneados (requiere binario Tesseract: brew install tesseract tesseract-lang)
+Pillow>=10.0          # rasterizado de páginas para el OCR

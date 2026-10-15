@@ -70,6 +70,14 @@ def guardar_ultima_corrida(d: date) -> None:
         fh.write(d.isoformat())
 
 
+def _iso_ddmmyyyy(s: str) -> str | None:
+    """Convierte 'dd/mm/yyyy' a ISO 'yyyy-mm-dd' (para radar_corridas). None si falla."""
+    try:
+        return datetime.strptime(s, "%d/%m/%Y").date().isoformat()
+    except (ValueError, TypeError):
+        return None
+
+
 # ─── Utilidades de fecha ───────────────────────────────────────────────────────
 def parse_fecha_sicoes(texto: str) -> date | None:
     """'26/10/2026' o '26/10/2026 15:30' → date."""
@@ -331,6 +339,8 @@ async def correr(desde: str, hasta: str, max_paginas: int, usar_ia: bool, descar
 
         if marcar_corrida:
             guardar_ultima_corrida(hoy)
+            db.registrar_corrida(hoy.isoformat(),
+                                 _iso_ddmmyyyy(desde), _iso_ddmmyyyy(hasta))
             print(f"  🗓  Última corrida guardada: {hoy.isoformat()}", flush=True)
 
         print("\n✅ Radar terminado.", flush=True)
