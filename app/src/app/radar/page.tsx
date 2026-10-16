@@ -39,6 +39,11 @@ function diasDesde(fecha: string | null): number | null {
   return Math.round((hoy.getTime() - new Date(fecha + 'T00:00:00').getTime()) / 86_400_000)
 }
 
+// Fecha de hoy en Bolivia (UTC-4), formato YYYY-MM-DD, para comparar cierres.
+function hoyBolivia(): string {
+  return new Date(Date.now() - 4 * 3_600_000).toISOString().slice(0, 10)
+}
+
 async function getRadar(vista: string): Promise<ConvocatoriaRadar[]> {
   let q = supabase
     .from('convocatorias_radar')
@@ -54,6 +59,13 @@ async function getRadar(vista: string): Promise<ConvocatoriaRadar[]> {
     q = q.eq('descartado', true)
   } else {
     q = q.eq('descartado', false)
+  }
+
+  // En "Relevantes" e "★ Interesan" ocultamos las ya vencidas (cierre pasado).
+  // Mantenemos las que no tienen fecha de cierre (cierre desconocido).
+  if (vista === 'relevantes' || vista === 'interesan') {
+    const hoy = hoyBolivia()
+    q = q.or(`fecha_presentacion.gte.${hoy},fecha_presentacion.is.null`)
   }
 
   const { data, error } = await q
