@@ -32,6 +32,13 @@ function dias(fecha: string | null): number | null {
   return Math.round((new Date(fecha + 'T00:00:00').getTime() - hoy.getTime()) / 86_400_000)
 }
 
+// 4º segmento del CUCE (correlativo que crece con la fecha de publicación).
+// Sirve como orden definitivo y estable del radar: siempre el mismo.
+function seg4(cuce: string): number {
+  const n = Number((cuce ?? '').split('-')[3])
+  return Number.isFinite(n) ? n : -1
+}
+
 // Días transcurridos desde la publicación (0 = hoy, positivo = pasado).
 function diasDesde(fecha: string | null): number | null {
   if (!fecha) return null
@@ -113,6 +120,9 @@ export default async function RadarPage({ searchParams }: PageProps) {
   if (urg) rows = rows.filter((r) => { const d = dias(r.fecha_presentacion); return d !== null && d >= 0 && d <= 7 })
   if (sinver) rows = rows.filter((r) => !r.visto)
   if (pub) rows = rows.filter((r) => { const d = diasDesde(r.fecha_publicacion); return d !== null && d >= 0 && d <= Number(pub) })
+
+  // Orden definitivo y siempre igual: por el 4º número del CUCE (desc = más nuevo primero).
+  rows = [...rows].sort((a, b) => seg4(b.cuce) - seg4(a.cuce))
 
   const nuevas = rows.filter((r) => !r.visto).length
 
