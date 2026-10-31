@@ -361,6 +361,11 @@ def main():
                          "Al terminar guarda la fecha de hoy. Ignora --desde/--hasta.")
     args = ap.parse_args()
 
+    print("🧹 Limpiando documentos de convocatorias vencidas...", flush=True)
+    db.limpiar_documentos_vencidos()
+    print("🗑  Limpiando Storage de convocatorias descartadas...", flush=True)
+    db.limpiar_storage_descartados()
+
     desde, hasta, marcar = args.desde, args.hasta, False
     if args.auto:
         marcar = True

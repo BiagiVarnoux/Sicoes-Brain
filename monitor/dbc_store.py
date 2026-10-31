@@ -167,6 +167,42 @@ def seleccionar_objetivo(modalidad: str, archivos: list[dict]) -> dict | None:
     return None
 
 
+def _comprimir_pdf(ruta: str) -> str:
+    """Re-renderiza cada página a 100 DPI JPEG (gris) con pymupdf+Pillow.
+    Reduce ~88% en PDFs escaneados. Reemplaza el original solo si el resultado
+    es más pequeño. Devuelve la ruta (siempre el mismo archivo)."""
+    tmp = ruta + ".__comp.pdf"
+    try:
+        import io
+        import pymupdf  # type: ignore
+        from PIL import Image  # type: ignore
+        doc = pymupdf.open(ruta)
+        out = pymupdf.open()
+        mat = pymupdf.Matrix(100 / 72, 100 / 72)
+        for page in doc:
+            pix = page.get_pixmap(matrix=mat, colorspace=pymupdf.csGRAY)
+            img = Image.frombytes("L", (pix.width, pix.height), pix.samples)
+            buf = io.BytesIO()
+            img.save(buf, format="JPEG", quality=60, optimize=True)
+            img_page = out.new_page(width=page.rect.width, height=page.rect.height)
+            img_page.insert_image(page.rect, stream=buf.getvalue())
+        doc.close()
+        out.save(tmp, garbage=4, deflate=True)
+        out.close()
+        if os.path.exists(tmp) and os.path.getsize(tmp) < os.path.getsize(ruta):
+            os.replace(tmp, ruta)
+        elif os.path.exists(tmp):
+            os.remove(tmp)
+    except Exception as e:
+        print(f"      ⚠ _comprimir_pdf falló ({os.path.basename(ruta)}): {e}", flush=True)
+        if os.path.exists(tmp):
+            try:
+                os.remove(tmp)
+            except OSError:
+                pass
+    return ruta
+
+
 def _content_type(ext: str) -> str:
     return {
         ".pdf": "application/pdf",
@@ -256,14 +292,16 @@ def procesar(cuce: str, modalidad: str, archivos_locales: list[dict]) -> list[di
             url = subir(ruta, f"{cuce}/{fdoc}")
             if url:
                 salida.append({"nombre": fdoc, "url": url})
-            # 2) convertir a PDF (sin borrar el original) y subir
+            # 2) convertir a PDF (sin borrar el original), comprimir y subir
             pdf = convertir_a_pdf(ruta, borrar_original=False)
             if pdf and os.path.exists(pdf) and pdf.lower().endswith(".pdf"):
+                _comprimir_pdf(pdf)
                 fpdf = base + ".pdf"
                 url = subir(pdf, f"{cuce}/{fpdf}")
                 if url:
                     salida.append({"nombre": fpdf, "url": url})
         elif ext0 == ".pdf":
+            _comprimir_pdf(ruta)
             fpdf = base + ".pdf"
             url = subir(ruta, f"{cuce}/{fpdf}")
             if url:

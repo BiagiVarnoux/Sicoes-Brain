@@ -142,7 +142,7 @@ function renderAgrupado(
     const items = grupos.get(k)!
     out.push(
       <tr key={`h-${k || 'sin'}`} className="bg-gray-100/80 border-y border-gray-200">
-        <td colSpan={7} className="px-4 py-2 text-xs font-semibold text-gray-600">
+        <td colSpan={8} className="px-4 py-2 text-xs font-semibold text-gray-600">
           🗓 {labelFechaPub(k || null)}
           <span className="ml-2 font-normal text-gray-400">
             {items.length} convocatoria{items.length === 1 ? '' : 's'}
@@ -167,7 +167,51 @@ export default function RadarTable(
   const router = useRouter()
   const [busy, setBusy] = useState<string | null>(null)
 
-  // Estado del modal de descarte
+  // Selección múltiple
+  const [seleccionados, setSeleccionados] = useState<Set<string>>(new Set())
+  const [descartandoBulk, setDescartandoBulk] = useState(false)
+  const [motivosBulk, setMotivosBulk] = useState<string[]>([])
+  const [notaBulk, setNotaBulk] = useState('')
+
+  function toggleSeleccion(cuce: string) {
+    setSeleccionados((prev) => {
+      const next = new Set(prev)
+      next.has(cuce) ? next.delete(cuce) : next.add(cuce)
+      return next
+    })
+  }
+
+  function toggleTodos() {
+    const descartables = rows.filter((r) => !r.descartado).map((r) => r.cuce)
+    if (descartables.every((c) => seleccionados.has(c))) {
+      setSeleccionados(new Set())
+    } else {
+      setSeleccionados(new Set(descartables))
+    }
+  }
+
+  async function confirmarDescarteBulk() {
+    if (motivosBulk.length === 0) return alert('Elegí al menos un motivo.')
+    setBusy('bulk')
+    const cuces = [...seleccionados]
+    const { error } = await supabase
+      .from('convocatorias_radar')
+      .update({
+        descartado: true,
+        motivo_descarte: motivosBulk,
+        nota_descarte: notaBulk.trim() || null,
+        descartado_en: new Date().toISOString(),
+        actualizado_en: new Date().toISOString(),
+      })
+      .in('cuce', cuces)
+    setBusy(null)
+    setDescartandoBulk(false)
+    setSeleccionados(new Set())
+    if (error) return alert('No se pudo descartar: ' + error.message)
+    router.refresh()
+  }
+
+  // Estado del modal de descarte individual
   const [descartando, setDescartando] = useState<ConvocatoriaRadar | null>(null)
   const [motivosSel, setMotivosSel] = useState<string[]>([])
   const [nota, setNota] = useState('')
@@ -245,6 +289,9 @@ export default function RadarTable(
 
   const entrenaSel = motivosSel.some((c) => MOTIVOS_DESCARTE.find((m) => m.code === c)?.entrena)
 
+  const descartables = rows.filter((r) => !r.descartado).map((r) => r.cuce)
+  const todosSeleccionados = descartables.length > 0 && descartables.every((c) => seleccionados.has(c))
+
   const renderRow = (r: ConvocatoriaRadar) => {
               const dias = diasRestantes(r.fecha_presentacion)
               const urgente = dias !== null && dias <= 3
@@ -255,7 +302,17 @@ export default function RadarTable(
               const specs = (specsMap[r.cuce]?.items ?? []).filter(
                 (it) => it && (it.descripcion || (it.especificaciones?.length ?? 0) > 0))
               return (
-                <tr key={r.cuce} className={`align-top ${r.visto ? 'bg-gray-50/60' : ''}`}>
+                <tr key={r.cuce} className={`align-top ${r.visto ? 'bg-gray-50/60' : ''} ${seleccionados.has(r.cuce) ? 'bg-blue-50/50' : ''}`}>
+                  <td className="px-3 py-3 w-8">
+                    {!r.descartado && (
+                      <input
+                        type="checkbox"
+                        checked={seleccionados.has(r.cuce)}
+                        onChange={() => toggleSeleccion(r.cuce)}
+                        className="cursor-pointer accent-blue-600"
+                      />
+                    )}
+                  </td>
                   <td className="px-4 py-3 max-w-md">
                     <Link href={`/radar/${encodeURIComponent(r.cuce)}`}
                       className="font-medium text-gray-900 leading-snug hover:text-blue-700 hover:underline">
@@ -426,6 +483,15 @@ export default function RadarTable(
         <table className="w-full text-sm">
           <thead>
             <tr className="text-left text-xs uppercase tracking-wide text-gray-500 border-b border-gray-200">
+              <th className="px-3 py-3 w-8">
+                <input
+                  type="checkbox"
+                  checked={todosSeleccionados}
+                  onChange={toggleTodos}
+                  className="cursor-pointer accent-blue-600"
+                  title="Seleccionar todos"
+                />
+              </th>
               <th className="px-4 py-3">Objeto</th>
               <th className="px-3 py-3">Entidad</th>
               <th className="px-3 py-3 whitespace-nowrap">Modalidad</th>
@@ -440,6 +506,71 @@ export default function RadarTable(
           </tbody>
         </table>
       </div>
+
+      {/* Barra de selección múltiple */}
+      {seleccionados.size > 0 && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 bg-gray-900 text-white px-5 py-3 rounded-full shadow-xl text-sm">
+          <span className="font-medium">{seleccionados.size} seleccionada{seleccionados.size === 1 ? '' : 's'}</span>
+          <button
+            onClick={() => { setMotivosBulk([]); setNotaBulk(''); setDescartandoBulk(true) }}
+            className="px-3 py-1 rounded-full bg-red-500 hover:bg-red-600 text-white font-medium text-xs">
+            ✕ Descartar
+          </button>
+          <button
+            onClick={() => setSeleccionados(new Set())}
+            className="px-3 py-1 rounded-full bg-gray-700 hover:bg-gray-600 text-xs">
+            Cancelar
+          </button>
+        </div>
+      )}
+
+      {/* Modal de descarte masivo */}
+      {descartandoBulk && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+          onClick={() => setDescartandoBulk(false)}>
+          <div className="bg-white rounded-xl shadow-xl max-w-md w-full p-5" onClick={(e) => e.stopPropagation()}>
+            <h3 className="text-base font-semibold text-gray-900">
+              Descartar {seleccionados.size} convocatoria{seleccionados.size === 1 ? '' : 's'}
+            </h3>
+            <div className="mt-4 space-y-1.5">
+              <p className="text-xs font-medium text-gray-700">¿Por qué las descartás? (uno o varios)</p>
+              {MOTIVOS_DESCARTE.map((m) => (
+                <label key={m.code} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={motivosBulk.includes(m.code)}
+                    onChange={(e) =>
+                      setMotivosBulk((prev) =>
+                        e.target.checked ? [...prev, m.code] : prev.filter((c) => c !== m.code))
+                    }
+                  />
+                  {m.label}
+                  {m.entrena && (
+                    <span className="text-[10px] px-1 py-0.5 rounded bg-amber-100 text-amber-700">entrena IA</span>
+                  )}
+                </label>
+              ))}
+            </div>
+            <textarea
+              value={notaBulk}
+              onChange={(e) => setNotaBulk(e.target.value)}
+              placeholder="Nota (opcional)"
+              className="mt-3 w-full border border-gray-200 rounded-lg p-2 text-sm h-16 resize-none"
+            />
+            <div className="mt-4 flex justify-end gap-2">
+              <button onClick={() => setDescartandoBulk(false)}
+                className="text-sm px-3 py-1.5 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50">
+                Cancelar
+              </button>
+              <button onClick={confirmarDescarteBulk}
+                disabled={busy === 'bulk'}
+                className="text-sm px-3 py-1.5 rounded-lg bg-red-600 text-white hover:bg-red-700 disabled:opacity-50">
+                {busy === 'bulk' ? 'Descartando...' : `Descartar ${seleccionados.size}`}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Modal de descarte por motivos */}
       {descartando && (
