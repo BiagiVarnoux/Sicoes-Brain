@@ -16,3 +16,16 @@ scraper/.env
 
 .DS_Store
 **/.DS_Store
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Salidas del scraper histórico (DBC/markdown generados)
+scraper/salidas/
+
+# Backups del instalador de graphify
+.claude/settings.json.graphify-bak
+
+# Caché local de graphify (no versionar)
+graphify-out/cache/
