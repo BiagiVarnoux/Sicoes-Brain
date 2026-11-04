@@ -279,8 +279,11 @@ async def descargar_dbcs(page, relevantes: list[dict]):
                   f"({'Oferta' if modalidad=='CM' else 'DBC'})", flush=True)
             continue
         ruta = await nav.descargar_token(page, objetivo["token"], carpeta, objetivo.get("nombre", ""))
-        locales = [{"ruta": ruta, "nombre": objetivo.get("nombre", "")}] if ruta else []
-        subidos = dbc_store.procesar(cuce, modalidad, locales) if locales else []
+        if not ruta:
+            print(f"    ✗ {cuce}: no se pudo descargar '{objetivo.get('nombre','')}' (todos los intentos fallaron)", flush=True)
+            continue
+        locales = [{"ruta": ruta, "nombre": objetivo.get("nombre", "")}]
+        subidos = dbc_store.procesar(cuce, modalidad, locales)
         if subidos:
             db.marcar_dbc(cuce, carpeta, subidos)
         print(f"    · {cuce}: {objetivo.get('nombre','')} → {len(subidos)} archivo(s) a Storage", flush=True)

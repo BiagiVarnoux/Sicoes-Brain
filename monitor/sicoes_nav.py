@@ -310,7 +310,7 @@ async def _esperar_guard(page):
 
 
 async def descargar_token(page, token: str, carpeta: str, nombre_sugerido: str = "",
-                          intentos: int = 3) -> str | None:
+                          intentos: int = 6) -> str | None:
     """Descarga UN archivo por su token, con reintentos. Devuelve la ruta o None.
 
     SICOES envía el archivo con un form target=_blank: los Word disparan un evento
@@ -326,8 +326,10 @@ async def descargar_token(page, token: str, carpeta: str, nombre_sugerido: str =
         if ruta:
             return ruta
         if n < intentos - 1:
-            print(f"        ↻ reintento descarga ({n+2}/{intentos})...", flush=True)
-            await page.wait_for_timeout(2000)
+            espera = 3000 + n * 2000  # 3s, 5s, 7s, 9s, 11s
+            print(f"        ↻ reintento descarga ({n+2}/{intentos}) en {espera//1000}s...", flush=True)
+            await page.wait_for_timeout(espera)
+    print(f"        ✗ descarga fallida tras {intentos} intentos.", flush=True)
     return None
 
 
