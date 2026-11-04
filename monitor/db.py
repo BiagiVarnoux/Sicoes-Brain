@@ -228,11 +228,14 @@ def limpiar_documentos_vencidos() -> int:
         return 0
 
 
-def marcar_dbc(cuce: str, dbc_path: str, dbc_archivos: list | None = None) -> None:
-    """Actualiza la ruta local y los archivos subidos (URLs) del DBC para un CUCE."""
+def marcar_dbc(cuce: str, dbc_path: str, dbc_archivos: list | None = None,
+               dbc_markdown: str | None = None) -> None:
+    """Actualiza la ruta local, archivos subidos y markdown del DBC para un CUCE."""
     payload = {"dbc_path": dbc_path, "dbc_descargado": True}
     if dbc_archivos is not None:
         payload["dbc_archivos"] = dbc_archivos
+    if dbc_markdown is not None:
+        payload["dbc_markdown"] = dbc_markdown
     req = urllib.request.Request(
         f"{SUPABASE_URL}/rest/v1/{TABLA}?cuce=eq.{urllib.parse.quote(cuce)}",
         data=json.dumps(payload).encode(),

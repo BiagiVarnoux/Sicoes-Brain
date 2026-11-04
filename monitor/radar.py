@@ -283,10 +283,14 @@ async def descargar_dbcs(page, relevantes: list[dict]):
             print(f"    ✗ {cuce}: no se pudo descargar '{objetivo.get('nombre','')}' (todos los intentos fallaron)", flush=True)
             continue
         locales = [{"ruta": ruta, "nombre": objetivo.get("nombre", "")}]
-        subidos = dbc_store.procesar(cuce, modalidad, locales)
-        if subidos:
-            db.marcar_dbc(cuce, carpeta, subidos)
-        print(f"    · {cuce}: {objetivo.get('nombre','')} → {len(subidos)} archivo(s) a Storage", flush=True)
+        resultado = dbc_store.procesar(cuce, modalidad, locales)
+        md = resultado.get("markdown", "")
+        archivos = resultado.get("archivos", [])
+        db.marcar_dbc(cuce, carpeta, archivos if archivos else None,
+                      dbc_markdown=md if md else None)
+        info = f"{len(md)} chars markdown" if md else "sin markdown"
+        extra = f" + {len(archivos)} archivo(s) a Storage" if archivos else ""
+        print(f"    · {cuce}: {objetivo.get('nombre','')} → {info}{extra}", flush=True)
 
 
 async def correr(desde: str, hasta: str, max_paginas: int, usar_ia: bool, descargar: bool,

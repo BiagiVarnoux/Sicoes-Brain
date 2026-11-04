@@ -167,6 +167,71 @@ def seleccionar_objetivo(modalidad: str, archivos: list[dict]) -> dict | None:
     return None
 
 
+_BASE64_IMG_RE = re.compile(r'!\[[^\]]*\]\(data:[^)]+\)', re.IGNORECASE)
+
+
+def _a_markdown(ruta: str) -> str:
+    """Convierte un archivo (docx, pdf-texto, pdf-escaneado) a Markdown.
+
+    - .docx → markitdown (preserva estructura: tablas, encabezados, negrita)
+    - .pdf con texto → pymupdf extrae texto plano con formato mínimo
+    - .pdf escaneado → Tesseract OCR (si está instalado)
+    Elimina imágenes base64 incrustadas (desperdician tokens).
+    Devuelve string vacío si no pudo convertir."""
+    ext = os.path.splitext(ruta)[1].lower()
+    md = ""
+
+    if ext in (".doc", ".docx", ".odt", ".rtf"):
+        try:
+            from markitdown import MarkItDown  # type: ignore
+            resultado = MarkItDown().convert(ruta)
+            md = resultado.text_content or ""
+        except Exception as e:
+            print(f"      ⚠ markitdown falló ({os.path.basename(ruta)}): {e}", flush=True)
+
+    elif ext == ".pdf":
+        try:
+            import pymupdf  # type: ignore
+            doc = pymupdf.open(ruta)
+            partes = [page.get_text() for page in doc]
+            doc.close()
+            md = "\n".join(partes).strip()
+        except Exception as e:
+            print(f"      ⚠ pymupdf texto falló ({os.path.basename(ruta)}): {e}", flush=True)
+
+        if not md:
+            # PDF escaneado → Tesseract OCR
+            try:
+                import io
+                import pymupdf  # type: ignore
+                import pytesseract  # type: ignore
+                from PIL import Image  # type: ignore
+                pytesseract.get_tesseract_version()
+                doc = pymupdf.open(ruta)
+                mat = pymupdf.Matrix(220 / 72, 220 / 72)
+                partes = []
+                for i, page in enumerate(doc):
+                    if i >= 40:
+                        break
+                    pix = page.get_pixmap(matrix=mat)
+                    img = Image.open(io.BytesIO(pix.tobytes("png")))
+                    txt = pytesseract.image_to_string(img, lang="spa")
+                    if txt and txt.strip():
+                        partes.append(txt)
+                doc.close()
+                md = "\n".join(partes).strip()
+                if md:
+                    print(f"      · OCR ok ({os.path.basename(ruta)})", flush=True)
+            except Exception as e:
+                print(f"      ⚠ OCR falló ({os.path.basename(ruta)}): {e}", flush=True)
+
+    # Eliminar imágenes base64 (inútiles para la IA, pesan mucho)
+    if md:
+        md = _BASE64_IMG_RE.sub("", md).strip()
+
+    return md
+
+
 def _comprimir_pdf(ruta: str) -> str:
     """Re-renderiza cada página a 100 DPI JPEG (gris) con pymupdf+Pillow.
     Reduce ~88% en PDFs escaneados. Reemplaza el original solo si el resultado
@@ -273,42 +338,40 @@ def limpiar_storage(cuce: str) -> None:
         print(f"      ⚠ No se pudo limpiar Storage de {cuce}: {e}", flush=True)
 
 
-def procesar(cuce: str, modalidad: str, archivos_locales: list[dict]) -> list[dict]:
-    """archivos_locales: [{ruta, nombre}] — normalmente UN solo archivo objetivo
-    (el DBC para ANPE/ANPP/LP, o la Oferta para CM). Para los Word guarda AMBOS
-    formatos (.docx original + .pdf convertido con LibreOffice); para PDF guarda el
-    PDF. Nombre: '<CM|DBC> - <cuce4>.<ext>'. Devuelve [{nombre, url}]."""
+def procesar(cuce: str, modalidad: str, archivos_locales: list[dict]) -> dict:
+    """archivos_locales: [{ruta, nombre}] — normalmente UN solo archivo objetivo.
+    Convierte el documento a Markdown (markitdown para Word, pymupdf/OCR para PDF).
+    Ya NO sube PDFs a Storage; solo sube el archivo original si es un formato no
+    convertible (zip, xlsx, etc.).
+    Devuelve {"markdown": str, "archivos": [{nombre, url}]}."""
     base = f"{prefijo(modalidad)} - {cuce4(cuce)}"
-    limpiar_storage(cuce)  # borrar objetos viejos antes de subir los nuevos
-    salida = []
+    markdown_total: list[str] = []
+    salida: list[dict] = []
+
     for a in archivos_locales:
         ruta = a.get("ruta")
         if not ruta or not os.path.exists(ruta):
             continue
         ext0 = os.path.splitext(ruta)[1].lower()
-        if ext0 in (".doc", ".docx", ".odt", ".rtf"):
-            # 1) subir el Word original tal cual
-            fdoc = base + ext0
-            url = subir(ruta, f"{cuce}/{fdoc}")
-            if url:
-                salida.append({"nombre": fdoc, "url": url})
-            # 2) convertir a PDF (sin borrar el original), comprimir y subir
-            pdf = convertir_a_pdf(ruta, borrar_original=False)
-            if pdf and os.path.exists(pdf) and pdf.lower().endswith(".pdf"):
-                _comprimir_pdf(pdf)
-                fpdf = base + ".pdf"
-                url = subir(pdf, f"{cuce}/{fpdf}")
-                if url:
-                    salida.append({"nombre": fpdf, "url": url})
-        elif ext0 == ".pdf":
-            _comprimir_pdf(ruta)
-            fpdf = base + ".pdf"
-            url = subir(ruta, f"{cuce}/{fpdf}")
-            if url:
-                salida.append({"nombre": fpdf, "url": url})
+
+        # Convertir a Markdown (docx / pdf)
+        if ext0 in (".doc", ".docx", ".odt", ".rtf", ".pdf"):
+            md = _a_markdown(ruta)
+            if md:
+                markdown_total.append(md)
+                print(f"      · Markdown: {len(md)} chars ({os.path.basename(ruta)})", flush=True)
+            else:
+                print(f"      ⚠ sin texto extraído de {os.path.basename(ruta)}", flush=True)
         else:
+            # Formato no convertible (zip, xlsx…): subir tal cual a Storage
             fo = base + ext0
             url = subir(ruta, f"{cuce}/{fo}")
             if url:
                 salida.append({"nombre": fo, "url": url})
-    return salida
+
+    md_completo = "\n\n---\n\n".join(markdown_total)
+    # Tope de 60 000 chars: suficiente para las specs; evita saturar Groq TPM
+    return {
+        "markdown": md_completo[:60000],
+        "archivos": salida,
+    }

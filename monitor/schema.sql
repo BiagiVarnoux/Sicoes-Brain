@@ -24,9 +24,10 @@ create table if not exists public.convocatorias_radar (
 
   -- archivos / DBC
   archivos               jsonb   default '[]'::jsonb,  -- [{nombre, token}] (tokens SICOES)
-  dbc_archivos           jsonb   default '[]'::jsonb,  -- [{nombre, url}] subidos a Storage
+  dbc_archivos           jsonb   default '[]'::jsonb,  -- [{nombre, url}] subidos a Storage (legado)
   dbc_path               text,
   dbc_descargado         boolean default false,
+  dbc_markdown           text,                         -- contenido del DBC convertido a Markdown
 
   -- gestion del usuario en el dashboard
   visto                  boolean default false,

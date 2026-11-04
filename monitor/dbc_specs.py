@@ -2,10 +2,8 @@
 Extrae las ESPECIFICACIONES TÉCNICAS requeridas por la entidad del DBC de cada
 convocatoria RELEVANTE. Es la base para después buscar/cotizar el producto.
 
-Fuente: el PDF del DBC ya está en el bucket PÚBLICO `dbc` de Supabase (lo subió el
-radar en dbc_archivos). Se baja por URL pública (sin credenciales), se extrae el
-texto (PyMuPDF; escaneados → OCR pendiente) y se estructura con Groq. Cachea en
-`convocatoria_specs`. Idempotente.
+Fuente preferida: campo `dbc_markdown` en la DB (ya convertido por dbc_store).
+Fallback: PDF en Supabase Storage (registros anteriores a la migración markitdown).
 
 Uso:
   ../scraper/venv/bin/python dbc_specs.py            # pendientes
@@ -71,39 +69,46 @@ def _pdf_url(archivos: list) -> str | None:
 
 def main():
     reparse = "--reparse" in sys.argv
-    relevantes = _get("convocatorias_radar?select=cuce,objeto,dbc_archivos"
+    relevantes = _get("convocatorias_radar?select=cuce,objeto,dbc_archivos,dbc_markdown"
                       "&relevante=eq.true&descartado=eq.false")
     hechos = set()
     if not reparse:
         for x in _get("convocatoria_specs?select=cuce,items,metodo"):
-            # ya hecho si tiene items, o ya pasó por el flujo OCR (pendiente/ocr/sin_texto)
             if x.get("items") or (x.get("metodo") or "").startswith("ocr"):
                 hechos.add(x["cuce"])
 
-    print(f"Relevantes con DBC a procesar: "
-          f"{sum(1 for r in relevantes if r['cuce'] not in hechos and _pdf_url(r.get('dbc_archivos')))}")
+    pendientes = [r for r in relevantes if r["cuce"] not in hechos
+                  and (r.get("dbc_markdown") or _pdf_url(r.get("dbc_archivos")))]
+    print(f"Relevantes con DBC a procesar: {len(pendientes)}")
+
     nuevos = escaneados = 0
-    for r in relevantes:
+    for r in pendientes:
         cuce = r["cuce"]
-        if cuce in hechos:
-            continue
-        url = _pdf_url(r.get("dbc_archivos"))
-        if not url:
-            continue
         print(f"  · {cuce} — {(r.get('objeto') or '')[:55]}", flush=True)
-        data = _descargar(url)
-        if not data:
-            continue
-        texto = _texto_pdf(data)
+
+        texto = r.get("dbc_markdown") or ""
+        metodo = "markdown"
+
         if not texto:
-            escaneados += 1
-            print("      (sin texto — escaneado, OCR pendiente)", flush=True)
-            _upsert({"cuce": cuce, "items": [], "texto_crudo": "", "metodo": "ocr_pendiente"})
-            continue
+            # Fallback: bajar PDF de Storage (registros anteriores a markitdown)
+            url = _pdf_url(r.get("dbc_archivos"))
+            if not url:
+                continue
+            data = _descargar(url)
+            if not data:
+                continue
+            texto = _texto_pdf(data)
+            metodo = "texto_pdf"
+            if not texto:
+                escaneados += 1
+                print("      (sin texto — escaneado, OCR pendiente)", flush=True)
+                _upsert({"cuce": cuce, "items": [], "texto_crudo": "", "metodo": "ocr_pendiente"})
+                continue
+
         items = clasificador_ia.estructurar_dbc(texto)
-        _upsert({"cuce": cuce, "items": items, "texto_crudo": texto[:20000], "metodo": "texto"})
+        _upsert({"cuce": cuce, "items": items, "texto_crudo": texto[:20000], "metodo": metodo})
         nuevos += 1
-        print(f"      ✓ {len(items)} ítem(s) con specs", flush=True)
+        print(f"      ✓ {len(items)} ítem(s) con specs (vía {metodo})", flush=True)
         time.sleep(40)  # throttle: los DBC son requests grandes (TPM Groq 8000)
 
     print(f"\n✅ DBC specs: {nuevos} extraídos, {escaneados} escaneados pendientes de OCR.")
