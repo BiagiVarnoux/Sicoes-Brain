@@ -91,10 +91,12 @@ def _delete(path: str) -> None:
 
 
 def _cuces_ya_hechos(entidad: str, anio: int) -> set:
-    anio2 = str(anio)[2:]
-    rows = _get(f"hist_procesos?select=cuce&entidad_codigo=eq.{urllib.parse.quote(entidad)}"
-                f"&cuce_anio=eq.{anio}")
-    return {r["cuce"] for r in rows}
+    """"Hecho" = tiene al menos un ítem en hist_items. Un proceso guardado SIN
+    ítems es una sesión caída (forms no cargaron): debe reintentarse al reanudar,
+    así que NO lo contamos como hecho."""
+    pref = str(anio)[2:] + "-"
+    rows = _get(f"hist_items?select=cuce&entidad_codigo=eq.{urllib.parse.quote(entidad)}")
+    return {r["cuce"] for r in rows if (r.get("cuce") or "").startswith(pref)}
 
 
 # ─── utilidades ───────────────────────────────────────────────────────────────
@@ -329,6 +331,41 @@ async def _detectar_paginas(page) -> int:
         return 1
 
 
+async def _recolectar_filas(page, entidad, tope_hint, cap_paginas, cap_n) -> list:
+    """Recorre el paginador juntando filas (con tokens FRESCOS de la sesión
+    actual). Corta cuando 2 páginas seguidas no aportan nada nuevo."""
+    filas, vistos, vacias, pag = [], set(), 0, 1
+    tope = cap_paginas or tope_hint or 1
+    while pag <= tope + 3:
+        if pag > 1:
+            await ir_pagina(page, pag)
+        de_pag = await extraer_filas(page, entidad)
+        nuevas = [f for f in de_pag if f["cuce"] not in vistos]
+        vistos.update(f["cuce"] for f in nuevas)
+        filas.extend(nuevas)
+        print(f"   · página {pag}: {len(nuevas)} en alcance (acum {len(filas)})")
+        vacias = vacias + 1 if not nuevas else 0
+        if vacias >= 2:
+            break
+        if cap_n and len(filas) >= cap_n:
+            break
+        pag += 1
+    return filas
+
+
+async def _revivir_sesion(page, cuce2, cuce3, anio, estado, entidad,
+                          tope_hint, cap_paginas, cap_n) -> dict:
+    """La sesión murió: re-navega al buscador, rehace la búsqueda (tokens nuevos)
+    y vuelve a recolectar las filas. Devuelve {cuce: fila} con tokens frescos."""
+    print("    ↻ reviviendo sesión (re-navego y re-busco para renovar tokens)...", flush=True)
+    await ir_a_buscador(page)
+    await buscar(page, cuce2, cuce3, anio, estado)
+    await page.evaluate("busquedadraw('1')")
+    await page.wait_for_timeout(1200)
+    filas = await _recolectar_filas(page, entidad, tope_hint, cap_paginas, cap_n)
+    return {f["cuce"]: f for f in filas}
+
+
 # ─── por proceso ──────────────────────────────────────────────────────────────
 async def procesar(page, fila: dict, raiz: str) -> dict:
     cuce = fila["cuce"]
@@ -439,6 +476,14 @@ async def procesar(page, fila: dict, raiz: str) -> dict:
             "fuente": (r.get("fuente") or "").lower(),
         })
 
+    # Guardia: si NO cargó ningún formulario de ítems (FORM100/200/110/220) la
+    # sesión probablemente murió. No guardamos (para que al reanudar se reintente)
+    # y avisamos a main() con ok=False para que revive la sesión.
+    item_forms = [f for f in forms_cap if f in ("FORM100", "FORM200", "FORM110", "FORM220")]
+    if not item_forms:
+        print(f"      ✗ {cuce}: sin formularios de ítems (sesión caída) — no se guarda", flush=True)
+        return {"cuce": cuce, "items": 0, "tiene_dbc": tiene_dbc, "ok": False}
+
     # 4) Escribir (idempotente: reemplaza ítems del proceso)
     _post("hist_procesos", [proc_row], on_conflict="cuce")
     _delete(f"hist_items?cuce=eq.{urllib.parse.quote(cuce)}")
@@ -446,7 +491,7 @@ async def procesar(page, fila: dict, raiz: str) -> dict:
 
     print(f"      ✓ {cuce}: {len(item_rows)} ítems "
           f"(forms={forms_cap}, dbc={'sí' if tiene_dbc else 'no'})", flush=True)
-    return {"cuce": cuce, "items": len(item_rows), "tiene_dbc": tiene_dbc}
+    return {"cuce": cuce, "items": len(item_rows), "tiene_dbc": tiene_dbc, "ok": True}
 
 
 async def main():
@@ -486,46 +531,68 @@ async def main():
         await page.wait_for_timeout(1200)
 
         # Recorrer las páginas del buscador juntando filas. El paginador del SICOES
-        # a veces reporta un total inflado, así que NO confiamos en él: cortamos
-        # cuando 2 páginas seguidas no aportan nada nuevo (o la tabla queda vacía).
+        # a veces reporta un total inflado, así que NO confiamos en él: lo delegamos
+        # a _recolectar_filas (corta cuando 2 páginas seguidas no aportan nada nuevo).
         total_hint = await _detectar_paginas(page)
-        tope = args.paginas or total_hint or 1
         print(f"Páginas en el paginador: {total_hint}"
               + (f" (cap {args.paginas})" if args.paginas else ""))
-        filas, vistos, vacias = [], set(), 0
-        pag = 1
-        while pag <= tope + 3:                   # +3 de colchón por si el paginador se queda corto
-            if pag > 1:
-                await ir_pagina(page, pag)
-            de_pag = await extraer_filas(page, args.entidad)
-            nuevas = [f for f in de_pag if f["cuce"] not in vistos]
-            vistos.update(f["cuce"] for f in nuevas)
-            filas.extend(nuevas)
-            print(f"   · página {pag}: {len(nuevas)} en alcance (acum {len(filas)})")
-            vacias = vacias + 1 if not nuevas else 0
-            if vacias >= 2:                      # 2 páginas seguidas sin novedad → fin
-                break
-            if args.n and len(filas) >= args.n:  # ya tenemos suficientes
-                break
-            pag += 1
+        filas = await _recolectar_filas(page, args.entidad, total_hint, args.paginas, args.n)
 
-        filas = [f for f in filas if f["cuce"] not in ya]
+        objetivo = [f["cuce"] for f in filas if f["cuce"] not in ya]
         if args.n:
-            filas = filas[:args.n]
-        print(f"✓ {len(filas)} procesos a procesar (modalidades {sorted(MODALIDADES)})")
+            objetivo = objetivo[:args.n]
+        por_token = {f["cuce"]: f for f in filas}   # tokens vigentes (se renuevan al revivir)
+        print(f"✓ {len(objetivo)} procesos a procesar (modalidades {sorted(MODALIDADES)})")
 
-        resultados = []
-        for idx, fila in enumerate(filas, 1):
-            print(f"\n[{idx}/{len(filas)}] {fila['cuce']} [{fila['modalidad']}] — {fila['objeto'][:50]}")
+        cuce2, cuce3 = args.entidad.split("-")
+        resultados, hechos, fallidos = [], set(), set()
+        intentos = {}                               # cuce → veces que lo intentamos
+        MAX_POR_CUCE = 2                            # reintentos por proceso antes de rendirse
+        MAX_REVIVES = 12                            # tope global de revivas de sesión
+        revives = 0
+        while True:
+            pend = [c for c in objetivo if c not in hechos and c not in fallidos]
+            if not pend:
+                break
+            cuce = pend[0]
+            fila = por_token.get(cuce)
+            if not fila:                            # desapareció del buscador tras revivir
+                fallidos.add(cuce)
+                continue
+            idx = objetivo.index(cuce) + 1
+            intentos[cuce] = intentos.get(cuce, 0) + 1
+            print(f"\n[{idx}/{len(objetivo)}] {cuce} [{fila['modalidad']}] — {fila['objeto'][:50]}"
+                  + (f"  (intento {intentos[cuce]})" if intentos[cuce] > 1 else ""))
             try:
-                resultados.append(await procesar(page, fila, raiz))
+                res = await procesar(page, fila, raiz)
             except Exception as e:
                 print(f"    ⚠ error: {e}", flush=True)
-            await page.wait_for_timeout(1500)
+                res = {"cuce": cuce, "items": 0, "tiene_dbc": False, "ok": False}
+
+            if res.get("ok"):
+                hechos.add(cuce)
+                resultados.append(res)
+                await page.wait_for_timeout(1500)
+                continue
+
+            # Falló (sesión caída / error). Si ya lo intentamos bastante, lo dejamos
+            # pendiente (NO guardado → reaparece al reanudar). Si no, revivimos la
+            # sesión para tokens frescos y lo reintentamos.
+            if intentos[cuce] >= MAX_POR_CUCE or revives >= MAX_REVIVES:
+                print(f"    ⚠ {cuce}: no se pudo tras {intentos[cuce]} intento(s); queda "
+                      f"pendiente (reaparece al reanudar).", flush=True)
+                fallidos.add(cuce)
+                continue
+            revives += 1
+            por_token = await _revivir_sesion(page, cuce2, cuce3, args.anio, args.estado,
+                                              args.entidad, total_hint, args.paginas, args.n)
 
         tot_items = sum(r["items"] for r in resultados)
         con_dbc = sum(1 for r in resultados if r["tiene_dbc"])
-        print(f"\n✅ Listo: {len(resultados)} procesos, {tot_items} ítems, {con_dbc} con DBC.")
+        print(f"\n✅ Listo: {len(hechos)}/{len(objetivo)} procesos guardados, "
+              f"{tot_items} ítems, {con_dbc} con DBC.")
+        if fallidos:
+            print(f"   ⚠ {len(fallidos)} sin guardar (reaparecen al reanudar): {sorted(fallidos)}")
         print(f"   DBC recortados en: {raiz}  (para historico_specs.py)")
 
 
