@@ -62,7 +62,12 @@ def _a_markdown(path_in: str, path_out: str) -> str | None:
         with open(path_out, "w", encoding="utf-8") as fh:
             fh.write(texto)
         return texto
-    except Exception as e:
+    except (KeyboardInterrupt, SystemExit):
+        raise
+    except BaseException as e:
+        # OJO: markitdown.UnsupportedFormatException (p.ej. .doc viejo) NO hereda
+        # de Exception, hereda de BaseException — por eso hay que atrapar
+        # BaseException o un DBC .doc tumba el año entero.
         print(f"        ⚠ markitdown falló en {os.path.basename(path_in)}: {e}", flush=True)
         return None
 
