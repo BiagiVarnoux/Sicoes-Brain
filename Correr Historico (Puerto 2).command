@@ -11,9 +11,9 @@
 SCRAPER="/Users/fabriziocuellar/Sicoes-Brain/scraper"
 PY="$SCRAPER/venv/bin/python"
 BRAVE="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-# Puerto 9223: para correr en paralelo con el Radar o con otra corrida histórica.
-PUERTO="9223"
-PERFIL="/tmp/brave-sicoes-2"
+# Puerto 9224: para correr una 2ª corrida histórica en paralelo con la primera.
+PUERTO="9224"
+PERFIL="/tmp/brave-sicoes-hist-2"
 export CDP_URL="http://localhost:$PUERTO"
 cd "$SCRAPER" || exit 1
 
