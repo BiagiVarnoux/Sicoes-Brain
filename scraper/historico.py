@@ -387,6 +387,14 @@ async def procesar(page, fila: dict, raiz: str) -> dict:
         if not html or len(html) < 100:
             print(f"        ⚠ {form_name} no cargó", flush=True)
             continue
+        # Volcado de diagnóstico (solo con HIST_DUMP_FORMS=1): guarda el HTML crudo
+        # del form para realinear parsers por encabezado. No afecta corridas normales.
+        if os.environ.get("HIST_DUMP_FORMS") == "1":
+            ddir = os.path.join(raiz, "_dump_forms")
+            os.makedirs(ddir, exist_ok=True)
+            with open(os.path.join(ddir, f"{_sanitizar_fs(cuce)}_{form_name}.html"),
+                      "w", encoding="utf-8") as fh:
+                fh.write(html)
         forms_cap.append(form_name)
         if form_name in ("FORM200", "FORM100"):
             items = parsear_form200_100(html, cuce, form_name)

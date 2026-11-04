@@ -397,6 +397,95 @@ def armar_descripcion(categoria: str, descripcion: str) -> str:
 
 # ─── PARSERS ──────────────────────────────────────────────────────────────────
 
+def _norm_h(s: str) -> str:
+    """Normaliza un encabezado: minúsculas, sin acentos, espacios colapsados."""
+    import unicodedata
+    s = unicodedata.normalize("NFKD", s or "")
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    return " ".join(s.lower().split())
+
+
+def _mapa_cols_requerido(tabla):
+    """Encuentra la fila de encabezado del REQUERIDO (FORM100/FORM110) y devuelve
+    (mapa, ncols). El layout real varía por año, así que mapeamos por nombre de
+    columna, no por índice. mapa: codigo/desc/unidad/cantidad/p_unit/p_total → idx."""
+    # Puede haber varias filas que "contienen" los encabezados: la fila aplanada
+    # (una sola <tr> con TODA la tabla, decenas de celdas) y la fila de encabezado
+    # limpia (7 celdas). Elegimos la de MENOS celdas: la limpia.
+    candidatas = []
+    for fila in tabla.find_all("tr"):
+        celdas = fila.find_all(["td", "th"])
+        if len(celdas) < 4:
+            continue
+        hs = [_norm_h(c.get_text()) for c in celdas]
+        joined = " | ".join(hs)
+        if "descripcion del bien" in joined and "cantidad" in joined:
+            candidatas.append((len(celdas), hs))
+    for _, hs in sorted(candidatas, key=lambda x: x[0]):
+        mapa = {}
+        for i, h in enumerate(hs):
+            if ("codigo del catalogo" in h or h == "codigo") and "codigo" not in mapa:
+                mapa["codigo"] = i
+            elif "descripcion del bien" in h and "desc" not in mapa:
+                mapa["desc"] = i
+            elif "unidad de medida" in h and "unidad" not in mapa:
+                mapa["unidad"] = i
+            elif h.startswith("cantidad") and "cantidad" not in mapa:
+                mapa["cantidad"] = i
+            elif "precio" in h and "unitario" in h and "p_unit" not in mapa:
+                mapa["p_unit"] = i
+            elif "precio" in h and "total" in h and "p_total" not in mapa:
+                mapa["p_total"] = i
+        if "desc" in mapa and "cantidad" in mapa:
+            return mapa, len(hs)
+    return None, 0
+
+
+def parsear_requerido(html: str, cuce: str, form_name: str) -> list[dict]:
+    """Parser del REQUERIDO (FORM100/FORM110) por ENCABEZADO. Antes se leía por
+    índice fijo y el layout real (7 cols, sin 'Objeto del Gasto') desalineaba
+    todo. Toma el precio referencial UNITARIO; p_total va a monto_total."""
+    soup = BeautifulSoup(html, "lxml")
+    for tabla in soup.find_all("table"):
+        if "DETALLE DE BIENES" not in tabla.get_text().upper():
+            continue
+        mapa, ncols = _mapa_cols_requerido(tabla)
+        if not mapa:
+            continue
+        items = []
+        for fila in tabla.find_all("tr"):
+            celdas = fila.find_all("td")
+            if len(celdas) != ncols:         # ignora la fila aplanada y los TOTAL
+                continue
+            nro = limpiar(celdas[0].get_text())
+            if not nro.isdigit():
+                continue
+
+            def _c(k):
+                i = mapa.get(k)
+                return celdas[i] if i is not None and i < len(celdas) else None
+
+            cod = _c("codigo")
+            codigo = limpiar(cod.get_text()).zfill(8) if cod else ""
+            dcell = _c("desc")
+            cat, desc = parsear_descripcion(str(dcell)) if dcell else ("", "")
+            ucell, qcell, pu, pt = _c("unidad"), _c("cantidad"), _c("p_unit"), _c("p_total")
+            items.append({
+                "cuce": cuce,
+                "nro_item": int(nro),
+                "unspsc_codigo": codigo_unspsc_valido(codigo),
+                "descripcion_producto": armar_descripcion(cat, desc),
+                "unidad_medida": limpiar(ucell.get_text()) if ucell else "",
+                "cantidad": parse_numero(qcell.get_text()) if qcell else None,
+                "precio_referencial": parse_numero(pu.get_text()) if pu else None,
+                "monto_total": parse_numero(pt.get_text()) if pt else None,
+                "estado_item": "requerido",
+                "fuente_formulario": form_name,
+            })
+        return items
+    return []
+
+
 def extraer_contratos_form200(soup: BeautifulSoup) -> dict:
     """Devuelve {nro_contrato: nombre_proveedor} desde la tabla de sección 3 de FORM200."""
     contratos = {}
@@ -419,6 +508,8 @@ def extraer_contratos_form200(soup: BeautifulSoup) -> dict:
     return contratos
 
 def parsear_form200_100(html: str, cuce: str, form_name: str) -> list[dict]:
+    if form_name == "FORM100":                       # requerido → parser por encabezado
+        return parsear_requerido(html, cuce, form_name)
     soup = BeautifulSoup(html, "lxml")
     items = []
     es_200 = form_name == "FORM200"
@@ -497,6 +588,8 @@ def parsear_form200_100(html: str, cuce: str, form_name: str) -> list[dict]:
     return items
 
 def parsear_form220_110(html: str, cuce: str, form_name: str) -> list[dict]:
+    if form_name == "FORM110":                       # requerido → parser por encabezado
+        return parsear_requerido(html, cuce, form_name)
     soup = BeautifulSoup(html, "lxml")
     items = []
     es_220 = form_name == "FORM220"
