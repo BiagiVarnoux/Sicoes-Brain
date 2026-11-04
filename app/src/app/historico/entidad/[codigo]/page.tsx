@@ -15,6 +15,7 @@ import {
   budgetPorAnio,
   proyectarAnual,
   agruparProductos,
+  proveedorKey,
   topBy,
   num,
   fmtMonto,
@@ -71,7 +72,7 @@ export default async function EntidadHistoricoPage({ params }: Props) {
     .slice(0, 12)
 
   const topProveedores = topBy(items, (it) => it.proveedor, valItem, 10).map((r) => ({
-    key: r.key,
+    key: proveedorKey(r.key) ?? r.key,
     label: r.key,
     value: r.value,
     sub: `${fmtNum(r.count)} ítem${r.count !== 1 ? 's' : ''}`,
@@ -136,8 +137,8 @@ export default async function EntidadHistoricoPage({ params }: Props) {
                 </Card>
               </section>
               <section>
-                <SectionTitle hint="Quién le provee">Proveedores</SectionTitle>
-                <Card><RankList rows={topProveedores} emptyLabel="Sin proveedores" /></Card>
+                <SectionTitle hint="Quién le provee · clic para ver el perfil">Proveedores</SectionTitle>
+                <Card><RankList rows={topProveedores} hrefOf={(k) => `/historico/proveedor/${encodeURIComponent(k)}`} emptyLabel="Sin proveedores" /></Card>
               </section>
             </div>
           </>

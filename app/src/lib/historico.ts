@@ -226,6 +226,55 @@ function descripcionRepresentativa(items: HistItem[]): string {
   return best || '(sin descripción)'
 }
 
+// ─── Agrupación de proveedor ─────────────────────────────────────────────────
+
+/** Llave estable de un proveedor a partir del nombre libre (hist_items.proveedor). */
+export function proveedorKey(nombre: string | null | undefined): string | null {
+  const n = normDesc(nombre)
+  return n ? `p:${n}` : null
+}
+
+export type ProveedorGrupo = {
+  key: string
+  label: string // nombre representativo (el más frecuente)
+  items: HistItem[]
+}
+
+/** Agrupa ítems por proveedor (normalizado). Etiqueta = nombre más frecuente. */
+export function agruparProveedores(items: HistItem[]): Map<string, ProveedorGrupo> {
+  const grupos = new Map<string, ProveedorGrupo>()
+  for (const it of items) {
+    const key = proveedorKey(it.proveedor)
+    if (!key) continue
+    let g = grupos.get(key)
+    if (!g) {
+      g = { key, label: '', items: [] }
+      grupos.set(key, g)
+    }
+    g.items.push(it)
+  }
+  for (const g of grupos.values()) g.label = nombreRepresentativo(g.items.map((i) => i.proveedor))
+  return grupos
+}
+
+/** Valor más frecuente de una lista de strings (desempata por el más largo). */
+function nombreRepresentativo(valores: (string | null | undefined)[]): string {
+  const freq = new Map<string, number>()
+  for (const v of valores) {
+    const d = (v ?? '').trim()
+    if (d) freq.set(d, (freq.get(d) ?? 0) + 1)
+  }
+  let best = ''
+  let bestN = 0
+  for (const [d, n] of freq) {
+    if (n > bestN || (n === bestN && d.length > best.length)) {
+      best = d
+      bestN = n
+    }
+  }
+  return best || '(sin nombre)'
+}
+
 // ─── Series y estadística ────────────────────────────────────────────────────
 
 export type SerieMensual = { ym: string; anio: number; mes: number; monto: number; items: number; cantidad: number }

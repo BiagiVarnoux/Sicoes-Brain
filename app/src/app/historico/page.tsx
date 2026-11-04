@@ -19,6 +19,7 @@ import {
   budgetPorAnio,
   proyectarAnual,
   agruparProductos,
+  proveedorKey,
   topBy,
   num,
   fmtMonto,
@@ -90,7 +91,7 @@ export default async function HistoricoPage({ searchParams }: Props) {
   }))
 
   const topProveedores = topBy(items, (it) => it.proveedor, valItem, 10).map((r) => ({
-    key: r.key,
+    key: proveedorKey(r.key) ?? r.key,
     label: r.key,
     value: r.value,
     sub: `${fmtNum(r.count)} ítem${r.count !== 1 ? 's' : ''}`,
@@ -232,9 +233,15 @@ export default async function HistoricoPage({ searchParams }: Props) {
 
             {/* Proveedores */}
             <section>
-              <SectionTitle hint="Quién gana los contratos (en el alcance filtrado)">Top proveedores por monto</SectionTitle>
+              <div className="flex items-center justify-between gap-4 mb-3">
+                <div>
+                  <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Top proveedores por monto</h2>
+                  <p className="text-xs text-gray-400 mt-0.5">Quién gana los contratos (en el alcance filtrado) · clic para ver el perfil</p>
+                </div>
+                <Link href="/historico/proveedor" className="text-xs font-medium text-blue-600 hover:underline shrink-0">Buscar proveedor →</Link>
+              </div>
               <Card>
-                <RankList rows={topProveedores} emptyLabel="Sin proveedores" />
+                <RankList rows={topProveedores} hrefOf={(k) => `/historico/proveedor/${encodeURIComponent(k)}`} emptyLabel="Sin proveedores" />
               </Card>
             </section>
           </>
