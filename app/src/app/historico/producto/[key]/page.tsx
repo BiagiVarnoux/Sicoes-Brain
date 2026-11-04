@@ -10,6 +10,7 @@ import {
   getHistData,
   procByCuceMap,
   productoKey,
+  proveedorKey,
   serieMensual,
   proyectarAnual,
   budgetPorAnio,
@@ -91,6 +92,14 @@ export default async function ProductoHistoricoPage({ params }: Props) {
     sub: `${fmtNum(r.count)} ítem${r.count !== 1 ? 's' : ''}`,
   }))
 
+  // Ranking de proveedores que lo adjudican
+  const topProveedores = topBy(items, (it) => it.proveedor, valItem, 12).map((r) => ({
+    key: proveedorKey(r.key) ?? r.key,
+    label: r.key,
+    value: r.value,
+    sub: `${fmtNum(r.count)} ítem${r.count !== 1 ? 's' : ''}`,
+  }))
+
   // Dispersión de precios por entidad
   const dispersion = items
     .map((it) => ({
@@ -113,6 +122,7 @@ export default async function ProductoHistoricoPage({ params }: Props) {
       precio: precioUnit(it),
       monto: valItem(it),
       proveedor: it.proveedor,
+      proveedorHref: it.proveedor ? `/historico/proveedor/${encodeURIComponent(proveedorKey(it.proveedor) ?? '')}` : null,
     }))
     .sort((a, b) => (b.fecha ?? '').localeCompare(a.fecha ?? ''))
 
@@ -177,10 +187,17 @@ export default async function ProductoHistoricoPage({ params }: Props) {
                 </Card>
               </section>
               <section>
-                <SectionTitle hint="Monto adjudicado agregado por mes (todas las entidades)">Evolución mensual</SectionTitle>
-                <Card>{serie.length > 0 ? <HistTimeSeriesChart data={serie} /> : <Empty />}</Card>
+                <SectionTitle hint="Quién lo adjudica · clic en el nombre para ver su perfil">Proveedores que lo adjudican</SectionTitle>
+                <Card>
+                  <RankList rows={topProveedores} hrefOf={(k) => `/historico/proveedor/${encodeURIComponent(k)}`} emptyLabel="Sin proveedores" />
+                </Card>
               </section>
             </div>
+
+            <section>
+              <SectionTitle hint="Monto adjudicado agregado por mes (todas las entidades)">Evolución mensual</SectionTitle>
+              <Card>{serie.length > 0 ? <HistTimeSeriesChart data={serie} /> : <Empty />}</Card>
+            </section>
 
             {proy && (
               <section>
@@ -220,7 +237,13 @@ export default async function ProductoHistoricoPage({ params }: Props) {
                         </td>
                         <td className="px-4 py-3 text-xs text-gray-600 text-right tabular-nums">{f.precio > 0 ? fmtMonto(f.precio) : '—'}</td>
                         <td className="px-4 py-3 text-xs font-semibold text-emerald-700 text-right tabular-nums">{fmtMonto(f.monto)}</td>
-                        <td className="px-4 py-3 text-xs text-gray-500 max-w-[200px] truncate">{f.proveedor ?? '—'}</td>
+                        <td className="px-4 py-3 text-xs max-w-[200px]">
+                          {f.proveedorHref ? (
+                            <Link href={f.proveedorHref} className="text-blue-600 hover:underline line-clamp-2 leading-tight">{f.proveedor}</Link>
+                          ) : (
+                            <span className="text-gray-500">—</span>
+                          )}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
