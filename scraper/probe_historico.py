@@ -41,7 +41,7 @@ except Exception as e:  # pragma: no cover
     print(f"⚠ markitdown no disponible ({e}). Se guardarán los crudos igual.")
     _MD = None
 
-CDP_URL = "http://localhost:9222"
+CDP_URL = os.environ.get("CDP_URL", "http://localhost:9222")
 PORTAL = "https://www.sicoes.gob.bo/portal/index.php"
 BUSCADOR = "/portal/contrataciones/busqueda/convocatorias.php?tipo=convNacional"
 BASE_OUT = os.path.join(os.path.dirname(__file__), "salidas")

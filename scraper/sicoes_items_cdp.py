@@ -45,7 +45,7 @@ except ImportError:
 SUPABASE_URL = os.environ["SUPABASE_URL"]
 SUPABASE_KEY = os.environ["SUPABASE_KEY"]
 
-CDP_URL = "http://localhost:9222"
+CDP_URL = os.environ.get("CDP_URL", "http://localhost:9222")
 
 # 84 entidades de salud. Se selecciona cuáles correr con --entidades (por código),
 # o se corren todas si no se pasa el flag.

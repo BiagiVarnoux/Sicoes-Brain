@@ -11,7 +11,11 @@
 SCRAPER="/Users/fabriziocuellar/Sicoes-Brain/scraper"
 PY="$SCRAPER/venv/bin/python"
 BRAVE="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
-PERFIL="/tmp/brave-sicoes"
+# Puerto y perfil de Brave. Para una 2ª corrida en paralelo, usar el comando
+# "Correr Historico (Puerto 2).command" (puerto 9223, perfil aparte).
+PUERTO="${PUERTO:-9222}"
+PERFIL="${PERFIL:-/tmp/brave-sicoes}"
+export CDP_URL="http://localhost:$PUERTO"
 cd "$SCRAPER" || exit 1
 
 echo "════════════════════════════════════"
@@ -19,13 +23,13 @@ echo "   SCRAPER HISTÓRICO SICOES"
 echo "════════════════════════════════════"
 
 # 1) Brave con debugging (reutiliza si ya está abierto)
-puerto_ok() { curl -s -m 2 http://localhost:9222/json/version >/dev/null 2>&1; }
+puerto_ok() { curl -s -m 2 "http://localhost:$PUERTO/json/version" >/dev/null 2>&1; }
 
 if puerto_ok; then
-  echo "✓ Brave con debugging ya está abierto."
+  echo "✓ Brave con debugging ya está abierto (puerto $PUERTO)."
 else
-  echo "Abriendo Brave (en este equipo puede tardar un minuto)..."
-  "$BRAVE" --remote-debugging-port=9222 --user-data-dir="$PERFIL" >/dev/null 2>&1 &
+  echo "Abriendo Brave en puerto $PUERTO (en este equipo puede tardar un minuto)..."
+  "$BRAVE" --remote-debugging-port="$PUERTO" --user-data-dir="$PERFIL" >/dev/null 2>&1 &
   printf "Esperando a que Brave esté listo"
   LISTO=0
   for i in $(seq 1 120); do
@@ -82,13 +86,15 @@ echo "  Re-procesar: $([ "$REPARSE" = "1" ] && echo "SÍ" || echo "no (continúa
 echo "────────────────────────────────────"
 
 # 3) Correr el scraper una vez por año (histórico.py toma un año por corrida).
-echo ""; echo ">>> Corriendo scraper histórico..."
+#    caffeinate -dimsu impide que la Mac entre en reposo mientras corre, así
+#    podés bloquear la pantalla sin cortar la corrida.
+echo ""; echo ">>> Corriendo scraper histórico (la Mac no dormirá mientras corre)..."
 echo "    (No uses Brave mientras corre — lo maneja el script.)"
 for ANIO in "${ANIOS[@]}"; do
   echo ""; echo "══════ Año $ANIO ══════"
   FLAGS=(--entidad "$ENTIDAD" --anio "$ANIO" --n 0)
   [ "$REPARSE" = "1" ] && FLAGS+=(--reparse)
-  "$PY" historico.py "${FLAGS[@]}" \
+  caffeinate -dimsu "$PY" historico.py "${FLAGS[@]}" \
     || echo "⚠ el año $ANIO terminó con error (lo ya guardado se conserva)."
 done
 
