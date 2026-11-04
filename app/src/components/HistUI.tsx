@@ -69,8 +69,8 @@ export function RankList({
         const inner = (
           <>
             <div className="flex items-baseline justify-between gap-2 mb-1">
-              <span className="text-xs font-medium text-gray-700 truncate flex items-center gap-1.5">
-                {r.label}
+              <span className="text-xs font-medium text-gray-700 leading-tight flex items-start gap-1.5 min-w-0">
+                <span className="line-clamp-2">{r.label}</span>
                 {r.provisional && <ProvisionalBadge />}
               </span>
               <span className="text-xs font-semibold text-emerald-700 tabular-nums shrink-0">{fmt(r.value)}</span>

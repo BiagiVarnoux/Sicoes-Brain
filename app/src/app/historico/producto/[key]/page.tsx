@@ -106,6 +106,7 @@ export default async function ProductoHistoricoPage({ params }: Props) {
     .map((it) => ({
       cuce: it.cuce,
       entidad: data.entidadNombre.get(it.entidad_codigo ?? '') ?? it.entidad_codigo ?? '—',
+      entidadCodigo: it.entidad_codigo ?? '',
       fecha: it.fecha_publicacion ?? procByCuce.get(it.cuce)?.fecha_publicacion ?? null,
       cantidad: num(it.cantidad),
       unidad: it.unidad_medida,
@@ -208,8 +209,11 @@ export default async function ProductoHistoricoPage({ params }: Props) {
                   </thead>
                   <tbody className="divide-y divide-gray-50">
                     {filas.map((f, i) => (
-                      <tr key={i} className="hover:bg-gray-50">
-                        <td className="px-4 py-3 text-xs text-gray-700 max-w-[200px] truncate">{f.entidad}</td>
+                      <tr key={i} className="hover:bg-gray-50 align-top">
+                        <td className="px-4 py-3 text-xs text-gray-700 max-w-[260px] whitespace-normal break-words leading-tight">
+                          {f.entidad}
+                          {f.entidadCodigo && <span className="block text-[10px] text-gray-400 mt-0.5">{f.entidadCodigo}</span>}
+                        </td>
                         <td className="px-4 py-3 text-xs text-gray-500 tabular-nums">{f.fecha ?? '—'}</td>
                         <td className="px-4 py-3 text-xs text-gray-600 text-right tabular-nums">
                           {fmtNum(f.cantidad)}{f.unidad ? ` ${f.unidad}` : ''}

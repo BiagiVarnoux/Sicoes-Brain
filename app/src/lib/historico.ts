@@ -325,7 +325,8 @@ export function proyectarAnual(points: { anio: number; valor: number }[]): Proye
   const r2 = ssTot === 0 ? 1 : Math.max(0, 1 - ssRes / ssTot)
   const nextAnio = Math.max(...pts.map((p) => p.anio)) + 1
   const nextValor = Math.max(0, slope * nextAnio + intercept)
-  return { nextAnio, nextValor, slope, r2, base: pts }
+  const base = [...pts].sort((a, b) => a.anio - b.anio)
+  return { nextAnio, nextValor, slope, r2, base }
 }
 
 // ─── Rankings ────────────────────────────────────────────────────────────────
