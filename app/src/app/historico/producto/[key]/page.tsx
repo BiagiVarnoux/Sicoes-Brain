@@ -239,7 +239,7 @@ export default async function ProductoHistoricoPage({ params }: Props) {
                         <td className="px-4 py-3 text-xs font-semibold text-emerald-700 text-right tabular-nums">{fmtMonto(f.monto)}</td>
                         <td className="px-4 py-3 text-xs max-w-[200px]">
                           {f.proveedorHref ? (
-                            <Link href={f.proveedorHref} className="text-blue-600 hover:underline line-clamp-2 leading-tight">{f.proveedor}</Link>
+                            <Link href={f.proveedorHref} className="text-gray-500 hover:text-blue-600 hover:underline line-clamp-2 leading-tight">{f.proveedor}</Link>
                           ) : (
                             <span className="text-gray-500">—</span>
                           )}
