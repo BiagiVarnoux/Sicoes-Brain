@@ -75,6 +75,7 @@ export default async function ProveedorHistoricoPage({ params }: Props) {
   // Detalle de contratos
   const filas = items
     .map((it) => ({
+      cuce: it.cuce,
       entidad: data.entidadNombre.get(it.entidad_codigo ?? '') ?? it.entidad_codigo ?? '—',
       entidadCodigo: it.entidad_codigo ?? '',
       fecha: it.fecha_publicacion ?? procByCuce.get(it.cuce)?.fecha_publicacion ?? null,
@@ -135,7 +136,7 @@ export default async function ProveedorHistoricoPage({ params }: Props) {
             <section>
               <SectionTitle hint="Todos los contratos adjudicados a este proveedor">Detalle de contratos</SectionTitle>
               <div className="bg-white rounded-xl border border-gray-200 overflow-hidden overflow-x-auto">
-                <table className="w-full text-sm min-w-[640px]">
+                <table className="w-full text-sm min-w-[720px]">
                   <thead>
                     <tr className="border-b border-gray-100 bg-gray-50 text-xs text-gray-500">
                       <th className="text-left px-4 py-3 font-medium">Entidad</th>
@@ -143,6 +144,7 @@ export default async function ProveedorHistoricoPage({ params }: Props) {
                       <th className="text-left px-4 py-3 font-medium">Producto</th>
                       <th className="text-right px-4 py-3 font-medium">Cantidad</th>
                       <th className="text-right px-4 py-3 font-medium">Monto</th>
+                      <th className="text-left px-4 py-3 font-medium">Proceso</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-50">
@@ -160,6 +162,11 @@ export default async function ProveedorHistoricoPage({ params }: Props) {
                           {fmtNum(f.cantidad)}{f.unidad ? ` ${f.unidad}` : ''}
                         </td>
                         <td className="px-4 py-3 text-xs font-semibold text-emerald-700 text-right tabular-nums">{fmtMonto(f.monto)}</td>
+                        <td className="px-4 py-3 text-xs">
+                          <Link href={`/historico/proceso/${encodeURIComponent(f.cuce)}`} className="font-mono text-[11px] text-gray-500 hover:text-blue-600 hover:underline">
+                            {f.cuce}
+                          </Link>
+                        </td>
                       </tr>
                     ))}
                   </tbody>

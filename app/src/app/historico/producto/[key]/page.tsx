@@ -213,7 +213,7 @@ export default async function ProductoHistoricoPage({ params }: Props) {
             <section>
               <SectionTitle hint="Todas las compras del producto, cross-entidad">Detalle de compras</SectionTitle>
               <div className="bg-white rounded-xl border border-gray-200 overflow-hidden overflow-x-auto">
-                <table className="w-full text-sm min-w-[640px]">
+                <table className="w-full text-sm min-w-[760px]">
                   <thead>
                     <tr className="border-b border-gray-100 bg-gray-50 text-xs text-gray-500">
                       <th className="text-left px-4 py-3 font-medium">Entidad</th>
@@ -222,6 +222,7 @@ export default async function ProductoHistoricoPage({ params }: Props) {
                       <th className="text-right px-4 py-3 font-medium">Precio unit.</th>
                       <th className="text-right px-4 py-3 font-medium">Monto</th>
                       <th className="text-left px-4 py-3 font-medium">Proveedor</th>
+                      <th className="text-left px-4 py-3 font-medium">Proceso</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-50">
@@ -243,6 +244,11 @@ export default async function ProductoHistoricoPage({ params }: Props) {
                           ) : (
                             <span className="text-gray-500">—</span>
                           )}
+                        </td>
+                        <td className="px-4 py-3 text-xs">
+                          <Link href={`/historico/proceso/${encodeURIComponent(f.cuce)}`} className="font-mono text-[11px] text-gray-500 hover:text-blue-600 hover:underline">
+                            {f.cuce}
+                          </Link>
                         </td>
                       </tr>
                     ))}
