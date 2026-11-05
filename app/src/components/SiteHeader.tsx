@@ -22,19 +22,22 @@ export default function SiteHeader({ maxWidth = 'max-w-6xl' }: Props) {
   const isActive = (href: string) => pathname.startsWith(href)
 
   return (
-    <header className="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-gray-200">
-      <div className={`${maxWidth} mx-auto px-4 sm:px-6 py-4 flex items-center justify-between`}>
-        <Link href="/radar" className="flex items-center gap-3 group">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center
+    <header
+      className="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-gray-200"
+      style={{ paddingTop: 'env(safe-area-inset-top)' }}
+    >
+      <div className={`${maxWidth} mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2`}>
+        <Link href="/radar" className="flex items-center gap-2.5 group min-w-0">
+          <div className="w-8 h-8 shrink-0 bg-blue-600 rounded-lg flex items-center justify-center
                           group-hover:bg-blue-700 transition-colors">
             <span className="text-white text-xs font-bold">S</span>
           </div>
-          <div>
-            <h1 className="text-lg font-semibold text-gray-900 leading-tight">SICOES Intelligence</h1>
-            <p className="text-xs text-gray-500 leading-tight">Contrataciones estatales de Bolivia</p>
+          <div className="min-w-0">
+            <h1 className="text-base sm:text-lg font-semibold text-gray-900 leading-tight truncate">SICOES Intelligence</h1>
+            <p className="text-xs text-gray-500 leading-tight hidden sm:block">Contrataciones estatales de Bolivia</p>
           </div>
         </Link>
-        <nav className="flex items-center gap-1 text-sm">
+        <nav className="flex items-center gap-1 text-sm shrink-0">
           {NAV.map((n) => (
             <Link
               key={n.href}

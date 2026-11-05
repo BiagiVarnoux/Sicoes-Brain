@@ -1,8 +1,7 @@
 export const dynamic = 'force-dynamic'
 
-import Link from 'next/link'
-
 import SiteHeader from '@/components/SiteHeader'
+import HistTabs from '@/components/HistTabs'
 import HistSearchList, { type SearchRow } from '@/components/HistSearchList'
 import { getHistData, agruparProveedores, num, fmtMonto, type HistItem } from '@/lib/historico'
 
@@ -31,13 +30,10 @@ export default async function ProveedorIndexPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <SiteHeader maxWidth="max-w-6xl" />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+        <HistTabs />
         <div>
-          <Link href="/historico" className="text-xs text-blue-600 hover:underline">← Histórico</Link>
-          <div className="flex items-center justify-between gap-4 mt-1">
-            <h2 className="text-xl font-bold text-gray-900">Proveedores</h2>
-            <Link href="/historico/producto" className="text-xs font-medium text-blue-600 hover:underline shrink-0">Ver productos →</Link>
-          </div>
+          <h2 className="text-xl font-bold text-gray-900">Proveedores</h2>
           <p className="text-xs text-gray-400 mt-0.5">
             Quién gana los contratos del Estado. Escribí para filtrar — también encontrás a quienes no aparecen en el top.
           </p>

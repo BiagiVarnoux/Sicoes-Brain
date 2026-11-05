@@ -1,8 +1,7 @@
 export const dynamic = 'force-dynamic'
 
-import Link from 'next/link'
-
 import SiteHeader from '@/components/SiteHeader'
+import HistTabs from '@/components/HistTabs'
 import HistSearchList, { type SearchRow } from '@/components/HistSearchList'
 import { getHistData, agruparProductos, num, fmtMonto, type HistItem } from '@/lib/historico'
 
@@ -32,13 +31,10 @@ export default async function ProductoIndexPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <SiteHeader maxWidth="max-w-6xl" />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+        <HistTabs />
         <div>
-          <Link href="/historico" className="text-xs text-blue-600 hover:underline">← Histórico</Link>
-          <div className="flex items-center justify-between gap-4 mt-1">
-            <h2 className="text-xl font-bold text-gray-900">Productos (cross-entidad)</h2>
-            <Link href="/historico/proveedor" className="text-xs font-medium text-blue-600 hover:underline shrink-0">Ver proveedores →</Link>
-          </div>
+          <h2 className="text-xl font-bold text-gray-900">Productos (cross-entidad)</h2>
           <p className="text-xs text-gray-400 mt-0.5">
             Cuánto piden del mismo bien todas las entidades juntas. Escribí para filtrar — también encontrás lo que no aparece en el top.
           </p>

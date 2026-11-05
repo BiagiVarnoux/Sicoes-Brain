@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic'
 import Link from 'next/link'
 
 import SiteHeader from '@/components/SiteHeader'
+import HistTabs from '@/components/HistTabs'
 import { StatCard, SectionTitle } from '@/components/HistUI'
 import {
   getHistData,
@@ -45,7 +46,8 @@ export default async function ProcesoHistoricoPage({ params }: Props) {
   return (
     <main className="min-h-screen bg-gray-50">
       <SiteHeader maxWidth="max-w-6xl" />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+        <HistTabs />
         <div>
           <Link href="/historico" className="text-xs text-blue-600 hover:underline">← Histórico</Link>
           <h2 className="text-xl font-bold text-gray-900 mt-1">{proc?.objeto?.trim() || 'Proceso de contratación'}</h2>

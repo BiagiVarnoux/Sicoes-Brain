@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic'
 import Link from 'next/link'
 
 import SiteHeader from '@/components/SiteHeader'
+import HistTabs from '@/components/HistTabs'
 import HistTimeSeriesChart from '@/components/HistTimeSeriesChart'
 import HistPrecioChart from '@/components/HistPrecioChart'
 import { StatCard, SectionTitle, Card, RankList, ProvisionalBadge } from '@/components/HistUI'
@@ -131,7 +132,8 @@ export default async function ProductoHistoricoPage({ params }: Props) {
   return (
     <main className="min-h-screen bg-gray-50">
       <SiteHeader maxWidth="max-w-6xl" />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+        <HistTabs />
         <div>
           <Link href="/historico/producto" className="text-xs text-blue-600 hover:underline">← Productos</Link>
           <h2 className="text-xl font-bold text-gray-900 mt-1 flex items-center gap-2">

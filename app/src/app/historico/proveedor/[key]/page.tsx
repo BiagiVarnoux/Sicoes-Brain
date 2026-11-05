@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic'
 import Link from 'next/link'
 
 import SiteHeader from '@/components/SiteHeader'
+import HistTabs from '@/components/HistTabs'
 import HistTimeSeriesChart from '@/components/HistTimeSeriesChart'
 import { StatCard, SectionTitle, Card, RankList } from '@/components/HistUI'
 import {
@@ -92,7 +93,8 @@ export default async function ProveedorHistoricoPage({ params }: Props) {
   return (
     <main className="min-h-screen bg-gray-50">
       <SiteHeader maxWidth="max-w-6xl" />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+        <HistTabs />
         <div>
           <Link href="/historico/proveedor" className="text-xs text-blue-600 hover:underline">← Proveedores</Link>
           <h2 className="text-xl font-bold text-gray-900 mt-1">{label}</h2>

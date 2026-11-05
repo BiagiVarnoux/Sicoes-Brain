@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 
 import SiteHeader from '@/components/SiteHeader'
+import HistTabs from '@/components/HistTabs'
 import HistFilters from '@/components/HistFilters'
 import HistTimeSeriesChart from '@/components/HistTimeSeriesChart'
 import HistSeasonalityChart from '@/components/HistSeasonalityChart'
@@ -119,7 +120,8 @@ export default async function HistoricoPage({ searchParams }: Props) {
     <main className="min-h-screen bg-gray-50">
       <SiteHeader maxWidth="max-w-6xl" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+        <HistTabs />
         <div>
           <h2 className="text-xl font-bold text-gray-900">
             Análisis histórico
