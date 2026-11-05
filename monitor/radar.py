@@ -262,25 +262,24 @@ async def descargar_dbcs(page, relevantes: list[dict]):
     """Descarga los archivos de cada convocatoria relevante, los convierte a PDF
     (los Word), los renombra según la convención y los sube a Supabase Storage."""
     import dbc_store
-    print(f"\n  ⬇ Descargando + subiendo DBC de {len(relevantes)} convocatorias relevantes...", flush=True)
-    for c in relevantes:
+    total = len(relevantes)
+    print(f"\n  ⬇ Descargando + subiendo DBC de {total} convocatorias relevantes...", flush=True)
+    for i, c in enumerate(relevantes, 1):
         cuce = c.get("cuce")
         modalidad = c.get("modalidad", "")
         archivos = c.get("archivos", [])
         if not archivos:
-            print(f"    · {cuce}: sin archivos", flush=True)
+            print(f"    · ({i}/{total}) {cuce}: sin archivos", flush=True)
             continue
         carpeta = os.path.join(DIR_DBC, cuce.replace("/", "_"))
-        # Un solo documento objetivo por convocatoria:
-        #   ANPE/ANPP/LP → Documento Base de Contratación; CM → Oferta del Proveedor
         objetivo = dbc_store.seleccionar_objetivo(modalidad, archivos)
         if not objetivo:
-            print(f"    · {cuce}: no se encontró el documento objetivo "
+            print(f"    · ({i}/{total}) {cuce}: no se encontró el documento objetivo "
                   f"({'Oferta' if modalidad=='CM' else 'DBC'})", flush=True)
             continue
         ruta = await nav.descargar_token(page, objetivo["token"], carpeta, objetivo.get("nombre", ""))
         if not ruta:
-            print(f"    ✗ {cuce}: no se pudo descargar '{objetivo.get('nombre','')}' (todos los intentos fallaron)", flush=True)
+            print(f"    ✗ ({i}/{total}) {cuce}: no se pudo descargar '{objetivo.get('nombre','')}' (todos los intentos fallaron)", flush=True)
             continue
         locales = [{"ruta": ruta, "nombre": objetivo.get("nombre", "")}]
         resultado = dbc_store.procesar(cuce, modalidad, locales)
@@ -290,7 +289,9 @@ async def descargar_dbcs(page, relevantes: list[dict]):
                       dbc_markdown=md if md else None)
         info = f"{len(md)} chars markdown" if md else "sin markdown"
         extra = f" + {len(archivos)} archivo(s) a Storage" if archivos else ""
-        print(f"    · {cuce}: {objetivo.get('nombre','')} → {info}{extra}", flush=True)
+        objeto_corto = (c.get("objeto") or "")[:60]
+        print(f"    · ({i}/{total}) {cuce} — {objeto_corto}", flush=True)
+        print(f"      → {info}{extra}", flush=True)
 
 
 async def correr(desde: str, hasta: str, max_paginas: int, usar_ia: bool, descargar: bool,
