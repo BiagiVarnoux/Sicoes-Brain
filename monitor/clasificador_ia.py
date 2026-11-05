@@ -286,7 +286,7 @@ def _dedup_items(items: list[dict]) -> list[dict]:
     return [out[k] for k in orden]
 
 
-def estructurar_dbc(texto: str, chunk: int = 11000, solapa: int = 800,
+def estructurar_dbc(texto: str, chunk: int = 7000, solapa: int = 500,
                     max_chunks: int = 4) -> list[dict]:
     """Extrae ítems + specs requeridas del DBC. Procesa la región de fichas técnicas
     por chunks (el DBC supera el TPM de Groq en un solo request) y une los ítems."""

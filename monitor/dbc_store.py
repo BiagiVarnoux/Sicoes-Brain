@@ -187,7 +187,21 @@ def _a_markdown(ruta: str) -> str:
             resultado = MarkItDown().convert(ruta)
             md = resultado.text_content or ""
         except Exception as e:
-            print(f"      ⚠ markitdown falló ({os.path.basename(ruta)}): {e}", flush=True)
+            # .doc antiguo y otros formatos no soportados por markitdown → LibreOffice → PDF → texto
+            print(f"      ⚠ markitdown no soporta {ext} ({os.path.basename(ruta)}); intento LibreOffice...", flush=True)
+            try:
+                import pymupdf  # type: ignore
+                pdf = _conv_libreoffice(ruta)
+                if pdf and os.path.exists(pdf):
+                    doc = pymupdf.open(pdf)
+                    md = "\n".join(p.get_text() for p in doc).strip()
+                    doc.close()
+                    try:
+                        os.remove(pdf)
+                    except OSError:
+                        pass
+            except Exception as e2:
+                print(f"      ⚠ fallback LibreOffice falló ({os.path.basename(ruta)}): {e2}", flush=True)
 
     elif ext == ".pdf":
         try:
