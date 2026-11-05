@@ -125,25 +125,6 @@ def _ext_desde_headers(h: dict) -> str:
     }.get(ct.split(";")[0].strip(), ".bin")
 
 
-def _nombre_desde_cd(cd: str | None) -> str | None:
-    """Saca el filename de un header Content-Disposition. None si no hay."""
-    if not cd:
-        return None
-    # filename*=UTF-8''algo.docx  (RFC 5987) tiene prioridad
-    m = re.search(r"filename\*=(?:[^']*'[^']*')?\"?([^\";]+)\"?", cd, re.I)
-    if not m:
-        m = re.search(r'filename=\"?([^\";]+)\"?', cd, re.I)
-    if not m:
-        return None
-    nombre = m.group(1).strip()
-    try:
-        from urllib.parse import unquote
-        nombre = unquote(nombre)
-    except Exception:
-        pass
-    return nombre or None
-
-
 # ─── navegación (portada del radar: todo automático, sin tocar el navegador) ──
 async def _asegurar_portal(page) -> bool:
     """Deja la página en el portal con irLink() cargado. Reintenta (equipos lentos)."""
@@ -285,69 +266,47 @@ async def extraer_filas(page, ent_codigo: str) -> list[dict]:
 
 # ─── descargas ────────────────────────────────────────────────────────────────
 async def descargar_token(page, token: str, carpeta: str, nombre_sugerido: str) -> str | None:
-    # ── Por qué intercepción de ruta y no la descarga nativa ──────────────────
-    # Brave (Chromium) en macOS trae su ventana al FRENTE cada vez que baja un
-    # archivo "de verdad" (descarga nativa), robándote el foco. Para evitarlo:
-    # interceptamos el request a descargararchivo.php, lo pedimos NOSOTROS con
-    # route.fetch() (misma sesión y cookies del navegador) y ABORTAMOS la
-    # descarga del navegador. Resultado: el DBC llega a disco igual, pero como
-    # el navegador nunca recibe una descarga, Brave NUNCA salta al frente.
-    # Si el fetch falla (endpoint distinto, Playwright viejo, etc.) caemos al
-    # método nativo de siempre — no se rompe nada, solo vuelve a saltar Brave.
     os.makedirs(carpeta, exist_ok=True)
     ctx = page.context
-    cap, descarga = {}, {}
+    capturado, descarga = {}, {}
 
-    async def on_route(route):
+    async def on_response(resp):
         try:
-            if "descargararchivo.php" in route.request.url.lower() and "body" not in cap:
-                api = await route.fetch()                       # lo pedimos nosotros
-                cap["body"] = await api.body()
-                cap["headers"] = {k.lower(): v for k, v in (api.headers or {}).items()}
-                await route.abort()                             # el navegador NO descarga
-                return
-        except Exception as e:
-            cap["err"] = str(e)                                 # => se usará el fallback
-        try:
-            await route.fallback()
+            if "descargararchivo.php" in resp.url.lower() and "resp" not in capturado:
+                capturado["resp"] = resp
         except Exception:
             pass
 
-    def on_download(d):      # fallback nativo (puede hacer saltar Brave)
+    def on_download(d):
         descarga["d"] = d
 
-    await ctx.route("**/descargararchivo.php*", on_route)
+    ctx.on("response", on_response)
     page.on("download", on_download)
     ruta = None
     try:
         await page.evaluate(f"descargarArchivo('{token}')")
         for _ in range(60):
-            if cap.get("body") or descarga.get("d"):
+            if descarga.get("d") or capturado.get("resp"):
                 break
             await page.wait_for_timeout(500)
-
-        if cap.get("body"):
-            # Camino bueno: bajado por fetch, sin salto de foco.
-            headers = cap.get("headers") or {}
-            fname = _nombre_desde_cd(headers.get("content-disposition"))
-            if fname:
-                base, ext = os.path.splitext(fname)
-                ruta = os.path.join(carpeta, _sanitizar_fs(base) + (ext or _ext_desde_headers(headers)))
-            else:
-                ruta = os.path.join(carpeta, _sanitizar_fs(nombre_sugerido) + _ext_desde_headers(headers))
-            with open(ruta, "wb") as fh:
-                fh.write(cap["body"])
-        elif descarga.get("d"):
-            # Fallback: descarga nativa (como antes).
+        if descarga.get("d"):
             d = descarga["d"]
             fname = d.suggested_filename or (_sanitizar_fs(nombre_sugerido) + ".bin")
             ruta = os.path.join(carpeta, fname)
             await d.save_as(ruta)
-        await page.wait_for_timeout(300)
+        elif capturado.get("resp"):
+            resp = capturado["resp"]
+            body = await resp.body()
+            if body:
+                ext = _ext_desde_headers({k.lower(): v for k, v in (resp.headers or {}).items()})
+                ruta = os.path.join(carpeta, _sanitizar_fs(nombre_sugerido) + ext)
+                with open(ruta, "wb") as fh:
+                    fh.write(body)
+        await page.wait_for_timeout(800)
     except Exception as e:
         print(f"        ⚠ descarga falló: {e}", flush=True)
     finally:
-        try: await ctx.unroute("**/descargararchivo.php*", on_route)
+        try: ctx.remove_listener("response", on_response)
         except Exception: pass
         try: page.remove_listener("download", on_download)
         except Exception: pass
