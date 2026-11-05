@@ -385,9 +385,8 @@ def limpiar_storage(cuce: str) -> None:
 
 def procesar(cuce: str, modalidad: str, archivos_locales: list[dict]) -> dict:
     """archivos_locales: [{ruta, nombre}] — normalmente UN solo archivo objetivo.
-    Convierte el documento a Markdown (markitdown para Word, pymupdf/OCR para PDF).
-    Ya NO sube PDFs a Storage; solo sube el archivo original si es un formato no
-    convertible (zip, xlsx, etc.).
+    Convierte el documento a Markdown (IA) Y sube el archivo original a Storage
+    (descarga desde el dashboard). Para zip/xlsx solo sube a Storage.
     Devuelve {"markdown": str, "archivos": [{nombre, url}]}."""
     base = f"{prefijo(modalidad)} - {cuce4(cuce)}"
     markdown_total: list[str] = []
@@ -399,16 +398,23 @@ def procesar(cuce: str, modalidad: str, archivos_locales: list[dict]) -> dict:
             continue
         ext0 = os.path.splitext(ruta)[1].lower()
 
-        # Convertir a Markdown (docx / pdf)
         if ext0 in (".doc", ".docx", ".odt", ".rtf", ".pdf"):
+            # 1) Markdown para la IA
             md = _a_markdown(ruta)
             if md:
                 markdown_total.append(md)
                 print(f"      · Markdown: {len(md)} chars ({os.path.basename(ruta)})", flush=True)
             else:
                 print(f"      ⚠ sin texto extraído de {os.path.basename(ruta)}", flush=True)
+
+            # 2) Subir el archivo original a Storage para descarga desde el dashboard
+            fo = base + ext0
+            url = subir(ruta, f"{cuce}/{fo}")
+            if url:
+                salida.append({"nombre": fo, "url": url})
+                print(f"      · Storage: {fo}", flush=True)
         else:
-            # Formato no convertible (zip, xlsx…): subir tal cual a Storage
+            # Formato no convertible (zip, xlsx…): solo Storage
             fo = base + ext0
             url = subir(ruta, f"{cuce}/{fo}")
             if url:
