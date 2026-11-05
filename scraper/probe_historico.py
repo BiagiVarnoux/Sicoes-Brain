@@ -125,6 +125,24 @@ def _ext_desde_headers(h: dict) -> str:
     }.get(ct.split(";")[0].strip(), ".bin")
 
 
+def _nombre_desde_cd(cd: str | None) -> str | None:
+    """Saca el filename de un header Content-Disposition. None si no hay."""
+    if not cd:
+        return None
+    m = re.search(r"filename\*=(?:[^']*'[^']*')?\"?([^\";]+)\"?", cd, re.I)
+    if not m:
+        m = re.search(r'filename=\"?([^\";]+)\"?', cd, re.I)
+    if not m:
+        return None
+    nombre = m.group(1).strip()
+    try:
+        from urllib.parse import unquote
+        nombre = unquote(nombre)
+    except Exception:
+        pass
+    return nombre or None
+
+
 # ─── navegación (portada del radar: todo automático, sin tocar el navegador) ──
 async def _asegurar_portal(page) -> bool:
     """Deja la página en el portal con irLink() cargado. Reintenta (equipos lentos)."""
@@ -266,8 +284,47 @@ async def extraer_filas(page, ent_codigo: str) -> list[dict]:
 
 # ─── descargas ────────────────────────────────────────────────────────────────
 async def descargar_token(page, token: str, carpeta: str, nombre_sugerido: str) -> str | None:
+    # ── Cómo evitamos el salto de foco de Brave ───────────────────────────────
+    # descargarArchivo() arma un <form> (con el token del captcha Turnstile ya
+    # resuelto) y lo envía con target="_blank" → se abre una VENTANA NUEVA, y en
+    # macOS esa ventana nueva trae Brave al frente robándote el foco. Truco:
+    # interceptamos el .submit()/.requestSubmit() del form para CAPTURAR sus
+    # campos (incluido el cf-turnstile-response válido) y NO enviarlo —así no se
+    # abre ninguna ventana—; después pedimos el archivo nosotros con ctx.request
+    # (misma sesión y cookies del navegador, en segundo plano). Sin ventana →
+    # sin salto de foco → y sin el diálogo nativo "Guardar como".
+    # OJO: NO tocamos window.open ni abortamos requests (eso corrompía el captcha
+    # / rompía el manejo de descargas de Playwright). Si no capturamos el form,
+    # caemos al método original (evento download / respuesta capturada).
     os.makedirs(carpeta, exist_ok=True)
     ctx = page.context
+
+    # Hook in-page TEMPORAL: capturar el envío del form sin enviarlo. Se restaura
+    # en el finally para no dejar form.submit pisado (si no, rompería la
+    # paginación/búsqueda posterior que sí usa forms de verdad).
+    try:
+        await page.evaluate("""
+          () => {
+            window.__dl = null;
+            if (!window.__dlOrig) {
+              window.__dlOrig = { s: HTMLFormElement.prototype.submit,
+                                  rs: HTMLFormElement.prototype.requestSubmit };
+            }
+            const cap = function(f){
+              try {
+                const fd={}; new FormData(f).forEach((v,k)=>{fd[k]=v;});
+                window.__dl = {action:f.action,
+                               method:(f.method||'GET').toUpperCase(), data:fd};
+              } catch(e){}
+            };
+            HTMLFormElement.prototype.submit = function(){ cap(this); };
+            if (HTMLFormElement.prototype.requestSubmit)
+              HTMLFormElement.prototype.requestSubmit = function(){ cap(this); };
+          }
+        """)
+    except Exception:
+        pass
+
     capturado, descarga = {}, {}
 
     async def on_response(resp):
@@ -285,11 +342,67 @@ async def descargar_token(page, token: str, carpeta: str, nombre_sugerido: str) 
     ruta = None
     try:
         await page.evaluate(f"descargarArchivo('{token}')")
-        for _ in range(60):
-            if descarga.get("d") or capturado.get("resp"):
+
+        # Esperar a que el hook capture el form. El captcha Turnstile puede tardar
+        # unos segundos en resolver antes de que descargarArchivo envíe el form.
+        dl = None
+        for _ in range(50):  # ~15 s
+            try: dl = await page.evaluate("() => window.__dl")
+            except Exception: dl = None
+            if dl:
                 break
-            await page.wait_for_timeout(500)
-        if descarga.get("d"):
+            await page.wait_for_timeout(300)
+
+        cuerpo, headers = None, {}
+
+        # A) Camino bueno: pedir el archivo nosotros con ctx.request (sin ventana).
+        if dl and dl.get("action"):
+            try:
+                from urllib.parse import urljoin
+                ref = {"Referer": page.url}
+                absu = urljoin(page.url, dl["action"])
+                if dl.get("method") == "POST":
+                    api = await ctx.request.post(absu, form=dl.get("data") or {}, headers=ref)
+                else:
+                    api = await ctx.request.get(absu, params=dl.get("data") or {}, headers=ref)
+                if api is not None and api.ok:
+                    b = await api.body()
+                    ct = (api.headers or {}).get("content-type", "").lower()
+                    if b and "text/html" not in ct:      # un HTML de error no es el archivo
+                        cuerpo = b
+                        headers = {k.lower(): v for k, v in (api.headers or {}).items()}
+            except Exception as e:
+                print(f"        ⚠ descarga directa falló ({e}); uso fallback", flush=True)
+
+        # B) Fallback REAL: si A no trajo el archivo, restauramos submit y
+        #    re-disparamos para que el navegador lo baje por el método de siempre.
+        #    (Puede abrir ventana / robar foco, pero solo en este caso raro.)
+        if cuerpo is None:
+            try:
+                await page.evaluate("""
+                  () => { if (window.__dlOrig) {
+                    HTMLFormElement.prototype.submit = window.__dlOrig.s;
+                    if (window.__dlOrig.rs) HTMLFormElement.prototype.requestSubmit = window.__dlOrig.rs;
+                  } }
+                """)
+                await page.evaluate(f"descargarArchivo('{token}')")
+                for _ in range(60):
+                    if descarga.get("d") or capturado.get("resp"):
+                        break
+                    await page.wait_for_timeout(500)
+            except Exception as e:
+                print(f"        ⚠ fallback de descarga falló: {e}", flush=True)
+
+        if cuerpo is not None:
+            fname = _nombre_desde_cd(headers.get("content-disposition"))
+            if fname:
+                base, ext = os.path.splitext(fname)
+                ruta = os.path.join(carpeta, _sanitizar_fs(base) + (ext or _ext_desde_headers(headers)))
+            else:
+                ruta = os.path.join(carpeta, _sanitizar_fs(nombre_sugerido) + _ext_desde_headers(headers))
+            with open(ruta, "wb") as fh:
+                fh.write(cuerpo)
+        elif descarga.get("d"):
             d = descarga["d"]
             fname = d.suggested_filename or (_sanitizar_fs(nombre_sugerido) + ".bin")
             ruta = os.path.join(carpeta, fname)
@@ -302,10 +415,19 @@ async def descargar_token(page, token: str, carpeta: str, nombre_sugerido: str) 
                 ruta = os.path.join(carpeta, _sanitizar_fs(nombre_sugerido) + ext)
                 with open(ruta, "wb") as fh:
                     fh.write(body)
-        await page.wait_for_timeout(800)
+        await page.wait_for_timeout(300)
     except Exception as e:
         print(f"        ⚠ descarga falló: {e}", flush=True)
     finally:
+        # Restaurar form.submit / requestSubmit originales (hook temporal).
+        try:
+            await page.evaluate("""
+              () => { if (window.__dlOrig) {
+                HTMLFormElement.prototype.submit = window.__dlOrig.s;
+                if (window.__dlOrig.rs) HTMLFormElement.prototype.requestSubmit = window.__dlOrig.rs;
+              } }
+            """)
+        except Exception: pass
         try: ctx.remove_listener("response", on_response)
         except Exception: pass
         try: page.remove_listener("download", on_download)
