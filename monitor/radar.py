@@ -111,18 +111,41 @@ async def recolectar(page, max_paginas: int, desde: str, hasta: str) -> list[dic
     volver a esa página) antes de rendirse — así no se pierden datos. Solo corta
     de verdad cuando ya tiene ~todos los registros, o tras muchas vacías sin poder
     recuperar."""
-    total_reg = await nav.total_registros(page)
-    total_pag = await nav.detectar_total_paginas(page)
-    pags = min(total_pag, max_paginas) if max_paginas else total_pag
-    print(f"  → {total_reg} registros, {total_pag} páginas (recorro {pags})", flush=True)
+    # Verificar que el filtro de fecha se aplicó: si SICOES ignoró las fechas,
+    # los registros de la primera página no van a tener fecha_publicacion en el rango.
+    # Reintentamos la búsqueda hasta 3 veces si detectamos el fallo.
+    for intento_busqueda in range(3):
+        total_reg = await nav.total_registros(page)
+        total_pag = await nav.detectar_total_paginas(page)
+        pags = min(total_pag, max_paginas) if max_paginas else total_pag
+        print(f"  → {total_reg} registros, {total_pag} páginas (recorro {pags})", flush=True)
 
-    todas: list[dict] = []
-    vacias_seguidas = 0
+        # Leer primera página y validar fechas
+        primera = await nav.leer_tabla(page)
+        if primera:
+            desde_d = datetime.strptime(desde, "%d/%m/%Y").date()
+            hasta_d = datetime.strptime(hasta, "%d/%m/%Y").date()
+            fechas_ok = sum(
+                1 for f in primera
+                if (fp := parse_fecha_sicoes(f.get("fecha_publicacion"))) and desde_d <= fp <= hasta_d
+            )
+            if fechas_ok == 0:
+                print(f"  ⚠ Filtro de fecha no aplicado (intento {intento_busqueda+1}/3); reintentando búsqueda...", flush=True)
+                await nav.buscar_por_fechas(page, desde, hasta)
+                continue
+        break
+    else:
+        print("  ⚠ No se pudo aplicar el filtro de fecha tras 3 intentos; datos pueden ser incorrectos.", flush=True)
+        primera = await nav.leer_tabla(page)
+
+    todas: list[dict] = list(primera) if primera else []
+    if todas:
+        print(f"    · pág 1/{pags}: {len(todas)} filas (acum {len(todas)})", flush=True)
+    vacias_seguidas = 0 if todas else 1
     recuperaciones = 0
-    n = 1
+    n = 2  # pág 1 ya leída arriba
     while n <= pags:
-        if n > 1:
-            await nav.ir_pagina(page, n)
+        await nav.ir_pagina(page, n)
         filas = await nav.leer_tabla(page)
 
         # ¿Vacía pero faltan datos? → recuperar sesión y reintentar esta página.
