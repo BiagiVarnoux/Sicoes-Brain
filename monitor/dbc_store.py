@@ -182,20 +182,44 @@ def _a_markdown(ruta: str) -> str:
     md = ""
 
     if ext in (".doc", ".docx", ".odt", ".rtf"):
-        # .doc (Word 97-2003): markitdown NO lo soporta y lanza UnsupportedFormatException
-        # que hereda de BaseException (no Exception), así que no se puede capturar con
-        # except Exception. Ir directo a LibreOffice para .doc.
-        if ext != ".doc":
+        ruta_para_markitdown = ruta
+        docx_temporal = None
+
+        # .doc (Word 97-2003): markitdown no lo soporta; convertir a .docx primero
+        if ext == ".doc":
+            soffice = _soffice()
+            if soffice:
+                outdir = os.path.dirname(ruta)
+                try:
+                    subprocess.run(
+                        [soffice, "--headless", "--convert-to", "docx", "--outdir", outdir, ruta],
+                        check=True, capture_output=True, timeout=120,
+                        env={**os.environ, "HOME": os.environ.get("HOME", "/tmp")},
+                    )
+                    candidato = os.path.splitext(ruta)[0] + ".docx"
+                    if os.path.exists(candidato):
+                        ruta_para_markitdown = candidato
+                        docx_temporal = candidato
+                        print(f"      · .doc → .docx ok ({os.path.basename(ruta)})", flush=True)
+                except Exception as e:
+                    print(f"      ⚠ .doc→.docx falló ({os.path.basename(ruta)}): {e}", flush=True)
+
+        try:
+            from markitdown import MarkItDown  # type: ignore
+            resultado = MarkItDown().convert(ruta_para_markitdown)
+            md = resultado.text_content or ""
+        except Exception:
+            pass  # cae al bloque LibreOffice→PDF de abajo
+
+        if docx_temporal and os.path.exists(docx_temporal):
             try:
-                from markitdown import MarkItDown  # type: ignore
-                resultado = MarkItDown().convert(ruta)
-                md = resultado.text_content or ""
-            except Exception:
-                pass  # cae al bloque LibreOffice de abajo
+                os.remove(docx_temporal)
+            except OSError:
+                pass
 
         if not md:
-            # .doc siempre, y fallback para .docx/.odt/.rtf si markitdown falló
-            print(f"      · {ext} → LibreOffice ({os.path.basename(ruta)})...", flush=True)
+            # Último recurso: LibreOffice → PDF → pymupdf
+            print(f"      · {ext} → PDF via LibreOffice ({os.path.basename(ruta)})...", flush=True)
             try:
                 import pymupdf  # type: ignore
                 pdf = _conv_libreoffice(ruta)
