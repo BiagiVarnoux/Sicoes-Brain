@@ -182,13 +182,20 @@ def _a_markdown(ruta: str) -> str:
     md = ""
 
     if ext in (".doc", ".docx", ".odt", ".rtf"):
-        try:
-            from markitdown import MarkItDown  # type: ignore
-            resultado = MarkItDown().convert(ruta)
-            md = resultado.text_content or ""
-        except Exception as e:
-            # .doc antiguo y otros formatos no soportados por markitdown → LibreOffice → PDF → texto
-            print(f"      ⚠ markitdown no soporta {ext} ({os.path.basename(ruta)}); intento LibreOffice...", flush=True)
+        # .doc (Word 97-2003): markitdown NO lo soporta y lanza UnsupportedFormatException
+        # que hereda de BaseException (no Exception), así que no se puede capturar con
+        # except Exception. Ir directo a LibreOffice para .doc.
+        if ext != ".doc":
+            try:
+                from markitdown import MarkItDown  # type: ignore
+                resultado = MarkItDown().convert(ruta)
+                md = resultado.text_content or ""
+            except Exception:
+                pass  # cae al bloque LibreOffice de abajo
+
+        if not md:
+            # .doc siempre, y fallback para .docx/.odt/.rtf si markitdown falló
+            print(f"      · {ext} → LibreOffice ({os.path.basename(ruta)})...", flush=True)
             try:
                 import pymupdf  # type: ignore
                 pdf = _conv_libreoffice(ruta)
@@ -201,7 +208,7 @@ def _a_markdown(ruta: str) -> str:
                     except OSError:
                         pass
             except Exception as e2:
-                print(f"      ⚠ fallback LibreOffice falló ({os.path.basename(ruta)}): {e2}", flush=True)
+                print(f"      ⚠ LibreOffice falló ({os.path.basename(ruta)}): {e2}", flush=True)
 
     elif ext == ".pdf":
         try:
