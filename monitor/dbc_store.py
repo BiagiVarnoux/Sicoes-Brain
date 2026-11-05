@@ -415,8 +415,9 @@ def procesar(cuce: str, modalidad: str, archivos_locales: list[dict]) -> dict:
                 salida.append({"nombre": fo, "url": url})
 
     md_completo = "\n\n---\n\n".join(markdown_total)
-    # Tope de 60 000 chars: suficiente para las specs; evita saturar Groq TPM
+    # Sin tope: el texto completo se guarda en dbc_markdown.
+    # El control de TPM lo hace _region_specs() en clasificador_ia (ventana de 45k chars).
     return {
-        "markdown": md_completo[:60000],
+        "markdown": md_completo,
         "archivos": salida,
     }
