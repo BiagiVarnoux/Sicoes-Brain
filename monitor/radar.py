@@ -117,6 +117,13 @@ async def recolectar(page, max_paginas: int, desde: str, hasta: str) -> list[dic
     for intento_busqueda in range(3):
         total_reg = await nav.total_registros(page)
         total_pag = await nav.detectar_total_paginas(page)
+        # Sanity check: si total_pag >> ceil(total_reg/10) es un valor stale del DOM
+        if total_reg > 0:
+            import math as _math
+            esperadas = _math.ceil(total_reg / 10)
+            if total_pag > esperadas * 2:
+                print(f"  · total páginas corregido: {total_pag}→{esperadas} (basado en {total_reg} registros)", flush=True)
+                total_pag = esperadas
         pags = min(total_pag, max_paginas) if max_paginas else total_pag
         print(f"  → {total_reg} registros, {total_pag} páginas (recorro {pags})", flush=True)
 
