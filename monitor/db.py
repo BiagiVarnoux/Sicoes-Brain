@@ -108,7 +108,34 @@ def ejemplos_entrenamiento(limite: int = 25) -> tuple[list[str], list[str]]:
             return []
     pos = _objetos(f"{TABLA}?relevante=eq.true&descartado=eq.false&select=objeto&limit={limite}")
     neg = _objetos(f"{TABLA}?descartado=eq.true&motivo_descarte=cs.%7Bproducto%7D&select=objeto&limit={limite}")
-    return pos, neg
+
+    # Ejemplos curados a mano (camino 1): van PRIMERO — son "gold" y cubren los
+    # títulos genéricos ("Papel", "Material de Escritorio") que el diccionario no
+    # caza. Se deduplican contra los de la BD por texto normalizado.
+    try:
+        import ejemplos_curados as _ec
+        cur_pos, cur_neg = list(_ec.POSITIVOS), list(_ec.NEGATIVOS)
+    except Exception:
+        cur_pos, cur_neg = [], []
+
+    def _merge(curados: list[str], bd: list[str]) -> list[str]:
+        import unicodedata, re as _re
+        def _norm(s: str) -> str:
+            s = unicodedata.normalize("NFKD", s or "")
+            s = "".join(c for c in s if not unicodedata.combining(c)).lower()
+            return _re.sub(r"\s+", " ", s).strip()
+        vistos, out = set(), []
+        for o in curados + bd:
+            k = _norm(o)
+            if not k or k in vistos:
+                continue
+            vistos.add(k)
+            out.append(o)
+            if len(out) >= limite:
+                break
+        return out
+
+    return _merge(cur_pos, pos), _merge(cur_neg, neg)
 
 
 def upsert(rows: list[dict]) -> dict:
