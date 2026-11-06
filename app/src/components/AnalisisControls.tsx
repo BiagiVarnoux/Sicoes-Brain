@@ -15,7 +15,7 @@ function norm(s: string) {
 
 /** Selector de bien (buscador) + multi-selector de entidades. El estado se
  *  guarda en la URL, así la vista se recalcula en el server y es compartible. */
-export default function CompararControls({
+export default function AnalisisControls({
   productos,
   selectedProducto,
   productoLabel,
