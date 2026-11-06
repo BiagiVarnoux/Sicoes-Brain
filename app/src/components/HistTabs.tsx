@@ -8,6 +8,7 @@ const TABS = [
   { href: '/historico', label: 'Resumen', exact: true },
   { href: '/historico/producto', label: 'Productos' },
   { href: '/historico/proveedor', label: 'Proveedores' },
+  { href: '/historico/comparar', label: 'Comparar' },
 ]
 
 /** Sub-pestañas del módulo Histórico + botón para actualizar los datos. */
