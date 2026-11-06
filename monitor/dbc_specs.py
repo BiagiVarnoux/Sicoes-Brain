@@ -73,9 +73,10 @@ def main():
                       "&relevante=eq.true&descartado=eq.false")
     hechos = set()
     if not reparse:
-        for x in _get("convocatoria_specs?select=cuce,items,metodo"):
-            if x.get("items") or (x.get("metodo") or "").startswith("ocr"):
-                hechos.add(x["cuce"])
+        # Marcar como hecho cualquier CUCE que ya exista en convocatoria_specs,
+        # aunque haya devuelto 0 items (evita re-procesar en corridas siguientes).
+        for x in _get("convocatoria_specs?select=cuce"):
+            hechos.add(x["cuce"])
 
     pendientes = [r for r in relevantes if r["cuce"] not in hechos
                   and (r.get("dbc_markdown") or _pdf_url(r.get("dbc_archivos")))]

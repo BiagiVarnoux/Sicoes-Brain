@@ -249,19 +249,20 @@ _RE_MARCADOR_SPECS = re.compile(
 
 
 def _region_specs(texto: str, ancho_max: int = 45000) -> str:
-    """El DBC es largo (decenas de páginas) y las fichas técnicas (Formulario C-1)
-    están en la segunda mitad. La PRIMERA mención de 'especificaciones técnicas' es
-    solo la instrucción; la tabla real es un CLUSTER de menciones más adentro.
-    Arranca la región en el primer marcador que tiene otro cerca (el cluster)."""
+    """Las fichas técnicas (Formulario C-1) siempre están en la segunda mitad del DBC.
+    Busca el primer cluster de marcadores (dos menciones cercanas = inicio real de la
+    sección). Si no hay cluster o está en el primer 40% del doc, toma los últimos
+    45k chars — más confiable para .docx grandes convertidos por markitdown."""
     pos = [m.start() for m in _RE_MARCADOR_SPECS.finditer(texto)]
-    if not pos:
-        return texto[:ancho_max]
-    inicio = pos[0]
+    inicio = None
     for i, p in enumerate(pos):
         if i + 1 < len(pos) and pos[i + 1] - p <= 5000:
-            inicio = p
-            break
-    inicio = max(0, inicio - 300)
+            if p > len(texto) * 0.3:  # ignorar clusters en el preámbulo del DBC
+                inicio = max(0, p - 300)
+                break
+    if inicio is None:
+        # Sin cluster claro → tomar el final (specs siempre al final del DBC)
+        inicio = max(0, len(texto) - ancho_max)
     return texto[inicio:inicio + ancho_max]
 
 
@@ -287,7 +288,7 @@ def _dedup_items(items: list[dict]) -> list[dict]:
 
 
 def estructurar_dbc(texto: str, chunk: int = 7000, solapa: int = 500,
-                    max_chunks: int = 4) -> list[dict]:
+                    max_chunks: int = 7) -> list[dict]:
     """Extrae ítems + specs requeridas del DBC. Procesa la región de fichas técnicas
     por chunks (el DBC supera el TPM de Groq en un solo request) y une los ítems."""
     if not texto or not texto.strip() or not GROQ_API_KEYS:
