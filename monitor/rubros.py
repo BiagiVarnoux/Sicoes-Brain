@@ -66,6 +66,12 @@ TERMINOS_SUBSTRING = [
     "autoadhesivo", "autoadhesiva", "papel autoadhesivo",
     "sticker", "stickers", "rotulo", "rotulos",
     "impresora de etiquetas", "codigo de barras",
+    # Papel térmico / continuo para etiquetas (rollos Brother DK). El título a
+    # veces dice solo "papel termico continuo" o el modelo, sin "etiqueta".
+    "papel termico", "papel termico continuo", "rollo termico", "rollos termico",
+    "papel continuo", "papel continuo quimico",
+    # Modelo/marca específicos del rubro de etiquetado (Brother QL + rollos DK).
+    "dk2205", "dk-2205", "dk 2205", "dk 220", "brother",
 ]
 
 # Cortos/ambiguos — se exigen con límite de palabra.
