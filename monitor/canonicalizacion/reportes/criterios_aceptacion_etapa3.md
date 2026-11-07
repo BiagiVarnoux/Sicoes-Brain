@@ -1,5 +1,19 @@
 # Criterios de aceptación — Etapa 3 (verificador por niveles)
 
+> ## ✅ CIERRE FORMAL (aprobado por el usuario, 2026-11-07)
+> La **Etapa 3 queda formalmente cerrada como desarrollo experimental reproducible, con limitaciones
+> conocidas.** Esto **NO** significa que el verificador haya demostrado 98% de precisión, y **NO** autoriza
+> fusiones automáticas (que siguen bloqueadas). La versión congelada se conserva como candidata de referencia.
+>
+> **Precisiones del usuario incorporadas:**
+> 1. Las 67 descripciones, 9 componentes y 5 variantes de papel_bond son **unidades de análisis distintas**;
+>    **no** representan automáticamente 67, 9 o 5 observaciones estadísticamente independientes. El **tamaño
+>    efectivo** deberá determinarse con un diseño de validación apropiado (no por recuento directo de ninguna
+>    de esas unidades).
+> 2. La fusión debe definirse como una **operación persistente pero reversible**, con **versionado y registro
+>    de auditoría**. (Se traslada al diseño de la Etapa 4: `diseno_etapa4.md`.)
+
+
 **Estado:** documento de decisión. NO modifica código, reglas ni muestras. El verificador queda
 **congelado como versión experimental candidata a cierre** (último commit de la fase de corrección;
 baselines en `congelado/`). Este documento define qué debe cumplirse para (a) cerrar formalmente la
