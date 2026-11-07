@@ -1,30 +1,30 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-ETAPA 3 — VERIFICADOR POR NIVELES. SOLO LECTURA, entorno aislado. PIPELINE EXPERIMENTAL NO VALIDADO.
+ETAPA 3 — VERIFICADOR POR NIVELES. SOLO LECTURA. PIPELINE EXPERIMENTAL NO VALIDADO.
 =============================================================================================
-Toma los PARES CANDIDATOS del blocker (Etapa 2) y emite, POR SEPARADO, tres veredictos por par:
+Por cada par candidato emite TRES veredictos SEPARADOS:
     FAMILIA_AMPLIA      ∈ {SI, NO, INSUF}   (equivalencia comercial amplia: mismo tipo)
     SUBFAMILIA          ∈ {SI, NO, INSUF}   (misma familia de demanda: mismo segmento)
-    PRODUCTO_ESPECIFICO ∈ {SI, NO, INSUF}   (identidad exacta / intercambiable)
+    PRODUCTO_ESPECIFICO ∈ {SI, NO, INSUF}   (identidad confirmada / intercambiable)
 
-Jerarquía: mismo específico ⟹ misma subfamilia ⟹ misma familia amplia. Una diferencia discriminante
-puede dejar misma familia sin el mismo específico. Atributo AUSENTE nunca = igual → si falta evidencia
-(y no hay contradicción) = INSUF; contradicción confirmada manda = NO.
+Jerarquía: específico SI ⟹ subfamilia SI ⟹ amplia SI. Atributo AUSENTE nunca = igual.
+El veredicto de equivalencia es SEPARADO de la AUTORIZACIÓN a fusionar (fusionar exige ESP=SI; nunca
+sobre INSUF). NO fusiona, NO escribe en BD, NO migra, NO toca producción.
 
-Mantiene SEPARADOS tres conceptos: equivalencia comercial (amplia) ≠ misma familia de demanda
-(subfamilia) ≠ identidad exacta (específico). Para licitaciones, dos descripciones pueden ser demanda
-comparable (misma subfamilia) sin exigir idéntica marca/presentación (eso es el nivel específico).
-
-CAPA CORRECTIVA DEL VERIFICADOR (2026-11-07, extractor CONGELADO como línea base): resuelve defectos
-semánticos detectados por revisión (ChatGPT). Causas raíz, NO ajuste a muestras:
-  - óptico: distinguir +R/−R (polaridad) y presentación con/sin caja (específico).
-  - papel impreso: la IDENTIDAD es el membrete/institución, no solo tamaño+gramaje → firma de membrete.
-  - sobres: café y madera son el MISMO color comercial (kraft) → se normalizan (evita falso negativo).
-  - almacenamiento: SATA 3.0 ES SATA → la versión no es incompatibilidad (se normaliza a familia base).
-  - normalización: erratas evidentes de tamaño ("OFICIIO"→oficio), tolerancia estrecha.
-NO fusiona, NO escribe en BD, NO migra, NO toca producción. La agrupación final y la agregación de
-demanda (con prevención de fusión por transitividad) son etapas POSTERIORES, no se hacen aquí.
+FASE DE CORRECCIÓN CONTROLADA (2026-11-07, autorizada). Tres correcciones, aislables por banderas
+(línea base congelada en congelado/verificador_niveles_baseline_2ff01aa.py):
+  fix3 — SUBFAMILIA: un atributo de segmento AUSENTE mantiene INSUF (no confirma subfamilia); una
+         CONTRADICCIÓN baja a NO. (Antes: el "secundario" ausente no degradaba → subía a SI.) 'aplicacion'
+         de llanta sigue siendo SOLO-CONTRADICCIÓN (ausencia no degrada) porque no siempre se declara.
+  fix2 — PAPEL CONTINUO: se separan `mecanismo_copia` (quimico/autocopiativo vs carbonico) y `desglose`
+         (presentación) como atributos INDEPENDIENTES; NO se tratan como sinónimos. químico≠carbónico se
+         preserva como diferencia técnica (determinante para DBC); 'desglose' es presentación. Se deja de
+         usar el `tipo` colapsado del extractor.
+  fix1 — PRODUCTO_ESPECIFICO: criterios SUFICIENTES por categoría (IDENT): ESP=SI exige TODOS los
+         atributos de identidad (técnicos + presentación relevante) presentes e iguales y sin requisito
+         no acreditado; si falta evidencia → INSUF (candidato, no confirmado); si contradice → NO.
+Las muestras previas (53, v2, extractor 220) son ahora PRUEBAS DE REGRESIÓN, no validación independiente.
 """
 import os, sys, re, json, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -32,50 +32,48 @@ from extractor_atributos import extraer, categoria, nrm, tamano_papel, _CONCRETO
 from blocker_candidatos import construir, pares, get, cuerpo
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),"reportes"); os.makedirs(OUT,exist_ok=True)
 
-# ── llaves de comparación por nivel (prioridades del usuario) ─────────────────────────────────────
+# ── SEGMENTO (subfamilia). 'aplicacion' de llanta va aparte: solo contradicción. ────────────────
 VERIF_SEG={
  "llanta":["medida","aplicacion"], "sobre_manila":["tamano"], "papel_bond":["tamano","gramaje_gm2"],
  "papel_continuo":["formato_continuo","partes","gramaje_gm2"], "papel_impreso":["tamano"],
  "ram":["generacion","capacidad_gb"], "almacenamiento":["tecnologia","capacidad_gb"],
  "optico":["tipo_medio","capacidad_gb"],
 }
-# SEGMENTO SECUNDARIO: una CONTRADICCIÓN confirmada baja subfamilia a NO; una AUSENCIA no la degrada a
-# INSUF (el segmento primario ya decidió). gramaje distingue (55≠70) pero su ausencia no parte la familia;
-# 'aplicacion' auto/moto distingue cuando ambas lo declaran, pero no cuando una no lo dice.
-SEG_SEC={"papel_bond":["gramaje_gm2"],"papel_continuo":["gramaje_gm2"],"llanta":["aplicacion"]}
-# ESPECÍFICO base (línea anterior) y ESPECÍFICO con la capa correctiva (añade grabacion_pol/presentacion/membrete)
-VERIF_ESP_BASE={
- "llanta":["tipo_constr","camara","pliegues","huella"], "sobre_manila":["gramaje_gm2","color"],
- "papel_bond":["color"], "papel_continuo":["gramaje_gm2","tipo"], "papel_impreso":["gramaje_gm2","color"],
- "ram":["frecuencia_mhz","formato"], "almacenamiento":["interfaz","formato"], "optico":["tipo_grabacion"],
+SEG_CONTRA={"llanta":["aplicacion"]}                 # fix3: solo-contradicción (ausencia no degrada)
+BASE_SEG_SEC={"papel_bond":["gramaje_gm2"],"papel_continuo":["gramaje_gm2"],"llanta":["aplicacion"]}  # baseline
+# ── IDENT: atributos de IDENTIDAD por categoría para ESP=SI (fix1). ⊇ SEGMENTO (preserva jerarquía) ──
+IDENT={
+ "llanta":["medida","tipo_constr","camara"],
+ "sobre_manila":["tamano","gramaje_gm2","color"],
+ "papel_bond":["tamano","gramaje_gm2","color","hojas"],
+ "papel_continuo":["formato_continuo","partes","gramaje_gm2"],   # mecanismo_copia se trata SOFT (abajo), no hard
+ "papel_impreso":["tamano","membrete"],
+ "ram":["generacion","capacidad_gb","frecuencia_mhz","formato"],
+ "almacenamiento":["tecnologia","capacidad_gb","interfaz","formato"],
+ "optico":["tipo_medio","capacidad_gb","grabacion_pol","presentacion"],
 }
-VERIF_ESP={
- "llanta":["tipo_constr","camara","pliegues","huella"], "sobre_manila":["gramaje_gm2","color"],
- "papel_bond":["color"], "papel_continuo":["tipo"],
- "papel_impreso":["gramaje_gm2","color","membrete"],
- "ram":["frecuencia_mhz","formato"], "almacenamiento":["interfaz","formato"],
- "optico":["tipo_grabacion","grabacion_pol","presentacion"],
-}
-# normalización de VALORES equivalentes (verifier-side; el extractor sigue congelado)
-_COLOR_SINON={"madera":"cafe","anaranjado":"naranja"}   # café = madera (kraft); equivalentes comerciales
-_IFACE_BASE ={"sata3":"sata"}                            # SATA 3.0 es SATA (familia base, no incompatibilidad)
-# papel continuo autocopiativo: químico / con desglose / carbónico / autocopiativo describen la MISMA
-# clase (formulario multicopia carbonless); NO son contradictorios → se colapsan (no generan ESP=NO falso).
-_TIPO_CONT={"quimico":"autocopiativo","desglose":"autocopiativo","carbonico":"autocopiativo","autocopiativo":"autocopiativo"}
+# ESPECÍFICO de la LÍNEA BASE (para reproducir 2ff01aa con fix1=False)
+BASE_ESP={"llanta":["tipo_constr","camara","pliegues","huella"],"sobre_manila":["gramaje_gm2","color"],
+ "papel_bond":["color"],"papel_continuo":["tipo"],"papel_impreso":["gramaje_gm2","color","membrete"],
+ "ram":["frecuencia_mhz","formato"],"almacenamiento":["interfaz","formato"],
+ "optico":["tipo_grabacion","grabacion_pol","presentacion"]}
+
+_COLOR_SINON={"madera":"cafe","anaranjado":"naranja"}
+_IFACE_BASE ={"sata3":"sata"}
+_TIPO_CONT  ={"quimico":"autocopiativo","desglose":"autocopiativo","carbonico":"autocopiativo","autocopiativo":"autocopiativo"}  # solo baseline
 def _nv(attr,v):
     if attr=="color": return _COLOR_SINON.get(v,v)
     if attr=="interfaz": return _IFACE_BASE.get(v,v)
-    if attr=="tipo": return _TIPO_CONT.get(v,v)
+    if attr=="tipo": return _TIPO_CONT.get(v,v)   # solo se usa en baseline (fix2=False)
     return v
 
-_MISSING=object()
+_M=object()
 def _cmp(A,B,keys,norm=True):
     diff=missing=False; reasons=[]
     for k in keys:
-        va=A.get(k,_MISSING); vb=B.get(k,_MISSING)
-        if va is _MISSING or vb is _MISSING:
-            missing=True; falta="A" if va is _MISSING else ""; falta+="B" if vb is _MISSING else ""
-            reasons.append(f"{k}: falta en {falta}")
+        va=A.get(k,_M); vb=B.get(k,_M)
+        if va is _M or vb is _M:
+            missing=True; f=("A" if va is _M else "")+("B" if vb is _M else ""); reasons.append(f"{k}: falta en {f}")
         else:
             na,nb=(_nv(k,va),_nv(k,vb)) if norm else (va,vb)
             if na!=nb: diff=True; reasons.append(f"{k}: {json.dumps(na,ensure_ascii=False)} ≠ {json.dumps(nb,ensure_ascii=False)}")
@@ -91,27 +89,45 @@ _MEMB_STOP=set(("hoja hojas papel membretada membretado membrete tamano tamaño 
 def _membrete_firma(n):
     m=re.search(r"membretad[ao]|membrete",n)
     if not m: return None
-    resto=n[m.end():]
-    resto=re.sub(r"\(.*?\)"," ",resto); resto=re.sub(r"[^a-z\s]"," ",resto)
+    resto=re.sub(r"\(.*?\)"," ",n[m.end():]); resto=re.sub(r"[^a-z\s]"," ",resto)
     toks=[t for t in resto.split() if len(t)>2 and t not in _MEMB_STOP]
     return " ".join(sorted(set(toks))) if toks else None
 def _tamano_tolerante(n):
     n2=re.sub(r"ofici+o","oficio",n); n2=re.sub(r"oficc+io","oficio",n2)
     r=tamano_papel(n2); return r[0] if r else None
-def _color_tolerante(n):   # tolera texto pegado ("surtidopresentacion") → sin \b final
+def _color_tolerante(n):
     found=re.findall(r"\b("+_CONCRETO+r")",n)
     distintos=sorted({_COLOR_SINON.get(c,c) for c in found})
     if re.search(r"\bsurtido|\bcolores\b|\bvarios\b|multicolor",n): return "surtido"
     if len(distintos)>=2: return "surtido"
     return found[0] if found else None
-def _continuo_tolerante(n):  # "9.1/2 x 11…" (punto), "9 1/2 x 11 x 4"
+def _continuo_tolerante(n):
     f="9.5x11" if re.search(r"9\s*[.,]?\s*(?:1/2|½|\.5)?\s*[x*×]\s*11",n) else None
     m=re.search(r"11\s*[x*×]\s*(\d)",n); p=int(m.group(1)) if m else None
     return f,p
-def _aplicacion(n):          # clase de aplicación de la llanta
+def _aplicacion(n):
     if re.search(r"\b(moto|motocicleta)\b",n): return "moto"
     if re.search(r"\b(automotor|automovil|camioneta|vehiculo|auto)\b",n): return "auto"
     return None
+def _mecanismo_copia(n):   # químico/autocopiativo = NCR; carbónico = carbón (DISTINTO). NO equiparar.
+    if re.search(r"\bcarbonico\b|papel carbon",n): return "carbonico"
+    if re.search(r"\bquimico\b|autocopiativ|autocopiante|auto copiante",n): return "quimico"
+    return None
+def _desglose(n):          # presentación (separable), ortogonal al mecanismo
+    return "si" if re.search(r"desglose|con calca|\bcalca\b",n) else None
+def _empaque_unidad(n):    # unidad del empaque: juegos ≠ hojas (no equiparables)
+    if re.search(r"\bjgs\b|juegos?\b",n): return "juegos"
+    if re.search(r"\bhojas?\b",n): return "hojas"
+    return None
+_RES_PATS=[("iso",r"\biso\s*\d{3,5}"),("alcalino",r"alcalin|alkalin"),("certif",r"certificaci")]
+def _residual(n):          # requisitos normativos/material exigidos en un lado (exime "o (su) equivalente")
+    out=set()
+    for name,pat in _RES_PATS:
+        for m in re.finditer(pat,n):
+            if re.search(r"\bo\s+(su\s+)?equivalente",n[m.end():m.end()+25]): continue
+            out.add(name)
+    return frozenset(out)
+
 def enriquecer(cat,attrs,raw):
     n=nrm(raw); a=dict(attrs)
     if cat=="optico":
@@ -119,40 +135,75 @@ def enriquecer(cat,attrs,raw):
         elif re.search(r"(dvd|cd)\s*-\s*r|\b-\s*r\b",n): a["grabacion_pol"]="-r"
         if re.search(r"sin\s+caja",n): a["presentacion"]="sin_caja"
         elif re.search(r"con\s+caja|caja plastica|caja plástica|con sobre|con tapa",n): a["presentacion"]="con_caja"
-        if a.get("grabacion_pol") in ("+r","-r") and "tipo_grabacion" not in a: a["tipo_grabacion"]="r"  # +R/-R ⟹ grabable R
+        if a.get("grabacion_pol") in ("+r","-r") and "tipo_grabacion" not in a: a["tipo_grabacion"]="r"
     if cat in ("papel_bond","papel_impreso","sobre_manila") and "tamano" not in a:
         t=_tamano_tolerante(n)
         if t: a["tamano"]=t
     if cat in ("papel_bond","papel_impreso","sobre_manila") and "color" not in a:
         c=_color_tolerante(n)
         if c: a["color"]=c
-    if cat=="papel_continuo" and "formato_continuo" not in a:
-        f,p=_continuo_tolerante(n)
-        if f: a["formato_continuo"]=f
-        if p and "partes" not in a: a["partes"]=p
+    if cat=="papel_continuo":
+        if "formato_continuo" not in a:
+            f,p=_continuo_tolerante(n)
+            if f: a["formato_continuo"]=f
+            if p and "partes" not in a: a["partes"]=p
+        mec=_mecanismo_copia(n);  des=_desglose(n);  emp=_empaque_unidad(n)
+        if mec: a["mecanismo_copia"]=mec
+        if des: a["desglose"]=des
+        if emp: a["empaque_unidad"]=emp
     if cat=="papel_impreso":
         mb=_membrete_firma(n)
         if mb: a["membrete"]=mb
     if cat=="llanta":
         ap=_aplicacion(n)
         if ap: a["aplicacion"]=ap
+    if cat in ("papel_bond","papel_impreso","papel_continuo","sobre_manila"):
+        a["_residual"]=_residual(n)
     return a
 
-def verificar(cat,A,B,esp_cfg=VERIF_ESP,norm=True,usar_sec=True):
-    seg=VERIF_SEG[cat]; sec=SEG_SEC.get(cat,[]) if usar_sec else []
-    prim=[k for k in seg if k not in sec]
-    v_sub,r_sub=_cmp(A,B,prim,norm)
-    # secundarios: contradicción confirmada → NO; ausencia NO degrada
-    for k in sec:
-        va=A.get(k,_MISSING); vb=B.get(k,_MISSING)
-        if va is not _MISSING and vb is not _MISSING:
-            na,nb=(_nv(k,va),_nv(k,vb)) if norm else (va,vb)
-            if na!=nb: v_sub="NO"; r_sub.append(f"{k}: {json.dumps(na,ensure_ascii=False)} ≠ {json.dumps(nb,ensure_ascii=False)} (secundario)")
+def _esp_fix1(cat,A,B):
+    v,reasons=_cmp(A,B,IDENT[cat],norm=True)          # differ→NO, falta→INSUF, todo igual→SI
+    if v=="NO": return "NO",reasons
+    ua,ub=A.get("empaque_unidad"),B.get("empaque_unidad")   # juegos ≠ hojas: no equiparable
+    if ua and ub and ua!=ub:
+        reasons.append(f"empaque: {ua} ≠ {ub} (no equiparable)")
+        if v=="SI": v="INSUF"
+    ra,rb=A.get("_residual",frozenset()),B.get("_residual",frozenset())   # requisito no acreditado en un lado
+    if ra!=rb:
+        reasons.append(f"requisito no acreditado: {sorted(ra^rb)}")
+        if v=="SI": v="INSUF"
+    return v,reasons
+
+def verificar(cat,A,B,fix1=True,fix2=True,fix3=True):
+    seg=VERIF_SEG[cat]
+    contra = SEG_CONTRA.get(cat,[]) if fix3 else BASE_SEG_SEC.get(cat,[])
+    required=[k for k in seg if k not in contra]
+    v_sub,r_sub=_cmp(A,B,required,norm=True)
+    for k in contra:
+        va=A.get(k,_M); vb=B.get(k,_M)
+        if va is not _M and vb is not _M:
+            na,nb=_nv(k,va),_nv(k,vb)
+            if na!=nb: v_sub="NO"; r_sub.append(f"{k}: {json.dumps(na,ensure_ascii=False)} ≠ {json.dumps(nb,ensure_ascii=False)} (contradicción)")
             else: r_sub.append(f"{k}: = {json.dumps(na,ensure_ascii=False)}")
-        else: r_sub.append(f"{k}: falta (secundario, no degrada)")
-    esp=seg+esp_cfg[cat]
-    v_esp,r_esp=_cmp(A,B,esp,norm)
-    if v_sub=="NO": v_esp="NO"
+        else: r_sub.append(f"{k}: falta (solo-contradicción, no degrada)")
+    if v_sub=="NO":
+        v_esp,r_esp="NO",["subfamilia NO"]
+    else:
+        if fix1:
+            v_esp,r_esp=_esp_fix1(cat,A,B)
+        else:
+            espkeys = seg + (BASE_ESP[cat] if not (fix2 and cat=="papel_continuo") else [])  # fix2: quita 'tipo' colapsado
+            v_esp,r_esp=_cmp(A,B,espkeys,norm=True)
+        # #2 mecanismo de copia SOFT (quimico/autocopiativo vs carbonico): diferencia o ausencia → INSUF,
+        # NUNCA NO (terminología imprecisa en pliegos; preserva la diferencia como candidato, no la afirma).
+        if (fix2 or fix1) and cat=="papel_continuo":
+            ma=A.get("mecanismo_copia"); mb=B.get("mecanismo_copia")
+            if ma and mb and ma!=mb:
+                if v_esp=="SI": v_esp="INSUF"
+                r_esp.append("mecanismo_copia difiere (quimico/carbonico) → no confirmado (revisar DBC)")
+            elif (ma is None)!=(mb is None):
+                if v_esp=="SI": v_esp="INSUF"
+                r_esp.append("mecanismo_copia ausente en un lado → no confirmado")
     return {"FAMILIA_AMPLIA":"SI","SUBFAMILIA":v_sub,"PRODUCTO_ESPECIFICO":v_esp,
             "razon_subfamilia":"; ".join(r_sub),"razon_especifico":"; ".join(r_esp)}
 
@@ -162,111 +213,49 @@ if __name__=="__main__":
     for it in items:
         c=cuerpo(it["descripcion"])
         if c: por_desc[c].append(it)
-    uniq=sorted(por_desc)
-    uniq_rec={d:extraer(d) for d in uniq}
+    uniq=sorted(por_desc); uniq_rec={d:extraer(d) for d in uniq}
     amplia,subfam,solo_amplia,estado,rec=construir(uniq_rec)
     P=pares(amplia,rec)
     enr={d:enriquecer(rec[d]["categoria"],rec[d]["atributos"],d) for d in rec}
 
-    # ── doble pase: BASE (línea anterior) vs CORREGIDO (capa correctiva) para aislar impacto ──
-    agg=collections.defaultdict(lambda:collections.Counter())
-    ejemplos=collections.defaultdict(lambda:collections.defaultdict(list))
-    cambios=collections.Counter(); cambios_ej=collections.defaultdict(list); todos=[]
+    STAGES=[("0 baseline",dict(fix1=False,fix2=False,fix3=False)),
+            ("1 +#3 secundarios",dict(fix1=False,fix2=False,fix3=True)),
+            ("2 +#2 mecanismo",dict(fix1=False,fix2=True,fix3=True)),
+            ("3 +#1 identidad",dict(fix1=True,fix2=True,fix3=True))]
+    estados={nombre:[] for nombre,_ in STAGES}
     for cat,comp,a,b in P:
-        v=verificar(cat,enr[a],enr[b],VERIF_ESP,norm=True)
-        vb=verificar(cat,rec[a]["atributos"],rec[b]["atributos"],VERIF_ESP_BASE,norm=False,usar_sec=False)
-        agg[cat][(v["SUBFAMILIA"],v["PRODUCTO_ESPECIFICO"])]+=1
-        if (vb["SUBFAMILIA"],vb["PRODUCTO_ESPECIFICO"])!=(v["SUBFAMILIA"],v["PRODUCTO_ESPECIFICO"]):
-            tag=f"{cat}: {vb['SUBFAMILIA']}/{vb['PRODUCTO_ESPECIFICO']} → {v['SUBFAMILIA']}/{v['PRODUCTO_ESPECIFICO']}"
-            cambios[tag]+=1
-            if len(cambios_ej[tag])<3: cambios_ej[tag].append((a,b,v["razon_especifico"]))
-        key=(v["SUBFAMILIA"],v["PRODUCTO_ESPECIFICO"])
-        clase={("SI","SI"):"especifico_SI",("SI","INSUF"):"subfam_SI_esp_INSUF",("SI","NO"):"subfam_SI_esp_NO",
-               ("NO","NO"):"subfam_NO",("INSUF","INSUF"):"subfam_INSUF",("INSUF","NO"):"subfam_INSUF"}.get(key,f"{key}")
-        if len(ejemplos[cat][clase])<4:
-            ejemplos[cat][clase].append((a,b, v["razon_subfamilia"] if clase=="subfam_NO" else v["razon_especifico"]))
-        todos.append((cat,comp,a,b,v))
-
-    L=["# Etapa 3 — Verificador por niveles (EXPERIMENTAL NO VALIDADO, solo lectura)\n"]
-    L.append(f"Universo: **{len(uniq)} descripciones ÚNICAS** (NO los ~7.441 registros hist_items). "
-             f"Pares candidatos verificados: **{len(P):,}**. Capa correctiva aplicada (extractor congelado).\n")
-    L.append("Tres veredictos SEPARADOS: FAMILIA_AMPLIA (equivalencia comercial) · SUBFAMILIA (misma familia de "
-             "demanda) · PRODUCTO_ESPECIFICO (identidad exacta). Atributo ausente ≠ igual → INSUF.\n")
-    L.append("## Distribución de veredictos por categoría (SUBFAMILIA × PRODUCTO_ESPECIFICO)")
-    L.append("| categoría | pares | sub=SI·esp=SI | sub=SI·esp=INSUF | sub=SI·esp=NO | sub=NO | sub=INSUF |")
-    L.append("|---|---|---|---|---|---|---|")
-    tot=collections.Counter()
-    for cat in sorted(agg):
-        c=agg[cat]; n=sum(c.values())
-        si_si=c[("SI","SI")]; si_insuf=c[("SI","INSUF")]; si_no=c[("SI","NO")]
-        no=sum(v for k,v in c.items() if k[0]=="NO"); insuf=sum(v for k,v in c.items() if k[0]=="INSUF")
-        for a_,b_ in [("si_si",si_si),("si_insuf",si_insuf),("si_no",si_no),("no",no),("insuf",insuf),("n",n)]: tot[a_]+=b_
-        L.append(f"| {cat} | {n} | {si_si} | {si_insuf} | {si_no} | {no} | {insuf} |")
-    L.append(f"| **TOTAL** | **{tot['n']}** | **{tot['si_si']}** | **{tot['si_insuf']}** | **{tot['si_no']}** | **{tot['no']}** | **{tot['insuf']}** |")
-    L.append("\n> Son resultados del algoritmo, NO una medición de precisión. Que N pares den 'mismo específico' "
-             "NO prueba que sean intercambiables: eso requiere validación independiente a 3 niveles con datos nuevos.")
-
-    # impacto de la capa correctiva (sistémico vs aislado)
-    L.append("\n## Impacto de la capa correctiva (base → corregido; aísla sistémico vs aislado)")
-    if cambios:
-        L.append(f"Pares cuyo veredicto CAMBIÓ: **{sum(cambios.values())}** de {len(P):,}.")
-        L.append("| cambio (SUB/ESP base → corregido) | pares |")
-        L.append("|---|---|")
-        for tag,nn in cambios.most_common(): L.append(f"| {tag} | {nn} |")
-        L.append("\nEjemplos de cambios:")
-        for tag,nn in cambios.most_common(6):
-            for a,b,rz in cambios_ej[tag][:2]:
-                L.append(f"- [{tag}] {rz}")
-                L.append(f"    - A: «{a[:90]}»")
-                L.append(f"    - B: «{b[:90]}»")
-    else:
-        L.append("Sin cambios de veredicto (ningún par afectado).")
-
-    L.append("\n## Ejemplos trazables (coincidencias y contradicciones)")
-    etiq={"especifico_SI":"✅ MISMO ESPECÍFICO","subfam_SI_esp_NO":"≈ MISMA FAMILIA, distinto específico",
-          "subfam_SI_esp_INSUF":"≈ MISMA SUBFAMILIA, específico INSUF","subfam_NO":"✗ DISTINTA SUBFAMILIA",
-          "subfam_INSUF":"? SUBFAMILIA INSUF (ambiguo)"}
-    for cat in sorted(ejemplos):
-        L.append(f"\n### {cat}")
-        for clase in ["especifico_SI","subfam_SI_esp_NO","subfam_SI_esp_INSUF","subfam_NO","subfam_INSUF"]:
-            for a,b,razon in ejemplos[cat].get(clase,[]):
-                L.append(f"- {etiq[clase]}  ·  {razon}")
-                L.append(f"    - A: «{a[:95]}»"); L.append(f"    - B: «{b[:95]}»")
-
-    # cross-check v2 (ilustrativo, no ajuste)
-    V2="/Users/fabriziocuellar/Downloads/validacion_v2_propuesta_chatgpt.csv"
-    if os.path.exists(V2):
-        import csv
-        L.append("\n## Validación cruzada sobre la muestra v2 CONGELADA (ilustrativa, no ajuste)")
-        filas=[]
-        for row in csv.DictReader(open(V2,encoding="utf-8-sig")):
-            rel=(row.get("RELACION(MISMO_ESPECIFICO/MISMA_FAMILIA/DISTINTO/NO_SE)") or "").upper().strip()
-            da,db=row["descripcion_A"],row["descripcion_B"]; ca,cb=categoria(nrm(da)),categoria(nrm(db))
-            if ca is None or ca!=cb or ca not in VERIF_SEG: continue
-            A=enriquecer(ca,extraer(da)["atributos"],da); B=enriquecer(cb,extraer(db)["atributos"],db)
-            v=verificar(ca,A,B); filas.append((row.get("par_id",""),ca,rel,v["SUBFAMILIA"],v["PRODUCTO_ESPECIFICO"],v["razon_subfamilia"]))
-        L.append(f"\nPares capturados: {len(filas)}. (MISMA_FAMILIA humano ↔ FAMILIA_AMPLIA=SI; SUBFAMILIA es corte más fino.)")
-        L.append("| par | cat | humano (v2) | AMPLIA | SUBFAMILIA | ESPECÍFICO | razón subfamilia |")
-        L.append("|---|---|---|---|---|---|---|")
-        for pid,ca,rel,vs,ve,rz in filas: L.append(f"| {pid} | {ca} | {rel} | SI | {vs} | {ve} | {rz} |")
-
-    L.append("\n## Pendientes documentados (no resueltos aquí)")
-    L.append("- **RAM instalada en equipo** («? Memoria RAM 8GB instalado en un solo slot, expandible…»): "
-             "1 sola descripción en el corpus (AISLADO) → no se toca el extractor congelado por un caso; "
-             "una regla general podría descartar módulos reales. Pendiente de refinamiento del extractor.")
-    L.append("- La firma de membrete es heurística (tokens institucionales); puede marcar NO entre fraseos "
-             "distintos de la misma institución. Conservador (evita fusión falsa), a validar con humano.")
-    L.append("- Precisión real del verificador: PENDIENTE de muestra NUEVA estratificada por categoría Y "
-             "veredicto, etiquetada por separado a los 3 niveles, con falsos+/falsos−/INSUF separando error "
-             "de extractor / blocker / verificador. NO implementar agrupación ni agregación hasta entonces.")
-
-    open(os.path.join(OUT,"verificador_reporte.md"),"w").write("\n".join(L))
-    import csv as _csv
-    with open(os.path.join(OUT,"verificador_veredictos_muestra.csv"),"w",newline="",encoding="utf-8") as fh:
-        w=_csv.writer(fh); w.writerow(["familia_amplia_cat","comparten_subfam_blocker","SUBFAMILIA","PRODUCTO_ESPECIFICO",
-                                       "razon_subfamilia","razon_especifico","desc_A","desc_B"])
-        for cat,comp,a,b,v in todos[:600]:
-            w.writerow([cat,comp,v["SUBFAMILIA"],v["PRODUCTO_ESPECIFICO"],v["razon_subfamilia"],v["razon_especifico"],a[:120],b[:120]])
-    print("escrito reportes/verificador_reporte.md + reportes/verificador_veredictos_muestra.csv")
-    print("total pares:",len(P)," totales:",dict(tot))
-    print("cambios por capa correctiva:",dict(cambios))
+        for nombre,fl in STAGES:
+            v=verificar(cat,enr[a],enr[b],**fl)
+            estados[nombre].append((v["SUBFAMILIA"],v["PRODUCTO_ESPECIFICO"]))
+    def dist(lst):
+        c=collections.Counter(lst)
+        return {"SUB_SI":sum(v for k,v in c.items() if k[0]=="SI"),"SUB_NO":sum(v for k,v in c.items() if k[0]=="NO"),
+                "SUB_INSUF":sum(v for k,v in c.items() if k[0]=="INSUF"),
+                "ESP_SI":sum(v for k,v in c.items() if k[1]=="SI"),"ESP_NO":sum(v for k,v in c.items() if k[1]=="NO"),
+                "ESP_INSUF":sum(v for k,v in c.items() if k[1]=="INSUF")}
+    L=["# Etapa 3 — Impacto de la fase de corrección controlada (#3→#2→#1) sobre 9.828 pares\n"]
+    L.append(f"Universo: {len(uniq)} descripciones únicas; {len(P):,} pares candidatos. Línea base = commit "
+             "2ff01aa (congelada). Cada etapa añade UNA corrección sobre la anterior (aislamiento acumulativo).\n")
+    L.append("## Distribución por etapa")
+    L.append("| etapa | SUB SI | SUB NO | SUB INSUF | ESP SI | ESP NO | ESP INSUF |"); L.append("|"+"---|"*7)
+    for nombre,_ in STAGES:
+        d=dist(estados[nombre])
+        L.append(f"| {nombre} | {d['SUB_SI']} | {d['SUB_NO']} | {d['SUB_INSUF']} | {d['ESP_SI']} | {d['ESP_NO']} | {d['ESP_INSUF']} |")
+    # transiciones entre etapas consecutivas (registra TODAS; marca entradas a NO)
+    L.append("\n## Transiciones entre etapas consecutivas (estado = SUBFAMILIA/PRODUCTO_ESPECIFICO)")
+    for i in range(1,len(STAGES)):
+        pn,_=STAGES[i-1]; cn,_=STAGES[i]
+        trans=collections.Counter()
+        hacia_no=0
+        for j in range(len(P)):
+            s0=estados[pn][j]; s1=estados[cn][j]
+            if s0!=s1:
+                trans[(s0,s1)]+=1
+                if (s1[0]=="NO" and s0[0]!="NO") or (s1[1]=="NO" and s0[1]!="NO"): hacia_no+=1
+        L.append(f"\n### {pn} → {cn}: {sum(trans.values())} pares cambian · **hacia NO nuevo: {hacia_no}**")
+        L.append("| de (SUB/ESP) | a (SUB/ESP) | pares |"); L.append("|---|---|---|")
+        for (s0,s1),nn in trans.most_common():
+            L.append(f"| {s0[0]}/{s0[1]} | {s1[0]}/{s1[1]} | {nn} |")
+    open(os.path.join(OUT,"verificador_impacto_correcciones.md"),"w").write("\n".join(L))
+    print("escrito reportes/verificador_impacto_correcciones.md")
+    for nombre,_ in STAGES: print(nombre, dist(estados[nombre]))
