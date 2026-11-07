@@ -58,6 +58,13 @@ BASE_ESP={"llanta":["tipo_constr","camara","pliegues","huella"],"sobre_manila":[
  "ram":["frecuencia_mhz","formato"],"almacenamiento":["interfaz","formato"],
  "optico":["tipo_grabacion","grabacion_pol","presentacion"]}
 
+# ── HUELLA de llanta (fix4): contradicción SOLO entre grupos técnicamente incompatibles CONFIRMADOS.
+# Las denominaciones comerciales ambiguas (todo terreno/A-T, normal, lisa, pantanera↔semipantanera) NO
+# se declaran contradicción → INSUF. Ausencia NO degrada. (Precaución de normalización de ChatGPT.)
+_HUELLA_GRUPO={"pantanera":"barro","semi pantanera":"barro","semipantanera":"barro","autopista":"carretera"}
+def _huella_incompat(a,b):
+    ga,gb=_HUELLA_GRUPO.get(a),_HUELLA_GRUPO.get(b)
+    return ga is not None and gb is not None and ga!=gb   # barro vs carretera = incompatible confirmado
 _COLOR_SINON={"madera":"cafe","anaranjado":"naranja"}
 _IFACE_BASE ={"sata3":"sata"}
 _TIPO_CONT  ={"quimico":"autocopiativo","desglose":"autocopiativo","carbonico":"autocopiativo","autocopiativo":"autocopiativo"}  # solo baseline
@@ -174,7 +181,7 @@ def _esp_fix1(cat,A,B):
         if v=="SI": v="INSUF"
     return v,reasons
 
-def verificar(cat,A,B,fix1=True,fix2=True,fix3=True):
+def verificar(cat,A,B,fix1=True,fix2=True,fix3=True,fix4=True):
     seg=VERIF_SEG[cat]
     contra = SEG_CONTRA.get(cat,[]) if fix3 else BASE_SEG_SEC.get(cat,[])
     required=[k for k in seg if k not in contra]
@@ -204,6 +211,19 @@ def verificar(cat,A,B,fix1=True,fix2=True,fix3=True):
             elif (ma is None)!=(mb is None):
                 if v_esp=="SI": v_esp="INSUF"
                 r_esp.append("mecanismo_copia ausente en un lado → no confirmado")
+        # #4 LLANTA: recuperar huella y pliegues como DISCRIMINANTES solo-contradicción (no en IDENT duro:
+        # su ausencia NO degrada). Contradicción técnica CONFIRMADA → NO; diferencia AMBIGUA → INSUF.
+        if fix4 and cat=="llanta" and v_esp!="NO":
+            ha,hb=A.get("huella"),B.get("huella")
+            if ha and hb and ha!=hb:
+                if _huella_incompat(ha,hb):
+                    v_esp="NO"; r_esp.append(f"huella: {ha} ≠ {hb} (incompatible barro/carretera → distinto)")
+                else:
+                    if v_esp=="SI": v_esp="INSUF"
+                    r_esp.append(f"huella: {ha} ≠ {hb} (denominación ambigua → no confirmado)")
+            pa,pb=A.get("pliegues"),B.get("pliegues")
+            if pa and pb and pa!=pb and v_esp!="NO":
+                v_esp="NO"; r_esp.append(f"pliegues: {pa} ≠ {pb} (lona/carga distinta → distinto)")
     return {"FAMILIA_AMPLIA":"SI","SUBFAMILIA":v_sub,"PRODUCTO_ESPECIFICO":v_esp,
             "razon_subfamilia":"; ".join(r_sub),"razon_especifico":"; ".join(r_esp)}
 
