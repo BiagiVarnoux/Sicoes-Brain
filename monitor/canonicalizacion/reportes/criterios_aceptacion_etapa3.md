@@ -6,11 +6,20 @@ baselines en `congelado/`). Este documento define qué debe cumplirse para (a) c
 Etapa 3 y (b) autorizar fusiones automáticas en la Etapa 4. Lo revisa el usuario antes de decidir.
 
 ## Precisiones registradas (de la última revisión)
-- **La ausencia de `huella` o `pliegues` no acredita igualdad**, aunque no produzca contradicción.
-  En el verificador eso ya se cumple: la ausencia deja el veredicto en INSUF (candidato), nunca en SI.
+- **`huella` y `pliegues` de llanta son discriminantes SOLO-CONTRADICCIÓN** (comportamiento real del código,
+  verificado): su **ausencia NO degrada** el veredicto — si los atributos de identidad modelados
+  (medida, tipo_constr, cámara) coinciden, el par puede ser **ESP=SI aunque huella/pliegues falten**
+  (confirmado: existe 1 llanta ESP=SI con huella ausente en ambos lados). Solo una **contradicción técnica
+  confirmada** baja a NO, y una **diferencia ambigua** baja SI→INSUF. (Corrige la afirmación errónea de una
+  versión previa de este documento que decía que la ausencia "siempre produce INSUF".)
+- **La ausencia de huella/pliegues no acredita igualdad:** no añade confirmación; simplemente no bloquea un
+  SI ya ganado por los demás atributos de identidad. No se infiere igualdad a partir de la ausencia.
 - **Los "0 fallos de extracción" valen solo para los atributos primarios auditados** (`formato_continuo`,
   `medida`) y los casos examinados. **No validan todo el extractor.** La cobertura del extractor en los
   demás atributos (gramaje, color, generación, interfaz, etc.) no está medida y es una limitación conocida.
+- **La precisión del verificador POR PARES no garantiza la precisión de los CLÚSTERES.** La agrupación
+  (Etapa 4) requerirá su propia validación a nivel de clúster y controles de transitividad; un clúster con
+  una sola descripción intrusa es un error aunque casi todos sus pares internos sean correctos.
 - No se amplía todavía el soporte de formatos no modelados (continuo 9½×5½, "3×90", moto `2.75/18`).
 
 ---
@@ -91,9 +100,30 @@ descripción incompleta contamina muchos pares. Por eso toda métrica se reporta
 - **Errores de fusión indebida:** conteo y tasa, en pares y en descripciones. Métrica de seguridad.
 - Reporte por categoría y agregado, con los denominadores (nº pares y nº descripciones únicas).
 
+### Dependencia entre pares (limitación estadística, NO resuelta aún)
+Los pares del corpus **no son observaciones independientes**: comparten descripciones y sus errores están
+**correlacionados**. La auditoría de conteos (`auditoria_conteos_bond.md`) lo demuestra en papel_bond: los
+474 pares ESP=SI se reducen a **67 descripciones únicas, 9 clústeres y 5 variantes**, con 231 pares dentro de
+un solo clúster de 22 descripciones. Un acierto o error sobre "oficio 75g blanco" se repite en decenas de
+pares. **Por tanto, 150 pares cualesquiera NO equivalen a 150 observaciones independientes**, y el cálculo
+binomial de abajo es un límite optimista que solo vale sobre unidades independientes.
+
+**Propuesta de validación que controla la dependencia** (sin cambiar el umbral del 98%):
+- **Unidad de muestreo = descripción única / variante / clúster, no el par.** Contar éxitos por clúster
+  (¿el clúster es homogéneo?) y por variante, no por par.
+- **Muestreo estratificado por variante** (tamaño × gramaje × color × presentación / empaque) para no
+  sobre-representar la variante dominante; cubrir las variantes raras aunque aporten pocos pares.
+- **Cobertura de atributos relevantes por categoría**: registrar qué fracción de las descripciones declara
+  cada atributo de identidad (p. ej. % de bond que trae gramaje) — un n alto con baja cobertura de gramaje
+  no respalda identidad.
+- **n efectivo**, no n de pares: aplicar el cálculo binomial sobre el número de unidades independientes
+  (clústeres/descripciones), o usar un intervalo que corrija el efecto de diseño por correlación intra-clúster.
+- El umbral del **98% se mantiene**; lo que cambia es que el n debe medirse en unidades independientes.
+
 ### Objetivo provisional: precisión de fusión ≥ 98%
 
-Marco estadístico (proporción binomial, una cola, para **afirmar un piso** de precisión):
+Marco estadístico (proporción binomial, una cola, para **afirmar un piso** de precisión, **sobre unidades
+independientes** — ver la limitación de dependencia arriba):
 
 - **Con 0 errores observados** (regla de tres): el límite superior 95% de la tasa de error es ≈ 3/n.
   Para que ese límite sea ≤ 2% (precisión ≥ 98%): **n ≈ 150 pares ESP=SI por categoría, 0 errores → 95%
@@ -104,26 +134,29 @@ Marco estadístico (proporción binomial, una cola, para **afirmar un piso** de 
   error admitido, sumar ~90–100 pares.
 - **Estimación puntual (no piso)** con intervalo de Wilson a ±2% y 95%, cerca de p=0.98: **n ≈ 190**.
 
-**Recomendación:** fijar **n = 150 por categoría con criterio de 0 errores** como condición mínima de
-fusión automática a 95% de confianza; subir a 230 para 95%→99% o si se quiere margen para 1 error. Para
-categorías de bajo volumen de ESP=SI (impreso 6, sobre 15, óptico 22) es imposible reunir 150 positivos:
-esas **permanecen en modo asistido** hasta acumular datos históricos nuevos. Medir a nivel de **descripción
-única**, no de par, para no inflar n con pares redundantes del mismo par de descripciones.
+**Recomendación:** fijar **n = 150 unidades independientes por categoría con criterio de 0 errores** como
+condición mínima de fusión automática a 95% de confianza; 230 para 99%. "Unidad independiente" = descripción
+única / clúster / variante, **no par**.
 
-Universo actual de referencia (post-corrección, 9.828 pares / 5.067 descripciones únicas):
+Universo actual de referencia (post-corrección, 9.828 pares / 5.067 descripciones únicas). La columna que
+importa es el **volumen efectivo independiente**, no el nº de pares — ver `auditoria_conteos_bond.md`:
 
-| categoría | ESP=SI (pares) | ¿alcanza n=150? |
-|---|---|---|
-| papel_bond | 474 | sí |
-| papel_continuo | 76 | no (asistido o más datos) |
-| optico | 22 | no |
-| sobre_manila | 15 | no |
-| papel_impreso | 6 | no |
-| llanta | 2 | no |
-| ram / almacenamiento | 0 | sin confirmaciones: no aplica |
+| categoría | ESP=SI (pares) | desc. únicas / clústeres / variantes | ¿n independiente ≈150? |
+|---|---|---|---|
+| papel_bond | 474 | **67 desc / 9 clústeres / 5 variantes** | **NO** (474 pares ≠ 474 obs.) |
+| papel_continuo | 76 | pendiente de auditar (menor aún) | no |
+| optico | 22 | — | no |
+| sobre_manila | 15 | — | no |
+| papel_impreso | 6 | — | no |
+| llanta | 2 | — | no |
+| ram / almacenamiento | 0 | sin confirmaciones | no aplica |
 
-Lectura: **solo papel_bond** tiene hoy volumen para pretender fusión automática validada al 98%; el resto
-entra en modo asistido o requiere datos históricos nuevos. Esto es un resultado importante para la decisión.
+**Corrección respecto de la versión previa de este documento:** afirmé que papel_bond "alcanza n=150".
+La auditoría de conteos lo desmiente: su volumen efectivo son ~5 variantes / 9 clústeres / 67 descripciones.
+**Ninguna categoría tiene hoy volumen independiente para una validación del 98% defendible.** Para lograrlo
+hacen falta **más descripciones distintas** (datos históricos nuevos con más diversidad de
+tamaño/gramaje/color/presentación), no más pares del mismo puñado de variantes. En consecuencia, **toda
+categoría opera por ahora en modo asistido**; la fusión automática queda bloqueada hasta reunir ese volumen.
 
 ## 5. Riesgos residuales y limitaciones conocidas
 
@@ -159,8 +192,11 @@ Antes de escribir una sola asignación de `producto_canonico_id`:
 ---
 
 ### Resumen para decidir el cierre
-- Cerrar Etapa 3 (documental/reproducible) **es viable hoy**: reglas, baseline, regresión y límites están.
-- Autorizar fusiones automáticas **no es viable hoy** salvo, potencialmente, en papel_bond tras validar
-  150 positivos independientes con 0 errores. El resto de categorías → modo asistido.
-- Siguiente paso propuesto: aprobar estos criterios y, si se aceptan, planificar la validación independiente
-  de papel_bond como primer caso. Sin tocar verificador ni generar muestras hasta esa decisión.
+- Cerrar Etapa 3 **como desarrollo experimental reproducible, con limitaciones conocidas, es viable hoy**:
+  reglas documentadas, baseline congelada, regresión estable, límites explícitos.
+- Autorizar fusiones automáticas **no es viable hoy en ninguna categoría**: ni papel_bond tiene volumen
+  independiente suficiente (≈5 variantes / 9 clústeres / 67 descripciones, no 474 observaciones). Todas las
+  categorías → **modo asistido** hasta reunir más descripciones distintas (datos históricos nuevos).
+- La fusión automática **seguirá bloqueada** hasta completar la validación por unidades independientes.
+- Siguiente paso propuesto (tras aprobar estos criterios): decidir cómo conseguir diversidad de descripciones
+  por categoría. Sin tocar verificador/extractor ni generar muestras hasta esa decisión.
