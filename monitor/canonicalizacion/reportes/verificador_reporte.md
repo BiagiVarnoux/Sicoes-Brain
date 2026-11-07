@@ -8,71 +8,83 @@ Tres veredictos SEPARADOS: FAMILIA_AMPLIA (equivalencia comercial) · SUBFAMILIA
 | categoría | pares | sub=SI·esp=SI | sub=SI·esp=INSUF | sub=SI·esp=NO | sub=NO | sub=INSUF |
 |---|---|---|---|---|---|---|
 | almacenamiento | 351 | 0 | 9 | 0 | 302 | 40 |
-| llanta | 528 | 1 | 14 | 4 | 359 | 150 |
-| optico | 561 | 11 | 74 | 52 | 200 | 224 |
-| papel_bond | 5460 | 1059 | 329 | 677 | 2749 | 646 |
-| papel_continuo | 1953 | 95 | 309 | 145 | 1122 | 282 |
+| llanta | 528 | 1 | 14 | 4 | 427 | 82 |
+| optico | 561 | 22 | 51 | 64 | 200 | 224 |
+| papel_bond | 5460 | 1108 | 717 | 886 | 2749 | 0 |
+| papel_continuo | 1953 | 179 | 376 | 0 | 1159 | 239 |
 | papel_impreso | 325 | 0 | 6 | 144 | 150 | 25 |
 | ram | 325 | 0 | 71 | 0 | 189 | 65 |
 | sobre_manila | 325 | 15 | 51 | 0 | 259 | 0 |
-| **TOTAL** | **9828** | **1181** | **863** | **1022** | **5330** | **1432** |
+| **TOTAL** | **9828** | **1325** | **1295** | **1098** | **5435** | **675** |
 
 > Son resultados del algoritmo, NO una medición de precisión. Que N pares den 'mismo específico' NO prueba que sean intercambiables: eso requiere validación independiente a 3 niveles con datos nuevos.
 
 ## Impacto de la capa correctiva (base → corregido; aísla sistémico vs aislado)
-Pares cuyo veredicto CAMBIÓ: **315** de 9,828.
+Pares cuyo veredicto CAMBIÓ: **1654** de 9,828.
 | cambio (SUB/ESP base → corregido) | pares |
 |---|---|
+| papel_bond: INSUF/INSUF → SI/INSUF | 496 |
+| papel_continuo: INSUF/INSUF → SI/INSUF | 334 |
+| papel_bond: INSUF/NO → SI/NO | 184 |
 | papel_impreso: SI/INSUF → SI/NO | 144 |
-| optico: SI/INSUF → SI/NO | 42 |
-| papel_bond: INSUF/NO → SI/NO | 36 |
+| papel_continuo: SI/NO → SI/SI | 84 |
+| llanta: INSUF/INSUF → NO/NO | 68 |
+| papel_bond: SI/INSUF → SI/NO | 55 |
+| optico: SI/INSUF → SI/NO | 54 |
+| papel_bond: SI/INSUF → SI/SI | 48 |
+| papel_continuo: INSUF/NO → SI/INSUF | 42 |
 | papel_bond: INSUF/NO → NO/NO | 31 |
-| papel_bond: INSUF/INSUF → SI/SI | 15 |
+| papel_continuo: INSUF/NO → INSUF/INSUF | 20 |
+| papel_bond: INSUF/INSUF → SI/SI | 16 |
 | optico: SI/SI → SI/INSUF | 15 |
+| llanta: INSUF/INSUF → SI/INSUF | 14 |
+| optico: SI/INSUF → SI/SI | 11 |
 | sobre_manila: SI/NO → SI/INSUF | 11 |
 | optico: SI/SI → SI/NO | 10 |
-| papel_bond: INSUF/INSUF → SI/INSUF | 5 |
+| papel_bond: INSUF/INSUF → SI/NO | 6 |
 | papel_bond: INSUF/INSUF → NO/NO | 4 |
+| llanta: INSUF/NO → SI/NO | 4 |
 | almacenamiento: SI/NO → SI/INSUF | 1 |
 | almacenamiento: INSUF/NO → INSUF/INSUF | 1 |
+| llanta: INSUF/INSUF → SI/SI | 1 |
 
 Ejemplos de cambios:
+- [papel_bond: INSUF/INSUF → SI/INSUF] tamano: = "carta"; gramaje_gm2: falta en B; color: falta en B
+    - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
+    - B: «PAPEL BOND TAMAÑO CARTA»
+- [papel_bond: INSUF/INSUF → SI/INSUF] tamano: = "carta"; gramaje_gm2: falta en B; color: falta en B
+    - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
+    - B: «PAPEL BOND TAMAÑO CARTA PAPEL ALCALINO»
+- [papel_continuo: INSUF/INSUF → SI/INSUF] formato_continuo: = "9.5x11"; partes: = 4; gramaje_gm2: falta en AB; tipo: falta en AB
+    - A: «PAPEL CONTINUO 9 1/2 X 11 X 4»
+    - B: «PAPEL CONTINUO 9 1/2X11X4»
+- [papel_continuo: INSUF/INSUF → SI/INSUF] formato_continuo: = "9.5x11"; partes: = 4; gramaje_gm2: falta en AB; tipo: falta en AB
+    - A: «PAPEL CONTINUO 9 1/2 X 11 X 4»
+    - B: «PAPEL CONTINUO AUTOCOPIATIVO 9.5 X 11 X 4»
+- [papel_bond: INSUF/NO → SI/NO] tamano: = "oficio"; gramaje_gm2: falta en B; color: "blanco" ≠ "surtido"
+    - A: «PAPEL BOND ; TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR BLANCO; PRESENTACION PAQUETE DE 500 HOJA»
+    - B: «PAPEL BOND OFICIO DE COLOR SURTIDO»
+- [papel_bond: INSUF/NO → SI/NO] tamano: = "oficio"; gramaje_gm2: = 75; color: "blanco" ≠ "surtido"
+    - A: «PAPEL BOND ; TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR BLANCO; PRESENTACION PAQUETE DE 500 HOJA»
+    - B: «PAPEL BOND TAMAÑO OFICIIO DIFERENTES COLORES DE 75 GR»
 - [papel_impreso: SI/INSUF → SI/NO] tamano: = "oficio"; gramaje_gm2: = 75; color: falta en AB; membrete: "bond consejo magistratura material" ≠ "bond material plena sala"
     - A: «HOJA MEMBRETADA CONSEJO DE LA MAGISTRATURA, TAMAÑO OFICIO (21. X 33CM); PAQUETE DE 500 HOJ»
     - B: «HOJA MEMBRETADA SALA PLENA TAMAÑO OFICIO (21. X 33CM); PAQUETE DE 500 HOJAS IMPRESIÓN FULL»
 - [papel_impreso: SI/INSUF → SI/NO] tamano: = "oficio"; gramaje_gm2: = 75; color: falta en AB; membrete: "bond consejo magistratura material" ≠ "bond material tdj"
     - A: «HOJA MEMBRETADA CONSEJO DE LA MAGISTRATURA, TAMAÑO OFICIO (21. X 33CM); PAQUETE DE 500 HOJ»
     - B: «HOJA MEMBRETADA TDJ TAMAÑO OFICIO (21.5X33CM); PAQUETE DE 500 HOJAS IMPRESIÓN FULL COLOR A»
-- [optico: SI/INSUF → SI/NO] tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: falta en B; grabacion_pol: "+r" ≠ "-r"; presentacion: "con_caja" ≠ "sin_caja"
-    - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
-    - B: «DISCO COMPACTO; CAPACIDAD 4.7 GB: TIPO DVD - RX4-VIRGEN SIN CAJA»
-- [optico: SI/INSUF → SI/NO] tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: falta en B; grabacion_pol: "+r" ≠ "-r"; presentacion: "con_caja" ≠ "sin_caja"
-    - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
-    - B: «DISCO COMPACTO; CAPACIDAD 4.7 GB; TIPO DVD - RX4- VIRGEN SIN CAJA»
-- [papel_bond: INSUF/NO → SI/NO] tamano: = "oficio"; gramaje_gm2: = 75; color: "blanco" ≠ "surtido"
-    - A: «PAPEL BOND ; TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR BLANCO; PRESENTACION PAQUETE DE 500 HOJA»
-    - B: «PAPEL BOND TAMAÑO OFICIIO DIFERENTES COLORES DE 75 GR»
-- [papel_bond: INSUF/NO → SI/NO] tamano: = "oficio"; gramaje_gm2: = 75; color: "blanco" ≠ "surtido"
-    - A: «PAPEL BOND BLANCO: TAMAÑO OFICIO GRAMAJE 75 GRS. COLOR BLANCO NITIDO; PRESENTACION PAQUETE»
-    - B: «PAPEL BOND TAMAÑO OFICIIO DIFERENTES COLORES DE 75 GR»
-- [papel_bond: INSUF/NO → NO/NO] tamano: "carta" ≠ "oficio"; gramaje_gm2: = 75; color: "blanco" ≠ "surtido"
-    - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
-    - B: «PAPEL BOND TAMAÑO OFICIIO DIFERENTES COLORES DE 75 GR»
-- [papel_bond: INSUF/NO → NO/NO] tamano: "carta" ≠ "oficio"; gramaje_gm2: = 75; color: "blanco" ≠ "surtido"
-    - A: «PAPEL BOND BLANCO: TAMAÑO CARTA GRAMAJE 75 GRS. COLOR BLANCO NITIDO; PRESENTACION PAQUETE »
-    - B: «PAPEL BOND TAMAÑO OFICIIO DIFERENTES COLORES DE 75 GR»
-- [papel_bond: INSUF/INSUF → SI/SI] tamano: = "oficio"; gramaje_gm2: = 75; color: = "surtido"
-    - A: «PAPEL BOND TAMAÑO OFICIIO DIFERENTES COLORES DE 75 GR»
-    - B: «PAPEL BOND TAMAÑO OFICIO 215x330 MM; GRAMAJE 75 GR. DIFERENTE COLORES PRESENTACION EN PAQU»
-- [papel_bond: INSUF/INSUF → SI/SI] tamano: = "oficio"; gramaje_gm2: = 75; color: = "surtido"
-    - A: «PAPEL BOND TAMAÑO OFICIIO DIFERENTES COLORES DE 75 GR»
-    - B: «PAPEL BOND TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR SURTIDO; PRESENTACION POR HOJA (IRIS O SU »
-- [optico: SI/SI → SI/INSUF] tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: = "r"; grabacion_pol: = "+r"; presentacion: falta en B
-    - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
-    - B: «DVD+R 8X CAPACIDAD DE 4,7 GB. MAS FUNDA»
-- [optico: SI/SI → SI/INSUF] tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: = "r"; grabacion_pol: = "+r"; presentacion: falta en B
-    - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
-    - B: «Disco Compacto; Capacidad 4.7 Gb;Tipo Dvd+r 8x.»
+- [papel_continuo: SI/NO → SI/SI] formato_continuo: = "9.5x11"; partes: = 2; gramaje_gm2: = 56; tipo: = "autocopiativo"
+    - A: «PAPEL CONTINUO, MEDIDAS 9 1/2 X11X2 PLG, GRAMAJE 56 GRS, PRESENTACION POR CAJAS X 1500 HOJ»
+    - B: «PAPEL CONTINUO; MEDIDAS 9 1/2 X 11 X 2 PLG.; GRAMAJE 56 GRS.; PRESENTACION POR CAJAS X 150»
+- [papel_continuo: SI/NO → SI/SI] formato_continuo: = "9.5x11"; partes: = 2; gramaje_gm2: = 56; tipo: = "autocopiativo"
+    - A: «PAPEL CONTINUO, MEDIDAS 9 1/2 X11X2 PLG, GRAMAJE 56 GRS, PRESENTACION POR CAJAS X 1500 HOJ»
+    - B: «PAPEL CONTINUO; MEDIDAS 9 1/2 X 11 X 2 PLG.; GRAMAJE 56 GRS.; PRESENTACIÓN CAJA DE 1.500 H»
+- [llanta: INSUF/INSUF → NO/NO] medida: falta en B; aplicacion: "auto" ≠ "moto"; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
+    - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 175/70 R13; HUELLA A; TIPO RADIAL; SIN CAMARA; SIN PONCHILL»
+    - B: «Llantas Delanteras Moto Honda»
+- [llanta: INSUF/INSUF → NO/NO] medida: falta en B; aplicacion: "auto" ≠ "moto"; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
+    - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 175/70 R13; HUELLA A; TIPO RADIAL; SIN CAMARA; SIN PONCHILL»
+    - B: «Llantas Delanteras Moto Serna»
 
 ## Ejemplos trazables (coincidencias y contradicciones)
 
@@ -115,57 +127,57 @@ Ejemplos de cambios:
     - B: «DISCOS DUROS HDD 1TB SATA»
 
 ### llanta
-- ✅ MISMO ESPECÍFICO  ·  medida: = {"ancho": 205, "perfil": 70, "rin": 15}; tipo_constr: = "tubular"; camara: = "sin_camara"; pliegues: = 10; huella: = "semi pantanera"
+- ✅ MISMO ESPECÍFICO  ·  medida: = {"ancho": 205, "perfil": 70, "rin": 15}; aplicacion: = "auto"; tipo_constr: = "tubular"; camara: = "sin_camara"; pliegues: = 10; huella: = "semi pantanera"
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 205/70 R15; N° DE PLIEGUES 10; SEMI PANTANERA; TIPO TUBULAR; SIN»
     - B: «LLANTA PARA AUTOMOTOR; MEDIDAS 205/70 R15; N° PLIEGUES 10; SEMI PANTANERA; TIPO TUBULAR; SIN CÁ»
-- ≈ MISMA FAMILIA, distinto específico  ·  medida: = {"ancho": 205, "perfil": 70, "rin": 15}; tipo_constr: falta en B; camara: falta en B; pliegues: falta en B; huella: "semi pantanera" ≠ "autopista"
+- ≈ MISMA FAMILIA, distinto específico  ·  medida: = {"ancho": 205, "perfil": 70, "rin": 15}; aplicacion: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en B; huella: "semi pantanera" ≠ "autopista"
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 205/70 R15; N° DE PLIEGUES 10; SEMI PANTANERA; TIPO TUBULAR; SIN»
     - B: «LLANTAS FIRESTONE ARGENTINA 205/70R15 TRILLA H/T»
-- ≈ MISMA FAMILIA, distinto específico  ·  medida: = {"ancho": 205, "perfil": 70, "rin": 15}; tipo_constr: "tubular" ≠ "radial"; camara: falta en B; pliegues: falta en B; huella: falta en B
+- ≈ MISMA FAMILIA, distinto específico  ·  medida: = {"ancho": 205, "perfil": 70, "rin": 15}; aplicacion: = "auto"; tipo_constr: "tubular" ≠ "radial"; camara: falta en B; pliegues: falta en B; huella: falta en B
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 205/70 R15; N° DE PLIEGUES 10; SEMI PANTANERA; TIPO TUBULAR; SIN»
     - B: «Llanta para Automotor; Medidas 205/70 R15; Tipo Radial»
-- ≈ MISMA FAMILIA, distinto específico  ·  medida: = {"ancho": 205, "perfil": 70, "rin": 15}; tipo_constr: falta en B; camara: falta en B; pliegues: falta en B; huella: "semi pantanera" ≠ "autopista"
+- ≈ MISMA FAMILIA, distinto específico  ·  medida: = {"ancho": 205, "perfil": 70, "rin": 15}; aplicacion: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en B; huella: "semi pantanera" ≠ "autopista"
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 205/70 R15; N° PLIEGUES 10; SEMI PANTANERA; TIPO TUBULAR; SIN CÁ»
     - B: «LLANTAS FIRESTONE ARGENTINA 205/70R15 TRILLA H/T»
-- ≈ MISMA FAMILIA, distinto específico  ·  medida: = {"ancho": 205, "perfil": 70, "rin": 15}; tipo_constr: "tubular" ≠ "radial"; camara: falta en B; pliegues: falta en B; huella: falta en B
+- ≈ MISMA FAMILIA, distinto específico  ·  medida: = {"ancho": 205, "perfil": 70, "rin": 15}; aplicacion: = "auto"; tipo_constr: "tubular" ≠ "radial"; camara: falta en B; pliegues: falta en B; huella: falta en B
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 205/70 R15; N° PLIEGUES 10; SEMI PANTANERA; TIPO TUBULAR; SIN CÁ»
     - B: «Llanta para Automotor; Medidas 205/70 R15; Tipo Radial»
-- ≈ MISMA SUBFAMILIA, específico INSUF  ·  medida: = {"ancho": 185, "perfil": 70, "rin": 13}; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
+- ≈ MISMA SUBFAMILIA, específico INSUF  ·  medida: = {"ancho": 185, "perfil": 70, "rin": 13}; aplicacion: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 185/70 R13; DE CONSTRUCCIÓN RADIAL Y TUBULAR; SIN CÁMARA; SIN PO»
     - B: «LLANTAS HABILEAD CHINA 185/70R13»
-- ≈ MISMA SUBFAMILIA, específico INSUF  ·  medida: = {"ancho": 185, "perfil": 70, "rin": 14}; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
+- ≈ MISMA SUBFAMILIA, específico INSUF  ·  medida: = {"ancho": 185, "perfil": 70, "rin": 14}; aplicacion: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 185/70 R14; DE CONSTRUCCION RADIAL Y TUBULAR; SIN CAMARA; SIN PO»
     - B: «LLANTAS 185/70R14»
-- ≈ MISMA SUBFAMILIA, específico INSUF  ·  medida: = {"ancho": 185, "perfil": 70, "rin": 14}; tipo_constr: = "radial"; camara: = "sin_camara"; pliegues: falta en AB; huella: falta en AB
+- ≈ MISMA SUBFAMILIA, específico INSUF  ·  medida: = {"ancho": 185, "perfil": 70, "rin": 14}; aplicacion: = "auto"; tipo_constr: = "radial"; camara: = "sin_camara"; pliegues: falta en AB; huella: falta en AB
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 185/70 R14; DE CONSTRUCCION RADIAL Y TUBULAR; SIN CAMARA; SIN PO»
     - B: «Llanta para Automotor; Medidas 185/70 R14;De construcción radial y tubular; sin Cámara; sin pon»
-- ≈ MISMA SUBFAMILIA, específico INSUF  ·  medida: = {"ancho": 205, "perfil": 55, "rin": 16}; tipo_constr: = "radial"; camara: falta en B; pliegues: falta en B; huella: falta en B
+- ≈ MISMA SUBFAMILIA, específico INSUF  ·  medida: = {"ancho": 205, "perfil": 55, "rin": 16}; aplicacion: = "auto"; tipo_constr: = "radial"; camara: falta en B; pliegues: falta en B; huella: falta en B
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 205/55 R16; N°. DE PLIEGUES 8; HUELLA SEMI PANTANERA; TIPO RADIA»
     - B: «Llanta para Automotor; Medidas 205/55 R16; Tipo Radial»
-- ✗ DISTINTA SUBFAMILIA  ·  medida: {"ancho": 175, "perfil": 70, "rin": 13} ≠ {"ancho": 185, "perfil": 65, "rin": 14}
+- ✗ DISTINTA SUBFAMILIA  ·  medida: {"ancho": 175, "perfil": 70, "rin": 13} ≠ {"ancho": 185, "perfil": 65, "rin": 14}; aplicacion: = "auto"
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 175/70 R13; HUELLA A; TIPO RADIAL; SIN CAMARA; SIN PONCHILLO»
     - B: «LLANTA PARA AUTOMOTOR; MEDIDAS 185/65 R14 N° PLIEGUES 10; 87H; TIPO TUBULAR; SIN CÁMARA SIN PON»
-- ✗ DISTINTA SUBFAMILIA  ·  medida: {"ancho": 175, "perfil": 70, "rin": 13} ≠ {"ancho": 185, "perfil": 70, "rin": 13}
+- ✗ DISTINTA SUBFAMILIA  ·  medida: {"ancho": 175, "perfil": 70, "rin": 13} ≠ {"ancho": 185, "perfil": 70, "rin": 13}; aplicacion: = "auto"
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 175/70 R13; HUELLA A; TIPO RADIAL; SIN CAMARA; SIN PONCHILLO»
     - B: «LLANTA PARA AUTOMOTOR; MEDIDAS 185/70 R13; DE CONSTRUCCIÓN RADIAL Y TUBULAR; SIN CÁMARA; SIN PO»
-- ✗ DISTINTA SUBFAMILIA  ·  medida: {"ancho": 175, "perfil": 70, "rin": 13} ≠ {"ancho": 185, "perfil": 70, "rin": 14}
+- ✗ DISTINTA SUBFAMILIA  ·  medida: {"ancho": 175, "perfil": 70, "rin": 13} ≠ {"ancho": 185, "perfil": 70, "rin": 14}; aplicacion: = "auto"
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 175/70 R13; HUELLA A; TIPO RADIAL; SIN CAMARA; SIN PONCHILLO»
     - B: «LLANTA PARA AUTOMOTOR; MEDIDAS 185/70 R14; DE CONSTRUCCION RADIAL Y TUBULAR; SIN CAMARA; SIN PO»
-- ✗ DISTINTA SUBFAMILIA  ·  medida: {"ancho": 175, "perfil": 70, "rin": 13} ≠ {"ancho": 195, "perfil": 65, "rin": 15}
+- ✗ DISTINTA SUBFAMILIA  ·  medida: {"ancho": 175, "perfil": 70, "rin": 13} ≠ {"ancho": 195, "perfil": 65, "rin": 15}; aplicacion: = "auto"
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 175/70 R13; HUELLA A; TIPO RADIAL; SIN CAMARA; SIN PONCHILLO»
     - B: «LLANTA PARA AUTOMOTOR; MEDIDAS 195/65 R15; N°. DE PLIEGES 8; HUELLA AUTOPISTA; TIPO RADIAL; SIN»
-- ? SUBFAMILIA INSUF (ambiguo)  ·  medida: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
+- ? SUBFAMILIA INSUF (ambiguo)  ·  medida: falta en B; aplicacion: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
     - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 175/70 R13; HUELLA A; TIPO RADIAL; SIN CAMARA; SIN PONCHILLO»
     - B: «LLANTAS 2.75/18»
-- ? SUBFAMILIA INSUF (ambiguo)  ·  medida: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
-    - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 175/70 R13; HUELLA A; TIPO RADIAL; SIN CAMARA; SIN PONCHILLO»
-    - B: «Llantas Delanteras Moto Honda»
-- ? SUBFAMILIA INSUF (ambiguo)  ·  medida: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
-    - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 175/70 R13; HUELLA A; TIPO RADIAL; SIN CAMARA; SIN PONCHILLO»
-    - B: «Llantas Delanteras Moto Serna»
-- ? SUBFAMILIA INSUF (ambiguo)  ·  medida: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
-    - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 175/70 R13; HUELLA A; TIPO RADIAL; SIN CAMARA; SIN PONCHILLO»
-    - B: «Llantas Traseras Moto Honda»
+- ? SUBFAMILIA INSUF (ambiguo)  ·  medida: falta en B; aplicacion: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en B; huella: falta en AB
+    - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 185/65 R14 N° PLIEGUES 10; 87H; TIPO TUBULAR; SIN CÁMARA SIN PON»
+    - B: «LLANTAS 2.75/18»
+- ? SUBFAMILIA INSUF (ambiguo)  ·  medida: falta en B; aplicacion: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
+    - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 185/70 R13; DE CONSTRUCCIÓN RADIAL Y TUBULAR; SIN CÁMARA; SIN PO»
+    - B: «LLANTAS 2.75/18»
+- ? SUBFAMILIA INSUF (ambiguo)  ·  medida: falta en B; aplicacion: falta en B; tipo_constr: falta en B; camara: falta en B; pliegues: falta en AB; huella: falta en AB
+    - A: «LLANTA PARA AUTOMOTOR; MEDIDAS 185/70 R14; DE CONSTRUCCION RADIAL Y TUBULAR; SIN CAMARA; SIN PO»
+    - B: «LLANTAS 2.75/18»
 
 ### optico
 - ✅ MISMO ESPECÍFICO  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: = "r"; grabacion_pol: = "+r"; presentacion: = "con_caja"
@@ -179,22 +191,19 @@ Ejemplos de cambios:
     - B: «DISCO COMPACTO; CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLÁSTICA.»
 - ✅ MISMO ESPECÍFICO  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: = "r"; grabacion_pol: = "+r"; presentacion: = "con_caja"
     - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
-    - B: «Disco compacto; capacidad 4.7 gb; tipo dvd+r 8x; virgen con caja plastica»
-- ≈ MISMA FAMILIA, distinto específico  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: falta en B; grabacion_pol: "+r" ≠ "-r"; presentacion: "con_caja" ≠ "sin_caja"
+    - B: «DISCO COMPACTO;CAPACIDAD 4.7 GB; TIPO DVD+R8X; VIRGEN CON CAJA PLASTICA.»
+- ≈ MISMA FAMILIA, distinto específico  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: = "r"; grabacion_pol: "+r" ≠ "-r"; presentacion: "con_caja" ≠ "sin_caja"
     - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
     - B: «DISCO COMPACTO; CAPACIDAD 4.7 GB: TIPO DVD - RX4-VIRGEN SIN CAJA»
-- ≈ MISMA FAMILIA, distinto específico  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: falta en B; grabacion_pol: "+r" ≠ "-r"; presentacion: "con_caja" ≠ "sin_caja"
+- ≈ MISMA FAMILIA, distinto específico  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: = "r"; grabacion_pol: "+r" ≠ "-r"; presentacion: "con_caja" ≠ "sin_caja"
     - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
     - B: «DISCO COMPACTO; CAPACIDAD 4.7 GB; TIPO DVD - RX4- VIRGEN SIN CAJA»
 - ≈ MISMA FAMILIA, distinto específico  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: = "r"; grabacion_pol: = "+r"; presentacion: "con_caja" ≠ "sin_caja"
     - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
     - B: «DISCO COMPACTO; CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN SIN CAJA»
-- ≈ MISMA FAMILIA, distinto específico  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: falta en B; grabacion_pol: "+r" ≠ "-r"; presentacion: "con_caja" ≠ "sin_caja"
+- ≈ MISMA FAMILIA, distinto específico  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: = "r"; grabacion_pol: "+r" ≠ "-r"; presentacion: "con_caja" ≠ "sin_caja"
     - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
     - B: «Disco Compacto; Capacidad 4.7 Gb; Tipo Dvd - Rx4 Virgen Sin Caja- HP.»
-- ≈ MISMA SUBFAMILIA, específico INSUF  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: falta en B; grabacion_pol: = "+r"; presentacion: = "con_caja"
-    - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
-    - B: «DISCO COMPACTO;CAPACIDAD 4.7 GB; TIPO DVD+R8X; VIRGEN CON CAJA PLASTICA.»
 - ≈ MISMA SUBFAMILIA, específico INSUF  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: = "r"; grabacion_pol: = "+r"; presentacion: falta en B
     - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
     - B: «DVD+R 8X CAPACIDAD DE 4,7 GB. MAS FUNDA»
@@ -204,6 +213,9 @@ Ejemplos de cambios:
 - ≈ MISMA SUBFAMILIA, específico INSUF  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: falta en B; grabacion_pol: falta en B; presentacion: falta en B
     - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
     - B: «Dvd de Grabacion; Capacidad 4.7 Gb; Present. Por Unidad»
+- ≈ MISMA SUBFAMILIA, específico INSUF  ·  tipo_medio: = "dvd"; capacidad_gb: = 4.7; tipo_grabacion: falta en B; grabacion_pol: falta en B; presentacion: = "con_caja"
+    - A: «DISCO COMPACTO: CAPACIDAD 4.7 GB; TIPO DVD+R 8X; VIRGEN CON CAJA PLASTICA»
+    - B: «Dvd de Grabacion; Capacidad 4.7 Gb; Presentación Por Unidad con Tapa»
 - ✗ DISTINTA SUBFAMILIA  ·  tipo_medio: "cd" ≠ "dvd"; capacidad_gb: falta en AB
     - A: «DISCO COMPACTO CD»
     - B: «DISCO COMPACTO DVD»
@@ -242,6 +254,9 @@ Ejemplos de cambios:
 - ✅ MISMO ESPECÍFICO  ·  tamano: = "carta"; gramaje_gm2: = 75; color: = "blanco"
     - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
     - B: «PAPEL BOND TAMAÑO CARTA BLANCO DE 75 GR»
+- ≈ MISMA FAMILIA, distinto específico  ·  tamano: = "oficio"; gramaje_gm2: falta en B; color: "blanco" ≠ "surtido"
+    - A: «PAPEL BOND ; TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR BLANCO; PRESENTACION PAQUETE DE 500 HOJAS»
+    - B: «PAPEL BOND OFICIO DE COLOR SURTIDO»
 - ≈ MISMA FAMILIA, distinto específico  ·  tamano: = "oficio"; gramaje_gm2: = 75; color: "blanco" ≠ "surtido"
     - A: «PAPEL BOND ; TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR BLANCO; PRESENTACION PAQUETE DE 500 HOJAS»
     - B: «PAPEL BOND TAMAÑO OFICIIO DIFERENTES COLORES DE 75 GR»
@@ -251,21 +266,18 @@ Ejemplos de cambios:
 - ≈ MISMA FAMILIA, distinto específico  ·  tamano: = "oficio"; gramaje_gm2: = 75; color: "blanco" ≠ "negro"
     - A: «PAPEL BOND ; TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR BLANCO; PRESENTACION PAQUETE DE 500 HOJAS»
     - B: «PAPEL BOND TAMAÑO OFICIO; GRAMAJE 75 GRS.; COLOR SURTIDO; PRESENTACIÓN POR HOJA (SIN NEGRO)»
-- ≈ MISMA FAMILIA, distinto específico  ·  tamano: = "oficio"; gramaje_gm2: = 75; color: "blanco" ≠ "surtido"
-    - A: «PAPEL BOND ; TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR BLANCO; PRESENTACION PAQUETE DE 500 HOJAS»
-    - B: «PAPEL BOND TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR SURTIDO; PRESENTACION POR HOJA (IRIS O SU EQUIV»
+- ≈ MISMA SUBFAMILIA, específico INSUF  ·  tamano: = "carta"; gramaje_gm2: falta en B; color: falta en B
+    - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
+    - B: «PAPEL BOND TAMAÑO CARTA»
+- ≈ MISMA SUBFAMILIA, específico INSUF  ·  tamano: = "carta"; gramaje_gm2: falta en B; color: falta en B
+    - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
+    - B: «PAPEL BOND TAMAÑO CARTA PAPEL ALCALINO»
 - ≈ MISMA SUBFAMILIA, específico INSUF  ·  tamano: = "carta"; gramaje_gm2: = 75; color: falta en B
     - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
     - B: «PAPEL BOND TAMAÑO CARTA PAPEL ALKALINO DE ALTA BLANCURA 75 G/M2 216 MM X 279 MM PAQUETE DE 500 »
 - ≈ MISMA SUBFAMILIA, específico INSUF  ·  tamano: = "carta"; gramaje_gm2: = 75; color: falta en B
     - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
     - B: «PAPEL BOND TAMAÑO CARTA PAPEL ALKALINO DE ALTA BLANCURA 75 g/m2 216 mm x 279 mm pauqtes 500 hoj»
-- ≈ MISMA SUBFAMILIA, específico INSUF  ·  tamano: = "oficio"; gramaje_gm2: = 75; color: falta en B
-    - A: «PAPEL BOND ; TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR BLANCO; PRESENTACION PAQUETE DE 500 HOJAS»
-    - B: «PAPEL BOND TAMAÑO OFICIO PAPEL ALKALINO DE ALTA BLANCURA 75 G/M2 216 MM X 330MM PAQUETE DE 500 »
-- ≈ MISMA SUBFAMILIA, específico INSUF  ·  tamano: = "oficio"; gramaje_gm2: = 75; color: falta en B
-    - A: «PAPEL BOND ; TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR BLANCO; PRESENTACION PAQUETE DE 500 HOJAS»
-    - B: «PAPEL BOND TAMAÑO OFICIO PAPEL ALKALINO DE ALTA BLANCURA 75 g/m2 216 mm x 330 mm paquete de 500»
 - ✗ DISTINTA SUBFAMILIA  ·  tamano: "carta" ≠ "oficio"; gramaje_gm2: = 75
     - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
     - B: «PAPEL BOND ; TAMAÑO OFICIO; GRAMAJE 75 GRS; COLOR BLANCO; PRESENTACION PAQUETE DE 500 HOJAS»
@@ -275,47 +287,23 @@ Ejemplos de cambios:
 - ✗ DISTINTA SUBFAMILIA  ·  tamano: "carta" ≠ "oficio"; gramaje_gm2: = 75
     - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
     - B: «PAPEL BOND COLOR BLANCO; TAMAÑO OFICIO; PAQUETE DE PAPEL DE 500 HOJAS; GRAMAJE: 75 G/M² TIPO: O»
-- ✗ DISTINTA SUBFAMILIA  ·  tamano: "carta" ≠ "oficio"; gramaje_gm2: falta en B
+- ✗ DISTINTA SUBFAMILIA  ·  tamano: "carta" ≠ "oficio"; gramaje_gm2: falta (secundario, no degrada)
     - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
     - B: «PAPEL BOND OFICIO DE COLOR SURTIDO»
-- ? SUBFAMILIA INSUF (ambiguo)  ·  tamano: = "carta"; gramaje_gm2: falta en B; color: falta en B
-    - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
-    - B: «PAPEL BOND TAMAÑO CARTA»
-- ? SUBFAMILIA INSUF (ambiguo)  ·  tamano: = "carta"; gramaje_gm2: falta en B; color: falta en B
-    - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
-    - B: «PAPEL BOND TAMAÑO CARTA PAPEL ALCALINO»
-- ? SUBFAMILIA INSUF (ambiguo)  ·  tamano: = "carta"; gramaje_gm2: falta en B; color: = "blanco"
-    - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
-    - B: «PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 GRMS; COLOR BLANCO; PRESENTACION POR PAQUETE DE 500 HOJAS»
-- ? SUBFAMILIA INSUF (ambiguo)  ·  tamano: = "carta"; gramaje_gm2: falta en B; color: = "blanco"
-    - A: «"PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 Grs.; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS»
-    - B: «Papel Bond color blanco: • Tamaño Carta, 216 x 279 mm, • Paquete de Papel de 500 hojas.»
 
 ### papel_continuo
-- ✅ MISMO ESPECÍFICO  ·  formato_continuo: = "9.5x11"; partes: = 2; gramaje_gm2: = 56; tipo: = "desglose"
+- ✅ MISMO ESPECÍFICO  ·  formato_continuo: = "9.5x11"; partes: = 2; gramaje_gm2: = 56; tipo: = "autocopiativo"
+    - A: «PAPEL CONTINUO, MEDIDAS 9 1/2 X11X2 PLG, GRAMAJE 56 GRS, PRESENTACION POR CAJAS X 1500 HOJA, TI»
+    - B: «PAPEL CONTINUO; MEDIDAS 9 1/2 X 11 X 2 PLG.; GRAMAJE 56 GRS.; PRESENTACION POR CAJAS X 1500 HOJ»
+- ✅ MISMO ESPECÍFICO  ·  formato_continuo: = "9.5x11"; partes: = 2; gramaje_gm2: = 56; tipo: = "autocopiativo"
+    - A: «PAPEL CONTINUO, MEDIDAS 9 1/2 X11X2 PLG, GRAMAJE 56 GRS, PRESENTACION POR CAJAS X 1500 HOJA, TI»
+    - B: «PAPEL CONTINUO; MEDIDAS 9 1/2 X 11 X 2 PLG.; GRAMAJE 56 GRS.; PRESENTACIÓN CAJA DE 1.500 HOJAS;»
+- ✅ MISMO ESPECÍFICO  ·  formato_continuo: = "9.5x11"; partes: = 2; gramaje_gm2: = 56; tipo: = "autocopiativo"
     - A: «PAPEL CONTINUO, MEDIDAS 9 1/2 X11X2 PLG, GRAMAJE 56 GRS, PRESENTACION POR CAJAS X 1500 HOJA, TI»
     - B: «PAPEL CONTINUO; MEDIDAS 9 1/2 X 11 X 2 PLG.; GRAMAJE 56 GRS.; PRESENTACIÓN POR CAJAS X 1500 HOJ»
-- ✅ MISMO ESPECÍFICO  ·  formato_continuo: = "9.5x11"; partes: = 2; gramaje_gm2: = 56; tipo: = "desglose"
+- ✅ MISMO ESPECÍFICO  ·  formato_continuo: = "9.5x11"; partes: = 2; gramaje_gm2: = 56; tipo: = "autocopiativo"
     - A: «PAPEL CONTINUO, MEDIDAS 9 1/2 X11X2 PLG, GRAMAJE 56 GRS, PRESENTACION POR CAJAS X 1500 HOJA, TI»
-    - B: «Papel continuo; medidas 9 1/2 x 11 x 2 plg.; Gramaje 56 Grs.; presentación por cajas X 1500 hoj»
-- ✅ MISMO ESPECÍFICO  ·  formato_continuo: = "9.5x11"; partes: = 2; gramaje_gm2: = 56; tipo: = "desglose"
-    - A: «PAPEL CONTINUO, MEDIDAS 9 1/2 X11X2 PLG, GRAMAJE 56 GRS, PRESENTACION POR CAJAS X 1500 HOJA, TI»
-    - B: «Papel continuo; medidas 9 1/2 x 11 x 2 plg.; Gramaje 56 Grs.; presentación por cajas X 1500 hoj»
-- ✅ MISMO ESPECÍFICO  ·  formato_continuo: = "9.5x11"; partes: = 4; gramaje_gm2: = 56; tipo: = "desglose"
-    - A: «PAPEL CONTINUO, MEDIDAS 9 1/2X11X4X5.5, GRAMAJE 56 GRS, PRESENTACION CAJA X 750 JGS, TIPO DE PA»
-    - B: «PAPEL CONTINUO; MEDIDAS 9 1/2 X 11 X 4 X 5.5 PLG.; GRAMAJE 56 GRS.; PRESENTACIÓN POR CAJAS X 75»
-- ≈ MISMA FAMILIA, distinto específico  ·  formato_continuo: = "9.5x11"; partes: = 4; gramaje_gm2: falta en A; tipo: "quimico" ≠ "desglose"
-    - A: «PAPEL CONTINUO BLANCO QUÍMICO (O AUTO COPIANTE TÉRMICO) 9 1/2*11*4 ORIGINAL Y TRES COPIAS TROQU»
-    - B: «PAPEL CONTINUO, MEDIDAS 9 1/2X11X4X5.5, GRAMAJE 56 GRS, PRESENTACION CAJA X 750 JGS, TIPO DE PA»
-- ≈ MISMA FAMILIA, distinto específico  ·  formato_continuo: = "9.5x11"; partes: = 4; gramaje_gm2: falta en A; tipo: "quimico" ≠ "desglose"
-    - A: «PAPEL CONTINUO BLANCO QUÍMICO (O AUTO COPIANTE TÉRMICO) 9 1/2*11*4 ORIGINAL Y TRES COPIAS TROQU»
-    - B: «PAPEL CONTINUO; MEDIDAS 9 1/2 X 11 X 4 X 5.5 PLG.; GRAMAJE 56 GRS.; PRESENTACIÓN POR CAJAS X 75»
-- ≈ MISMA FAMILIA, distinto específico  ·  formato_continuo: = "9.5x11"; partes: = 4; gramaje_gm2: falta en A; tipo: "quimico" ≠ "desglose"
-    - A: «PAPEL CONTINUO BLANCO QUÍMICO (O AUTO COPIANTE TÉRMICO) 9 1/2*11*4 ORIGINAL Y TRES COPIAS TROQU»
-    - B: «PAPEL CONTINUO; MEDIDAS 9 1/2 X 11 X 4 X 5.5; GRAMAJE 56 GRS; PRESENTACION CAJA X 750 JGS; TIPO»
-- ≈ MISMA FAMILIA, distinto específico  ·  formato_continuo: = "9.5x11"; partes: = 4; gramaje_gm2: falta en A; tipo: "quimico" ≠ "desglose"
-    - A: «PAPEL CONTINUO BLANCO QUÍMICO (O AUTO COPIANTE TÉRMICO) 9 1/2*11*4 ORIGINAL Y TRES COPIAS TROQU»
-    - B: «PAPEL CONTINUO; MEDIDAS 9 1/2 X11X4X5.5; GRAMAJE 56 GRS.; PRESENTACIÓN CAJA X 750 JGS.; TIPO DE»
+    - B: «PAPEL CONTINUO; MEDIDAS 9 1/2 X 11 X 2 PLG.; GRAMAJE 56 GRS.; PRESENTACIÓN POR CAJAS X 1500 HOJ»
 - ≈ MISMA SUBFAMILIA, específico INSUF  ·  formato_continuo: = "9.5x11"; partes: = 4; gramaje_gm2: falta en AB; tipo: falta en AB
     - A: «PAPEL CONTINUO 9 1/2 X 11 X 4»
     - B: «PAPEL CONTINUO 9 1/2X11X4»
@@ -328,16 +316,16 @@ Ejemplos de cambios:
 - ≈ MISMA SUBFAMILIA, específico INSUF  ·  formato_continuo: = "9.5x11"; partes: = 4; gramaje_gm2: falta en AB; tipo: falta en AB
     - A: «PAPEL CONTINUO 9 1/2 X 11 X 4»
     - B: «PAPEL CONTINUO AUTOCOPIATIVO 9.5X11X4»
-- ✗ DISTINTA SUBFAMILIA  ·  formato_continuo: = "9.5x11"; partes: 4 ≠ 3
+- ✗ DISTINTA SUBFAMILIA  ·  formato_continuo: = "9.5x11"; partes: 4 ≠ 3; gramaje_gm2: falta (secundario, no degrada)
     - A: «PAPEL CONTINUO 9 1/2 X 11 X 4»
     - B: «PAPEL CONTINUO QUIMICO 9 1/2 X 11 X 3. PRESENTACION CAJA DE 1000 HOJAS»
-- ✗ DISTINTA SUBFAMILIA  ·  formato_continuo: = "9.5x11"; partes: 4 ≠ 3
+- ✗ DISTINTA SUBFAMILIA  ·  formato_continuo: = "9.5x11"; partes: 4 ≠ 3; gramaje_gm2: falta (secundario, no degrada)
     - A: «PAPEL CONTINUO 9 1/2 X 11 X 4»
     - B: «PAPEL CONTINUO QUIMICO 9 1/2 X 11 X 3; PRESENTACION CAJA DE 1000 HOJAS»
-- ✗ DISTINTA SUBFAMILIA  ·  formato_continuo: = "9.5x11"; partes: 4 ≠ 2
+- ✗ DISTINTA SUBFAMILIA  ·  formato_continuo: = "9.5x11"; partes: 4 ≠ 2; gramaje_gm2: falta (secundario, no degrada)
     - A: «PAPEL CONTINUO 9 1/2 X 11 X 4»
     - B: «PAPEL CONTINUO QUIMICO 9 1/2 x 11 x 2; PRESENTACION CAJA DE 1500 HOJAS»
-- ✗ DISTINTA SUBFAMILIA  ·  formato_continuo: = "9.5x11"; partes: 4 ≠ 3
+- ✗ DISTINTA SUBFAMILIA  ·  formato_continuo: = "9.5x11"; partes: 4 ≠ 3; gramaje_gm2: falta (secundario, no degrada)
     - A: «PAPEL CONTINUO 9 1/2 X 11 X 4»
     - B: «PAPEL CONTINUO QUIMICO 9 1/2 x 11 x 3 x 5.1/2, PRESENTACION CAJA DE 1000 HOJAS»
 - ? SUBFAMILIA INSUF (ambiguo)  ·  formato_continuo: falta en A; partes: falta en A; gramaje_gm2: falta en AB; tipo: falta en AB
@@ -485,22 +473,22 @@ Pares capturados: 19. (MISMA_FAMILIA humano ↔ FAMILIA_AMPLIA=SI; SUBFAMILIA es
 | par | cat | humano (v2) | AMPLIA | SUBFAMILIA | ESPECÍFICO | razón subfamilia |
 |---|---|---|---|---|---|---|
 | X002 | ram | MISMA_FAMILIA | SI | SI | INSUF | generacion: = "ddr4"; capacidad_gb: = 8.0 |
-| X003 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 195, "perfil": 65, "rin": 15} ≠ {"ancho": 265, "perfil": 75, "rin": 16} |
+| X003 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 195, "perfil": 65, "rin": 15} ≠ {"ancho": 265, "perfil": 75, "rin": 16}; aplicacion: = "auto" |
 | X005 | almacenamiento | MISMO_ESPECIFICO | SI | SI | INSUF | tecnologia: = "ssd"; capacidad_gb: = 512.0 |
 | X006 | almacenamiento | MISMA_FAMILIA | SI | NO | NO | tecnologia: = "ssd"; capacidad_gb: 512.0 ≠ 480.0 |
 | X007 | sobre_manila | MISMA_FAMILIA | SI | NO | NO | tamano: "doble oficio" ≠ "carta" |
-| X008 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 215, "perfil": 65, "rin": 16} ≠ {"ancho": 265, "perfil": 75, "rin": 16} |
-| X010 | papel_continuo | MISMO_ESPECIFICO | SI | SI | SI | formato_continuo: = "9.5x11"; partes: = 3 |
+| X008 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 215, "perfil": 65, "rin": 16} ≠ {"ancho": 265, "perfil": 75, "rin": 16}; aplicacion: = "auto" |
+| X010 | papel_continuo | MISMO_ESPECIFICO | SI | SI | SI | formato_continuo: = "9.5x11"; partes: = 3; gramaje_gm2: = 56 |
 | X013 | papel_bond | MISMA_FAMILIA | SI | NO | NO | tamano: "oficio" ≠ "carta"; gramaje_gm2: = 75 |
-| X016 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 185, "perfil": 70, "rin": 14} ≠ {"ancho": 195, "perfil": 65, "rin": 15} |
-| X017 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 215, "perfil": 65, "rin": 16} ≠ {"ancho": 205, "perfil": 70, "rin": 15} |
+| X016 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 185, "perfil": 70, "rin": 14} ≠ {"ancho": 195, "perfil": 65, "rin": 15}; aplicacion: = "auto" |
+| X017 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 215, "perfil": 65, "rin": 16} ≠ {"ancho": 205, "perfil": 70, "rin": 15}; aplicacion: = "auto" |
 | X018 | sobre_manila | MISMO_ESPECIFICO | SI | SI | INSUF | tamano: = "oficio" |
 | X020 | ram | MISMO_ESPECIFICO | SI | SI | INSUF | generacion: = "ddr4"; capacidad_gb: = 8.0 |
 | X023 | ram | MISMA_FAMILIA | SI | SI | INSUF | generacion: = "ddr3"; capacidad_gb: = 4.0 |
-| X025 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 205, "perfil": 55, "rin": 16} ≠ {"ancho": 265, "perfil": 75, "rin": 16} |
+| X025 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 205, "perfil": 55, "rin": 16} ≠ {"ancho": 265, "perfil": 75, "rin": 16}; aplicacion: = "auto" |
 | X031 | ram | MISMA_FAMILIA | SI | NO | NO | generacion: "ddr4" ≠ "ddr3"; capacidad_gb: = 8.0 |
 | X034 | almacenamiento | MISMO_ESPECIFICO | SI | INSUF | INSUF | tecnologia: falta en AB; capacidad_gb: = 1000.0 |
-| X035 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 205, "perfil": 55, "rin": 16} ≠ {"ancho": 265, "perfil": 75, "rin": 16} |
+| X035 | llanta | MISMA_FAMILIA | SI | NO | NO | medida: {"ancho": 205, "perfil": 55, "rin": 16} ≠ {"ancho": 265, "perfil": 75, "rin": 16}; aplicacion: = "auto" |
 | X036 | ram | MISMA_FAMILIA | SI | INSUF | INSUF | generacion: = "ddr4"; capacidad_gb: falta en B |
 | X039 | sobre_manila | MISMA_FAMILIA | SI | NO | NO | tamano: "carta" ≠ "doble oficio" |
 

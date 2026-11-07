@@ -13,10 +13,13 @@ from extractor_atributos import extraer, nrm
 from blocker_candidatos import construir, pares, get, cuerpo
 from verificador_niveles import verificar, enriquecer
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),"muestras"); os.makedirs(OUT,exist_ok=True)
-random.seed(20261107)
+import sys as _sys
+SEED=int(_sys.argv[1]) if len(_sys.argv)>1 else 20261107
+OUTNAME=_sys.argv[2] if len(_sys.argv)>2 else "validacion_verificador_ciega.csv"
+random.seed(SEED)
 DL="/Users/fabriziocuellar/Downloads"
 
-# descripciones ya usadas (independencia)
+# descripciones ya usadas (independencia) — incluye la muestra 53 ya ETIQUETADA que informó las correcciones
 usados=set()
 for p in ["extractor_atributos_muestra_revisada.csv","validacion_extractor_v2_ciega_revisada.csv",
           "validacion_extractor_v3_ciega_revisada.csv","validacion_extractor_v4_propuesta_chatgpt.csv"]:
@@ -25,11 +28,12 @@ for p in ["extractor_atributos_muestra_revisada.csv","validacion_extractor_v2_ci
         for r in csv.DictReader(open(fp,encoding="utf-8-sig")):
             d=r.get("descripcion") or ""
             if d: usados.add(d[:150])
-V2=os.path.join(DL,"validacion_v2_propuesta_chatgpt.csv")
-if os.path.exists(V2):
-    for r in csv.DictReader(open(V2,encoding="utf-8-sig")):
-        for k in ("descripcion_A","descripcion_B"):
-            if r.get(k): usados.add(r[k][:150])
+for p in ["validacion_v2_propuesta_chatgpt.csv","validacion_verificador_etiquetada_chatgpt.csv"]:
+    fp=os.path.join(DL,p)
+    if os.path.exists(fp):
+        for r in csv.DictReader(open(fp,encoding="utf-8-sig")):
+            for k in ("descripcion_A","descripcion_B"):
+                if r.get(k): usados.add(r[k][:150])
 
 items=get("hist_items?select=id,cuce,descripcion")
 por_desc=collections.defaultdict(list)
@@ -59,7 +63,7 @@ for (cat,clase),lst in sorted(porclase.items()):
         muestra.append((cat,clase,a,b,v))
 random.shuffle(muestra)
 
-path=os.path.join(OUT,"validacion_verificador_ciega.csv")
+path=os.path.join(OUT,OUTNAME)
 with open(path,"w",newline="",encoding="utf-8") as fh:
     w=csv.writer(fh)
     w.writerow(["par_id","categoria","clase_propuesta","descripcion_A","descripcion_B","attrs_A","attrs_B",
@@ -73,5 +77,5 @@ with open(path,"w",newline="",encoding="utf-8") as fh:
                     json.dumps(enr[b],ensure_ascii=False,sort_keys=True),
                     v["FAMILIA_AMPLIA"],v["SUBFAMILIA"],v["PRODUCTO_ESPECIFICO"],
                     v["razon_subfamilia"],v["razon_especifico"],"","","","",""])
-print(f"escrito muestras/validacion_verificador_ciega.csv ({len(muestra)} pares)")
+print(f"escrito muestras/{OUTNAME} ({len(muestra)} pares)")
 print("por categoría×clase:",{f"{c}/{cl}":len(porclase[(c,cl)]) for c,cl in sorted(porclase)})

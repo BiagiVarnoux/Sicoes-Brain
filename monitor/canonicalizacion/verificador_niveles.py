@@ -28,17 +28,21 @@ demanda (con prevención de fusión por transitividad) son etapas POSTERIORES, n
 """
 import os, sys, re, json, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from extractor_atributos import extraer, categoria, nrm, tamano_papel
+from extractor_atributos import extraer, categoria, nrm, tamano_papel, _CONCRETO
 from blocker_candidatos import construir, pares, get, cuerpo
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),"reportes"); os.makedirs(OUT,exist_ok=True)
 
 # ── llaves de comparación por nivel (prioridades del usuario) ─────────────────────────────────────
 VERIF_SEG={
- "llanta":["medida"], "sobre_manila":["tamano"], "papel_bond":["tamano","gramaje_gm2"],
- "papel_continuo":["formato_continuo","partes"], "papel_impreso":["tamano"],
+ "llanta":["medida","aplicacion"], "sobre_manila":["tamano"], "papel_bond":["tamano","gramaje_gm2"],
+ "papel_continuo":["formato_continuo","partes","gramaje_gm2"], "papel_impreso":["tamano"],
  "ram":["generacion","capacidad_gb"], "almacenamiento":["tecnologia","capacidad_gb"],
  "optico":["tipo_medio","capacidad_gb"],
 }
+# SEGMENTO SECUNDARIO: una CONTRADICCIÓN confirmada baja subfamilia a NO; una AUSENCIA no la degrada a
+# INSUF (el segmento primario ya decidió). gramaje distingue (55≠70) pero su ausencia no parte la familia;
+# 'aplicacion' auto/moto distingue cuando ambas lo declaran, pero no cuando una no lo dice.
+SEG_SEC={"papel_bond":["gramaje_gm2"],"papel_continuo":["gramaje_gm2"],"llanta":["aplicacion"]}
 # ESPECÍFICO base (línea anterior) y ESPECÍFICO con la capa correctiva (añade grabacion_pol/presentacion/membrete)
 VERIF_ESP_BASE={
  "llanta":["tipo_constr","camara","pliegues","huella"], "sobre_manila":["gramaje_gm2","color"],
@@ -47,7 +51,7 @@ VERIF_ESP_BASE={
 }
 VERIF_ESP={
  "llanta":["tipo_constr","camara","pliegues","huella"], "sobre_manila":["gramaje_gm2","color"],
- "papel_bond":["color"], "papel_continuo":["gramaje_gm2","tipo"],
+ "papel_bond":["color"], "papel_continuo":["tipo"],
  "papel_impreso":["gramaje_gm2","color","membrete"],
  "ram":["frecuencia_mhz","formato"], "almacenamiento":["interfaz","formato"],
  "optico":["tipo_grabacion","grabacion_pol","presentacion"],
@@ -55,9 +59,13 @@ VERIF_ESP={
 # normalización de VALORES equivalentes (verifier-side; el extractor sigue congelado)
 _COLOR_SINON={"madera":"cafe","anaranjado":"naranja"}   # café = madera (kraft); equivalentes comerciales
 _IFACE_BASE ={"sata3":"sata"}                            # SATA 3.0 es SATA (familia base, no incompatibilidad)
+# papel continuo autocopiativo: químico / con desglose / carbónico / autocopiativo describen la MISMA
+# clase (formulario multicopia carbonless); NO son contradictorios → se colapsan (no generan ESP=NO falso).
+_TIPO_CONT={"quimico":"autocopiativo","desglose":"autocopiativo","carbonico":"autocopiativo","autocopiativo":"autocopiativo"}
 def _nv(attr,v):
     if attr=="color": return _COLOR_SINON.get(v,v)
     if attr=="interfaz": return _IFACE_BASE.get(v,v)
+    if attr=="tipo": return _TIPO_CONT.get(v,v)
     return v
 
 _MISSING=object()
@@ -90,24 +98,59 @@ def _membrete_firma(n):
 def _tamano_tolerante(n):
     n2=re.sub(r"ofici+o","oficio",n); n2=re.sub(r"oficc+io","oficio",n2)
     r=tamano_papel(n2); return r[0] if r else None
+def _color_tolerante(n):   # tolera texto pegado ("surtidopresentacion") → sin \b final
+    found=re.findall(r"\b("+_CONCRETO+r")",n)
+    distintos=sorted({_COLOR_SINON.get(c,c) for c in found})
+    if re.search(r"\bsurtido|\bcolores\b|\bvarios\b|multicolor",n): return "surtido"
+    if len(distintos)>=2: return "surtido"
+    return found[0] if found else None
+def _continuo_tolerante(n):  # "9.1/2 x 11…" (punto), "9 1/2 x 11 x 4"
+    f="9.5x11" if re.search(r"9\s*[.,]?\s*(?:1/2|½|\.5)?\s*[x*×]\s*11",n) else None
+    m=re.search(r"11\s*[x*×]\s*(\d)",n); p=int(m.group(1)) if m else None
+    return f,p
+def _aplicacion(n):          # clase de aplicación de la llanta
+    if re.search(r"\b(moto|motocicleta)\b",n): return "moto"
+    if re.search(r"\b(automotor|automovil|camioneta|vehiculo|auto)\b",n): return "auto"
+    return None
 def enriquecer(cat,attrs,raw):
     n=nrm(raw); a=dict(attrs)
     if cat=="optico":
-        if re.search(r"(dvd|cd)\s*\+\s*r|\+\s*r\b|\brx?\d*\b",n) and re.search(r"\+\s*r",n): a["grabacion_pol"]="+r"
-        elif re.search(r"(dvd|cd)\s*-\s*r|\b-\s*r\b|dvd\s*-\s*r",n): a["grabacion_pol"]="-r"
+        if re.search(r"\+\s*r",n): a["grabacion_pol"]="+r"
+        elif re.search(r"(dvd|cd)\s*-\s*r|\b-\s*r\b",n): a["grabacion_pol"]="-r"
         if re.search(r"sin\s+caja",n): a["presentacion"]="sin_caja"
-        elif re.search(r"con\s+caja|caja plastica|caja plástica|con sobre",n): a["presentacion"]="con_caja"
+        elif re.search(r"con\s+caja|caja plastica|caja plástica|con sobre|con tapa",n): a["presentacion"]="con_caja"
+        if a.get("grabacion_pol") in ("+r","-r") and "tipo_grabacion" not in a: a["tipo_grabacion"]="r"  # +R/-R ⟹ grabable R
     if cat in ("papel_bond","papel_impreso","sobre_manila") and "tamano" not in a:
         t=_tamano_tolerante(n)
         if t: a["tamano"]=t
+    if cat in ("papel_bond","papel_impreso","sobre_manila") and "color" not in a:
+        c=_color_tolerante(n)
+        if c: a["color"]=c
+    if cat=="papel_continuo" and "formato_continuo" not in a:
+        f,p=_continuo_tolerante(n)
+        if f: a["formato_continuo"]=f
+        if p and "partes" not in a: a["partes"]=p
     if cat=="papel_impreso":
         mb=_membrete_firma(n)
         if mb: a["membrete"]=mb
+    if cat=="llanta":
+        ap=_aplicacion(n)
+        if ap: a["aplicacion"]=ap
     return a
 
-def verificar(cat,A,B,esp_cfg=VERIF_ESP,norm=True):
-    seg=VERIF_SEG[cat]; esp=seg+esp_cfg[cat]
-    v_sub,r_sub=_cmp(A,B,seg,norm)
+def verificar(cat,A,B,esp_cfg=VERIF_ESP,norm=True,usar_sec=True):
+    seg=VERIF_SEG[cat]; sec=SEG_SEC.get(cat,[]) if usar_sec else []
+    prim=[k for k in seg if k not in sec]
+    v_sub,r_sub=_cmp(A,B,prim,norm)
+    # secundarios: contradicción confirmada → NO; ausencia NO degrada
+    for k in sec:
+        va=A.get(k,_MISSING); vb=B.get(k,_MISSING)
+        if va is not _MISSING and vb is not _MISSING:
+            na,nb=(_nv(k,va),_nv(k,vb)) if norm else (va,vb)
+            if na!=nb: v_sub="NO"; r_sub.append(f"{k}: {json.dumps(na,ensure_ascii=False)} ≠ {json.dumps(nb,ensure_ascii=False)} (secundario)")
+            else: r_sub.append(f"{k}: = {json.dumps(na,ensure_ascii=False)}")
+        else: r_sub.append(f"{k}: falta (secundario, no degrada)")
+    esp=seg+esp_cfg[cat]
     v_esp,r_esp=_cmp(A,B,esp,norm)
     if v_sub=="NO": v_esp="NO"
     return {"FAMILIA_AMPLIA":"SI","SUBFAMILIA":v_sub,"PRODUCTO_ESPECIFICO":v_esp,
@@ -131,7 +174,7 @@ if __name__=="__main__":
     cambios=collections.Counter(); cambios_ej=collections.defaultdict(list); todos=[]
     for cat,comp,a,b in P:
         v=verificar(cat,enr[a],enr[b],VERIF_ESP,norm=True)
-        vb=verificar(cat,rec[a]["atributos"],rec[b]["atributos"],VERIF_ESP_BASE,norm=False)
+        vb=verificar(cat,rec[a]["atributos"],rec[b]["atributos"],VERIF_ESP_BASE,norm=False,usar_sec=False)
         agg[cat][(v["SUBFAMILIA"],v["PRODUCTO_ESPECIFICO"])]+=1
         if (vb["SUBFAMILIA"],vb["PRODUCTO_ESPECIFICO"])!=(v["SUBFAMILIA"],v["PRODUCTO_ESPECIFICO"]):
             tag=f"{cat}: {vb['SUBFAMILIA']}/{vb['PRODUCTO_ESPECIFICO']} → {v['SUBFAMILIA']}/{v['PRODUCTO_ESPECIFICO']}"
