@@ -1,0 +1,5998 @@
+[
+  {
+    "cuce": "24-0660-11-1413532-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; material: metal; numero: 4; de 33 mm; presentacion: caja de 100 unidad",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2024-02-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1196,
+      1231
+    ],
+    "cantidad": 700.0,
+    "referencial_unitario": 4.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2800.0,
+    "precio_adjudicado": 1.0,
+    "monto_adjudicado": 375.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 375.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 4.8
+  },
+  {
+    "cuce": "24-0660-11-1413532-1-1",
+    "nro_item": 7,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPE",
+    "descripcion": "Grapas — niqueladas cod. 8380; material: metalico; numero: 24/6; presentacion: 1000 x caja",
+    "unspsc_codigo": "44122107",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2024-02-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1199,
+      1232
+    ],
+    "cantidad": 950.0,
+    "referencial_unitario": 4.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4275.0,
+    "precio_adjudicado": 14.8,
+    "monto_adjudicado": 14060.0,
+    "proveedor": "CALLISAYA GUTIERREZ LEONARDO JOSE",
+    "monto_ejecutado": 14060.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 18.0
+  },
+  {
+    "cuce": "24-0660-11-1413532-1-1",
+    "nro_item": 15,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPE",
+    "descripcion": "Folders — ; material plastico; tamaño oficio; color surtido",
+    "unspsc_codigo": "44122011",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1207,
+      1233
+    ],
+    "cantidad": 700.0,
+    "referencial_unitario": 6.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4550.0,
+    "precio_adjudicado": 3.0,
+    "monto_adjudicado": 1410.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1410.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 9.0
+  },
+  {
+    "cuce": "24-0660-11-1413082-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; modelo de impresora hp laser jet m201; color de tinta negro; serie cf283a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1234,
+      1244
+    ],
+    "cantidad": 82.0,
+    "referencial_unitario": 665.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 54530.0,
+    "precio_adjudicado": 950.0,
+    "monto_adjudicado": 61750.0,
+    "proveedor": "AKAMINE DE DICK ROSIO ELIZABETH",
+    "monto_ejecutado": 61750.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1320.0
+  },
+  {
+    "cuce": "24-0660-11-1413082-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; modelo de impresora hp laser jet mfb m281 fdw; color tinta negro cf 500a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1238,
+      1246
+    ],
+    "cantidad": 10.0,
+    "referencial_unitario": 640.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 6400.0,
+    "precio_adjudicado": 579.99,
+    "monto_adjudicado": 10439.82,
+    "proveedor": "VIRTUALTEC S.R.L.",
+    "monto_ejecutado": 10439.82,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 715.0
+  },
+  {
+    "cuce": "24-0660-11-1413082-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; modelo de impresora hp laser jet mfb m281 fdw; color tinta yellow cf 502a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1239,
+      1247
+    ],
+    "cantidad": 6.0,
+    "referencial_unitario": 790.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4740.0,
+    "precio_adjudicado": 999.0,
+    "monto_adjudicado": 9990.0,
+    "proveedor": "AKAMINE DE DICK ROSIO ELIZABETH",
+    "monto_ejecutado": 9990.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1090.0
+  },
+  {
+    "cuce": "24-0660-11-1413082-1-1",
+    "nro_item": 7,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; modelo de impresora hp laser jet mfb m281 fdw; color tinta magenta; serie cf 503a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1240,
+      1248
+    ],
+    "cantidad": 6.0,
+    "referencial_unitario": 790.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4740.0,
+    "precio_adjudicado": 985.0,
+    "monto_adjudicado": 120170.0,
+    "proveedor": "PAZ SEVERICHE RICHARD",
+    "monto_ejecutado": 120170.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 990.0
+  },
+  {
+    "cuce": "24-0660-11-1413082-1-1",
+    "nro_item": 9,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; modelo de impresora hp laser jet p1606dn; color tinta negro; serie ce 278a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1242,
+      1249
+    ],
+    "cantidad": 60.0,
+    "referencial_unitario": 799.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 47940.0,
+    "precio_adjudicado": 2139.0,
+    "monto_adjudicado": 34224.0,
+    "proveedor": "CARDENAS UGARTE MIGUEL ARIEL",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2140.0
+  },
+  {
+    "cuce": "25-0660-10-1591323-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca lexmark; modelo ms 321 dn - ms 4321 dn; serie 56f4h00: color negro (original)",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-09-05",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1355,
+      1378,
+      1380
+    ],
+    "cantidad": 20.0,
+    "referencial_unitario": 2464.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 49280.0,
+    "precio_adjudicado": 9.5,
+    "monto_adjudicado": 950.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 950.0,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 11.0
+  },
+  {
+    "cuce": "25-0660-10-1591323-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca lexmark; modelo ms 321; serie 56f4000: color negro (original)",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-09-05",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1356,
+      1379,
+      1381
+    ],
+    "cantidad": 60.0,
+    "referencial_unitario": 2091.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 125460.0,
+    "precio_adjudicado": 4.0,
+    "monto_adjudicado": 1400.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1400.0,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 6.5
+  },
+  {
+    "cuce": "25-0660-10-1591323-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Desinfectante de manos — Alcohol en gel; envase con dispensador a gatillo; frasco de 360 ml.",
+    "unspsc_codigo": "53131626",
+    "unidad_medida": "Frasco",
+    "fecha_publicacion": "2025-09-05",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1357,
+      1382
+    ],
+    "cantidad": 400.0,
+    "referencial_unitario": 19.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 7600.0,
+    "precio_adjudicado": 1.8,
+    "monto_adjudicado": 1080.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1080.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2.5
+  },
+  {
+    "cuce": "25-0660-10-1591323-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Dispensadores de ambientadores — Ambientador sólido; envase borde de inodoro; contenido 40 grs.; fragancia surtido",
+    "unspsc_codigo": "47131706",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-09-05",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1358,
+      1383
+    ],
+    "cantidad": 200.0,
+    "referencial_unitario": 10.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2000.0,
+    "precio_adjudicado": 21.0,
+    "monto_adjudicado": 6300.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 6300.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 24.0
+  },
+  {
+    "cuce": "25-0660-10-1591323-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Bolsas plásticas — Bolsa de residuos; color negro; dimensión 35 x 65 cms.; espesor grueso; presentación paquete de 50 unidades",
+    "unspsc_codigo": "24111503",
+    "unidad_medida": "Paquete",
+    "fecha_publicacion": "2025-09-05",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1359,
+      1384
+    ],
+    "cantidad": 200.0,
+    "referencial_unitario": 17.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3400.0,
+    "precio_adjudicado": 12.0,
+    "monto_adjudicado": 1200.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1200.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 12.0
+  },
+  {
+    "cuce": "25-0660-10-1591323-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Kits de limpieza para uso general — Mopa de 350 grs.; presentación mopa (trapeador) 100% algodón mas palo",
+    "unspsc_codigo": "47132102",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-09-05",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1360,
+      1385
+    ],
+    "cantidad": 30.0,
+    "referencial_unitario": 36.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1080.0,
+    "precio_adjudicado": 3.6,
+    "monto_adjudicado": 1440.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1440.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 5.0
+  },
+  {
+    "cuce": "25-0660-10-1591323-1-1",
+    "nro_item": 7,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Ceras sintéticas — Cera para pisos de madera; envase frasco; contenido 1 ltrs.; estado cremosa",
+    "unspsc_codigo": "12181501",
+    "unidad_medida": "Frasco",
+    "fecha_publicacion": "2025-09-05",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1361,
+      1386
+    ],
+    "cantidad": 70.0,
+    "referencial_unitario": 28.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1960.0,
+    "precio_adjudicado": 19.0,
+    "monto_adjudicado": 3800.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 3800.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 20.0
+  },
+  {
+    "cuce": "26-0660-10-1670208-1-1",
+    "nro_item": 9,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPE",
+    "descripcion": "Teclados — usb",
+    "unspsc_codigo": "43211706",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-06-30",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1808,
+      1788
+    ],
+    "cantidad": 1.0,
+    "referencial_unitario": 180.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 180.0,
+    "precio_adjudicado": 90.0,
+    "monto_adjudicado": 90.0,
+    "proveedor": "CUELLAR SALAZAR CARLOS FABRIZIO",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 90.0
+  },
+  {
+    "cuce": "22-0660-12-1255497-1-1",
+    "nro_item": 30,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Cartuchos de tinta — Cartucho para impresora; número de parte cl 38; modelo de impresora canon ip 1800; original",
+    "unspsc_codigo": "44103105",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-09-02",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2038,
+      2042
+    ],
+    "cantidad": 1.0,
+    "referencial_unitario": 225.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 225.0,
+    "precio_adjudicado": 64.99,
+    "monto_adjudicado": 324.95,
+    "proveedor": "VIRTUALTEC S.R.L.",
+    "monto_ejecutado": 324.95,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 75.0
+  },
+  {
+    "cuce": "22-0660-12-1255497-1-1",
+    "nro_item": 13,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner de fotocopiadora — Toner para fotocopiadora; marca konica minolta; tn 323, original",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-09-02",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2039,
+      2021
+    ],
+    "cantidad": 4.0,
+    "referencial_unitario": 750.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3000.0,
+    "precio_adjudicado": 765.0,
+    "monto_adjudicado": 2295.0,
+    "proveedor": "TECNODIGITAL SRL",
+    "monto_ejecutado": 2295.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 770.0
+  },
+  {
+    "cuce": "22-0660-12-1255497-1-1",
+    "nro_item": 15,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner de fotocopiadora — Toner para fotocopiadora; marca bizhub; modelo 363; serie tn - 414; color negro, original",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-09-02",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2040,
+      2023
+    ],
+    "cantidad": 4.0,
+    "referencial_unitario": 520.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2080.0,
+    "precio_adjudicado": 1000.0,
+    "monto_adjudicado": 1000.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 1000.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1180.0
+  },
+  {
+    "cuce": "22-0660-12-1255497-1-1",
+    "nro_item": 29,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Cartuchos de tinta — Cartucho para impresora; número de parte pg 37; modelo de impresora canon ip 1800; original",
+    "unspsc_codigo": "44103105",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-09-02",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2041,
+      2037
+    ],
+    "cantidad": 1.0,
+    "referencial_unitario": 190.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 190.0,
+    "precio_adjudicado": 475.0,
+    "monto_adjudicado": 475.0,
+    "proveedor": "TECSUPPLY S.R.L.",
+    "monto_ejecutado": 475.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 515.0
+  },
+  {
+    "cuce": "26-0660-10-1656930-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca lexmark; modelo ms 321 dn - ms 4321 dn; serie 56f4h00: color negro original.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-04-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1845,
+      1855,
+      1857
+    ],
+    "cantidad": 47.0,
+    "referencial_unitario": 2100.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 98700.0,
+    "precio_adjudicado": 1500.0,
+    "monto_adjudicado": 6000.0,
+    "proveedor": "IMPORTADORA Y DISTRIBUIDORA VMD S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1775.0
+  },
+  {
+    "cuce": "26-0660-10-1656930-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca lexmark; modelo ms 321; serie 56f4000: color negro original.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-04-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1846,
+      1856
+    ],
+    "cantidad": 64.0,
+    "referencial_unitario": 1850.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 118400.0,
+    "precio_adjudicado": 667.0,
+    "monto_adjudicado": 8004.0,
+    "proveedor": "TECSUPPLY S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 691.2
+  },
+  {
+    "cuce": "26-0660-10-1675635-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; presentación 100 unidades; material metal niquelado inoxidable; numero 50 mm; con código de barra.",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2026-07-22",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1708,
+      1732
+    ],
+    "cantidad": 500.0,
+    "referencial_unitario": 8.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4000.0,
+    "precio_adjudicado": 0.8,
+    "monto_adjudicado": 400.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1.8
+  },
+  {
+    "cuce": "26-0660-11-1635765-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laser jet m201; color de tinta negro; serie cf283a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-02-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1858,
+      1859,
+      1869
+    ],
+    "cantidad": 54.0,
+    "referencial_unitario": 1200.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 64800.0,
+    "precio_adjudicado": 2690.0,
+    "monto_adjudicado": 403500.0,
+    "proveedor": "PAZ SEVERICHE RICHARD",
+    "monto_ejecutado": 403500.0,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2700.0
+  },
+  {
+    "cuce": "26-0660-11-1635765-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laser jet mfb m281 fdw; color tinta negro cf 500a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-02-28",
+    "fuentes_presentes": [
+      "form100"
+    ],
+    "ids_origen": [
+      1860,
+      1870
+    ],
+    "cantidad": 4.0,
+    "referencial_unitario": 1150.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4600.0,
+    "precio_adjudicado": null,
+    "monto_adjudicado": null,
+    "proveedor": null,
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "26-0660-11-1635765-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laser jet mfb m281 fdw; color tinta cyan cf 501a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-02-28",
+    "fuentes_presentes": [
+      "form100"
+    ],
+    "ids_origen": [
+      1861,
+      1871
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 1270.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3810.0,
+    "precio_adjudicado": null,
+    "monto_adjudicado": null,
+    "proveedor": null,
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "26-0660-11-1635765-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laser jet mfb m281 fdw; color tinta yellow cf 502a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-02-28",
+    "fuentes_presentes": [
+      "form100"
+    ],
+    "ids_origen": [
+      1862,
+      1872
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 1270.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3810.0,
+    "precio_adjudicado": null,
+    "monto_adjudicado": null,
+    "proveedor": null,
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "26-0660-11-1635765-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laser jet mfb m281 fdw; color tinta magenta; serie cf 503a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-02-28",
+    "fuentes_presentes": [
+      "form100"
+    ],
+    "ids_origen": [
+      1863,
+      1873
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 1270.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3810.0,
+    "precio_adjudicado": null,
+    "monto_adjudicado": null,
+    "proveedor": null,
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "26-0660-11-1635765-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca hp laserjet pro m506dh; color tinta negro; serie 87a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-02-28",
+    "fuentes_presentes": [
+      "form100"
+    ],
+    "ids_origen": [
+      1864,
+      1874
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 3888.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 19440.0,
+    "precio_adjudicado": null,
+    "monto_adjudicado": null,
+    "proveedor": null,
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "26-0660-10-1646355-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; presentación 100 unidades; material metal niquelado inoxidable; numero 50 mm",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2026-03-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1931,
+      1955
+    ],
+    "cantidad": 380.0,
+    "referencial_unitario": 8.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3040.0,
+    "precio_adjudicado": 20.0,
+    "monto_adjudicado": 11600.0,
+    "proveedor": "JUCEPI S.R.L.",
+    "monto_ejecutado": 11600.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 23.5
+  },
+  {
+    "cuce": "24-0660-06-1403124-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Aires acondicionados — Equipo de aire acondicionado de 18000 btu",
+    "unspsc_codigo": "40101701",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-01-30",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2863,
+      2862
+    ],
+    "cantidad": 6.0,
+    "referencial_unitario": 3999.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 23994.0,
+    "precio_adjudicado": 5338.0,
+    "monto_adjudicado": 26690.0,
+    "proveedor": "EQUIPOS Y SERVICIOS CISE S.R.L.",
+    "monto_ejecutado": 26690.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 5339.0
+  },
+  {
+    "cuce": "22-0660-12-1251088-1-1",
+    "nro_item": 18,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Tóner de fotocopiadora — Toner para fotocopiadora; marca konica minolta; tn 323, original",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-08-22",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2063,
+      2070
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 500.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2500.0,
+    "precio_adjudicado": 920.0,
+    "monto_adjudicado": 21160.0,
+    "proveedor": "TECSUPPLY S.R.L.",
+    "monto_ejecutado": 21160.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1130.0
+  },
+  {
+    "cuce": "22-0660-12-1251088-1-1",
+    "nro_item": 19,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Tóner de fotocopiadora — Toner para fotocopiadora; marca bizhub; modelo 363; serie tn - 414; color negro, original",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-08-22",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2064,
+      2071
+    ],
+    "cantidad": 8.0,
+    "referencial_unitario": 410.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3280.0,
+    "precio_adjudicado": 635.0,
+    "monto_adjudicado": 5080.0,
+    "proveedor": "SILVA ARRIETA MARLENE",
+    "monto_ejecutado": 5080.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 650.0
+  },
+  {
+    "cuce": "22-0660-12-1251088-1-1",
+    "nro_item": 20,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Tóner de fotocopiadora — Toner para fotocopiadora; marca minolta bizhub; modelo 215; serie tn - 118; color negro, original",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-08-22",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2065,
+      2072
+    ],
+    "cantidad": 6.0,
+    "referencial_unitario": 450.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2700.0,
+    "precio_adjudicado": 1150.0,
+    "monto_adjudicado": 1150.0,
+    "proveedor": "TECSUPPLY S.R.L.",
+    "monto_ejecutado": 1150.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1215.0
+  },
+  {
+    "cuce": "22-0660-12-1222818-1-1",
+    "nro_item": 13,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Tóner para impresoras o fax — Toner para fotocopiadora; marca konica minolta; tn 323, original",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-05-23",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2163,
+      2165
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 750.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1500.0,
+    "precio_adjudicado": 540.0,
+    "monto_adjudicado": 17280.0,
+    "proveedor": "TECSUPPLY S.R.L.",
+    "monto_ejecutado": 17280.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 545.0
+  },
+  {
+    "cuce": "22-0660-12-1241312-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laser jet 3015; color tinta negro; serie q2612a, original",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-07-18",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2076,
+      2078
+    ],
+    "cantidad": 23.0,
+    "referencial_unitario": 605.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 13915.0,
+    "precio_adjudicado": 959.0,
+    "monto_adjudicado": 172620.0,
+    "proveedor": "PAZ SEVERICHE RICHARD",
+    "monto_ejecutado": 172620.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 960.0
+  },
+  {
+    "cuce": "22-0660-12-1241312-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora tóner hp lase jet pro m402/mfp m426; color negro; serie 26a, original",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-07-18",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2077,
+      2079
+    ],
+    "cantidad": 23.0,
+    "referencial_unitario": 696.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 16008.0,
+    "precio_adjudicado": 860.0,
+    "monto_adjudicado": 6880.0,
+    "proveedor": "AKAMINE DE DICK ROSIO ELIZABETH",
+    "monto_ejecutado": 6880.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 950.0
+  },
+  {
+    "cuce": "22-0660-12-1224264-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Micrófonos de voz para computadores — \"accesorio para computador; tipo audifono con microfono headphone\"",
+    "unspsc_codigo": "43211719",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-05-30",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2133,
+      2137
+    ],
+    "cantidad": 10.0,
+    "referencial_unitario": 125.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1250.0,
+    "precio_adjudicado": 694.0,
+    "monto_adjudicado": 6940.0,
+    "proveedor": "PROYECTOS DE COMPUTACIÓN LTDA. (P.R.O.C.O.M. LTDA.)",
+    "monto_ejecutado": 6940.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 695.0
+  },
+  {
+    "cuce": "22-0660-12-1224264-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Teclados — Accesorio para computador; tipo teclado; usb",
+    "unspsc_codigo": "43211706",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-05-30",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2134,
+      2138
+    ],
+    "cantidad": 35.0,
+    "referencial_unitario": 90.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3150.0,
+    "precio_adjudicado": 1230.0,
+    "monto_adjudicado": 30750.0,
+    "proveedor": "AKAMINE DE DICK ROSIO ELIZABETH",
+    "monto_ejecutado": 30750.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1280.0
+  },
+  {
+    "cuce": "22-0660-12-1224264-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Mouse o bola de seguimiento para computador — Accesorio para computador; tipo mouse; usb",
+    "unspsc_codigo": "43211708",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-05-30",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2135,
+      2139
+    ],
+    "cantidad": 35.0,
+    "referencial_unitario": 49.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1715.0,
+    "precio_adjudicado": 580.0,
+    "monto_adjudicado": 17400.0,
+    "proveedor": "PRIMEX LTDA.",
+    "monto_ejecutado": 17400.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 585.0
+  },
+  {
+    "cuce": "22-0660-12-1224264-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Unidades de suministro de energía — Accesorio para computador; tipo fuente de poder de 650 - 850 watts",
+    "unspsc_codigo": "39121004",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-05-30",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2136,
+      2140
+    ],
+    "cantidad": 10.0,
+    "referencial_unitario": 245.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2450.0,
+    "precio_adjudicado": 788.0,
+    "monto_adjudicado": 34672.0,
+    "proveedor": "RESTORE S.R.L., COMERCIALIZACION Y SERVICIOS INFORMATICOS",
+    "monto_ejecutado": 34672.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 790.0
+  },
+  {
+    "cuce": "26-0660-06-1682177-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; presentación caja de 100 unidades; material metal; número 33 mms",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2026-08-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3460,
+      3481
+    ],
+    "cantidad": 500.0,
+    "referencial_unitario": 3.22,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1610.0,
+    "precio_adjudicado": 1.53,
+    "monto_adjudicado": 459.0,
+    "proveedor": "SORUCO VELASQUEZ MARY",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2.5
+  },
+  {
+    "cuce": "26-0660-06-1682177-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; presentación caja de 50; material metálico; número 78 mms.",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2026-08-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3461,
+      3482
+    ],
+    "cantidad": 300.0,
+    "referencial_unitario": 12.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3750.0,
+    "precio_adjudicado": 16.68,
+    "monto_adjudicado": 834.0,
+    "proveedor": "SORUCO VELASQUEZ MARY",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 45.0
+  },
+  {
+    "cuce": "22-0660-12-1215602-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Equipo de red de entrega de contenido — Equipos switch",
+    "unspsc_codigo": "43222604",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-04-22",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2176,
+      2179
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 28000.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 84000.0,
+    "precio_adjudicado": 840.0,
+    "monto_adjudicado": 2520.0,
+    "proveedor": "NEGRETTY PLAZA GUIDO",
+    "monto_ejecutado": 2520.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 842.5
+  },
+  {
+    "cuce": "22-0660-12-1215602-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Receptor GPS del sistema de posicionamiento global — Equipos gps",
+    "unspsc_codigo": "52161518",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-04-22",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2177,
+      2180
+    ],
+    "cantidad": 4.0,
+    "referencial_unitario": 4998.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 19992.0,
+    "precio_adjudicado": 4320.0,
+    "monto_adjudicado": 4320.0,
+    "proveedor": "NEGRETTY PLAZA GUIDO",
+    "monto_ejecutado": 4320.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 4321.6
+  },
+  {
+    "cuce": "22-0660-12-1215602-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Reproductores o grabadoras mp3 — Grabadoras reporteras",
+    "unspsc_codigo": "52161543",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-04-22",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2178,
+      2181
+    ],
+    "cantidad": 14.0,
+    "referencial_unitario": 980.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 13720.0,
+    "precio_adjudicado": 3620.0,
+    "monto_adjudicado": 3620.0,
+    "proveedor": "NEGRETTY PLAZA GUIDO",
+    "monto_ejecutado": 3620.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 3622.0
+  },
+  {
+    "cuce": "22-0660-12-1205754-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Escritorios — Escritorio ejecutivo en madera roble",
+    "unspsc_codigo": "56101703",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-03-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2276,
+      2280
+    ],
+    "cantidad": 12.0,
+    "referencial_unitario": 4200.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 50400.0,
+    "precio_adjudicado": 1720.0,
+    "monto_adjudicado": 190920.0,
+    "proveedor": "YUCRA GARRIDO LUIS ARIEL",
+    "monto_ejecutado": 190920.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2700.0
+  },
+  {
+    "cuce": "26-0660-10-1655445-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "CM",
+    "descripcion": "Unidades de fotoconductores o imágenes — DRUM PARA IMPRESORA; MARCA BROTHER; MODELO HL - 6400 DW; SERIE DR - 3460 (ORIGINAL)",
+    "unspsc_codigo": "44101706",
+    "unidad_medida": "PIEZA",
+    "fecha_publicacion": "2026-04-22",
+    "fuentes_presentes": [
+      "form220"
+    ],
+    "ids_origen": [
+      1916,
+      1918
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 1699.2,
+    "referencial_fuente": "adjudicado(fallback)",
+    "monto_referencial": 8496.0,
+    "precio_adjudicado": 1626.0,
+    "monto_adjudicado": 8130.0,
+    "proveedor": "ECOINSUMOS S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "24-0660-11-1489390-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "CM",
+    "descripcion": "Papel para impresión de computadores — PAPEL BOND; TAMAÑO CARTA; GRAMAJE 75 GRS; COLOR BLANCO; PRESENTACION PAQUETE X 500 HOJAS; 216 MM X 279 MM",
+    "unspsc_codigo": "14111506",
+    "unidad_medida": "PAQUETE",
+    "fecha_publicacion": "2024-10-23",
+    "fuentes_presentes": [
+      "form220"
+    ],
+    "ids_origen": [
+      924,
+      927
+    ],
+    "cantidad": 160.0,
+    "referencial_unitario": 48.9,
+    "referencial_fuente": "adjudicado(fallback)",
+    "monto_referencial": 7824.0,
+    "precio_adjudicado": 47.9,
+    "monto_adjudicado": 7664.0,
+    "proveedor": "BURGOS TEJERINA ENGELBERT",
+    "monto_ejecutado": 7664.0,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "24-0660-11-1461901-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; material: metal; numero 8; de 50 mm. presentacion: caja de 100 unidad",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2024-07-29",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      933,
+      968
+    ],
+    "cantidad": 240.0,
+    "referencial_unitario": 8.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2040.0,
+    "precio_adjudicado": 16.0,
+    "monto_adjudicado": 12800.0,
+    "proveedor": "TOPOCO PACO SANTOS GUILLERMO",
+    "monto_ejecutado": 12800.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 22.5
+  },
+  {
+    "cuce": "24-0660-11-1461901-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; material: metal; numero 4; de 33 mm. presentacion: caja de 100 unidad",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2024-07-29",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      934,
+      969
+    ],
+    "cantidad": 800.0,
+    "referencial_unitario": 4.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3200.0,
+    "precio_adjudicado": 0.89,
+    "monto_adjudicado": 2518.7,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 2518.7,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1.0
+  },
+  {
+    "cuce": "24-0660-11-1461901-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPE",
+    "descripcion": "Grapas — niqueladas cod. 8380; material: metalico; numero: 24/6; presentacion: 1000 x caja",
+    "unspsc_codigo": "44122107",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2024-07-29",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      936,
+      970
+    ],
+    "cantidad": 1600.0,
+    "referencial_unitario": 4.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 7200.0,
+    "precio_adjudicado": 0.4,
+    "monto_adjudicado": 180.0,
+    "proveedor": "LIBRERIA Y PAPELERIA OLIMPIA S.R.L.",
+    "monto_ejecutado": 180.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 0.62
+  },
+  {
+    "cuce": "24-0660-11-1461901-1-1",
+    "nro_item": 16,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPE",
+    "descripcion": "Folders — ; material plastico; tamaño oficio; color surtido",
+    "unspsc_codigo": "44122011",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-07-29",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      946,
+      971
+    ],
+    "cantidad": 800.0,
+    "referencial_unitario": 7.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 6000.0,
+    "precio_adjudicado": 0.88,
+    "monto_adjudicado": 985.6,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 985.6,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2.5
+  },
+  {
+    "cuce": "24-0660-10-1432538-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; material encobrado; número 50 mm; presentación caja de 100 unidad",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Cajita",
+    "fecha_publicacion": "2024-05-08",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      972,
+      1005
+    ],
+    "cantidad": 250.0,
+    "referencial_unitario": 7.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1875.0,
+    "precio_adjudicado": 0.75,
+    "monto_adjudicado": 750.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 750.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 0.8
+  },
+  {
+    "cuce": "24-0660-10-1432538-1-1",
+    "nro_item": 23,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPE",
+    "descripcion": "Bolígrafos — trazo fino color azul punta metalica nº 061",
+    "unspsc_codigo": "44121701",
+    "unidad_medida": "Piezas",
+    "fecha_publicacion": "2024-05-08",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      994,
+      1006
+    ],
+    "cantidad": 2000.0,
+    "referencial_unitario": 2.75,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 5500.0,
+    "precio_adjudicado": 13.0,
+    "monto_adjudicado": 1300.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1300.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 18.0
+  },
+  {
+    "cuce": "24-0660-10-1432538-1-1",
+    "nro_item": 24,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPE",
+    "descripcion": "Bolígrafos — trazo fino color negro punta metalica nº 061",
+    "unspsc_codigo": "44121701",
+    "unidad_medida": "Piezas",
+    "fecha_publicacion": "2024-05-08",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      995,
+      1007
+    ],
+    "cantidad": 800.0,
+    "referencial_unitario": 2.75,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2200.0,
+    "precio_adjudicado": 3.5,
+    "monto_adjudicado": 1400.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1400.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 4.5
+  },
+  {
+    "cuce": "24-0660-11-1460542-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "CM",
+    "descripcion": "Guantes de protección — GUANTES PARA LIMPIEZA; MATERIAL LATEX; TAMAÑO ESTANDAR",
+    "unspsc_codigo": "46181504",
+    "unidad_medida": "PAR",
+    "fecha_publicacion": "2024-07-24",
+    "fuentes_presentes": [
+      "form220"
+    ],
+    "ids_origen": [
+      1009,
+      1021
+    ],
+    "cantidad": 210.0,
+    "referencial_unitario": 10.0,
+    "referencial_fuente": "adjudicado(fallback)",
+    "monto_referencial": 2100.0,
+    "precio_adjudicado": 7.41,
+    "monto_adjudicado": 1556.1,
+    "proveedor": "BUSTILLOS ROCABADO LISBETH",
+    "monto_ejecutado": 1556.1,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "24-0660-10-1412564-2-2",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Impresoras de múltiples funciones — Impresoras matriciales",
+    "unspsc_codigo": "43212110",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-04-12",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1050,
+      1052
+    ],
+    "cantidad": 10.0,
+    "referencial_unitario": 3985.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 39850.0,
+    "precio_adjudicado": 4880.0,
+    "monto_adjudicado": 292800.0,
+    "proveedor": "PAZ SEVERICHE RICHARD",
+    "monto_ejecutado": 292800.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 4900.0
+  },
+  {
+    "cuce": "24-0660-11-1442423-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; modelo de impresora hp laser jet m201; color de tinta negro; serie cf283a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-05-23",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1120,
+      1121
+    ],
+    "cantidad": 86.0,
+    "referencial_unitario": 627.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 53922.0,
+    "precio_adjudicado": 1100.0,
+    "monto_adjudicado": 97900.0,
+    "proveedor": "PAZ SEVERICHE RICHARD",
+    "monto_ejecutado": 97900.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1105.0
+  },
+  {
+    "cuce": "26-0660-10-1672574-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — tóner para impresora; modelo de impresora hp color laserjet pro m452dw; serie cf 410; color negro original.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-07-08",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1741,
+      1745,
+      1753
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 1540.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3080.0,
+    "precio_adjudicado": 2200.0,
+    "monto_adjudicado": 374000.0,
+    "proveedor": "EMPRESA DE INFORMATICA SISTEMAS & REDES OMNINFORMATICA S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2200.0
+  },
+  {
+    "cuce": "26-0660-10-1672574-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp color laserjet pro m452dw; serie cf 411; color cian original.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-07-08",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1742,
+      1746
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 1600.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3200.0,
+    "precio_adjudicado": 1597.0,
+    "monto_adjudicado": 319400.0,
+    "proveedor": "EMPRESA DE INFORMATICA SISTEMAS & REDES OMNINFORMATICA S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1598.0
+  },
+  {
+    "cuce": "26-0660-10-1672574-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp color laserjet pro m452dw; serie cf 412; color amarillo original.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-07-08",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1743,
+      1747
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 1600.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3200.0,
+    "precio_adjudicado": 1450.0,
+    "monto_adjudicado": 20300.0,
+    "proveedor": "VERA GUMUCIO JOSE CARLOS",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1640.0
+  },
+  {
+    "cuce": "26-0660-10-1672574-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laserjet m401 dn; color tinta negro; serie 80 x original",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-07-08",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1744,
+      1748
+    ],
+    "cantidad": 10.0,
+    "referencial_unitario": 1560.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 15600.0,
+    "precio_adjudicado": 1550.0,
+    "monto_adjudicado": 48050.0,
+    "proveedor": "VERA GUMUCIO JOSE CARLOS",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1760.0
+  },
+  {
+    "cuce": "26-0660-11-1651293-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPE",
+    "descripcion": "Papel higiénico — ; número de hojas 2; color blanco; tipo perfumado rollo",
+    "unspsc_codigo": "14111704",
+    "unidad_medida": "Rollo",
+    "fecha_publicacion": "2026-04-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1757,
+      1771
+    ],
+    "cantidad": 3000.0,
+    "referencial_unitario": 2.3,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 6899.999999999999,
+    "precio_adjudicado": 24.0,
+    "monto_adjudicado": 3600.0,
+    "proveedor": "BUSTILLOS ROCABADO LISBETH",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 25.0
+  },
+  {
+    "cuce": "25-0660-11-1518709-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Clips para papel — es; material: metal; numero 8; de 50 mm. presentacion: caja de 100 unidad",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2025-01-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1421,
+      1453
+    ],
+    "cantidad": 180.0,
+    "referencial_unitario": 9.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1710.0,
+    "precio_adjudicado": 60.0,
+    "monto_adjudicado": 6720.0,
+    "proveedor": "CHALCO AGUILAR DE VELASCO ROSA",
+    "monto_ejecutado": 6720.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 75.0
+  },
+  {
+    "cuce": "25-0660-11-1518709-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Clips para papel — es; material: metal; numero 4; de 33 mm. presentacoin: caja de 100 unidad",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2025-01-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1422,
+      1454
+    ],
+    "cantidad": 1120.0,
+    "referencial_unitario": 4.2,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4704.0,
+    "precio_adjudicado": 2.3,
+    "monto_adjudicado": 830.3,
+    "proveedor": "TOPOCO PACO SANTOS GUILLERMO",
+    "monto_ejecutado": 830.3,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 5.0
+  },
+  {
+    "cuce": "25-0660-11-1518709-1-1",
+    "nro_item": 12,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Folders — ; material plastico; tamaño oficio; color surtido",
+    "unspsc_codigo": "44122011",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1430,
+      1455
+    ],
+    "cantidad": 1300.0,
+    "referencial_unitario": 7.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 9750.0,
+    "precio_adjudicado": 9.98,
+    "monto_adjudicado": 12974.0,
+    "proveedor": "QUISPE YUJRA MARIELA",
+    "monto_ejecutado": 12974.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 11.5
+  },
+  {
+    "cuce": "25-0660-11-1518709-1-1",
+    "nro_item": 27,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Máquinas perforadoras o para unir papel — Perforadora; alto 40 hojas; nro. de perforaciones 2; punch pm-40",
+    "unspsc_codigo": "44101602",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1445,
+      1456
+    ],
+    "cantidad": 60.0,
+    "referencial_unitario": 75.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4500.0,
+    "precio_adjudicado": 0.18,
+    "monto_adjudicado": 463.5,
+    "proveedor": "TOPOCO PACO SANTOS GUILLERMO",
+    "monto_ejecutado": 463.5,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 0.26
+  },
+  {
+    "cuce": "25-0660-11-1518709-1-1",
+    "nro_item": 32,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Disco compacto cd de lectura y escritura — Disco compacto; capacidad 700 mb-rw; tipo virgen con caja plastica, presentacion por uniad",
+    "unspsc_codigo": "43201809",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1450,
+      1458
+    ],
+    "cantidad": 600.0,
+    "referencial_unitario": 7.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4200.0,
+    "precio_adjudicado": 3.4,
+    "monto_adjudicado": 2550.0,
+    "proveedor": "TOPOCO PACO SANTOS GUILLERMO",
+    "monto_ejecutado": 2550.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 7.5
+  },
+  {
+    "cuce": "25-0660-11-1518709-1-1",
+    "nro_item": 33,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Portapapeles — Bandeja portapapeles; material metalico; tamaño oficio; tipo 3 piezas; color surtido",
+    "unspsc_codigo": "44122012",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1451,
+      1459
+    ],
+    "cantidad": 63.0,
+    "referencial_unitario": 76.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4819.5,
+    "precio_adjudicado": 6.99,
+    "monto_adjudicado": 10485.0,
+    "proveedor": "QUISPE YUJRA MARIELA",
+    "monto_ejecutado": 10485.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 8.3
+  },
+  {
+    "cuce": "25-0660-11-1518709-1-1",
+    "nro_item": 34,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tijeras — para cortar papel; cuchilla redondeada; longitud 21 cms; mango plastico; material acero inoxidable",
+    "unspsc_codigo": "44121618",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1452,
+      1460
+    ],
+    "cantidad": 180.0,
+    "referencial_unitario": 13.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2340.0,
+    "precio_adjudicado": 11.5,
+    "monto_adjudicado": 1840.0,
+    "proveedor": "BORIS HENRY ALVARO BELZU",
+    "monto_ejecutado": 1840.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 17.5
+  },
+  {
+    "cuce": "25-0660-10-1529332-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPE",
+    "descripcion": "Tambores para impresoras o faxes o fotocopiadoras — Drum para impresora brother; modelo dr 3460; compatible con impresora brother hl 5100; producto original",
+    "unspsc_codigo": "44103109",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-02-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1547,
+      1549
+    ],
+    "cantidad": 10.0,
+    "referencial_unitario": 1477.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 14770.0,
+    "precio_adjudicado": 4285.0,
+    "monto_adjudicado": 38565.0,
+    "proveedor": "EMPRESA DE INFORMATICA SISTEMAS & REDES OMNINFORMATICA S.R.L.",
+    "monto_ejecutado": 38565.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 4285.0
+  },
+  {
+    "cuce": "25-0660-10-1529332-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPE",
+    "descripcion": "Tambores para impresoras o faxes o fotocopiadoras — Drum para impresora brother; modelo dr 720; compatible con impresora brother hl 6180; producto original",
+    "unspsc_codigo": "44103109",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-02-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1548,
+      1550
+    ],
+    "cantidad": 7.0,
+    "referencial_unitario": 1873.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 13111.0,
+    "precio_adjudicado": 1948.0,
+    "monto_adjudicado": 50648.0,
+    "proveedor": "EMPRESA DE INFORMATICA SISTEMAS & REDES OMNINFORMATICA S.R.L.",
+    "monto_ejecutado": 50648.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1950.0
+  },
+  {
+    "cuce": "25-0660-10-1519579-1-2",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para dnimpresora; modelo de impresora hp lasert jet p1606dn; color color negro; serie ce 278a originales",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-02-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1559,
+      1565
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 1080.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 5400.0,
+    "precio_adjudicado": 3085.0,
+    "monto_adjudicado": 299245.0,
+    "proveedor": "PAZ SEVERICHE RICHARD",
+    "monto_ejecutado": 299245.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 3090.0
+  },
+  {
+    "cuce": "25-0660-10-1519579-1-2",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; modelo de impresora hp laserjet m201 serie: cf283a (83a) color negro; originales",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-02-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1560,
+      1566
+    ],
+    "cantidad": 10.0,
+    "referencial_unitario": 2600.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 26000.0,
+    "precio_adjudicado": 629.0,
+    "monto_adjudicado": 12580.0,
+    "proveedor": "ROMIS BOLIVIA S.R.L.",
+    "monto_ejecutado": 12580.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 630.0
+  },
+  {
+    "cuce": "25-0660-10-1519579-1-2",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; modelo de impresora hp laserjet pro 400 m401,400 m425 serie: cf280x (80x) color negro; originales",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-02-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1561,
+      1567
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 1890.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 9450.0,
+    "precio_adjudicado": 1190.0,
+    "monto_adjudicado": 59500.0,
+    "proveedor": "ROMIS BOLIVIA S.R.L.",
+    "monto_ejecutado": 59500.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1200.0
+  },
+  {
+    "cuce": "25-0660-10-1519579-1-2",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; modelo de impresora hp laserjet pro m402,mfp m426 serie: cf226a (26a) color negro; originales",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-02-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1563,
+      1569
+    ],
+    "cantidad": 70.0,
+    "referencial_unitario": 1290.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 90300.0,
+    "precio_adjudicado": 1290.0,
+    "monto_adjudicado": 258000.0,
+    "proveedor": "PAZ SEVERICHE RICHARD",
+    "monto_ejecutado": 258000.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1295.0
+  },
+  {
+    "cuce": "25-0660-10-1519579-1-2",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; modelo de impresora hp laserjet pro modelo 3003 serie w1450a (145a) color negro original.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-02-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1564,
+      1570
+    ],
+    "cantidad": 10.0,
+    "referencial_unitario": 1410.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 14100.0,
+    "precio_adjudicado": 634.0,
+    "monto_adjudicado": 12680.0,
+    "proveedor": "ROMIS BOLIVIA S.R.L.",
+    "monto_ejecutado": 12680.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 635.0
+  },
+  {
+    "cuce": "25-0660-10-1519579-1-2",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-10",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; modelo de impresora hp laserjet p3015,500 mfp m525 serie: ce255a (55a) color negro; originales",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-02-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1568,
+      1562
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 2500.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 12500.0,
+    "precio_adjudicado": 220.0,
+    "monto_adjudicado": 44000.0,
+    "proveedor": "ROMIS BOLIVIA S.R.L.",
+    "monto_ejecutado": 44000.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 240.0
+  },
+  {
+    "cuce": "26-0660-11-1655443-1-2",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo l5210 dn serietn 3479",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-04-27",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1659,
+      1676
+    ],
+    "cantidad": 62.0,
+    "referencial_unitario": 1675.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 103850.0,
+    "precio_adjudicado": 400.0,
+    "monto_adjudicado": 3200.0,
+    "proveedor": "TLO S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 450.0
+  },
+  {
+    "cuce": "26-0660-11-1655443-1-2",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca brother; modelo l 5210 dn; serie tn 3609 xxl; color negro.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-04-27",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1660,
+      1677
+    ],
+    "cantidad": 40.0,
+    "referencial_unitario": 1965.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 78600.0,
+    "precio_adjudicado": 150.0,
+    "monto_adjudicado": 3000.0,
+    "proveedor": "TLO S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 250.0
+  },
+  {
+    "cuce": "26-0660-11-1655443-1-2",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca brother; color negro; serie tn 217 bk.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-04-27",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1661,
+      1678
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 1290.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3870.0,
+    "precio_adjudicado": 400.0,
+    "monto_adjudicado": 2400.0,
+    "proveedor": "TLO S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 450.0
+  },
+  {
+    "cuce": "26-0660-11-1655443-1-2",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca brother; color cyan; serie tn 217 c.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-04-27",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1662,
+      1679
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 1235.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3705.0,
+    "precio_adjudicado": 380.0,
+    "monto_adjudicado": 11400.0,
+    "proveedor": "TLO S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 550.0
+  },
+  {
+    "cuce": "26-0660-11-1655443-1-2",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca brother; color magenta; serie tn 217 m.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-04-27",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1663,
+      1680
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 1235.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3705.0,
+    "precio_adjudicado": 380.0,
+    "monto_adjudicado": 3800.0,
+    "proveedor": "TLO S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 750.0
+  },
+  {
+    "cuce": "26-0660-11-1655443-1-2",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-11",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca brother; color yellow; serie tn 217 y",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-04-27",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      1664,
+      1681
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 1235.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3705.0,
+    "precio_adjudicado": 380.0,
+    "monto_adjudicado": 15200.0,
+    "proveedor": "TLO S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 550.0
+  },
+  {
+    "cuce": "22-0660-12-1210533-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Silla de oficina o trabajo — Sillon giratorio semi ejecutivo, espaldar en malla y asiento tapizado en cuero ecologico",
+    "unspsc_codigo": "56101720",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-04-01",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2212,
+      2213
+    ],
+    "cantidad": 50.0,
+    "referencial_unitario": 2770.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 138500.0,
+    "precio_adjudicado": 1375.0,
+    "monto_adjudicado": 96250.0,
+    "proveedor": "LIVINGROOM S.R.L.",
+    "monto_ejecutado": 96250.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1550.0
+  },
+  {
+    "cuce": "22-0660-12-1208910-1-1",
+    "nro_item": 8,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Bolsas plásticas — Bolsa de residuos; color negro; dimensión 65 x 80 cm.; presentación paquete x 10 unidades",
+    "unspsc_codigo": "24111503",
+    "unidad_medida": "Paquete",
+    "fecha_publicacion": "2022-03-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2222,
+      2235
+    ],
+    "cantidad": 200.0,
+    "referencial_unitario": 6.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1200.0,
+    "precio_adjudicado": 7.8,
+    "monto_adjudicado": 1404.0,
+    "proveedor": "FERNANDEZ BARRIENTOS FABIANA ARLETTE",
+    "monto_ejecutado": 1404.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 9.0
+  },
+  {
+    "cuce": "23-0660-12-1359476-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; serie tn 3479",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-08-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2364,
+      2342
+    ],
+    "cantidad": 25.0,
+    "referencial_unitario": 1049.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 26225.0,
+    "precio_adjudicado": 249.0,
+    "monto_adjudicado": 1245.0,
+    "proveedor": "TECSUPPLY S.R.L.",
+    "monto_ejecutado": 1245.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 250.0
+  },
+  {
+    "cuce": "22-0660-12-1208910-1-1",
+    "nro_item": 19,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Papel higiénico — ; número de hojas 2; color blanco; tipo extra suave",
+    "unspsc_codigo": "14111704",
+    "unidad_medida": "Rollo",
+    "fecha_publicacion": "2022-03-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2233,
+      2236
+    ],
+    "cantidad": 2500.0,
+    "referencial_unitario": 2.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 5000.0,
+    "precio_adjudicado": 14.49,
+    "monto_adjudicado": 8983.8,
+    "proveedor": "ROCHA ESPINOZA CRISTHIAN REMBERTO",
+    "monto_ejecutado": 8983.8,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 14.5
+  },
+  {
+    "cuce": "22-0660-12-1206177-1-1",
+    "nro_item": 8,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Cintas de papel — Cinta adhesiva; tipo masquin; 2 pulgadas",
+    "unspsc_codigo": "31201515",
+    "unidad_medida": "Rollo",
+    "fecha_publicacion": "2022-03-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2245,
+      2267
+    ],
+    "cantidad": 2000.0,
+    "referencial_unitario": 6.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 12000.0,
+    "precio_adjudicado": 5.89,
+    "monto_adjudicado": 1130.88,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1130.88,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 10.5
+  },
+  {
+    "cuce": "22-0660-12-1206177-1-1",
+    "nro_item": 10,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; presentación caja de 50; material metálico; número 78 mms",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-03-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2247,
+      2268
+    ],
+    "cantidad": 2000.0,
+    "referencial_unitario": 5.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 11000.0,
+    "precio_adjudicado": 0.12,
+    "monto_adjudicado": 240.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 240.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 0.14
+  },
+  {
+    "cuce": "22-0660-12-1206177-1-1",
+    "nro_item": 16,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Folders — ; material cartulina; tamaño oficio; color amarillo",
+    "unspsc_codigo": "44122011",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-03-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2253,
+      2269
+    ],
+    "cantidad": 3000.0,
+    "referencial_unitario": 0.55,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1650.0000000000002,
+    "precio_adjudicado": 11.5,
+    "monto_adjudicado": 2668.0,
+    "proveedor": "ROJAS ZURITA ASCENCIO",
+    "monto_ejecutado": 2668.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 13.5
+  },
+  {
+    "cuce": "22-0660-12-1206177-1-1",
+    "nro_item": 17,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Grapas — ; material metálico; número 24/6; presentación 1000 x caja",
+    "unspsc_codigo": "44122107",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2022-03-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2254,
+      2270
+    ],
+    "cantidad": 1200.0,
+    "referencial_unitario": 3.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3600.0,
+    "precio_adjudicado": 45.0,
+    "monto_adjudicado": 3150.0,
+    "proveedor": "MILCAR SRL",
+    "monto_ejecutado": 3150.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 55.0
+  },
+  {
+    "cuce": "22-0660-12-1206177-1-1",
+    "nro_item": 25,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Reglas — Regla graduada; longitud 30 cm; material plástico; tipo plana",
+    "unspsc_codigo": "41111604",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-03-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2262,
+      2271
+    ],
+    "cantidad": 800.0,
+    "referencial_unitario": 3.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2800.0,
+    "precio_adjudicado": 1.13,
+    "monto_adjudicado": 2825.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 2825.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1.2
+  },
+  {
+    "cuce": "22-0660-12-1206177-1-1",
+    "nro_item": 28,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Máquinas para fechar o numerar — Sello fechador; tipo redondo; dígitos móviles año ; dígitos móviles dia 2; dígitos móviles mes 1; con hora",
+    "unspsc_codigo": "44102402",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-03-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2265,
+      2272
+    ],
+    "cantidad": 40.0,
+    "referencial_unitario": 230.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 9200.0,
+    "precio_adjudicado": 2.0,
+    "monto_adjudicado": 1600.0,
+    "proveedor": "ESCOBAR RODRIGO MARIA DEL CARMEN",
+    "monto_ejecutado": 1600.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 3.0
+  },
+  {
+    "cuce": "22-0660-12-1206177-1-1",
+    "nro_item": 29,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Sello mecánico de empuje — \"sello; tipo printy; número 4911 caracteristica adicional *sello entintaje automatico * de primera calidad\"",
+    "unspsc_codigo": "31411701",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-03-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2266,
+      2273
+    ],
+    "cantidad": 80.0,
+    "referencial_unitario": 45.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3600.0,
+    "precio_adjudicado": 39.58,
+    "monto_adjudicado": 1583.2,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1583.2,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 48.0
+  },
+  {
+    "cuce": "22-0660-12-1204115-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Computadores de escritorio — Computadoras de escritorio",
+    "unspsc_codigo": "43211507",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-03-14",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2282,
+      2286
+    ],
+    "cantidad": 32.0,
+    "referencial_unitario": 8500.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 272000.0,
+    "precio_adjudicado": 2499.99,
+    "monto_adjudicado": 12499.95,
+    "proveedor": "AKAMINE DE DICK ROSIO ELIZABETH",
+    "monto_ejecutado": 12499.95,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2500.0
+  },
+  {
+    "cuce": "22-0660-12-1204115-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Computadores personales — Computadoras portatil",
+    "unspsc_codigo": "43211508",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2022-03-14",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2283,
+      2287
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 6800.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 13600.0,
+    "precio_adjudicado": 3399.99,
+    "monto_adjudicado": 54399.84,
+    "proveedor": "AKAMINE DE DICK ROSIO ELIZABETH",
+    "monto_ejecutado": 54399.84,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 3400.0
+  },
+  {
+    "cuce": "22-0660-12-1196455-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Papel para impresora o fotocopiadora — Papel bond; tamaño oficio; granaje 75 grs.; color surtido; presentacion por hoja",
+    "unspsc_codigo": "14111507",
+    "unidad_medida": "Hoja",
+    "fecha_publicacion": "2022-02-09",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2314,
+      2316
+    ],
+    "cantidad": 30000.0,
+    "referencial_unitario": 0.12,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3600.0,
+    "precio_adjudicado": 354.9,
+    "monto_adjudicado": 17035.2,
+    "proveedor": "HINOJOSA VILLEGAS MIRIAM ROSARIO",
+    "monto_ejecutado": 17035.2,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 355.0
+  },
+  {
+    "cuce": "23-0660-12-1359476-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca brother; serie tn 2370",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-08-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2365,
+      2343
+    ],
+    "cantidad": 27.0,
+    "referencial_unitario": 519.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 14013.0,
+    "precio_adjudicado": 1280.0,
+    "monto_adjudicado": 3840.0,
+    "proveedor": "TECSUPPLY S.R.L.",
+    "monto_ejecutado": 3840.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1306.0
+  },
+  {
+    "cuce": "23-0660-12-1359740-1-2",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Papel para impresora o fotocopiadora — Papel bond; tamaño oficio; gramaje 75 grs.; color surtido; presentacion por hoja",
+    "unspsc_codigo": "14111507",
+    "unidad_medida": "Hoja",
+    "fecha_publicacion": "2023-08-15",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2340,
+      2336
+    ],
+    "cantidad": 50000.0,
+    "referencial_unitario": 0.16,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 8000.0,
+    "precio_adjudicado": 209.0,
+    "monto_adjudicado": 31350.0,
+    "proveedor": "TECNODIGITAL SRL",
+    "monto_ejecutado": 31350.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 210.0
+  },
+  {
+    "cuce": "23-0660-12-1359476-1-1",
+    "nro_item": 15,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca lexmark; modelo ms 321 dn - ms 4321 dn; serie 56f4h00: color negro",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-08-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2356,
+      2366
+    ],
+    "cantidad": 148.0,
+    "referencial_unitario": 990.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 146520.0,
+    "precio_adjudicado": 74.0,
+    "monto_adjudicado": 222.0,
+    "proveedor": "TECSUPPLY S.R.L.",
+    "monto_ejecutado": 222.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 90.0
+  },
+  {
+    "cuce": "23-0660-12-1359476-1-1",
+    "nro_item": 19,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner de fotocopiadora — Toner para fotocopiadora, marca konica minolta, tn 323",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-08-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2360,
+      2367
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 750.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2250.0,
+    "precio_adjudicado": 615.0,
+    "monto_adjudicado": 3075.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 3075.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 620.0
+  },
+  {
+    "cuce": "23-0660-12-1359476-1-1",
+    "nro_item": 20,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner de fotocopiadora — Toner para fotocopiadora, marca y modelo konica minolta, tn 628 , color negro",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-08-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2361,
+      2368
+    ],
+    "cantidad": 4.0,
+    "referencial_unitario": 1700.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 6800.0,
+    "precio_adjudicado": 204.0,
+    "monto_adjudicado": 1020.0,
+    "proveedor": "TECSUPPLY S.R.L.",
+    "monto_ejecutado": 1020.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 205.0
+  },
+  {
+    "cuce": "26-0660-06-1680258-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Computadores de escritorio — Equipo de escritorio de alto rendimiento(workstation): procesador intel ultra 7 con tecnología vpro o equivalente, 16 gb de ram ddr5, ssd de 1 tb, tarjeta gráfica dedicada de 8 gb vram o superior, s",
+    "unspsc_codigo": "43211507",
+    "unidad_medida": "Pza",
+    "fecha_publicacion": "2026-08-11",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3490,
+      3491
+    ],
+    "cantidad": 1.0,
+    "referencial_unitario": 39980.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 39980.0,
+    "precio_adjudicado": 21305.0,
+    "monto_adjudicado": 426100.0,
+    "proveedor": "DATASYSTEM S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 21318.5
+  },
+  {
+    "cuce": "26-0660-06-1663729-2-1",
+    "nro_item": 7,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Tambores para impresoras o faxes o fotocopiadoras — Repuesto para impresora; tipo tambor; modelo de impresora hp m203 dw -codigo: cf232a 32a",
+    "unspsc_codigo": "44103109",
+    "unidad_medida": "Pza",
+    "fecha_publicacion": "2026-06-30",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3498,
+      3499
+    ],
+    "cantidad": 4.0,
+    "referencial_unitario": 645.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2580.0,
+    "precio_adjudicado": 2800.0,
+    "monto_adjudicado": 28000.0,
+    "proveedor": "YUCRA GUTIERREZ JHONNY",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 3495.0
+  },
+  {
+    "cuce": "23-0660-12-1325816-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Televisores — de 43 pulgadas",
+    "unspsc_codigo": "52161505",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-04-18",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2392,
+      2394
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 2190.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 10950.0,
+    "precio_adjudicado": 4050.0,
+    "monto_adjudicado": 12150.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 12150.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 4300.0
+  },
+  {
+    "cuce": "23-0660-12-1318876-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Cámaras grabadoras o video cámaras digitales — Equipo de videograbacion para salas de audiencia",
+    "unspsc_codigo": "45121516",
+    "unidad_medida": "Equipo",
+    "fecha_publicacion": "2023-03-24",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2451,
+      2454
+    ],
+    "cantidad": 8.0,
+    "referencial_unitario": 15895.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 127160.0,
+    "precio_adjudicado": 980.0,
+    "monto_adjudicado": 3920.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 3920.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 990.0
+  },
+  {
+    "cuce": "23-0660-12-1316421-1-1",
+    "nro_item": 22,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Cartuchos de tinta — Tinta para impresora; tinta para impresora para epson l 355; color cyan: serie t664220;",
+    "unspsc_codigo": "44103105",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-03-17",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2497,
+      2501
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 85.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 425.0,
+    "precio_adjudicado": 945.0,
+    "monto_adjudicado": 61425.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 61425.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1208.0
+  },
+  {
+    "cuce": "23-0660-12-1316421-1-1",
+    "nro_item": 23,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Cartuchos de tinta — Tinta para impresora; marca epson; modelo m105 - m 205; serie t 774120; color negro, original",
+    "unspsc_codigo": "44103105",
+    "unidad_medida": "Bote",
+    "fecha_publicacion": "2023-03-17",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2498,
+      2502
+    ],
+    "cantidad": 20.0,
+    "referencial_unitario": 85.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1700.0,
+    "precio_adjudicado": 358.98,
+    "monto_adjudicado": 2871.84,
+    "proveedor": "VIRTUALTEC S.R.L.",
+    "monto_ejecutado": 2871.84,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 600.0
+  },
+  {
+    "cuce": "23-0660-12-1315912-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Sujetadores o dispensadores de papeles o tacos — Base para exfoliador; material acrilico; color surtido",
+    "unspsc_codigo": "44111506",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-03-16",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2506,
+      2550
+    ],
+    "cantidad": 25.0,
+    "referencial_unitario": 25.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 625.0,
+    "precio_adjudicado": 10.0,
+    "monto_adjudicado": 1000.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1000.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 12.0
+  },
+  {
+    "cuce": "23-0660-12-1315912-1-1",
+    "nro_item": 16,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Blocs o cuadernos de papel — Cuaderno engrapado; cuadricula normal; presentación 50 hojas",
+    "unspsc_codigo": "14111514",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-03-16",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2519,
+      2551
+    ],
+    "cantidad": 200.0,
+    "referencial_unitario": 4.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 800.0,
+    "precio_adjudicado": 5.0,
+    "monto_adjudicado": 3000.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 3000.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 11.5
+  },
+  {
+    "cuce": "23-0660-12-1315912-1-1",
+    "nro_item": 17,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Discos versátiles digitales dvd — Disco compacto; capacidad 4.7 gb; tipo dvd - rx4- virgen sin caja",
+    "unspsc_codigo": "43202003",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-03-16",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2520,
+      2552
+    ],
+    "cantidad": 3500.0,
+    "referencial_unitario": 1.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 5250.0,
+    "precio_adjudicado": 0.65,
+    "monto_adjudicado": 26000.0,
+    "proveedor": "OFISOFT S.R.L.",
+    "monto_ejecutado": 26000.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 0.75
+  },
+  {
+    "cuce": "23-0660-12-1315912-1-1",
+    "nro_item": 22,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Folders — ; material cartulina; tamaño oficio; color amarillo",
+    "unspsc_codigo": "44122011",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-03-16",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2525,
+      2553
+    ],
+    "cantidad": 6000.0,
+    "referencial_unitario": 0.85,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 5100.0,
+    "precio_adjudicado": 6.5,
+    "monto_adjudicado": 5200.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 5200.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 9.0
+  },
+  {
+    "cuce": "23-0660-12-1315912-1-1",
+    "nro_item": 23,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Grapas — ; material metálico; número 24/6; presentación 1000 x caja",
+    "unspsc_codigo": "44122107",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2023-03-16",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2526,
+      2554
+    ],
+    "cantidad": 2000.0,
+    "referencial_unitario": 3.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 6000.0,
+    "precio_adjudicado": 10.0,
+    "monto_adjudicado": 3000.0,
+    "proveedor": "OFISOFT S.R.L.",
+    "monto_ejecutado": 3000.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 15.5
+  },
+  {
+    "cuce": "23-0660-12-1315912-1-1",
+    "nro_item": 26,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Blocs o cuadernos de papel — Libro de actas; cant de hojas 200 pags.; tamaño oficio con indice; numerado cada pagina; tipo de hoja rayada",
+    "unspsc_codigo": "14111514",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-03-16",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2529,
+      2555
+    ],
+    "cantidad": 300.0,
+    "referencial_unitario": 37.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 11100.0,
+    "precio_adjudicado": 1.8,
+    "monto_adjudicado": 5400.0,
+    "proveedor": "ROJAS ZURITA ASCENCIO",
+    "monto_ejecutado": 5400.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 4.0
+  },
+  {
+    "cuce": "23-0660-12-1315912-1-1",
+    "nro_item": 31,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Unidad pen o flash — Memoria flash drive; usb de 16 gb",
+    "unspsc_codigo": "43202010",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-03-16",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2534,
+      2556
+    ],
+    "cantidad": 200.0,
+    "referencial_unitario": 34.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 6800.0,
+    "precio_adjudicado": 1.09,
+    "monto_adjudicado": 2180.0,
+    "proveedor": "PINTO MAMANI JULIO CESAR",
+    "monto_ejecutado": 2180.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1.8
+  },
+  {
+    "cuce": "23-0660-12-1315912-1-1",
+    "nro_item": 40,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Máquinas para fechar o numerar — Sello fechador; tipo redondo; dígitos móviles año; dígitos móviles dia 2; dígitos móviles mes 1; con hora",
+    "unspsc_codigo": "44102402",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-03-16",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2543,
+      2557
+    ],
+    "cantidad": 60.0,
+    "referencial_unitario": 190.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 11400.0,
+    "precio_adjudicado": 1.2,
+    "monto_adjudicado": 6000.0,
+    "proveedor": "OFISOFT S.R.L.",
+    "monto_ejecutado": 6000.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2.5
+  },
+  {
+    "cuce": "23-0660-12-1315912-1-1",
+    "nro_item": 45,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tabla de soporte para escribir — Tablero de campo; material fibra; color blanco; tamaño oficio",
+    "unspsc_codigo": "44111914",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-03-16",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2548,
+      2558
+    ],
+    "cantidad": 80.0,
+    "referencial_unitario": 17.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1400.0,
+    "precio_adjudicado": 1.8,
+    "monto_adjudicado": 1800.0,
+    "proveedor": "OFISOFT S.R.L.",
+    "monto_ejecutado": 1800.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 3.5
+  },
+  {
+    "cuce": "23-0660-12-1315912-1-1",
+    "nro_item": 46,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Calendarios — Taco para exfoliador gestion 2023",
+    "unspsc_codigo": "44112002",
+    "unidad_medida": "Block",
+    "fecha_publicacion": "2023-03-16",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2549,
+      2559
+    ],
+    "cantidad": 60.0,
+    "referencial_unitario": 20.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1200.0,
+    "precio_adjudicado": 11.5,
+    "monto_adjudicado": 2990.0,
+    "proveedor": "ROJAS ZURITA ASCENCIO",
+    "monto_ejecutado": 2990.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 14.5
+  },
+  {
+    "cuce": "23-0660-12-1308180-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Computadores de escritorio — Computadoras de escritorio",
+    "unspsc_codigo": "43211507",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2023-02-23",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2566,
+      2567
+    ],
+    "cantidad": 78.0,
+    "referencial_unitario": 8940.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 697320.0,
+    "precio_adjudicado": 3350.0,
+    "monto_adjudicado": 53600.0,
+    "proveedor": "TECNODIGITAL SRL",
+    "monto_ejecutado": 53600.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 3600.0
+  },
+  {
+    "cuce": "24-0660-12-1477703-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; serie tn 3479",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-09-17",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2604,
+      2607
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 1875.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 9375.0,
+    "precio_adjudicado": 1425.0,
+    "monto_adjudicado": 118275.0,
+    "proveedor": "PAZ SEVERICHE RICHARD",
+    "monto_ejecutado": 118275.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1430.0
+  },
+  {
+    "cuce": "24-0660-12-1450354-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora modelo de impresora brother color tinta negra serie tn 750",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-06-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2675,
+      2667
+    ],
+    "cantidad": 10.0,
+    "referencial_unitario": 880.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 8800.0,
+    "precio_adjudicado": 89.0,
+    "monto_adjudicado": 267.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 267.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 95.0
+  },
+  {
+    "cuce": "24-0660-12-1450354-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laserjet pro m402/mfp m426; color negro; serie cf 226a.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-06-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2668,
+      2676
+    ],
+    "cantidad": 50.0,
+    "referencial_unitario": 1800.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 90000.0,
+    "precio_adjudicado": 699.0,
+    "monto_adjudicado": 3495.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 3495.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 775.0
+  },
+  {
+    "cuce": "24-0660-12-1450354-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laser jet 1006; color tinta negra; serie cb435a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-06-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2669,
+      2677
+    ],
+    "cantidad": 15.0,
+    "referencial_unitario": 990.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 14850.0,
+    "precio_adjudicado": 1139.0,
+    "monto_adjudicado": 5695.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 5695.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1275.0
+  },
+  {
+    "cuce": "24-0660-12-1450354-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora tóner hp laser jet 1102w; color tinta negra; serie ce285a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-06-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2670,
+      2678
+    ],
+    "cantidad": 25.0,
+    "referencial_unitario": 950.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 23750.0,
+    "precio_adjudicado": 85.0,
+    "monto_adjudicado": 170.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 170.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 95.0
+  },
+  {
+    "cuce": "24-0660-12-1450354-1-1",
+    "nro_item": 7,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laserjet p1606; color tinta negra; serie ce-278a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-06-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2671,
+      2679
+    ],
+    "cantidad": 55.0,
+    "referencial_unitario": 1070.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 58850.0,
+    "precio_adjudicado": 1060.0,
+    "monto_adjudicado": 10600.0,
+    "proveedor": "AKAMINE DE DICK ROSIO ELIZABETH",
+    "monto_ejecutado": 10600.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1165.0
+  },
+  {
+    "cuce": "24-0660-12-1450354-1-1",
+    "nro_item": 8,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laserjet pro m203; serie cf 230 a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-06-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2672,
+      2680
+    ],
+    "cantidad": 10.0,
+    "referencial_unitario": 1190.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 11900.0,
+    "precio_adjudicado": 1104.0,
+    "monto_adjudicado": 215280.0,
+    "proveedor": "PAZ SEVERICHE RICHARD",
+    "monto_ejecutado": 215280.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1105.0
+  },
+  {
+    "cuce": "24-0660-12-1450354-1-1",
+    "nro_item": 9,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora laser jet m201; color de tinta negro; serie cf 283 a",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-06-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2673,
+      2681
+    ],
+    "cantidad": 10.0,
+    "referencial_unitario": 1020.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 10200.0,
+    "precio_adjudicado": 829.0,
+    "monto_adjudicado": 4145.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 4145.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 905.0
+  },
+  {
+    "cuce": "24-0660-12-1450354-1-1",
+    "nro_item": 10,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca: modelo de impresora hp laserjet pro mfp 4103fdw; serie 151a (w1510a); color negro",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-06-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2674,
+      2682
+    ],
+    "cantidad": 94.0,
+    "referencial_unitario": 1780.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 167320.0,
+    "precio_adjudicado": 499.0,
+    "monto_adjudicado": 22455.0,
+    "proveedor": "AKAMINE DE DICK ROSIO ELIZABETH",
+    "monto_ejecutado": 22455.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 520.0
+  },
+  {
+    "cuce": "24-0660-06-1455602-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; presentación caja de 100 unidades; material metal; número 33 mms.",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-07-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2689,
+      2717
+    ],
+    "cantidad": 500.0,
+    "referencial_unitario": 3.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1750.0,
+    "precio_adjudicado": 2.49,
+    "monto_adjudicado": 498.0,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 498.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 3.0
+  },
+  {
+    "cuce": "24-0660-06-1455602-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; presentación caja de 50; material metálico; número 78 mms.",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-07-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2690,
+      2718
+    ],
+    "cantidad": 500.0,
+    "referencial_unitario": 11.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 5500.0,
+    "precio_adjudicado": 2.49,
+    "monto_adjudicado": 498.0,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 498.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 3.0
+  },
+  {
+    "cuce": "24-0660-06-1408486-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Tambores para impresoras o faxes o fotocopiadoras — Repuesto para impresora; tipo tambor; modelo de impresora hp m203 dw, codigo: cf232a 32a",
+    "unspsc_codigo": "44103109",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-14",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2778,
+      2786
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 700.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2100.0,
+    "precio_adjudicado": 1450.0,
+    "monto_adjudicado": 2900.0,
+    "proveedor": "AKAMINE DE DICK ROSIO ELIZABETH",
+    "monto_ejecutado": 2900.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1550.0
+  },
+  {
+    "cuce": "24-0660-06-1408486-1-1",
+    "nro_item": 13,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Fusores — Repuesto para impresora; tipo de repuesto fusor; modelo de impresora brother hl-2320 dw, codigo: ljb858001",
+    "unspsc_codigo": "44103004",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-14",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2785,
+      2787
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 990.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2970.0,
+    "precio_adjudicado": 93.0,
+    "monto_adjudicado": 372.0,
+    "proveedor": "COMPUTER INSIDE S.R.L.",
+    "monto_ejecutado": 372.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 95.0
+  },
+  {
+    "cuce": "24-0660-12-1421308-1-1",
+    "nro_item": 12,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Grapas — ; material metálico; número 24/6; presentación 1000 x caja",
+    "unspsc_codigo": "44122107",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2024-03-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2799,
+      2822
+    ],
+    "cantidad": 1000.0,
+    "referencial_unitario": 4.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4000.0,
+    "precio_adjudicado": 0.15,
+    "monto_adjudicado": 600.0,
+    "proveedor": "PINTO MAMANI JULIO CESAR",
+    "monto_ejecutado": 600.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 0.2
+  },
+  {
+    "cuce": "24-0660-12-1421308-1-1",
+    "nro_item": 33,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Folders — ; material cartulina; tamaño oficio; color amarillo",
+    "unspsc_codigo": "44122011",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-03-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2820,
+      2823
+    ],
+    "cantidad": 2000.0,
+    "referencial_unitario": 1.2,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2400.0,
+    "precio_adjudicado": 3.7,
+    "monto_adjudicado": 3700.0,
+    "proveedor": "PARRA CARVAJAL NARDA",
+    "monto_ejecutado": 3700.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 4.5
+  },
+  {
+    "cuce": "24-0660-12-1413372-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Teléfonos ip — Telefonos ip",
+    "unspsc_codigo": "43191511",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2866,
+      2867
+    ],
+    "cantidad": 51.0,
+    "referencial_unitario": 468.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 23868.0,
+    "precio_adjudicado": 1295.0,
+    "monto_adjudicado": 27195.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 27195.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1300.0
+  },
+  {
+    "cuce": "24-0660-06-1404593-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; presentación caja de 100 unidades; material metal; número 33 mms. (acero niquelado de alta calidad durabilidad y rigidez)",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-01-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2883,
+      2910
+    ],
+    "cantidad": 500.0,
+    "referencial_unitario": 3.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1750.0,
+    "precio_adjudicado": 0.95,
+    "monto_adjudicado": 475.0,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 475.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1.0
+  },
+  {
+    "cuce": "24-0660-06-1404593-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; presentación caja de 50; material metálico; número 78 mms. (acero niquelado de alta calidad durabilidad y rigidez)",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-01-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2884,
+      2911
+    ],
+    "cantidad": 500.0,
+    "referencial_unitario": 15.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 7500.0,
+    "precio_adjudicado": 1.58,
+    "monto_adjudicado": 1580.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1580.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 3.5
+  },
+  {
+    "cuce": "24-0660-06-1404593-1-1",
+    "nro_item": 11,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Grapas — ; material metal; número 23/8; presentación paquete x 10 cajitas (de acero de alta calidad, reforzado, resiste al oxido)",
+    "unspsc_codigo": "44122107",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-01-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2889,
+      2913
+    ],
+    "cantidad": 100.0,
+    "referencial_unitario": 8.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 800.0,
+    "precio_adjudicado": 0.52,
+    "monto_adjudicado": 1040.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 1040.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1.5
+  },
+  {
+    "cuce": "24-0660-06-1404593-1-1",
+    "nro_item": 12,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Grapas — ; material metálico; número 24/6; presentación 1000 x caja(de acero de alta calidad, reforzado, resiste al oxido)",
+    "unspsc_codigo": "44122107",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-01-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2890,
+      2914
+    ],
+    "cantidad": 500.0,
+    "referencial_unitario": 4.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2000.0,
+    "precio_adjudicado": 15.2,
+    "monto_adjudicado": 304.0,
+    "proveedor": "TAPIA FERNANDEZ MIGUEL ANGEL",
+    "monto_ejecutado": 304.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 21.5
+  },
+  {
+    "cuce": "24-0660-06-1404593-1-1",
+    "nro_item": 28,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Tijeras — para cortar papel; cuchilla redondeada; longitud 21 cms.; mango plástico; material acero inoxidable",
+    "unspsc_codigo": "44121618",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-01-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2906,
+      2915
+    ],
+    "cantidad": 60.0,
+    "referencial_unitario": 12.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 720.0,
+    "precio_adjudicado": 3.2,
+    "monto_adjudicado": 640.0,
+    "proveedor": "JORGE GONZALES EDWIN AMILCAR",
+    "monto_ejecutado": 640.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 4.5
+  },
+  {
+    "cuce": "24-0660-06-1404477-1-1",
+    "nro_item": 13,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tinta para impresora; marca epson; modelo m105 - m 205; serie t 774120; color negro",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-01-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2958,
+      2972
+    ],
+    "cantidad": 20.0,
+    "referencial_unitario": 170.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3400.0,
+    "precio_adjudicado": 719.0,
+    "monto_adjudicado": 3595.0,
+    "proveedor": "TECNODIGITAL SRL",
+    "monto_ejecutado": 3595.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 720.0
+  },
+  {
+    "cuce": "24-0660-12-1410913-1-1",
+    "nro_item": 12,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Fusores — Repuesto para impresora; tipo fusor: modelo lexmark ms421",
+    "unspsc_codigo": "44103004",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2984,
+      2998
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 2050.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 6150.0,
+    "precio_adjudicado": 300.0,
+    "monto_adjudicado": 1500.0,
+    "proveedor": "ESCOBAR VALDIVIA HENRRY OMAR",
+    "monto_ejecutado": 1500.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 301.5
+  },
+  {
+    "cuce": "24-0660-12-1410913-1-1",
+    "nro_item": 25,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Tambores para impresoras o faxes o fotocopiadoras — \"repuesto para impresora; tipo tambor para lexmark; modelo 56f0z00 ms421 y ms321\"",
+    "unspsc_codigo": "44103109",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-21",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      2997,
+      2999
+    ],
+    "cantidad": 14.0,
+    "referencial_unitario": 995.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 13930.0,
+    "precio_adjudicado": 70.0,
+    "monto_adjudicado": 2800.0,
+    "proveedor": "EGUEZ AÑEZ LUIS ALFREDO",
+    "monto_ejecutado": 2800.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 92.0
+  },
+  {
+    "cuce": "24-0660-12-1410177-1-1",
+    "nro_item": 17,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner de fotocopiadora — Toner para fotocopiadora; marca y modelo konica minolta; tn 628 color negro.",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2024-02-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3028,
+      3030
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 1700.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 8500.0,
+    "precio_adjudicado": 999.99,
+    "monto_adjudicado": 4999.95,
+    "proveedor": "VIRTUALTEC S.R.L.",
+    "monto_ejecutado": 4999.95,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1050.0
+  },
+  {
+    "cuce": "25-0660-06-1617480-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "CM",
+    "descripcion": "Tambores para impresoras o faxes o fotocopiadoras — REPUESTO PARA IMPRESORA; TIPO TAMBOR; MODELO DE IMPRESORA BROTHER HL-6180 DW - CODIGO: DR-720",
+    "unspsc_codigo": "44103109",
+    "unidad_medida": "PZA",
+    "fecha_publicacion": "2025-11-28",
+    "fuentes_presentes": [
+      "form220"
+    ],
+    "ids_origen": [
+      3078,
+      3084
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 1720.0,
+    "referencial_fuente": "adjudicado(fallback)",
+    "monto_referencial": 5160.0,
+    "precio_adjudicado": 1590.0,
+    "monto_adjudicado": 4770.0,
+    "proveedor": "YUCRA GUTIERREZ JHONNY",
+    "monto_ejecutado": 4770.0,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "25-0660-12-1559896-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca brother; serie tn 3479",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-05-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3115,
+      3121
+    ],
+    "cantidad": 8.0,
+    "referencial_unitario": 2144.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 17152.0,
+    "precio_adjudicado": 2729.98,
+    "monto_adjudicado": 27299.8,
+    "proveedor": "INSUVIRTUAL S.R.L.",
+    "monto_ejecutado": 27299.8,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2900.0
+  },
+  {
+    "cuce": "25-0660-12-1559896-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca brother; serie tn 2370",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-05-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3116,
+      3122
+    ],
+    "cantidad": 8.0,
+    "referencial_unitario": 1013.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 8104.0,
+    "precio_adjudicado": 1550.0,
+    "monto_adjudicado": 7750.0,
+    "proveedor": "IMPORTADORA Y DISTRIBUIDORA VMD S.R.L.",
+    "monto_ejecutado": 7750.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2050.0
+  },
+  {
+    "cuce": "25-0660-12-1556274-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Audífonos — Accesorio para computador; tipo audifono con microfono",
+    "unspsc_codigo": "52161514",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-05-19",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3175,
+      3176
+    ],
+    "cantidad": 15.0,
+    "referencial_unitario": 170.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2550.0,
+    "precio_adjudicado": 2393.8,
+    "monto_adjudicado": 23938.0,
+    "proveedor": "ANTEZANA TERRAZAS FRANKLYN ERWIN",
+    "monto_ejecutado": 23938.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2394.0
+  },
+  {
+    "cuce": "25-0660-06-1593492-1-3",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo hl-3170 cdw; serie tn 221 bk: color negro",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-09-30",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3179,
+      3187,
+      3191
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 1510.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3020.0,
+    "precio_adjudicado": 249.8,
+    "monto_adjudicado": 999.2,
+    "proveedor": "QUISBERT RIVERA LUCIO GREGORIO",
+    "monto_ejecutado": 999.2,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 250.0
+  },
+  {
+    "cuce": "25-0660-06-1593492-1-3",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo hl-3170 cdw; serie tn 221 c: color cian",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-09-30",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3180,
+      3188,
+      3192
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 1250.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2500.0,
+    "precio_adjudicado": 184.89,
+    "monto_adjudicado": 2588.46,
+    "proveedor": "QUISBERT RIVERA LUCIO GREGORIO",
+    "monto_ejecutado": 2588.46,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 190.0
+  },
+  {
+    "cuce": "25-0660-06-1593492-1-3",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo hl-3170 cdw; serie tn 221 m: color magenta.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-09-30",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3181,
+      3189
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 1250.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2500.0,
+    "precio_adjudicado": 1595.0,
+    "monto_adjudicado": 6380.0,
+    "proveedor": "QUISBERT RIVERA LUCIO GREGORIO",
+    "monto_ejecutado": 6380.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1595.0
+  },
+  {
+    "cuce": "25-0660-06-1593492-1-3",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo hl-3170 cdw; serie tn 221 y: color yelow.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-09-30",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3182,
+      3190
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 1250.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2500.0,
+    "precio_adjudicado": 2499.0,
+    "monto_adjudicado": 42483.0,
+    "proveedor": "QUISBERT RIVERA LUCIO GREGORIO",
+    "monto_ejecutado": 42483.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2500.0
+  },
+  {
+    "cuce": "25-0660-12-1549492-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Folders — ; material cartulina; tamaño oficio; color amarillo",
+    "unspsc_codigo": "44122011",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-04-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3204,
+      3217
+    ],
+    "cantidad": 8000.0,
+    "referencial_unitario": 1.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 8000.0,
+    "precio_adjudicado": 0.95,
+    "monto_adjudicado": 40850.0,
+    "proveedor": "PINTO MAMANI JULIO CESAR",
+    "monto_ejecutado": 40850.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1.3
+  },
+  {
+    "cuce": "25-0660-12-1549492-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Grapas — ; material metálico; número 24/6; presentación 1000 x caja",
+    "unspsc_codigo": "44122107",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2025-04-28",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3205,
+      3218
+    ],
+    "cantidad": 2000.0,
+    "referencial_unitario": 3.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 7000.0,
+    "precio_adjudicado": 16.4,
+    "monto_adjudicado": 24600.0,
+    "proveedor": "PINTO MAMANI JULIO CESAR",
+    "monto_ejecutado": 24600.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 22.0
+  },
+  {
+    "cuce": "25-0660-12-1540153-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Audífonos — Accesorio para computador; tipo audifono con microfono",
+    "unspsc_codigo": "52161514",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-03-31",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3252,
+      3266
+    ],
+    "cantidad": 15.0,
+    "referencial_unitario": 180.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2700.0,
+    "precio_adjudicado": 439.0,
+    "monto_adjudicado": 4390.0,
+    "proveedor": "ORTEGA ANDIA LUIS FELIPE",
+    "monto_ejecutado": 4390.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 440.0
+  },
+  {
+    "cuce": "25-0660-12-1540153-1-1",
+    "nro_item": 9,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Fusores — Repuesto para impresora; tipo kit (fusor, lámina, rodillo de presión); modelo brother hl-6180 dw",
+    "unspsc_codigo": "44103004",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-03-31",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3260,
+      3267
+    ],
+    "cantidad": 15.0,
+    "referencial_unitario": 2295.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 34425.0,
+    "precio_adjudicado": 259.0,
+    "monto_adjudicado": 2590.0,
+    "proveedor": "ORTEGA ANDIA LUIS FELIPE",
+    "monto_ejecutado": 2590.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 260.0
+  },
+  {
+    "cuce": "25-0660-06-1537406-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; presentación caja de 100 unidades; material metal; número 33 mms.",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-03-25",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3277,
+      3306
+    ],
+    "cantidad": 1000.0,
+    "referencial_unitario": 3.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3000.0,
+    "precio_adjudicado": 29.0,
+    "monto_adjudicado": 2320.0,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 2320.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 35.0
+  },
+  {
+    "cuce": "25-0660-06-1537406-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Clips para papel — es; presentación caja de 50; material metálico; número 78 mms.",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-03-25",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3278,
+      3307
+    ],
+    "cantidad": 600.0,
+    "referencial_unitario": 12.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 7200.0,
+    "precio_adjudicado": 0.8,
+    "monto_adjudicado": 2400.0,
+    "proveedor": "GONZALES MUR ROSAURA",
+    "monto_ejecutado": 2400.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 0.9
+  },
+  {
+    "cuce": "25-0660-12-1539303-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "CM",
+    "descripcion": "Cable de cobre — • CABLE DE COBRE; NÚMERO 4 TIPO UNIPOLAR FLEXIBLE; PRESENTACIÓN POR METRO",
+    "unspsc_codigo": "26121634",
+    "unidad_medida": "METRO",
+    "fecha_publicacion": "2025-03-31",
+    "fuentes_presentes": [
+      "form220"
+    ],
+    "ids_origen": [
+      3308,
+      3323
+    ],
+    "cantidad": 300.0,
+    "referencial_unitario": 8.0,
+    "referencial_fuente": "adjudicado(fallback)",
+    "monto_referencial": 2400.0,
+    "precio_adjudicado": 7.5,
+    "monto_adjudicado": 2250.0,
+    "proveedor": "ROJAS SALAMANCA RAFAEL IGNACIO",
+    "monto_ejecutado": 2250.0,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "25-0660-12-1539303-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "CM",
+    "descripcion": "Cable de cobre — • CABLE DE COBRE; NÚMERO 1 X 2.5 MM2, TIPO UNIPOLAR FLEXIBLE; PRESENTACIÓN POR METRO",
+    "unspsc_codigo": "26121634",
+    "unidad_medida": "METRO",
+    "fecha_publicacion": "2025-03-31",
+    "fuentes_presentes": [
+      "form220"
+    ],
+    "ids_origen": [
+      3309,
+      3324
+    ],
+    "cantidad": 300.0,
+    "referencial_unitario": 5.0,
+    "referencial_fuente": "adjudicado(fallback)",
+    "monto_referencial": 1500.0,
+    "precio_adjudicado": 4.89,
+    "monto_adjudicado": 1467.0,
+    "proveedor": "AGUILAR MOSCOSO MANFRED LEOBARDO",
+    "monto_ejecutado": 1467.0,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "25-0660-06-1534040-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora modelo de impresora brother color tinta negra seria tn 750",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-03-13",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3325,
+      3330
+    ],
+    "cantidad": 32.0,
+    "referencial_unitario": 1200.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 38400.0,
+    "precio_adjudicado": 399.0,
+    "monto_adjudicado": 9975.0,
+    "proveedor": "SARMIENTO UGARTE JUAN MIGUEL",
+    "monto_ejecutado": 9975.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 400.0
+  },
+  {
+    "cuce": "25-0660-06-1534040-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora brother hl 5340 d; color tinta negro; serie tn 650",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-03-13",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3326,
+      3331
+    ],
+    "cantidad": 50.0,
+    "referencial_unitario": 1200.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 60000.0,
+    "precio_adjudicado": 119.0,
+    "monto_adjudicado": 1071.0,
+    "proveedor": "GUTIERREZ MALECA FERNANDA",
+    "monto_ejecutado": 1071.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 170.0
+  },
+  {
+    "cuce": "25-0660-06-1534040-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca brother; serie tn 2370",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-03-13",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3327,
+      3332
+    ],
+    "cantidad": 15.0,
+    "referencial_unitario": 630.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 9450.0,
+    "precio_adjudicado": 173.0,
+    "monto_adjudicado": 18165.0,
+    "proveedor": "SEGURITEL S.R.L.",
+    "monto_ejecutado": 18165.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 220.0
+  },
+  {
+    "cuce": "25-0660-06-1534040-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo hl-3170 cdw; serie tn 221 bk: color negro",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-03-13",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3328,
+      3333
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 1145.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2290.0,
+    "precio_adjudicado": 1284.0,
+    "monto_adjudicado": 39804.0,
+    "proveedor": "PAZ SEVERICHE RICHARD",
+    "monto_ejecutado": 39804.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1295.0
+  },
+  {
+    "cuce": "25-0660-06-1534040-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo hl-3170 cdw; serie tn 225 y: color yellow",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-03-13",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3329,
+      3334
+    ],
+    "cantidad": 1.0,
+    "referencial_unitario": 1136.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1136.0,
+    "precio_adjudicado": 114.0,
+    "monto_adjudicado": 4560.0,
+    "proveedor": "GUTIERREZ MALECA FERNANDA",
+    "monto_ejecutado": 4560.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 150.0
+  },
+  {
+    "cuce": "26-0660-08-1631390-1-1",
+    "nro_item": 19,
+    "lote": null,
+    "entidad_codigo": "0660-08",
+    "modalidad": "ANPE",
+    "descripcion": "Marcadores — permanente gruesos varios colores",
+    "unspsc_codigo": "44121708",
+    "unidad_medida": "Unidad",
+    "fecha_publicacion": "2026-02-12",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      7609,
+      7578
+    ],
+    "cantidad": 60.0,
+    "referencial_unitario": 5.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 330.0,
+    "precio_adjudicado": 20.0,
+    "monto_adjudicado": 600.0,
+    "proveedor": "MEJIA HURTADO DE CABALLERO HORTENCIA",
+    "monto_ejecutado": 600.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 20.0
+  },
+  {
+    "cuce": "25-0660-12-1529456-1-1",
+    "nro_item": 22,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner de fotocopiadora — Toner para fotocopiadora; marca y modelo konica minolta; tn 628 color negro.",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-02-27",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3403,
+      3405
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 1850.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 9250.0,
+    "precio_adjudicado": 130.0,
+    "monto_adjudicado": 19630.0,
+    "proveedor": "TECSUPPLY S.R.L.",
+    "monto_ejecutado": 19630.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 145.0
+  },
+  {
+    "cuce": "25-0660-12-1529456-1-1",
+    "nro_item": 23,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner de fotocopiadora — Toner para fotocopiadora; marca konica minolta; tn 323",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-02-27",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3404,
+      3406
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 1750.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 3500.0,
+    "precio_adjudicado": 110.0,
+    "monto_adjudicado": 110.0,
+    "proveedor": "SANDOVAL GUTIERREZ PAMELA LIZZETTE",
+    "monto_ejecutado": 110.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 125.0
+  },
+  {
+    "cuce": "25-0660-06-1516792-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora modelo de impresora brother color tinta negra seria tn 750",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-20",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3407,
+      3418
+    ],
+    "cantidad": 14.0,
+    "referencial_unitario": 1200.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 16800.0,
+    "precio_adjudicado": 75.0,
+    "monto_adjudicado": 4500.0,
+    "proveedor": "FOSKSU S.R.L.",
+    "monto_ejecutado": 4500.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 150.0
+  },
+  {
+    "cuce": "25-0660-06-1516792-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora brother hl 5340 d; color tinta negro; serie tn 650",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-20",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3408,
+      3419
+    ],
+    "cantidad": 45.0,
+    "referencial_unitario": 1200.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 54000.0,
+    "precio_adjudicado": 100.0,
+    "monto_adjudicado": 10000.0,
+    "proveedor": "JIMENEZ SALAZAR LIDIA",
+    "monto_ejecutado": 10000.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 170.0
+  },
+  {
+    "cuce": "25-0660-06-1516792-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca brother; serie tn 2370",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-20",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3409,
+      3420
+    ],
+    "cantidad": 12.0,
+    "referencial_unitario": 630.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 7560.0,
+    "precio_adjudicado": 100.28,
+    "monto_adjudicado": 601.68,
+    "proveedor": "ECOINSUMOS S.R.L.",
+    "monto_ejecutado": 601.68,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 120.0
+  },
+  {
+    "cuce": "25-0660-06-1516792-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo hl-3170 cdw; serie tn 221 bk: color negro",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-20",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3410,
+      3421
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 1145.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2290.0,
+    "precio_adjudicado": 100.0,
+    "monto_adjudicado": 22000.0,
+    "proveedor": "JIMENEZ SALAZAR LIDIA",
+    "monto_ejecutado": 22000.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 180.0
+  },
+  {
+    "cuce": "25-0660-06-1516792-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo hl-3170 cdw; serie tn 225 y: color yellow",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-20",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3411,
+      3422
+    ],
+    "cantidad": 1.0,
+    "referencial_unitario": 1336.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1336.0,
+    "precio_adjudicado": 139.9,
+    "monto_adjudicado": 2798.0,
+    "proveedor": "JIMENEZ SALAZAR LIDIA",
+    "monto_ejecutado": 2798.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 230.0
+  },
+  {
+    "cuce": "25-0660-06-1516792-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo hl-3170 cdw; serie tn 225 c: color cyan",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-20",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3412,
+      3423
+    ],
+    "cantidad": 1.0,
+    "referencial_unitario": 1336.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1336.0,
+    "precio_adjudicado": 1288.0,
+    "monto_adjudicado": 193200.0,
+    "proveedor": "PAZ SEVERICHE RICHARD",
+    "monto_ejecutado": 193200.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1295.0
+  },
+  {
+    "cuce": "25-0660-06-1516792-1-1",
+    "nro_item": 7,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo hl-3170 cdw; serie tn 225 m: color magenta",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-20",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3413,
+      3424
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 1336.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4008.0,
+    "precio_adjudicado": 109.9,
+    "monto_adjudicado": 24068.1,
+    "proveedor": "JIMENEZ SALAZAR LIDIA",
+    "monto_ejecutado": 24068.1,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 190.0
+  },
+  {
+    "cuce": "25-0660-06-1516792-1-1",
+    "nro_item": 8,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; serie tn 3479",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-20",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3414,
+      3425
+    ],
+    "cantidad": 25.0,
+    "referencial_unitario": 1340.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 33500.0,
+    "precio_adjudicado": 229.98,
+    "monto_adjudicado": 1379.88,
+    "proveedor": "ECOINSUMOS S.R.L.",
+    "monto_ejecutado": 1379.88,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 240.0
+  },
+  {
+    "cuce": "25-0660-06-1516792-1-1",
+    "nro_item": 9,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca hp laserjet pro; color negro: compatible con esta impresora, rendimiento 3000 hojas.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-20",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3415,
+      3426
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 1363.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 6815.0,
+    "precio_adjudicado": 150.9,
+    "monto_adjudicado": 33198.0,
+    "proveedor": "JIMENEZ SALAZAR LIDIA",
+    "monto_ejecutado": 33198.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 280.0
+  },
+  {
+    "cuce": "25-0660-06-1516792-1-1",
+    "nro_item": 10,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora hp laser jet p1005; color tinta negro; compatible con esta impresora, rendimiento 3000 páginas.",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2025-01-20",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3416,
+      3427
+    ],
+    "cantidad": 6.0,
+    "referencial_unitario": 180.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 1080.0,
+    "precio_adjudicado": 97.99,
+    "monto_adjudicado": 587.94,
+    "proveedor": "ECOINSUMOS S.R.L.",
+    "monto_ejecutado": 587.94,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 120.0
+  },
+  {
+    "cuce": "26-0660-12-1685672-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPE",
+    "descripcion": "Unidad de estado sólido ssd — Accesorio para computador; disco solido interno ssd de 2.5”, capacidad de 240 gb.",
+    "unspsc_codigo": "43201830",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-09-02",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3513,
+      3514
+    ],
+    "cantidad": 300.0,
+    "referencial_unitario": 550.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 165000.0,
+    "precio_adjudicado": 46.5,
+    "monto_adjudicado": 7440.0,
+    "proveedor": "TAPIA FERNANDEZ MIGUEL ANGEL",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 68.75
+  },
+  {
+    "cuce": "26-0660-06-1666287-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; serie tn 3479",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pza",
+    "fecha_publicacion": "2026-06-11",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3522,
+      3536
+    ],
+    "cantidad": 30.0,
+    "referencial_unitario": 1213.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 36390.0,
+    "precio_adjudicado": 95.0,
+    "monto_adjudicado": 1425.0,
+    "proveedor": "JOSPRINTER S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 210.0
+  },
+  {
+    "cuce": "26-0660-06-1666287-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora brother hl 5340 d; color tinta negro; serie tn 650 -3000 impresiones (al 5%) o mayor cantidad - codigo de compatibilidad: tn-620/tn/650",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pza",
+    "fecha_publicacion": "2026-06-11",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3523,
+      3537
+    ],
+    "cantidad": 30.0,
+    "referencial_unitario": 849.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 25470.0,
+    "precio_adjudicado": 1928.0,
+    "monto_adjudicado": 48200.0,
+    "proveedor": "DATASYSTEM S.R.L.",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1929.0
+  },
+  {
+    "cuce": "26-0660-06-1666287-1-1",
+    "nro_item": 3,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora modelo de impresora brother color tinta negra seria tn 750 -8000 impresiones (al 5%) o mayor cantidad -codigo de compatibilidad: tn-750",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pza",
+    "fecha_publicacion": "2026-06-11",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3524,
+      3538
+    ],
+    "cantidad": 30.0,
+    "referencial_unitario": 1016.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 30480.0,
+    "precio_adjudicado": 139.0,
+    "monto_adjudicado": 695.0,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 240.0
+  },
+  {
+    "cuce": "26-0660-06-1664773-1-1",
+    "nro_item": 12,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPE",
+    "descripcion": "Papel higiénico — ; número de hojas 2; color blanco; tipo familia rollo",
+    "unspsc_codigo": "14111704",
+    "unidad_medida": "Rollo",
+    "fecha_publicacion": "2026-06-03",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3555,
+      3556
+    ],
+    "cantidad": 2300.0,
+    "referencial_unitario": 2.25,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 5175.0,
+    "precio_adjudicado": 11.5,
+    "monto_adjudicado": 8625.0,
+    "proveedor": "BETANCUR ROMERO MARIA LUISA",
+    "monto_ejecutado": null,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 15.0
+  },
+  {
+    "cuce": "26-0660-06-1650121-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora brother hl-2140; color tinta negra; serie número de parte tn360",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-04-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3595,
+      3597
+    ],
+    "cantidad": 3.0,
+    "referencial_unitario": 795.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 2385.0,
+    "precio_adjudicado": 1899.0,
+    "monto_adjudicado": 7596.0,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 7596.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2429.0
+  },
+  {
+    "cuce": "26-0660-06-1647237-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Impresoras de imágenes digitales — Impresora monocromática de inyección con tanque: ≥32 ppm borrador / ≥15 ppm iso, resolución ≥1440x720 dpi, tanque recargable, bandeja ≥150 hojas, ciclo ≥20.000 pág/mes, rendimiento ≥5.000 pág, usb",
+    "unspsc_codigo": "43212114",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-03-31",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3606,
+      3608
+    ],
+    "cantidad": 23.0,
+    "referencial_unitario": 5311.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 122153.0,
+    "precio_adjudicado": 5280.99,
+    "monto_adjudicado": 89776.83,
+    "proveedor": "DATASYSTEM S.R.L.",
+    "monto_ejecutado": 89776.83,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 5281.0
+  },
+  {
+    "cuce": "26-0660-08-1631390-1-1",
+    "nro_item": 21,
+    "lote": null,
+    "entidad_codigo": "0660-08",
+    "modalidad": "ANPE",
+    "descripcion": "Borradores — tipo miga de pan pequeño",
+    "unspsc_codigo": "44121804",
+    "unidad_medida": "Unidad",
+    "fecha_publicacion": "2026-02-12",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      7610,
+      7580
+    ],
+    "cantidad": 200.0,
+    "referencial_unitario": 2.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 400.0,
+    "precio_adjudicado": 4.5,
+    "monto_adjudicado": 216.0,
+    "proveedor": "MEJIA HURTADO DE CABALLERO HORTENCIA",
+    "monto_ejecutado": 216.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 5.0
+  },
+  {
+    "cuce": "26-0660-12-1652228-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-12",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner de fotocopiadora — Toner para fotocopiadora; marca canon; modelo ir 2545; serie gpr 34",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pieza",
+    "fecha_publicacion": "2026-04-13",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3620,
+      3622
+    ],
+    "cantidad": 5.0,
+    "referencial_unitario": 1250.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 6250.0,
+    "precio_adjudicado": 680.0,
+    "monto_adjudicado": 3400.0,
+    "proveedor": "VERA GUMUCIO JOSE CARLOS",
+    "monto_ejecutado": 3400.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 950.0
+  },
+  {
+    "cuce": "26-0660-06-1644617-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "CM",
+    "descripcion": "Cámaras de web — ACCESORIO PARA EQUIPO DE COMPUTACIÓN; TIPO CAMARA WEB. - RESOLUCIÓN: FULL HD 1080P, RESOLUCION 1920*1080. - ENTRADA: USB. - TIPO DE MICRÓFONO: INTEGRADO. CABLE DE CONEXIÓN TAMAÑO 1 METRO O MAS.",
+    "unspsc_codigo": "45121520",
+    "unidad_medida": "PIEZA",
+    "fecha_publicacion": "2026-03-24",
+    "fuentes_presentes": [
+      "form220"
+    ],
+    "ids_origen": [
+      3625,
+      3635
+    ],
+    "cantidad": 15.0,
+    "referencial_unitario": 290.0,
+    "referencial_fuente": "adjudicado(fallback)",
+    "monto_referencial": 4350.0,
+    "precio_adjudicado": 274.0,
+    "monto_adjudicado": 4110.0,
+    "proveedor": "TAPIA FERNANDEZ MIGUEL ANGEL",
+    "monto_ejecutado": 4110.0,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "26-0660-06-1644617-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "CM",
+    "descripcion": "Memoria de acceso aleatorio (ram) — ACCESORIO PARA EQUIPO DE COMPUTACIÓN; TIPO MEMORIA RAM. - MEMORIA RAM DDR2 DE 2GB / FREC 800 P/PC",
+    "unspsc_codigo": "32101601",
+    "unidad_medida": "PIEZA",
+    "fecha_publicacion": "2026-03-24",
+    "fuentes_presentes": [
+      "form220"
+    ],
+    "ids_origen": [
+      3626,
+      3636
+    ],
+    "cantidad": 6.0,
+    "referencial_unitario": 380.0,
+    "referencial_fuente": "adjudicado(fallback)",
+    "monto_referencial": 2280.0,
+    "precio_adjudicado": 378.0,
+    "monto_adjudicado": 2268.0,
+    "proveedor": "COMPUTER INSIDE S.R.L.",
+    "monto_ejecutado": 2268.0,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": false,
+    "ref_adjudicado_auditoria": null
+  },
+  {
+    "cuce": "26-0660-06-1627883-2-1",
+    "nro_item": 7,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Clips para papel — es; presentación caja de 100 unidades; material metal; número 33 mms.",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2026-03-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3648,
+      3679
+    ],
+    "cantidad": 2000.0,
+    "referencial_unitario": 3.5,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 7000.0,
+    "precio_adjudicado": 1.7,
+    "monto_adjudicado": 4250.0,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 4250.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 2.1
+  },
+  {
+    "cuce": "26-0660-06-1627883-2-1",
+    "nro_item": 8,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Clips para papel — es; presentación caja de 50; material metálico; número 78 mms.",
+    "unspsc_codigo": "44122104",
+    "unidad_medida": "Caja",
+    "fecha_publicacion": "2026-03-10",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3649,
+      3680
+    ],
+    "cantidad": 2500.0,
+    "referencial_unitario": 13.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 32500.0,
+    "precio_adjudicado": 10.5,
+    "monto_adjudicado": 2100.0,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 2100.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 12.8
+  },
+  {
+    "cuce": "26-0660-06-1635753-1-1",
+    "nro_item": 1,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tambores para impresoras o faxes o fotocopiadoras — Repuesto para impresora; tipo tambor; modelo de impresora brother hl-6180 dw - codigo: dr-720",
+    "unspsc_codigo": "44103109",
+    "unidad_medida": "Pza.",
+    "fecha_publicacion": "2026-02-27",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3682,
+      3683,
+      3693,
+      3694
+    ],
+    "cantidad": 14.0,
+    "referencial_unitario": 2394.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 33516.0,
+    "precio_adjudicado": 1585.0,
+    "monto_adjudicado": 79250.0,
+    "proveedor": "COMPAÑIA DE INFORMATICA AVANZADA C.I.A. S.R.L.",
+    "monto_ejecutado": 79250.0,
+    "incierto_colision_fuente": true,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1590.0
+  },
+  {
+    "cuce": "26-0660-06-1634863-1-1",
+    "nro_item": 2,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Toner para impresora; marca brother; modelo hl-3170 cdw; serie tn 221 bk: color negro",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pza.",
+    "fecha_publicacion": "2026-02-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3699,
+      3714
+    ],
+    "cantidad": 6.0,
+    "referencial_unitario": 1251.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 7506.0,
+    "precio_adjudicado": 79.9,
+    "monto_adjudicado": 399.5,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 399.5,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 80.0
+  },
+  {
+    "cuce": "26-0660-06-1634863-1-1",
+    "nro_item": 4,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; modelo de impresora brother hl 5340 d; color tinta negro; serie tn 650 -3000 impresiones (al 5%) o mayor cantidad - código de compatibilidad: tn-620/tn/650",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pza.",
+    "fecha_publicacion": "2026-02-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3701,
+      3715
+    ],
+    "cantidad": 30.0,
+    "referencial_unitario": 1397.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 41910.0,
+    "precio_adjudicado": 96.99,
+    "monto_adjudicado": 9892.98,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 9892.98,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 220.0
+  },
+  {
+    "cuce": "26-0660-06-1634863-1-1",
+    "nro_item": 5,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora modelo de impresora brother color tinta negra seria tn 750 -8000 impresiones (al 5%) o mayor cantidad -código de compatibilidad: tn-750",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pza.",
+    "fecha_publicacion": "2026-02-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3702,
+      3716
+    ],
+    "cantidad": 30.0,
+    "referencial_unitario": 1251.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 37530.0,
+    "precio_adjudicado": 114.0,
+    "monto_adjudicado": 6840.0,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 6840.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 192.0
+  },
+  {
+    "cuce": "26-0660-06-1634863-1-1",
+    "nro_item": 6,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner para impresoras o fax — Tóner para impresora; marca brother; serie tn 2370 -2600 impresiones (al 5%) o mayor cantidad -codigo de compatibilidad:tn-2370/tn-660",
+    "unspsc_codigo": "44103103",
+    "unidad_medida": "Pza.",
+    "fecha_publicacion": "2026-02-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3703,
+      3717
+    ],
+    "cantidad": 20.0,
+    "referencial_unitario": 1032.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 20640.0,
+    "precio_adjudicado": 149.0,
+    "monto_adjudicado": 11920.0,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 11920.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 345.0
+  },
+  {
+    "cuce": "26-0660-06-1634863-1-1",
+    "nro_item": 14,
+    "lote": null,
+    "entidad_codigo": "0660-06",
+    "modalidad": "ANPP",
+    "descripcion": "Tóner de fotocopiadora — Tóner para fotocopiadora; marca cannon modelo de fotocopiadora imagerunner advance numero de serie gpr 63",
+    "unspsc_codigo": "44103127",
+    "unidad_medida": "Pza.",
+    "fecha_publicacion": "2026-02-26",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      3711,
+      3718
+    ],
+    "cantidad": 2.0,
+    "referencial_unitario": 2100.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4200.0,
+    "precio_adjudicado": 1165.0,
+    "monto_adjudicado": 6990.0,
+    "proveedor": "DEL CASTILLO ALTAMIRANO RAUL",
+    "monto_ejecutado": 6990.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 1326.0
+  },
+  {
+    "cuce": "26-0660-08-1631390-1-1",
+    "nro_item": 30,
+    "lote": null,
+    "entidad_codigo": "0660-08",
+    "modalidad": "ANPE",
+    "descripcion": "Grapas — 24/6",
+    "unspsc_codigo": "44122107",
+    "unidad_medida": "Cajita",
+    "fecha_publicacion": "2026-02-12",
+    "fuentes_presentes": [
+      "form100",
+      "form200"
+    ],
+    "ids_origen": [
+      7611,
+      7589
+    ],
+    "cantidad": 500.0,
+    "referencial_unitario": 8.0,
+    "referencial_fuente": "requerido",
+    "monto_referencial": 4000.0,
+    "precio_adjudicado": 6.5,
+    "monto_adjudicado": 1300.0,
+    "proveedor": "MEJIA HURTADO DE CABALLERO HORTENCIA",
+    "monto_ejecutado": 1300.0,
+    "incierto_colision_fuente": false,
+    "incierto_referencial_discrepante": true,
+    "ref_adjudicado_auditoria": 7.0
+  }
+]

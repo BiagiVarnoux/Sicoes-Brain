@@ -1,0 +1,16 @@
+{
+  "generado_en": "2026-11-07T22:44:45",
+  "clave_identidad": "(cuce, nro_item, lote)",
+  "filas_origen": 7441,
+  "resumen": {
+    "items_economicos": 6945,
+    "monto_referencial": 135937517.21,
+    "monto_adjudicado": 124749631.19,
+    "monto_ejecutado": 106551944.2,
+    "con_referencial_requerido": 675,
+    "con_adjudicado": 6731,
+    "con_ejecutado": 5970,
+    "items_inciertos": 389
+  },
+  "doble_conteo_referencial_bs": 10217299.54
+}
