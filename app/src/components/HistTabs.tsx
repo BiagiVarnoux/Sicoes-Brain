@@ -7,6 +7,7 @@ import { useTransition } from 'react'
 const TABS = [
   { href: '/historico', label: 'Resumen', exact: true },
   { href: '/historico/producto', label: 'Productos' },
+  { href: '/historico/demanda-demo', label: 'Demanda (demo)' },
   { href: '/historico/proveedor', label: 'Proveedores' },
   { href: '/historico/analisis', label: 'Análisis' },
 ]
