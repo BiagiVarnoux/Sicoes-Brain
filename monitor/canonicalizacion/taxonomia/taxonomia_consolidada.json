@@ -1,0 +1,6301 @@
+{
+ "generado_en": "2026-11-07T23:09:31",
+ "fuente": "taxonomia_checkpoint.jsonl (etiquetas con desc ligado)",
+ "metodo": "consolidación DETERMINISTA de nombres de categoría (sin LLM); hojas NO fusionadas",
+ "categorias_crudas": 585,
+ "categorias_consolidadas": 572,
+ "mapa_crudo_a_consolidado": {
+  "Abridor de cartas": "Abridor de cartas",
+  "Iluminación interior": "Iluminación interior",
+  "Accesorios de limpieza": "Accesorios de limpieza",
+  "Accesorios eléctricos": "Accesorios eléctricos",
+  "Elevador forklift": "Elevador forklift",
+  "Accesorios de dibujo": "Accesorios de dibujo",
+  "Accesorios para esponjas": "Accesorios para esponjas",
+  "Accesorios para estampación de caucho": "Accesorios para estampación de caucho",
+  "Accesorios para torres de enfriamiento": "Accesorios para torres de enfriamiento",
+  "Aire acondicionado - Repuestos": "Aire acondicionado - Repuestos",
+  "Accesorios para urinales o inodoros": "Accesorios para urinales o inodoros",
+  "Aceite de engranajes": "Aceite de engranajes",
+  "Aceite motor": "Aceite motor",
+  "Adaptadores infrarrojos": "Adaptadores infrarrojos",
+  "Adaptadores o inversores de potencia": "Adaptadores o inversores de potencia",
+  "Adaptadores para hardware o telefonía": "Adaptadores para hardware o telefonía",
+  "Aire acondicionado portátil para uso doméstico": "Aire acondicionado portátil para uso doméstico",
+  "Aires acondicionados": "Aires acondicionados",
+  "Aire acondicionado": "Aire acondicionado",
+  "Mascarillas quirúrgicas": "Mascarillas quirúrgicas",
+  "Repuestos de balancín": "Repuestos de balancín",
+  "Alambres y espirales de encuadernación": "Alambres y espirales de encuadernación",
+  "Alcohol etílico": "Alcohol etílico",
+  "Alcoholes y sustitutos": "Alcoholes y sustitutos",
+  "Desinfectantes": "Desinfectantes",
+  "Alcoholes líquidos": "Alcoholes líquidos",
+  "Limpiavidrios": "Limpiavidrios",
+  "Alfombras": "Alfombras",
+  "Almohadillas (pads) para mouse": "Almohadillas (pads) para mouse",
+  "Almohadillas para sellos": "Almohadillas para sellos",
+  "Alfombrillas de ratón": "Alfombrillas de ratón",
+  "Almohadillas de tinta o estampillas": "Almohadillas de tinta o estampillas",
+  "Almohadillas o filtros limpiadores de fusores": "Almohadillas o filtros limpiadores de fusores",
+  "Almohadillas para escritorio": "Almohadillas para escritorio",
+  "Almohadillas para restregar": "Almohadillas para restregar",
+  "Altavoces": "Altavoces",
+  "Amarres": "Amarres",
+  "Amarres de carga": "Amarres de carga",
+  "Amplificadores de audio": "Amplificadores de audio",
+  "Fuentes de poder": "Fuentes de poder",
+  "Anticongelante": "Anticongelante",
+  "Ambientadores": "Ambientadores",
+  "Desinfectante de aire": "Desinfectante de aire",
+  "Aplicador de terminado para pisos": "Aplicador de terminado para pisos",
+  "Archivador móvil": "Archivador móvil",
+  "Archivador de arco de palanca": "Archivador de arco de palanca",
+  "Armario de equipamiento subterráneo": "Armario de equipamiento subterráneo",
+  "Armario para materiales peligrosos": "Armario para materiales peligrosos",
+  "Engrapadora": "Engrapadoras",
+  "Tubo fluorescente": "Tubo fluorescente",
+  "Artefactos fluorescentes": "Artefactos fluorescentes",
+  "Ascensores": "Ascensores",
+  "Asideras para lápices o esferos": "Asideras para lápices o esferos",
+  "Asientos": "Asientos",
+  "Atriles de mesa": "Atriles de mesa",
+  "Audífonos": "Audífonos",
+  "Baldes para limpieza": "Baldes para limpieza",
+  "Bandejas o alimentadores de máquinas de oficina": "Bandejas o alimentadores de máquinas de oficina",
+  "Barras de pegante libres de ácido": "Barras de pegante libres de ácido",
+  "Baterías recargables": "Baterías recargables",
+  "Biombos (mamparas) para sistemas de paneles": "Biombos (mamparas) para sistemas de paneles",
+  "Blanqueadores": "Blanqueadores",
+  "Blocs o cuadernos de papel": "Blocs o cuadernos de papel",
+  "Cuadernos y blocs": "Cuadernos y blocs",
+  "Formularios": "Formularios",
+  "Bolígrafos": "Bolígrafos",
+  "Bolígrafos de gel": "Bolígrafos de gel",
+  "Bolígrafos para caligrafía": "Bolígrafos para caligrafía",
+  "Bolsas de basura": "Bolsas de basura",
+  "Bolsas plásticas": "Bolsas plásticas",
+  "Bombas de combustible": "Bombas de combustible",
+  "Borradores": "Borradores",
+  "Borradores de goma": "Borradores de goma",
+  "Breakers de circuito": "Breakers de circuito",
+  "Brilladoras de pisos": "Brilladoras de pisos",
+  "Bujes de automóvil": "Bujes de automóvil",
+  "Bujes de eje": "Bujes de eje",
+  "Cabezales de impresión": "Cabezales de impresión",
+  "Cable de cobre": "Cable de cobre",
+  "Cable de cobre no eléctrico": "Cable de cobre no eléctrico",
+  "Cable de extensión eléctrica": "Cable de extensión eléctrica",
+  "Cable de fibra óptica": "Cable de fibra óptica",
+  "Cable de instalación": "Cable de instalación",
+  "Cable de redes": "Cable de redes",
+  "Accesorios para computadora": "Accesorios para computadora",
+  "Cables de red": "Cables de red",
+  "Cables de teclado o mouse": "Cables de teclado o mouse",
+  "Cables de interconexión": "Cables de interconexión",
+  "Convertidores": "Convertidores",
+  "Divisores": "Divisores",
+  "Cables de instalación eléctrica": "Cables de instalación eléctrica",
+  "Cables de instalación": "Cables de instalación",
+  "Cajas de distribución": "Cajas de distribución",
+  "Cajas de unión eléctrica": "Cajas de unión eléctrica",
+  "Cajas eléctricas": "Cajas eléctricas",
+  "Cajas para efectivo o tiquetes": "Cajas para efectivo o tiquetes",
+  "Organizadores de archivo": "Organizadores de archivo",
+  "Cajoneras o estanterías": "Cajoneras o estanterías",
+  "Cajoneras o estanterías no modulares": "Cajoneras o estanterías no modulares",
+  "Calculadoras de escritorio": "Calculadoras de escritorio",
+  "Calendarios": "Calendarios",
+  "Cámaras de seguridad": "Cámaras de seguridad",
+  "Cámaras de video conferencia": "Cámaras de video conferencia",
+  "Cámaras de web": "Cámaras de web",
+  "Cámaras digitales": "Cámaras digitales",
+  "Cámaras grabadoras o video cámaras digitales": "Cámaras grabadoras o video cámaras digitales",
+  "Canaletas para cables": "Canaletas para cables",
+  "Candados": "Candados",
+  "Carburadores": "Carburadores",
+  "Cargadores de ruedas": "Cargadores de ruedas",
+  "Carpeta de anillas": "Carpeta de anillas",
+  "Carpetas": "Carpetas",
+  "Mobiliario": "Mobiliario",
+  "Cartuchos de tinta": "Cartuchos de tinta",
+  "Cauchos": "Cauchos",
+  "Cauchos de repuesto": "Cauchos de repuesto",
+  "Cepillos de baño": "Cepillos de baño",
+  "Cepillos de limpieza": "Cepillos de limpieza",
+  "Ceras naturales": "Ceras naturales",
+  "Ceras sintéticas": "Ceras sintéticas",
+  "Cerraduras": "Cerraduras",
+  "Chapas o pomos": "Chapas o pomos",
+  "Chinches": "Chinches",
+  "Cilindro rotatorio": "Cilindro rotatorio",
+  "Cinta aislante eléctrica": "Cinta aislante eléctrica",
+  "Cinta de impresora": "Cinta de impresora",
+  "Cintas para impresoras": "Cintas para impresoras",
+  "Cintas industriales de señal y etiqueta": "Cintas industriales de señal y etiqueta",
+  "Cintas adhesivas": "Cintas adhesivas",
+  "Cintas de sellado": "Cintas de sellado",
+  "Cintas de transferencia adhesiva": "Cintas de transferencia adhesiva",
+  "Cintas doble faz": "Cintas doble faz",
+  "Cintas para empaquetar": "Cintas para empaquetar",
+  "Accesorios de oficina": "Accesorios de oficina",
+  "Cintas transparentes": "Cintas transparentes",
+  "Cinta adhesiva": "Cinta adhesiva",
+  "Clavijas": "Clavijas",
+  "Clips": "Clips",
+  "Clips de papel": "Clips de papel",
+  "Clips para papel": "Clips para papel",
+  "Cuchillas y estiletes": "Cuchillas y estiletes",
+  "Grapas": "Grapas",
+  "Accesorios para clips": "Accesorios para clips",
+  "Sacagrapas": "Sacagrapas",
+  "Lápices y esferos": "Lápices y esferos",
+  "Almacenamiento": "Almacenamiento",
+  "Consumibles de impresión": "Consumibles de impresión",
+  "Compresores de aire": "Compresores de aire",
+  "Compresores refrigerantes": "Compresores refrigerantes",
+  "Computadoras": "Computadoras",
+  "Computadoras cliente ligero": "Computadoras cliente ligero",
+  "Memoria RAM": "Memoria RAM",
+  "Computadora de escritorio": "Computadora de escritorio",
+  "Computadora portátil": "Computadora portátil",
+  "Adaptador USB a SATA": "Adaptador USB a SATA",
+  "Switch de red": "Switch de red",
+  "Conducto eléctrico": "Conducto eléctrico",
+  "Cortacircuitos": "Cortacircuitos",
+  "Regleta eléctrica": "Regleta eléctrica",
+  "Bornera eléctrica": "Bornera eléctrica",
+  "Arrancador de tubo fluorescente": "Arrancador de tubo fluorescente",
+  "Consola de audio": "Consola de audio",
+  "Consolas de audio": "Consolas de audio",
+  "Consolas de teleconferencias": "Consolas de teleconferencias",
+  "Contactores": "Contactores",
+  "Contenedores de basura plástico": "Contenedores de basura plástico",
+  "Contenedores de residuos peligrosos": "Contenedores de residuos peligrosos",
+  "Dispensadores de clips": "Dispensadores de clips",
+  "Accesorios de almacenamiento": "Accesorios de almacenamiento",
+  "Hubs USB": "Hubs USB",
+  "Correas para impresoras/fax/fotocopiadoras": "Correas para impresoras/fax/fotocopiadoras",
+  "Correctores de ortografía": "Correctores de ortografía",
+  "Correctores de cinta": "Correctores de cinta",
+  "Cortadoras de césped": "Cortadoras de césped",
+  "Cortadoras de papel": "Cortadoras de papel",
+  "Cuadernos": "Cuadernos",
+  "Cubiertas para informes": "Cubiertas para informes",
+  "Desinfectante de manos": "Desinfectante de manos",
+  "Detergente": "Detergente",
+  "Ambientador": "Ambientadores",
+  "Cera para pisos": "Cera para pisos",
+  "Desinfectante de ambiente": "Desinfectante de ambiente",
+  "Desinfectante de piso": "Desinfectante de piso",
+  "Desinfectante para sanitarios": "Desinfectante para sanitarios",
+  "Jabón líquido": "Jabón líquido",
+  "Lavandina": "Lavandina",
+  "Desinfectantes y limpiadores": "Desinfectantes y limpiadores",
+  "Desodorantes": "Desodorantes",
+  "Detectores": "Detectores",
+  "Discos ópticos": "Discos ópticos",
+  "Equipamiento de oficina": "Equipamiento de oficina",
+  "Basureros": "Basurero",
+  "Dispensadores de solución de limpieza": "Dispensadores de solución de limpieza",
+  "Dispensadores de agua": "Dispensadores de agua",
+  "Dispensadores": "Dispensadores",
+  "Detergentes": "Detergentes",
+  "Almacenamiento externo": "Almacenamiento externo",
+  "Equipos de presentación": "Equipos de presentación",
+  "Conectores RJ45": "Conectores RJ45",
+  "Switches POE": "Switches POE",
+  "Iluminación": "Iluminación",
+  "Cableado eléctrico": "Cableado eléctrico",
+  "Interruptores eléctricos": "Interruptores eléctricos",
+  "Disyuntores térmicos": "Disyuntores térmicos",
+  "Empaques": "Empaques",
+  "Ceras y selladores": "Ceras y selladores",
+  "Enchufes y módulos": "Enchufes y módulos",
+  "Enchufes": "Enchufes",
+  "Placas de enchufe": "Placas de enchufe",
+  "Placas de tomacorriente": "Placas de tomacorriente",
+  "Tomacorrientes": "Tomacorrientes",
+  "Engrapadoras de banda": "Engrapadoras de banda",
+  "Switches de red": "Switches de red",
+  "Bolsas y envoltorios": "Bolsas y envoltorios",
+  "Equipos de radiofrecuencia": "Equipos de radiofrecuencia",
+  "Equipos biométricos": "Equipos biométricos",
+  "Equipos de identificación biométrica": "Equipos de identificación biométrica",
+  "Equipos de lectura de código de barras": "Equipos de lectura de código de barras",
+  "Equipo de red de entrega de contenido": "Equipo de red de entrega de contenido",
+  "Escáneres": "Escáneres",
+  "Escobas": "Escobas",
+  "Escobas absorbentes": "Escobas absorbentes",
+  "Escritorios": "Escritorios",
+  "Escritorios no modulares": "Escritorios no modulares",
+  "Escurridor de trapero": "Escurridor de trapero",
+  "Esponjas": "Esponjas",
+  "Esponjas o esponjillas": "Esponjas o esponjillas",
+  "Esquinas adhesivas": "Esquinas adhesivas",
+  "Estabilizador de impedancia": "Estabilizador de impedancia",
+  "Estación total": "Estación total",
+  "Estampilla auto abastecedora de tinta": "Estampilla auto abastecedora de tinta",
+  "Estanterías para almacenaje": "Estanterías para almacenaje",
+  "Muebles de oficina": "Muebles de oficina",
+  "Instrumentos de escritura": "Instrumentos de escritura",
+  "Estilógrafos": "Estilógrafos",
+  "Estufas de calefacción": "Estufas de calefacción",
+  "Etiquetas auto adhesivas": "Etiquetas auto adhesivas",
+  "Etiquetas de papel": "Etiquetas de papel",
+  "Etiquetas para impresoras": "Etiquetas para impresoras",
+  "Extintores": "Extintores",
+  "Filtros de combustible": "Filtros de combustible",
+  "Filtros de succión": "Filtros de succión",
+  "Filtros fijos": "Filtros fijos",
+  "Flotador": "Flotador",
+  "Fluido de corrección": "Fluido de corrección",
+  "Folders": "Folders",
+  "Folders de clasificación": "Folders de clasificación",
+  "Folders de colgar o accesorios": "Folders de colgar o accesorios",
+  "Formatos o libros de control": "Formatos o libros de control",
+  "Fotocopiadoras": "Fotocopiadoras",
+  "Fuentes de lenguaje": "Fuentes de lenguaje",
+  "Fusores": "Fusores",
+  "Fusor": "Fusores",
+  "Rodillo de presión": "Rodillo de presión",
+  "Gabinete o cerramiento para sistemas de red": "Gabinete o cerramiento para sistemas de red",
+  "Gabinetes de almacenamiento": "Gabinetes de almacenamiento",
+  "Gabinetes industriales": "Gabinetes industriales",
+  "Gabinetes para medios múltiples": "Gabinetes para medios múltiples",
+  "Gavetas organizadoras para escritorio": "Gavetas organizadoras para escritorio",
+  "Pegamento": "Pegamentos",
+  "Almacenamiento - Discos duros SSD": "Almacenamiento - Discos duros SSD",
+  "Grabadoras de video vigilancia": "Grabadoras de video vigilancia",
+  "Cámaras de vigilancia": "Cámaras de vigilancia",
+  "Kit de vigilancia": "Kit de vigilancia",
+  "Grabadoras de audio": "Grabadoras de audio",
+  "Grabadoras de voz digitales": "Grabadoras de voz digitales",
+  "Grapadoras": "Grapadora",
+  "Grapadora": "Grapadora",
+  "Grasa": "Grasa",
+  "Grifos": "Grifos",
+  "Guantes de protección": "Guantes de protección",
+  "Guías de rollo": "Guías de rollo",
+  "Heladeras domésticas": "Heladeras domésticas",
+  "Hilado de algodón": "Hilado de algodón",
+  "Hilado de cáñamo": "Hilado de cáñamo",
+  "Hilado de lana": "Hilado de lana",
+  "Humidificadores": "Humidificadores",
+  "Iluminación empotrada": "Iluminación empotrada",
+  "Impresoras de cinta térmica": "Impresoras de cinta térmica",
+  "Impresoras de imágenes digitales": "Impresoras de imágenes digitales",
+  "Impresoras de inyección de tinta": "Impresoras de inyección de tinta",
+  "Impresoras de matriz de líneas": "Impresoras de matriz de líneas",
+  "Impresoras de matriz de puntos": "Impresoras de matriz de puntos",
+  "Impresoras de múltiples funciones": "Impresoras de múltiples funciones",
+  "Impresoras láser": "Impresoras láser",
+  "Insertos o pestañas para archivos": "Insertos o pestañas para archivos",
+  "Separadores de archivo": "Separadores de archivo",
+  "Etiquetas autoadhesivas": "Etiquetas autoadhesivas",
+  "Mouse": "Mouse",
+  "Sensores de movimiento": "Sensores de movimiento",
+  "Interruptores magnéticos": "Interruptores magnéticos",
+  "Interruptores de nivel": "Interruptores de nivel",
+  "Interruptores de botón": "Interruptores de botón",
+  "Temporizadores digitales": "Temporizadores digitales",
+  "Jabón": "Jabón",
+  "Organizadores de escritorio": "Organizadores de escritorio",
+  "Kit de higiene personal": "Kit de higiene personal",
+  "Repuestos para impresoras": "Repuestos para impresoras",
+  "Kit de mantenimiento impresoras": "Kit de mantenimiento impresoras",
+  "Repuestos para fotocopiadoras": "Repuestos para fotocopiadoras",
+  "Accesorios para llantas": "Accesorios para llantas",
+  "Periféricos de computadora": "Periféricos de computadora",
+  "Tarjetas de red": "Tarjetas de red",
+  "Baterías": "Baterías",
+  "Accesorios de computadora": "Accesorios de computadora",
+  "Switches": "Switches",
+  "Adaptadores": "Adaptadores",
+  "Tarjetas de video": "Tarjetas de video",
+  "Adaptadores de monitor": "Adaptadores de monitor",
+  "Repuestos para impresora": "Repuestos para impresoras",
+  "Tinta para impresora": "Tinta para impresora",
+  "Productos de limpieza": "Productos de limpieza",
+  "Contenedores": "Contenedores",
+  "Ceras para pisos": "Ceras para pisos",
+  "Herramientas de limpieza": "Herramientas de limpieza",
+  "Mopa": "Mopa",
+  "Shampoo para autos": "Shampoo para autos",
+  "Amortiguador": "Amortiguador",
+  "Bandeja": "Bandeja",
+  "Frenos": "Frenos",
+  "Bomba": "Bomba",
+  "Bomba de freno": "Bomba de freno",
+  "Bomba de gasolina": "Bomba de gasolina",
+  "Bomba de embrague": "Bomba de embrague",
+  "Repuestos automotrices": "Repuestos automotrices",
+  "Pastillas de freno": "Pastillas de freno",
+  "Radio de aro": "Radio de aro",
+  "Retenes de palier": "Retenes de palier",
+  "Rodamientos": "Rodamientos",
+  "Soportes de motor": "Soportes de motor",
+  "Retenes de telescopio": "Retenes de telescopio",
+  "Rodamientos delanteros": "Rodamientos delanteros",
+  "Rodamientos traseros": "Rodamientos traseros",
+  "Transmisión": "Transmisión",
+  "Kit de reparación": "Kit de reparación",
+  "Retenes de bomba": "Retenes de bomba",
+  "Líquido de embrague": "Líquido de embrague",
+  "Líquido de freno": "Líquido de freno",
+  "Llantas": "Llantas",
+  "Palanca de cambio": "Palanca de cambio",
+  "Prensa de embrague": "Prensa de embrague",
+  "Retén de cigüeñal": "Retén de cigüeñal",
+  "Retén de palier": "Retén de palier",
+  "Retén de bujía": "Retén de bujía",
+  "Seguros de pastillas": "Seguros de pastillas",
+  "Componentes eléctricos": "Componentes eléctricos",
+  "Sistemas eléctricos": "Sistemas eléctricos",
+  "Terminales estabilizador": "Terminales estabilizador",
+  "Terminales externos": "Terminales externos",
+  "Tensores de correa": "Tensores de correa",
+  "Tricetas": "Tricetas",
+  "Tornillería": "Tornillería",
+  "Tintas de inyección": "Tintas de inyección",
+  "Filtros de aire": "Filtros de aire",
+  "Balatas de freno": "Balatas de freno",
+  "Rodamientos de embrague": "Rodamientos de embrague",
+  "Lámparas LED": "Lámparas LED",
+  "Lámparas haluro metálico": "Lámparas haluro metálico",
+  "Lámparas fluorescentes": "Lámparas fluorescentes",
+  "Lápices de colores": "Lápices de colores",
+  "Lápices de grafito": "Lápices de grafito",
+  "Lápices de madera": "Lápices de madera",
+  "Lápiz de madera": "Lápiz de madera",
+  "Marcador": "Marcadores",
+  "Lector de código de barras": "Lector de código de barras",
+  "Foco LED": "Foco LED",
+  "Luminaria LED": "Luminaria LED",
+  "Iluminación LED": "Iluminación LED",
+  "Libros comerciales": "Libros comerciales",
+  "Libros de referencia": "Libros de referencia",
+  "Ligas y bandas elásticas": "Ligas y bandas elásticas",
+  "Limpiador de manos": "Limpiador de manos",
+  "Limpiadores de alfombras y tapizados": "Limpiadores de alfombras y tapizados",
+  "Limpiadores de amoniaco": "Limpiadores de amoniaco",
+  "Limpiadores de baños": "Limpiadores de baños",
+  "Limpiadores de muebles": "Limpiadores de muebles",
+  "Limpiadores de pisos": "Limpiadores de pisos",
+  "Limpiadores de propósito general": "Limpiadores de propósito general",
+  "Limpiadores de superficie de contacto": "Limpiadores de superficie de contacto",
+  "Limpiadores de vidrio o ventanas": "Limpiadores de vidrio o ventanas",
+  "Limpiadores o detergentes para instrumentos": "Limpiadores o detergentes para instrumentos",
+  "Limpiadores o pulidores de metales": "Limpiadores o pulidores de metales",
+  "Limpiadores y removedores de manchas": "Limpiadores y removedores de manchas",
+  "Llantas para automóviles o camionetas": "Llantas para automóviles o camionetas",
+  "Lubricantes de propósito general": "Lubricantes de propósito general",
+  "Luminaria UV/Negra": "Luminaria UV/Negra",
+  "Luz de foco": "Luz de foco",
+  "Control de acceso biométrico": "Control de acceso biométrico",
+  "Máquina perforadora de encuadernación": "Máquina perforadora de encuadernación",
+  "Máquina tajadora": "Máquina tajadora",
+  "Máquina numeradora/fold": "Máquina numeradora/fold",
+  "Máquina perforadora": "Máquina perforadora",
+  "Perforadoras": "Perforadoras",
+  "Marcadores": "Marcadores",
+  "Marcadores de libros": "Marcadores de libros",
+  "Mazos o bloques de sonido": "Mazos o bloques de sonido",
+  "Memoria de acceso aleatorio (ram)": "Memoria de acceso aleatorio (ram)",
+  "Memoria flash": "Memoria flash",
+  "Mesas": "Mesas",
+  "Mesas auxiliares": "Mesas auxiliares",
+  "Mesas de conferencia": "Mesas de conferencia",
+  "Micrófonos": "Micrófonos",
+  "Micrófonos de voz para computadores": "Micrófonos de voz para computadores",
+  "Minicomputadores": "Minicomputadores",
+  "Monitores de video": "Monitores de video",
+  "Motor ac de compresor": "Motor ac de compresor",
+  "Mouse o bola de seguimiento para computador": "Mouse o bola de seguimiento para computador",
+  "Organizadores de oficina": "Organizadores de oficina",
+  "Organizadores de correspondencia": "Organizadores de correspondencia",
+  "Paneles de conexión": "Paneles de conexión",
+  "Paneles eléctricos": "Paneles eléctricos",
+  "Paneles de control eléctrico para generadores": "Paneles de control eléctrico para generadores",
+  "Monitores LCD": "Monitores LCD",
+  "Paños de limpieza": "Paños de limpieza",
+  "Toallas de papel": "Toallas de papel",
+  "Toallas de mano": "Toallas de mano",
+  "Pantallas de proyección": "Pantallas de proyección",
+  "Papel absorbente": "Papel absorbente",
+  "Papel calcante": "Papel calcante",
+  "Papel de escritura": "Papel de escritura",
+  "Papel de libro": "Papel de libro",
+  "Papel de notas autoadhesivas": "Papel de notas autoadhesivas",
+  "Papel en formas continuas": "Papel en formas continuas",
+  "Papel continuo": "Papel continuo",
+  "Papel folio": "Papel folio",
+  "Papel higiénico": "Papel higiénico",
+  "Papelería": "Papelería",
+  "Libros de actas": "Libros de actas",
+  "Papel": "Papel",
+  "Papel offset": "Papel offset",
+  "Papel para gráficos": "Papel para gráficos",
+  "Papel para impresión de computadores": "Papel para impresión de computadores",
+  "Papel bond": "Papel bond",
+  "Papel Bond": "Papel bond",
+  "Papel de color": "Papel de color",
+  "Papel para sumadora": "Papel para sumadora",
+  "Papel satinado": "Papel satinado",
+  "Papel térmico": "Papel térmico",
+  "Cartulina": "Cartulina",
+  "Parlantes de computador": "Parlantes de computador",
+  "Pegamentos": "Pegamentos",
+  "Pegamento en barra": "Pegamento en barra",
+  "Pegamento líquido": "Pegamento líquido",
+  "Cinta correctora": "Cinta correctora",
+  "Periódico": "Periódico",
+  "Pila alcalina": "Pila alcalina",
+  "Placas": "Placas",
+  "Bolsas de polietileno": "Bolsas de polietileno",
+  "Portapapeles": "Portapapeles",
+  "Herramientas de prueba": "Herramientas de prueba",
+  "Detergente granulado doméstico": "Detergente granulado doméstico",
+  "Jabón en polvo": "Jabón en polvo",
+  "Limpiador multiusos": "Limpiador multiusos",
+  "Protector de sobretensiones": "Protector de sobretensiones",
+  "Protector de hojas": "Protector de hojas",
+  "Shampoo automotriz": "Shampoo automotriz",
+  "Proyector de video": "Proyector de video",
+  "Pantalla de proyección": "Pantalla de proyección",
+  "Proyector multimedia": "Proyector multimedia",
+  "Pulidor/ceras para muebles": "Pulidor/ceras para muebles",
+  "Radiador": "Radiador",
+  "Radio": "Radio",
+  "Reactor": "Reactor",
+  "Receptor GPS": "Receptor GPS",
+  "Basurero": "Basurero",
+  "Tóner": "Tóner",
+  "Reflector": "Reflector",
+  "Ambientador en aerosol": "Ambientador en aerosol",
+  "Repuesto aromatizante": "Repuesto aromatizante",
+  "Refrigerante fluorado": "Refrigerante fluorado",
+  "Regla": "Regla",
+  "Reglas graduadas": "Reglas graduadas",
+  "Estabilizador UPS": "Estabilizador UPS",
+  "Regletas de montaje": "Regletas de montaje",
+  "Regulador de voltaje": "Regulador de voltaje",
+  "Removedores de grapas": "Removedores de grapas",
+  "Replicadores de puertos": "Replicadores de puertos",
+  "Grabadoras DVD": "Grabadoras DVD",
+  "Repuestos para bolígrafos": "Repuestos para bolígrafos",
+  "Tinta para sellos": "Tinta para sellos",
+  "Tinta para impresoras": "Tinta para impresora",
+  "Repuestos y accesorios de vehículos de servicio minero": "Repuestos y accesorios de vehículos de servicio minero",
+  "Resaltadores": "Resaltadores",
+  "Reveladores para impresoras o fotocopiadoras": "Reveladores para impresoras o fotocopiadoras",
+  "Tóner y cartuchos": "Tóner y cartuchos",
+  "Revistas": "Revistas",
+  "Rodamientos radiales": "Rodamientos radiales",
+  "Cintas de embalaje": "Cintas de embalaje",
+  "Rollos de transferencia": "Rollos de transferencia",
+  "Conectores eléctricos": "Conectores eléctricos",
+  "Sellos": "Sellos",
+  "Sellos y estampillas": "Sellos y estampillas",
+  "Equipos de limpieza": "Equipos de limpieza",
+  "Separadores": "Separadores",
+  "Sellos para correo": "Sellos para correo",
+  "UPS": "UPS",
+  "Detergente granulado": "Detergente granulado",
+  "Jabón barra": "Jabón barra",
+  "Muebles": "Muebles",
+  "Silla de oficina": "Silla de oficina",
+  "Silla giratoria para peluquería": "Silla giratoria para peluquería",
+  "Sillas de brazos": "Sillas de brazos",
+  "Sillas para descansar": "Sillas para descansar",
+  "Sillas para ejecutivos": "Sillas para ejecutivos",
+  "Sillas ejecutivas": "Sillas ejecutivas",
+  "Sillas para grupos de trabajo": "Sillas para grupos de trabajo",
+  "Sillas para visitantes": "Sillas para visitantes",
+  "UPS - Baterías": "UPS - Baterías",
+  "Sistema de monitoreo de comunicaciones por radio": "Sistema de monitoreo de comunicaciones por radio",
+  "Sistema de posicionamiento global vehicular GPS": "Sistema de posicionamiento global vehicular GPS",
+  "Cámaras web": "Cámaras web",
+  "Sobres": "Sobres",
+  "Fundas para CD": "Fundas para CD",
+  "Sofás": "Sofás",
+  "Soportes de pared": "Soportes de pared",
+  "Soportes para micrófonos": "Soportes para micrófonos",
+  "Retenes de rodamiento": "Retenes de rodamiento",
+  "Soportes y marcos de filtros": "Soportes y marcos de filtros",
+  "Sujetadores de documentos": "Sujetadores de documentos",
+  "Sujetadores auto adhesivos": "Sujetadores auto adhesivos",
+  "Sujetadores de esferos o lápices": "Sujetadores de esferos o lápices",
+  "Sujetadores de pinza": "Sujetadores de pinza",
+  "Sujetadores o dispensadores de papeles o tacos": "Sujetadores o dispensadores de papeles o tacos",
+  "Suministros de limpieza de impresoras o faxes o fotocopiadoras": "Suministros de limpieza de impresoras o faxes o fotocopiadoras",
+  "Superficies de trabajo": "Superficies de trabajo",
+  "Tableros y paneles": "Tableros y paneles",
+  "Consumibles para impresoras": "Consumibles para impresoras",
+  "Tambores": "Tambores",
+  "Accesorios": "Accesorios",
+  "Tapas de encuadernación": "Tapas de encuadernación",
+  "Tarima y accesorios de la tribuna": "Tarima y accesorios de la tribuna",
+  "Tarjetas de memoria": "Tarjetas de memoria",
+  "Tarjetas de interface de red": "Tarjetas de interface de red",
+  "Teclados": "Teclados",
+  "Teléfonos fijos": "Teléfonos fijos",
+  "Teléfonos IP": "Teléfonos IP",
+  "Televisores": "Televisores",
+  "Temporizadores": "Temporizadores",
+  "Temporizadores de reloj": "Temporizadores de reloj",
+  "Tensores": "Tensores",
+  "Ceras y ambientadores para pisos": "Ceras y ambientadores para pisos",
+  "Tela": "Tela",
+  "Tijeras": "Tijeras",
+  "Tinta para huellas dactilares": "Tinta para huellas dactilares",
+  "Tinta industrial para sello": "Tinta industrial para sello",
+  "Tintas": "Tintas",
+  "Tintas acrílicas a base de agua": "Tintas acrílicas a base de agua",
+  "Toallas": "Toallas",
+  "Drums": "Drums",
+  "Disco Duro SSD": "Disco Duro SSD",
+  "Disco Duro HDD": "Disco Duro HDD",
+  "Fuente de Poder": "Fuente de Poder",
+  "Batería": "Baterías",
+  "Accesorio de Fuente": "Accesorio de Fuente",
+  "Disco Duro Externo": "Disco Duro Externo",
+  "Bolígrafo": "Bolígrafos",
+  "Bolsa": "Bolsa",
+  "Colchón Trapeadora": "Colchón Trapeadora",
+  "Consola de Sonido": "Consola de Sonido",
+  "Conmutador de Red": "Conmutador de Red",
+  "Disco Óptico": "Disco Óptico",
+  "Discos duros": "Discos duros",
+  "Medios ópticos": "Medios ópticos",
+  "Engrapadoras": "Engrapadoras",
+  "Accesorios de maquinaria": "Accesorios de maquinaria",
+  "Limpieza": "Limpieza",
+  "Paños y franela de limpieza": "Paños y franela de limpieza",
+  "Lectores de discos externos": "Lectores de discos externos",
+  "Muebles de cómputo": "Muebles de cómputo",
+  "Repuestos de bolígrafos": "Repuestos de bolígrafos",
+  "Sellos metálicos": "Sellos metálicos",
+  "Transmisor/receptor de video": "Transmisor/receptor de video",
+  "Trapos y paños de limpieza": "Trapos y paños de limpieza",
+  "Trípodes": "Trípodes",
+  "Toallas de limpieza": "Toallas de limpieza",
+  "Trapeadores y mopas": "Trapeadores y mopas",
+  "Trapos y paños": "Trapos y paños",
+  "Unidad de Drum": "Unidad de Drum",
+  "Unidad de Imagen": "Unidad de Imagen",
+  "Ventilador": "Ventilador",
+  "Virutilla": "Virutilla",
+  "Vitrina": "Vitrinas",
+  "Vitrinas": "Vitrinas",
+  "Discos duros y SSD": "Discos duros y SSD",
+  "Compresores": "Compresores"
+ },
+ "arbol": {
+  "Abridor de cartas": {
+   "Grande": {
+    "Estilete": 2
+   },
+   "Mediano": {
+    "Estilete": 2
+   }
+  },
+  "Iluminación interior": {
+   "Luminaria LED": {
+    "Luminaria": 1
+   },
+   "Panel LED": {
+    "Panel": 1
+   },
+   "—": {
+    "Soquete tipo plato": 1
+   }
+  },
+  "Accesorios de limpieza": {
+   "—": {
+    "Guante de látex": 1
+   },
+   "Virutilla": {
+    "Virutilla áspero": 1
+   },
+   "Plumero": {
+    "Plumero genérico": 1,
+    "Plumero con mango de madera": 1
+   }
+  },
+  "Accesorios eléctricos": {
+   "Alargador": {
+    "Alargador": 1
+   },
+   "—": {
+    "Soquete tipo plato": 1
+   },
+   "Alargadores": {
+    "Alargador de corriente 10 m 3 tomas": 1
+   },
+   "Cortapicos": {
+    "Cortapico 6 A 5 tomas 220 V": 1
+   }
+  },
+  "Elevador forklift": {
+   "—": {
+    "Regulador Unidrive": 2
+   }
+  },
+  "Accesorios de dibujo": {
+   "—": {
+    "Plancheta acrílica": 1
+   }
+  },
+  "Accesorios para esponjas": {
+   "—": {
+    "Esponjero de hule": 1
+   }
+  },
+  "Accesorios para estampación de caucho": {
+   "—": {
+    "Tinta para tampón": 3
+   }
+  },
+  "Accesorios para torres de enfriamiento": {
+   "—": {
+    "Repuesto de aire acondicionado": 2
+   },
+   "Capacitor de arranque": {
+    "Capacitor": 13
+   },
+   "Capacitor de trabajo": {
+    "Capacitor": 7
+   },
+   "Rodamiento motor ventilador": {
+    "Rodamiento motor ventilador": 3
+   },
+   "Sensor de humedad": {
+    "Sensor de humedad": 1
+   },
+   "Sensor de temperatura": {
+    "Sensor de temperatura": 3
+   },
+   "Tarjeta universal": {
+    "Tarjeta universal para aire acondicionado": 1
+   },
+   "Transformador": {
+    "Transformador": 2,
+    "Transformador 220‑12V": 2
+   }
+  },
+  "Aire acondicionado - Repuestos": {
+   "Capacitor": {
+    "Capacitor de trabajo 3 µF": 2,
+    "Capacitor de trabajo 3,5 µF": 2,
+    "Capacitor de trabajo 4 µF": 1,
+    "Capacitor de trabajo 4 µF y 8 µF": 1,
+    "Capacitor de trabajo 5 µF": 2,
+    "Capacitor de trabajo 8 µF": 1,
+    "Capacitor de trabajo para motor de ventiladora split": 1
+   },
+   "Compresor": {
+    "Compresor 12 000 BTU/h 1 HP": 1,
+    "Compresor 18 000 BTU/h 1,5 HP": 1,
+    "Compresor rotativo 12 000 BTU/h": 1,
+    "Compresor rotativo 18 000 BTU/h": 2
+   },
+   "Contactores": {
+    "Contactores 220‑240 V": 1
+   },
+   "Motor ventilador": {
+    "Motor ventilador compresor 12 000 BTU/h": 3,
+    "Motor ventilador compresor 18 000 BTU/h": 3,
+    "Motor ventilador compresor 24 000 BTU/h": 2,
+    "Motor ventilador split 36 000 BTU/h": 2,
+    "Motor ventilador split 60 000 BTU/h": 2,
+    "Motor ventilador split 12 000 BTU/h": 2,
+    "Motor ventilador split 18 000 BTU/h": 2,
+    "Motor ventilador split 24 000 BTU/h": 2
+   },
+   "—": {
+    "Provisión de repuestos de aires acondicionados para el TDJ del Beni gestión 2023": 1,
+    "Provisión de repuestos para equipos de aires acondicionados para el TDJ del Beni gestión 2022": 1,
+    "Provisión de repuestos y accesorios para equipos de aires acondicionados del órgano judicial del Beni gestión 2024": 1
+   },
+   "Relay": {
+    "Relay de sobrecarga": 1
+   },
+   "Rodamiento": {
+    "Rodamiento del motor de la ventiladora del compresor": 2
+   }
+  },
+  "Accesorios para urinales o inodoros": {
+   "Ambientador sólido": {
+    "Ambientador desinfectante sólido para tanque de inodoro": 1
+   },
+   "Cepillo de mano": {
+    "Cepillo de mano para inodoro": 1
+   }
+  },
+  "Aceite de engranajes": {
+   "Aceite lubricante": {
+    "Aceite lubricante 80W‑90 1 L": 1
+   }
+  },
+  "Aceite motor": {
+   "Aceite lubricante": {
+    "Aceite 10W‑40 4 L": 1,
+    "Aceite 15W‑40 4 L": 1,
+    "Aceite 20W‑50 4 L": 1,
+    "Aceite SAE 15W‑40 4 L": 1,
+    "Aceite SAE 20W‑50 4 L": 1
+   },
+   "Aceite de caja": {
+    "Aceite de caja 80W‑90 3.785 L": 2
+   },
+   "Anticongelante": {
+    "Anticongelante para motor gasolina 1 L concentrado": 1
+   },
+   "Líquido de frenos": {
+    "Líquido de frenos hidráulico 1 L": 1
+   },
+   "Líquido hidráulico": {
+    "Líquido hidráulico para dirección 1 L": 1
+   }
+  },
+  "Adaptadores infrarrojos": {
+   "Escáner de alto tráfico": {
+    "Escáner de alto tráfico": 1
+   }
+  },
+  "Adaptadores o inversores de potencia": {
+   "Adaptador para monitor": {
+    "Adaptador para monitor 12 V": 1
+   }
+  },
+  "Adaptadores para hardware o telefonía": {
+   "Adaptador de energía para teléfono IP": {
+    "Adaptador de energía para teléfono IP (Cisco CP‑6921/CP‑6911)": 1
+   }
+  },
+  "Aire acondicionado portátil para uso doméstico": {
+   "—": {
+    "Aire acondicionado portátil": 1
+   }
+  },
+  "Aires acondicionados": {
+   "—": {
+    "Aire acondicionado (unidad institucional)": 3,
+    "Aire acondicionado 12000 BTU": 3,
+    "Aire acondicionado 18000 BTU": 2,
+    "Aire acondicionado 24000 BTU": 2,
+    "Aire acondicionado 36000 BTU": 1
+   }
+  },
+  "Aire acondicionado": {
+   "—": {
+    "Aire acondicionado 18000 BTU": 5,
+    "Aire acondicionado 24000 BTU": 4,
+    "Aire acondicionado 36000 BTU": 1,
+    "Aire acondicionado 9000 BTU": 3,
+    "Aire acondicionado split 12000 BTU": 5,
+    "Aire acondicionado split 18000 BTU": 4,
+    "Aire acondicionado split 24000 BTU": 4,
+    "Aire acondicionado split 36000 BTU": 2,
+    "Aire acondicionado 12000 BTU": 3
+   }
+  },
+  "Mascarillas quirúrgicas": {
+   "—": {
+    "Barbijo": 1
+   }
+  },
+  "Repuestos de balancín": {
+   "—": {
+    "Empaquetadura de tapa de balancín": 1
+   }
+  },
+  "Alambres y espirales de encuadernación": {
+   "Espirales plásticas": {
+    "Espiral para anillado": 3
+   }
+  },
+  "Alcohol etílico": {
+   "—": {
+    "Alcohol etílico 1 L 70%": 1
+   }
+  },
+  "Alcoholes y sustitutos": {
+   "—": {
+    "Alcohol": 1,
+    "Alcohol desinfectante": 1
+   }
+  },
+  "Desinfectantes": {
+   "—": {
+    "Alcohol en gel": 5,
+    "Alcohol en gel 360 g con dispensador a gatillo": 1,
+    "Alcohol en gel 360 ml con dispensador a gatillo": 1
+   }
+  },
+  "Alcoholes líquidos": {
+   "—": {
+    "Alcohol líquido 70% guabira": 1,
+    "Alcohol líquido": 3
+   }
+  },
+  "Limpiavidrios": {
+   "—": {
+    "Limpiavidrio en atomizador": 1
+   }
+  },
+  "Alfombras": {
+   "—": {
+    "Alfombra de alto tráfico": 1
+   }
+  },
+  "Almohadillas (pads) para mouse": {
+   "—": {
+    "Pad mouse siliconado": 1,
+    "Mouse pad": 2,
+    "Mouse pad siliconado estándar": 2,
+    "Mouse pad siliconado": 1
+   }
+  },
+  "Almohadillas para sellos": {
+   "—": {
+    "Tampo para sellos con tinta": 15,
+    "Tampo para sellos mediano": 1,
+    "Tampo para sello": 1,
+    "Tampo para sello con tinta": 1,
+    "Tampo para sellos": 4
+   }
+  },
+  "Alfombrillas de ratón": {
+   "—": {
+    "Alfombrilla de ratón": 3
+   }
+  },
+  "Almohadillas de tinta o estampillas": {
+   "—": {
+    "Tinta para sello en frasco 28 ml azul": 1,
+    "Almohadilla de sello plástica mediana": 1,
+    "Almohadilla de sello metálica 9x16 azul": 1,
+    "Almohadilla de sello plástica 12.5x8.5 azul": 1
+   }
+  },
+  "Almohadillas o filtros limpiadores de fusores": {
+   "Rodillo de alimentación de papel": {
+    "Rodillo de alimentación C1 P Canon 1435": 1
+   },
+   "Rodillo de separación de papel": {
+    "Rodillo de separación C1 P Canon 1435": 1
+   }
+  },
+  "Almohadillas para escritorio": {
+   "—": {
+    "Mojadedo": 2
+   }
+  },
+  "Almohadillas para restregar": {
+   "—": {
+    "Virutilla abrasiva áspera": 10
+   }
+  },
+  "Altavoces": {
+   "Activos": {
+    "Altavoz activo DESINMAX DM6SE": 1
+   },
+   "—": {
+    "Altavoz PANARAY MA12": 1,
+    "Parlante de techo": 1
+   }
+  },
+  "Amarres": {
+   "—": {
+    "Pita de amarres": 1
+   }
+  },
+  "Amarres de carga": {
+   "—": {
+    "Hilo de algodón para atar": 3
+   }
+  },
+  "Amplificadores de audio": {
+   "—": {
+    "Amplificador de sonido genérico": 1,
+    "Amplificador 60 W con consola 4 canales": 1,
+    "Amplificador Bose PowerSpace P21000A": 1,
+    "Módulo subwoofer activo SUB1": 1
+   }
+  },
+  "Fuentes de poder": {
+   "—": {
+    "Fuente de poder HP para computadoras": 1,
+    "Fuente de poder 650‑850 W": 1,
+    "Fuente de poder 650‑850 W 900 W": 2,
+    "Fuente de poder ATX 900W": 1
+   }
+  },
+  "Anticongelante": {
+   "—": {
+    "Anticongelante automotor gasolina 1 L": 1
+   }
+  },
+  "Ambientadores": {
+   "Aerosol": {
+    "Ambientador aerosol 360 ml": 1,
+    "Ambientador aerosol": 1
+   },
+   "Sólido": {
+    "Ambientador sólido en cartón perfumado": 2,
+    "Ambientador sólido en cartón perfumado para auto": 2,
+    "Ambientador sólido 40 g": 1
+   },
+   "Líquido": {
+    "Ambientador líquido 5 L": 1
+   },
+   "Cartón perfumado": {
+    "Ambientador cartón": 1
+   },
+   "Aerosol 360 ml desinfectante": {
+    "Ambientador aerosol 360 ml": 1
+   },
+   "Aerosol 360 ml desinfectante fragancia surtida": {
+    "Ambientador aerosol 360 ml": 1
+   },
+   "Aerosol 360 ml fragancia surtida": {
+    "Ambientador aerosol 360 ml": 4
+   },
+   "Aerosol 360 ml fragancia surtida (varios aromas)": {
+    "Ambientador aerosol 360 ml": 1
+   },
+   "Spray": {
+    "Ambientador spray": 1
+   },
+   "Cartón fragancia surtida": {
+    "Ambientador cartón": 1
+   },
+   "Sólido 40 g envase borde de inodoro": {
+    "Ambientador sólido 40 g": 1
+   },
+   "Sólido envase de pared fragancia surtida": {
+    "Ambientador sólido": 1
+   },
+   "Bristar": {
+    "Ambientador Bristar": 6
+   },
+   "Pastillas": {
+    "Ambientador tipo pastilla": 1
+   }
+  },
+  "Desinfectante de aire": {
+   "Ambientador sólido": {
+    "Ambientador sólido envase de pared": 3
+   },
+   "Aerosol": {
+    "Desinfectante aerosol 257 g": 3
+   }
+  },
+  "Aplicador de terminado para pisos": {
+   "—": {
+    "Aplicador de goma con mango madera": 2
+   }
+  },
+  "Archivador móvil": {
+   "—": {
+    "Archivador de palanca lomo ancho oficio": 2,
+    "Archivador de palanca lomo medio oficio": 1
+   }
+  },
+  "Archivador de arco de palanca": {
+   "—": {
+    "Archivador de palanca lomo ancho oficio": 10,
+    "Archivador de palanca": 1,
+    "Archivador de palanca lomo ancho": 2,
+    "Archivador de palanca lomo medio oficio": 5,
+    "Archivador de palanca lomo medio": 1
+   }
+  },
+  "Armario de equipamiento subterráneo": {
+   "Anáqueles metálicos": {
+    "Anáquel metálico especial": 1,
+    "Anáquel metálico normal": 1
+   }
+  },
+  "Armario para materiales peligrosos": {
+   "Anáquel metálico": {
+    "Anáquel metálico para archivos judiciales": 1,
+    "Anáquel metálico tipo mecano pesado": 1,
+    "Anáquel metálico": 1
+   }
+  },
+  "Engrapadoras": {
+   "—": {
+    "Engrapadora 20 hojas": 1,
+    "Engrapadora industrial": 1
+   },
+   "24/6": {
+    "Engrapadora": 5,
+    "Engrapadora mediana": 3
+   },
+   "23/10": {
+    "Engrapadora industrial": 4
+   },
+   "variado": {
+    "Engrapadora metálica": 1
+   }
+  },
+  "Tubo fluorescente": {
+   "—": {
+    "Tubo fluorescente 120 cm 40 W": 2
+   }
+  },
+  "Artefactos fluorescentes": {
+   "—": {
+    "Tubo fluorescente LED 120cm 18W": 2,
+    "Tubo fluorescente LED 120cm 20W": 1,
+    "Tubo fluorescente LED 120cm 9W": 1,
+    "Tubo fluorescente LED 60cm 20W": 1,
+    "Tubo fluorescente LED 60cm 9W": 1
+   }
+  },
+  "Ascensores": {
+   "—": {
+    "Guiador inferior compact 9263029-1": 1,
+    "Orona SDR e-Bekaert diam 6.5": 1
+   }
+  },
+  "Asideras para lápices o esferos": {
+   "—": {
+    "Tajador": 1,
+    "Tampo para sellos": 1
+   }
+  },
+  "Asientos": {
+   "Butacas": {
+    "Butaca con estructura de acero y cubierta de propileno": 2
+   },
+   "Silla tándem": {
+    "Silla tándem 4 puestos": 1
+   },
+   "Silla fija": {
+    "Silla fija sin apoya brazos": 1
+   },
+   "Sillón": {
+    "Sillón con poza brazo": 1
+   }
+  },
+  "Atriles de mesa": {
+   "—": {
+    "Atril de madera de cedro": 1
+   }
+  },
+  "Audífonos": {
+   "—": {
+    "Audífono para computador": 1,
+    "Audífono con micrófono": 2,
+    "Audífono con micrófono USB": 1
+   }
+  },
+  "Baldes para limpieza": {
+   "—": {
+    "Balde 11L": 2,
+    "Balde para mopa 16L": 1,
+    "Balde plástico 20L": 1
+   }
+  },
+  "Bandejas o alimentadores de máquinas de oficina": {
+   "—": {
+    "UPS interactivo 2400VA": 1
+   }
+  },
+  "Barras de pegante libres de ácido": {
+   "—": {
+    "Pegamento barra 40g": 1
+   }
+  },
+  "Baterías recargables": {
+   "—": {
+    "Batería sellada plomo‑ácido Delta NHP 80kVA": 1,
+    "Batería sellada sin mantenimiento Delta RT 10kVA": 1
+   }
+  },
+  "Biombos (mamparas) para sistemas de paneles": {
+   "—": {
+    "Mampara divisoria": 1
+   }
+  },
+  "Blanqueadores": {
+   "—": {
+    "Lavandina 1L": 3
+   }
+  },
+  "Blocs o cuadernos de papel": {
+   "—": {
+    "Cuaderno espiral cartón grueso cuadriculado medio oficio 100 hojas": 4,
+    "Cuaderno espiral cartón grueso cuadriculado oficio 100 hojas": 2
+   }
+  },
+  "Cuadernos y blocs": {
+   "Cuaderno con espiral": {
+    "Cuaderno cuadriculado carta 100 hojas": 5,
+    "Cuaderno cuadriculado oficio 100 hojas": 3
+   },
+   "Cuaderno empastado": {
+    "Cuaderno empastado oficio 100 hojas": 3,
+    "Cuaderno empastado normal 100 hojas": 1,
+    "Cuaderno empastado normal 200 hojas": 1
+   },
+   "Cuaderno engrapado": {
+    "Cuaderno engrapado 50 hojas": 1
+   },
+   "Libro de actas": {
+    "Libro de actas rayado oficio 100 hojas": 7,
+    "Libro de actas rayado oficio 200 hojas": 2
+   }
+  },
+  "Formularios": {
+   "—": {
+    "Certificado de Solvencia": 1,
+    "Solicitud de Materiales": 1,
+    "Solicitud de Valores Judiciales": 1,
+    "Salidas en Comisión": 1
+   }
+  },
+  "Bolígrafos": {
+   "—": {
+    "Bolígrafo genérico": 1,
+    "Bolígrafo azul": 1,
+    "Bolígrafo trazo fino 0,7 mm azul": 1,
+    "Bolígrafo con cadena": 1,
+    "Bolígrafo Parker azul": 1,
+    "Bolígrafo Parker azul tinta mojada": 3,
+    "Bolígrafo tipo durable": 1,
+    "Bolígrafo desechable trazo medio azul": 1
+   },
+   "Desechable": {
+    "Bolígrafo desechable trazo fino azul": 4,
+    "Bolígrafo desechable trazo fino negro": 2,
+    "Bolígrafo desechable trazo fino rojo": 2,
+    "Bolígrafo desechable trazo fino": 1,
+    "Bolígrafo desechable trazo fino azul con punta metálica": 1,
+    "Bolígrafo desechable trazo fino azul gel 1 mm": 1,
+    "Bolígrafo desechable trazo fino azul gel 0.7 mm triangular": 1,
+    "Bolígrafo desechable trazo medio azul": 1,
+    "Bolígrafo desechable trazo medio azul 0.7‑0.8 mm transparente": 1,
+    "Bolígrafo desechable trazo medio azul triangular 1.0 mm": 1,
+    "Bolígrafo desechable trazo medio azul aceite 55 mm": 1,
+    "Bolígrafo desechable trazo medio negro": 1,
+    "Bolígrafo desechable trazo medio negro triangular 1.0 mm": 1,
+    "Bolígrafo desechable trazo medio negro aceite 55 mm": 1,
+    "Bolígrafo desechable trazo medio rojo": 1
+   },
+   "Durable": {
+    "Bolígrafo durable trazo fino punta metal 0.60 mm": 3,
+    "Bolígrafo durable trazo fino punta metal 0.62 mm negro": 1,
+    "Bolígrafo durable trazo fino punta metal 0.62 mm": 5,
+    "Bolígrafo durable trazo fino punta metal 0.62 mm caja 12 unidades": 1,
+    "Bolígrafo durable trazo fino punta metal 0.60 mm azul": 1,
+    "Bolígrafo durable trazo fino punta metal 0.62 mm azul": 1,
+    "Bolígrafo durable trazo fino 0.7 mm azul": 1,
+    "Bolígrafo durable trazo fino azul": 1,
+    "Bolígrafo durable trazo fino 0.60 mm azul": 2,
+    "Bolígrafo durable trazo fino 0.60‑0.7 mm azul": 1
+   },
+   "Punta fina": {
+    "Bolígrafo punta fina 0.60": 6,
+    "Bolígrafo punta fina": 2
+   },
+   "Trazo fino metalica": {
+    "Bolígrafo trazo fino metalica nº 061": 4,
+    "Bolígrafo trazo fino metalica 0.62": 1
+   },
+   "Color Azul": {
+    "Bolígrafo Azul 0.60mm": 2
+   }
+  },
+  "Bolígrafos de gel": {
+   "—": {
+    "Bolígrafo gel micropunta": 1
+   }
+  },
+  "Bolígrafos para caligrafía": {
+   "—": {
+    "Bolígrafo caligrafía": 1
+   }
+  },
+  "Bolsas de basura": {
+   "35x65": {
+    "Bolsa de residuos": 5
+   },
+   "90x110": {
+    "Bolsa de residuos": 3
+   },
+   "—": {
+    "Bolsa de residuos": 1
+   },
+   "65x80": {
+    "Bolsa de residuos": 2
+   },
+   "78x95": {
+    "Bolsa de residuos": 3
+   }
+  },
+  "Bolsas plásticas": {
+   "35x65": {
+    "Bolsa plástica": 1
+   },
+   "90x110": {
+    "Bolsa plástica": 1
+   },
+   "Bolsas de residuos": {
+    "Bolsa negra 35x65": 2,
+    "Bolsa negra 65x80": 1
+   },
+   "Bolsas de yute": {
+    "Bolsa de yute celeste": 1,
+    "Bolsa de yute 1 quintal": 1
+   }
+  },
+  "Bombas de combustible": {
+   "—": {
+    "Bomba de gasolina": 1
+   }
+  },
+  "Borradores": {
+   "Dos colores": {
+    "Borrador grande dos colores": 6,
+    "Borrador 5 cm dos colores": 4,
+    "Borrador 5.5 cm dos colores": 1,
+    "Borrador 4 cm dos colores": 1,
+    "Borrador dos colores": 2
+   },
+   "—": {
+    "Borrador uso tinta/lápiz": 1,
+    "Borrador mediano uso tinta/lápiz": 1
+   },
+   "Miga de pan": {
+    "Borrador miga de pan pequeño": 6,
+    "Borrador miga de pan": 2
+   },
+   "Corrector en cinta": {
+    "Corrector en cinta universal": 1
+   }
+  },
+  "Borradores de goma": {
+   "Dos colores": {
+    "Borrador 5.5 cm dos colores": 1
+   },
+   "Miga de pan": {
+    "Borrador miga de pan pequeño": 1
+   }
+  },
+  "Breakers de circuito": {
+   "—": {
+    "Guardamotor 6-13 A": 1
+   }
+  },
+  "Brilladoras de pisos": {
+   "Cera para pisos de madera": {
+    "Cera para pisos de madera 750 ml": 1
+   }
+  },
+  "Bujes de automóvil": {
+   "—": {
+    "Buje para amortiguador trasero": 1,
+    "Buje para amortiguador delantero": 1,
+    "Buje para barra estabilizadora delantera": 1,
+    "Buje para estabilizadora trasera": 1
+   }
+  },
+  "Bujes de eje": {
+   "—": {
+    "Buje de soporte tren delantero": 1,
+    "Cojinete de eje de levas": 1
+   }
+  },
+  "Cabezales de impresión": {
+   "—": {
+    "Cabezal LQ590 Epson": 1,
+    "Cabezal para impresora de matriz de punto Epson LQ-590": 1,
+    "Cabezal para impresora de matriz de punto Epson LQ-590 (original)": 1,
+    "Repuesto de cabezal Epson LQ-590": 1,
+    "Repuesto de cabezal Epson LQ-590ii": 1,
+    "Repuesto de cabezal Epson LQ-590 (n/e)": 1
+   }
+  },
+  "Cable de cobre": {
+   "—": {
+    "Cable cobre 1 x 2.5 mm2 unipolar flexible (metro)": 5,
+    "Cable cobre número 4 unipolar flexible (metro)": 5
+   },
+   "Ethernet": {
+    "Cable Ethernet categoría 6, 23 AWG, 4 pares trenzados, 305 m": 1,
+    "Cable UTP 4 pares categoría 6 PVC 305 m": 1
+   }
+  },
+  "Cable de cobre no eléctrico": {
+   "—": {
+    "Cable de cobre Nº 10": 1,
+    "Cable de cobre Nº 12": 1
+   }
+  },
+  "Cable de extensión eléctrica": {
+   "—": {
+    "Cable de extensión eléctrica número 12 (metro)": 1,
+    "Cable de extensión eléctrica número 14 (metro)": 1,
+    "Cable alargador USB 3 m": 1
+   }
+  },
+  "Cable de fibra óptica": {
+   "—": {
+    "Cable DROP FRP": 1,
+    "Convertidor de medios de fibra óptica": 1,
+    "Patch cord de fibra óptica (jumper)": 1,
+    "Transceiver de fibra óptica": 1
+   }
+  },
+  "Cable de instalación": {
+   "—": {
+    "Cable VGA 1,5 m": 1,
+    "Cable VGA 30 m": 1
+   }
+  },
+  "Cable de redes": {
+   "—": {
+    "Adaptador USB a cable de red": 1,
+    "Adaptador USB a HDMI": 1
+   }
+  },
+  "Accesorios para computadora": {
+   "Cooler": {
+    "Cooler para fuente de alimentación": 1,
+    "Cooler para procesador": 1
+   }
+  },
+  "Cables de red": {
+   "UTP": {
+    "Cable UTP CAT6": 1,
+    "Cable UTP 4 pares PVC": 1
+   },
+   "Patch cord": {
+    "Patch cord CAT6 1 m": 1,
+    "Patch cord CAT6 2 m": 1,
+    "Patch cord CAT6 3 m": 1,
+    "Patch cord CAT6 0,5 m": 1,
+    "Patch cord CAT6": 1
+   }
+  },
+  "Cables de teclado o mouse": {
+   "USB": {
+    "Cable para mouse USB": 1,
+    "Cable mouse USB": 1
+   }
+  },
+  "Cables de interconexión": {
+   "HDMI": {
+    "Cable HDMI 15 m": 1,
+    "Cable HDMI estándar": 1
+   },
+   "HDMI a DisplayPort": {
+    "Cable HDMI a DisplayPort": 1
+   },
+   "VGA a HDMI": {
+    "Cable VGA a HDMI": 1
+   }
+  },
+  "Convertidores": {
+   "HDMI a DisplayPort": {
+    "Convertidor HDMI a DisplayPort": 1
+   },
+   "HDMI a DVI": {
+    "Convertidor HDMI a DVI": 1
+   },
+   "VGA a HDMI": {
+    "Convertidor VGA a HDMI": 1
+   }
+  },
+  "Divisores": {
+   "HDMI": {
+    "Splitter HDMI 4 puertos": 1
+   }
+  },
+  "Cables de instalación eléctrica": {
+   "Cable 10 mm² bipolares": {
+    "Cable eléctrico 10 mm² cobre": 2
+   },
+   "Cable 12 mm² bipolares": {
+    "Cable eléctrico 12 mm² cobre": 2
+   }
+  },
+  "Cables de instalación": {
+   "VGA": {
+    "Cable VGA 1,5 m": 1
+   }
+  },
+  "Cajas de distribución": {
+   "Roseta de pared": {
+    "Roseta de pared": 1
+   }
+  },
+  "Cajas de unión eléctrica": {
+   "Sobremontable": {
+    "Caja de conexión eléctrica para sobremontar": 1
+   }
+  },
+  "Cajas eléctricas": {
+   "Caja térmica PVC": {
+    "Caja para termomagnético de sobremontar PVC": 1
+   },
+   "Caja térmica plástico": {
+    "Caja para termomagnético plástico 30×20": 1
+   }
+  },
+  "Cajas para efectivo o tiquetes": {
+   "—": {
+    "Caja metálica registradora de billetes": 1
+   }
+  },
+  "Organizadores de archivo": {
+   "Post‑it": {
+    "Taco Post‑it fluorescente 76×51 mm": 1,
+    "Taco Post‑it fluorescente 76×51 mm bloque 100 hojas": 1
+   }
+  },
+  "Cajoneras o estanterías": {
+   "Móvil": {
+    "Cajonera móvil": 1
+   },
+   "Móvil madera": {
+    "Cajonera móvil de madera": 1
+   },
+   "Madera cedro": {
+    "Credenza de oficina de madera cedro": 1
+   },
+   "—": {
+    "Estante": 1
+   }
+  },
+  "Cajoneras o estanterías no modulares": {
+   "Vitrina": {
+    "Vitrina de madera 4 puertas": 1
+   }
+  },
+  "Calculadoras de escritorio": {
+   "—": {
+    "Calculadora de escritorio básica": 2,
+    "Calculadora de escritorio tamaño mediano": 1,
+    "Calculadora de escritorio 12 dígitos solar/pilas": 2,
+    "Calculadora de escritorio número de dígitos": 1,
+    "Calculadora de escritorio 12 dígitos solar/pilas tamaño mediano": 1,
+    "Calculadora tamaño mediano": 1,
+    "Calculadora tamaño mediano 12 dígitos": 1
+   }
+  },
+  "Calendarios": {
+   "—": {
+    "Taco para exfoliador gestión 2023": 1
+   }
+  },
+  "Cámaras de seguridad": {
+   "—": {
+    "Cámara de seguridad 5 MP compatible NDAA": 1,
+    "Cámara IP 2 MP tipo bala": 1,
+    "Cámara IP 2 MP tipo domo": 1,
+    "Cámara IP 4 MP": 1,
+    "Cámara IP bala 8 MP motorizada metálica con IR y WDR": 1,
+    "Cámara IP domo 8 MP WizColor con sensor 1/1.8\" CMOS": 1,
+    "Cámara IP PTZ": 1,
+    "Cámara IP PTZ 2 MP": 1,
+    "Cámaras de seguridad tipo domo": 1,
+    "Cámaras IP 4 MP": 1,
+    "Equipo de vigilancia": 1
+   }
+  },
+  "Cámaras de video conferencia": {
+   "—": {
+    "Cámara de videoconferencia panorámica 360°": 1,
+    "Cámara web USB": 1,
+    "Cámara de videoconferencia 360° con trípode": 1
+   }
+  },
+  "Cámaras de web": {
+   "—": {
+    "Accesorio cámara web para equipo de computación": 1,
+    "Cámara web Full HD 1080p USB con micrófono integrado y cable ≥1 m": 1,
+    "Cámara web 2 MP 1080p USB con micrófono integrado y cable ≥1 m": 1,
+    "Cámara web 2 MP 1080p": 1
+   }
+  },
+  "Cámaras digitales": {
+   "—": {
+    "Cámara filmadora (especificaciones técnicas)": 1,
+    "Cámara fotográfica": 1
+   }
+  },
+  "Cámaras grabadoras o video cámaras digitales": {
+   "—": {
+    "Equipo de videograbación para salas de audiencia": 1,
+    "Equipo de video vigilancia kit 6 piezas": 1
+   }
+  },
+  "Canaletas para cables": {
+   "—": {
+    "Cableducto eléctrico 2 m x 25 mm x 16 mm plástico": 1
+   }
+  },
+  "Candados": {
+   "—": {
+    "Candado 60 mm con haste normal": 2
+   }
+  },
+  "Carburadores": {
+   "—": {
+    "Repuesto para carburador": 1
+   }
+  },
+  "Cargadores de ruedas": {
+   "—": {
+    "Carrito cargador": 1
+   }
+  },
+  "Carpeta de anillas": {
+   "—": {
+    "Cuaderno con espiral, tapa cartón, hoja rayada, tamaño medio oficio, 100 hojas": 1,
+    "Tapa plástica para anillado": 1
+   }
+  },
+  "Carpetas": {
+   "Archivador de palanca": {
+    "Archivador de palanca": 27,
+    "Oficio carton lomo ancho": 4,
+    "Oficio plastico lomo ancho": 4,
+    "Oficio plastificado lomo ancho": 1,
+    "1/2 oficio plastificado lomo ancho": 1
+   },
+   "Archivador rápido": {
+    "Archivador rápido": 3,
+    "Oficio surtido cartulina": 1
+   },
+   "Tablero de campo": {
+    "Oficio plastico color surtido": 2
+   }
+  },
+  "Mobiliario": {
+   "Carrito para libros": {
+    "Metálico": 1
+   },
+   "Estante vitrina": {
+    "Estante": 2
+   }
+  },
+  "Cartuchos de tinta": {
+   "—": {
+    "CABEZAL LQ590": 2,
+    "CANON CL 146": 2,
+    "CANON CL 211": 2,
+    "CANON PG 145": 2,
+    "CANON PG 210": 1,
+    "CANON CL 2100": 1,
+    "CANON CL 38": 1,
+    "CANON CL 41": 1,
+    "CANON CLI-36": 5,
+    "CANON PG 37": 1,
+    "CANON PG 40": 1,
+    "CANON PGI-35": 6,
+    "Cartucho tinta PG210 Negro": 2,
+    "Cartucho tinta CL146 Colores": 1,
+    "Cartucho tinta Brother 5001 Magenta": 3,
+    "Cartucho tinta Brother 5001 Amarillo": 3,
+    "Cartucho tinta Brother 5001 Cyan": 3,
+    "Cartucho tinta Brother D60 Negro": 3,
+    "Cartucho tinta Epson L355 Amarillo": 2,
+    "Cartucho tinta Epson L355 Cyan": 2,
+    "Cartucho tinta Epson L355 Magenta": 1,
+    "Cartucho tinta Epson L355 Negro": 2,
+    "Cartucho tinta Epson L544 Amarillo": 3,
+    "Cartucho tinta Epson L544 Cyan": 2,
+    "Cartucho tinta Epson L544 Magenta": 2,
+    "Cartucho tinta Epson L544 Negro": 3,
+    "Cartucho tinta Epson T544 Amarillo": 1,
+    "Cartucho tinta Epson T544 Cyan": 1,
+    "Cartucho tinta Epson T544 Magenta": 1,
+    "Cartucho tinta Epson T544 Negro": 1,
+    "Cartucho tinta Epson T664 Amarillo": 1,
+    "Cartucho tinta Epson T664 Cyan": 1,
+    "Cartucho tinta Epson T664 Magenta": 1,
+    "Cartucho tinta Epson T664 Negro": 1,
+    "Cartucho de tinta Epson L544": 2,
+    "Cartucho de tinta Epson L355": 6,
+    "Cartucho de tinta Brother BT501": 3,
+    "Cartucho de tinta Brother BTD60": 1,
+    "Cartucho de tinta Epson 774": 1,
+    "Cartucho de tinta Epson L110-355": 2,
+    "Cartucho de tinta Epson M105-M205": 3,
+    "Cartucho de tinta Epson Eco Tank L3150": 4,
+    "Cartucho de tinta Epson M1120": 1,
+    "Cartucho de tinta Epson L210": 4,
+    "Cartucho de tinta Epson": 2,
+    "Cartucho de tinta Epson M100": 1
+   },
+   "Epson": {
+    "Cartucho de tinta": 40
+   }
+  },
+  "Cauchos": {
+   "—": {
+    "Liga genérica": 1,
+    "Liga": 2
+   }
+  },
+  "Cauchos de repuesto": {
+   "—": {
+    "Aragán de goma con mango de madera": 5,
+    "Aragán de goma sin mango": 1,
+    "Aragán de goma": 3
+   }
+  },
+  "Cepillos de baño": {
+   "Cepillo de mano": {
+    "Cepillo de mano uso inodoro": 6
+   },
+   "—": {
+    "Mopa para trapear": 1
+   }
+  },
+  "Cepillos de limpieza": {
+   "—": {
+    "Aragán de goma": 1,
+    "Escobillón para techos": 1
+   }
+  },
+  "Ceras naturales": {
+   "—": {
+    "Cera para pisos de madera": 2
+   }
+  },
+  "Ceras sintéticas": {
+   "—": {
+    "Cera para pisos de madera": 4,
+    "Cera para pisos fríos": 1
+   }
+  },
+  "Cerraduras": {
+   "—": {
+    "Cerradura con jaladores para vidrio templado": 1,
+    "Cerradura de 3 golpes": 1
+   }
+  },
+  "Chapas o pomos": {
+   "—": {
+    "Chapa para perfil puertas de aluminio": 1,
+    "Chapa para puertas de madera": 1
+   }
+  },
+  "Chinches": {
+   "—": {
+    "Chinche para pizarra": 2
+   }
+  },
+  "Cilindro rotatorio": {
+   "—": {
+    "Cilindro 720 para Brother": 2
+   }
+  },
+  "Cinta aislante eléctrica": {
+   "—": {
+    "Cinta aislante PVC": 5,
+    "Cinta aislante 3M": 1
+   }
+  },
+  "Cinta de impresora": {
+   "—": {
+    "Cinta para impresora Epson LQ-590 carro corto": 2,
+    "Cinta para impresora Epson LQ-590": 1,
+    "Cinta para impresora": 1
+   }
+  },
+  "Cintas para impresoras": {
+   "Epson LQ-590": {
+    "Cinta tipo carro corto": 7,
+    "Cinta tipo carro corto con sello de seguridad": 1,
+    "Cinta color negro": 3,
+    "Cinta color negro (original)": 1,
+    "Cinta tipo carro corto color negro": 1
+   },
+   "Zebra": {
+    "Ribbon ZXP Series 3 True Colors": 1
+   },
+   "—": {
+    "Epson LQ-590 Carro Corto": 2,
+    "Epson LQ-590": 1
+   }
+  },
+  "Cintas industriales de señal y etiqueta": {
+   "Epson LQ-590": {
+    "Cinta tipo carro corto 65": 1
+   }
+  },
+  "Cintas adhesivas": {
+   "Nylon": {
+    "Cinta adhesiva transparente": 1
+   },
+   "—": {
+    "Cinta adhesiva transparente 19 mm x 30 m": 3
+   }
+  },
+  "Cintas de sellado": {
+   "PTFE": {
+    "Cinta de teflón": 1
+   }
+  },
+  "Cintas de transferencia adhesiva": {
+   "—": {
+    "Cinta adhesiva transparente": 1,
+    "Cinta adhesiva": 1,
+    "Cinta de embalaje": 3
+   }
+  },
+  "Cintas doble faz": {
+   "—": {
+    "Cinta doble contacto": 2
+   }
+  },
+  "Cintas para empaquetar": {
+   "—": {
+    "Cinta de embalaje": 9
+   }
+  },
+  "Accesorios de oficina": {
+   "—": {
+    "Clips para papeles": 1
+   },
+   "Clips para papel": {
+    "Clip para papel": 38,
+    "Clip papel": 35
+   },
+   "Clip simple": {
+    "Clip papel 78 mm": 4,
+    "Clip papel 51 mm": 1,
+    "Clip papel 33 mm": 1,
+    "Clip papel 50 mm": 1
+   },
+   "Clip doble": {
+    "Clip doble papel 51 mm": 1,
+    "Clip doble papel 32 mm": 1
+   },
+   "Tajalápices": {
+    "Tajalápices manual": 6
+   }
+  },
+  "Cintas transparentes": {
+   "—": {
+    "Cinta adhesiva transparente": 1
+   }
+  },
+  "Cinta adhesiva": {
+   "Transparente": {
+    "Cinta adhesiva transparente": 6,
+    "Cinta adhesiva tipo Diurex": 1
+   },
+   "Embalaje": {
+    "Cinta de embalaje": 3,
+    "Cinta de embalaje transparente": 9
+   },
+   "—": {
+    "CinthA adhesiva": 1
+   },
+   "Papel": {
+    "Cinta adhesiva tipo máquina 2 pulgadas": 3
+   }
+  },
+  "Clavijas": {
+   "Electrodo": {
+    "Clavija para enchufe": 1
+   }
+  },
+  "Clips": {
+   "Pared/tablero": {
+    "Clip para tablero": 1,
+    "Clip para tablero plástico tamaño oficio": 4
+   },
+   "Carpeta/bulldog": {
+    "Clip mariposa": 1,
+    "Clip para papel": 1,
+    "Sujeta papeles": 1,
+    "Sujeta papeles bulldog": 2
+   }
+  },
+  "Clips de papel": {
+   "Bulldog": {
+    "Clip bulldog": 9
+   },
+   "—": {
+    "Clip": 6,
+    "Clip grande": 1,
+    "Clip mariposa": 12,
+    "Clip metálico": 10
+   }
+  },
+  "Clips para papel": {
+   "—": {
+    "Clip para papel": 38
+   }
+  },
+  "Cuchillas y estiletes": {
+   "—": {
+    "Estilete 18 cm con freno": 1
+   }
+  },
+  "Grapas": {
+   "—": {
+    "Grapas 24 × 6": 1,
+    "24/6": 10,
+    "23/8": 7,
+    "23/10": 2,
+    "Grapas 24/6 metal": 23,
+    "Grapas 23/10 metal": 2,
+    "Grapas 23/8 metal": 3,
+    "Grapas 24/6": 2
+   },
+   "Niqueladas": {
+    "Grapas 24/6 niqueladas": 10
+   }
+  },
+  "Accesorios para clips": {
+   "—": {
+    "Porta clips magnético acrílico": 1
+   }
+  },
+  "Sacagrapas": {
+   "—": {
+    "Sacagrapas plástico": 2
+   }
+  },
+  "Lápices y esferos": {
+   "—": {
+    "Lápiz LANCER 2B sin borrador": 1
+   }
+  },
+  "Almacenamiento": {
+   "Disco duro externo": {
+    "Disco duro externo 2 TB USB 3.0": 1
+   },
+   "SSD SATA": {
+    "SSD SATA 512 GB": 1
+   }
+  },
+  "Consumibles de impresión": {
+   "Film para impresora": {
+    "Film Brother HL 6180DW": 1
+   }
+  },
+  "Compresores de aire": {
+   "Compresor semi hermético": {
+    "Compresor 180 000 BTU semi hermético": 1
+   },
+   "Compresor hermético": {
+    "Compresor hermético genérico": 1
+   },
+   "Compresor hermético para AC central": {
+    "Compresor hermético para sistema central de aire acondicionado": 1
+   },
+   "Motocompresor": {
+    "Motocompresor 124 000 BTU": 1,
+    "Motocompresor 125 903 BTU": 1,
+    "Motocompresor 127 167 BTU": 1,
+    "Motocompresor 62 000 BTU AT 380/460‑50/60‑3 R‑22": 1,
+    "Motocompresor 68 000 BTU AT 380‑50/60‑3 R‑22": 2
+   }
+  },
+  "Compresores refrigerantes": {
+   "Compresor hermético": {
+    "Compresor hermético 60 000 BTU": 2
+   }
+  },
+  "Computadoras": {
+   "Escritorio": {
+    "Computadora de escritorio genérica": 3,
+    "Computadora 280G5 con monitor 19.5\"": 1,
+    "Computadora escritorio Core Ultra 5": 1
+   }
+  },
+  "Computadoras cliente ligero": {
+   "Escritorio": {
+    "Computadora de escritorio cliente ligero genérica": 1,
+    "Computadora de escritorio cliente ligero completa": 1,
+    "Computadora escritorio cliente ligero Core Ultra 5": 1
+   },
+   "Mini PC": {
+    "Mini PC Windows": 1
+   }
+  },
+  "Memoria RAM": {
+   "—": {
+    "Módulo RAM 8 GB DIMM": 1,
+    "Memoria RAM": 1,
+    "Memoria DDR4 8 GB": 1
+   },
+   "DDR3": {
+    "RAM 8 GB": 3,
+    "RAM 16 GB": 1,
+    "RAM DDR3": 1
+   },
+   "DDR4": {
+    "RAM 8 GB": 4,
+    "RAM DDR4": 1
+   }
+  },
+  "Computadora de escritorio": {
+   "—": {
+    "Computadora de escritorio": 2,
+    "Computadora de escritorio con monitor incluido": 1,
+    "Equipo de computación de escritorio con monitor incluido": 1,
+    "Equipo de computación de escritorio": 3,
+    "Equipo de computación de escritorio i5": 1,
+    "Equipo de computación de escritorio i7": 1,
+    "Equipo de computación con monitor incluido": 1,
+    "PC tipo SFF con i7, 16 GB RAM DDR4, SSD 512 GB": 1,
+    "Workstation con i7 Ultra, 16 GB RAM DDR5, SSD 1 TB, GPU 8 GB": 1
+   }
+  },
+  "Computadora portátil": {
+   "—": {
+    "Computadora portátil 3500 15.6\"": 1,
+    "Computadora portátil Core Ultra 5": 1,
+    "Computadora portátil": 2,
+    "Equipo de computación portátil": 1,
+    "Equipo portátil de alto rendimiento": 1,
+    "Equipo portátil empresarial": 1
+   }
+  },
+  "Adaptador USB a SATA": {
+   "—": {
+    "Adaptador 2 USB a SATA": 1
+   }
+  },
+  "Switch de red": {
+   "—": {
+    "Switch": 1,
+    "Switch 24 puertos": 2,
+    "Switch 5 puertos Gigabit con 1 puerto SFP": 1,
+    "Switch PoE 24 puertos + Patch Panel 24p": 1,
+    "Switch 8 puertos": 1
+   }
+  },
+  "Conducto eléctrico": {
+   "—": {
+    "Cable canal plástico 2 m": 1,
+    "Cableducto eléctrico plástico 2 m": 2
+   }
+  },
+  "Cortacircuitos": {
+   "—": {
+    "Cortacircuitos 6 tomas 10 A 220 V": 1
+   }
+  },
+  "Regleta eléctrica": {
+   "—": {
+    "Regleta plástica 4 entradas universal": 1
+   }
+  },
+  "Bornera eléctrica": {
+   "—": {
+    "Bornera eléctrica": 1,
+    "Bornera eléctrica para riel DIN": 1
+   }
+  },
+  "Arrancador de tubo fluorescente": {
+   "—": {
+    "Arrancador estándar 20 W": 1,
+    "Arrancador estándar 40 W": 1
+   }
+  },
+  "Consola de audio": {
+   "—": {
+    "Consola Behringer Xenyx 1204 USB": 1,
+    "Consola de sonido": 1
+   }
+  },
+  "Consolas de audio": {
+   "—": {
+    "Consola de streaming": 1,
+    "Consola Soundcraft Noted 12": 1
+   }
+  },
+  "Consolas de teleconferencias": {
+   "—": {
+    "Kit de equipo de video grabación (4 micrófonos, consola mezcladora, cámara web)": 1
+   }
+  },
+  "Contactores": {
+   "—": {
+    "Contactador eléctrico 25 A": 1
+   }
+  },
+  "Contenedores de basura plástico": {
+   "240 L": {
+    "Basurero plástico 240 L": 2
+   },
+   "pequeño": {
+    "Basurero plástico tipo papelero de oficina": 1,
+    "Canastillo circular de plástico": 4
+   },
+   "mediano": {
+    "Contenedor cuadrado de plástico": 1,
+    "Contenedor mediano con mango de plástico": 1,
+    "Contenedor mediano cuadrado de plástico": 1
+   },
+   "grande": {
+    "Buzón con tapa de baiben 20 L": 1
+   },
+   "—": {
+    "Recolector de basura de plástico": 1
+   }
+  },
+  "Contenedores de residuos peligrosos": {
+   "pequeño": {
+    "Canastillo circular de plástico para residuos peligrosos": 2
+   }
+  },
+  "Dispensadores de clips": {
+   "—": {
+    "Porta clip magnético forma circular de plástico (dimensión estándar rectangular)": 1,
+    "Porta clips": 1
+   }
+  },
+  "Accesorios de almacenamiento": {
+   "Base de acoplamiento": {
+    "Base de acoplamiento disco duro 2 ranuras SATA 2.5‑3.5 USB 3.0": 1
+   },
+   "Caja externa": {
+    "Case externo USB 3.0 para discos 2.5\"": 1
+   }
+  },
+  "Hubs USB": {
+   "—": {
+    "Hub splitter 7 puertos USB 3.0": 1
+   }
+  },
+  "Correas para impresoras/fax/fotocopiadoras": {
+   "—": {
+    "Kit de mantenimiento modelo Canon IR 1435i": 1
+   }
+  },
+  "Correctores de ortografía": {
+   "cinta": {
+    "Corrector de cinta 5 mm × 8 m": 6,
+    "Corrector en cinta": 1,
+    "Corrector para escritura en cinta": 1,
+    "Corrector para escritura en cinta 5 mm (código 7577 M‑50)": 1,
+    "Corrector para escritura en cinta 4.2 mm × 6 m": 1
+   },
+   "frasco": {
+    "Corrector frasco": 1
+   },
+   "líquido": {
+    "Corrector líquido": 1,
+    "Corrector líquido 18 ml": 2
+   }
+  },
+  "Correctores de cinta": {
+   "—": {
+    "Corrector de escritura en cinta": 3
+   }
+  },
+  "Cortadoras de césped": {
+   "—": {
+    "Podadora (desbrozadora)": 1
+   }
+  },
+  "Cortadoras de papel": {
+   "Estilete": {
+    "Estilete": 10,
+    "Repuesto para estilete": 3
+   },
+   "Fasteners": {
+    "Fastener": 2
+   },
+   "Tijeras": {
+    "Tijeras para cortar papel": 1
+   }
+  },
+  "Cuadernos": {
+   "Cuaderno con espiral": {
+    "Cuaderno con espiral": 3
+   },
+   "Libro de actas": {
+    "Libro de actas": 1
+   },
+   "Espiral": {
+    "Cuaderno espiral carta cuadriculado 100 hojas": 3,
+    "Cuaderno espiral oficio cuadriculado 100 hojas": 2
+   },
+   "Empastado": {
+    "Cuaderno empastado medio oficio cartón 100 hojas": 3
+   }
+  },
+  "Cubiertas para informes": {
+   "—": {
+    "Funda para hojas": 1
+   }
+  },
+  "Desinfectante de manos": {
+   "—": {
+    "Alcohol en gel": 7,
+    "Alcohol en gel 380 g": 4,
+    "Alcohol en gel 360 ml": 2,
+    "Alcohol en gel 370 ml": 1
+   }
+  },
+  "Detergente": {
+   "Vajilla": {
+    "Detergente vajilla 1 L": 2
+   },
+   "Polvo": {
+    "Detergente polvo 640 g": 1
+   },
+   "Granulado": {
+    "Detergente granulado 150 g": 2,
+    "Detergente granulado 2 kg": 1,
+    "Detergente granulado": 1,
+    "Detergente Granulado 150g": 1
+   },
+   "Líquido antigrasa": {
+    "Detergente líquido antigrasa 850 ml": 1
+   }
+  },
+  "Cera para pisos": {
+   "—": {
+    "Cera para pisos madera 750 ml": 1
+   }
+  },
+  "Desinfectante de ambiente": {
+   "Aerosol": {
+    "Desinfectante aerosol 256 g": 3,
+    "Desinfectante aerosol 257 g": 1
+   }
+  },
+  "Desinfectante de piso": {
+   "—": {
+    "Desinfectante de piso": 1
+   },
+   "Líquido": {
+    "Desinfectante piso 1800 ml": 2
+   }
+  },
+  "Desinfectante para sanitarios": {
+   "—": {
+    "Desinfectante sanitarios 900 ml": 1
+   }
+  },
+  "Jabón líquido": {
+   "—": {
+    "Jaboncillo líquido 360 ml": 1,
+    "Jabón líquido 5 L": 2
+   },
+   "Lava vajilla": {
+    "Jabón líquido lava vajilla": 1
+   },
+   "Jaboncillo": {
+    "Jaboncillo líquido": 1
+   }
+  },
+  "Lavandina": {
+   "—": {
+    "Lavandina 1 L": 9
+   }
+  },
+  "Desinfectantes y limpiadores": {
+   "Lavandina 1L": {
+    "Lavandina 1 L": 2
+   },
+   "Limpiador 5L": {
+    "Limpiador desinfectante 5 L": 2
+   },
+   "Limpiador multiusos 950ml": {
+    "Limpiador multiusos 950 ml": 1
+   },
+   "Limpiavidrios": {
+    "Limpiavidrios": 1
+   },
+   "Limpiavidrios 900ml": {
+    "Limpiavidrios 900 ml con atomizador": 1
+   }
+  },
+  "Desodorantes": {
+   "Ambientador aerosol": {
+    "Ambientador en aerosol": 1
+   },
+   "Ambientador sólido": {
+    "Ambientador sólido 40 g": 1
+   },
+   "Aromatizador limpiador": {
+    "Aromatizador limpiador 1 L": 2
+   }
+  },
+  "Detectores": {
+   "Billetes falsos": {
+    "Detector de billetes falsos": 5
+   },
+   "Movimiento": {
+    "Sensor de movimiento": 1
+   }
+  },
+  "Discos ópticos": {
+   "DVD+R 4.7GB": {
+    "Disco DVD+R 4.7 GB": 1,
+    "Disco DVD+R 4.7 GB 8x": 2,
+    "Disco DVD+R 4.7 GB 8x con caja": 1
+   },
+   "CD-RW 700MB": {
+    "Disco CD-RW 700 MB": 1
+   },
+   "CD-R 700MB": {
+    "Disco CD-R 700 MB con sobre": 1,
+    "Disco CD-R 700 MB": 2
+   },
+   "DVD 4.7GB": {
+    "DVD de grabación 4.7 GB": 1,
+    "Disco DVD de grabación": 2
+   },
+   "DVD-R 4.7GB": {
+    "Disco DVD-R 4.7 GB sin caja HP": 1
+   },
+   "—": {
+    "Disco compacto": 1,
+    "Disco compacto genérico": 1
+   },
+   "Grabación": {
+    "Disco compacto de grabación": 1
+   },
+   "CD": {
+    "Disco compacto CD": 2
+   },
+   "CD 700MB": {
+    "CD 700 MB con funda": 1
+   },
+   "DVD+R 4.7 GB 8X con caja": {
+    "Disco DVD+R 4.7 GB 8X": 2
+   },
+   "DVD+R 4.7 GB 8X sin caja": {
+    "Disco DVD+R 4.7 GB 8X": 1
+   },
+   "CD 700 MB sin caja": {
+    "Disco CD 700 MB": 1
+   },
+   "DVD‑RX4 4.7 GB sin caja": {
+    "Disco DVD‑RX4 4.7 GB": 2
+   },
+   "DVD genérico": {
+    "Disco DVD genérico": 1
+   },
+   "DVD 4.7 GB (tambo de 100)": {
+    "Disco DVD 4.7 GB": 1
+   },
+   "DVD+R 4.7 GB 8X con funda": {
+    "Disco DVD+R 4.7 GB 8X": 1
+   },
+   "DVD": {
+    "Disco compacto DVD": 1
+   }
+  },
+  "Equipamiento de oficina": {
+   "Engrapadora semiindustrial": {
+    "Engrapadora semiindustrial 200-400 hojas": 1
+   },
+   "Engrapadora pequeña": {
+    "Engrapadora 40 hojas tamaño grapas 24/6-26/6": 1
+   }
+  },
+  "Basurero": {
+   "Grande 20 L": {
+    "Basurero 20 L": 1
+   },
+   "Plástico sin mango": {
+    "Basurero plástico sin especificar tamaño": 1
+   },
+   "Cesto mediano plástico": {
+    "Basurero cesto mediano plástico": 1
+   },
+   "Cesto ñediano plástico": {
+    "Basurero cesto ñediano plástico": 1
+   },
+   "Plástico sin especificar": {
+    "Basurero plástico genérico": 1
+   },
+   "—": {
+    "Recolector de basura genérico": 1
+   },
+   "Plástico": {
+    "Recolector de basura plástico": 1
+   },
+   "Plástico con mango": {
+    "Recolector de basura con mango plástico": 1
+   }
+  },
+  "Dispensadores de solución de limpieza": {
+   "Aromatizador 23.7 cm × 8.2 cm × 8.7 cm": {
+    "Dispersor aromatizador": 1
+   }
+  },
+  "Dispensadores de agua": {
+   "Agua fría/caliente institucional": {
+    "Dispensador de agua frío/caliente": 1
+   },
+   "—": {
+    "Dispensador de agua": 1
+   },
+   "Bebedero agua fría‑caliente‑natural": {
+    "Bebedero de agua": 1
+   },
+   "Bebedero agua frío/caliente/natural": {
+    "Bebedero de agua": 1
+   }
+  },
+  "Dispensadores": {
+   "Cinta adhesiva": {
+    "Porta Rollo para Cinta Adhesiva": 1
+   }
+  },
+  "Detergentes": {
+   "Vajillero": {
+    "Detergente vajillero en envase frasco": 2
+   }
+  },
+  "Almacenamiento externo": {
+   "—": {
+    "Disco duro externo HDD 4TB USB 3.0": 1
+   }
+  },
+  "Equipos de presentación": {
+   "—": {
+    "Equipo educacional y recreativo": 1
+   }
+  },
+  "Conectores RJ45": {
+   "—": {
+    "Módulo jack categoría 6E": 1,
+    "Jack CAT compatible 22-26 AWG": 1
+   },
+   "Rosetas": {
+    "Roseta con jack CAT6": 1
+   }
+  },
+  "Switches POE": {
+   "16 puertos": {
+    "Switch POE 16 puertos": 1
+   },
+   "8 puertos": {
+    "Switch POE 8 puertos": 1
+   }
+  },
+  "Iluminación": {
+   "LED empotrado": {
+    "Luminaria LED 18W": 1
+   },
+   "Spot dicróico": {
+    "Spot dicróico de pared": 1
+   }
+  },
+  "Cableado eléctrico": {
+   "Cableducto": {
+    "Cableducto 2m 25x16mm": 1
+   }
+  },
+  "Interruptores eléctricos": {
+   "—": {
+    "Interruptor simple 16A 220V": 1,
+    "Interruptor bipolar 16 A 220 V": 1
+   }
+  },
+  "Disyuntores térmicos": {
+   "—": {
+    "Termico monofásico 63A": 1
+   }
+  },
+  "Empaques": {
+   "—": {
+    "Repuesto de empaquetadura múltiple": 1
+   }
+  },
+  "Ceras y selladores": {
+   "Piso madera": {
+    "Cera para piso de madera 1L": 1
+   },
+   "Piso frío": {
+    "Cera para pisos fríos 1L": 1
+   }
+  },
+  "Enchufes y módulos": {
+   "—": {
+    "Módulo enchufe 16A": 1
+   }
+  },
+  "Enchufes": {
+   "—": {
+    "Enchufe tipo clavija 15A": 2
+   }
+  },
+  "Placas de enchufe": {
+   "—": {
+    "Placa enchufe sencillo 16A": 2
+   }
+  },
+  "Placas de tomacorriente": {
+   "—": {
+    "Placa tomacorriente 2 tomas": 1
+   }
+  },
+  "Tomacorrientes": {
+   "NEMA doble": {
+    "Tomacorriente NEMA doble": 1
+   }
+  },
+  "Engrapadoras de banda": {
+   "—": {
+    "Engrapadora CM-70": 1,
+    "Engrapadora semi industrial": 1
+   }
+  },
+  "Switches de red": {
+   "Core": {
+    "Conmutador core": 1
+   },
+   "—": {
+    "Switch 5 puertos": 1,
+    "Switch 8 puertos": 1
+   }
+  },
+  "Bolsas y envoltorios": {
+   "Bolsas de liga 1/4 libra": {
+    "Bolsa de liga 1/4 libra color café": 4,
+    "Bolsita de ligas color café": 1,
+    "Bolsita de ligas 1/4 libra color café": 1
+   }
+  },
+  "Equipos de radiofrecuencia": {
+   "—": {
+    "Dron": 1
+   }
+  },
+  "Equipos biométricos": {
+   "—": {
+    "Reloj biométrico": 1
+   }
+  },
+  "Equipos de identificación biométrica": {
+   "—": {
+    "Equipo biométrico dactilar/facial": 1,
+    "Equipo de control de personal": 1,
+    "Equipo biométrico para control de asistencia y personal": 1,
+    "Lector biométrico digital personal": 1
+   }
+  },
+  "Equipos de lectura de código de barras": {
+   "—": {
+    "Lector de código de barras": 3
+   }
+  },
+  "Equipo de red de entrega de contenido": {
+   "Switch": {
+    "Switch genérico": 1,
+    "Switch POE 24 puertos": 1,
+    "Switch POE 48 puertos": 1,
+    "Switch tipo I": 1,
+    "Switch tipo II": 1
+   }
+  },
+  "Escáneres": {
+   "—": {
+    "Escáner genérico": 2,
+    "Scanner genérico": 1,
+    "Scanner con especificaciones técnicas": 1
+   },
+   "Alto tráfico": {
+    "Escáner de alto tráfico con LED": 1,
+    "Escáner de alto tráfico para tribunal": 1,
+    "Escáner de alto tráfico ADF": 1,
+    "Escáner documental duplex alto tráfico": 1,
+    "Escáner duplex de alto tráfico": 1,
+    "Escáner de alto tráfico": 1,
+    "Escáner alta resolución": 1,
+    "Scanner de alto tráfico": 1
+   },
+   "Medio tráfico": {
+    "Escáner de medio tráfico": 1,
+    "Escáner de medio tráfico modelo DS-530 II": 1
+   },
+   "Medio/Alto tráfico": {
+    "Escáner medio/alto tráfico": 1
+   },
+   "Profesional": {
+    "Escáner profesional": 1,
+    "Escáner profesional de sobremesa": 1,
+    "Escáner profesional alta resolución": 1,
+    "Escáner profesional de sobre mesa": 1
+   }
+  },
+  "Escobas": {
+   "—": {
+    "Escoba genérica": 1,
+    "ESCOBA; MATERIAL PAJA; NRO. DE HILERAS 6; TIPO DOMÉSTICA": 1,
+    "ESCOBA; MATERIAL PVC; N° DE HILERAS 7; TIPO MULTIUSO": 1,
+    "ESCOBA; MATERIAL PVC; NRO DE HILERAS 7; TIPO MULTIUSO": 1,
+    "ESCOBA; MATERIAL PVC; NRO DE HILERAS 5; USO DE EXTERIORES": 1,
+    "Escoba; Material Pvc; Nro. de Hileras 6; Tipo Doméstica": 1,
+    "ESCOBAS MATERIAL PVC 6 HILERAS TIPO DOMESTICA": 1,
+    "ESCOBAS MATERIAL PVC DE 6 HILERAS": 1,
+    "material pvc 6 hileras tipo domestica": 1,
+    "material pvc de 6 hileras": 1
+   },
+   "Doméstica": {
+    "Escoba 6 hileras doméstica": 2,
+    "Escoba PVC doméstica": 1,
+    "Escoba doméstica": 1,
+    "Escoba PVC 6 hileras doméstica": 1
+   },
+   "Multiuso": {
+    "Escoba PVC multiuso": 1
+   }
+  },
+  "Escobas absorbentes": {
+   "—": {
+    "REPUESTO PARA MOPA; PRESENTACIÓN TRAPEADOR MAS PALO, PESO: 240GRAMOS": 1
+   }
+  },
+  "Escritorios": {
+   "—": {
+    "de madera ejecutivos de tipo (l)": 1,
+    "ejecutivos": 1,
+    "ESCRITORIO EJECUTIVO": 1,
+    "ESCRITORIO EJECUTIVO DE MADERA CON DISEÑO DE MOLDURA": 1,
+    "Escritorio ejecutivo en madera roble": 1,
+    "ESCRITORIO EJECUTIVO MOD-LUIS XVI": 1,
+    "ESCRITORIO NORMAL DE MADERA DE 2 CAJONES": 1,
+    "ESCRITORIO PARA COMPUTADORA TIPO PATITO": 1,
+    "ESCRITORIO SEMI EJECUTIVO": 1,
+    "ESCRITORIO SEMIEJECUTIVO": 1,
+    "ESCRITORIO SEMIEJECUTIVO EN MADERA ROBLE": 1,
+    "ESCRITORIO SEMIEJECUTIVO MOD-LUIS XVI": 1,
+    "ESCRITORIOS DE MADERA EJECUTIVOS DE TIPO (L)": 1,
+    "ESCRITORIOS EJECUTIVOS": 1,
+    "ESCRITORIOS PARA COMPUTADORA": 1,
+    "ESCRITORIOS SEMI EJECUTIVOS": 1,
+    "ESCRITORIOS SEMI EJECUTIVOS DE MADERA": 1,
+    "MESA DE COMPUTADORA LINEA RECTA": 1,
+    "MESA DE COMPUTADORA LUIS XVI": 1,
+    "MESA DE COMPUTADORA MOD-LUIS XVI": 1,
+    "MESA PARA LITIGANTES": 1,
+    "MESA RECTANGULAR PARA AUDIENCIAS EN MELAMINA DE PRIMERA CALIDAD": 1,
+    "MUEBLE DE MADERA PARA COMPUTADORA": 1,
+    "MUEBLE PARA COMPUTADORA DE MADERA": 1,
+    "para computadora": 1,
+    "semi ejecutivos": 1,
+    "semi ejecutivos de madera": 1,
+    "VITRINA MOD. LUIS XVI": 1,
+    "Escritorio Luis XVI": 1,
+    "Escritorio normal": 1,
+    "Escritorio recto para computadora": 1,
+    "Mueble para computadora": 1,
+    "Mueble para sala de audiencia": 1
+   },
+   "Bibliotecarios": {
+    "Escritorio semi ejecutivo de madera": 1,
+    "Mesa de oralidad de madera": 1
+   }
+  },
+  "Escritorios no modulares": {
+   "—": {
+    "ESCRITORIO DE MADERA LINEA RECTA PARA COMPUTADORA": 1
+   }
+  },
+  "Escurridor de trapero": {
+   "—": {
+    "Escurridor de agua de goma con mango de madera": 1,
+    "Goma para trapear con mango de madera": 1
+   }
+  },
+  "Esponjas": {
+   "—": {
+    "Esponja genérica": 1,
+    "Esponja de acero virutilla": 1,
+    "Esponja de poliuretano con fibra sintética": 1,
+    "Esponja de poliuretano con fibra sintética 110x75x20 mm": 1,
+    "Esponja de espuma poliuretano con poliéster 11x8x2 cm": 1,
+    "Esponja de espuma poliuretano con fibra sintética 110x75x20 mm": 1,
+    "Esponja de lana de acero 10x4 cm (bolsa 10 unidades)": 1,
+    "Esponja de polietileno 7.5x10 cm": 1,
+    "Mojadeo esponjero pequeño de plástico": 1
+   }
+  },
+  "Esponjas o esponjillas": {
+   "—": {
+    "Esponja de espuma con poliéster 11x8x2 cm": 1,
+    "Esponja de polietileno 7.5x10 cm": 1,
+    "Mojadeo mediano de plástico": 2,
+    "Virutilla áspera 100 g": 1
+   }
+  },
+  "Esquinas adhesivas": {
+   "—": {
+    "Banderillas Post-it 1.2x4.5 cm paquete 4 colores": 1
+   }
+  },
+  "Estabilizador de impedancia": {
+   "—": {
+    "Cortacircuitos 6 A 5 tomas 220 V": 1,
+    "Estabilizador de potencia 1200 VA": 1,
+    "Estabilizador de energía 1200 VA/1100 W": 1
+   }
+  },
+  "Estación total": {
+   "—": {
+    "Estación total genérica": 1,
+    "Estación total modelo N6+": 1
+   }
+  },
+  "Estampilla auto abastecedora de tinta": {
+   "—": {
+    "Sellos para oficinas y funcionarios": 1
+   }
+  },
+  "Estanterías para almacenaje": {
+   "—": {
+    "Estante metal 3 cuerpos con repisas melamina 7 niveles": 1
+   }
+  },
+  "Muebles de oficina": {
+   "Estanterías": {
+    "Estante metalico con repisas melamina 5 niveles": 1,
+    "Estante 5 niveles": 1,
+    "Estante linea recta": 1,
+    "Estante metalico tipo mecanico": 1,
+    "Estantes metalicos": 1
+   },
+   "Estantes para carpetas": {
+    "Credenza de madera": 1,
+    "Credenzas de madera": 1,
+    "Estante archivero": 1,
+    "Estante con divisiones verticales y horizontales": 1,
+    "Estante de madera 6 niveles 2 compartimientos": 1,
+    "Estante de madera tipo librero": 1,
+    "Estante librero": 1,
+    "Estante librero de melamina": 1,
+    "Estante metalico": 1,
+    "Estante metalico 6 bandejas": 1,
+    "Estantes con puertas": 1,
+    "Estantes de madera 5 niveles": 1,
+    "Estantes de madera 6 niveles en dos cuerpos": 1,
+    "Estantes de madera 6 niveles 2 compartimientos": 1,
+    "Estantes de madera 7 niveles en tres cuerpos": 1,
+    "Estantes de madera para libros": 1,
+    "Estantes de madera tipo librero": 1,
+    "Estantes metalicos reforzados 5 bandejas": 1,
+    "Estantes metalicos reforzados 5 bandejas primera calidad": 1,
+    "Estantes metalicos reforzados 6 bandejas": 1,
+    "Estantes metalicos reforzados 6 bandejas primera calidad": 1,
+    "Estantes para libros con puertas": 1,
+    "Estantes sin puertas": 1,
+    "Gavetero metalico": 1,
+    "Gavetero modelo italiano 4 cajones": 1
+   },
+   "Muebles de recepción": {
+    "Juego de living para recepción": 1
+   },
+   "Tocadores": {
+    "Credenza de melamina": 1
+   }
+  },
+  "Instrumentos de escritura": {
+   "Estilógrafos": {
+    "Micropunta BL-G1-5T extra fino 0.5 azul": 3,
+    "Micropunta BL-G1-5T extra fino 0.5 azul negro rojo": 7
+   }
+  },
+  "Estilógrafos": {
+   "Micropunta": {
+    "BL-G1-5T Extra Fino 0.5": 3,
+    "Micropunta fina": 1
+   }
+  },
+  "Estufas de calefacción": {
+   "—": {
+    "Estufa halógena MGF-1649 Adara 1200W": 2
+   }
+  },
+  "Etiquetas auto adhesivas": {
+   "—": {
+    "Etiqueta continua autoadhesiva Brother DK-2205 62mm x 30.4m": 10,
+    "Papel autoadhesivo Brother LQ 550/570 62mm x 30.48m": 1
+   }
+  },
+  "Etiquetas de papel": {
+   "—": {
+    "Banderillas Post‑it": 1,
+    "Etiqueta continua autoadhesiva Brother DK-2205 62mm x 30.4m": 1,
+    "Papel autoadhesivo Brother LQ 550/570 62mm x 30.48m": 1,
+    "Papel multicolor para cubo": 1
+   },
+   "Papel para dispensador de fichas": {
+    "Papel tickets térmico 8x8cm": 3,
+    "Papel tickets térmico 7.5x7.5cm": 1,
+    "Papel tickets térmico 8x7cm": 2
+   }
+  },
+  "Etiquetas para impresoras": {
+   "—": {
+    "Etiqueta continua autoadhesiva Brother DK-2205 62mm x 30.4m": 1
+   }
+  },
+  "Extintores": {
+   "CO2": {
+    "Gas CO₂ para recarga 6 kg": 1,
+    "Extintor CO₂ manual 6 kg": 1
+   },
+   "ABC": {
+    "Polvo químico ABC para recarga 12 kg": 1,
+    "Polvo químico ABC para recarga 6 kg": 1
+   },
+   "—": {
+    "Servicio de recarga y mantenimiento de 44 extintores": 1
+   }
+  },
+  "Filtros de combustible": {
+   "—": {
+    "Filtro de gasolina": 1
+   }
+  },
+  "Filtros de succión": {
+   "—": {
+    "Filtro de aceite": 1
+   }
+  },
+  "Filtros fijos": {
+   "—": {
+    "Filtro tipo núcleo D‑48": 1
+   }
+  },
+  "Flotador": {
+   "—": {
+    "Flotador eléctrico de control de nivel 220 V": 2
+   }
+  },
+  "Fluido de corrección": {
+   "—": {
+    "Corrector líquido": 1
+   },
+   "Tipo lápiz": {
+    "Corrector líquido tipo lápiz": 2
+   }
+  },
+  "Folders": {
+   "Cartulina": {
+    "Folder tamaño oficio": 8,
+    "Folder color amarillo": 2,
+    "Folder de cartulina": 1,
+    "Folder de color amarillo": 1
+   },
+   "Flip Especial": {
+    "Folder tamaño oficio": 1
+   },
+   "Plástico con sujetador deslizable": {
+    "Folder tamaño oficio": 1
+   },
+   "Plástico Duraclip": {
+    "Folder tamaño oficio": 1
+   },
+   "Plástico con tapa transparente": {
+    "Folder tamaño oficio": 1
+   },
+   "Plástico": {
+    "Folder tamaño oficio": 6
+   },
+   "—": {
+    "Folder": 2,
+    "Folder amarillo": 1,
+    "Folder amarillo oficio": 1,
+    "Folder amarillo t/oficio": 1,
+    "Folder amarillo oficio catulina": 1,
+    "Folder tamaño oficio color amarillo": 15,
+    "Folder color amarillo genérico": 1,
+    "Folder tamaño oficio color surtido": 6,
+    "Folder tamaño oficio con fastener y tapa transparente": 1
+   },
+   "Portadocumentos": {
+    "Portadocumento plástico 3 divisiones": 1
+   }
+  },
+  "Folders de clasificación": {
+   "Carta": {
+    "Folder carta": 1
+   },
+   "Funda plástica": {
+    "Funda plástica transparente tamaño oficio": 1
+   }
+  },
+  "Folders de colgar o accesorios": {
+   "Folder colgante": {
+    "Folder colgante": 1
+   }
+  },
+  "Formatos o libros de control": {
+   "Libro de actas": {
+    "Libro de actas 100 hojas oficio rayado": 1,
+    "Libro de actas 100 hojas oficio rayado con tapas plastificadas": 1
+   }
+  },
+  "Fotocopiadoras": {
+   "—": {
+    "Equipo multifuncional fotocopiadora para tribunal": 1,
+    "Fotocopiadora para tribunal": 1,
+    "Fotocopiadora genérica": 1,
+    "Fotocopiadora láser multifuncional alto tráfico": 1,
+    "Fotocopiadora láser medio tráfico": 1,
+    "Fotocopiadora de mesa": 1,
+    "Fotocopiadora láser multifuncional monocromática": 1,
+    "Fotocopiadora láser multifuncional monocromática tipo I": 1,
+    "Fotocopiadora láser multifuncional monocromática tipo II": 1,
+    "Fotocopiadora multifunción de mediano tráfico de mesa": 1
+   }
+  },
+  "Fuentes de lenguaje": {
+   "—": {
+    "Cilindro de imagen para Lexmark MS 421": 1,
+    "Fuente de poder capacidad 900W": 1
+   }
+  },
+  "Fusores": {
+   "—": {
+    "Fusor RM1-7547": 2,
+    "Fusor para Brother 6100": 1,
+    "Engranaje de acopie de la unidad de fusión": 1,
+    "Film de fusor para Brother HL 5100W": 1,
+    "Film de fusor para Brother HL 6180W": 1,
+    "Film fusor para Brother HL-6180DW": 1,
+    "Film fusor para Brother HL-L5100DN": 1,
+    "Film fusor para impresora HP LaserJet Pro P1102W/P1606N/P2035/400 MFP M425DN": 2,
+    "Film fusor para Lexmark MS 421DN": 2,
+    "Fusor Brother 5100": 1,
+    "Fusor Brother 5340": 1,
+    "Fusor Brother 6180": 1,
+    "Fusor Brother HL 5100": 1,
+    "Fusor Brother HL 5450- HL 6180": 1,
+    "Fusor Brother HL 6180": 1,
+    "Fusor Brother HL-5340 DN": 1,
+    "Fusor fotocopiadora IR1435IF": 1,
+    "Fusor HL 5340": 1,
+    "Fusor HL 6180": 1,
+    "Fusor HL5100": 1,
+    "Fusor HL5340": 1,
+    "Fusor HL6180": 1,
+    "Fusor Lexmark 621-521": 1,
+    "Fusor Lexmark MS 421": 1,
+    "Fusor Lexmark MS421": 1,
+    "Fusor Lexmark MS5610": 1,
+    "Fusor Lexmark MS610": 1,
+    "Fusor MS421": 1,
+    "Fusor MS610": 1,
+    "Fusor para Brother 5100": 1,
+    "Fusor Brother HL-5100": 1,
+    "Fusor Brother HL-6180": 1,
+    "Fusor Lexmark 421": 1,
+    "Fusor Lexmark 621": 1,
+    "Fusor Samsung M3820ND": 1,
+    "Fusor Xerox 4622": 1,
+    "Fusor Brother 6100": 1,
+    "Fusor Brother genérico": 2,
+    "Fusor Lexmark genérico": 2,
+    "Kit fusor HP M203": 1,
+    "Fusor Brother HL-6180DW": 4,
+    "Fusor Brother HL-L5100DN": 6,
+    "Fusor HP LaserJet Pro M203DW": 1,
+    "Fusor HP LaserJet 1606": 1,
+    "Fusor HP LaserJet 1005-1020": 1,
+    "Fusor Lexmark MS-421": 2,
+    "Fusor Brother HL-5340": 3,
+    "Fusor Brother HL-2320DW": 2,
+    "Kit fusor Brother HL-6180DW": 1,
+    "Unidad de fusión Brother": 1,
+    "Bisagra izquierda Canon 1435": 1
+   },
+   "Canon": {
+    "Fusor IR1435": 1
+   }
+  },
+  "Rodillo de presión": {
+   "—": {
+    "Rodillo de presión Brother HL-6180DW": 1,
+    "Rodillo de presión Brother HL-L5100DN": 1,
+    "Rodillo de presión HP": 1,
+    "Rodillo de presión Lexmark MS-421": 1
+   }
+  },
+  "Gabinete o cerramiento para sistemas de red": {
+   "—": {
+    "Gabinete 5U CCTV": 1
+   }
+  },
+  "Gabinetes de almacenamiento": {
+   "—": {
+    "Gavetero metalico reforzado": 1,
+    "MODULAR DE OFICINA": 1,
+    "ESTANTE DE 7 NIVELES DE 3 CUERPOS": 1,
+    "RECEPCIÓN CON CAJONERA": 1,
+    "VITRINA CON PUERTA Y CHAPA": 1
+   }
+  },
+  "Gabinetes industriales": {
+   "—": {
+    "GAVETEROS PARA EL T.D.J. ORURO": 1,
+    "Archivero de madera de 15 divisiones tipo estante (5*3)": 1,
+    "Archivero de madera de 20 divisiones tipo estante (5*4)": 1,
+    "Archivero metálico tipo estante reforzado": 1
+   }
+  },
+  "Gabinetes para medios múltiples": {
+   "—": {
+    "GABINETE 15HU + BANDEJAS Y REGLETA DE 6 TOMAS": 1
+   }
+  },
+  "Gavetas organizadoras para escritorio": {
+   "—": {
+    "Anaquel metalico": 1,
+    "ANAQUEL METALICO REFORSADO": 1,
+    "GABETERO DE CUATRO CAJONES O GABETAS": 1,
+    "Gabeteros": 1,
+    "Gavetero de 4 cajones en madera con aglomerado": 1,
+    "GAVETEROS METALICOS REFORZADOS DE 4 CAJONERAS": 1,
+    "GAVETEROS PARA ARCHIVO FABRICADO EN MADERA DE CEDRO": 1
+   }
+  },
+  "Pegamentos": {
+   "—": {
+    "Pegamento en barra 21 g (UHU o equivalente)": 1,
+    "Pegamento UHU": 1
+   },
+   "Carpicola": {
+    "Carpicola líquida": 4
+   },
+   "Goma líquida": {
+    "Goma líquida": 1
+   },
+   "Pegamento líquido": {
+    "Pegamento líquido (UHU)": 2
+   },
+   "Barra": {
+    "Pegamento en barra": 1,
+    "Pegamento en barra con tapa rosca": 1,
+    "Pegamento en barra con tubo plástico": 1,
+    "Pegamento en barra 21 g": 7,
+    "Pegamento en barra 40 g": 2
+   }
+  },
+  "Almacenamiento - Discos duros SSD": {
+   "—": {
+    "SSD 500 GB 2.5\"": 1
+   }
+  },
+  "Grabadoras de video vigilancia": {
+   "—": {
+    "Grabador IP Serie Lite POE 8CH con HDD interno 2 TB Seagate": 1,
+    "Grabador de video NVR de 64 canales": 1,
+    "Grabadores de 4 canales": 1,
+    "Grabador 8CH con disco 6 TB para video vigilancia": 1,
+    "Grabador IP 16CH con 2 discos duros 6 TB": 1,
+    "Grabador IP de 32 canales + 3 discos 8 TB": 1,
+    "Grabadora IP 32 CH": 1,
+    "NVR de 32 canales con Linux integrado, disco 2 TB o superior": 1,
+    "NVR IP de 32 canales (especificaciones técnicas)": 1
+   }
+  },
+  "Cámaras de vigilancia": {
+   "—": {
+    "Cámara domo": 1,
+    "Cámara PTZ": 1
+   }
+  },
+  "Kit de vigilancia": {
+   "—": {
+    "Kit de vigilancia (4 cámaras, 1 DVR, disco duro y accesorios)": 1
+   }
+  },
+  "Grabadoras de audio": {
+   "—": {
+    "Minigrabadora de audio 86B": 1
+   }
+  },
+  "Grabadoras de voz digitales": {
+   "—": {
+    "Grabadora reportera": 1,
+    "Grabadora con memoria ≥2 GB, 40 h a 192 kbps, micrófono monoaural": 1,
+    "Grabadoras reporteras": 1,
+    "Reporteras": 1
+   }
+  },
+  "Grapadora": {
+   "—": {
+    "Engrampadora metálica 50 hojas (grapas 26/6, 24/6, 23/8) con guía ajustable y botón de carga": 1,
+    "Genérica": 8,
+    "CM-70": 1,
+    "PP-70": 1
+   },
+   "Semi industrial": {
+    "Genérica": 4
+   },
+   "De escritorio": {
+    "CM-70": 3
+   }
+  },
+  "Grasa": {
+   "—": {
+    "Grasa para rodamientos": 1
+   }
+  },
+  "Grifos": {
+   "Agua fría": {
+    "Grifo de lavamanos con palanca": 2
+   }
+  },
+  "Guantes de protección": {
+   "Latex": {
+    "Guante de limpieza": 6
+   },
+   "Químicos": {
+    "Guante resistente a químicos": 1
+   }
+  },
+  "Guías de rollo": {
+   "—": {
+    "Guía de rollo para impresoras/faxes/fotocopiadoras": 1
+   }
+  },
+  "Heladeras domésticas": {
+   "Frigobar": {
+    "Frigobar 90 L": 2
+   }
+  },
+  "Hilado de algodón": {
+   "—": {
+    "Hilo de algodón 100 m blanco": 3,
+    "Hilo de algodón 200 m 8 hebras": 1
+   },
+   "Altar": {
+    "Hilo de algodón para altar 100 m": 1
+   },
+   "Atar": {
+    "Hilo de algodón para atar 100 m 80 g": 1,
+    "Hilo de algodón para atar 100 m 125 g": 1
+   }
+  },
+  "Hilado de cáñamo": {
+   "Altar": {
+    "Hilo de cáñamo para altar 100 m": 1
+   },
+   "Atar": {
+    "Hilo de cáñamo para atar 100 m 125 g": 1,
+    "Hilo de cáñamo para atar 100 m 80 g": 1,
+    "Hilo de cáñamo para atar 50 m": 2
+   }
+  },
+  "Hilado de lana": {
+   "Atar": {
+    "Hilo de lana para atar 50 m blanco": 1
+   }
+  },
+  "Humidificadores": {
+   "—": {
+    "Humidificador Moja Dedo mediano": 3
+   }
+  },
+  "Iluminación empotrada": {
+   "Panel LED": {
+    "Panel LED cuadrado 24 W blanco": 1,
+    "Panel LED empotrado": 1,
+    "Panel LED sobreponer": 3
+   },
+   "—": {
+    "Luminaria LED empotrada": 1
+   }
+  },
+  "Impresoras de cinta térmica": {
+   "—": {
+    "Impresora térmica de cinta": 2,
+    "Impresora térmica": 3,
+    "Tecnología de impresión térmica de líneas": 1
+   }
+  },
+  "Impresoras de imágenes digitales": {
+   "Láser color": {
+    "Impresora láser color alto rendimiento": 1
+   },
+   "Inyección monocromática con tanque": {
+    "Impresora de inyección monocromática con tanque": 1
+   }
+  },
+  "Impresoras de inyección de tinta": {
+   "—": {
+    "Impresora multifunción a tinta": 3,
+    "Tecnología de impresión inyección de tinta Heat-Free™ Micro Piezo": 1
+   },
+   "Portátil color": {
+    "Impresora portátil color": 2
+   }
+  },
+  "Impresoras de matriz de líneas": {
+   "—": {
+    "Impresora matricial": 1,
+    "Tecnología de impresión matricial de 24 agujas": 1
+   }
+  },
+  "Impresoras de matriz de puntos": {
+   "—": {
+    "Impresora matricial": 3,
+    "Impresora matricial 24 pines": 1,
+    "Impresora matricial carro corto": 1
+   }
+  },
+  "Impresoras de múltiples funciones": {
+   "—": {
+    "Impresora multifunción": 3,
+    "Impresora de escritorio": 1
+   }
+  },
+  "Impresoras láser": {
+   "—": {
+    "Impresora láser": 3,
+    "Impresora láser a color": 1,
+    "Impresora láser color": 1,
+    "Impresora láser duplex mediano tráfico": 1,
+    "Impresora láser monocromática": 2,
+    "Impresora láser modelo MS521DN": 1
+   },
+   "Multifuncional": {
+    "Equipo multifuncional láser monocromático": 1
+   },
+   "Alto rendimiento": {
+    "Impresora láser monocromática alta velocidad": 1
+   },
+   "Duplex": {
+    "Impresora láser monocromática duplex": 1,
+    "Impresora láser duplex": 1
+   },
+   "Con memoria": {
+    "Impresora láser con memoria interna": 1
+   },
+   "Tráfico medio": {
+    "Impresora láser de tráfico medio": 3,
+    "Impresora láser de tráfico medio con especificaciones detalladas": 1
+   },
+   "Color": {
+    "Impresora láser a color": 1
+   },
+   "Alto tráfico": {
+    "Impresora láser de alto tráfico": 1
+   },
+   "Monocromática": {
+    "Impresora láser monocromática": 2
+   },
+   "Multifunción": {
+    "Impresora láser multifunción": 1
+   }
+  },
+  "Insertos o pestañas para archivos": {
+   "Banderilla": {
+    "Banderilla": 1
+   },
+   "Banderilla Post-it": {
+    "Banderilla Post-it": 1,
+    "Banderilla Post-it 12x45 mm neon": 2,
+    "Banderilla Post-it estándar paquete 5 colores tipo flecha": 5,
+    "Banderilla Post-it 12x45 mm neon surtido bolsa 5 tacos 25 hojas": 1,
+    "Banderilla Post-it estándar paquete 5 colores tipo flecha con código de barra": 1
+   },
+   "Sticker": {
+    "Sticker de mensajes 76x76 mm": 1
+   },
+   "Pestaña plástica": {
+    "Pestaña plástica 12x45 mm colores varios": 1,
+    "Pestañitas plásticas colores varios": 1
+   },
+   "Pestaña plástica para índice": {
+    "Pestaña plástica para índice 3.8 cm colores surtidos": 1
+   },
+   "Pestaña": {
+    "Pestaña colores azul/rojo 3.8 cm caja 25 unidades": 1,
+    "Pestaña colores surtidos 50 mm caja": 1
+   }
+  },
+  "Separadores de archivo": {
+   "—": {
+    "Pestañitas de plástico": 3,
+    "Pestañitas 12x45 mm": 1
+   }
+  },
+  "Etiquetas autoadhesivas": {
+   "—": {
+    "Post‑it 76×76 mm": 6,
+    "DK 2205": 1
+   }
+  },
+  "Mouse": {
+   "—": {
+    "Mouse óptico USB": 1
+   }
+  },
+  "Sensores de movimiento": {
+   "—": {
+    "Sensor de movimiento PIR": 1
+   }
+  },
+  "Interruptores magnéticos": {
+   "—": {
+    "Interruptor magnético térmico": 2
+   }
+  },
+  "Interruptores de nivel": {
+   "—": {
+    "Interruptor de nivel flotador": 1
+   }
+  },
+  "Interruptores de botón": {
+   "—": {
+    "Interruptor simple": 1
+   }
+  },
+  "Temporizadores digitales": {
+   "—": {
+    "Temporizador digital para energía eléctrica": 1
+   }
+  },
+  "Jabón": {
+   "Líquido": {
+    "Jabón líquido": 4
+   },
+   "Barra": {
+    "Jabón barra": 3,
+    "Jabón barra antibacteriano": 1
+   }
+  },
+  "Organizadores de escritorio": {
+   "—": {
+    "Organizador de escritorio 3 divisiones": 1,
+    "Porta clips magnético": 2,
+    "Porta clips con tapa magnética": 1,
+    "Porta lápices": 1,
+    "Porta sellos": 1
+   },
+   "Bandejas portapapeles": {
+    "Bandeja porta papel": 1,
+    "Bandeja portapapeles de plástico tamaño oficio 1 pieza": 1,
+    "Bandeja portapapeles genérica": 1,
+    "Bandeja portapapeles de plástico tamaño oficio 2 piezas negra": 2,
+    "Bandeja portapapeles metálica tamaño oficio 2 piezas corredizas": 1
+   }
+  },
+  "Kit de higiene personal": {
+   "—": {
+    "Jabón barra 90 g": 1,
+    "Jabón barra 120 g paquete": 2
+   }
+  },
+  "Repuestos para impresoras": {
+   "Máscara": {
+    "Máscara para impresora Epson LQ590": 2,
+    "Máscara para Epson LQ‑590": 1,
+    "Máscara para Epson LQ‑590II": 1
+   },
+   "Esponja lubricadora": {
+    "Esponja lubricadora para impresora Epson LQ590": 2
+   },
+   "Cabezal": {
+    "Cabezal para impresora Epson LQ590": 1,
+    "Cabezal para impresora Epson LQ590 II": 1
+   },
+   "Film fusor": {
+    "Film de fusor para impresora Brother HL-6180DW": 1,
+    "Film de fusor para HP P1102W": 1
+   },
+   "Kit de mantenimiento": {
+    "Kit de mantenimiento Lexmark MS421DN": 1,
+    "Kit (fusor, lámina, rodillo) para Brother HL‑6180DW": 1
+   },
+   "Rodillo de presión": {
+    "Rodillo de presión para impresora Brother HL-6180DW": 1,
+    "Rodillo de presión de fusor (genérico)": 1,
+    "Rodillo de presión para HP LaserJet 1606": 2,
+    "Rodillo de presión de fusor para HP P1102W": 1
+   }
+  },
+  "Kit de mantenimiento impresoras": {
+   "—": {
+    "Kit de mantenimiento Lexmark MS421DN": 1
+   }
+  },
+  "Repuestos para fotocopiadoras": {
+   "—": {
+    "Repuestos para fotocopiadoras (genérico)": 1
+   }
+  },
+  "Accesorios para llantas": {
+   "Cámara": {
+    "Cámara para llanta de motocicleta 90-90-18 trasera": 1
+   }
+  },
+  "Periféricos de computadora": {
+   "Teclado y mouse": {
+    "Teclado y mouse inalámbrico": 1
+   }
+  },
+  "Tarjetas de red": {
+   "PCI": {
+    "Tarjeta de red inalámbrica PCI": 1
+   }
+  },
+  "Baterías": {
+   "Pila": {
+    "Pila CR1220": 1,
+    "Pila (genérica)": 1
+   },
+   "Pilas alcalinas": {
+    "Pila AAA alcalina convencional": 1,
+    "Pila AA alcalina": 1,
+    "Pila AAA alcalina": 1,
+    "Pila 9V alcalina": 1
+   },
+   "Pilas de litio": {
+    "Pila CR1220": 1,
+    "Pila CR2032": 1
+   },
+   "—": {
+    "Pila CR-2032": 1
+   }
+  },
+  "Accesorios de computadora": {
+   "Lector DVD": {
+    "Lector de DVD": 1
+   },
+   "Adaptador de red": {
+    "Adaptador de red para teléfono": 1
+   },
+   "Adaptador USB a SATA": {
+    "Adaptador 2 USB a SATA": 1
+   },
+   "—": {
+    "Kit de accesorios de computación": 1
+   },
+   "Fuente de poder": {
+    "Fuente 12V‑5A para cámara de seguridad": 1
+   },
+   "Pad mouse": {
+    "Pad mouse siliconado tamaño estándar": 1
+   }
+  },
+  "Switches": {
+   "—": {
+    "Switch TP‑Link 16 puertos": 1
+   }
+  },
+  "Adaptadores": {
+   "SATA a USB": {
+    "Adaptador SATA a USB": 1
+   }
+  },
+  "Tarjetas de video": {
+   "—": {
+    "Tarjeta de video 2 GB": 1
+   }
+  },
+  "Adaptadores de monitor": {
+   "—": {
+    "Adaptador de energía para monitor": 2
+   }
+  },
+  "Tinta para impresora": {
+   "Epson L355": {
+    "Cartucho de tinta amarilla 180 páginas": 1,
+    "Cartucho amarillo original": 1,
+    "Cartucho cian original": 1,
+    "Cartucho magenta original": 1,
+    "Cartucho negro original": 1,
+    "Cartucho amarillo L355": 1,
+    "Cartucho cian L355": 1,
+    "Cartucho magenta L355": 1
+   },
+   "Epson L3110": {
+    "Cartucho 544 amarilla original": 1,
+    "Cartucho 544 cian original": 1,
+    "Cartucho 544 magenta original": 1,
+    "Cartucho 544 negro original": 1
+   },
+   "Canon M100": {
+    "Cartucho 774 negro original": 1
+   },
+   "Brother BT5001": {
+    "Cartucho amarillo original": 1,
+    "Cartucho amarillo 48 ml 5000 páginas": 1,
+    "Cartucho amarillo genérico": 1,
+    "Cartucho cian genérico": 2,
+    "Cartucho cian 48 ml 5000 páginas": 1,
+    "Cartucho magenta genérico": 2,
+    "Cartucho magenta 48 ml 5000 páginas": 1,
+    "Cartucho amarillo 5000 páginas": 1,
+    "Cartucho cian 5000 páginas": 1,
+    "Cartucho magenta 5000 páginas": 1
+   },
+   "Brother BTD60": {
+    "Cartucho negro genérico": 2,
+    "Cartucho negro 108 ml 7500 páginas": 1,
+    "Cartucho negro 6500 páginas": 1
+   },
+   "Epson L544": {
+    "Cartucho amarillo L544": 1,
+    "Cartucho cian L544": 1,
+    "Cartucho magenta L544": 1
+   },
+   "Original": {
+    "Tinta Epson L664": 1,
+    "Tinta Epson M100": 1
+   },
+   "Epson": {
+    "Tinta Epson 774": 1
+   }
+  },
+  "Productos de limpieza": {
+   "Alcohol en gel": {
+    "Alcohol en gel 360 ml": 2
+   }
+  },
+  "Contenedores": {
+   "—": {
+    "Basurero tipo cesto": 1
+   }
+  },
+  "Ceras para pisos": {
+   "Madera": {
+    "Cera para piso de madera": 1
+   }
+  },
+  "Herramientas de limpieza": {
+   "Goma para trapear": {
+    "Goma para trapear grande con palo": 1
+   },
+   "—": {
+    "Escoba": 1
+   }
+  },
+  "Mopa": {
+   "—": {
+    "Mopa 350 g algodón con palo": 1
+   }
+  },
+  "Shampoo para autos": {
+   "—": {
+    "Shampoo para autos": 1
+   }
+  },
+  "Amortiguador": {
+   "Trasero": {
+    "Amortiguador trasero moto Serna": 1,
+    "Amortiguador trasero Nissan Patrol": 1
+   },
+   "Delantero": {
+    "Amortiguador delantero Nissan Patrol": 1,
+    "Amortiguador delantero Toyota": 1
+   }
+  },
+  "Bandeja": {
+   "Inferior delantera": {
+    "Bandeja inferior delantera": 2
+   }
+  },
+  "Frenos": {
+   "Bendix": {
+    "Bendix": 1
+   }
+  },
+  "Bomba": {
+   "Auxiliar de embrague": {
+    "Bomba auxiliar de embrague": 1
+   }
+  },
+  "Bomba de freno": {
+   "—": {
+    "Bomba de freno Land Cruiser": 1
+   }
+  },
+  "Bomba de gasolina": {
+   "—": {
+    "Bomba de gasolina": 1
+   }
+  },
+  "Bomba de embrague": {
+   "Maestra": {
+    "Bomba maestra de embrague": 1
+   }
+  },
+  "Repuestos automotrices": {
+   "—": {
+    "BUJE DE BARRA ESTABILIZADORA DELANTERA": 1,
+    "BUJE DE BARRA TRASERA RH": 1,
+    "BUJE DE TOPE DE MACERO RH LH": 1,
+    "BUJES DE BARRA ESTABILIZADORA TRASERA": 1,
+    "BUJES DE BARRA TENSORAS TRASERA RH": 1,
+    "BUJIAS": 1,
+    "Cables de Acelerador Moto Serna": 1,
+    "Cables de Embrague Moto Serna": 1,
+    "CAPUCHON DE TRICETAS DELANTERAS": 1,
+    "CARBON PARA MOTOR DE ARRANQUE": 1,
+    "COLECTOR": 1,
+    "CORREA DE ACCESORIOS": 1,
+    "Correas de alternador Nissan Patrol": 1,
+    "Correas de alternador Nissan Trail": 1,
+    "Correas de bomba y compresor Nissan Patrol": 1,
+    "Correas de bomba y compresor Nissan Trail": 1,
+    "DISCO DE EMBRAGUE": 1,
+    "Disco de embrague Nissan Trail": 1,
+    "Disco de embrague Toyota": 1,
+    "EMPAQUE DE BALANCIN": 1,
+    "Filtro de aceite de motor Nissan Patrol": 1,
+    "FILTRO DE GASOLINA": 1,
+    "Filtro de gasolina Nissan Patrol": 1,
+    "Filtros de aceite de motor Land Cruiser": 1,
+    "Filtros de aceite de motor Nissan Trail": 1,
+    "Filtros de gasolina Land Cruiser": 1,
+    "Filtros de gasolina Nissan Trail": 1,
+    "FOCO LUZ MEDIA DELANTERA": 1,
+    "FOCOS LUZ HALOGENOS DELANTEROS": 1,
+    "GRASA": 1,
+    "HORQUILLA": 1,
+    "Juego de bujes de bandeja completo Nissan Patrol": 1,
+    "Juego de bujes de bandeja completo Nissan Trail": 1,
+    "Juego de correas de distribución completo Nissan Patrol": 1,
+    "Juego de correas de distrubución completo Nissan Trail": 1,
+    "Juego de cubetas para las balatas Land Cruiser": 1,
+    "Juego de Disco de Embrague Moto Serna": 1,
+    "Juego de Empaquetaduras de motos completo Moto Serna": 1,
+    "Juego de Manillares completo Moto Serna": 1,
+    "Juego de muñones de suspensión superior e inferior Nissan Patrol": 1
+   }
+  },
+  "Pastillas de freno": {
+   "Delantera": {
+    "Pastilla de freno delantera": 3
+   },
+   "Trasera": {
+    "Pastilla de freno trasera": 1
+   }
+  },
+  "Radio de aro": {
+   "—": {
+    "Radio de aro para moto": 1
+   }
+  },
+  "Retenes de palier": {
+   "Corona trasera": {
+    "Retén de palier de corona trasera": 1
+   }
+  },
+  "Rodamientos": {
+   "Punta de eje delantero": {
+    "Rodamiento de punta de eje delantero": 2
+   },
+   "Palier de corona trasera": {
+    "Rodamiento de palier de corona trasera": 1
+   },
+   "—": {
+    "Rodamiento central de cardan": 2,
+    "Rodamiento de embrague": 1,
+    "Rodamiento desplazador": 2,
+    "Rodamiento piloto": 1
+   },
+   "Insertar con anillo interior estándar": {
+    "Rodamiento de insertar con anillo interior estándar": 1,
+    "Rodamiento de insertar con anillo interior estándar - Cojinetes axiales STD": 1,
+    "Rodamiento de insertar con anillo interior estándar - Cojinetes de bancada": 1,
+    "Rodamiento de insertar con anillo interior estándar - Cojinetes de bancada para motor": 1
+   },
+   "Rodamiento de empuje": {
+    "Rodamiento de empuje con cilindro": 1
+   }
+  },
+  "Soportes de motor": {
+   "—": {
+    "Soporte de motor (4 piezas)": 2,
+    "Soporte de motor": 1
+   }
+  },
+  "Retenes de telescopio": {
+   "Delantero": {
+    "Retén de telescopio delantero para moto": 2
+   }
+  },
+  "Rodamientos delanteros": {
+   "Completo": {
+    "Juego completo de rodamientos delanteros para moto": 2
+   }
+  },
+  "Rodamientos traseros": {
+   "Completo": {
+    "Juego completo de rodamientos traseros para moto": 2
+   }
+  },
+  "Transmisión": {
+   "Completo": {
+    "Juego completo de transmisión para moto": 2
+   }
+  },
+  "Kit de reparación": {
+   "Cilindro caliper delantero": {
+    "Kit de reparación de cilindro caliper delantero": 1
+   },
+   "Cilindro caliper trasero": {
+    "Kit de reparación de cilindro caliper trasero": 1
+   }
+  },
+  "Retenes de bomba": {
+   "—": {
+    "Retén o sello de bomba": 1
+   }
+  },
+  "Líquido de embrague": {
+   "—": {
+    "Líquido de embrague": 1
+   }
+  },
+  "Líquido de freno": {
+   "—": {
+    "Líquido de freno": 1
+   }
+  },
+  "Llantas": {
+   "Delanteras para moto": {
+    "Llanta delantera para moto": 2
+   },
+   "Traseras para moto": {
+    "Llanta trasera para moto": 2
+   }
+  },
+  "Palanca de cambio": {
+   "Caja de cambios para moto": {
+    "Palanca de cambio para moto": 2
+   }
+  },
+  "Prensa de embrague": {
+   "—": {
+    "Prensa de embrague": 1
+   },
+   "Toyota": {
+    "Prensa de embrague para Toyota": 1
+   },
+   "Nissan Trail": {
+    "Prensa de embrague para Nissan Trail": 1
+   }
+  },
+  "Retén de cigüeñal": {
+   "Delantero": {
+    "Retén de cigüeñal delantero": 2
+   },
+   "Trasero": {
+    "Retén de cigüeñal trasero": 3
+   }
+  },
+  "Retén de palier": {
+   "Caja": {
+    "Retén de palier de caja": 1
+   }
+  },
+  "Retén de bujía": {
+   "—": {
+    "Retén de bujía": 1
+   }
+  },
+  "Seguros de pastillas": {
+   "Delanteras": {
+    "Seguro de pastillas delanteras": 1
+   },
+   "Traseras": {
+    "Seguro de pastillas traseras": 1
+   }
+  },
+  "Componentes eléctricos": {
+   "Solenoide": {
+    "Solenoide de motor de arranque": 1
+   }
+  },
+  "Sistemas eléctricos": {
+   "—": {
+    "Sistema eléctrico completo para moto": 1
+   }
+  },
+  "Terminales estabilizador": {
+   "Delantero": {
+    "Terminal estabilizador delantero": 1
+   },
+   "Trasero": {
+    "Terminal estabilizador trasero": 1
+   }
+  },
+  "Terminales externos": {
+   "Dirección": {
+    "Terminal externo de dirección": 1
+   }
+  },
+  "Tensores de correa": {
+   "Automático": {
+    "Tensor automático de correa": 1
+   },
+   "Nissan Trail": {
+    "Tensor de correa Nissan Trail": 1
+   }
+  },
+  "Tricetas": {
+   "Delanteras": {
+    "Triceta delantera RH LH": 1
+   }
+  },
+  "Tornillería": {
+   "—": {
+    "Tuerca para rueda": 1
+   }
+  },
+  "Tintas de inyección": {
+   "—": {
+    "Tinta para sello color azul 28 ml": 1
+   }
+  },
+  "Filtros de aire": {
+   "—": {
+    "Tipo de repuesto filtro de aire": 1
+   }
+  },
+  "Balatas de freno": {
+   "Delanteras": {
+    "Balata de freno delantera": 1
+   },
+   "Traseras": {
+    "Balata de freno trasera": 1
+   }
+  },
+  "Rodamientos de embrague": {
+   "—": {
+    "Rodamiento desplazador de embrague": 1
+   }
+  },
+  "Lámparas LED": {
+   "Foco empotrado": {
+    "Foco LED 18 W empotrado": 1,
+    "Foco LED 24 W empotrado": 1
+   },
+   "Foco sobrepuesto": {
+    "Foco LED 18 W sobrepuesto": 1,
+    "Foco LED 24 W sobrepuesto": 1
+   },
+   "Foco rosca": {
+    "Foco LED 23 W bombilla rosca": 1
+   },
+   "—": {
+    "Foco LED 40 W 220 V": 1
+   },
+   "Panel sobrepuesto": {
+    "Panel LED 60×60 sobrepuesto": 1
+   },
+   "Panel empotrado": {
+    "Panel LED 60×60 empotrado": 1,
+    "Panel LED 120×30 48 W blanco": 1
+   }
+  },
+  "Lámparas haluro metálico": {
+   "—": {
+    "Lámpara haluro metálico 250 W rosa E-40 blanca": 1,
+    "Lámpara haluro metálico 70 W rosa E-27 blanca": 1
+   }
+  },
+  "Lámparas fluorescentes": {
+   "—": {
+    "Tubo fluorescente 120 cm LED blanco 18 W 220 V": 1
+   }
+  },
+  "Lápices de colores": {
+   "—": {
+    "Lápiz de color rojo normal unidad": 1,
+    "Lápiz de color rojo normal presentación 2 unidades": 1
+   },
+   "Bicolor": {
+    "Lápiz": 1
+   },
+   "Negro": {
+    "Lápiz": 2
+   },
+   "Rojo": {
+    "Lápiz": 2
+   }
+  },
+  "Lápices de grafito": {
+   "Negro": {
+    "Lápiz": 5
+   },
+   "Rojo": {
+    "Lápiz": 1
+   }
+  },
+  "Lápices de madera": {
+   "—": {
+    "Lápiz": 1
+   },
+   "Negro": {
+    "Lápiz": 11
+   },
+   "Bicolor": {
+    "Lápiz": 2
+   },
+   "Rojo": {
+    "Lápiz": 3
+   }
+  },
+  "Lápiz de madera": {
+   "—": {
+    "Lápiz rojo HB": 2,
+    "Lápiz rojo 2B": 1
+   }
+  },
+  "Marcadores": {
+   "—": {
+    "Marcador negro": 1,
+    "Marcador rojo": 1,
+    "Marcador negro HB": 1,
+    "Marcador rojo HB": 1,
+    "Marcador acrílico": 1,
+    "Marcador punta fina 0.7mm": 1,
+    "Marcador permanente punta cincelada 54": 1,
+    "Marcador agua pizarra acrílica": 1,
+    "Marcador agua pizarra acrílica punta redonda": 1,
+    "Marcador metal": 1,
+    "Marcador CD punta redonda": 2,
+    "Marcador CD punta fina": 1,
+    "Marcador pizarra acrílica": 1,
+    "Marcador pizarra acrílica punta redonda": 1,
+    "Marcador punta redonda trazo grueso color rojo": 1,
+    "Marcador punta fina 0.7mm colores surtidos": 1,
+    "Marcador punta cincelada gruesa colores azul negro rojo": 1
+   },
+   "Acrílico": {
+    "Marcador acrílico": 1
+   },
+   "Permanente": {
+    "Marcador permanente": 1,
+    "Marcador permanente punta biselada trazo grueso": 1,
+    "Marcador permanente punta redonda": 2,
+    "Marcador permanente punta cincelada trazo grueso": 11,
+    "Marcador permanente punta cincelada trazo grueso 9×16 mm": 2,
+    "Marcador permanente grueso varios colores": 4,
+    "Marcador permanente trazo grueso varios colores": 2,
+    "Marcador permanente varios colores trazo grueso": 1
+   },
+   "Pizarra acrílica": {
+    "Marcador pizarra acrílica": 1,
+    "Marcador pizarra acrílica punta redonda 2‑15 mm": 4,
+    "Marcador pizarra acrílica punta biselada": 2,
+    "Marcador pizarra acrílica punta redonda con tinta alemana": 1,
+    "Marcador para pizarra acrílica": 2
+   },
+   "Cincelada": {
+    "Marcador cincelado grueso": 2
+   },
+   "Fina": {
+    "Marcador punta delgada trazo fino color negro": 3,
+    "Marcador punta delgada trazo fino color rojo": 2,
+    "Marcador punta redonda trazo fino varios colores": 2
+   },
+   "Gruesa": {
+    "Marcador punta redonda trazo grueso color azul": 1,
+    "Marcador punta redonda trazo grueso color negro": 3,
+    "Marcador punta redonda trazo grueso color rojo": 3
+   },
+   "Resaltador": {
+    "Resaltador punta gruesa varios colores": 2
+   },
+   "A base de agua": {
+    "Marcador para pizarra acrílica punta redonda 2-15mm colores surtidos": 1
+   }
+  },
+  "Lector de código de barras": {
+   "—": {
+    "Lector de código de barras": 1
+   }
+  },
+  "Foco LED": {
+   "Cilíndrico": {
+    "Foco LED 12W cilindro": 1,
+    "Foco LED 24W cilindro": 2,
+    "Foco LED 10W": 1
+   },
+   "Mazorca": {
+    "Foco LED mazorca 20W": 1
+   },
+   "Panel": {
+    "Foco LED panel 60x60 cm": 3,
+    "Foco LED panel 60x60 cm empotrado": 1
+   }
+  },
+  "Luminaria LED": {
+   "Sobreponer": {
+    "Luminaria LED spot 50W": 1,
+    "Luminaria LED spot 30W cilindro": 1,
+    "Luminaria LED 18W": 1,
+    "Luminaria LED 24W": 1,
+    "Luminaria LED 18W sobreponer": 1,
+    "Luminaria LED 24W sobreponer": 1,
+    "Luminaria LED Sobreponer 24W": 2,
+    "Luminaria LED Sobreponer 18W": 1,
+    "Luminaria LED Sobreponer 24W Luz Blanca Redonda": 1
+   },
+   "Empotrar": {
+    "Luminaria LED 18W empotrado": 1,
+    "Luminaria LED 24W empotrado": 1,
+    "Luminaria LED Empotrar 24W": 1,
+    "Luminaria LED Empotrar 18W Luz Blanca Redonda": 1
+   },
+   "Panel": {
+    "Panel LED 60x60 cm 60W": 1
+   },
+   "—": {
+    "Foco LED 12 W": 1,
+    "Foco LED 10 W 220 V": 1,
+    "Foco LED 30W 220V": 1,
+    "Luminaria LED Dicróico 7W": 1
+   }
+  },
+  "Iluminación LED": {
+   "Panel LED": {
+    "Panel LED 60W 60x60 cm": 1
+   },
+   "Reflector LED": {
+    "Reflector LED 50W": 2
+   }
+  },
+  "Libros comerciales": {
+   "—": {
+    "Libro de actas 100 hojas oficio": 2
+   }
+  },
+  "Libros de referencia": {
+   "—": {
+    "Libro de referencia actas 100 hojas oficio rayado": 1,
+    "Libro de referencia actas 200 hojas oficio rayado con margen": 1
+   }
+  },
+  "Ligas y bandas elásticas": {
+   "—": {
+    "Liga 3mm x 7.62cm bolsa 1/4 libra": 13
+   }
+  },
+  "Limpiador de manos": {
+   "—": {
+    "Jabón líquido 360 ml frasco con piquillo": 1,
+    "Jabón líquido 360 ml frasco con piquillo antibacteriano": 1
+   }
+  },
+  "Limpiadores de alfombras y tapizados": {
+   "—": {
+    "Lustramuebles 850 ml frasco con atomizador": 1
+   }
+  },
+  "Limpiadores de amoniaco": {
+   "—": {
+    "Saca sarro 500 ml": 1
+   }
+  },
+  "Limpiadores de baños": {
+   "Ambientador sólido": {
+    "Ambientador sólido 40 g borde de inodoro": 1
+   },
+   "Líquido limpiador de sarros": {
+    "Líquido limpiador de sarros 500 ml": 1
+   }
+  },
+  "Limpiadores de muebles": {
+   "—": {
+    "Lustramuebles 850 ml frasco con atomizador": 2,
+    "Lustramuebles 360 ml aerosol multisuperficies": 1,
+    "Lustramuebles 900 ml frasco con atomizador": 1,
+    "Lustramuebles 360 ml aerosol": 2,
+    "Lustramuebles 850 ml": 1,
+    "Lustramuebles": 3
+   }
+  },
+  "Limpiadores de pisos": {
+   "—": {
+    "Desinfectante de piso": 1,
+    "Limpia pisos": 1
+   },
+   "Repuesto para mopa": {
+    "Trapeador con palo": 2
+   }
+  },
+  "Limpiadores de propósito general": {
+   "—": {
+    "Detergente granulado doméstico": 3,
+    "Líquido limpia sarros": 1
+   }
+  },
+  "Limpiadores de superficie de contacto": {
+   "—": {
+    "Detergente limpia pisos": 1,
+    "Limpiavidrios": 2
+   }
+  },
+  "Limpiadores de vidrio o ventanas": {
+   "—": {
+    "Limpia vidrio": 1,
+    "Limpia vidrio OLA": 1,
+    "Limpiavidrios": 6,
+    "Limpiadores multiusos": 1,
+    "Limpiavidrios multiuso": 1
+   }
+  },
+  "Limpiadores o detergentes para instrumentos": {
+   "—": {
+    "Detergente granulado doméstico": 4
+   }
+  },
+  "Limpiadores o pulidores de metales": {
+   "—": {
+    "Limpiadores multiusos lubricante antióxido": 1
+   }
+  },
+  "Limpiadores y removedores de manchas": {
+   "—": {
+    "Líquido limpia sarros 1000 ml": 1,
+    "Líquido limpia sarros 550 ml": 1,
+    "Saca sarro 500 ml": 1
+   }
+  },
+  "Llantas para automóviles o camionetas": {
+   "—": {
+    "Llanta moto 90-90-18 trasera": 1,
+    "Llanta 175/70 R13 radial sin cámara": 1,
+    "Llanta 185/65 R14 tubular 10 pliegues 87H sin cámara": 1,
+    "Llanta 185/70 R13 radial/tubular sin cámara": 1,
+    "Llanta 185/70 R14 radial/tubular sin cámara": 2,
+    "Llanta 195/65 R15 8 pliegues autopista radial sin cámara": 1,
+    "Llanta 195/70 R14 radial": 1,
+    "Llanta 205/55 R16 8 pliegues semi-pantanera radial sin cámara": 2,
+    "Llanta 205/70 R15 10 pliegues semi-pantanera tubular sin cámara": 2,
+    "Llanta 205/70 R15 radial": 1,
+    "Llanta 215/65 R16 todo terreno radial/tubular sin cámara": 1,
+    "Llanta 225/75 R16 todo terreno tubular": 1,
+    "Llanta 265/65 R17 10 pliegues semi-pantanera tubular sin cámara": 1,
+    "Llanta 265/75 R16 10 pliegues semi-pantanera normal sin cámara": 2,
+    "Llanta 185/70 R14 genérica": 1,
+    "Llanta 2.75/18 genérica": 1,
+    "Llanta 205/70 R15 genérica": 1,
+    "Llanta 235/65 R17 genérica": 1,
+    "Llanta 265/70 R16 genérica": 1,
+    "Llanta 90/90 R18 genérica": 1,
+    "Llanta Bridgestone 265/70 R16 trilla AT": 1,
+    "Llanta Firestone 205/70 R15 trilla H/T": 1,
+    "Llanta Habilead China 185/70 R13": 1,
+    "Llanta Habilead China 235/65 R17 trilla AT": 1,
+    "Llanta Habilead China 245/70 R16 trilla AT": 1
+   }
+  },
+  "Lubricantes de propósito general": {
+   "—": {
+    "Líquido de frenos 500 ml": 1,
+    "Líquido hidráulico para dirección 1 L": 1,
+    "Líquido limpiador de inyectores 1 L": 1,
+    "Lubricante octanaje genérico": 1
+   }
+  },
+  "Luminaria UV/Negra": {
+   "—": {
+    "Foco UV Tubo 20cm": 1
+   }
+  },
+  "Luz de foco": {
+   "—": {
+    "Bombilla LED Regulable 7W": 1,
+    "Foco LED 13W 220V": 1
+   }
+  },
+  "Control de acceso biométrico": {
+   "—": {
+    "Reloj biométrico": 1,
+    "Reloj biométrico facial MB20": 1,
+    "Reloj biométrico multi‑modo": 1,
+    "Reloj biométrico con memoria 512 MB": 1
+   }
+  },
+  "Máquina perforadora de encuadernación": {
+   "—": {
+    "Perforadora alto 40 hojas": 1,
+    "Perforadora alto 40 hojas 2 perforaciones": 1
+   }
+  },
+  "Máquina tajadora": {
+   "—": {
+    "Tajador plástico con depósito y cuchilla metálica": 1,
+    "Tajador plástico con depósito y cuchilla metálica STUDMARK": 1,
+    "Tajador metálico 1 cuchilla": 1
+   },
+   "Tampo para sellos": {
+    "Tampo para sellos con tinta azul 8x12 cm": 1
+   }
+  },
+  "Máquina numeradora/fold": {
+   "Foliador automático": {
+    "Foliador automático 7 dígitos": 1,
+    "Foliador automático 6 dígitos": 2
+   },
+   "Sello fechador redondo": {
+    "Sello fechador redondo con dígitos móviles (año, día, mes) y hora": 2
+   },
+   "Sello foliador": {
+    "Sello foliador automático": 1,
+    "Sello foliador automático 6 dígitos": 2
+   }
+  },
+  "Máquina perforadora": {
+   "—": {
+    "Perforadora PM‑40": 1,
+    "Perforadora alto 40 hojas": 1,
+    "Perforadora PM‑40 alto 40 hojas 2 perforaciones": 1,
+    "Perforadora PP70 alto 70 hojas 2 perforaciones": 1
+   }
+  },
+  "Perforadoras": {
+   "—": {
+    "Perforadora genérica": 1,
+    "Perforadora PM-40": 10,
+    "Perforadora industrial": 2,
+    "Perforadora industrial 2 huecos": 2,
+    "Perforadora mediana 2 huecos": 3,
+    "Perforadora PM-30": 2,
+    "Perforadora PP-70": 1,
+    "Perforadora 15 hojas": 1,
+    "Perforadora 20-25 hojas": 1,
+    "Perforadora 30-35 hojas": 1,
+    "Perforadora M-81": 1,
+    "Perforadora 70-80 hojas": 2
+   }
+  },
+  "Marcadores de libros": {
+   "Post-it": {
+    "Banderilla post-it 1.2x4.5 cm color surtido": 1,
+    "Banderilla post-it 1.2x4.5 cm color surtido paquete 5 colores": 1
+   },
+   "—": {
+    "Marcador punta cincelada": 1
+   }
+  },
+  "Mazos o bloques de sonido": {
+   "—": {
+    "Barra de sonido Sony Surround 5.1": 1
+   }
+  },
+  "Memoria de acceso aleatorio (ram)": {
+   "—": {
+    "Memoria RAM DDR2 2 GB 800 MHz": 1,
+    "Memoria RAM DDR3 4 GB 1333 MHz": 1,
+    "Memoria RAM DDR4 8 GB 3200 MHz": 1,
+    "Memoria RAM DDR4 8 GB Tipo I": 1,
+    "Memoria RAM DDR4 8 GB Tipo II": 1,
+    "Memoria RAM DDR3 8 GB": 2,
+    "Memoria RAM DDR4 8 GB": 2,
+    "Memoria RAM DDR3 4 GB": 1,
+    "Memoria RAM DDR4 4 GB": 1
+   }
+  },
+  "Memoria flash": {
+   "—": {
+    "Memoria flash drive genérica": 2,
+    "USB flash drive 32 GB HP": 4,
+    "Flash memory 16 GB": 3,
+    "Flash memory USB 16 GB": 1,
+    "USB Flash Drive 32 GB": 1
+   }
+  },
+  "Mesas": {
+   "auxiliares": {
+    "Mesa auxiliar": 1,
+    "Mesas auxiliares": 1
+   },
+   "litigantes": {
+    "Mesa de madera para litigantes": 2,
+    "Mesas de madera para litigantes": 1
+   },
+   "partes": {
+    "Mesa de partes": 1,
+    "Mesas de partes": 1
+   },
+   "escritorio": {
+    "Escritorio de madera aglomerada para computadora": 1
+   },
+   "auxiliar": {
+    "Mesa auxiliar": 1,
+    "Mesa auxiliar de madera cedro para computadora": 1
+   },
+   "computadora": {
+    "Mesa de computadora melamínico con estructura": 1,
+    "Mesas para computadora tipo patito": 1,
+    "Mesa para computadora tipo patito": 1
+   },
+   "fotocopiadora": {
+    "Mesa de fotocopiadora de madera marfil": 1
+   },
+   "reuniones": {
+    "Mesa de reuniones 8 sillas de madera cedro": 1
+   },
+   "juez": {
+    "Mesa para juez de sala de audiencia": 1
+   },
+   "pupitre": {
+    "Mesas tipo pupitre": 1,
+    "Mesa tipo pupitre": 1
+   }
+  },
+  "Mesas auxiliares": {
+   "—": {
+    "Mesa auxiliar con cajonera y posa teclado": 1,
+    "Mesa auxiliar melamina con portateclado de primera calidad": 1,
+    "Mesa de computadora melamínico con estructura metálica": 1,
+    "Mesa de lectura": 1,
+    "Mesa auxiliar": 6
+   }
+  },
+  "Mesas de conferencia": {
+   "—": {
+    "Mesa de conferencia": 2
+   }
+  },
+  "Micrófonos": {
+   "—": {
+    "Micrófono inalámbrico": 2,
+    "Accesorio intercomunicador": 1,
+    "Micrófono de sobremesa": 1,
+    "Micrófono omnidireccional": 3,
+    "Micrófono pinhole omnidireccional": 1,
+    "Micrófono cuello de ganso": 1
+   }
+  },
+  "Micrófonos de voz para computadores": {
+   "—": {
+    "Audífono con micrófono": 3,
+    "Micrófono ambiental regulable": 1,
+    "Micrófono cuello de ganso": 2
+   }
+  },
+  "Minicomputadores": {
+   "—": {
+    "Mini PC": 1,
+    "Raspberry Pi": 2,
+    "Tablet": 1
+   }
+  },
+  "Monitores de video": {
+   "—": {
+    "Monitor táctil 15 pulgadas": 1
+   }
+  },
+  "Motor ac de compresor": {
+   "—": {
+    "Motor ventilador 1/2 hp": 1
+   }
+  },
+  "Mouse o bola de seguimiento para computador": {
+   "—": {
+    "Mouse USB": 2,
+    "Mouse óptico USB": 2
+   }
+  },
+  "Organizadores de oficina": {
+   "Casilleros": {
+    "Casillero de 9 puertas": 1
+   }
+  },
+  "Organizadores de correspondencia": {
+   "Gaveteros": {
+    "Gavetero 3 cajones": 1,
+    "Gavetero 4 cajones": 1
+   }
+  },
+  "Paneles de conexión": {
+   "—": {
+    "Patch panel 24 puertos con gabinete": 1
+   }
+  },
+  "Paneles eléctricos": {
+   "Panel LED rectangular": {
+    "Panel LED 40 W 120 × 30 cm": 2
+   },
+   "Panel sobreponer": {
+    "Panel sobreponer 24 W": 1
+   },
+   "Panel LED redondo": {
+    "Panel LED redondo 18 W": 1
+   }
+  },
+  "Paneles de control eléctrico para generadores": {
+   "Switch de comunicación": {
+    "Switch de comunicación": 1
+   },
+   "Switch POE": {
+    "Switch 48 puertos POE": 1
+   }
+  },
+  "Monitores LCD": {
+   "—": {
+    "Monitor LED 43 pulgadas": 1,
+    "Monitor LCD 22 pulgadas": 1
+   }
+  },
+  "Paños de limpieza": {
+   "Franelas": {
+    "Franelilla de limpieza 0.35 × 0.35 m pieza": 9,
+    "Franelilla de limpieza 0.75 × 1 m metro": 1,
+    "Franelilla de limpieza 0.40 × 0.50 m pieza": 1
+   },
+   "Trapeadores": {
+    "Paño trapeador 60 × 50 cm": 1
+   },
+   "—": {
+    "Paño de limpieza 62x48 cm": 8,
+    "Paño franela 50x50 cm": 1,
+    "Paño de limpieza genérico": 1
+   }
+  },
+  "Toallas de papel": {
+   "—": {
+    "Toalla de papel 22 × 22 cm rollo": 1
+   }
+  },
+  "Toallas de mano": {
+   "—": {
+    "Toalla de mano 65 × 35 cm": 1,
+    "Toalla de mano 60 × 35 cm lisa": 1,
+    "Toallita de mano 60 × 35 cm": 1
+   }
+  },
+  "Pantallas de proyección": {
+   "—": {
+    "Ecran": 1
+   }
+  },
+  "Papel absorbente": {
+   "Toalla de papel": {
+    "Toalla de papel blanco 19.7x20 cm en rollo": 1
+   }
+  },
+  "Papel calcante": {
+   "Carboncillo": {
+    "Papel carboncillo oficio azul": 1
+   },
+   "Carbonico": {
+    "Papel carbonico oficio por hoja": 1
+   },
+   "—": {
+    "Papel calcante oficio azul": 1
+   }
+  },
+  "Papel de escritura": {
+   "Bond": {
+    "Papel bond carta 75 g blanco paquete 500 hojas": 1
+   }
+  },
+  "Papel de libro": {
+   "Libro de actas": {
+    "Libro de actas oficio 100 hojas": 1
+   }
+  },
+  "Papel de notas autoadhesivas": {
+   "Banderillas Post-it": {
+    "Banderillas Post-it 12x45 mm neón surtido bolsa 5 tacos x 25 hojas": 1,
+    "Banderillas Post-it 76x76 mm amarillo paquete 1 taco x 100 hojas": 1
+   },
+   "Autoadhesivo genérico": {
+    "Papel autoadhesivo 62 mm x 30.48 m": 1
+   },
+   "Autoadhesivo con soporte": {
+    "Papel autoadhesivo 62 mm x 30.48 m con soporte": 1
+   },
+   "Brother LQ 550/570": {
+    "Papel autoadhesivo 62 mm x 30.48 m para impresora Brother LQ 550/570": 1,
+    "Papel autoadhesivo 62 mm x 30.48 mm para impresora Brother LQ 550/570": 1
+   },
+   "Post-it K-C35": {
+    "Post-it K-C35 colores neón 7.6x7.6 mm paquete surtido 100 hojas": 1
+   },
+   "Post-it": {
+    "Post-it 76x76 mm colores surtidos 100 hojas por block": 1,
+    "Post-it 76x76 mm colores fosforescentes paquete 1 taco x 100 hojas con código de barra": 1,
+    "Post-it 76x76 mm colores varios paquete 1 taco x 100 hojas": 1
+   },
+   "Tacos Post": {
+    "Tacos Post": 1
+   },
+   "Tacos Post-it": {
+    "Tacos Post-it": 2,
+    "Tacos Post-it color surtido 76x76 mm block 100 hojas": 2,
+    "Tacos Post-it color surtido 76x76 mm": 1,
+    "Tacos Post-it color surtido 76x76 mm block 500 hojas": 1
+   }
+  },
+  "Papel en formas continuas": {
+   "Formulario continuo": {
+    "Formulario continuo": 1
+   },
+   "Papel blanco continuo": {
+    "Papel blanco continuo 9.5x11 x 4 x 5.5": 1
+   },
+   "Papel continuo": {
+    "Papel continuo": 1,
+    "Papel continuo 9.5x11 x 4": 1
+   }
+  },
+  "Papel continuo": {
+   "—": {
+    "Papel continuo 9.5x11x4": 1,
+    "Papel continuo 9.5x11x4x5.5 56g 750 hojas": 8,
+    "Papel continuo 9.5x11x2 56g 1500 hojas": 2,
+    "Papel continuo 9.5x11x3 56g 1000 hojas": 2,
+    "Papel continuo 9.5x11x3 56g 1000 hojas corte lateral": 2,
+    "Papel continuo 9.5x11x4x5.5 70g 1000 hojas": 1,
+    "Papel continuo 9.5x11x4 56g 750 hojas": 1,
+    "Papel continuo 9.5x11x4x5.5 56g 4 copias corte micro lateral": 1,
+    "Papel continuo 9.5x11x4x5.5 56g 750 hojas 4 copias corte micro lateral": 1
+   },
+   "Autocopiativo": {
+    "Papel continuo autocopiativo 9.5x11x4": 2
+   },
+   "Autocopiativo troquelado": {
+    "Papel continuo autocopiativo 9.5x11x4 troquelado 5x5": 2
+   },
+   "Químico autocopiativo térmico": {
+    "Papel continuo químico 9.5x11x4 con 3 copias troquelado 5.5\"": 2
+   },
+   "Químico": {
+    "Papel continuo químico 9.5x11x4": 1,
+    "Papel continuo químico 9.5x11x2": 1,
+    "Papel continuo químico 9.5x11x3": 5,
+    "Papel continuo 9.5x11x2": 9,
+    "Papel continuo 9.5x11x4x5.5": 2,
+    "Papel continuo 9.5x5.5x4": 1,
+    "Papel continuo 9.5x11x3": 4,
+    "Papel continuo troquelado químico": 1,
+    "Papel continuo químico bond": 1
+   },
+   "Químico blanco": {
+    "Papel continuo químico blanco 9.5x11x5.5": 1,
+    "Papel continuo químico blanco 9.5x11x2": 1,
+    "Papel continuo químico blanco 9.5x11x3": 1
+   },
+   "Troquelado": {
+    "Papel continuo troquelado": 1,
+    "Papel continuo troquelado 9.5x11x4x5.5": 2
+   },
+   "Bond": {
+    "Papel continuo 9.5x11x4x5.5": 2
+   },
+   "Bond troquelado": {
+    "Papel continuo 9.5x11x4x5.5 troquelado": 1
+   },
+   "Dispensador de fichas": {
+    "Dispensador de fichas para papel continuo": 1
+   }
+  },
+  "Papel folio": {
+   "—": {
+    "Papel bond oficio 75g 500 hojas": 3,
+    "Papel bond oficio 75g 500 hojas surtido": 3,
+    "Papel bond carta 75g 500 hojas": 1
+   }
+  },
+  "Papel higiénico": {
+   "—": {
+    "Papel higiénico doble hoja 2 hojas extra suave": 2,
+    "Papel higiénico doble hoja 2 hojas familia rollo": 3,
+    "Papel higiénico doble hoja 2 hojas perfumado rollo": 1,
+    "Papel higiénico doble hoja blanco": 2,
+    "Papel higiénico doble hoja perla 12 unidades": 1,
+    "Papel higiénico 2 hojas perfumado rollo": 6
+   }
+  },
+  "Papelería": {
+   "Sticker de mensajes": {
+    "Sticker 76x76 mm colores surtidos": 2
+   },
+   "Post‑it": {
+    "Post‑it 38.1x50.8 mm bolsa 4×50": 1
+   }
+  },
+  "Libros de actas": {
+   "—": {
+    "Libro de actas oficio 100 hojas rayado": 2,
+    "Libro de actas oficio 200 hojas rayado": 1,
+    "Libro de actas oficio sin especificar hojas": 1,
+    "Libro de actas oficio 200 hojas rayado numerado con margen": 1
+   },
+   "Tapa dura": {
+    "Libro de actas tapa dura oficio foliado": 1,
+    "Libro de actas tapa dura oficio foliado rayado": 1
+   }
+  },
+  "Papel": {
+   "Libros de actas": {
+    "Libro de actas": 6
+   },
+   "Membretado": {
+    "Papel membretado": 30
+   },
+   "Color": {
+    "Papel color oficio": 7,
+    "Papel colores varios oficio": 1,
+    "Papel color surtido oficio": 1,
+    "Papel oficio colores varios": 2
+   },
+   "Tickets dispensador": {
+    "Papel tickets dispensador": 2
+   },
+   "Tickets": {
+    "Papel tickets 11x29": 1
+   },
+   "Alkali": {
+    "Papel carta alkali alta blancura": 2,
+    "Papel oficio alkali alta blancura": 2
+   },
+   "Bond": {
+    "Papel bond carta": 3,
+    "Papel bond oficio colores surtido sin negro": 1,
+    "Papel bond oficio": 2,
+    "Papel bond carta alkali": 1,
+    "Papel bond carta alkali alta blancura": 2,
+    "Papel bond oficio alkali": 1,
+    "Papel bond oficio alkali alta blancura": 2
+   },
+   "—": {
+    "Papel oficio 75 g/m² colores varios": 2
+   },
+   "Papel reciclado": {
+    "Papel reciclado tamaño oficio 75 g 500 hojas": 1
+   }
+  },
+  "Papel offset": {
+   "Carbónico": {
+    "Papel carbónico oficio hoja": 1
+   }
+  },
+  "Papel para gráficos": {
+   "Cartulina": {
+    "Cartulina lisa 180g 100x65 pliego": 1
+   }
+  },
+  "Papel para impresión de computadores": {
+   "Bond": {
+    "Papel bond 75g carta blanco": 12,
+    "Papel bond 75g oficio blanco": 14,
+    "Papel bond color surtido oficio sin negro libre de ácido": 2,
+    "Papel bond color surtido oficio": 4
+   }
+  },
+  "Papel bond": {
+   "—": {
+    "Papel bond 75 gsm blanco paquete 500 hojas": 23,
+    "Papel bond 75 gsm surtido hoja suelta": 5,
+    "Papel bond 75‑80 gsm surtido paquete 500 hojas": 3,
+    "Papel bond 75 gsm surtido paquete 500 hojas": 1,
+    "Papel bond 75 gsm blanco ultra alcalino": 1,
+    "Papel Bond oficio 75 g/m² surtido por hoja": 5,
+    "Papel Bond oficio 75 g/m² blanco paquete 500 hojas": 3,
+    "Papel Bond carta 75 g/m² blanco paquete 500 hojas": 2,
+    "Papel Bond carta 75 g/m² extra blanco alcalino paquete 500 hojas": 1,
+    "Papel Bond oficio 75 g/m² extra blanco alcalino paquete 500 hojas": 1
+   }
+  },
+  "Papel de color": {
+   "—": {
+    "Papel de color oficio": 1
+   }
+  },
+  "Papel para sumadora": {
+   "—": {
+    "Papel blanco para ordenador de fila 63 g/m²": 1,
+    "Papel blanco presentación en rollo": 1,
+    "Papel continuo 9.5×11×4×5.5 cm": 1,
+    "Papel dispensador de ficha": 1,
+    "Papel para ticket blanco para ordenador de fila": 1,
+    "Papel para ticket blanco presentación en rollo": 1,
+    "Papel para tickets Brother QL‑800 en rollos": 1
+   }
+  },
+  "Papel satinado": {
+   "—": {
+    "Papel lustre 50×70 mm surtido": 1
+   }
+  },
+  "Papel térmico": {
+   "—": {
+    "Papel térmico dispensador de ficha": 1,
+    "Rollo térmico 56 m 80 g/m² ancho 80 mm": 1
+   }
+  },
+  "Cartulina": {
+   "—": {
+    "Cartulina lisa 180 g": 7,
+    "Cartulina hilada 180 g": 2
+   }
+  },
+  "Parlantes de computador": {
+   "—": {
+    "Parlante genérico": 2,
+    "Parlante USB 2.0 6W": 3,
+    "Altavoces USB": 1,
+    "Parlante de pared o techo": 1
+   },
+   "Barras de sonido": {
+    "Barra de sonido 2.1 con subwoofer": 1
+   }
+  },
+  "Pegamento en barra": {
+   "—": {
+    "Pegamento en barra 21 g": 5,
+    "Pegamento en barra 40 g": 1
+   }
+  },
+  "Pegamento líquido": {
+   "—": {
+    "Pegamento líquido": 1,
+    "Pegamento líquido 125 ml": 4,
+    "Pegamento líquido 80 g": 7,
+    "Pegamento líquido 50 ml": 3
+   }
+  },
+  "Cinta correctora": {
+   "Papel": {
+    "Cinta correctora 5 mm × 8 m": 2,
+    "Cinta correctora 5 mm": 3
+   },
+   "—": {
+    "Cinta correctora universal M50‑100": 1,
+    "Cinta correctora universal 5 mm × 8 m": 1
+   }
+  },
+  "Periódico": {
+   "—": {
+    "Provisión diaria de periódico 2026": 1,
+    "Provisión diaria de periódico 2023": 1
+   }
+  },
+  "Pila alcalina": {
+   "—": {
+    "Pila AAA 1.5 V": 4
+   }
+  },
+  "Placas": {
+   "Placa de contacto": {
+    "Placa de contacto HL5100": 3
+   },
+   "Placa de poder": {
+    "Placa de poder Lexmark": 2,
+    "Tarjeta de poder Lexmark MS421 DN": 1
+   },
+   "Placa lógica": {
+    "Placa lógica Brother 5100": 1,
+    "Placa lógica Brother 6180": 1
+   }
+  },
+  "Bolsas de polietileno": {
+   "Bolsas negras 35x65 cm": {
+    "Bolsa negra 35x65 cm": 4
+   }
+  },
+  "Portapapeles": {
+   "Metal": {
+    "Portapapeles metal 2 piezas corredizas tamaño oficio": 1,
+    "Portapapeles metal 3 pisos tamaño oficio": 4,
+    "Portapapeles metal 3 pisos": 1,
+    "Portapapeles metal 3 piezas tamaño oficio": 2
+   },
+   "Plástico": {
+    "Portapapeles plástico 3 piezas tamaño oficio": 2,
+    "Portapapeles plástico 3 piezas tamaño oficio color negro": 1,
+    "Portapapeles plástico 3 pisos": 1
+   }
+  },
+  "Herramientas de prueba": {
+   "Testador de cable de red": {
+    "Testador de cable RJ45": 1
+   }
+  },
+  "Detergente granulado doméstico": {
+   "—": {
+    "Detergente granulado 150 g": 1
+   }
+  },
+  "Jabón en polvo": {
+   "—": {
+    "Jabón en polvo 900 g": 1
+   }
+  },
+  "Limpiador multiusos": {
+   "Lava vajillas": {
+    "Limpiador lava vajillas 950 ml": 1
+   }
+  },
+  "Protector de sobretensiones": {
+   "—": {
+    "Cortacircuitos 10 A 6 tomas": 1,
+    "Cortacircuitos 6 A 5 tomas": 1,
+    "Regleta cortacircuitos": 1
+   }
+  },
+  "Protector de hojas": {
+   "—": {
+    "Funda para hojas tamaño oficio": 5
+   }
+  },
+  "Shampoo automotriz": {
+   "—": {
+    "Shampoo auto 500 ml": 1,
+    "Shampoo auto 250 ml": 1
+   }
+  },
+  "Proyector de video": {
+   "—": {
+    "Data show": 1,
+    "Proyector genérico": 1
+   }
+  },
+  "Pantalla de proyección": {
+   "—": {
+    "Pantalla eléctrica motorizada": 1
+   }
+  },
+  "Proyector multimedia": {
+   "—": {
+    "Proyector Epson EB‑E20": 1,
+    "Proyector multimedia genérico": 1
+   }
+  },
+  "Pulidor/ceras para muebles": {
+   "—": {
+    "Lustramuebles 850 ml con atomizador": 1,
+    "Lustramuebles 900 ml": 1
+   }
+  },
+  "Radiador": {
+   "—": {
+    "Estufa (radiador)": 1
+   }
+  },
+  "Radio": {
+   "—": {
+    "Radio Handy": 1
+   }
+  },
+  "Reactor": {
+   "—": {
+    "Reactor de sodio 70 W": 1
+   }
+  },
+  "Receptor GPS": {
+   "—": {
+    "Equipo GPS": 4
+   }
+  },
+  "Tóner": {
+   "—": {
+    "Tóner HP LaserJet Pro M203 CF230A": 1,
+    "TN-720": 2,
+    "W9090 MC High Yield": 4,
+    "56F4000": 5,
+    "664": 4,
+    "REFIL Brother": 4,
+    "BT D60": 1,
+    "REFIL EPSON": 1,
+    "BT L5001": 3,
+    "L544": 8,
+    "IM 600": 1,
+    "203E": 5,
+    "T774": 1,
+    "TN 3619": 1,
+    "12 A": 3,
+    "Brother TN450": 2,
+    "Brother TN750": 2,
+    "Canon CF278A": 1,
+    "Lexmark MS321": 1,
+    "GPR-54": 2,
+    "Canon GPR22": 1,
+    "GPR-35": 1,
+    "HP 105A": 3,
+    "HP 12A": 5,
+    "HP 230A": 3,
+    "HP 26A": 8,
+    "HP 30A": 3,
+    "HP 78A": 8,
+    "HP 83A": 6,
+    "HP 145A": 5,
+    "HP CE278A": 2,
+    "HP CF226A": 2,
+    "HP CF283A": 1,
+    "HP CF83A": 1,
+    "HP CF230A": 2,
+    "HP Q2612A": 1,
+    "HP W2300A": 1,
+    "HP W2301A": 1,
+    "HP W2302A": 1,
+    "HP W2303A": 1,
+    "HP W9024MC": 1,
+    "HP 230X": 1,
+    "HP 750": 1,
+    "LEXMARK MS321": 4,
+    "LEXMARK 56F4000": 1,
+    "LEXMARK 56F4H00": 1,
+    "Tóner Brother TN3619": 1,
+    "Tóner HP CE230A": 1,
+    "Tóner Brother TN3479": 3,
+    "Tóner Lexmark 56F4000": 1,
+    "Tóner HP CF411": 1,
+    "Tóner HP CF412": 1,
+    "Tóner HP CF413": 1,
+    "Tóner Brother TN750": 5,
+    "Tóner Brother HI5340D TN650": 2,
+    "Tóner HP 80X": 4,
+    "Tóner TN2370": 1,
+    "Tóner HP CF226A": 4,
+    "Tóner Lexmark 56F4H00": 2,
+    "Tóner HP CF217A": 1,
+    "Tóner Brother TN450": 4,
+    "Tóner HP CE278A": 8,
+    "Tóner Brother TN217Y": 1,
+    "Tóner Brother TN217C": 2,
+    "Tóner Brother TN217M": 2,
+    "Tóner Brother TN217BK": 2,
+    "Tóner": 30,
+    "Tóner HP LaserJet P1505": 1,
+    "Tóner HP LaserJet P1606DN": 5,
+    "Tóner HP LaserJet P3015": 1,
+    "Tóner HP LaserJet Pro 400": 1,
+    "Tóner HP LaserJet Pro M203": 6,
+    "Tóner HP LaserJet Pro M402/M426": 8,
+    "Tóner HP LaserJet 1020": 2,
+    "Tóner HP LaserJet P1102W": 5,
+    "Tóner HP LaserJet P1606": 1,
+    "145A": 2,
+    "CE278A": 7,
+    "CF280X": 1,
+    "CF217A": 1,
+    "CF283A": 1,
+    "CF280A": 1,
+    "CE285A": 1,
+    "26A": 1,
+    "Q2612A": 3,
+    "80X": 1,
+    "CE255A": 1,
+    "D203E": 1,
+    "T06": 1,
+    "T3479": 1,
+    "TL-5120X": 1,
+    "TN-217": 3,
+    "4622": 1,
+    "MS-321": 1,
+    "Brother TN750 Negro": 1,
+    "Brother TN217C Cyan": 1,
+    "Brother TN217M Magenta": 1,
+    "Brother TN2370 Negro": 2,
+    "HP 145A Negro": 2,
+    "Lexmark 56F4H00 Negro": 1,
+    "Brother TN580 Negro": 1,
+    "Canon CE311A Cyan": 1,
+    "Canon CE313A Magenta": 1,
+    "Canon CE312A Yellow": 1,
+    "HP CC530A Negro": 2,
+    "HP CF410 Negro": 3,
+    "HP CF411 Cyan": 3,
+    "HP CF412 Yellow": 3,
+    "HP CF413 Magenta": 3,
+    "HP Q2612A Negro": 1,
+    "HP CC531A Azul": 3,
+    "TN-319b": 1,
+    "TN-360": 1,
+    "W2022A": 1,
+    "W2021A": 1,
+    "W2023A": 1,
+    "W2020A": 1,
+    "56F4H00": 4,
+    "TN-750": 4,
+    "IM600": 1,
+    "TN-217C": 1,
+    "TN-217M": 1,
+    "TN-217BK": 1,
+    "TN-217Y": 2,
+    "TN-3609XXL": 1,
+    "TN-2370": 3,
+    "TN-3479": 1,
+    "87X": 1,
+    "87A": 1,
+    "Tóner HP LaserJet 1505 CB436A Negro": 1,
+    "Tóner Canon MS321DN/MS4321DN 56F4H00 Negro": 1,
+    "Tóner Brother HL5340D TN650 Negro": 3,
+    "Tóner Brother HL2140 TN360 Negro": 1,
+    "Tóner Brother HL2220 TN450 Negro": 1,
+    "Tóner HP Color Laserjet Pro M452dw CF410 Negro": 2,
+    "Tóner HP Color Laserjet Pro M452dw CF411 Cian": 2,
+    "Tóner HP Color Laserjet Pro M452dw CF412 Amarillo": 2,
+    "Tóner HP Color Laserjet Pro M452dw CF413 Magenta": 2,
+    "Tóner HP LaserJet M401Dn CF280X Negro": 1,
+    "Tóner HP LaserJet Pro M203 CF230X Negro": 1,
+    "Tóner HP LaserJet P1606 CE278X Negro": 1,
+    "Tóner HP LaserJet M125 2200páginas": 1,
+    "Tóner HP LaserJet 1006 CB435X Negro": 1,
+    "Tóner HP LaserJet M401DN CF280X Negro": 1,
+    "Tóner HP LaserJet P1006 CB435A Negro": 1,
+    "Tóner HP LaserJet P1102w CE285X Negro": 1,
+    "Tóner HP LaserJet P1606dn CE278X Negro": 1,
+    "Tóner HP LaserJet Pro M402/MFP M426 CF226X Negro": 2,
+    "Tóner HP LaserJet Cp1025nw CE311A Cyan": 1,
+    "Tóner HP LaserJet Cp1025nw CE313A Magenta": 1,
+    "Tóner HP LaserJet Cp1025nw CE310A Negro": 1,
+    "Tóner HP LaserJet Cp1025nw CE312A Yellow": 1,
+    "Tóner HP CE285X": 1,
+    "Tóner HP CF230X": 1,
+    "Tóner HP CF226A compatible": 1,
+    "Tóner HP CF280A": 2,
+    "Tóner HP CE278A compatible": 1,
+    "Tóner HP CF283A": 1,
+    "Tóner HP CF283X": 1,
+    "Tóner HP Q2612A": 2,
+    "Tóner HP Q2612A compatible": 1,
+    "Tóner HP Q2612X": 1,
+    "Tóner Brother TN650": 1,
+    "Tóner HP CF280A compatible": 1,
+    "Tóner Lexmark MS321": 2,
+    "Tóner HP M401": 1,
+    "Tóner Brother L5210DN": 1,
+    "Tóner HP LaserJet Pro": 1,
+    "Tóner HP P3015": 1,
+    "Tóner HP 3003": 1,
+    "Tóner Canon CP1025NW": 1,
+    "Tóner HP P1005": 1,
+    "Tóner HP P1606DN": 1
+   },
+   "Lexmark": {
+    "MS321 DN": 2,
+    "MS321": 1,
+    "56F4000": 1
+   },
+   "Brother": {
+    "TN-3479": 1,
+    "TN-3619": 1
+   },
+   "HP": {
+    "145A": 1,
+    "83A": 3,
+    "30A": 3,
+    "CB435 A": 3,
+    "CE278 A": 2,
+    "CE285 A": 3,
+    "Q2612 A": 3,
+    "78A": 1,
+    "85A": 1,
+    "CE230A": 2,
+    "CF230A": 1,
+    "CF287A": 1,
+    "W145A": 2,
+    "87 A": 1,
+    "CE278A": 1
+   },
+   "Pantum": {
+    "TL-5120": 1,
+    "TL-5120X": 1
+   },
+   "Canon": {
+    "IR 1643": 1,
+    "IR 1435 I": 1
+   },
+   "TN": {
+    "TN-217": 1,
+    "TN-221": 2,
+    "TN-225": 3,
+    "TN-2370": 1,
+    "TN-3479": 6,
+    "TN-360": 1,
+    "TN-419": 4,
+    "TN-450": 2,
+    "TN-650": 2,
+    "TN-750": 3,
+    "TN-3470": 1
+   },
+   "CE": {
+    "278A": 1
+   }
+  },
+  "Reflector": {
+   "LED": {
+    "Reflector LED 100 W": 1,
+    "Reflector LED 400 W": 2
+   },
+   "—": {
+    "Reflector 50 W": 1
+   }
+  },
+  "Ambientador en aerosol": {
+   "Auto": {
+    "Ambientador colgante para auto fragancia surtida": 1
+   },
+   "—": {
+    "Ambientador aerosol 360 ml fragancia surtida": 2,
+    "Ambientador aerosol 300 ml fragancia surtida": 2
+   },
+   "Oficinas": {
+    "Ambientador aerosol 300 ml fragancia surtida para oficinas": 1
+   },
+   "Variedades": {
+    "Ambientador aerosol 360 ml fragancia surtida (varios aromas)": 2
+   },
+   "Equivalente": {
+    "Ambientador aerosol 360 ml fragancia surtida (equivalente a Sapolio)": 1
+   },
+   "Antitabaco": {
+    "Ambientador aerosol 360 ml fragancia surtida antitabaco": 1
+   },
+   "Múltiples aromas": {
+    "Ambientador aerosol 360 ml fragancia surtida con varios aromas": 1
+   }
+  },
+  "Repuesto aromatizante": {
+   "Dispensador": {
+    "Repuesto aromatizante para dispensador fragancia surtida": 1
+   }
+  },
+  "Refrigerante fluorado": {
+   "—": {
+    "Gas refrigerante R‑410A": 1,
+    "Gas refrigerante R‑417A": 1
+   }
+  },
+  "Regla": {
+   "Larga 30 cm metal plana": {
+    "Regla 30 cm metal plana": 3
+   },
+   "—": {
+    "Regla genérica": 1,
+    "Regla 30 cm genérica": 1
+   }
+  },
+  "Reglas graduadas": {
+   "—": {
+    "Regla graduada 30 cm": 2
+   },
+   "Plástico": {
+    "Regla graduada 30 cm": 3
+   },
+   "Metal": {
+    "Regla graduada 30 cm": 6
+   }
+  },
+  "Estabilizador UPS": {
+   "—": {
+    "Estabilizador UPS": 1
+   }
+  },
+  "Regletas de montaje": {
+   "Regleta eléctrica": {
+    "Regleta 4 entradas": 1
+   }
+  },
+  "Regulador de voltaje": {
+   "—": {
+    "Estabilizador 2200VA": 1
+   }
+  },
+  "Removedores de grapas": {
+   "Sacagrapa": {
+    "Sacagrapa estándar": 3,
+    "Sacagrapa tipo alicate": 1,
+    "Sacagrapa 5.7x3.8 cm": 1,
+    "Sacagrapa n°1 plástico": 3,
+    "Sacagrapa metal": 2,
+    "Sacagrapa mixto": 1,
+    "Sacagrapa plástico Madison": 1,
+    "Sacagrapa plástico con punta metálica": 1,
+    "Sacagrapa plástico cod.1245": 1,
+    "Sacagrapa plástico cod.p949": 1,
+    "Sacagrapa plástico": 1
+   }
+  },
+  "Replicadores de puertos": {
+   "Hub USB": {
+    "Hub USB 4 puertos": 1
+   },
+   "Switch POE": {
+    "Switch POE 24 puertos": 1,
+    "Switch POE 48 puertos": 1
+   }
+  },
+  "Grabadoras DVD": {
+   "—": {
+    "Grabador DVD interno para PC": 2,
+    "Lector‑grabador CD/DVD interno para PC": 1
+   }
+  },
+  "Repuestos para bolígrafos": {
+   "—": {
+    "Recambio de mina para bolígrafo Parker": 2,
+    "Recambio de tinta para bolígrafo Parker azul": 1
+   }
+  },
+  "Tinta para sellos": {
+   "Tampo": {
+    "Tinta para tampo genérica": 2,
+    "Tinta para tampo azul 8.5×12.5 cm": 1,
+    "Tinta para tampo azul 28 ml": 4,
+    "Tinta para tampo azul": 3,
+    "Tinta para tampo azul 28 ml excelente rendimiento": 2,
+    "Tinta para tampo azul 30 ml": 2,
+    "Tinta para tampo rojo": 1,
+    "Tinta para tampo rojo 28 ml": 2,
+    "Tinta para tampo rojo 28 ml excelente rendimiento": 2,
+    "Tinta para tampo azul 30 ml código 13089008": 2,
+    "Tinta para tampo multicolor 30 ml": 2,
+    "Tinta para tampo 30 ml (Artesco o equivalente)": 1,
+    "Tinta para tampo rojo 30 ml código 13089007": 1
+   },
+   "Goma": {
+    "Tinta para sello de goma azul 28 ml": 1,
+    "Tinta para sello de goma negro 28 ml": 1,
+    "Tinta para sello de goma rojo 28 ml": 1
+   }
+  },
+  "Repuestos y accesorios de vehículos de servicio minero": {
+   "—": {
+    "Repuestos y accesorios para vehículos de 2 y 4 ruedas": 3
+   }
+  },
+  "Resaltadores": {
+   "—": {
+    "Resaltador de punta cuadrada trazo grueso": 10,
+    "Resaltador": 1,
+    "Resaltador fluorescente": 1,
+    "Resaltador fluorescente trazo grueso punta biselada": 7,
+    "Resaltador de punta cuadrada trazo grueso fosforescente": 1,
+    "Resaltador trazo grueso punta biselada": 8,
+    "Resaltador trazo cuadrado fosforescente": 2,
+    "Resaltador trazo grueso": 1,
+    "Sacagrapas de plástico": 2,
+    "Post-it bloque 500 hojas 76x76 mm": 1
+   }
+  },
+  "Reveladores para impresoras o fotocopiadoras": {
+   "—": {
+    "Revelador de imagen para impresora Brother HL-3170": 1,
+    "Revelador de imagen 621-521": 1
+   }
+  },
+  "Tóner y cartuchos": {
+   "Unidad de imagen": {
+    "Unidad de imagen Lexmark MS321/MS421": 3
+   },
+   "Tóner de fotocopiadora": {
+    "Tóner Brother TN-221 color magenta": 1,
+    "Tóner Brother 316 color amarillo": 1,
+    "Tóner Brother 316 color cyan": 1,
+    "Tóner Brother 316 color magenta": 1,
+    "Tóner Brother 316 color negro": 2,
+    "Tóner Brother 419 color amarillo": 1,
+    "Tóner Brother 419 color cyan": 1,
+    "Tóner Brother 419 color magenta": 1,
+    "Tóner Brother TN-221 color negro 2300 páginas": 1,
+    "Tóner Brother TN-419 color negro 2200 páginas": 1,
+    "Tóner Canon GPR-35": 1,
+    "Tóner Canon GPR-22 color negro": 1
+   },
+   "—": {
+    "Canon GPR-22": 4,
+    "Canon GPR-54": 4,
+    "Canon GPR-35": 6,
+    "Canon T-06": 3,
+    "Brother TN-419": 4,
+    "Brother TN-3479": 3,
+    "Konica Minolta BISUTH-185": 1,
+    "Lexmark MS-321": 1,
+    "Brother TN-221": 2,
+    "Canon GPR-34": 1,
+    "Canon GPR-57": 1,
+    "Konica Minolta TN-323": 1,
+    "Konica Minolta TN-628": 2,
+    "Kyocera ECOSYS M3655idn": 1,
+    "Bizhub TN-414": 3,
+    "Canon GPR-63": 1,
+    "TN 2370": 1,
+    "TN 316": 3,
+    "TN 3479": 1,
+    "TN 360": 1,
+    "TN 3619": 1,
+    "TN 450": 3,
+    "TN 650": 1,
+    "TN 750": 3,
+    "TN-217BK": 1,
+    "TN-217C": 1,
+    "TN-217M": 1,
+    "TN-217Y": 1,
+    "TN-221BK": 1,
+    "TN-221C": 1,
+    "TN-221M": 1,
+    "TN-221Y": 1,
+    "TN-2370": 1,
+    "TN-316BK": 1,
+    "TN-316C": 1,
+    "TN-319BK": 1,
+    "TN-3479": 4,
+    "TN-360": 1,
+    "TN-3609": 1,
+    "TN-419C": 1,
+    "TN-419M": 1,
+    "TN-419Y": 1,
+    "TN-450": 1,
+    "TN-650": 1,
+    "TN-750": 2,
+    "TN-780": 1,
+    "Tóner Brother TN‑750 negro": 1,
+    "Tóner Lexmark MS321 DN/MS4321 DN serie 56F4H00 negro 15 páginas": 1,
+    "Tóner Brother TN‑3479 negro": 1,
+    "Tóner Lexmark MS321 DN/MS4321 DN serie 56F4H00 negro 15000 hojas": 1,
+    "Tóner Brother HL‑L5210DN TN‑3609XXL negro": 1,
+    "Tóner Brother HL‑L5210DN TN‑3619 negro": 1,
+    "Tóner Brother HL‑5210DN TN‑3619 negro 18000 páginas": 1,
+    "Tóner Brother HLL5210DN TN‑3619 negro": 1,
+    "Tóner Lexmark MS 321 56F4000 Negro": 6,
+    "Tóner Lexmark MS 321DN 56F4H00 Negro": 2,
+    "Tóner Lexmark MS321 56F4000 Negro": 2,
+    "Tóner HP LaserJet 408dn 330A": 1,
+    "Tóner Brother L 5210 DN TN-3609XL Negro": 1,
+    "Tóner HP LaserJet Enterprise M507DN 89A Negro": 1,
+    "Tóner HP LaserJet Pro 3003DW W1450X Negro": 1,
+    "Tóner HP LaserJet Pro MFP 4103FDW W1510A Negro": 2,
+    "Tóner LaserJet Pro M452DW CF410 Negro": 1,
+    "Tóner Brother HI 5340 D TN 650 Negro": 1,
+    "Tóner Brother HL 5340 D TN 650 Negro": 1,
+    "Tóner Brother HL-2140 TN360 Negro": 1,
+    "Tóner Brother HL 2220 TN 450 Negro": 1,
+    "Tóner Brother TN 750 Negro": 1,
+    "Tóner Canon LBP-251 MF 5850/5880 119 Negro": 3,
+    "Tóner Canon LBP-251 MF 5850/5880 119 II Negro": 1,
+    "Tóner Canon LBP-251 MF 5850/5880 119II Negro": 1,
+    "Tóner CP1025NW CE310A Negro": 1,
+    "Tóner HP 1320 N Q5949A Negro": 1
+   },
+   "Fotocopiadora": {
+    "Canon IR 2545": 2,
+    "Canon IR ADVANCE 4551i": 2,
+    "Konica Minolta TN 323": 3,
+    "Konica Minolta Bizhub 4750": 1,
+    "Minolta Bizhub 215": 1,
+    "Minolta DI 450/470/550": 1,
+    "Konica Minolta TN 628": 1,
+    "Brother TN 221": 2,
+    "Brother TN 225": 3,
+    "Brother TN 316": 3,
+    "Brother TN 3479": 3,
+    "Brother TN 450": 1
+   },
+   "Impresora": {
+    "Brother TN 3479": 1,
+    "HP 304 A": 1,
+    "Canon GPR 35": 2,
+    "Canon GPR 54": 2,
+    "Canon CL 211": 2,
+    "Canon PG 210": 2
+   },
+   "Tóner": {
+    "12A": 1,
+    "145A": 2,
+    "30A": 2,
+    "3479": 1,
+    "35A": 3,
+    "56F4000": 1,
+    "56F4H00": 1,
+    "650": 1,
+    "750": 1,
+    "78A": 3,
+    "83A": 3,
+    "CF283A": 1,
+    "85A": 4,
+    "BROTHER-316": 1,
+    "BROTHER-TN360": 1,
+    "TN-3479": 1,
+    "TN-3609-XXL": 3,
+    "TN-450": 1,
+    "TN-650": 1,
+    "TN-750": 1,
+    "TN-419-BK": 1,
+    "TN-221": 1,
+    "TN-2370": 1,
+    "Tóner HP 1320 N": 1,
+    "Tóner HP Color LaserJet Pro M454dw": 4,
+    "Tóner HP LaserJet P2035 N": 1,
+    "Tóner HP LaserJet 1006": 1,
+    "Tóner HP LaserJet 1020": 1,
+    "Tóner HP LaserJet 2015": 1,
+    "Tóner HP LaserJet M201": 7,
+    "Tóner HP LaserJet M401 DN": 5,
+    "Tóner HP LaserJet M281 FDW": 8,
+    "Tóner HP LaserJet P1005": 1,
+    "Tóner HP LaserJet P1102W": 1,
+    "Tóner HP 89A Negro": 1,
+    "Tóner HP CB435A": 2,
+    "Tóner HP CE285A": 1,
+    "Tóner HP CE278A": 4,
+    "Tóner HP CE505A": 2,
+    "Tóner HP CF283A": 2,
+    "Tóner HP CF230A": 1,
+    "Tóner HP CF226A": 3,
+    "Tóner HP CC532A": 2,
+    "Tóner HP CC533A": 2,
+    "Tóner HP CF280A": 1,
+    "Tóner Kyocera TK-3182": 1,
+    "Tóner Ricoh IM-600": 1,
+    "Tóner HP TN-217BK": 1,
+    "Tóner HP TN-217C": 1,
+    "Tóner HP TN-217M": 1,
+    "Tóner HP TN-217Y": 1,
+    "Tóner HP TN-221C": 1,
+    "Tóner HP TN-221M": 1,
+    "Tóner HP TN-221Y": 1,
+    "Tóner HP TN-221B": 1
+   },
+   "Drum": {
+    "Drum para impresora": 3
+   },
+   "Brother HL-3170 CDW": {
+    "Tóner Brother HL-3170 CDW TN 221 C": 1,
+    "Tóner Brother HL-3170 CDW TN 221 M": 1,
+    "Tóner Brother HL-3170 CDW TN 221 Y": 1,
+    "Tóner Brother HL-3170 CDW TN 225 C": 1,
+    "Tóner Brother HL-3170 CDW TN 225 M": 1,
+    "Tóner Brother HL-3170 CDW TN 225 Y": 1
+   },
+   "HP Laser P3015": {
+    "Tóner HP Laser P3015 CE255 A": 2
+   },
+   "Brother L5210 DN": {
+    "Tóner Brother L5210 DN TN 3479": 2
+   },
+   "Brother": {
+    "Tóner Brother TN 2370": 1
+   },
+   "HP Laserjet Pro M506DH": {
+    "Tóner HP Laserjet Pro M506DH 87A negro": 2
+   },
+   "HP Laserjet Pro M507DH": {
+    "Tóner HP Laserjet Pro M507DH 89A negro": 1
+   },
+   "Tóner para impresora": {
+    "Lexmark MS 321 56F4000": 2,
+    "HP Laserjet Pro MFP 4103 FDW 151A": 1,
+    "Brother TN-450": 1,
+    "Ricoh IM 600": 1,
+    "Brother TN 3479": 2,
+    "Brother L 5210 DN TN 3609 XXL": 1,
+    "Brother TN 3609": 1,
+    "HP Laserjet Pro M506dh 87A": 1,
+    "Lexmark MS 321 DN 56F4H00": 1,
+    "HP LaserJet 408dn 330A": 1,
+    "HP LaserJet M201 CF283A": 1,
+    "HP LaserJet P3015 CE255A": 1,
+    "HP LaserJet PRO 400 CF280X": 1,
+    "HP LaserJet PRO M402 CF226A": 1,
+    "HP LaserJet PRO 3003 W1450A": 2,
+    "HP LaserJet M401 DN CF280A": 1,
+    "HP LaserJet 1505 CB436A": 1,
+    "Samsung toner genérico": 1,
+    "Brother TN 750": 2
+   },
+   "Tóner para fotocopiadora": {
+    "Kyocera TK-3182": 1
+   }
+  },
+  "Revistas": {
+   "—": {
+    "Revista IMPRESION MEMORIA 2022": 1,
+    "Revista PRODUCTO DE ARTES GRAFICAS - RENDICION PUBLICA DE CUENTAS": 1
+   }
+  },
+  "Rodamientos radiales": {
+   "—": {
+    "Rodamiento radial a bolas rígidas para caja de cambios ESP-B20141C3UR-NSK-1093": 1,
+    "Rodamiento radial a bolas rígidas para caja de cambios MM-62072RSCM-KOYO-934": 1,
+    "Rodamiento radial desplazador de caja de cambios": 1
+   }
+  },
+  "Cintas de embalaje": {
+   "—": {
+    "Cinta de embalaje transparente 100 yardas": 2,
+    "Cinta de embalaje gruesa transparente 100 yardas": 1,
+    "Cinta de embalaje 4,5 cm transparente 100 yardas": 8,
+    "Cinta de embalaje gruesa transparente": 1,
+    "Cinta de embalaje gruesa transparente excelente rendimiento": 1,
+    "Cinta de embalaje 4,5 cm transparente 100 yardas (ASATEX o equivalente)": 1,
+    "Cinta de embalaje 4,5 cm transparente 100 yardas (MARUTEX o equivalente)": 1,
+    "Cinta de embalaje 4,5 cm transparente": 1
+   }
+  },
+  "Rollos de transferencia": {
+   "—": {
+    "Rodillo de goma Canon IR 1435i": 1
+   }
+  },
+  "Conectores eléctricos": {
+   "Roseta RJ45": {
+    "Roseta RJ45 categoría 6 simple": 1
+   }
+  },
+  "Sellos": {
+   "Sello metálico": {
+    "Sello metálico 6 dígitos (foleador)": 1
+   }
+  },
+  "Sellos y estampillas": {
+   "Sellos secos de seguridad": {
+    "Sello de metal": 1
+   },
+   "Sellos mecánicos de empuje": {
+    "Sello mecánico de empuje": 10,
+    "Tampo para sello": 2
+   },
+   "Sellos moldeados de caucho": {
+    "Sello moldeado de caucho": 6
+   },
+   "Sellos de estampación de caucho": {
+    "Gomita de sello": 1,
+    "Gomita para sello": 1,
+    "Sello automático personal": 1,
+    "Sello automático": 2,
+    "Sello fechero": 1,
+    "Sello foliador": 1,
+    "Sello rectangular": 5,
+    "Sello seco prensa y placa": 1,
+    "Sello VoBo automático": 1
+   },
+   "Sellos de metal": {
+    "Sello de metal": 1
+   }
+  },
+  "Equipos de limpieza": {
+   "Aspiradora portátil": {
+    "Separador de polvo": 1
+   }
+  },
+  "Separadores": {
+   "—": {
+    "Banderillas post‑it": 1,
+    "Separador": 1,
+    "Separador de hojas": 1,
+    "Separador A4 10 divisiones": 1,
+    "Separador Carta 10 divisiones": 1,
+    "Tacos post‑it": 1
+   }
+  },
+  "Sellos para correo": {
+   "—": {
+    "Tampo para sellos con tinta": 1
+   }
+  },
+  "UPS": {
+   "—": {
+    "UPS online trifásico 20 kVA": 1,
+    "Equipo UPS": 1,
+    "UPS": 1
+   },
+   "10 kVA": {
+    "UPS 10 kVA": 1,
+    "UPS online monofásico 10 kVA/10 kW/10.000 VA": 1
+   },
+   "6 kVA": {
+    "UPS online monofásico 6 kVA/6 kW/6.000 VA": 1
+   },
+   "2 kVA": {
+    "UPS Powest 2 kVA/2000 VA/1200": 1
+   }
+  },
+  "Detergente granulado": {
+   "—": {
+    "Detergente granulado 150 g": 1
+   }
+  },
+  "Jabón barra": {
+   "—": {
+    "Jabón antibacterial 125 g": 1
+   }
+  },
+  "Muebles": {
+   "Credenza": {
+    "Credenza tipo L": 1
+   },
+   "Percheros": {
+    "Perchero de madera roble": 1
+   }
+  },
+  "Silla de oficina": {
+   "—": {
+    "Sillón operativo": 1,
+    "Silla estática": 1,
+    "Silla fija": 3,
+    "Silla giratoria operativa": 1,
+    "Silla giratoria semi ejecutivo": 3,
+    "Silla metálica fija": 3,
+    "Silla operativa": 4,
+    "Silla secretarial": 2,
+    "Silla semi ejecutiva": 3,
+    "Silla tandem de cuatro asientos": 1,
+    "Silla tipo cajera": 1,
+    "Silla tipo cajero": 1,
+    "Silla ejecutiva": 1,
+    "Silla giratoria ejecutiva": 1,
+    "Silla giratoria semi ejecutiva": 2,
+    "Silla giratoria tipo cajero": 1,
+    "Silla tandem": 1,
+    "Silla tipo cajero con reposabrazos regulable": 1,
+    "Sillón giratorio semi ejecutivo con respaldo en malla y asiento tapizado en cuero ecológico": 2,
+    "Sillón giratorio ejecutivo": 1,
+    "Sillón giratorio ejecutivo con cabecera, respaldo en malla y asiento tapizado en cuero ecológico": 1,
+    "Sillón giratorio ejecutivo tipo presidencial": 1,
+    "Sillón giratorio operativo": 1,
+    "Sillón giratorio semi ejecutivo": 2,
+    "Sillón giratorio semi ejecutivo con respaldo en malla": 1,
+    "Sillón giratorio tipo cajero": 1,
+    "Sillón giratorio tipo operativo": 1,
+    "Sillón magistral": 1,
+    "Sillón secretarial": 1
+   }
+  },
+  "Silla giratoria para peluquería": {
+   "—": {
+    "Sillón semi ejecutivo y ejecutivo para tribunal departamental de justicia de Pando": 1
+   }
+  },
+  "Sillas de brazos": {
+   "—": {
+    "Silla de espera de madera": 1
+   }
+  },
+  "Sillas para descansar": {
+   "—": {
+    "Banca para usuarios": 1,
+    "Silla fija tandem de 4 puestos": 2,
+    "Silla tandem de 4 puestos": 1,
+    "Silla tipo tandem de 4 puestos": 1
+   }
+  },
+  "Sillas para ejecutivos": {
+   "—": {
+    "Escritorio normal de madera": 1,
+    "Escritorio normal 150x60x75 cm": 1,
+    "Mueble para computadora 90x50x75 cm": 1,
+    "Mueble para partes 90x50x75 cm": 1,
+    "Silla fija sin reposabrazos": 1,
+    "Silla giratoria ejecutiva": 1,
+    "Silla giratoria semi ejecutiva": 1
+   }
+  },
+  "Sillas ejecutivas": {
+   "Giratoria con brazo": {
+    "Silla ejecutiva giratoria con brazo": 1
+   },
+   "Semi ejecutiva": {
+    "Silla semi ejecutiva": 1
+   },
+   "Ejecutivo": {
+    "Sillón ejecutivo": 1
+   },
+   "Ejecutivo con respaldo alto": {
+    "Sillón ejecutivo con respaldo alto": 2,
+    "Sillón ejecutivo: asiento y respaldo alto": 1
+   },
+   "Ejecutivo en eco cuero": {
+    "Sillón ejecutivo en eco cuero": 1
+   },
+   "Fija con respaldo alto": {
+    "Sillón fija: asiento y respaldo alto": 1
+   },
+   "Presidencial": {
+    "Sillón presidencial: asiento y respaldo alto": 1
+   },
+   "Secretarial": {
+    "Sillón secretarial: asiento y respaldo alto": 1
+   },
+   "Semi ejecutivo": {
+    "Sillón semi ejecutivo": 1
+   },
+   "Semi ejecutivo con respaldo medio": {
+    "Sillón semi ejecutivo con respaldo medio": 2
+   },
+   "Semi ejecutivo con respaldo alto": {
+    "Sillón semi ejecutivo: asiento y respaldo alto": 1
+   },
+   "—": {
+    "Sillones ejecutivos": 1,
+    "Sillones semi ejecutivos": 1
+   }
+  },
+  "Sillas para grupos de trabajo": {
+   "Fijas de espera": {
+    "Sillas fijas de espera": 1
+   },
+   "Tandem 3 lugares": {
+    "Tandem de 3 lugares": 1
+   },
+   "Tandem 4 asientos": {
+    "Tandem de 4 asientos": 1
+   },
+   "Tandem 3 asientos": {
+    "Tandem de tres asientos": 1
+   }
+  },
+  "Sillas para visitantes": {
+   "Fija de espera": {
+    "Silla fija de espera": 1
+   },
+   "Tipo butaca": {
+    "Silla tipo butaca": 1,
+    "Sillón tipo butaca": 1
+   },
+   "Tandem de espera 4 asientos": {
+    "Tandem de espera de 4 asientos": 1
+   }
+  },
+  "UPS - Baterías": {
+   "10 kVA": {
+    "Batería para UPS INVT 10 kVA": 1
+   },
+   "20 kVA": {
+    "Batería para UPS INVT 20 kVA": 1
+   },
+   "—": {
+    "Batería 12 V 9 Ah": 1
+   }
+  },
+  "Sistema de monitoreo de comunicaciones por radio": {
+   "—": {
+    "Mini walkie talkie UHF": 1
+   }
+  },
+  "Sistema de posicionamiento global vehicular GPS": {
+   "—": {
+    "GPS vehicular con pantalla ≥2.2\"": 1
+   }
+  },
+  "Cámaras web": {
+   "—": {
+    "Cámara web USB": 1
+   }
+  },
+  "Sobres": {
+   "—": {
+    "Sobre Manila": 28
+   }
+  },
+  "Fundas para CD": {
+   "—": {
+    "Funda para CD": 1
+   }
+  },
+  "Sofás": {
+   "—": {
+    "Sofá de 2 cuerpos": 1,
+    "Sofá de 3 cuerpos": 1
+   }
+  },
+  "Soportes de pared": {
+   "—": {
+    "Soporte TV": 1,
+    "Soporte TV bi‑pivot WMB‑MA12/MA12EX": 1
+   }
+  },
+  "Soportes para micrófonos": {
+   "—": {
+    "Pie de micrófono Gravity TMS 4322 B": 1
+   }
+  },
+  "Retenes de rodamiento": {
+   "—": {
+    "Retén para hidráulico": 1
+   }
+  },
+  "Soportes y marcos de filtros": {
+   "Soporte para luminaria tipo dicróico": {
+    "Soporte para luminaria tipo dicróico": 1
+   }
+  },
+  "Sujetadores de documentos": {
+   "Apretador binder": {
+    "Apretador binder 51 mm": 2
+   },
+   "Apretador binder clip": {
+    "Apretador binder clip 51 mm": 4
+   },
+   "Broche para expediente (nepaco)": {
+    "Broche nepaco 8 cm": 3
+   },
+   "Fastener (nepaco)": {
+    "Fastener nepaco 8 cm 200 hojas": 1
+   }
+  },
+  "Sujetadores auto adhesivos": {
+   "Banderilla Post‑it": {
+    "Banderilla Post‑it 76 × 76 mm amarillo": 1,
+    "Banderilla Post‑it 76 × 76 mm multicolor": 1
+   }
+  },
+  "Sujetadores de esferos o lápices": {
+   "Porta lápices plástico": {
+    "Porta lápices plástico varias formas": 1
+   }
+  },
+  "Sujetadores de pinza": {
+   "Broche para expediente (nepaco)": {
+    "Broche nepaco 8 cm": 3,
+    "Broche nepaco 18 cm": 1
+   },
+   "Clip para papeles": {
+    "Clip papel 33 mm caja 100 unidades": 2
+   },
+   "Clip para papeles metal niquelado": {
+    "Clip papel 78 mm metal niquelado caja 50 unidades": 1
+   },
+   "Clip para papeles metal plastificado": {
+    "Clip papel 33 mm metal plastificado caja 100 unidades": 1
+   },
+   "Fastener plástico": {
+    "Fastener plástico nº 1 colores varios": 5
+   },
+   "—": {
+    "Fastener plural": 1,
+    "Sujetador de pinza Bulldog": 17
+   },
+   "Fastener metal": {
+    "Fastener metal nº 1 100 hojas": 3
+   },
+   "Sujeta papeles tipo Bulldog": {
+    "Sujeta papeles Bulldog 25 mm": 1,
+    "Sujeta papeles Bulldog 19 mm": 1
+   }
+  },
+  "Sujetadores o dispensadores de papeles o tacos": {
+   "—": {
+    "Base para exfoliador": 1,
+    "Porta Rollo para Cinta Adhesiva": 1,
+    "Sujetador de papel": 2,
+    "Sujetador de pinza Bulldog": 6
+   }
+  },
+  "Suministros de limpieza de impresoras o faxes o fotocopiadoras": {
+   "—": {
+    "Esponja lubricadora Epson LQ‑590": 2
+   }
+  },
+  "Superficies de trabajo": {
+   "—": {
+    "Credenza": 1
+   }
+  },
+  "Tableros y paneles": {
+   "Tablero de campo": {
+    "Tablero de campo oficio": 4,
+    "Tablero de campo para afiches": 1
+   }
+  },
+  "Consumibles para impresoras": {
+   "Tambor": {
+    "Tambor Lexmark modelo 56F0Z00": 4,
+    "Tambor HP modelo M203DW": 1,
+    "Tambor modelo DR-420": 1,
+    "Tambor modelo DR-720": 1,
+    "Tambor Lexmark genérico": 1,
+    "Tambor modelo DR-3460": 1,
+    "Tambor modelo DR-3460 para Brother HL L5100DW": 1,
+    "Tambor cilindro 720": 1,
+    "Tambor de imagen para Lexmark": 1
+   },
+   "Fusor": {
+    "Fusor HP RM1-7547 para LaserJet 1606DN": 1,
+    "Fusor HP RM1-7547 con asistencia técnica": 1
+   },
+   "Juego de tambor": {
+    "Juego de tambor DR-221CL para Brother HL-3170CDW": 1,
+    "Juego de tambor DR-221CL para Brother HL-3170CDW (4 unidades)": 1,
+    "Juego de tambor DR-221CL para Brother HL-3170CDW (4 unidades) con asistencia": 1
+   },
+   "Juego completo": {
+    "Juego completo de tambor DR-3460 para Brother HL-L5100DN": 2,
+    "Juego completo de tambor DR-420 para Brother DCP-7065DN": 1
+   },
+   "Accesorios": {
+    "Accesorios de tambor Lexmark modelo 56F0Z00": 1,
+    "Accesorios de tambor Lexmark modelo 56F0Z00 con asistencia técnica": 1,
+    "Accesorios de fusor HP RM1-7547 con asistencia técnica": 1
+   }
+  },
+  "Tambores": {
+   "—": {
+    "DR-720": 1,
+    "Deposito_residuos_toner_Brother_HL-3170cdw": 1,
+    "DR-32A_HP_LaserJet_Pro_M203DW": 1,
+    "DR-420_Brother_HL-2240DW": 1,
+    "DR-620_Brother_HL-5340DW": 1,
+    "DR-3460_Brother_HL-L5100DN": 1,
+    "DR_CANON_IR1430_1435i_GPR": 1,
+    "DR_PANTUM_BPS100DW": 1,
+    "DR_CANON_IR1430_1435i_GPR_54": 1,
+    "DR-3460_Brother_HL-5100": 1,
+    "DR-720_Brother_HL-6180": 1,
+    "DR-2340_Brother": 6,
+    "DR-3460_Brother_HL-6400DW": 9,
+    "DR-720_Brother": 4,
+    "W1332A_HP_Laser_408DN": 1,
+    "DR_MFC-L3750CW_Brother": 1,
+    "KIT_BISAGRAS_CANON_IR1435": 1,
+    "KIT_FUSION_CANON_IR1435": 1,
+    "KIT_RODILLO_ALIMENTACION_CANON_IR1643": 1,
+    "KIT_UNIDAD_FUSION_IR1643": 1,
+    "KIT_UNIDAD_IMAGEN_CANON_IR1435": 1,
+    "KIT_UNIDAD_FUSION_Kyocera_M3655idn": 1,
+    "DR-620_Brother": 1,
+    "UNIDAD_IMAGEN_CANON_IR1435i": 1
+   },
+   "Brother": {
+    "DR-720": 7,
+    "DR-420": 1,
+    "DR-620": 4,
+    "DR-3460": 3,
+    "DR-3609": 1,
+    "DR-221CL": 2
+   },
+   "Lexmark": {
+    "56F0Z00": 4,
+    "M421": 1,
+    "MS421": 2,
+    "MS610": 2,
+    "MS321/MS421/MS621": 1
+   },
+   "HP": {
+    "CF232A": 5
+   },
+   "Canon": {
+    "Rodillo alimentación C1": 1,
+    "Rodillo separación C1": 1,
+    "IR1435i": 1
+   }
+  },
+  "Accesorios": {
+   "—": {
+    "Caja plástica 2x4 pulgadas": 1
+   },
+   "Encuadernación": {
+    "Tapa plástica oficio transparente": 1,
+    "Tapa plástica oficio surtido": 1
+   }
+  },
+  "Tapas de encuadernación": {
+   "—": {
+    "Tapa plástica para anillado tamaño oficio": 2
+   }
+  },
+  "Tarima y accesorios de la tribuna": {
+   "—": {
+    "Tarima principal madera marfil": 1
+   }
+  },
+  "Tarjetas de memoria": {
+   "—": {
+    "Memoria flash USB 16 GB": 1
+   }
+  },
+  "Tarjetas de interface de red": {
+   "—": {
+    "Tarjeta de red gigabit PCI Express 32 bits": 1
+   }
+  },
+  "Teclados": {
+   "—": {
+    "Teclado USB": 10
+   }
+  },
+  "Teléfonos fijos": {
+   "—": {
+    "Teléfono fijo": 1
+   }
+  },
+  "Teléfonos IP": {
+   "—": {
+    "Teléfono IP": 1,
+    "Teléfono IP 3905 con fuente": 1,
+    "Teléfono IP Cisco CP 3905": 1
+   }
+  },
+  "Televisores": {
+   "—": {
+    "Televisor 43 pulgadas": 2,
+    "Televisor": 2,
+    "Televisor 50 pulgadas": 2,
+    "Televisor 55 pulgadas": 2,
+    "Televisor 75 pulgadas": 2,
+    "Televisor 55 pulgadas Ultra HD": 1,
+    "Televisor 40 pulgadas o superior 1080x1920 o superior": 1
+   }
+  },
+  "Temporizadores": {
+   "—": {
+    "Temporizador digital para energía eléctrica": 1
+   }
+  },
+  "Temporizadores de reloj": {
+   "—": {
+    "Reloj biométrico facial": 1
+   }
+  },
+  "Tensores": {
+   "—": {
+    "Brazo tensor derecho": 1,
+    "Brazo tensor izquierdo": 1
+   }
+  },
+  "Ceras y ambientadores para pisos": {
+   "—": {
+    "Ambientador de piso 2 L": 1,
+    "Cera para pisos de madera 1 L cremosa en frasco": 1,
+    "Cera para pisos fríos 1 L en frasco": 1,
+    "Cera para pisos de madera 1 L anti termitas": 1,
+    "Desinfectante de piso 1800 ml": 1
+   }
+  },
+  "Tela": {
+   "Tocuyo": {
+    "Tela tocuyo blanco por metro": 2
+   }
+  },
+  "Tijeras": {
+   "—": {
+    "Tijeras genéricas": 1,
+    "Tijeras 7.5‑19 cm, mango plástico, hoja metálica": 1,
+    "Tijeras de escritorio 21 cm, mango ergonómico, hoja fila": 1,
+    "Tijeras grandes": 2,
+    "Tijera para sellos con tinta, 12.5x8.5 cm, plástico, tinta azul": 1,
+    "Tijera genérica": 1,
+    "Tijera 20 cm": 1,
+    "Tijera grande": 2,
+    "Tijera para cortar 21 cm": 1,
+    "Tijeras para cortar papel 21 cm mango plástico acero inoxidable": 1,
+    "Tijeras 7.5‑19 cm mango plástico metal": 1
+   },
+   "Corte papel": {
+    "Tijeras para cortar papel": 2,
+    "Tijeras para cortar papel, hoja cuadrada, 7.5‑19 cm, mango plástico, metal": 2,
+    "Tijeras para cortar papel, hoja punteaguda, 7.5 cm": 3,
+    "Tijeras para cortar papel, hoja punteaguda, 7.5 cm, mango plástico, acero inoxidable": 1,
+    "Tijeras para cortar papel, hoja punteaguda, 17 cm, mango plástico, acero inoxidable": 1,
+    "Tijeras para cortar papel, hoja redondeada, 21 cm, mango plástico, acero inoxidable": 4,
+    "Tijeras para cortar papel, 7.5‑19 cm, material metálico": 1,
+    "Tijera para cortar papel": 1
+   },
+   "Uso doméstico": {
+    "Tijera uso doméstico 19 cm, mango plástico, metal, uso costura": 1
+   }
+  },
+  "Tinta para huellas dactilares": {
+   "—": {
+    "Tinta para tampo": 1,
+    "Tinta para tampo 30 ml": 2
+   }
+  },
+  "Tinta industrial para sello": {
+   "Metal": {
+    "Tampo para sellos con tinta negro medida 3": 1
+   },
+   "Plástico": {
+    "Tampo para sellos con tinta azul": 1,
+    "Tampo para sellos con tinta rojo": 1,
+    "Tampo para sellos con tinta rojo 12.5×8.5 cm": 1
+   },
+   "—": {
+    "Tinta para tampo 25 ml azul": 2,
+    "Tinta para tampo 25 ml negro": 2,
+    "Tinta para tampo 25 ml rojo": 2
+   }
+  },
+  "Tintas": {
+   "Metal": {
+    "Tampo para sellos con tinta azul 10×14.5 cm": 1
+   },
+   "—": {
+    "Tinta para foliador 30 ml negro": 2,
+    "Tinta para tampo 30 ml azul": 3,
+    "Tinta para tampo 30 ml negro": 1,
+    "Tinta para tampo 30 ml rojo": 1,
+    "Tinta para tampo 30 ml multicolor": 2,
+    "Tinta para tampo 28 ml azul": 1
+   },
+   "Tintas acrílicas": {
+    "Tinta para tampo color rojo 30 ml": 1
+   },
+   "Tintas para monoimpresión": {
+    "Tinta para sello de goma color azul": 1,
+    "Tinta para sello de goma color rojo": 1
+   },
+   "Tintas para serigrafía": {
+    "Tinta para sello de goma color rojo": 1,
+    "Tinta para sello de goma color azul": 1,
+    "Tinta para sello de goma color negro": 1,
+    "Tinta para sello de goma sin aceite 28 ml color negro": 1,
+    "Tinta para sello de goma sin aceite 28 ml color azul": 1,
+    "Tinta para sello de goma sin aceite 28 ml color rojo": 1,
+    "Tinta para tampo 28 ml surtido": 1
+   }
+  },
+  "Tintas acrílicas a base de agua": {
+   "—": {
+    "Tinta para tampo 30 ml azul": 1,
+    "Tinta para tampo 30 ml negro": 1
+   }
+  },
+  "Toallas": {
+   "Toallas de manos": {
+    "Toalla secador": 1
+   },
+   "Toallas de papel": {
+    "Toalla de papel 20.5x21.5 cm rollo": 1,
+    "Toalla de papel 22x22 cm rollo": 5,
+    "Toalla de papel 20.6x21 cm doble hoja": 1
+   }
+  },
+  "Drums": {
+   "—": {
+    "Brother HL 5100 Drum": 1,
+    "Brother HL 5450/HL 6180 Drum": 1,
+    "Brother TN-3460 Drum": 1
+   }
+  },
+  "Disco Duro SSD": {
+   "2.5\"": {
+    "SSD 2.5\" 250GB": 2,
+    "SSD 2.5\" 240GB": 2
+   }
+  },
+  "Disco Duro HDD": {
+   "3.5\"": {
+    "HDD 3.5\" 10TB": 1,
+    "HDD 2TB 5400RPM SATA": 1
+   },
+   "Interno": {
+    "HDD 1TB": 1,
+    "HDD 8TB": 1,
+    "HDD 240GB": 1,
+    "HDD 4TB Western Digital": 1
+   },
+   "SATA": {
+    "HDD SATA 1TB": 1,
+    "HDD 1TB 5900RPM SATA": 1
+   },
+   "Interno SATA": {
+    "HDD 500GB SATA": 1
+   }
+  },
+  "Fuente de Poder": {
+   "—": {
+    "Fuente 900W": 1,
+    "Fuente 850W": 1
+   }
+  },
+  "Accesorio de Fuente": {
+   "—": {
+    "Cooler para Fuente de Alimentación": 1
+   }
+  },
+  "Disco Duro Externo": {
+   "—": {
+    "Disco Externo 2TB": 1
+   }
+  },
+  "Bolsa": {
+   "Yute": {
+    "Bolsa Yute 100kg": 1
+   }
+  },
+  "Colchón Trapeadora": {
+   "—": {
+    "Colchón Trapeadora 65x53cm": 2,
+    "Colchón Trapeadora 63x53cm": 1
+   }
+  },
+  "Consola de Sonido": {
+   "—": {
+    "Consola de Sonido": 1
+   }
+  },
+  "Conmutador de Red": {
+   "24 puertos POE": {
+    "Switch POE 24 puertos": 1
+   },
+   "48 puertos POE": {
+    "Switch POE 48 puertos": 1
+   }
+  },
+  "Disco Óptico": {
+   "CD": {
+    "CD 700MB": 1
+   }
+  },
+  "Discos duros": {
+   "SSD 2.5\"": {
+    "Disco duro SSD": 4
+   },
+   "HDD 3.5\"": {
+    "Disco duro HDD": 2
+   }
+  },
+  "Medios ópticos": {
+   "—": {
+    "DVD-R": 1
+   }
+  },
+  "Accesorios de maquinaria": {
+   "—": {
+    "Varilla de cremalleras de dirección": 1
+   }
+  },
+  "Limpieza": {
+   "—": {
+    "Franelas": 1,
+    "Franelas de limpieza": 1
+   }
+  },
+  "Paños y franela de limpieza": {
+   "—": {
+    "Franela de limpieza naranja por metro": 5,
+    "Franela de limpieza por metro": 1
+   }
+  },
+  "Lectores de discos externos": {
+   "—": {
+    "Lector de disco externo DVD‑RW": 1
+   }
+  },
+  "Muebles de cómputo": {
+   "—": {
+    "Mueble de computadora": 1
+   }
+  },
+  "Repuestos de bolígrafos": {
+   "—": {
+    "Recambio de tinta para bolígrafo Parker azul": 1
+   }
+  },
+  "Sellos metálicos": {
+   "—": {
+    "Sello metálico 6 dígitos": 1
+   }
+  },
+  "Transmisor/receptor de video": {
+   "—": {
+    "HDMI UHD 4K30": 1
+   }
+  },
+  "Trapos y paños de limpieza": {
+   "Trapo de piso": {
+    "Trapo de piso": 3,
+    "Trapo de piso gris 48x60 cm": 4,
+    "Trapo de piso gris 50x60 cm": 4
+   },
+   "Trapo rejilla": {
+    "Trapo rejilla blanco 40x40 cm": 2
+   }
+  },
+  "Trípodes": {
+   "—": {
+    "Trípode profesional": 1
+   }
+  },
+  "Toallas de limpieza": {
+   "—": {
+    "Toalla de limpieza 74x44 cm": 1
+   }
+  },
+  "Trapeadores y mopas": {
+   "—": {
+    "Trapeador con palo mopa 360g": 1
+   }
+  },
+  "Trapos y paños": {
+   "Trapo rejilla": {
+    "Trapo rejilla 40x40": 1
+   },
+   "Trapo de piso": {
+    "Trapo de piso 50x60": 1,
+    "Trapo de piso 48x62": 1,
+    "Trapo de piso 50x60 super absorbente": 1,
+    "Trapo de piso 63x53 unidad": 1
+   }
+  },
+  "Unidad de Drum": {
+   "—": {
+    "Drum Brother DR-3609": 1,
+    "Drum Brother DR-720": 1,
+    "Drum HP 32A": 1,
+    "Drum Lexmark 56F0Z00": 1
+   }
+  },
+  "Unidad de Imagen": {
+   "—": {
+    "Unidad de Imagen genérica": 2,
+    "Unidad de Imagen Lexmark 421": 1,
+    "Unidad de Imagen Lexmark 621": 1,
+    "Unidad de Imagen Lexmark 620": 1,
+    "Unidad de Imagen Lexmark 56F0Z00": 1
+   }
+  },
+  "Ventilador": {
+   "—": {
+    "Ventilador genérico": 1
+   },
+   "Industrial de pared 24\"": {
+    "Ventilador industrial de pared 24\"": 1
+   },
+   "Industrial de pie 18\"": {
+    "Ventilador industrial de pie 18\"": 1
+   },
+   "Industrial de pie 20\"": {
+    "Ventilador industrial de pie 20\"": 1
+   },
+   "Industrial de pie 24\"": {
+    "Ventilador industrial de pie 24\"": 1
+   },
+   "Turbo compact": {
+    "Ventilador turbo compact": 1
+   }
+  },
+  "Virutilla": {
+   "Aspero": {
+    "Virutilla aspero": 1
+   },
+   "Acero trenzado": {
+    "Virutilla acero trenzado": 1
+   }
+  },
+  "Vitrinas": {
+   "Madera": {
+    "Vitrina de madera": 1
+   },
+   "—": {
+    "Vitrina de madera modelo Luis XVI": 1,
+    "Vitrina con vidrio": 2
+   }
+  },
+  "Discos duros y SSD": {
+   "SSD interno": {
+    "SSD 250 GB 2.5\"": 1
+   }
+  },
+  "Compresores": {
+   "—": {
+    "Turbo Compact": 1
+   }
+  }
+ }
+}
