@@ -29,3 +29,12 @@ scraper/salidas/
 
 # Caché local de graphify (no versionar)
 graphify-out/cache/
+
+# Taxonomía: salida BARAJADA obsoleta (5-nov, no usable) + backup, logs y cachés locales.
+# Los checkpoints VÁLIDOS (desc ligado al id) sí se versionan; esto es solo el ruido.
+monitor/taxonomia_propuesta.json
+monitor/taxonomia_propuesta.md
+monitor/_taxo_backup_barajada/
+monitor/*.log
+monitor/consolidacion_local_reporte.txt
+monitor/taxonomia_hojas_ck.jsonl
