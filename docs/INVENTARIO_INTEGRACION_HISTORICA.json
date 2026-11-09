@@ -1,0 +1,290 @@
+{
+  "verification": {
+    "archivos_preexistentes_verificados": 555,
+    "cambios_preexistentes": [],
+    "backup": "/private/tmp/sicoes-integracion-20261109T145337Z",
+    "main_head": "60f50de9d6644b40b9be1de53d486e50e7dbd9d9",
+    "main_branch": "main",
+    "experimental_preservado": true,
+    "datos_migrados": false,
+    "test_exit_code": 0,
+    "network_attempts": 0
+  },
+  "files": [
+    {
+      "origen": "prueba2/__init__.py",
+      "destino": "scraper/historico_local/__init__.py",
+      "adaptacion": "Paquete/rutas definitivos; funciones internas conservadas. Schema auxiliar conserva Store sin incorporar su motor piloto.",
+      "sha256": "42bb803274d46313a76dd05fe62437a549967edb1e4f68cbecebd17e5c51e1be"
+    },
+    {
+      "origen": "prueba2/historico_http_paginas.py",
+      "destino": "scraper/historico_local/historico_http_paginas.py",
+      "adaptacion": "Paquete/rutas definitivos; funciones internas conservadas. Schema auxiliar conserva Store sin incorporar su motor piloto.",
+      "sha256": "bdfb24223172dfb1761e2b34e27acc29ea95f9e7b2dca3e93eb95a9b53dc956d"
+    },
+    {
+      "origen": "prueba2/historico_http_directo.py",
+      "destino": "scraper/historico_local/historico_http_directo.py",
+      "adaptacion": "Paquete/rutas definitivos; funciones internas conservadas. Schema auxiliar conserva Store sin incorporar su motor piloto.",
+      "sha256": "cffd099ae48f17f8e5408bd9d479c34efc665555d439b90c3ab55a48eff984f5"
+    },
+    {
+      "origen": "prueba2/http_forms.py",
+      "destino": "scraper/historico_local/http_forms.py",
+      "adaptacion": "Paquete/rutas definitivos; funciones internas conservadas. Schema auxiliar conserva Store sin incorporar su motor piloto.",
+      "sha256": "861846aa338547a8958e5311c4acede6aa30f5ea9ae3fa20b14915744b87402d"
+    },
+    {
+      "origen": "prueba2/storage.py",
+      "destino": "scraper/historico_local/storage.py",
+      "adaptacion": "Paquete/rutas definitivos; funciones internas conservadas. Schema auxiliar conserva Store sin incorporar su motor piloto.",
+      "sha256": "deeb36e538088cb8c7da2026a9b88652e5600c5096b0e3ec9132b82a16bca703"
+    },
+    {
+      "origen": "prueba2/parsing.py",
+      "destino": "scraper/historico_local/parsing.py",
+      "adaptacion": "Paquete/rutas definitivos; funciones internas conservadas. Schema auxiliar conserva Store sin incorporar su motor piloto.",
+      "sha256": "8f0b305310dcb8d184bc8b3a5f4b27aae4055135980c8eb1f389fded904d6623"
+    },
+    {
+      "origen": "prueba2/brave_bootstrap.py",
+      "destino": "scraper/historico_local/brave_bootstrap.py",
+      "adaptacion": "Paquete/rutas definitivos; funciones internas conservadas. Schema auxiliar conserva Store sin incorporar su motor piloto.",
+      "sha256": "d74f87999e5355c3ce2e885fbbc1d28710211cb838035a535ea613dcd7c11139"
+    },
+    {
+      "origen": "prueba2/schema.sql",
+      "destino": "scraper/historico_local/schema.sql",
+      "adaptacion": "Paquete/rutas definitivos; funciones internas conservadas. Schema auxiliar conserva Store sin incorporar su motor piloto.",
+      "sha256": "67b3bd96dbeb60bbba62233164a0a4be6f120ccb020b55651ae3b043c146e39c"
+    },
+    {
+      "origen": "prueba2/.gitignore",
+      "destino": "scraper/historico_local/.gitignore",
+      "adaptacion": "Paquete/rutas definitivos; funciones internas conservadas. Schema auxiliar conserva Store sin incorporar su motor piloto.",
+      "sha256": "5fa429d835e0c88e7f08ba242b8355c9027b682c5563b9877bae7db3a5ddb1ad"
+    },
+    {
+      "origen": null,
+      "destino": "scraper/historico_local/__main__.py",
+      "adaptacion": "Entrada operativa por páginas; sin CLI del piloto.",
+      "sha256": "007c96b686ac6f5a52fe866a6ab901035744a687a9b5e43b83e5029e82b3b8eb"
+    },
+    {
+      "origen": "prueba2/requirements.txt",
+      "destino": "scraper/historico_local/requirements.txt",
+      "adaptacion": "Dependencias efectivas; no se instalan ni actualizan en esta integración.",
+      "sha256": "40dd1e561dbb5287f20d5bee494aee175aad1419b236f7dc090745c3ebe1d194"
+    },
+    {
+      "origen": "procesamiento_historico/__init__.py",
+      "destino": "procesamiento/historico/__init__.py",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "476e596f1cc5448f86156befcb4d5109091ecfbe1f614f13fd304084a75e10ab"
+    },
+    {
+      "origen": "procesamiento_historico/__main__.py",
+      "destino": "procesamiento/historico/__main__.py",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "78177c3d51c19c20f5f29cb39da27a430bb12722237bc30102cd529818e30b0b"
+    },
+    {
+      "origen": "procesamiento_historico/parser.py",
+      "destino": "procesamiento/historico/parser.py",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "3bb87b77d0e62205ab02b8f9a28e0f39876305c0bffa093e3c4595051264c607"
+    },
+    {
+      "origen": "procesamiento_historico/pipeline.py",
+      "destino": "procesamiento/historico/pipeline.py",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "5dd9d499e5080d510ff449d98302123549c10739b7b4e1be69312e5235a96803"
+    },
+    {
+      "origen": "procesamiento_historico/review.py",
+      "destino": "procesamiento/historico/review.py",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "8a4aa1274b888ba489fe01c1b987f52a457bf86a886aace6d138136e09bfda24"
+    },
+    {
+      "origen": "procesamiento_historico/piloto_referencia.json",
+      "destino": "procesamiento/historico/piloto_referencia.json",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "d0eee1f0890d830d6cc2ef26d91a5e39d6db121d83261da6ee487bf43b77a675"
+    },
+    {
+      "origen": "procesamiento_historico/schema.sql",
+      "destino": "procesamiento/historico/schema.sql",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "8fce396de701be28c5f88c9e0d43e49751cabd1d26eb450fca0df8da3c7a7a9a"
+    },
+    {
+      "origen": "procesamiento_historico/dbc.py",
+      "destino": "procesamiento/historico/dbc.py",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "2f3c42db8ff10a9b4581dafc712bf15c3e28cc307624a91e50255c5f82b33619"
+    },
+    {
+      "origen": "procesamiento_historico/technical.py",
+      "destino": "procesamiento/historico/technical.py",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "745d925d0995b823afa1597db9a0bea18c7a07aaa30fc26e02d4b8bf7d069208"
+    },
+    {
+      "origen": "procesamiento_historico/linking.py",
+      "destino": "procesamiento/historico/linking.py",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "f01f0529d41b2379ce52c6aa73b817d499b590220e8b715c85370a0b2f3f040e"
+    },
+    {
+      "origen": "procesamiento_historico/enrich.py",
+      "destino": "procesamiento/historico/enrich.py",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "84f17eae29647bf2ab1ef4e4c8ac5128b8c09de8d604f44f7efa68855bcf6599"
+    },
+    {
+      "origen": "procesamiento_historico/.gitignore",
+      "destino": "procesamiento/historico/.gitignore",
+      "adaptacion": "Solo ROOT/origen predeterminado cuando corresponde; reglas y contratos conservados.",
+      "sha256": "5d22d3a1e83569890aa3006d65843160a9d57a28411a558152d264884da06b37"
+    },
+    {
+      "origen": null,
+      "destino": "procesamiento/__init__.py",
+      "adaptacion": "",
+      "sha256": "071e5aca018c007c390688c7d6a76f6bdfd18e660df5b3e3182fd7848910ffaf"
+    },
+    {
+      "origen": "Correr Sicoes Local.command",
+      "destino": "Correr Sicoes Local.command",
+      "adaptacion": "Paquete, intérprete y logs nuevos; opciones, caffeinate y códigos conservados.",
+      "sha256": "30157418d0ab6a8a286b94ae724c14d846e132f2bd6afba5a8557af72e571d05"
+    },
+    {
+      "origen": "prueba2/tests/test_http_paginas.py",
+      "destino": "scraper/historico_local/tests/test_http_paginas.py",
+      "adaptacion": "Imports/puerto/lanzador; excluir solo prueba del alias no trasladado.",
+      "sha256": "8d3e27f0871a4af08903abd82ba22aaa3303888459736843bd75eefd26c6452c"
+    },
+    {
+      "origen": "prueba2/tests/test_http_primary.py",
+      "destino": "scraper/historico_local/tests/test_http_primary.py",
+      "adaptacion": "Imports/puerto/lanzador; excluir solo prueba del alias no trasladado.",
+      "sha256": "19d0a451afdc7ad71de516933ac2fadb9c7917d03b2d1a7b141b3b78890d5fae"
+    },
+    {
+      "origen": "prueba2/tests/test_http_forms.py",
+      "destino": "scraper/historico_local/tests/test_http_forms.py",
+      "adaptacion": "Imports/puerto/lanzador; excluir solo prueba del alias no trasladado.",
+      "sha256": "e7d8f129a929ee5b09823f4bbad0466ef55e7e88d03d8eb166c7a2ebc57dc0ca"
+    },
+    {
+      "origen": "prueba2/tests/test_brave_bootstrap.py",
+      "destino": "scraper/historico_local/tests/test_brave_bootstrap.py",
+      "adaptacion": "Imports/puerto/lanzador; excluir solo prueba del alias no trasladado.",
+      "sha256": "44ffa26c227656cfd4d8c1fc3a45f7703e89acff0e1e1b0133440f052d44b4a9"
+    },
+    {
+      "origen": "prueba2/tests/test_prueba2.py",
+      "destino": "scraper/historico_local/tests/test_validation.py",
+      "adaptacion": "Conservar casos sintéticos de parsing; no importar engine/browser ni sus tests.",
+      "sha256": "512b4f9af748bdefddd067b2d31812a8143f5e4ae5630fee781347b33f590a79"
+    },
+    {
+      "origen": "procesamiento_historico/tests/test_processing.py",
+      "destino": "procesamiento/historico/tests/test_processing.py",
+      "adaptacion": "Imports y corpus externo configurable, sin copiar datos.",
+      "sha256": "26bc277fe25b81989e14473c9b4e126f6cb14c233b2621d04bbaf40b4b4a49df"
+    },
+    {
+      "origen": "procesamiento_historico/tests/test_enrichment.py",
+      "destino": "procesamiento/historico/tests/test_enrichment.py",
+      "adaptacion": "Imports y corpus externo configurable, sin copiar datos.",
+      "sha256": "c5358688a6b961a8cece61ccb96f27f9a3bc2ed4153feb3f81b35307f22f3524"
+    },
+    {
+      "origen": "docs/CONTINUIDAD_CLAUDE.md",
+      "destino": "docs/PLAN_INTELIGENCIA_MERCADO.md",
+      "adaptacion": "Extraer plan de seis etapas y publicación progresiva sin doble conteo.",
+      "sha256": "495ea3c38c0c2e7328e349d5e3ab8a565c07e90c441ef2e4b50eb861c562fa2a"
+    },
+    {
+      "origen": "docs/CONTINUIDAD_CLAUDE.md",
+      "destino": "docs/CONTINUIDAD_CLAUDE.md",
+      "adaptacion": "Conservar antecedente; añadir autorización actual y prevalencia de módulos completos.",
+      "sha256": "cdbb76187f25566a3c15b1d75c3c466d6492b998b32827c1c282762cc42afb02"
+    },
+    {
+      "origen": "prueba2/HTTP_POR_PAGINA.md + SCRAPER_SICOES_LOCAL.md",
+      "destino": "scraper/historico_local/README.md",
+      "adaptacion": "Manual consolidado para rutas definitivas.",
+      "sha256": "909a54372dddbfdb457a62d7458840e11d7f91afe7083782e1ab36edf968c9a1"
+    },
+    {
+      "origen": "procesamiento_historico/README.md + ENRIQUECIMIENTO.md",
+      "destino": "procesamiento/historico/README.md",
+      "adaptacion": "Manual consolidado y límites conocidos conservados.",
+      "sha256": "8a483e379f83dcc7f53608bc25c97832cf3622d561d127606e3295354fd5bcc1"
+    },
+    {
+      "origen": null,
+      "destino": "scraper/historico_local/tests/test_integration.py",
+      "adaptacion": "Regresiones de rutas, helpers conservados, perfil real y protección del foco con mocks.",
+      "sha256": "3e6030e24e796c3df75f60291aa5839eb8a22bf2e10eb0b5bd6ffa86a08bcc6e"
+    },
+    {
+      "origen": null,
+      "destino": "docs/INTEGRACION_HISTORICA.md",
+      "adaptacion": "Informe final con inventario y evidencia de verificación.",
+      "sha256": "346470965d7654359d58ab9d90a45970917ff802ed842833f229a72682bb6550"
+    },
+    {
+      "origen": null,
+      "destino": "docs/INVENTARIO_INTEGRACION_HISTORICA.json",
+      "adaptacion": "Mapa exacto, hashes y procedencia; sin hash de sí mismo para evitar autorreferencia."
+    }
+  ],
+  "tests": {
+    "suites": [
+      {
+        "suite": "procesamiento/historico/tests",
+        "tests": 41,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "successful": true
+      },
+      {
+        "suite": "scraper/historico_local/tests",
+        "tests": 62,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "successful": true
+      }
+    ],
+    "network_attempts": [],
+    "network_blocked_globally": true,
+    "dependencies": {
+      "beautifulsoup4": "4.15.0",
+      "lxml": "6.1.1",
+      "playwright": "1.60.0",
+      "markitdown": "0.0.2",
+      "pdfminer.six": "20260107",
+      "mammoth": "1.13.0",
+      "pypdf": null
+    },
+    "corpus_source": "/Users/fabriziocuellar/Sicoes-Brain-algoritmo/prueba2/data/historico_http_paginas_0660-10_2024",
+    "corpus_copied": false,
+    "cli_smoke": "OK",
+    "operational_dependencies": "OK"
+  },
+  "generated_test_logs": [
+    "scraper/historico_local/data/historico_http_paginas_logs/20261109T150032Z_3570.log",
+    "scraper/historico_local/data/historico_http_paginas_logs/20261109T150033Z_3589.log",
+    "scraper/historico_local/data/historico_http_paginas_logs/20261109T150329Z_3621.log",
+    "scraper/historico_local/data/historico_http_paginas_logs/20261109T150329Z_3630.log",
+    "scraper/historico_local/data/historico_http_paginas_logs/20261109T150337Z_3650.log"
+  ]
+}

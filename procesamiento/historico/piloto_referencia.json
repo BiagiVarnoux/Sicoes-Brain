@@ -1,0 +1,430 @@
+{
+  "kind": "regresion_de_desarrollo_curada_sobre_originales",
+  "note": "No usar como precisión independiente. Cantidades/precios transcritos y posiciones revisadas antes de ampliar corpus. FORM 100-E excluido deliberadamente.",
+  "documents": [
+    {
+      "process": "1499648",
+      "form": "110",
+      "rows": [
+        {
+          "table": 12,
+          "row": 3,
+          "stage": "requerimiento",
+          "description_contains": "papel bond",
+          "values": {
+            "cantidad": "652",
+            "precio_unitario_preseleccionado": "46",
+            "importe_total_preseleccionado": "29992"
+          }
+        }
+      ],
+      "sha256": "4d826e1df581aca38342d59ba2f42c5da91cc188704c1fd3e00af8831190e54e"
+    },
+    {
+      "process": "1499648",
+      "form": "220",
+      "rows": [
+        {
+          "table": 12,
+          "row": 4,
+          "stage": "contratacion",
+          "description_contains": "PAPEL BOND",
+          "values": {
+            "cantidad_contratada": "652",
+            "precio_unitario_contratado": "44.89",
+            "importe_total_contratado": "29268.28",
+            "precio_unitario_preseleccionado": "46"
+          }
+        }
+      ],
+      "sha256": "66cf2a106f6d85c10925889c6ec8dee53e1ec44e4aa8fa5af4c18bf67d37d330"
+    },
+    {
+      "process": "1499648",
+      "form": "500",
+      "rows": [
+        {
+          "table": 5,
+          "row": 3,
+          "stage": "recepcion",
+          "description_contains": "PAPEL BOND",
+          "values": {
+            "cantidad_reportada_recepcion": "652",
+            "monto_real_ejecutado": "29268.28",
+            "cantidad_solicitada": "652"
+          },
+          "derived_price": "44.89"
+        }
+      ],
+      "sha256": "b52dc8efb5b6e978f834e5c8b01b9e9b8e28bf766a255956ef2b49f11b8fddc0"
+    },
+    {
+      "process": "1411332",
+      "form": "100",
+      "rows": [
+        {
+          "table": 12,
+          "row": 3,
+          "stage": "requerimiento",
+          "description_contains": "56f4h00",
+          "values": {
+            "cantidad": "45",
+            "precio_unitario_referencial": "2400",
+            "precio_total_referencial": "108000"
+          }
+        },
+        {
+          "table": 12,
+          "row": 4,
+          "stage": "requerimiento",
+          "description_contains": "p1606dn",
+          "values": {
+            "cantidad": "100",
+            "precio_unitario_referencial": "696",
+            "precio_total_referencial": "69600"
+          }
+        },
+        {
+          "table": 12,
+          "row": 5,
+          "stage": "requerimiento",
+          "description_contains": "m401 dn",
+          "values": {
+            "cantidad": "10",
+            "precio_unitario_referencial": "1706",
+            "precio_total_referencial": "17060"
+          }
+        },
+        {
+          "table": 12,
+          "row": 6,
+          "stage": "requerimiento",
+          "description_contains": "3003",
+          "values": {
+            "cantidad": "5",
+            "precio_unitario_referencial": "860",
+            "precio_total_referencial": "4300"
+          }
+        }
+      ],
+      "sha256": "5779436c212917462960c1d7b7ed5e226c58f59869fe34999989c8bfc73f31f3"
+    },
+    {
+      "process": "1411332",
+      "form": "170",
+      "rows": [
+        {
+          "table": 13,
+          "row": 4,
+          "stage": "adjudicacion",
+          "description_contains": "56F4H00",
+          "values": {
+            "cantidad_adjudicada": "45",
+            "precio_unitario_adjudicado": "2390",
+            "importe_total_adjudicado": "107550",
+            "precio_unitario_referencial": "2400"
+          }
+        },
+        {
+          "table": 13,
+          "row": 5,
+          "stage": "adjudicacion",
+          "description_contains": "P1606dn",
+          "values": {
+            "cantidad_adjudicada": "100",
+            "precio_unitario_adjudicado": "675",
+            "importe_total_adjudicado": "67500",
+            "precio_unitario_referencial": "696"
+          }
+        },
+        {
+          "table": 13,
+          "row": 6,
+          "stage": "adjudicacion",
+          "description_contains": "M401 DN",
+          "values": {
+            "cantidad_adjudicada": "10",
+            "precio_unitario_adjudicado": "1680",
+            "importe_total_adjudicado": "16800",
+            "precio_unitario_referencial": "1706"
+          }
+        },
+        {
+          "table": 13,
+          "row": 7,
+          "stage": "adjudicacion",
+          "description_contains": "3003",
+          "values": {
+            "cantidad_adjudicada": "5",
+            "precio_unitario_adjudicado": "840",
+            "importe_total_adjudicado": "4200",
+            "precio_unitario_referencial": "860"
+          }
+        }
+      ],
+      "sha256": "eb7508a8655b0310a4e201ae9fa236eb7644b62d96939776b31e9e65a4273432"
+    },
+    {
+      "process": "1411332",
+      "form": "200",
+      "rows": [
+        {
+          "table": 11,
+          "row": 3,
+          "stage": "contratacion",
+          "description_contains": "56F4H00",
+          "values": {
+            "cantidad": "45",
+            "precio_unitario_contratado": "2390",
+            "importe_total_contratado": "107550"
+          },
+          "absent": [
+            "proveedor_documentado"
+          ]
+        },
+        {
+          "table": 11,
+          "row": 4,
+          "stage": "contratacion",
+          "description_contains": "P1606dn",
+          "values": {
+            "cantidad": "100",
+            "precio_unitario_contratado": "675",
+            "importe_total_contratado": "67500"
+          },
+          "absent": [
+            "proveedor_documentado"
+          ]
+        }
+      ],
+      "sha256": "060a9ef86246b636561dfd05a6cb0c491e5415a1a7f800d54265c5c79aaeaa4f"
+    },
+    {
+      "process": "1411332",
+      "form": "500",
+      "rows": [
+        {
+          "table": 5,
+          "row": 3,
+          "stage": "recepcion",
+          "description_contains": "P1606dn",
+          "values": {
+            "cantidad_reportada_recepcion": "100",
+            "monto_real_ejecutado": "67500",
+            "cantidad_solicitada": "100"
+          },
+          "derived_price": "675"
+        },
+        {
+          "table": 5,
+          "row": 4,
+          "stage": "recepcion",
+          "description_contains": "56F4H00",
+          "values": {
+            "cantidad_reportada_recepcion": "45",
+            "monto_real_ejecutado": "107550",
+            "cantidad_solicitada": "45"
+          },
+          "derived_price": "2390"
+        }
+      ],
+      "sha256": "4b808b2b684c38f84730b4f979a30f4cd5d7e6c39e5708e08debbbff9696d683"
+    },
+    {
+      "process": "1412564",
+      "form": "100",
+      "rows": [
+        {
+          "table": 12,
+          "row": 3,
+          "stage": "requerimiento",
+          "description_contains": "escritorio",
+          "values": {
+            "cantidad": "60",
+            "precio_unitario_referencial": "4900",
+            "precio_total_referencial": "294000"
+          }
+        },
+        {
+          "table": 12,
+          "row": 4,
+          "stage": "requerimiento",
+          "description_contains": "matriciales",
+          "values": {
+            "cantidad": "10",
+            "precio_unitario_referencial": "3985",
+            "precio_total_referencial": "39850"
+          }
+        },
+        {
+          "table": 12,
+          "row": 5,
+          "stage": "requerimiento",
+          "description_contains": "termicas",
+          "values": {
+            "cantidad": "8",
+            "precio_unitario_referencial": "2600",
+            "precio_total_referencial": "20800"
+          }
+        },
+        {
+          "table": 12,
+          "row": 6,
+          "stage": "requerimiento",
+          "description_contains": "Escaner",
+          "values": {
+            "cantidad": "10",
+            "precio_unitario_referencial": "3970",
+            "precio_total_referencial": "39700"
+          }
+        }
+      ],
+      "sha256": "4e2b0d5154f94ac94c09ed0db56040583029eebd9e9c3c70a9de3c3fc1ef62a1"
+    },
+    {
+      "process": "1412564",
+      "form": "170",
+      "rows": [
+        {
+          "table": 13,
+          "row": 4,
+          "stage": "adjudicacion",
+          "description_contains": "escritorio",
+          "values": {
+            "cantidad_adjudicada": "60",
+            "precio_unitario_adjudicado": "4880",
+            "importe_total_adjudicado": "292800",
+            "precio_unitario_referencial": "4900"
+          }
+        },
+        {
+          "table": 13,
+          "row": 5,
+          "stage": "adjudicacion",
+          "description_contains": "termicas",
+          "values": {
+            "cantidad_adjudicada": "8",
+            "precio_unitario_adjudicado": "1700",
+            "importe_total_adjudicado": "13600",
+            "precio_unitario_referencial": "2600"
+          }
+        },
+        {
+          "table": 13,
+          "row": 6,
+          "stage": "adjudicacion",
+          "description_contains": "escaner",
+          "values": {
+            "cantidad_adjudicada": "10",
+            "precio_unitario_adjudicado": "3970",
+            "importe_total_adjudicado": "39700",
+            "precio_unitario_referencial": "3970"
+          }
+        },
+        {
+          "table": 14,
+          "row": 3,
+          "stage": "declaratoria_desierta",
+          "description_contains": "matriciales",
+          "values": {
+            "cantidad": "10",
+            "precio_unitario_referencial": "3985"
+          }
+        }
+      ],
+      "sha256": "cee2c1026a9fce9976ea06c60ae92fd3b34adf6dd5590903abd3da3de1361a76"
+    },
+    {
+      "process": "1412564",
+      "form": "200",
+      "rows": [
+        {
+          "table": 11,
+          "row": 3,
+          "stage": "contratacion",
+          "description_contains": "escaner",
+          "values": {
+            "cantidad": "10",
+            "precio_unitario_contratado": "3970",
+            "importe_total_contratado": "39700"
+          },
+          "absent": [
+            "proveedor_documentado"
+          ]
+        },
+        {
+          "table": 11,
+          "row": 4,
+          "stage": "contratacion",
+          "description_contains": "escritorio",
+          "values": {
+            "cantidad": "60",
+            "precio_unitario_contratado": "4880",
+            "importe_total_contratado": "292800"
+          },
+          "absent": [
+            "proveedor_documentado"
+          ]
+        },
+        {
+          "table": 11,
+          "row": 5,
+          "stage": "contratacion",
+          "description_contains": "termicas",
+          "values": {
+            "cantidad": "8",
+            "precio_unitario_contratado": "1700",
+            "importe_total_contratado": "13600"
+          },
+          "absent": [
+            "proveedor_documentado"
+          ]
+        }
+      ],
+      "sha256": "5d959511953bf331f959ee650821cb516966dbff4c113dd4a017d85d1de822cf"
+    },
+    {
+      "process": "1412564",
+      "form": "500",
+      "rows": [
+        {
+          "table": 5,
+          "row": 3,
+          "stage": "recepcion",
+          "description_contains": "escaner",
+          "values": {
+            "cantidad_reportada_recepcion": "10",
+            "monto_real_ejecutado": "39700",
+            "cantidad_solicitada": "10"
+          },
+          "derived_price": "3970"
+        },
+        {
+          "table": 5,
+          "row": 4,
+          "stage": "recepcion",
+          "description_contains": "escritorio",
+          "values": {
+            "cantidad_reportada_recepcion": "60",
+            "monto_real_ejecutado": "292800",
+            "cantidad_solicitada": "60"
+          },
+          "derived_price": "4880"
+        },
+        {
+          "table": 5,
+          "row": 5,
+          "stage": "recepcion",
+          "description_contains": "termicas",
+          "values": {
+            "cantidad_reportada_recepcion": "8",
+            "monto_real_ejecutado": "13600",
+            "cantidad_solicitada": "8"
+          },
+          "derived_price": "1700"
+        }
+      ],
+      "sha256": "f4264ef9c9a6dc8fe86c6df41119a247b4fed51607c15973b96a861c9ca47178"
+    }
+  ]
+}
