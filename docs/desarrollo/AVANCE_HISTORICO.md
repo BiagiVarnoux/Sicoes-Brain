@@ -123,6 +123,19 @@ Sobre los 194 manifiestos (`announced.forms` vs `documents`):
   `24-0660-11-1456215-1-1` (180×1 + 170×2). Se dejan **sin 170** por ahora (no se sabe
   qué documenta el 180). Igual les faltan 500/220 → entran al re-scrapeo.
 
+**PARQUEADO en rama `fix/scraper-formularios-170` (decisión 2026-11-11).** No se
+toca en `main` para no desviar del enfoque de canonización (6 pasos). Diseño ya
+acordado para cuando se retome:
+- El scraper **captura todos** los FORM 170 (evidencia del proponente descalificado).
+  Ya resuelto por `nth_link` (commit b927324).
+- La regla **"el último FORM 170 manda"** va en el **pipeline** (capa que cuenta
+  observaciones), NO en el scraper: colapsar a la última ocurrencia de FORM 170 por
+  CUCE antes de emitir observaciones de adjudicación. Es no-op sobre el baseline 934
+  actual (ningún proceso tiene hoy 2 forms 170 válidos) y evita la adjudicación
+  fantasma cuando se re-scrapeen los 4 procesos.
+- Tarea de captura: re-scrapear los 4 procesos (quedaron PARCIAL, solo FORM 100
+  válido) + el control de completitud (anunciado==capturado) del §5.3.
+
 ---
 
 ## 6. Comandos útiles
