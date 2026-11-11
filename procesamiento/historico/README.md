@@ -51,3 +51,24 @@ technical.py lee por AST patrones literales del extractor de impresión existent
 sin ejecutar su configuración ni modificar sus algoritmos.
 
 Ver docs/PLAN_INTELIGENCIA_MERCADO.md y docs/INTEGRACION_HISTORICA.md.
+
+## Fichas de adquisición locales — v1
+
+La prioridad actual es FORM 500 + FORM 200/220 + DBC. El comando independiente
+no modifica los comandos anteriores ni los datos originales:
+
+```bash
+scraper/venv/bin/python -m procesamiento.historico.acquisitions --output procesamiento/historico/data/adquisiciones_v1_NUEVO_CORTE
+```
+
+La salida debe ser nueva. Produce observaciones separadas, fichas derivadas
+SQLite/JSONL, inventario, relaciones con evidencia y procedencia. No suma fases,
+no ejecuta LLM y no realiza canonicalización. Véanse el
+[esquema y las reglas](../../docs/desarrollo/FICHAS_ADQUISICION_V1.md) y el
+[informe de la primera entrega](../../docs/desarrollo/ENTREGA_FICHAS_ADQUISICION_V1.md).
+
+Las reglas de asociación vigentes son `v2`: resuelven unicidad entre aristas
+elegibles y conservan las descartadas con motivos y contexto contractual.
+Para comparación se puede añadir `--association-rules v1`. El esquema de ficha
+no cambia; ambas opciones exigen una salida nueva. Referencia y límites en
+[asociación documental v2](../../docs/desarrollo/ASOCIACION_ADQUISICIONES_V2.md).

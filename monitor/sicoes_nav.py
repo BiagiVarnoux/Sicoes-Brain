@@ -12,6 +12,8 @@ resultados con sus archivos descargables.
 import os
 import re
 
+from playwright.async_api import Error as PlaywrightError
+
 CDP_URL = "http://localhost:9222"
 PORTAL = "https://www.sicoes.gob.bo/portal/index.php"
 BUSCADOR = "/portal/contrataciones/busqueda/convocatorias.php?tipo=convNacional"
@@ -80,14 +82,16 @@ async def ir_a_buscador(page):
         }
     """)
     await page.wait_for_timeout(500)
-    await page.evaluate(f"irLink('{BUSCADOR}')")
-    # esperar a que el buscador cargue (en vez de un timeout fijo)
+    # irLink puede navegar el documento completo. No devolver su resultado:
+    # podría ser una promesa que se pierde al destruirse el contexto anterior.
     try:
-        await page.wait_for_function(
-            "() => !!document.querySelector('a[href=\"#f-avanzada\"]') "
-            "|| !!document.querySelector('#formAvanzada')", timeout=30000)
-    except Exception:
-        await page.wait_for_timeout(3000)
+        await page.evaluate("(url) => { irLink(url); }", BUSCADOR)
+    except PlaywrightError as exc:
+        if "Execution context was destroyed" not in str(exc):
+            raise
+        # La navegación puede destruir el contexto incluso antes de que
+        # evaluate responda. Solo continuar si aparece el formulario real.
+    await page.wait_for_selector("#formAvanzada", state="attached", timeout=90000)
     await page.wait_for_timeout(600)
     try:
         await page.evaluate("var t=document.querySelector('a[href=\"#f-avanzada\"]'); if(t) t.click();")

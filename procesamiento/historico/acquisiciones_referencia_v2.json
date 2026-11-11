@@ -1,0 +1,128 @@
+{
+  "version": "v2",
+  "cuce": "25-0660-11-1517374-1-1",
+  "review_status": "REVISION_DOCUMENTAL_POR_AGENTE_NO_VALIDACION_HUMANA_INDEPENDIENTE",
+  "contract_sha256": "bcbe732c645f3c3c473de58e17ce9e82048e87e98302a637c3c59a5789439e9c",
+  "receipt_sha256": "f89adf120a503464b65135bcee27cad9769b37d59f5e0e51036ab3d5c1f24a56",
+  "positive_pairs": [
+    {
+      "receipt_table": 5,
+      "receipt_row": 3,
+      "contract_table": 11,
+      "contract_row": 15
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 4,
+      "contract_table": 11,
+      "contract_row": 17
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 5,
+      "contract_table": 11,
+      "contract_row": 6
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 6,
+      "contract_table": 11,
+      "contract_row": 13
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 7,
+      "contract_table": 11,
+      "contract_row": 5
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 8,
+      "contract_table": 11,
+      "contract_row": 10
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 9,
+      "contract_table": 11,
+      "contract_row": 20
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 10,
+      "contract_table": 11,
+      "contract_row": 3
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 11,
+      "contract_table": 11,
+      "contract_row": 16
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 12,
+      "contract_table": 11,
+      "contract_row": 18
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 13,
+      "contract_table": 11,
+      "contract_row": 21
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 14,
+      "contract_table": 11,
+      "contract_row": 4
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 15,
+      "contract_table": 11,
+      "contract_row": 9
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 16,
+      "contract_table": 11,
+      "contract_row": 11
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 17,
+      "contract_table": 11,
+      "contract_row": 14
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 18,
+      "contract_table": 11,
+      "contract_row": 19
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 19,
+      "contract_table": 11,
+      "contract_row": 7
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 20,
+      "contract_table": 11,
+      "contract_row": 8
+    },
+    {
+      "receipt_table": 5,
+      "receipt_row": 21,
+      "contract_table": 11,
+      "contract_row": 12
+    }
+  ],
+  "negative_policy": "Resto del producto cartesiano 19x19: no elegible bajo descripcion exacta y contrato; no etiqueta de inequivalencia comercial",
+  "human_review_pending": [
+    "Validación independiente de los 19 pares y sus proveedores",
+    "Relaciones parciales y descripciones no idénticas fuera del caso de desarrollo"
+  ]
+}
