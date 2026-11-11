@@ -31,7 +31,8 @@ if [ -z "${cuces_input// /}" ]; then echo 'No se indicó ningún CUCE'; exit 2; 
 read -r -p 'Entidad (solo si usás formas cortas, p.ej. 0660-10) [vacío]: ' entity
 read -r -p 'Gestión (solo si usás formas cortas, p.ej. 2022) [vacío]: ' year
 
-# Partir la línea en tokens.
+# Partir la línea en tokens (tolera comas y/o espacios como separador).
+cuces_input="${cuces_input//,/ }"
 read -r -a cuces <<< "$cuces_input"
 
 # Flags opcionales de contexto para formas cortas.
@@ -44,10 +45,10 @@ log="$ROOT/scraper/historico_local/data/historico_http_paginas_logs/$(date -u +%
 echo "CUCE(s): ${cuces[*]}. Log: $log"
 
 if command -v caffeinate >/dev/null 2>&1; then
-  caffeinate -dimsu "$PY" -B -m scraper.historico_local.por_cuce "${cuces[@]}" "${scope_flags[@]}" 2>&1 | tee -a "$log"
+  caffeinate -dimsu "$PY" -B -m scraper.historico_local.por_cuce "${cuces[@]}" ${scope_flags[@]+"${scope_flags[@]}"} 2>&1 | tee -a "$log"
   run_exit=${PIPESTATUS[0]}
 else
-  "$PY" -B -m scraper.historico_local.por_cuce "${cuces[@]}" "${scope_flags[@]}" 2>&1 | tee -a "$log"
+  "$PY" -B -m scraper.historico_local.por_cuce "${cuces[@]}" ${scope_flags[@]+"${scope_flags[@]}"} 2>&1 | tee -a "$log"
   run_exit=${PIPESTATUS[0]}
 fi
 if [ "$run_exit" -eq 130 ]; then exit 130; fi
