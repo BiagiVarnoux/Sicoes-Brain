@@ -199,7 +199,10 @@ async def ir_a_buscador(page):
     await page.wait_for_timeout(800)
 
 
-async def buscar(page, cuce2, cuce3, anio, estado_val="2C"):
+async def buscar(page, cuce2, cuce3, anio, estado_val="2C", num="", var1="", var2=""):
+    # Campos del CUCE en el buscador avanzado: cuce1=año, cuce2/cuce3=entidad,
+    # cuce4=nº de convocatoria, cuce5/cuce6=variante. Se puede dejar vacío
+    # cualquiera: con solo cuce4 el proceso sale directo (sin paginar).
     await page.evaluate("""
         () => {
             var tab = document.querySelector('a[href="#f-avanzada"]'); if (tab) tab.click();
@@ -217,10 +220,15 @@ async def buscar(page, cuce2, cuce3, anio, estado_val="2C"):
             var c1 = f('[name="cuce1"]'); if (c1[0]) c1[0].value = args.anio;
             var c2 = f('[name="cuce2"]'); if (c2[0]) c2[0].value = args.cuce2;
             var c3 = f('[name="cuce3"]'); if (c3[0]) c3[0].value = args.cuce3;
+            var c4 = f('[name="cuce4"]'); if (c4[0]) c4[0].value = args.num;
+            var c5 = f('[name="cuce5"]'); if (c5[0]) c5[0].value = args.var1;
+            var c6 = f('[name="cuce6"]'); if (c6[0]) c6[0].value = args.var2;
             var ct = document.getElementById('codigoContrato'); if (ct) ct.value = 'B';
             var est = document.getElementById('r1'); if (est) est.value = args.estado_val;
         }
-    """, {"anio": str(anio)[2:], "cuce2": cuce2, "cuce3": cuce3, "estado_val": estado_val})
+    """, {"anio": (str(anio)[2:] if anio not in (None, "") else ""),
+          "cuce2": cuce2 or "", "cuce3": cuce3 or "", "estado_val": estado_val,
+          "num": str(num or ""), "var1": str(var1 or ""), "var2": str(var2 or "")})
     await page.wait_for_timeout(400)
     await page.evaluate("""
         () => {

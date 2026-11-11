@@ -79,10 +79,13 @@ ficha por observación, montos por etapa idénticos, salidas reproducibles (mism
   `contract_equal`, nro_item/contrato/proveedor como corroboración; gate = 75 tests +
   `acquisiciones_referencia_v2.json` (19 pares curados con ítems renumerados). **Pendiente
   de revisión del resultado.**
-- **Variante del scraper por CUCE**: `scraper/historico_local/por_cuce.py` (+ tests).
-  Acepta uno o más CUCE, forma larga (autodescrita, multi-entidad) o corta con tu
-  convención (`1199042` → `-1-1`; `1199042-1-2` explícito). Delega en el `run()` existente,
-  no cambia la captura. 13 tests nuevos; suite del scraper **75/75 OK**.
+- **Variante del scraper por CUCE**: `scraper/historico_local/por_cuce.py` (+ tests y
+  lanzador). Busca **por nº de convocatoria** (campo `cuce4` del buscador avanzado;
+  `cuce1`/`cuce2`/`cuce3` quedan vacíos), así que NO pide entidad ni año: `1199042`
+  → variante `-1-1`; `1199042-1-2` llena `cuce5`/`cuce6`. El CUCE completo del
+  resultado define la carpeta de guardado (misma ruta que el lanzador por entidad/gestión).
+  `buscar()` en `probe_historico.py` se extendió con `num/var1/var2` opcionales (firma
+  posicional intacta → el scraper por entidad/año no cambia). Suite del scraper **OK**.
 
 ---
 
@@ -107,15 +110,15 @@ ficha por observación, montos por etapa idénticos, salidas reproducibles (mism
 ## 6. Comandos útiles
 
 Doble clic (lanzador, igual que los demás `.command`):
-`Correr Sicoes Local (por CUCE).command` — pega uno o más CUCE, guarda en la
-misma carpeta que `Correr Sicoes Local.command`.
+`Correr Sicoes Local (por CUCE).command` — pega uno o más por nº de convocatoria,
+guarda en la misma carpeta que `Correr Sicoes Local.command`.
 
 ```sh
-# Verificar/listar procesos puntuales sin conectar
-scraper/venv/bin/python -B -m scraper.historico_local.por_cuce 22-0660-10-1199042-1-2 --check
+# Listar lo que se buscaría, sin conectar (por nº de convocatoria)
+scraper/venv/bin/python -B -m scraper.historico_local.por_cuce 1199042-1-2 --check
 
-# Capturar varios CUCE (forma corta usa --entidad/--anio)
-scraper/venv/bin/python -B -m scraper.historico_local.por_cuce 1199042-1-2 --entidad 0660-10 --anio 2022
+# Capturar varias convocatorias (sin entidad ni año: busca por el 4º campo del CUCE)
+scraper/venv/bin/python -B -m scraper.historico_local.por_cuce 1199042-1-2 1333011 1456215
 
 # Fichas de adquisición (asociación v2)
 scraper/venv/bin/python -B -m procesamiento.historico.acquisitions --output <salida_nueva> --association-rules v2
