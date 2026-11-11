@@ -175,13 +175,14 @@ def original_functions(mode="primary"):
     ns['descargar_token']=download
     ns['keepalive']=keepalive
     async def open_form(page,token):
-        row=ns['_active_row'];label=ns['_active_label']
+        row=ns['_active_row'];label=ns['_active_label'];occurrence=ns.get('_active_occurrence',0)
         await refresh_row(page,row,ns)
-        matches=[f for f in row.get('forms',[]) if f['label']==label]
-        if len(matches)!=1:raise RuntimeError('FORM no anunciado o ambiguo; no activar KEEPALIVE')
+        group=[f for f in row.get('forms',[]) if f['label']==label]
+        if len(group)<=occurrence:raise RuntimeError('FORM no anunciado o incompleto; no activar KEEPALIVE')
+        token=group[occurrence]['token']
         form=re.search(r'\d{3}',label);kind='FORM'+form[0] if form else 'FORM'
         async def opening():
-            return await ns['_abrir_form_intento'](page,matches[0]['token'],25000)
+            return await ns['_abrir_form_intento'](page,token,25000)
         started=time.monotonic()
         if mode=='compare':
             result=await capture_once(page,opening,lambda:ns['_cerrar_modal_real'](page),row['cuce'],kind)
@@ -190,7 +191,7 @@ def original_functions(mode="primary"):
             async def trigger():
                 await ns['_cerrar_modales'](page)
                 await page.wait_for_timeout(500)  # pausa previa original; no espera de renderizado
-                await page.evaluate('token=>{verFormulario(token);}',matches[0]['token'])
+                await page.evaluate('token=>{verFormulario(token);}',token)
             async def modal_ready():
                 # Esperar solo el modal y su botón real evita cerrar antes de que
                 # el callback AJAX lo muestre. No espera ni extrae sus tablas.
@@ -300,6 +301,18 @@ def convert(folder,entry,converter):
     return entry
 
 
+def nth_link(links,label,occurrence=0):
+    """Token de la ``occurrence``-ésima aparición de ``label`` en la fila refrescada.
+
+    Desambigua formas repetidas (p.ej. dos FORM 170: pre-adjudicación anulada y
+    re-adjudicación) por ORDEN, no por token (el portal regenera tokens al
+    refrescar). Con etiqueta única equivale al comportamiento previo."""
+    group=[d for d in links if d.get('label')==label]
+    if len(group)<=occurrence:
+        raise RecoveryRequired('Documento ya no disponible o incompleto en la fila actual')
+    return group[occurrence]['token']
+
+
 def targets(row):
     docs=[('FORM',f['label'],f['token']) for f in row.get('forms',[])]
     wanted='oferta' if row['modalidad']=='CM' else 'documento base'
@@ -319,7 +332,9 @@ async def process(page,row,root,nav,converter,missing_only=False):
     complete=True;report['needs_navigation_recovery']=False
     nav['_active_row']=row
     nav['_http_folder']=folder/'http';nav['_http_folder'].mkdir(exist_ok=True)
+    seen_labels={}
     for position,(kind,label,token) in enumerate(targets(row)):
+        occurrence=seen_labels.get((kind,label),0);seen_labels[(kind,label)]=occurrence+1
         print(f'    {label}: preparando',flush=True)
         key=f'{kind}:{label}:{position}';doc=report['documents'].setdefault(key,{'label':label,'kind':kind,'versions':[],'attempts':[]})
         good=next((v for v in reversed(doc['versions']) if v['valid'] and (folder/v['path']).exists() and hashlib.sha256((folder/v['path']).read_bytes()).hexdigest()==v['sha256']),None)
@@ -342,10 +357,8 @@ async def process(page,row,root,nav,converter,missing_only=False):
             if 'extraer_filas' in nav:
                 await refresh_row(page,row,nav)
                 links=row.get('forms' if kind=='FORM' else 'archivos',[])
-                matches=[d for d in links if d['label']==label]
-                if len(matches)!=1:raise RecoveryRequired('Documento ya no disponible o no unívoco en fila actual')
-                token=matches[0]['token']
-            nav['_active_label']=label
+                token=nth_link(links,label,occurrence)
+            nav['_active_label']=label;nav['_active_occurrence']=occurrence
             if kind=='FORM':
                 try:
                     with timed(nav,'form_capture',label):

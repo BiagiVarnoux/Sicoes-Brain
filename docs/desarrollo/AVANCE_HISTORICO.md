@@ -103,7 +103,25 @@ ficha por observación, montos por etapa idénticos, salidas reproducibles (mism
    y fallar fuerte (prompt de Codex redactado; aún no implementado).
 4. **Cobertura DBC** (etapa 3): segmentar los 54 CUCE con DBC sin bloques; cargar texto DBC
    ya extraído en disco.
-5. OCR de escaneados; deuda FORM 170 (17 filas, no bloqueante).
+5. OCR de escaneados.
+
+### Hallazgo 2026-11-10 — formas repetidas (FORM 170 múltiple) y FORM 180
+
+Sobre los 194 manifiestos (`announced.forms` vs `documents`):
+- **4 procesos anuncian ≥2 FORM 170 y solo se capturó 1**: `22-0660-10-1199042-1-2`
+  (2), `23-0660-10-1309108-1-1` (3), `23-0660-11-1390009-1-1` (2),
+  `24-0660-11-1456215-1-1` (2). Causa (confirmada en código): `process()` y
+  `open_form()` resolvían el token **por etiqueta** y abortaban si había más de una
+  (`len(matches)!=1`). Teoría del usuario sobre el *por qué* hay varias: un proponente
+  se preadjudica, lo descalifican y el siguiente FORM 170 adjudica al siguiente.
+  **Corregido** por índice de ocurrencia (`nth_link`): se captura la N-ésima forma de
+  cada etiqueta por ORDEN sobre la fila refrescada. El mismo bug sub-capturaba
+  **FORM 250** (procesos 2026 anuncian 2–3, se guardó 1) y FORM 180/190.
+  → Hay que **re-scrapear** esos 4 procesos para traer el/los 170 faltantes.
+- **4 procesos tienen FORM 180 (y 0 ó mixto 170)**: `23-0660-11-1333011-1-1` (180×2),
+  `23-0660-11-1333433-1-1` (180×1), `23-0660-11-1333799-1-1` (180×3),
+  `24-0660-11-1456215-1-1` (180×1 + 170×2). Se dejan **sin 170** por ahora (no se sabe
+  qué documenta el 180). Igual les faltan 500/220 → entran al re-scrapeo.
 
 ---
 
