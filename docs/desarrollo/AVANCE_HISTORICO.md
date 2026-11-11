@@ -123,9 +123,9 @@ Sobre los 194 manifiestos (`announced.forms` vs `documents`):
   `24-0660-11-1456215-1-1` (180×1 + 170×2). Se dejan **sin 170** por ahora (no se sabe
   qué documenta el 180). Igual les faltan 500/220 → entran al re-scrapeo.
 
-**PARQUEADO en rama `fix/scraper-formularios-170` (decisión 2026-11-11).** No se
-toca en `main` para no desviar del enfoque de canonización (6 pasos). Diseño ya
-acordado para cuando se retome:
+**Frente del scraper — manejado por OTRA sesión de Claude sobre el MISMO `main`
+(decisión 2026-11-11).** No se abre rama aparte. Protocolo de coordinación para no
+pisarse (ver §Coordinación de dos sesiones). Diseño ya acordado:
 - El scraper **captura todos** los FORM 170 (evidencia del proponente descalificado).
   Ya resuelto por `nth_link` (commit b927324).
 - La regla **"el último FORM 170 manda"** va en el **pipeline** (capa que cuenta
@@ -171,3 +171,30 @@ scraper/venv/bin/python -B -m unittest discover -s scraper/historico_local/tests
   no el nro_item, es la llave 1:1.
 - **2026-11-10 — Verificación de completitud.** Se cruza `announced.forms` del manifiesto vs
   documentos con versión válida. Reveló los ~23 forms del §5.
+
+---
+
+## 8. Coordinación de dos sesiones de Claude (mismo `main`, sin ramas)
+
+Dos sesiones trabajan en paralelo sobre `main`. Para no pisarse:
+
+**Dueños de archivos (quién puede commitear qué):**
+- **Sesión CANONIZACIÓN** (etapas 3–6): `procesamiento/historico/enrich.py`,
+  módulos de candidatos/verificador/agrupación, `docs/desarrollo/*` (incl. esta
+  bitácora y el baseline). Es la **integradora**: revisa choques.
+- **Sesión SCRAPER/FORMULARIOS**: `scraper/**` (incl. `probe_historico.py`,
+  `historico_local/**`, lanzadores `.command`), y la guarda "último 170 manda"
+  en `procesamiento/historico/pipeline.py`.
+
+**Zona compartida (riesgo de choque):** `procesamiento/historico/pipeline.py` y
+`parser.py`. La bitácora `AVANCE_HISTORICO.md` la edita **solo** la sesión de
+canonización (la otra reporta cambios para que se registren aquí).
+
+**Protocolo al commitear/pushear (sesión scraper):**
+1. `git add` **solo sus archivos** (nunca `git add -A`/`.`).
+2. Antes del push, si toca algo **fuera de `scraper/**`** (p.ej. `pipeline.py`),
+   emite la **lista de archivos** que modifica y la pasa a la sesión de
+   canonización para verificar que no haya choque.
+3. `git pull --rebase` antes del push; si hay conflicto en zona compartida, se
+   resuelve coordinando, no con `--force`.
+4. No tocar `graphify-out/` ni `.claude/skills/` (ruido ajeno al trabajo).
