@@ -67,17 +67,22 @@ class RecoveryRequired(RuntimeError):pass
 
 
 def collapse_forms(forms):
-    """De varios FORM 170 (re-adjudicaciones), conservar SOLO el último (vigente).
+    """Si un mismo formulario aparece varias veces, conservar SOLO el último.
 
-    El portal lista los formularios de arriba a abajo; cuando hay más de un
-    FORM 170 los anteriores quedaron anulados/descalificados y solo el último es
-    el acta válida. Se descartan los 170 previos y se dejan intactos los demás
-    formularios, preservando el orden de aparición."""
+    El portal lista los formularios de arriba a abajo; cuando un formulario se
+    repite (p.ej. varios FORM 170 por re-adjudicación) las apariciones previas
+    quedaron anuladas/descalificadas y solo la última es la versión vigente. Se
+    identifican por su número (``\\d{3}``) y se conserva la última de cada
+    número, preservando el orden de aparición. Los enlaces sin número
+    reconocible no se agrupan y se dejan intactos."""
     def num(f):
         m=re.search(r'\d{3}',f.get('label',''))
         return m[0] if m else None
-    last_170=max((i for i,f in enumerate(forms) if num(f)=='170'),default=None)
-    return [f for i,f in enumerate(forms) if num(f)!='170' or i==last_170]
+    last={}
+    for i,f in enumerate(forms):
+        n=num(f)
+        if n is not None:last[n]=i
+    return [f for i,f in enumerate(forms) if num(f) is None or last[num(f)]==i]
 
 
 async def refresh_row(page,row,nav):

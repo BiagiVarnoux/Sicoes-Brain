@@ -64,6 +64,29 @@ class CollapseFormsTests(unittest.TestCase):
         forms = [{'label': 'FORM 100', 'token': 'a'}, {'label': 'FORM 500', 'token': 'b'}]
         self.assertEqual(base.collapse_forms(forms), forms)
 
+    def test_multiple_distinct_forms_each_keeps_last(self):
+        # Varios formularios distintos repetidos a la vez: de cada número, el último.
+        forms = [
+            {'label': 'FORM 100', 'token': '100a'},
+            {'label': 'FORM 100', 'token': '100b'},
+            {'label': 'FORM 170', 'token': '170a'},
+            {'label': 'FORM 200', 'token': '200a'},
+            {'label': 'FORM 170', 'token': '170b'},
+            {'label': 'FORM 200', 'token': '200b'},
+        ]
+        out = base.collapse_forms(forms)
+        self.assertEqual([(f['label'], f['token']) for f in out],
+                         [('FORM 100', '100b'), ('FORM 170', '170b'), ('FORM 200', '200b')])
+
+    def test_unnumbered_labels_not_grouped(self):
+        forms = [
+            {'label': 'Oferta', 'token': 'x'},
+            {'label': 'Oferta', 'token': 'y'},
+            {'label': 'FORM 170', 'token': 'a'},
+            {'label': 'FORM 170', 'token': 'b'},
+        ]
+        self.assertEqual([f['token'] for f in base.collapse_forms(forms)], ['x', 'y', 'b'])
+
 
 if __name__ == '__main__':
     unittest.main()
