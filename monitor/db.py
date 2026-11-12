@@ -63,6 +63,28 @@ def cuces_existentes(cuces: list[str]) -> set:
     return vistos
 
 
+def cuces_con_dbc(cuces: list[str]) -> set:
+    """Devuelve el subconjunto de CUCE que ya tiene su DBC descargado
+    (dbc_descargado=True). Sirve para reanudar una corrida interrumpida sin
+    volver a bajar y re-procesar lo ya hecho."""
+    if not cuces:
+        return set()
+    vistos = set()
+    for base in range(0, len(cuces), 100):
+        trozo = cuces[base:base + 100]
+        lista = ",".join(f'"{c}"' for c in trozo)
+        path = f"{TABLA}?cuce=in.({lista})&dbc_descargado=is.true&select=cuce"
+        req = urllib.request.Request(
+            f"{SUPABASE_URL}/rest/v1/{path}", headers=_headers())
+        try:
+            _s, body = _urlopen_retry(req, timeout=15)
+            for row in json.loads(body):
+                vistos.add(row["cuce"])
+        except Exception as e:
+            print(f"      ⚠ No se pudo consultar DBC ya descargados: {e}", flush=True)
+    return vistos
+
+
 def catalogo_erp(limite: int = 80) -> list[str]:
     """Catálogo REAL del usuario: productos que efectivamente ofertó en el ERP
     (tabla espejo erp_productos). Deduplicado, 'nombre — especificacion'. Es la

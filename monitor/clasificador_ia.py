@@ -22,7 +22,10 @@ def _cargar_keys() -> list[str]:
     el límite de Groq es POR ORGANIZACIÓN, así que una key de otra cuenta tiene su
     propio cupo diario (TPD) separado. Prioridad:
       1) GROQ_API_KEYS = "key1,key2,..." (lista separada por comas), o
-      2) GROQ_API_KEY, GROQ_API_KEY_2, GROQ_API_KEY_3, ... (una por variable)."""
+      2) GROQ_API_KEY, GROQ_API_KEY_2, GROQ_API_KEY_3, ... (una por variable).
+    Además, como ÚLTIMO colchón, agrega al final las keys de canonización
+    (GROQ_API_KEY_CANON, _CANON_2): el radar solo las toca cuando sus propias
+    cuentas ya se saturaron (van al final de la rotación, por organización aparte)."""
     multi = os.environ.get("GROQ_API_KEYS", "").strip()
     if multi:
         keys = [k.strip() for k in multi.split(",") if k.strip()]
@@ -33,6 +36,13 @@ def _cargar_keys() -> list[str]:
             v = os.environ.get(nombre, "").strip()
             if v:
                 keys.append(v)
+    # Colchón de último recurso: las cuentas de canonización, al FINAL de la lista
+    # (la rotación las alcanza solo tras agotar las del radar). El dedup de abajo
+    # evita problemas si alguna coincide con una ya cargada.
+    for nombre in ("GROQ_API_KEY_CANON", "GROQ_API_KEY_CANON_2"):
+        v = os.environ.get(nombre, "").strip()
+        if v:
+            keys.append(v)
     # quita duplicados conservando el orden (por si repetís una key)
     vistas: set[str] = set()
     return [k for k in keys if not (k in vistas or vistas.add(k))]

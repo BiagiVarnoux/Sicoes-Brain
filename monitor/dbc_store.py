@@ -208,8 +208,14 @@ def _a_markdown(ruta: str) -> str:
             from markitdown import MarkItDown  # type: ignore
             resultado = MarkItDown().convert(ruta_para_markitdown)
             md = resultado.text_content or ""
-        except Exception:
-            pass  # cae al bloque LibreOffice→PDF de abajo
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except BaseException:
+            # markitdown lanza UnsupportedFormatException/FileConversionException
+            # que heredan de BaseException (NO de Exception), así que un `except
+            # Exception` no las atrapa y matan todo el proceso. Las tragamos aquí
+            # y caemos al bloque LibreOffice→PDF de abajo.
+            pass
 
         if docx_temporal and os.path.exists(docx_temporal):
             try:

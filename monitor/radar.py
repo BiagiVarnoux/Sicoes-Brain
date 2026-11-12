@@ -288,44 +288,69 @@ def fila_para_db(c: dict) -> dict:
     }
 
 
-async def descargar_dbcs(page, relevantes: list[dict]):
+async def descargar_dbcs(page, relevantes: list[dict], reanudar: bool = False):
     """Descarga los archivos de cada convocatoria relevante, los convierte a PDF
     (los Word), los renombra según la convención y los sube a Supabase Storage."""
     import dbc_store
     total = len(relevantes)
+    # Reanudación OPT-IN (--reanudar): saltar las que ya tienen su DBC descargado
+    # (dbc_descargado=True), para no re-bajar ni re-procesar si una corrida se cortó
+    # a la mitad. Por defecto APAGADO: una corrida normal baja todo como siempre.
+    ya_hechos = set()
+    if reanudar:
+        ya_hechos = db.cuces_con_dbc([c.get("cuce") for c in relevantes if c.get("cuce")])
+        if ya_hechos:
+            print(f"\n  ⏭  {len(ya_hechos)} convocatoria(s) ya tenían DBC descargado — las salto (--reanudar).", flush=True)
     print(f"\n  ⬇ Descargando + subiendo DBC de {total} convocatorias relevantes...", flush=True)
+    ok = fallos = 0
     for i, c in enumerate(relevantes, 1):
         cuce = c.get("cuce")
-        modalidad = c.get("modalidad", "")
-        archivos = c.get("archivos", [])
-        if not archivos:
-            print(f"    · ({i}/{total}) {cuce}: sin archivos", flush=True)
+        try:
+            if cuce in ya_hechos:
+                continue
+            modalidad = c.get("modalidad", "")
+            archivos = c.get("archivos", [])
+            if not archivos:
+                print(f"    · ({i}/{total}) {cuce}: sin archivos", flush=True)
+                continue
+            carpeta = os.path.join(DIR_DBC, cuce.replace("/", "_"))
+            objetivo = dbc_store.seleccionar_objetivo(modalidad, archivos)
+            if not objetivo:
+                print(f"    · ({i}/{total}) {cuce}: no se encontró el documento objetivo "
+                      f"({'Oferta' if modalidad=='CM' else 'DBC'})", flush=True)
+                continue
+            ruta = await nav.descargar_token(page, objetivo["token"], carpeta, objetivo.get("nombre", ""))
+            if not ruta:
+                print(f"    ✗ ({i}/{total}) {cuce}: no se pudo descargar '{objetivo.get('nombre','')}' (todos los intentos fallaron)", flush=True)
+                fallos += 1
+                continue
+            locales = [{"ruta": ruta, "nombre": objetivo.get("nombre", "")}]
+            resultado = dbc_store.procesar(cuce, modalidad, locales)
+            md = resultado.get("markdown", "")
+            archivos = resultado.get("archivos", [])
+            db.marcar_dbc(cuce, carpeta, archivos if archivos else None,
+                          dbc_markdown=md if md else None)
+            info = f"{len(md)} chars markdown" if md else "sin markdown"
+            extra = f" + {len(archivos)} archivo(s) a Storage" if archivos else ""
+            objeto_corto = (c.get("objeto") or "")[:60]
+            print(f"    · ({i}/{total}) {cuce} — {objeto_corto}", flush=True)
+            print(f"      → {info}{extra}", flush=True)
+            ok += 1
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except BaseException as e:
+            # Una convocatoria problemática (formato raro, timeout, red) NO debe
+            # matar el resto del loop: se registra y se sigue con la siguiente.
+            fallos += 1
+            print(f"    ✗ ({i}/{total}) {cuce}: error procesando, la salto — "
+                  f"{type(e).__name__}: {str(e)[:160]}", flush=True)
             continue
-        carpeta = os.path.join(DIR_DBC, cuce.replace("/", "_"))
-        objetivo = dbc_store.seleccionar_objetivo(modalidad, archivos)
-        if not objetivo:
-            print(f"    · ({i}/{total}) {cuce}: no se encontró el documento objetivo "
-                  f"({'Oferta' if modalidad=='CM' else 'DBC'})", flush=True)
-            continue
-        ruta = await nav.descargar_token(page, objetivo["token"], carpeta, objetivo.get("nombre", ""))
-        if not ruta:
-            print(f"    ✗ ({i}/{total}) {cuce}: no se pudo descargar '{objetivo.get('nombre','')}' (todos los intentos fallaron)", flush=True)
-            continue
-        locales = [{"ruta": ruta, "nombre": objetivo.get("nombre", "")}]
-        resultado = dbc_store.procesar(cuce, modalidad, locales)
-        md = resultado.get("markdown", "")
-        archivos = resultado.get("archivos", [])
-        db.marcar_dbc(cuce, carpeta, archivos if archivos else None,
-                      dbc_markdown=md if md else None)
-        info = f"{len(md)} chars markdown" if md else "sin markdown"
-        extra = f" + {len(archivos)} archivo(s) a Storage" if archivos else ""
-        objeto_corto = (c.get("objeto") or "")[:60]
-        print(f"    · ({i}/{total}) {cuce} — {objeto_corto}", flush=True)
-        print(f"      → {info}{extra}", flush=True)
+    print(f"\n  ✓ DBC: {ok} procesadas, {fallos} con problemas, "
+          f"{len(ya_hechos)} ya estaban.", flush=True)
 
 
 async def correr(desde: str, hasta: str, max_paginas: int, usar_ia: bool, descargar: bool,
-                 marcar_corrida: bool = False):
+                 marcar_corrida: bool = False, reanudar: bool = False):
     hoy = date.today()
     async with async_playwright() as p:
         print(f"Conectando a Chrome ({nav.CDP_URL})...", flush=True)
@@ -373,7 +398,7 @@ async def correr(desde: str, hasta: str, max_paginas: int, usar_ia: bool, descar
             print(f"  ✓ Guardadas {res.get('count')} convocatorias en Supabase", flush=True)
 
         if descargar and relevantes:
-            await descargar_dbcs(page, relevantes)
+            await descargar_dbcs(page, relevantes, reanudar=reanudar)
 
         if marcar_corrida:
             guardar_ultima_corrida(hoy)
@@ -394,6 +419,10 @@ def main():
     ap.add_argument("--max-paginas", type=int, default=0, help="Límite de páginas (0 = todas).")
     ap.add_argument("--no-ia", action="store_true", help="Desactivar filtro IA (solo diccionario).")
     ap.add_argument("--no-descargar", action="store_true", help="No descargar DBC.")
+    ap.add_argument("--reanudar", action="store_true",
+                    help="Reanudar: salta las convocatorias cuyo DBC ya se descargó "
+                         "(dbc_descargado=True). Útil si una corrida se cortó a la mitad. "
+                         "Por defecto apagado (una corrida normal baja todo).")
     ap.add_argument("--auto", action="store_true",
                     help="Corre desde la última corrida guardada hasta AYER (ignora el día actual). "
                          "Al terminar guarda la fecha de hoy. Ignora --desde/--hasta.")
@@ -425,7 +454,7 @@ def main():
     asyncio.run(correr(
         desde=desde, hasta=hasta, max_paginas=args.max_paginas,
         usar_ia=not args.no_ia, descargar=not args.no_descargar,
-        marcar_corrida=marcar,
+        marcar_corrida=marcar, reanudar=args.reanudar,
     ))
 
 
