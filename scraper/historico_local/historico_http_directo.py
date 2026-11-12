@@ -66,12 +66,27 @@ class BrowserUnavailable(RuntimeError):pass
 class RecoveryRequired(RuntimeError):pass
 
 
+def collapse_forms(forms):
+    """De varios FORM 170 (re-adjudicaciones), conservar SOLO el último (vigente).
+
+    El portal lista los formularios de arriba a abajo; cuando hay más de un
+    FORM 170 los anteriores quedaron anulados/descalificados y solo el último es
+    el acta válida. Se descartan los 170 previos y se dejan intactos los demás
+    formularios, preservando el orden de aparición."""
+    def num(f):
+        m=re.search(r'\d{3}',f.get('label',''))
+        return m[0] if m else None
+    last_170=max((i for i,f in enumerate(forms) if num(f)=='170'),default=None)
+    return [f for i,f in enumerate(forms) if num(f)!='170' or i==last_170]
+
+
 async def refresh_row(page,row,nav):
     """Leer argumentos actuales; nunca persistirlos en manifiestos."""
     entity='-'.join(row['cuce'].split('-')[1:3])
     matches=[r for r in await nav['extraer_filas'](page,entity) if r['cuce']==row['cuce']]
     if len(matches)!=1:raise RecoveryRequired('Fila avanzada ausente o no unívoca')
     row.update(matches[0])
+    row['forms']=collapse_forms(row.get('forms',[]))
 
 
 async def form_http_guard(page,operation):
@@ -314,7 +329,7 @@ def nth_link(links,label,occurrence=0):
 
 
 def targets(row):
-    docs=[('FORM',f['label'],f['token']) for f in row.get('forms',[])]
+    docs=[('FORM',f['label'],f['token']) for f in collapse_forms(row.get('forms',[]))]
     wanted='oferta' if row['modalidad']=='CM' else 'documento base'
     selected=[a for a in row.get('archivos',[]) if wanted in a.get('label','').lower()]
     docs.extend(('OFFER' if row['modalidad']=='CM' else 'DBC',a['label'],a['token']) for a in selected)
