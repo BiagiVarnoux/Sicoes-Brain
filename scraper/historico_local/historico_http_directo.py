@@ -378,53 +378,67 @@ async def process(page,row,root,nav,converter,missing_only=False):
             print(f"    {label}: original conservado; {good.get('conversion')}",flush=True)
             complete=complete and good.get('conversion') in ('CONVERTED','FALTA_OCR')
             atomic(manifest,(dumps(report)+'\n').encode());continue
-        attempt={'at':now()};doc['attempts'].append(attempt)
-        stage='inventory'
-        try:
-            ensure_browser(page)
-            if not token:raise RuntimeError('Documento objetivo no anunciado')
-            stage='capture'
-            if 'extraer_filas' in nav:
-                await refresh_row(page,row,nav)
-                links=row.get('forms' if kind=='FORM' else 'archivos',[])
-                token=nth_link(links,label,occurrence)
-            nav['_active_label']=label;nav['_active_occurrence']=occurrence
-            if kind=='FORM':
-                try:
-                    with timed(nav,'form_capture',label):
-                        html=await nav['abrir_formulario_html'](page,token)
-                finally:
-                    if not nav.get('_capture_owns_close',False):await nav['_cerrar_modal_real'](page)
-                data=("<html><meta charset='utf-8'><body>"+html+'</body></html>').encode()
-                form=re.search(r'\d{3}',label);validation_kind='FORM'+form[0] if form else 'FORM'
-            else:
-                # El descargador histórico escribe en un directorio por intento: no pisa originales.
-                import uuid
-                incoming=folder/'descargas'/uuid.uuid4().hex
-                path=await nav['descargar_token'](page,token,str(incoming),kind)
+        # Hasta REINTENTOS intentos por documento ante fallos NO de sesión (p. ej.
+        # conversión, original inválido, timeouts sueltos). Un fallo de captura/sesión
+        # no se martilla acá: corta para que la recuperación de sesión reviva y reprocese.
+        REINTENTOS=3;doc_complete=False;need_session_recovery=False
+        for retry in range(REINTENTOS):
+            attempt={'at':now()}
+            if retry:attempt['retry']=retry
+            doc['attempts'].append(attempt)
+            stage='inventory'
+            try:
                 ensure_browser(page)
-                if not path:raise RecoveryRequired('Descarga sin archivo: recuperación de navegación requerida')
-                data=Path(path).read_bytes();validation_kind='ANNEX'
-            entry=save_original(folder,label,data,validation_kind,row['cuce'])
-            if not any(v['sha256']==entry['sha256'] for v in doc['versions']):doc['versions'].append(entry)
-            if not entry['valid']:raise RuntimeError('Original recibido no válido')
-            stage='conversion'
-            with timed(nav,'conversion',label):convert(folder,entry,converter)
-            attempt['status']=entry['conversion']
-            print(f"    {label}: original guardado ({entry['bytes']} bytes); {entry['conversion']}",flush=True)
-            complete=complete and entry['conversion'] in ('CONVERTED','FALTA_OCR')
-        except Exception as exc:
-            # No serializar excepciones de Playwright: pueden contener tokens/URLs.
-            attempt.update(status='FAILED',error_type=type(exc).__name__,stage=stage,
-                           reason=str(exc) if isinstance(exc,RecoveryRequired) else 'Fallo en '+stage);complete=False
-            if isinstance(exc,BrowserUnavailable):
-                report['status']='INTERRUMPIDA';raise
-            recoverable=isinstance(exc,(RecoveryRequired,TimeoutError)) or type(exc).__name__=='TimeoutError'
-            report['needs_navigation_recovery']|=recoverable
-            report['reactive_recovery_reason']=type(exc).__name__ if recoverable else None
-            print(f'    {label}: fallo en {stage} ({type(exc).__name__})',flush=True)
-            if stage in ('capture','keepalive'):break  # recuperar antes de seguir sobre una sesión incierta
-        finally:atomic(manifest,(dumps(report)+'\n').encode())
+                if not token:raise RuntimeError('Documento objetivo no anunciado')
+                stage='capture'
+                if 'extraer_filas' in nav:
+                    await refresh_row(page,row,nav)
+                    links=row.get('forms' if kind=='FORM' else 'archivos',[])
+                    token=nth_link(links,label,occurrence)
+                nav['_active_label']=label;nav['_active_occurrence']=occurrence
+                if kind=='FORM':
+                    try:
+                        with timed(nav,'form_capture',label):
+                            html=await nav['abrir_formulario_html'](page,token)
+                    finally:
+                        if not nav.get('_capture_owns_close',False):await nav['_cerrar_modal_real'](page)
+                    data=("<html><meta charset='utf-8'><body>"+html+'</body></html>').encode()
+                    form=re.search(r'\d{3}',label);validation_kind='FORM'+form[0] if form else 'FORM'
+                else:
+                    # El descargador histórico escribe en un directorio por intento: no pisa originales.
+                    import uuid
+                    incoming=folder/'descargas'/uuid.uuid4().hex
+                    path=await nav['descargar_token'](page,token,str(incoming),kind)
+                    ensure_browser(page)
+                    if not path:raise RecoveryRequired('Descarga sin archivo: recuperación de navegación requerida')
+                    data=Path(path).read_bytes();validation_kind='ANNEX'
+                entry=save_original(folder,label,data,validation_kind,row['cuce'])
+                if not any(v['sha256']==entry['sha256'] for v in doc['versions']):doc['versions'].append(entry)
+                if not entry['valid']:raise RuntimeError('Original recibido no válido')
+                stage='conversion'
+                with timed(nav,'conversion',label):convert(folder,entry,converter)
+                attempt['status']=entry['conversion']
+                print(f"    {label}: original guardado ({entry['bytes']} bytes); {entry['conversion']}",flush=True)
+                doc_complete=entry['conversion'] in ('CONVERTED','FALTA_OCR')
+                atomic(manifest,(dumps(report)+'\n').encode());break  # documento logrado
+            except Exception as exc:
+                # No serializar excepciones de Playwright: pueden contener tokens/URLs.
+                attempt.update(status='FAILED',error_type=type(exc).__name__,stage=stage,
+                               reason=str(exc) if isinstance(exc,RecoveryRequired) else 'Fallo en '+stage)
+                if isinstance(exc,BrowserUnavailable):
+                    report['status']='INTERRUMPIDA';atomic(manifest,(dumps(report)+'\n').encode());raise
+                recoverable=isinstance(exc,(RecoveryRequired,TimeoutError)) or type(exc).__name__=='TimeoutError'
+                report['needs_navigation_recovery']|=recoverable
+                report['reactive_recovery_reason']=type(exc).__name__ if recoverable else None
+                if stage in ('capture','keepalive'):
+                    print(f'    {label}: fallo en {stage} ({type(exc).__name__})',flush=True)
+                    need_session_recovery=True;atomic(manifest,(dumps(report)+'\n').encode());break
+                last=retry>=REINTENTOS-1
+                print(f'    {label}: fallo en {stage} ({type(exc).__name__}) — intento {retry+1}/{REINTENTOS}'+(''if last else'; reintento'),flush=True)
+                atomic(manifest,(dumps(report)+'\n').encode())
+                if not last:await page.wait_for_timeout(1500)
+        complete=complete and doc_complete
+        if need_session_recovery:break  # recuperar antes de seguir sobre una sesión incierta
     report['pending_ocr']=[d['label'] for d in report['documents'].values()
                            if next((v for v in reversed(d['versions']) if v.get('valid')),{}).get('conversion')=='FALTA_OCR']
     status=('FALTA_OCR' if report['pending_ocr'] else 'COMPLETA') if complete else 'PARCIAL'

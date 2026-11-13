@@ -19,26 +19,53 @@ SNAPSHOT_JS="""() => {
    info:pager?.querySelector('.dataTables_info')?.textContent||'',
    raw_cuces:[...(table?.querySelectorAll(':scope > tbody > tr')||[])].map(r=>r.cells[0]?.textContent.trim()||'').filter(x=>/^\\d{2}-\\d{4}-\\d{2}-\\d+-\\d+-\\d+$/.test(x)),
    table_text:table?.querySelector('tbody')?.textContent||'',
-   active_page:Number(pager?.querySelector('li.active a')?.textContent)||null
+   active_page:Number(pager?.querySelector('li.active a')?.textContent)||null,
+   pager_last:(()=>{let m=0;(pager?pager.querySelectorAll('a'):[]).forEach(a=>{const t=(a.textContent||'').trim();if(/^\\d+$/.test(t)){const n=parseInt(t,10);if(n>m)m=n;}});return m;})()
  };
 }"""
 
 
 def pagination(snapshot,page_number=1):
-    """Solo total avanzado; tamaño observado en primera página, no en la última."""
+    """Total del buscador avanzado + nº de páginas. El nº de páginas se toma del
+    PAGINADOR del portal cuando está visible (autoritativo), no del cálculo
+    total/tamaño: ese se desfasa —e inventa una página de más— si una página
+    llega con una fila de menos por un render a medio pintar."""
     match=re.search(r'Se han encontrado\s+([\d.,\s]+)\s+registros',snapshot.get('info',''),re.I)
     total=int(re.sub(r'\D','',match[1])) if match else None
     count=len(snapshot.get('raw_cuces',[]))
     size=count if page_number==1 and count else None
-    pages=math.ceil(total/size) if total is not None and size else (0 if total==0 else None)
+    computed=math.ceil(total/size) if total is not None and size else (0 if total==0 else None)
+    pager_last=snapshot.get('pager_last') or 0
+    if total==0:pages=0
+    elif pager_last>1:pages=pager_last
+    else:pages=computed
     return {'registered_total':total,'page_size':size,'expected_pages':pages,
             'total_source':'advanced_search_info' if total is not None else 'unavailable',
-            'page_size_source':'observed_first_page' if size else 'unavailable'}
+            'page_size_source':'observed_first_page' if size else 'unavailable',
+            'pages_source':'pager' if pager_last>1 else 'computed'}
 
 
 async def snapshot(page):
     data=await page.evaluate(SNAPSHOT_JS)
     if not data.get('table_present'):raise base.RecoveryRequired('Tabla avanzada ausente: no es fin de resultados')
+    return data
+
+
+async def stable_snapshot(page):
+    """Evita la carrera de render del portal: la tabla puede reportar una fila de
+    menos si se la fotografía antes de que termine de pintar el draw de DataTables.
+    Espera a que el nº de filas se repita en dos lecturas seguidas (para páginas con
+    filas basta una repetición; para una tabla vacía se exige confirmarla varias
+    veces por si aún está cargando) antes de confiar en la foto."""
+    data=await snapshot(page);prev=len(data['raw_cuces']);stable=0
+    for _ in range(10):
+        await page.wait_for_timeout(350)
+        data=await snapshot(page);count=len(data['raw_cuces'])
+        if count==prev:
+            stable+=1
+            if count>0 or stable>=3:return data
+        else:
+            stable=0;prev=count
     return data
 
 
@@ -116,10 +143,10 @@ async def walk(page,entity,year,converter,nav,root,selected=None):
     while True:
         with base.timed(nav,'page_discovery',str(number)):
             if number>1:await nav['ir_pagina'](page,number)
-            state=await snapshot(page)
+            state=await stable_snapshot(page)
             if state.get('active_page') is not None and state['active_page']!=number:
                 await page.wait_for_function("n=>Number(document.querySelector('#tablaAvanzada_paginate li.active a')?.textContent)===n",arg=number,timeout=30000)
-                state=await snapshot(page)
+                state=await stable_snapshot(page)
                 if state.get('active_page')!=number:raise base.RecoveryRequired('El portal no confirmó la página solicitada')
             if meta is None:
                 meta=pagination(state);inventory.update(meta)
@@ -163,10 +190,17 @@ async def walk(page,entity,year,converter,nav,root,selected=None):
             await page.wait_for_timeout(1500)
         if selected and selected<=processed:
             inventory['termination']='selected_scope_completed';save();break
+        # Cobertura completa: ya se vieron todos los registrados → listo. Esto corta
+        # ANTES de visitar una página de más, así un tamaño de página mal medido ya
+        # no provoca una página fantasma ni un falso mismatch.
+        if not selected and meta['registered_total'] is not None and len(seen_raw)>=meta['registered_total']:
+            inventory['termination']='registered_total_verified';save();break
         if meta['expected_pages'] is not None and number>=max(1,meta['expected_pages']):
             if len(seen_raw)!=meta['registered_total']:
-                inventory['termination']='total_mismatch';save()
-                raise base.RecoveryRequired('CUCE observados no coinciden con total registrado')
+                inventory['termination']='total_mismatch'
+                inventory['missing_count']=meta['registered_total']-len(seen_raw) if meta['registered_total'] is not None else None
+                save()
+                raise base.RecoveryRequired(f"CUCE observados ({len(seen_raw)}) no coinciden con total registrado ({meta['registered_total']})")
             inventory['termination']='registered_total_verified';save();break
         empty=empty+1 if not raw else 0
         if empty>=2:
@@ -207,7 +241,14 @@ def main():
     converter=base.dependencies()
     if args.check:print('Dependencias disponibles. Sin conexiones.');return
     started=time.monotonic();base.prepare_brave();elapsed=time.monotonic()-started
-    raise SystemExit(asyncio.run(run(args.entidad,args.anio,converter,args.cuce,elapsed)))
+    try:
+        code=asyncio.run(run(args.entidad,args.anio,converter,args.cuce,elapsed))
+    except base.RecoveryRequired as exc:
+        # Cierre limpio y legible (sin traceback de Python): lo descargado se
+        # conserva y la gestión queda marcada para reconciliar/reintentar por CUCE.
+        print(f'Gestión {args.anio}: {exc}. Lo descargado se conserva; queda registrado como pendiente de reconciliación.',flush=True)
+        raise SystemExit(1)
+    raise SystemExit(code)
 
 
 if __name__=='__main__':main()
