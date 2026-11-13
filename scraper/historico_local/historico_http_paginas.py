@@ -17,7 +17,7 @@ SNAPSHOT_JS="""() => {
  return {
    table_present:!!table,
    info:pager?.querySelector('.dataTables_info')?.textContent||'',
-   raw_cuces:[...(table?.querySelectorAll(':scope > tbody > tr')||[])].map(r=>r.cells[0]?.textContent.trim()||'').filter(x=>/^\\d{2}-\\d{4}-\\d{2}-\\d+-\\d+-\\d+$/.test(x)),
+   raw_cuces:[...(table?.querySelectorAll(':scope > tbody > tr')||[])].map(r=>r.cells[0]?.textContent.trim()||'').filter(x=>/^\\d{2}-\\d{4}-\\d{2}-\\d+-[0-9A-Za-z]+-[0-9A-Za-z]+$/.test(x)),
    table_text:table?.querySelector('tbody')?.textContent||'',
    active_page:Number(pager?.querySelector('li.active a')?.textContent)||null,
    pager_last:(()=>{let m=0;(pager?pager.querySelectorAll('a'):[]).forEach(a=>{const t=(a.textContent||'').trim();if(/^\\d+$/.test(t)){const n=parseInt(t,10);if(n>m)m=n;}});return m;})()
@@ -163,7 +163,7 @@ async def walk(page,entity,year,converter,nav,root,selected=None):
                 raise base.RecoveryRequired('Tabla vacía sin mensaje de fin: posible fallo de sesión')
             seen_raw.update(raw)
             rows=await nav['extraer_filas'](page,entity)
-            rows=[r for r in rows if re.fullmatch(re.escape(str(year)[2:]+'-'+entity)+r'-\d+-\d+-\d+',r['cuce'])]
+            rows=[r for r in rows if re.fullmatch(re.escape(str(year)[2:]+'-'+entity)+r'-\d+-[0-9A-Za-z]+-[0-9A-Za-z]+',r['cuce'])]
             discovered.update(r['cuce'] for r in rows)
             if previous is not None and not discovered<=previous:previous=None
             excluded=sorted(raw-{r['cuce'] for r in rows})
@@ -237,7 +237,7 @@ def main():
     p.add_argument('--cuce',action='append');p.add_argument('--check',action='store_true')
     args=p.parse_args()
     if not re.fullmatch(r'\d{4}-\d{2}',args.entidad) or not 2000<=args.anio<=2100:p.error('Entidad o gestión inválida')
-    if args.cuce and any(not re.fullmatch(re.escape(str(args.anio)[2:]+'-'+args.entidad)+r'-\d+-\d+-\d+',c) for c in args.cuce):p.error('CUCE fuera de alcance')
+    if args.cuce and any(not re.fullmatch(re.escape(str(args.anio)[2:]+'-'+args.entidad)+r'-\d+-[0-9A-Za-z]+-[0-9A-Za-z]+',c) for c in args.cuce):p.error('CUCE fuera de alcance')
     converter=base.dependencies()
     if args.check:print('Dependencias disponibles. Sin conexiones.');return
     started=time.monotonic();base.prepare_brave();elapsed=time.monotonic()-started
