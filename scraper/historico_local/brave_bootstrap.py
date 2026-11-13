@@ -66,13 +66,15 @@ def process_identity(pid):
     return paths,args.stdout.strip()
 
 
-def command_matches(command,profile):
+def command_matches(command,profile,port=PORT):
     # ps devuelve argv unido: se compara el valor completo conocido, con límites.
+    # El puerto esperado es parámetro (default 9226) para verificar al dueño del
+    # puerto ELEGIDO cuando se corre una 2ª captura en paralelo en otro puerto.
     if command.count('--user-data-dir')!=1 or command.count('--remote-debugging-port')!=1:return False
-    port=re.search(r'(?:^|\s)--remote-debugging-port(?:=|\s+)9226(?=\s|$)',command)
+    port_match=re.search(r'(?:^|\s)--remote-debugging-port(?:=|\s+)'+re.escape(str(port))+r'(?=\s|$)',command)
     path=re.escape(str(profile))
     userdir=re.search(r'(?:^|\s)--user-data-dir(?:=|\s+)(?:'+path+r'|"'+path+r'"|\x27'+path+r'\x27)(?=\s|$)',command)
-    return bool(port and userdir)
+    return bool(port_match and userdir)
 
 
 def authorize_listener(pids,profile):

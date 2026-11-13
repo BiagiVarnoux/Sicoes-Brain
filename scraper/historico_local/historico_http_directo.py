@@ -20,8 +20,18 @@ from .parsing import validate
 from .http_forms import capture_once,capture_primary
 from contextlib import contextmanager
 
-PORT=9226
-PROFILE=PACKAGE/'data/brave-historico-http'
+def _cdp_port():
+    """Puerto CDP de esta corrida. Default 9226; configurable para correr DOS
+    corridas en paralelo (cada una su puerto y su perfil). Valor inválido → 9226."""
+    raw=os.environ.get('SICOES_LOCAL_CDP_PORT')
+    if not raw:return 9226
+    try:value=int(raw)
+    except ValueError:return 9226
+    return value if 1024<=value<=65535 else 9226
+PORT=_cdp_port()
+# El perfil default se conserva idéntico en 9226 (compatibilidad); otros puertos
+# usan un perfil propio para no compartir sesión entre corridas paralelas.
+PROFILE=PACKAGE/'data'/('brave-historico-http' if PORT==9226 else f'brave-historico-http-{PORT}')
 ENDPOINT=f'http://127.0.0.1:{PORT}'
 PORTAL='https://www.sicoes.gob.bo/portal/index.php'
 BRAVE=Path('/Applications/Brave Browser.app/Contents/MacOS/Brave Browser')
@@ -259,20 +269,20 @@ def prepare_brave(timeout=300):
             from .brave_bootstrap import command_matches
             # La comprobación de perfil se aplica sobre el argumento del puerto propio.
             check=args
-            if str(BRAVE) not in args or not command_matches(check,profile):
-                raise RuntimeError('9226 pertenece a otro navegador/perfil; no se reutilizará')
+            if str(BRAVE) not in args or not command_matches(check,profile,PORT):
+                raise RuntimeError(f'{PORT} pertenece a otro navegador/perfil; no se reutilizará')
     ids=pids()
     if ids:authorized(ids)
     else:
         with socket.socket() as sock:
             try:sock.bind(('127.0.0.1',PORT))
-            except OSError:raise RuntimeError('9226 ocupado sin propietario verificable') from None
+            except OSError:raise RuntimeError(f'{PORT} ocupado sin propietario verificable') from None
         if not BRAVE.is_file():raise RuntimeError('Brave no está instalado en /Applications')
         with (profile.parent/'brave-historico-http.log').open('ab') as log:
             subprocess.Popen([str(BRAVE),f'--remote-debugging-port={PORT}',f'--user-data-dir={profile}',PORTAL],stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
     opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))
     deadline=time.monotonic()+timeout;next_notice=0
-    print(f'Esperando Brave en 9226 (hasta {timeout} segundos)...',flush=True)
+    print(f'Esperando Brave en {PORT} (hasta {timeout} segundos)...',flush=True)
     while time.monotonic()<deadline:
         if time.monotonic()>=next_notice:
             print('    Brave todavía se está preparando; no cierres su ventana.',flush=True)
@@ -287,7 +297,7 @@ def prepare_brave(timeout=300):
                 return
             except (OSError,ValueError):pass
         time.sleep(1)
-    raise RuntimeError(f'Brave no respondió en 9226 tras {timeout} segundos; se conserva todo lo descargado')
+    raise RuntimeError(f'Brave no respondió en {PORT} tras {timeout} segundos; se conserva todo lo descargado')
 
 
 def save_original(folder,label,data,kind,cuce):
