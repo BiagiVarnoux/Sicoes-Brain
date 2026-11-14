@@ -53,16 +53,21 @@ class KeyPool:
         self.cool = {k: 0.0 for k in self.keys}
         self.i = 0
 
-    def next_key(self):
-        """Siguiente key disponible; si todas enfrían, espera a la más próxima."""
+    def next_key(self, max_wait=120):
+        """Siguiente cuenta disponible. Espera hasta `max_wait`s por una (absorbe
+        bloqueos cortos de TPM); devuelve None si todas siguen enfriando más allá de
+        eso (señal de cupo diario agotado, para cortar en vez de dormir ~1h)."""
+        deadline = time.monotonic() + max_wait
         n = len(self.keys)
-        for _ in range(n):
-            k = self.keys[self.i % n]; self.i += 1
-            if time.monotonic() >= self.cool[k]:
-                return k
-        soonest = min(self.cool.values())
-        time.sleep(max(0.0, soonest - time.monotonic()) + 0.1)
-        return self.next_key()
+        while True:
+            for _ in range(n):
+                k = self.keys[self.i % n]; self.i += 1
+                if time.monotonic() >= self.cool[k]:
+                    return k
+            soonest = min(self.cool.values())
+            if soonest > deadline:
+                return None
+            time.sleep(max(0.0, min(soonest, deadline) - time.monotonic()) + 0.1)
 
     def penalize(self, key, seconds):
         self.cool[key] = time.monotonic() + seconds
@@ -87,6 +92,8 @@ def groq_chat(pool, region_chunk, prefer_key=None, timeout=60):
             key = prefer_key
         else:
             key = pool.next_key()
+            if key is None:        # ninguna cuenta con cupo → avisar al caller
+                return None
         req = urllib.request.Request(cia.GROQ_URL, data=data, method="POST",
                                      headers={"Authorization": f"Bearer {key}",
                                               "Content-Type": "application/json", "User-Agent": _UA})
@@ -118,19 +125,24 @@ def groq_chat(pool, region_chunk, prefer_key=None, timeout=60):
 
 
 def extract_llm(pool, region):
-    items, i, n = [], 0, 0
+    """Devuelve (items, responded). responded=False si la API no dio NINGUNA respuesta
+    (cuota/red) → el DBC debe quedar PENDIENTE, nunca marcarse como vacío."""
+    items, i, n, responded = [], 0, 0, False
     key = pool.next_key()        # UNA cuenta para todo este DBC (rota por proceso)
+    if key is None:
+        return [], False
     while i < len(region) and n < MAXC:
-        trozo = region[i:i + CHUNK]
-        content = groq_chat(pool, trozo, prefer_key=key)
-        if content:
-            try:
-                items += cia._parse_array(content)
-            except Exception:
-                pass
+        content = groq_chat(pool, region[i:i + CHUNK], prefer_key=key)
+        if content is None:      # API caída/sin cupo en pleno DBC → abortar sin falso vacío
+            return cia._dedup_items(items), responded
+        responded = True
+        try:
+            items += cia._parse_array(content)
+        except Exception:
+            pass
         i += CHUNK - SOLAPA; n += 1
         time.sleep(PACE_SECONDS)
-    return cia._dedup_items(items)
+    return cia._dedup_items(items), responded
 
 
 def extract_docx(folder, doc_key, doc, cuce):
@@ -226,15 +238,29 @@ def main():
 
     metodos = {"llm": 0, "docx": 0, "vacio": 0}
     hechos = len(done)
+    sin_respuesta = 0   # DBC seguidos sin respuesta de la API → señal de cupo agotado
     for idx, (cuce, folder, dkey, doc, md) in enumerate(todos, 1):
         if cuce in done:
             continue
         v = next((vv for vv in reversed(doc.get("versions", [])) if vv.get("valid")), None)
         original = folder / v["path"] if v else None
         region = dbc_llm.region_for_llm(original, md.read_text(encoding="utf-8-sig"))
-        items = extract_llm(pool, region)
+        items, responded = extract_llm(pool, region)
+        if not responded:
+            # La API no dio respuesta (cuota/red): NO marcar, queda pendiente para el
+            # próximo lanzamiento. Si pasa en varios seguidos, las 4 cuentas se quedaron
+            # sin cupo → cortar limpio (reanuda tras el reset de las 20:00).
+            sin_respuesta += 1
+            print(f"[{hechos}/{total}] {cuce} → SIN RESPUESTA API (queda pendiente)", flush=True)
+            if sin_respuesta >= max(4, len(pool.keys)):
+                print("\n⏸  Todas las cuentas Groq sin cupo (TPD). Corto acá; lo hecho quedó "
+                      "guardado. Relanzá el MISMO comando tras el reset (20:00 Bolivia) y "
+                      "continúa desde este punto.", flush=True)
+                break
+            continue
+        sin_respuesta = 0
         metodo = "llm"
-        if not items:                       # fallback determinista
+        if not items:                       # el LLM respondió pero sin ítems → fallback docx
             items = extract_docx(folder, dkey, doc, cuce)
             metodo = "docx" if items else "vacio"
         metodos[metodo] += 1
