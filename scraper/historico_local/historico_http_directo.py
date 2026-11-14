@@ -254,6 +254,29 @@ def original_functions(mode="primary"):
     return ns
 
 
+def seed_download_prefs(profile):
+    """Fija en el perfil (persisten entre lanzamientos) las preferencias que evitan
+    el diálogo nativo 'Guardar como' y permiten descargas automáticas y pop-ups,
+    para no tener que tocar Settings a mano en cada perfil nuevo. Se escribe ANTES
+    de lanzar Brave (perfil no bloqueado). Si algo falla, no corta el arranque."""
+    try:
+        default=Path(profile)/'Default';default.mkdir(parents=True,exist_ok=True)
+        pref=default/'Preferences'
+        try:data=json.loads(pref.read_text()) if pref.exists() else {}
+        except Exception:data={}
+        if not isinstance(data,dict):data={}
+        dl=data.setdefault('download',{})
+        dl['prompt_for_download']=False          # no preguntar dónde guardar
+        dl['directory_upgrade']=True
+        prof=data.setdefault('profile',{})
+        csv=prof.setdefault('default_content_setting_values',{})
+        csv['automatic_downloads']=1             # permitir varias descargas seguidas
+        csv['popups']=1                          # permitir ventanas emergentes
+        pref.write_text(json.dumps(data))
+    except Exception:
+        pass
+
+
 def prepare_brave(timeout=300):
     """Mismo arranque automático del .command histórico; perfil aislado del original."""
     profile=safe_root(PROFILE)
@@ -278,6 +301,7 @@ def prepare_brave(timeout=300):
             try:sock.bind(('127.0.0.1',PORT))
             except OSError:raise RuntimeError(f'{PORT} ocupado sin propietario verificable') from None
         if not BRAVE.is_file():raise RuntimeError('Brave no está instalado en /Applications')
+        seed_download_prefs(profile)  # descargas sin diálogo + pop-ups, persistente en el perfil
         with (profile.parent/'brave-historico-http.log').open('ab') as log:
             subprocess.Popen([str(BRAVE),f'--remote-debugging-port={PORT}',f'--user-data-dir={profile}',PORTAL],stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
     opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))
