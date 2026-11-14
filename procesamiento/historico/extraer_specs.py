@@ -40,7 +40,8 @@ sys.path.insert(0, str(ROOT / "monitor"))
 import clasificador_ia as cia  # noqa: E402
 from . import dbc, dbc_llm      # noqa: E402
 
-CHUNK, SOLAPA, MAXC = 7000, 500, 7
+CHUNK, SOLAPA, MAXC = 13000, 600, 7   # trozos grandes: la mayoría de DBC en 1 request
+                                      # (menos repeticiones del prompt y menos cortes)
 PACE_SECONDS = 1.2        # pausa mínima entre requests (repartida entre 4 cuentas)
 COOLDOWN_429 = 60         # segundos que una cuenta queda en enfriamiento tras un 429
 
@@ -73,15 +74,19 @@ _UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
 COOLDOWN_TPD = 3600  # cupo diario agotado: parquear la cuenta hasta el reset (20:00 Bolivia)
 
 
-def groq_chat(pool, region_chunk, timeout=60):
-    """Una llamada de chat a Groq rotando cuentas; nunca re-lanza (devuelve None si
-    no logra respuesta tras probar todas las cuentas)."""
+def groq_chat(pool, region_chunk, prefer_key=None, timeout=60):
+    """Una llamada de chat a Groq; nunca re-lanza (devuelve None si no logra
+    respuesta tras probar las cuentas). `prefer_key`: cuenta fija del DBC en curso;
+    solo se cambia si esa cuenta está bloqueada (429)."""
     payload = {"model": cia.GROQ_MODEL, "temperature": 0,
                "messages": [{"role": "system", "content": cia.DBC_SYSTEM},
                             {"role": "user", "content": "Texto del DBC / fichas técnicas:\n" + region_chunk}]}
     data = json.dumps(payload).encode()
-    for _ in range(len(pool.keys) * 3):
-        key = pool.next_key()
+    for attempt in range(len(pool.keys) * 3):
+        if attempt == 0 and prefer_key is not None and time.monotonic() >= pool.cool.get(prefer_key, 0):
+            key = prefer_key
+        else:
+            key = pool.next_key()
         req = urllib.request.Request(cia.GROQ_URL, data=data, method="POST",
                                      headers={"Authorization": f"Bearer {key}",
                                               "Content-Type": "application/json", "User-Agent": _UA})
@@ -114,9 +119,10 @@ def groq_chat(pool, region_chunk, timeout=60):
 
 def extract_llm(pool, region):
     items, i, n = [], 0, 0
+    key = pool.next_key()        # UNA cuenta para todo este DBC (rota por proceso)
     while i < len(region) and n < MAXC:
         trozo = region[i:i + CHUNK]
-        content = groq_chat(pool, trozo)
+        content = groq_chat(pool, trozo, prefer_key=key)
         if content:
             try:
                 items += cia._parse_array(content)
@@ -223,7 +229,9 @@ def main():
     for idx, (cuce, folder, dkey, doc, md) in enumerate(todos, 1):
         if cuce in done:
             continue
-        region = dbc_llm.clip_region(md.read_text(encoding="utf-8-sig"))
+        v = next((vv for vv in reversed(doc.get("versions", [])) if vv.get("valid")), None)
+        original = folder / v["path"] if v else None
+        region = dbc_llm.region_for_llm(original, md.read_text(encoding="utf-8-sig"))
         items = extract_llm(pool, region)
         metodo = "llm"
         if not items:                       # fallback determinista
