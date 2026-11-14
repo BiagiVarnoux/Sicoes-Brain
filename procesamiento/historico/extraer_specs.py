@@ -47,24 +47,36 @@ COOLDOWN_429 = 60         # segundos que una cuenta queda en enfriamiento tras u
 
 
 class KeyPool:
-    """Round-robin de keys Groq con cooldown por cuenta."""
+    """Round-robin de keys Groq con cooldown corto (TPM) y marca de agotada-por-hoy (TPD)."""
     def __init__(self, keys):
         self.keys = list(keys)
-        self.cool = {k: 0.0 for k in self.keys}
+        self.cool = {k: 0.0 for k in self.keys}   # fin de cooldown corto (TPM)
+        self.exhausted = set()                     # cuentas sin cupo diario (TPD)
         self.i = 0
 
-    def next_key(self, max_wait=120):
-        """Siguiente cuenta disponible. Espera hasta `max_wait`s por una (absorbe
-        bloqueos cortos de TPM); devuelve None si todas siguen enfriando más allá de
-        eso (señal de cupo diario agotado, para cortar en vez de dormir ~1h)."""
+    def mark_exhausted(self, key):
+        self.exhausted.add(key)
+
+    def all_exhausted(self):
+        return len(self.exhausted) >= len(self.keys)
+
+    def next_key(self, max_wait=90):
+        """Siguiente cuenta con cupo. Si TODAS están agotadas por hoy (TPD) devuelve
+        None AL INSTANTE (no espera). Para bloqueos cortos (TPM) espera hasta
+        `max_wait`s a que alguna enfríe; si no, None."""
+        avail = [k for k in self.keys if k not in self.exhausted]
+        if not avail:
+            return None
         deadline = time.monotonic() + max_wait
         n = len(self.keys)
         while True:
             for _ in range(n):
                 k = self.keys[self.i % n]; self.i += 1
+                if k in self.exhausted:
+                    continue
                 if time.monotonic() >= self.cool[k]:
                     return k
-            soonest = min(self.cool.values())
+            soonest = min(self.cool[k] for k in avail)
             if soonest > deadline:
                 return None
             time.sleep(max(0.0, min(soonest, deadline) - time.monotonic()) + 0.1)
@@ -88,7 +100,8 @@ def groq_chat(pool, region_chunk, prefer_key=None, timeout=60):
                             {"role": "user", "content": "Texto del DBC / fichas técnicas:\n" + region_chunk}]}
     data = json.dumps(payload).encode()
     for attempt in range(len(pool.keys) * 3):
-        if attempt == 0 and prefer_key is not None and time.monotonic() >= pool.cool.get(prefer_key, 0):
+        if (attempt == 0 and prefer_key is not None and prefer_key not in pool.exhausted
+                and time.monotonic() >= pool.cool.get(prefer_key, 0)):
             key = prefer_key
         else:
             key = pool.next_key()
@@ -111,13 +124,17 @@ def groq_chat(pool, region_chunk, prefer_key=None, timeout=60):
                     es_tpd = cia._es_tpd(cuerpo)
                 except Exception:
                     es_tpd = False
-                pool.penalize(key, COOLDOWN_TPD if es_tpd else COOLDOWN_429)
+                if es_tpd:                 # cupo DIARIO probado por Groq → agotada hoy
+                    pool.mark_exhausted(key)
+                else:                      # bloqueo por minuto (TPM) → se libera solo
+                    pool.penalize(key, COOLDOWN_429)
                 continue
             if e.code in (500, 502, 503):
                 time.sleep(2); continue
-            # 401/403/otros: problema de esa cuenta (key inválida, UA, etc.) → parquear y rotar
-            pool.penalize(key, COOLDOWN_TPD)
-            print(f"      ⚠ Groq HTTP {e.code} en una cuenta; la parqueo y roto. {cuerpo[:120]}", flush=True)
+            # 403/401/otros: transitorio (UA/Cloudflare/red) → cooldown corto y rotar,
+            # NO marcar agotada por el día (puede recuperarse en segundos).
+            pool.penalize(key, COOLDOWN_429)
+            print(f"      ⚠ Groq HTTP {e.code}; cooldown corto y roto. {cuerpo[:100]}", flush=True)
             continue
         except (urllib.error.URLError, TimeoutError, OSError):
             time.sleep(2); continue
@@ -183,7 +200,7 @@ def dbc_list(run_dir):
             if not v or not v.get("markdown"):
                 continue
             md = folder / v["markdown"]
-            if md.is_file() and md.read_text(encoding="utf-8-sig").strip():
+            if md.is_file() and md.stat().st_size > 50:   # tamaño, sin leer todo (rápido)
                 out.append((cuce, folder, k, doc, md)); break
     return out
 
@@ -243,12 +260,13 @@ def main():
     store = run_dir / "especificaciones_llm.jsonl"
     prog = run_dir / "progreso_specs.json"
 
+    if args.estado:   # solo lectura, no toca el store (rápido, sin escanear markdown)
+        print(prog.read_text() if prog.exists() else f"{count_done(store)} DBC hechos")
+        return
+
+    print("Revisando el corpus de DBC...", flush=True)
     todos = dbc_list(run_dir)
     total = len(todos)
-
-    if args.estado:   # solo lectura, no toca el store
-        print(prog.read_text() if prog.exists() else f"{count_done(store)}/{total} DBC hechos")
-        return
 
     if not cia.GROQ_API_KEYS:
         print("ERROR: sin keys Groq (monitor/.env)", file=sys.stderr); sys.exit(1)
@@ -270,16 +288,18 @@ def main():
         region = dbc_llm.region_for_llm(original, md.read_text(encoding="utf-8-sig"))
         items, responded = extract_llm(pool, region)
         if not responded:
-            # La API no dio respuesta (cuota/red): NO marcar, queda pendiente para el
-            # próximo lanzamiento. Si pasa en varios seguidos, las 4 cuentas se quedaron
-            # sin cupo → cortar limpio (reanuda tras el reset de las 20:00).
+            # La API no dio respuesta: NO marcar, queda pendiente. Si Groq confirmó
+            # cupo DIARIO agotado en TODAS las cuentas, cortar al instante (probado, no
+            # supuesto). Si fue algo transitorio en varias seguidas, también cortar.
             sin_respuesta += 1
-            print(f"[{hechos}/{total}] {cuce} → SIN RESPUESTA API (queda pendiente)", flush=True)
-            if sin_respuesta >= max(4, len(pool.keys)):
-                print(f"\n⏸  Las cuentas Groq se quedaron sin cupo por hoy. Avance "
-                      f"guardado: {hechos}/{total}.\n   Ya podés CERRAR esta ventana. "
-                      f"Mañana (tras el reset de las 20:00 Bolivia) volvé a correr este "
-                      f"mismo comando y continúa solo desde donde quedó.", flush=True)
+            agotadas = pool.all_exhausted()
+            motivo = "sin cupo diario (TPD) confirmado por Groq" if agotadas else "sin respuesta (transitorio)"
+            print(f"[{hechos}/{total}] {cuce} → {motivo}; queda pendiente", flush=True)
+            if agotadas or sin_respuesta >= max(4, len(pool.keys)):
+                print(f"\n⏸  Groq sin cupo por hoy. Avance guardado: {hechos}/{total}.\n"
+                      f"   Ya podés CERRAR esta ventana. Mañana (tras el reset de las "
+                      f"20:00 Bolivia) volvé a correr este mismo comando y continúa solo.",
+                      flush=True)
                 break
             continue
         sin_respuesta = 0
