@@ -9,6 +9,7 @@ import re
 import time
 from . import historico_http_directo as base
 from .storage import PACKAGE,atomic,dumps,now,safe_root
+from playwright.async_api import Error as PlaywrightError,TimeoutError as PlaywrightTimeoutError
 
 
 SNAPSHOT_JS="""() => {
@@ -175,16 +176,25 @@ async def walk(page,entity,year,converter,nav,root,selected=None):
         for initial in rows:
             cuce=initial['cuce']
             if cuce in processed or selected and cuce not in selected:continue
-            row=await fresh_current(page,cuce,entity,number,nav)
-            last_page=meta['expected_pages'] is not None and number==meta['expected_pages']
-            indicator=progress(len(processed)+1,discovered,selected,previous,last_page)
-            print(f"{indicator} Página {number} — {cuce}",flush=True)
-            ok=await base.process(page,row,root,nav,converter)
-            if not ok and base.needs_recovery(root,cuce):
-                row=await recover_current(page,entity,year,number,cuce,nav,root)
+            try:
+                row=await fresh_current(page,cuce,entity,number,nav)
+                last_page=meta['expected_pages'] is not None and number==meta['expected_pages']
+                indicator=progress(len(processed)+1,discovered,selected,previous,last_page)
+                print(f"{indicator} Página {number} — {cuce}",flush=True)
                 ok=await base.process(page,row,root,nav,converter)
-            manifest=json.loads((root/cuce/'manifest.json').read_text())
-            current[cuce]=manifest['status'] if ok else 'PARCIAL';results[cuce]=current[cuce]
+                if not ok and base.needs_recovery(root,cuce):
+                    row=await recover_current(page,entity,year,number,cuce,nav,root)
+                    ok=await base.process(page,row,root,nav,converter)
+                manifest=json.loads((root/cuce/'manifest.json').read_text())
+                current[cuce]=manifest['status'] if ok else 'PARCIAL';results[cuce]=current[cuce]
+            except base.BrowserUnavailable:
+                raise  # el navegador se cayó: no se puede continuar la gestión
+            except (base.RecoveryRequired,PlaywrightTimeoutError,PlaywrightError) as exc:
+                # Falla operativa de ESTE proceso (sesión/página/timeout). Lo dejo
+                # PARCIAL y SIGO con el resto del año: un proceso trabado nunca más
+                # aborta la gestión entera. Queda registrado para reconciliar.
+                current[cuce]='PARCIAL';results[cuce]='PARCIAL'
+                print(f"    {cuce}: no se pudo capturar ({type(exc).__name__}); queda PARCIAL, sigo con el resto",flush=True)
             processed.add(cuce);atomic(root/'REPORTE.json',(dumps(results)+'\n').encode());save()
             print(f"    Resultado: {current[cuce].replace('_',' ')}",flush=True)
             await page.wait_for_timeout(1500)
@@ -243,10 +253,10 @@ def main():
     started=time.monotonic();base.prepare_brave();elapsed=time.monotonic()-started
     try:
         code=asyncio.run(run(args.entidad,args.anio,converter,args.cuce,elapsed))
-    except base.RecoveryRequired as exc:
+    except (base.RecoveryRequired,base.BrowserUnavailable,PlaywrightTimeoutError,PlaywrightError) as exc:
         # Cierre limpio y legible (sin traceback de Python): lo descargado se
         # conserva y la gestión queda marcada para reconciliar/reintentar por CUCE.
-        print(f'Gestión {args.anio}: {exc}. Lo descargado se conserva; queda registrado como pendiente de reconciliación.',flush=True)
+        print(f'Gestión {args.anio}: {type(exc).__name__}: {exc}. Lo descargado se conserva; queda registrado como pendiente de reconciliación.',flush=True)
         raise SystemExit(1)
     raise SystemExit(code)
 
