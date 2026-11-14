@@ -7,8 +7,11 @@ de números: evita rehacer o regresar trabajo que ya funciona.**
 Última actualización: 2026-11-14. **Etapa 2 re-corrida sobre el corpus COMPLETO
 (8 entidades, 1.296 CUCE): 18.253 observaciones, 9.460 fichas, 8.793 asociaciones
 confirmadas (93%). Baseline nuevo: [BASELINE_ETAPA2_FULL_20261114.md](BASELINE_ETAPA2_FULL_20261114.md).**
-Sigue: etapa 3 (specs DBC con LLM, hoy solo 318 confirmadas) → cargador fichas→Supabase
-(con specs) → dashboard. `acquisitions.py` ahora descubre el corpus dinámicamente.
+**Cargador fichas→Supabase hecho** (`cargar_dashboard.py`): dashboard histórico ya
+sirve el corpus nuevo (hist_procesos=1.296, hist_items=9.427; descripción 100%,
+proveedor 97%). `especificaciones` y `producto_canonico_id` van NULL por ahora.
+Sigue: etapa 3 (specs DBC con LLM, hoy solo 318) → re-cargar specs → etapa 6 (canónicos).
+`acquisitions.py` descubre el corpus dinámicamente.
 Plan rector: [PLAN_INTELIGENCIA_MERCADO.md](../PLAN_INTELIGENCIA_MERCADO.md) ·
 Fichas v1: [FICHAS_ADQUISICION_V1.md](FICHAS_ADQUISICION_V1.md) ·
 Asociación v2: [ASOCIACION_ADQUISICIONES_V2.md](ASOCIACION_ADQUISICIONES_V2.md)
