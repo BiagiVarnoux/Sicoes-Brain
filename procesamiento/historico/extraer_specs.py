@@ -188,21 +188,42 @@ def dbc_list(run_dir):
     return out
 
 
+def count_done(store):
+    """Cuenta DBC completados sin modificar el store (para --estado, solo lectura)."""
+    if not store.exists():
+        return 0
+    n = 0
+    for line in store.read_bytes().splitlines():
+        try:
+            json.loads(line); n += 1
+        except Exception:
+            break
+    return n
+
+
 def load_done(store):
-    """CUCE ya completados (líneas JSON válidas). Trunca una línea final corrupta."""
-    done, good_bytes = set(), 0
-    if store.exists():
-        raw = store.read_bytes()
-        for line in raw.splitlines(keepends=True):
-            try:
-                rec = json.loads(line)
-                done.add(rec["cuce"]); good_bytes += len(line)
-            except Exception:
-                break  # línea a medio escribir: descartar desde acá
-        if good_bytes != len(raw):  # hubo cola corrupta → recortar
-            with open(store, "r+b") as fh:
-                fh.truncate(good_bytes)
-    return done
+    """CUCE completados EXCLUYENDO el último (se re-hace por si quedó incompleto, como
+    pide el flujo de continuar otro día). Trunca el store hasta antes de ese último
+    válido + cualquier cola corrupta. Devuelve (done:set, redo:cuce|None)."""
+    if not store.exists():
+        return set(), None
+    recs, pos = [], 0   # (cuce, offset_fin_de_linea)
+    for line in store.read_bytes().splitlines(keepends=True):
+        try:
+            rec = json.loads(line)
+        except Exception:
+            break  # línea a medio escribir: cortar desde acá
+        pos += len(line)
+        recs.append((rec["cuce"], pos))
+    if not recs:
+        with open(store, "r+b") as fh:
+            fh.truncate(0)
+        return set(), None
+    keep = recs[-2][1] if len(recs) >= 2 else 0   # dejar fuera el último válido
+    redo = recs[-1][0]
+    with open(store, "r+b") as fh:
+        fh.truncate(keep)
+    return set(c for c, _ in recs[:-1]), redo
 
 
 def write_progress(prog_path, total, done, last_cuce, metodos):
@@ -224,17 +245,19 @@ def main():
 
     todos = dbc_list(run_dir)
     total = len(todos)
-    done = load_done(store)
 
-    if args.estado:
-        print(prog.read_text() if prog.exists() else f"{len(done)}/{total} DBC hechos (sin progreso_specs.json aún)")
+    if args.estado:   # solo lectura, no toca el store
+        print(prog.read_text() if prog.exists() else f"{count_done(store)}/{total} DBC hechos")
         return
 
     if not cia.GROQ_API_KEYS:
         print("ERROR: sin keys Groq (monitor/.env)", file=sys.stderr); sys.exit(1)
+    done, redo = load_done(store)
     pool = KeyPool(cia.GROQ_API_KEYS)
     print(f"Etapa 3 — specs DBC. Total {total} DBC | ya hechos {len(done)} | "
           f"pendientes {total - len(done)} | cuentas Groq {len(pool.keys)}", flush=True)
+    if redo:
+        print(f"Reanudando: re-hago el último por si quedó incompleto → {redo}", flush=True)
 
     metodos = {"llm": 0, "docx": 0, "vacio": 0}
     hechos = len(done)
@@ -253,9 +276,10 @@ def main():
             sin_respuesta += 1
             print(f"[{hechos}/{total}] {cuce} → SIN RESPUESTA API (queda pendiente)", flush=True)
             if sin_respuesta >= max(4, len(pool.keys)):
-                print("\n⏸  Todas las cuentas Groq sin cupo (TPD). Corto acá; lo hecho quedó "
-                      "guardado. Relanzá el MISMO comando tras el reset (20:00 Bolivia) y "
-                      "continúa desde este punto.", flush=True)
+                print(f"\n⏸  Las cuentas Groq se quedaron sin cupo por hoy. Avance "
+                      f"guardado: {hechos}/{total}.\n   Ya podés CERRAR esta ventana. "
+                      f"Mañana (tras el reset de las 20:00 Bolivia) volvé a correr este "
+                      f"mismo comando y continúa solo desde donde quedó.", flush=True)
                 break
             continue
         sin_respuesta = 0
@@ -273,7 +297,11 @@ def main():
         write_progress(prog, total, hechos, cuce, metodos)
         print(f"[{hechos}/{total}] {cuce} → {metodo} ({len(items)} ítems)", flush=True)
 
-    print(f"\nFIN etapa 3. hechos {hechos}/{total} | métodos {metodos}", flush=True)
+    if hechos >= total:
+        print(f"\n✅ ETAPA 3 COMPLETA: {hechos}/{total} DBC | métodos {metodos}", flush=True)
+    else:
+        print(f"\nPausado en {hechos}/{total} | métodos {metodos} | "
+              f"relanzá el comando para continuar.", flush=True)
 
 
 if __name__ == "__main__":
