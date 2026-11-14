@@ -14,8 +14,19 @@ from .form220_context import context_field
 VERSION = 'adquisiciones-1'
 RECEIPT_STATUSES = ('CONFIRMADA', 'AMBIGUA', 'DESCARTADA')
 RECEIPT_BASELINES = ('adquisiciones_v1_20261109_04', 'adquisiciones_v2_20261109_01')
-CORPORA = [(e, y) for e, years in [('0660-10', range(2022, 2025)),
-                                  ('0660-11', range(2023, 2027))] for y in years]
+_CORPUS_DIR = re.compile(r'historico_http_paginas_(\d{4}-\d{2})_(\d{4})$')
+
+
+def discover_corpora(base):
+    """Pares (entidad, gestión) con manifiestos en disco, descubiertos dinámicamente
+    (en vez de una lista fija). Así el pipeline cubre todas las entidades
+    re-scrapeadas sin editar código."""
+    found = []
+    for d in sorted(Path(base).glob('historico_http_paginas_*')):
+        m = _CORPUS_DIR.search(d.name)
+        if m and d.is_dir() and any(d.glob('*/manifest.json')):
+            found.append((m.group(1), int(m.group(2))))
+    return sorted(found)
 
 
 def field(o, name):
@@ -238,7 +249,9 @@ def run(output, base=pipeline.ROOT/'scraper/historico_local/data', association_r
     if output.exists() or output.is_relative_to(base) or base.is_relative_to(output):
         raise ValueError('Salida debe ser nueva y no solapar originales')
     docs = []; checks = {}; inventories = []; specs = []; sections = []; metadata = {}; availability = {}; coverage = []
-    for entity, year in CORPORA:
+    corpora = discover_corpora(base)
+    if not corpora: raise ValueError(f'Sin corpus local en {base}')
+    for entity, year in corpora:
         source = base/f'historico_http_paginas_{entity}_{year}'
         manifests = sorted(source.glob('*/manifest.json'))
         if not manifests: raise ValueError(f'Corpus local ausente: {source}')
@@ -309,7 +322,7 @@ def run(output, base=pipeline.ROOT/'scraper/historico_local/data', association_r
         edges.extend(resolve([e for e in dbc_edges if e['left_id'] in ids]))
     cards = make_cards(observations, specs, edges, docs, metadata, availability, sections)
     summary = []
-    for entity, year in CORPORA:
+    for entity, year in corpora:
         cov = [r for r in coverage if (r['entity'], r['year']) == (entity, year)]
         cuces = {r['cuce'] for r in cov}; ds = [r for r in inventories if r['cuce'] in cuces]; fs = [f for f in cards if f['cuce'] in cuces]
         summary.append({'entity': entity, 'year': year, 'cuces': len(cov),
