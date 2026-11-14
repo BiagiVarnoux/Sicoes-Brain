@@ -42,8 +42,9 @@ from . import dbc, dbc_llm      # noqa: E402
 
 CHUNK, SOLAPA, MAXC = 13000, 600, 7   # trozos grandes: la mayoría de DBC en 1 request
                                       # (menos repeticiones del prompt y menos cortes)
-PACE_SECONDS = 1.2        # pausa mínima entre requests (repartida entre 4 cuentas)
-COOLDOWN_429 = 60         # segundos que una cuenta queda en enfriamiento tras un 429
+PACE_SECONDS = 8          # pausa entre requests para respetar el TPM de Groq (8000 tok/min
+                          # por cuenta): ~4000 tok/request → cada cuenta ~2 req/min
+COOLDOWN_429 = 60         # segundos que una cuenta queda en enfriamiento tras un 429 TPM
 
 
 class KeyPool:
@@ -295,12 +296,17 @@ def main():
             agotadas = pool.all_exhausted()
             motivo = "sin cupo diario (TPD) confirmado por Groq" if agotadas else "sin respuesta (transitorio)"
             print(f"[{hechos}/{total}] {cuce} → {motivo}; queda pendiente", flush=True)
-            if agotadas or sin_respuesta >= max(4, len(pool.keys)):
-                print(f"\n⏸  Groq sin cupo por hoy. Avance guardado: {hechos}/{total}.\n"
+            if agotadas:
+                print(f"\n⏸  Groq sin cupo por hoy (diario). Avance guardado: {hechos}/{total}.\n"
                       f"   Ya podés CERRAR esta ventana. Mañana (tras el reset de las "
                       f"20:00 Bolivia) volvé a correr este mismo comando y continúa solo.",
                       flush=True)
                 break
+            if sin_respuesta >= 30:   # anti-churn: algo persistente (red caída, etc.)
+                print(f"\n⏸  Muchos fallos seguidos no-diarios ({sin_respuesta}); corto por las "
+                      f"dudas. Avance {hechos}/{total}. Revisá la conexión y relanzá.", flush=True)
+                break
+            time.sleep(10)   # bloqueo por minuto: esperar y seguir (no frenar la corrida)
             continue
         sin_respuesta = 0
         metodo = "llm"
