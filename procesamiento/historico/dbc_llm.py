@@ -19,6 +19,41 @@ _C1 = re.compile(r"formulario\s*c\s*[-–]?\s*1\b", re.I)
 _C2 = re.compile(r"formulario\s*c\s*[-–]?\s*2\b", re.I)
 _P3 = re.compile(r"parte\s+(iii|3)\b", re.I)
 
+# Encabezados que marcan el inicio de la sección de specs reales (varias grafías).
+_HEAD_VARIANTS = (
+    "especificaciones tecnicas y condiciones tecnicas requeridas del bien",
+    "caracteristicas y condiciones tecnicas requeridas de los bienes",
+    "caracteristicas tecnicas y condiciones tecnicas requeridas del bien",
+    "especificaciones tecnicas requeridas",
+)
+# Señales de PLANTILLA en blanco / grilla de evaluación (NO son specs reales).
+_TEMPLATE = ("llenado por la entidad", "proponente a", "proponente b",
+             "cumple no cumple", "cumpleno cumple")
+
+
+def _md_region(markdown, cap=CAP):
+    """Recorte por TEXTO del markdown (para DBC .doc/OLE que no abren como docx).
+    Ancla en la línea del encabezado real de specs (saltando el índice), y entre
+    varias ocurrencias elige la que trae CONTENIDO real, no la plantilla en blanco
+    'Formulario C-1 (Llenado por la Entidad)'."""
+    lineas = markdown.splitlines()
+    norm = [dbc.norm(l) for l in lineas]
+    cands = [i for i, nl in enumerate(norm)
+             if any(h in nl for h in _HEAD_VARIANTS)
+             and "pageref" not in nl and "_toc" not in nl and "...." not in lineas[i]]
+    if not cands:
+        return ""
+    best, best_score = "", -1e9
+    for i in cands:
+        ventana = "\n".join(lineas[i:i + 400])[:cap].strip()
+        wn = dbc.norm(ventana)
+        contenido = sum(1 for l in ventana.splitlines()[1:] if len(l.strip()) > 15)
+        penal = sum(wn.count(mk) for mk in _TEMPLATE) * 6
+        score = contenido - penal
+        if score > best_score:
+            best, best_score = ventana, score
+    return best
+
 
 def _c1_a_c2(markdown):
     """Formulario C-1 DEL CUERPO (última aparición, no la del índice) hasta el
@@ -79,11 +114,15 @@ def region_for_llm(original_path, markdown, cap=CAP):
 def clip_region(markdown, cap=CAP):
     """Devuelve el tramo de specs del DBC (<= cap chars).
 
-    Orden: (1) encabezado real "ESPECIFICACIONES TÉCNICAS…"; (2) C-1→C-2 del
-    cuerpo; (3) cluster de marcadores / cola acotada."""
+    Orden: (1) encabezado real como título markdown; (2) encabezado real por TEXTO
+    (DBC .doc/OLE sin títulos #, evitando la plantilla en blanco); (3) C-1→C-2 del
+    cuerpo; (4) cluster de marcadores / cola acotada."""
     sec = dbc.section_bounds(markdown)
     if sec and sec.get("text", "").strip():
         return sec["text"][:cap].strip()
+    md = _md_region(markdown, cap)
+    if md and len(md) > 150:
+        return md
     alt = _c1_a_c2(markdown)
     if alt:
         return alt[:cap]
