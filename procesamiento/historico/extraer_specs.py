@@ -60,10 +60,11 @@ class KeyPool:
     def penalize(self, key, seconds):
         self.cool[key] = time.monotonic() + seconds
 
-    def next_key(self, max_wait=1200):
+    def next_key(self, max_wait=180):
         """Siguiente cuenta con cupo. Si todas están en cooldown, ESPERA al refill más
-        próximo (hasta `max_wait`s) y sigue; devuelve None solo si ese refill está más
-        lejos que max_wait (cupo diario realmente lejos → conviene relanzar luego)."""
+        próximo (hasta `max_wait`s) y sigue; devuelve None si ese refill está más lejos
+        que max_wait → cerca del tope diario: conviene cortar y relanzar luego en vez
+        de arrastrarse esperando minutos por cada DBC."""
         deadline = time.monotonic() + max_wait
         n = len(self.keys); announced = False
         while True:
