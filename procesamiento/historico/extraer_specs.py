@@ -21,6 +21,7 @@ import argparse
 import json
 import math
 import os
+import re
 import sys
 import time
 import urllib.request
@@ -48,65 +49,97 @@ COOLDOWN_429 = 60         # segundos que una cuenta queda en enfriamiento tras u
 
 
 class KeyPool:
-    """Round-robin de keys Groq con cooldown corto (TPM) y marca de agotada-por-hoy (TPD)."""
+    """Round-robin de cuentas Groq con cooldown por cuenta (segundos exactos que Groq
+    pide en el `retry-after`). El cupo diario (TPD) es una ventana MÓVIL: se repone de
+    a poco, así que se 'surfea' esperando el refill, no se marca agotada para siempre."""
     def __init__(self, keys):
         self.keys = list(keys)
-        self.cool = {k: 0.0 for k in self.keys}   # fin de cooldown corto (TPM)
-        self.exhausted = set()                     # cuentas sin cupo diario (TPD)
+        self.cool = {k: 0.0 for k in self.keys}   # momento (monotonic) en que la cuenta vuelve
         self.i = 0
-
-    def mark_exhausted(self, key):
-        self.exhausted.add(key)
-
-    def all_exhausted(self):
-        return len(self.exhausted) >= len(self.keys)
-
-    def next_key(self, max_wait=90):
-        """Siguiente cuenta con cupo. Si TODAS están agotadas por hoy (TPD) devuelve
-        None AL INSTANTE (no espera). Para bloqueos cortos (TPM) espera hasta
-        `max_wait`s a que alguna enfríe; si no, None."""
-        avail = [k for k in self.keys if k not in self.exhausted]
-        if not avail:
-            return None
-        deadline = time.monotonic() + max_wait
-        n = len(self.keys)
-        while True:
-            for _ in range(n):
-                k = self.keys[self.i % n]; self.i += 1
-                if k in self.exhausted:
-                    continue
-                if time.monotonic() >= self.cool[k]:
-                    return k
-            soonest = min(self.cool[k] for k in avail)
-            if soonest > deadline:
-                return None
-            time.sleep(max(0.0, min(soonest, deadline) - time.monotonic()) + 0.1)
 
     def penalize(self, key, seconds):
         self.cool[key] = time.monotonic() + seconds
+
+    def next_key(self, max_wait=1200):
+        """Siguiente cuenta con cupo. Si todas están en cooldown, ESPERA al refill más
+        próximo (hasta `max_wait`s) y sigue; devuelve None solo si ese refill está más
+        lejos que max_wait (cupo diario realmente lejos → conviene relanzar luego)."""
+        deadline = time.monotonic() + max_wait
+        n = len(self.keys); announced = False
+        while True:
+            for _ in range(n):
+                k = self.keys[self.i % n]; self.i += 1
+                if time.monotonic() >= self.cool[k]:
+                    return k
+            soonest = min(self.cool.values())
+            if soonest > deadline:
+                return None
+            espera = max(0.0, soonest - time.monotonic())
+            if not announced:
+                print(f"      · las 4 cuentas sin cupo momentáneo; espero ~{int(espera)}s "
+                      f"el refill de la ventana diaria y sigo…", flush=True)
+                announced = True
+            time.sleep(espera + 0.5)
 
 
 # Groq va detrás de Cloudflare: sin un User-Agent de navegador devuelve 403 (1010).
 _UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
        "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
-COOLDOWN_TPD = 3600  # cupo diario agotado: parquear la cuenta hasta el reset (20:00 Bolivia)
+_RA_BODY = re.compile(r"try again in\s+(?:(\d+)m)?\s*([\d.]+)s", re.I)
+
+# Prompt propio del histórico: el DBC_SYSTEM del radar sub-extrae bienes simples
+# (papelería, limpieza) porque exige specs "técnicas ricas". Acá queremos TODOS los
+# ítems del pliego, aunque tengan pocos atributos.
+DBC_SYSTEM_HIST = (
+    "Extraes los BIENES/ítems requeridos de un pliego (DBC) de contratación pública "
+    "boliviana. El texto es la sección de especificaciones técnicas: suele listar un "
+    "ítem por renglón, con el nombre del producto al inicio y sus atributos después, "
+    "separados por ';' o ','. "
+    "Extrae TODOS los ítems, AUNQUE tengan pocos atributos: papelería, limpieza, "
+    "insumos básicos, mobiliario y equipos TODOS cuentan. No descartes un ítem por "
+    "tener specs simples. "
+    "Por cada ítem devuelve un objeto: "
+    '{"descripcion":"<nombre del bien>","especificaciones":["<atributo 1>","<atributo 2>",...],'
+    '"cantidad":<número o null>,"unidad":"<unidad o \\"\\">"}. '
+    "El nombre es el inicio del renglón; las especificaciones son los atributos que "
+    "siguen (material, tamaño, color, dimensión, capacidad, presentación, marca/modelo "
+    "si se exige, norma, etc.). "
+    "Omite renglones que NO son un bien (encabezados como 'ESPECIFICACIONES TÉCNICAS', "
+    "notas, condiciones generales, totales). No inventes datos. "
+    "Devuelve EXCLUSIVAMENTE un array JSON (un objeto por ítem), sin texto fuera del array. "
+    "Devuelve [] solo si de verdad no hay ningún bien en el texto."
+)
+
+
+def _retry_after(headers, body, default=60):
+    """Segundos que Groq pide esperar (header `retry-after` o 'try again in Xm Ys')."""
+    ra = headers.get("retry-after") if headers else None
+    if ra:
+        try:
+            return min(1800, max(1, int(float(ra))))
+        except ValueError:
+            pass
+    m = _RA_BODY.search(body or "")
+    if m:
+        mins = int(m.group(1)) if m.group(1) else 0
+        return min(1800, int(mins * 60 + float(m.group(2))) + 2)
+    return default
 
 
 def groq_chat(pool, region_chunk, prefer_key=None, timeout=60):
-    """Una llamada de chat a Groq; nunca re-lanza (devuelve None si no logra
-    respuesta tras probar las cuentas). `prefer_key`: cuenta fija del DBC en curso;
-    solo se cambia si esa cuenta está bloqueada (429)."""
+    """Una llamada de chat a Groq; nunca re-lanza (devuelve None si no logra respuesta
+    tras probar/esperar las cuentas). `prefer_key`: cuenta fija del DBC en curso."""
     payload = {"model": cia.GROQ_MODEL, "temperature": 0,
-               "messages": [{"role": "system", "content": cia.DBC_SYSTEM},
-                            {"role": "user", "content": "Texto del DBC / fichas técnicas:\n" + region_chunk}]}
+               "messages": [{"role": "system", "content": DBC_SYSTEM_HIST},
+                            {"role": "user", "content": "Texto del DBC:\n" + region_chunk}]}
     data = json.dumps(payload).encode()
     for attempt in range(len(pool.keys) * 3):
-        if (attempt == 0 and prefer_key is not None and prefer_key not in pool.exhausted
+        if (attempt == 0 and prefer_key is not None
                 and time.monotonic() >= pool.cool.get(prefer_key, 0)):
             key = prefer_key
         else:
             key = pool.next_key()
-            if key is None:        # ninguna cuenta con cupo → avisar al caller
+            if key is None:        # refill demasiado lejos → avisar al caller
                 return None
         req = urllib.request.Request(cia.GROQ_URL, data=data, method="POST",
                                      headers={"Authorization": f"Bearer {key}",
@@ -117,18 +150,12 @@ def groq_chat(pool, region_chunk, prefer_key=None, timeout=60):
         except urllib.error.HTTPError as e:
             cuerpo = ""
             try:
-                cuerpo = e.read().decode()[:300]
+                cuerpo = e.read().decode()[:400]
             except Exception:
                 pass
             if e.code == 429:
-                try:
-                    es_tpd = cia._es_tpd(cuerpo)
-                except Exception:
-                    es_tpd = False
-                if es_tpd:                 # cupo DIARIO probado por Groq → agotada hoy
-                    pool.mark_exhausted(key)
-                else:                      # bloqueo por minuto (TPM) → se libera solo
-                    pool.penalize(key, COOLDOWN_429)
+                # TPM o TPD: en ambos casos Groq dice cuánto esperar (ventana móvil).
+                pool.penalize(key, _retry_after(e.headers, cuerpo))
                 continue
             if e.code in (500, 502, 503):
                 time.sleep(2); continue
@@ -219,29 +246,43 @@ def count_done(store):
     return n
 
 
+MAX_INTENTOS_VACIO = 2   # un 'vacío' se reintenta hasta 2 veces antes de aceptarlo
+
+
 def load_done(store):
-    """CUCE completados EXCLUYENDO el último (se re-hace por si quedó incompleto, como
-    pide el flujo de continuar otro día). Trunca el store hasta antes de ese último
-    válido + cualquier cola corrupta. Devuelve (done:set, redo:cuce|None)."""
+    """Analiza el store. Devuelve (done, redo, vacios_intentos):
+      · done: CUCE ya resueltos = con ítems (llm/docx) o 'vacío' tras MAX_INTENTOS.
+        Los 'vacío' con menos intentos NO están en done → se reprocesan (pueden ser
+        falsos vacíos por un fallo del momento).
+      · redo: el último CUCE del store se re-hace por si quedó incompleto.
+      · vacios_intentos: {cuce: nº de veces que salió vacío} para seguir contando.
+    Última versión de cada CUCE gana. Trunca cola corrupta + el último válido (redo)."""
     if not store.exists():
-        return set(), None
-    recs, pos = [], 0   # (cuce, offset_fin_de_linea)
+        return set(), None, {}
+    recs, pos = [], 0   # (cuce, metodo, intentos, offset_fin)
     for line in store.read_bytes().splitlines(keepends=True):
         try:
             rec = json.loads(line)
         except Exception:
-            break  # línea a medio escribir: cortar desde acá
+            break
         pos += len(line)
-        recs.append((rec["cuce"], pos))
+        recs.append((rec["cuce"], rec.get("metodo"), rec.get("intentos", 1), pos))
     if not recs:
         with open(store, "r+b") as fh:
             fh.truncate(0)
-        return set(), None
-    keep = recs[-2][1] if len(recs) >= 2 else 0   # dejar fuera el último válido
+        return set(), None, {}
+    keep = recs[-2][3] if len(recs) >= 2 else 0   # dejar fuera el último válido (redo)
     redo = recs[-1][0]
     with open(store, "r+b") as fh:
         fh.truncate(keep)
-    return set(c for c, _ in recs[:-1]), redo
+    latest, vac = {}, {}
+    for cuce, metodo, intentos, _ in recs[:-1]:
+        latest[cuce] = metodo
+        if metodo == "vacio":
+            vac[cuce] = intentos
+    done = {c for c, m in latest.items()
+            if m in ("llm", "docx") or (m == "vacio" and vac.get(c, 1) >= MAX_INTENTOS_VACIO)}
+    return done, redo, vac
 
 
 def write_progress(prog_path, total, done, last_cuce, metodos):
@@ -271,10 +312,13 @@ def main():
 
     if not cia.GROQ_API_KEYS:
         print("ERROR: sin keys Groq (monitor/.env)", file=sys.stderr); sys.exit(1)
-    done, redo = load_done(store)
+    done, redo, vac = load_done(store)
     pool = KeyPool(cia.GROQ_API_KEYS)
     print(f"Etapa 3 — specs DBC. Total {total} DBC | ya hechos {len(done)} | "
           f"pendientes {total - len(done)} | cuentas Groq {len(pool.keys)}", flush=True)
+    revisar_vacios = sum(1 for c, i in vac.items() if i < MAX_INTENTOS_VACIO and c not in done)
+    if revisar_vacios:
+        print(f"(incluye {revisar_vacios} marcados 'vacío' que se reintentan por si fueron falsos)", flush=True)
     if redo:
         print(f"Reanudando: re-hago el último por si quedó incompleto → {redo}", flush=True)
 
@@ -289,24 +333,19 @@ def main():
         region = dbc_llm.region_for_llm(original, md.read_text(encoding="utf-8-sig"))
         items, responded = extract_llm(pool, region)
         if not responded:
-            # La API no dio respuesta: NO marcar, queda pendiente. Si Groq confirmó
-            # cupo DIARIO agotado en TODAS las cuentas, cortar al instante (probado, no
-            # supuesto). Si fue algo transitorio en varias seguidas, también cortar.
+            # No hubo respuesta pese a esperar el refill (next_key agotó su max_wait):
+            # el cupo diario está lejos. NO se marca (queda pendiente). Se corta para
+            # no dejar la ventana colgada; relanzás más tarde / otro día y continúa.
             sin_respuesta += 1
-            agotadas = pool.all_exhausted()
-            motivo = "sin cupo diario (TPD) confirmado por Groq" if agotadas else "sin respuesta (transitorio)"
-            print(f"[{hechos}/{total}] {cuce} → {motivo}; queda pendiente", flush=True)
-            if agotadas:
-                print(f"\n⏸  Groq sin cupo por hoy (diario). Avance guardado: {hechos}/{total}.\n"
-                      f"   Ya podés CERRAR esta ventana. Mañana (tras el reset de las "
-                      f"20:00 Bolivia) volvé a correr este mismo comando y continúa solo.",
+            print(f"[{hechos}/{total}] {cuce} → sin cupo por ahora (ventana diaria lejos); "
+                  f"queda pendiente", flush=True)
+            if sin_respuesta >= 2:
+                print(f"\n⏸  Groq sin cupo suficiente por ahora. Avance guardado: "
+                      f"{hechos}/{total}.\n   Podés CERRAR esta ventana y relanzar el mismo "
+                      f"comando más tarde (o mañana): continúa solo desde donde quedó.\n"
+                      f"   Tip: dejándolo abierto también sigue solo cuando el cupo se repone.",
                       flush=True)
                 break
-            if sin_respuesta >= 30:   # anti-churn: algo persistente (red caída, etc.)
-                print(f"\n⏸  Muchos fallos seguidos no-diarios ({sin_respuesta}); corto por las "
-                      f"dudas. Avance {hechos}/{total}. Revisá la conexión y relanzá.", flush=True)
-                break
-            time.sleep(10)   # bloqueo por minuto: esperar y seguir (no frenar la corrida)
             continue
         sin_respuesta = 0
         metodo = "llm"
@@ -316,6 +355,8 @@ def main():
         metodos[metodo] += 1
         rec = {"cuce": cuce, "metodo": metodo, "n_items": len(items),
                "items": items, "ts": time.strftime("%Y-%m-%dT%H:%M:%S")}
+        if metodo == "vacio":   # cuenta el intento; a los 2 se acepta como vacío real
+            rec["intentos"] = vac.get(cuce, 0) + 1
         with open(store, "a") as fh:
             fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
             fh.flush(); os.fsync(fh.fileno())
