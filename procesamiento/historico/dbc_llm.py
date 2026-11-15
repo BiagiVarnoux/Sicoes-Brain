@@ -9,9 +9,50 @@ No llama a ningún LLM: solo prepara el texto. El proveedor (Groq/OpenAI/otro) s
 decide aparte.
 """
 import re
+import shutil
+import subprocess
+from pathlib import Path
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
 from . import dbc
+
+_SOFFICE_CANDS = ("/Applications/LibreOffice.app/Contents/MacOS/soffice", "soffice", "libreoffice")
+
+
+def _soffice():
+    for c in _SOFFICE_CANDS:
+        if c.startswith("/") and Path(c).exists():
+            return c
+        if shutil.which(c):
+            return c
+    return None
+
+
+def ensure_docx(path):
+    """Devuelve un .docx legible (zip). Si `path` ya es docx-zip, lo devuelve. Si es
+    .doc viejo (OLE) o un .docx corrupto, lo convierte con LibreOffice y cachea el
+    resultado en _docx_cache/ junto al archivo. None si no se puede."""
+    path = Path(path)
+    try:
+        ZipFile(path).close()
+        return path   # ya es un docx (zip) válido
+    except Exception:
+        pass
+    cache_dir = path.parent / "_docx_cache"
+    cached = cache_dir / (path.stem + ".docx")
+    if cached.exists():
+        return cached
+    soffice = _soffice()
+    if not soffice:
+        return None
+    cache_dir.mkdir(exist_ok=True)
+    try:
+        subprocess.run([soffice, "--headless", "--convert-to", "docx", "--outdir",
+                        str(cache_dir), str(path)], capture_output=True, timeout=180)
+    except Exception:
+        return None
+    produced = cache_dir / (path.stem + ".docx")
+    return produced if produced.exists() else None
 
 CAP = 24000  # tope de chars del recorte (la mediana real es ~6.7k; acota outliers)
 _MARK = re.compile(r"especificaci[oó]n\w*\s+t[eé]cnic|caracter[ií]sticas", re.I)
@@ -102,12 +143,15 @@ def region_from_docx(original_path, cap=CAP):
 
 
 def region_for_llm(original_path, markdown, cap=CAP):
-    """Entrada preferida para el extractor LLM: el texto de las celdas del docx
-    (preserva lo que el markdown aplana). Si el docx no da sección, cae al markdown."""
-    if original_path and str(original_path).lower().endswith(".docx"):
-        dt = region_from_docx(original_path, cap)
-        if dt and len(dt) > 150:
-            return dt
+    """Entrada para el extractor LLM: SIEMPRE el texto de las celdas del archivo
+    (.docx directo, o .doc viejo convertido a .docx con LibreOffice). El markdown
+    queda solo como último recurso si no se puede abrir/convertir el archivo."""
+    if original_path:
+        docx = ensure_docx(original_path)   # .docx tal cual, o .doc→.docx convertido
+        if docx:
+            dt = region_from_docx(docx, cap)
+            if dt and len(dt) > 150:
+                return dt
     return clip_region(markdown, cap)
 
 
