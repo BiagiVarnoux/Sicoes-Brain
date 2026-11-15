@@ -252,7 +252,8 @@ MAX_INTENTOS_VACIO = 2   # un 'vacío' se reintenta hasta 2 veces antes de acept
 
 def load_done(store):
     """Analiza el store. Devuelve (done, redo, vacios_intentos):
-      · done: CUCE ya resueltos = con ítems (llm/docx) o 'vacío' tras MAX_INTENTOS.
+      · done: CUCE ya resueltos = con ítems (llm/docx/claude) o 'vacío' tras MAX_INTENTOS.
+        ('claude' = vacíos llenados a mano desde la región real, no se reprocesan.)
         Los 'vacío' con menos intentos NO están en done → se reprocesan (pueden ser
         falsos vacíos por un fallo del momento).
       · redo: el último CUCE del store se re-hace por si quedó incompleto.
@@ -282,7 +283,7 @@ def load_done(store):
         if metodo == "vacio":
             vac[cuce] = intentos
     done = {c for c, m in latest.items()
-            if m in ("llm", "docx") or (m == "vacio" and vac.get(c, 1) >= MAX_INTENTOS_VACIO)}
+            if m in ("llm", "docx", "claude") or (m == "vacio" and vac.get(c, 1) >= MAX_INTENTOS_VACIO)}
     return done, redo, vac
 
 

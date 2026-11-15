@@ -34,10 +34,13 @@ def ensure_docx(path):
     resultado en _docx_cache/ junto al archivo. None si no se puede."""
     path = Path(path)
     try:
-        ZipFile(path).close()
-        return path   # ya es un docx (zip) válido
+        with ZipFile(path) as z:
+            if "word/document.xml" in z.namelist():
+                return path   # ya es un docx (zip con word/document.xml)
     except Exception:
-        pass
+        pass   # no es zip (o está corrupto) → convertir abajo
+    # Es un zip SIN word/document.xml (p.ej. .doc que en realidad es un objeto de
+    # dibujo OOXML: drs/e2oDoc.xml) o no es zip → convertir con LibreOffice.
     cache_dir = path.parent / "_docx_cache"
     cached = cache_dir / (path.stem + ".docx")
     if cached.exists():
