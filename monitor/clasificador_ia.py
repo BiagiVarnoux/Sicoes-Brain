@@ -36,10 +36,11 @@ def _cargar_keys() -> list[str]:
             v = os.environ.get(nombre, "").strip()
             if v:
                 keys.append(v)
-    # Colchón de último recurso: las cuentas de canonización, al FINAL de la lista
-    # (la rotación las alcanza solo tras agotar las del radar). El dedup de abajo
-    # evita problemas si alguna coincide con una ya cargada.
-    for nombre in ("GROQ_API_KEY_CANON", "GROQ_API_KEY_CANON_2"):
+    # Colchón de último recurso, al FINAL de la lista (la rotación las alcanza solo
+    # tras agotar las del radar): primero las cuentas de canonización, luego las
+    # cuentas EXTRA prestadas. El dedup de abajo evita problemas si alguna coincide.
+    for nombre in ("GROQ_API_KEY_CANON", "GROQ_API_KEY_CANON_2",
+                   "GROQ_API_KEY_EXTRA_1", "GROQ_API_KEY_EXTRA_2", "GROQ_API_KEY_EXTRA_3"):
         v = os.environ.get(nombre, "").strip()
         if v:
             keys.append(v)
