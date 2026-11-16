@@ -8,7 +8,7 @@ Robusto a cortes (PC apagada, API caída, terminal cerrada):
 - Escribe el resultado de CADA DBC al store de inmediato (append + fsync). Si se
   corta, lo ya hecho queda en disco; la siguiente corrida saltea lo completado y
   sigue. Una línea a medio escribir (crash en pleno write) se detecta y se re-hace.
-- Rotación round-robin de las 4 cuentas Groq con cooldown ante 429 (bloqueo corto):
+- Rotación round-robin de las N cuentas Groq con cooldown ante 429 (bloqueo corto):
   si una cuenta se bloquea, sigue con las otras y vuelve a ella cuando enfría. Un
   429 por límite DIARIO (TPD) solo pausa hasta que esa cuenta reviva.
 - Progreso consultable: imprime [hechos/total] y escribe progreso_specs.json.
@@ -77,7 +77,7 @@ class KeyPool:
                 return None
             espera = max(0.0, soonest - time.monotonic())
             if not announced:
-                print(f"      · las 4 cuentas sin cupo momentáneo; espero ~{int(espera)}s "
+                print(f"      · las {n} cuentas sin cupo momentáneo; espero ~{int(espera)}s "
                       f"el refill de la ventana diaria y sigo…", flush=True)
                 announced = True
             time.sleep(espera + 0.5)
