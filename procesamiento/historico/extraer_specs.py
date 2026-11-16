@@ -273,12 +273,15 @@ def load_done(store):
         with open(store, "r+b") as fh:
             fh.truncate(0)
         return set(), None, {}
-    keep = recs[-2][3] if len(recs) >= 2 else 0   # dejar fuera el último válido (redo)
-    redo = recs[-1][0]
+    if recs[-1][1] == "claude":          # relleno manual: completo, NO se rehace ni se trunca
+        keep, redo, kept = recs[-1][3], None, recs
+    else:
+        keep = recs[-2][3] if len(recs) >= 2 else 0   # dejar fuera el último válido (redo)
+        redo = recs[-1][0]; kept = recs[:-1]
     with open(store, "r+b") as fh:
         fh.truncate(keep)
     latest, vac = {}, {}
-    for cuce, metodo, intentos, _ in recs[:-1]:
+    for cuce, metodo, intentos, _ in kept:
         latest[cuce] = metodo
         if metodo == "vacio":
             vac[cuce] = intentos
