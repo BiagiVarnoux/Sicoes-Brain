@@ -273,7 +273,7 @@ def load_done(store):
         with open(store, "r+b") as fh:
             fh.truncate(0)
         return set(), None, {}
-    if recs[-1][1] == "claude":          # relleno manual: completo, NO se rehace ni se trunca
+    if recs[-1][1] in ("claude", "requerido"):   # relleno manual / reconstruido desde requerido: NO se rehace ni se trunca
         keep, redo, kept = recs[-1][3], None, recs
     else:
         keep = recs[-2][3] if len(recs) >= 2 else 0   # dejar fuera el último válido (redo)
@@ -286,7 +286,7 @@ def load_done(store):
         if metodo == "vacio":
             vac[cuce] = intentos
     done = {c for c, m in latest.items()
-            if m in ("llm", "docx", "claude") or (m == "vacio" and vac.get(c, 1) >= MAX_INTENTOS_VACIO)}
+            if m in ("llm", "docx", "claude", "requerido") or (m == "vacio" and vac.get(c, 1) >= MAX_INTENTOS_VACIO)}
     return done, redo, vac
 
 
@@ -332,11 +332,11 @@ def main():
             except Exception:
                 break
             latest_met[r["cuce"]] = r.get("metodo")
-        protegidos = {c for c in objetivo if latest_met.get(c) == "claude"}
+        protegidos = {c for c in objetivo if latest_met.get(c) in ("claude", "requerido")}
         objetivo -= protegidos
         redo = None   # en modo rehacer no aplica el redo del último
         print(f"Modo --rehacer: {len(objetivo)} CUCE a re-extraer "
-              f"({len(protegidos)} 'claude' protegidos, se omiten)", flush=True)
+              f"({len(protegidos)} 'claude'/'requerido' protegidos, se omiten)", flush=True)
 
     print(f"Etapa 3 — specs DBC. Total {total} DBC | ya hechos {len(done)} | "
           f"pendientes {total - len(done)} | cuentas Groq {len(pool.keys)}", flush=True)
