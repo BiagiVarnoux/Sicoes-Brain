@@ -57,7 +57,10 @@ def ensure_docx(path):
     produced = cache_dir / (path.stem + ".docx")
     return produced if produced.exists() else None
 
-CAP = 24000  # tope de chars del recorte (la mediana real es ~6.7k; acota outliers)
+CAP = 40000  # tope de chars del recorte (la mediana real es ~7.4k; acota outliers).
+             # Se subió de 24k: medición del cohorte de error mostró 27 regiones >24k
+             # que el chunker (CHUNK=13k×MAXC=7≈87k) sí puede barrer. Los colapsos NO
+             # eran truncado (región ~5k perfecta) sino under-extraction del LLM.
 _MARK = re.compile(r"especificaci[oó]n\w*\s+t[eé]cnic|caracter[ií]sticas", re.I)
 _C1 = re.compile(r"formulario\s*c\s*[-–]?\s*1\b", re.I)
 _C2 = re.compile(r"formulario\s*c\s*[-–]?\s*2\b", re.I)
