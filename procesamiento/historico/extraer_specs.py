@@ -302,6 +302,9 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--run", required=True, help="carpeta de salida de la etapa 2 (acquisitions)")
     ap.add_argument("--estado", action="store_true", help="solo mostrar progreso y salir")
+    ap.add_argument("--rehacer", metavar="ARCHIVO", help="re-extrae SOLO los CUCE listados en "
+                    "ARCHIVO (uno por línea), ignorando que estén 'hechos'. Para re-correr un "
+                    "cohorte de error con el CAP ya subido. Protege los 'claude' (relleno manual).")
     args = ap.parse_args()
     run_dir = Path(args.run)
     store = run_dir / "especificaciones_llm.jsonl"
@@ -319,6 +322,22 @@ def main():
         print("ERROR: sin keys Groq (monitor/.env)", file=sys.stderr); sys.exit(1)
     done, redo, vac = load_done(store)
     pool = KeyPool(cia.GROQ_API_KEYS)
+
+    objetivo, latest_met = set(), {}
+    if args.rehacer:
+        objetivo = {l.strip() for l in Path(args.rehacer).read_text().splitlines() if l.strip()}
+        for line in store.read_bytes().splitlines():   # último método gana (proteger claude)
+            try:
+                r = json.loads(line)
+            except Exception:
+                break
+            latest_met[r["cuce"]] = r.get("metodo")
+        protegidos = {c for c in objetivo if latest_met.get(c) == "claude"}
+        objetivo -= protegidos
+        redo = None   # en modo rehacer no aplica el redo del último
+        print(f"Modo --rehacer: {len(objetivo)} CUCE a re-extraer "
+              f"({len(protegidos)} 'claude' protegidos, se omiten)", flush=True)
+
     print(f"Etapa 3 — specs DBC. Total {total} DBC | ya hechos {len(done)} | "
           f"pendientes {total - len(done)} | cuentas Groq {len(pool.keys)}", flush=True)
     revisar_vacios = sum(1 for c, i in vac.items() if i < MAX_INTENTOS_VACIO and c not in done)
@@ -331,7 +350,10 @@ def main():
     hechos = len(done)
     sin_respuesta = 0   # DBC seguidos sin respuesta de la API → señal de cupo agotado
     for idx, (cuce, folder, dkey, doc, md) in enumerate(todos, 1):
-        if cuce in done:
+        if objetivo:                       # modo --rehacer: solo el cohorte, ignorando 'done'
+            if cuce not in objetivo:
+                continue
+        elif cuce in done:
             continue
         v = next((vv for vv in reversed(doc.get("versions", [])) if vv.get("valid")), None)
         original = folder / v["path"] if v else None
