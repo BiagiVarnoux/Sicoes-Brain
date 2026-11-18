@@ -22,25 +22,30 @@ def _cargar_keys() -> list[str]:
     el límite de Groq es POR ORGANIZACIÓN, así que una key de otra cuenta tiene su
     propio cupo diario (TPD) separado. Prioridad:
       1) GROQ_API_KEYS = "key1,key2,..." (lista separada por comas), o
-      2) GROQ_API_KEY, GROQ_API_KEY_2, GROQ_API_KEY_3, ... (una por variable).
-    Además, como ÚLTIMO colchón, agrega al final las keys de canonización
-    (GROQ_API_KEY_CANON, _CANON_2): el radar solo las toca cuando sus propias
-    cuentas ya se saturaron (van al final de la rotación, por organización aparte)."""
+      2) Las keys PRINCIPALES del radar: GROQ_API_KEY, GROQ_API_KEY_2 ... _5 y las
+         3 cuentas prestadas GROQ_API_KEY_EXTRA_1/2/3 (una por variable). El radar
+         rota entre TODAS estas por igual desde el inicio.
+    Además, como ÚLTIMO colchón, agrega al final SOLO las cuentas de canonización
+    (GROQ_API_KEY_CANON, _CANON_2): el radar las toca únicamente cuando sus propias
+    cuentas ya se saturaron, para no pisar el cupo de canonización (org. aparte)."""
     multi = os.environ.get("GROQ_API_KEYS", "").strip()
     if multi:
         keys = [k.strip() for k in multi.split(",") if k.strip()]
     else:
         keys = []
+        # Principales del radar: sus 2 propias + los slots _3.._5 (por si crece) +
+        # las 3 cuentas EXTRA prestadas, todas en la rotación normal.
         for nombre in ("GROQ_API_KEY", "GROQ_API_KEY_2", "GROQ_API_KEY_3",
-                       "GROQ_API_KEY_4", "GROQ_API_KEY_5"):
+                       "GROQ_API_KEY_4", "GROQ_API_KEY_5",
+                       "GROQ_API_KEY_EXTRA_1", "GROQ_API_KEY_EXTRA_2",
+                       "GROQ_API_KEY_EXTRA_3"):
             v = os.environ.get(nombre, "").strip()
             if v:
                 keys.append(v)
     # Colchón de último recurso, al FINAL de la lista (la rotación las alcanza solo
-    # tras agotar las del radar): primero las cuentas de canonización, luego las
-    # cuentas EXTRA prestadas. El dedup de abajo evita problemas si alguna coincide.
-    for nombre in ("GROQ_API_KEY_CANON", "GROQ_API_KEY_CANON_2",
-                   "GROQ_API_KEY_EXTRA_1", "GROQ_API_KEY_EXTRA_2", "GROQ_API_KEY_EXTRA_3"):
+    # tras agotar las del radar): las cuentas DEDICADAS a canonización. El dedup de
+    # abajo evita problemas si alguna coincide con una key de arriba.
+    for nombre in ("GROQ_API_KEY_CANON", "GROQ_API_KEY_CANON_2"):
         v = os.environ.get(nombre, "").strip()
         if v:
             keys.append(v)
