@@ -90,12 +90,24 @@ SYSTEM_PROMPT = (
 # diario, no se vuelve a intentar hasta el próximo día (no sirve esperar segundos).
 _key_idx = 0
 _tpd_agotadas: set[int] = set()
+# Pares (idx_key, modelo) sin permiso de ESE modelo en esa organización (403
+# model_permission_blocked_org). Es por-modelo: una cuenta puede tener bloqueado
+# el 20b (clasificación) pero no el 120b (DBC), así que no se puede marcar la key
+# entera como muerta. Igual que _tpd_agotadas, no se libera esperando: se salta.
+_modelo_bloqueado: set[tuple[int, str]] = set()
 
 
 def _es_tpd(cuerpo: str) -> bool:
     """¿El 429 es por límite DIARIO (TPD) y no por minuto (TPM)?"""
     c = cuerpo.lower()
     return "tpd" in c or "per day" in c or "requests per day" in c
+
+
+def _es_modelo_bloqueado(cuerpo: str) -> bool:
+    """¿El 403 es porque la org tiene ese modelo deshabilitado (no un problema de
+    la API key en sí)? Entonces otra cuenta con el modelo habilitado sí puede."""
+    c = cuerpo.lower()
+    return "model_permission_blocked" in c or "permissions_error" in c
 
 
 def _request(payload: dict, intentos: int = 5) -> dict | None:
@@ -109,14 +121,26 @@ def _request(payload: dict, intentos: int = 5) -> dict | None:
     if not GROQ_API_KEYS:
         return None
     data = json.dumps(payload).encode()
+    modelo = payload.get("model", "")
+
+    def _inutil(idx: int) -> bool:
+        # key descartada para ESTA request: sin cupo diario (TPD) o sin permiso del
+        # modelo pedido en su organización (403 model_permission_blocked_org).
+        return idx in _tpd_agotadas or (idx, modelo) in _modelo_bloqueado
+
     i = 0
     while i < intentos:
-        if len(_tpd_agotadas) >= len(GROQ_API_KEYS):
-            print("      ✗ Todas las API keys de Groq agotaron su cupo diario (TPD). "
-                  "Se reanuda tras el reset (medianoche UTC / 20:00 Bolivia).", flush=True)
+        if all(_inutil(k) for k in range(len(GROQ_API_KEYS))):
+            if len(_tpd_agotadas) >= len(GROQ_API_KEYS):
+                print("      ✗ Todas las API keys de Groq agotaron su cupo diario (TPD). "
+                      "Se reanuda tras el reset (medianoche UTC / 20:00 Bolivia).", flush=True)
+            else:
+                print(f"      ✗ Ninguna cuenta de Groq tiene habilitado el modelo "
+                      f"'{modelo}' (bloqueado a nivel de organización). "
+                      f"Habilitalo en console.groq.com/settings/limits.", flush=True)
             return None
-        # avanzar hasta una key que todavía tenga cupo diario
-        while _key_idx in _tpd_agotadas:
+        # avanzar hasta una key utilizable (con cupo y con permiso del modelo)
+        while _inutil(_key_idx):
             _key_idx = (_key_idx + 1) % len(GROQ_API_KEYS)
         req = urllib.request.Request(
             GROQ_URL, data=data, method="POST",
@@ -149,9 +173,20 @@ def _request(payload: dict, intentos: int = 5) -> dict | None:
                          else "No quedan cuentas con cupo."), flush=True)
                 _key_idx = (_key_idx + 1) % len(GROQ_API_KEYS)
                 continue  # no cuenta como intento: está acotado por nº de keys
+            if e.code == 403 and _es_modelo_bloqueado(cuerpo):
+                # La org de esta cuenta tiene deshabilitado ESTE modelo → no es un
+                # problema de la key; otra cuenta con el modelo habilitado sí sirve.
+                _modelo_bloqueado.add((_key_idx, modelo))
+                otras = sum(1 for k in range(len(GROQ_API_KEYS)) if not _inutil(k))
+                print(f"      ⚠ Groq {etiqueta_key}: modelo '{modelo}' bloqueado en esa "
+                      f"organización. "
+                      + (f"Cambio a otra cuenta ({otras} con ese modelo)." if otras > 0
+                         else "No quedan cuentas con ese modelo."), flush=True)
+                _key_idx = (_key_idx + 1) % len(GROQ_API_KEYS)
+                continue  # no cuenta como intento: está acotado por nº de keys
             if e.code in (429, 503):
                 # TPM (por minuto) o modelo saturado. Si hay otra key libre, usarla.
-                libres = [k for k in range(len(GROQ_API_KEYS)) if k not in _tpd_agotadas]
+                libres = [k for k in range(len(GROQ_API_KEYS)) if not _inutil(k)]
                 if len(libres) > 1:
                     _key_idx = next(k for k in libres if k != _key_idx)
                     print(f"      ⚠ Groq {etiqueta_key}: {'429 TPM' if e.code == 429 else '503'}; "
