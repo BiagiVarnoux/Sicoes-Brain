@@ -1,76 +1,92 @@
 [
- {"cuce":"23-0660-07-1388674-1-1","items":[
-   {"item":1,"descripcion":"Archivador de palanca plastificado oficio lomo ancho","especificaciones":"Archivador de palanca; plastificado; tamano oficio; lomo ancho","cantidad":3333,"unidad":"pieza"}
+ {"cuce":"24-0660-12-1440574-1-1","items":[
+   {"item":1,"descripcion":"Kit de fusor para impresora Lexmark MS421/MS321","especificaciones":"Repuesto para impresora; tipo fusor; modelo Lexmark MS421; kit unidad de fusor compatible MS321DN y MS421DN; original; China","cantidad":3,"unidad":"pieza"},
+   {"item":2,"descripcion":"Drum Lexmark 56F0Z00 MS421/MS321/MS621","especificaciones":"Repuesto para impresora; tambor Lexmark 56F0Z00; compatible MS321dn, MS421dn, MS621dn; rendimiento 60000 paginas; original","cantidad":14,"unidad":"pieza"},
+   {"item":3,"descripcion":"Drum Brother DR-2340 HL-L2320D","especificaciones":"Drum para impresora; marca Brother; serie DR-2340; compatible HL-L2320D; rendimiento 12000 paginas; original","cantidad":10,"unidad":"pieza"}
  ]},
- {"cuce":"23-0660-07-1392981-1-1","items":[
-   {"item":1,"descripcion":"Panel LED 60x60cm sobreponer","especificaciones":"Foco tipo panel LED 60x60cm; de sobreponer; 50/60Hz; perfil blanco; 220V","cantidad":100,"unidad":"pieza"},
-   {"item":2,"descripcion":"Panel LED 30x30cm sobreponer","especificaciones":"Foco tipo panel LED 30x30cm; de sobreponer; 50/60Hz; perfil blanco; 220V","cantidad":167,"unidad":"pieza"},
-   {"item":3,"descripcion":"Panel LED 30x120cm sobreponer","especificaciones":"Foco tipo panel LED 30x120cm; de sobreponer; 50/60Hz; perfil blanco; 220V","cantidad":30,"unidad":"pieza"},
-   {"item":4,"descripcion":"Panel LED 30x120cm empotrar","especificaciones":"Foco tipo panel LED 30x120cm; de empotrar; 50/60Hz; perfil blanco; 220V","cantidad":40,"unidad":"pieza"}
+ {"cuce":"24-0660-12-1459975-1-1","items":[
+   {"item":1,"descripcion":"Archivador de palanca carton oficio lomo ancho","especificaciones":"Material carton endurecido; tamano oficio; lomo ancho; con refuerzos metalicos en las puntas; American Iris","cantidad":300,"unidad":"pieza"},
+   {"item":2,"descripcion":"Marcador para discos compactos surtido punta redonda","especificaciones":"Color surtido (azul, negro); punta redonda; trazo fino; secado instantaneo; resistente al agua; MonAmi","cantidad":300,"unidad":"pieza"},
+   {"item":3,"descripcion":"Bandeja portapapeles plastico oficio 3 piezas","especificaciones":"Material plastico; tamano oficio; tipo 3 piezas; color a eleccion; JCP","cantidad":200,"unidad":"pieza"},
+   {"item":4,"descripcion":"Sello fechador redondo digitos moviles con hora","especificaciones":"Tipo redondo; digitos moviles ano/dia/mes con hora; sello automatico a partir de gestion 2024; ruedas de plastico; meses abreviados; incluye almohadilla; Shiny","cantidad":37,"unidad":"pieza"},
+   {"item":5,"descripcion":"Cinta para embalaje 4.5cm transparente 100 yardas","especificaciones":"Medidas 4.5cm; color transparente; material polipropileno; largo 100 yardas; JCP","cantidad":305,"unidad":"rollo"},
+   {"item":6,"descripcion":"Calculadora de escritorio 12 digitos solar y pilas","especificaciones":"12 digitos; alimentacion solar y pilas; tamano mediano; pantalla extra grande; carcasa metal; codigo MX-120B; Casio","cantidad":70,"unidad":"pieza"},
+   {"item":7,"descripcion":"Porta rollo para cinta adhesiva plastico mediano","especificaciones":"Material plastico; rollo mediano; base antideslizante de goma; cuchilla afilada inoxidable reemplazable; cod 0662; Milcar","cantidad":100,"unidad":"pieza"},
+   {"item":8,"descripcion":"Sello tipo Printy numero 4911","especificaciones":"Tipo Printy; numero 4911; entintaje automatico; Trodat","cantidad":150,"unidad":"pieza"}
  ]},
- {"cuce":"23-0660-07-1393522-1-1","items":[
-   {"item":1,"descripcion":"Compresor semihermetico alternativo 180000 BTU","especificaciones":"Compresor semihermetico alternativo; 180000 BTU; marca Bitzer Ecoline mod 12Y/4TES; R-22-417A; 380V 50-60Hz","cantidad":1,"unidad":"pieza"},
-   {"item":2,"descripcion":"Filtro tipo nucleo D-48","especificaciones":"Filtro tipo nucleo; modelo D-48","cantidad":4,"unidad":"pieza"}
+ {"cuce":"24-0660-13-1434707-1-1","items":[
+   {"item":1,"descripcion":"Toner HP LaserJet P1606dn CE278A negro","especificaciones":"Toner para impresora; HP LaserJet P1606dn; color negro; serie CE278A; original","cantidad":14,"unidad":"pieza"},
+   {"item":2,"descripcion":"Toner HP CF287A negro","especificaciones":"Toner para impresora; marca HP; serie CF287A; color negro; original","cantidad":8,"unidad":"pieza"},
+   {"item":3,"descripcion":"Toner HP LaserJet Pro M402 CF226A negro","especificaciones":"Toner para impresora; HP LaserJet Pro M402 DNE; serie CF226A; color negro; original","cantidad":20,"unidad":"pieza"}
  ]},
- {"cuce":"23-0660-07-1394519-1-1","items":[
-   {"item":1,"descripcion":"Gas refrigerante R-410A garrafa 11.30kg","especificaciones":"Gas refrigerante/freon R-410A; garrafa color rosada; peso 11.30kg","cantidad":8,"unidad":"garrafa"},
-   {"item":2,"descripcion":"Gas refrigerante R-417A garrafa 11.30kg","especificaciones":"Gas refrigerante/freon R-417A; garrafa color plomo; peso 11.30kg","cantidad":27,"unidad":"garrafa"}
+ {"cuce":"24-0660-13-1453328-1-1","items":[
+   {"item":1,"descripcion":"Mastil de madera 2.20m con base circular","especificaciones":"Mastil de 2.20m; madera teca boliviana; tallado, pulido y barnizado acabado de primera; color cafe; asta torneada; base de madera torneada","cantidad":65,"unidad":"pieza"},
+   {"item":2,"descripcion":"Mazo de madera nogal para salas de audiencia","especificaciones":"Mazo y base de madera; artesanal; madera nogal dura y maciza; color cafe; barnizado y pulido; base redonda plato 13.8x5cm, mazo 5x23cm","cantidad":15,"unidad":"juego"},
+   {"item":3,"descripcion":"Crucifijo de madera nogal 30cm con imagen de Jesucristo","especificaciones":"Crucifijo de madera con imagen de Jesucristo; 30cm de alto con base; madera nogal color cafe; barnizado y pulido; imagen de Jesucristo en yeso pintado","cantidad":15,"unidad":"pieza"},
+   {"item":4,"descripcion":"Marco de madera nogal 50x40 con imagen emblematica","especificaciones":"Marco de madera con imagen emblematica 50x40 (escudo de Bolivia, Antonio Jose de Sucre, Simon Bolivar); madera nogal color cafe con detalles dorados; vidrio doble y soportes para colgar; imagenes full color","cantidad":60,"unidad":"pieza"}
  ]},
- {"cuce":"23-0660-08-1299486-1-1","items":[
-   {"item":1,"descripcion":"Provision de repuestos y accesorios para aires acondicionados","especificaciones":"Servicio de provision bajo demanda distrito Beni; capacitores de arranque (25/35/40/60 microfaradios para AC 9000/12000/18000/24000 BTU) y de trabajo (2/2.5/3/3.5/4 microfaradios); gas refrigerante; motores de ventilador; contactores; tableta universal; sensores; gestion 2023","cantidad":null,"unidad":"servicio"}
+ {"cuce":"24-0660-13-1459842-1-1","items":[
+   {"item":1,"descripcion":"Extintor portatil ABC 6kg Capelo","especificaciones":"Extintor portatil tipo ABC; marca Capelo Peru; capacidad 6kg; modelo FK-ABC-6K; fosfato mono amonico 70%; presurizado nitrogeno seco; certificado IBMETRO; NTP 350.062.1 y NFPA-10; potencial 6A 40B:C; incluye gancho y senaletica; garantia 5 anos","cantidad":61,"unidad":"pieza"},
+   {"item":2,"descripcion":"Gabinete metalico porta extintor sobreponer 60x34cm","especificaciones":"Gabinete metalico tipo sobreponer para extintores de 6 a 10kg; plancha 1/40 pulgadas; bisagra tropicalizada; pintura rojo brillante horneado; chapa con llave; alto 60cm, ancho 34cm","cantidad":61,"unidad":"pieza"}
  ]},
- {"cuce":"23-0660-08-1303613-1-1","items":[
-   {"item":1,"descripcion":"Repuestos para movilidades de cuatro ruedas","especificaciones":"Lista de repuestos para vehiculos (placas 371-TSD, 653-ARK, 456-RNP, 1142-LEA, 564-IT): amortiguadores, rodamientos, crucetas, correas de distribucion, bujias, pastillas y balatas de freno, munones de suspension y direccion, filtros, bombas de gasolina/aceite, bateria, alternador, arranque, inyectores","cantidad":null,"unidad":"servicio"}
+ {"cuce":"24-0660-13-1460593-1-1","items":[
+   {"item":1,"descripcion":"Ambientador con desinfectante aerosol 360ml surtido","especificaciones":"Ambientador con desinfectante en aerosol; contenido 360ml; fragancia surtida","cantidad":1300,"unidad":"frasco"},
+   {"item":2,"descripcion":"Ambientador en aerosol 360ml surtido","especificaciones":"Ambientador en aerosol; contenido 360ml; fragancia surtida","cantidad":1000,"unidad":"frasco"},
+   {"item":3,"descripcion":"Escoba PVC 6 hileras domestica","especificaciones":"Material PVC; 6 hileras; tipo domestica; con palo de madera","cantidad":85,"unidad":"pieza"},
+   {"item":4,"descripcion":"Basurero mediano plastico cesto","especificaciones":"Tamano mediano; material plastico; tipo cesto; color surtido","cantidad":121,"unidad":"pieza"},
+   {"item":5,"descripcion":"Cera para piso de madera sachet 500ml perfumado","especificaciones":"Presentacion sachet de 500ml; estado pasta; perfumado","cantidad":205,"unidad":"sachet"},
+   {"item":6,"descripcion":"Basurero plastico contenedor con ruedas y tapa 180-200L","especificaciones":"Material plastico; tipo contenedor con ruedas y tapa; capacidad 180 a 200 litros","cantidad":3,"unidad":"pieza"},
+   {"item":7,"descripcion":"Jaboncillo en barra 125g individual surtido","especificaciones":"Jaboncillo en barra; empaque individual; fragancia surtida; peso 125 gramos","cantidad":210,"unidad":"barra"},
+   {"item":8,"descripcion":"Jaboncillo liquido bote dispensador 360ml","especificaciones":"Jaboncillo liquido; presentacion bote con dispensador de 360ml","cantidad":490,"unidad":"bote"}
  ]},
- {"cuce":"23-0660-08-1305482-1-1","items":[
-   {"item":1,"descripcion":"Disco duro 1TB SATA","especificaciones":"Disco duro 1TB; interfaz SATA","cantidad":15,"unidad":"pieza"},
-   {"item":2,"descripcion":"Fuente de poder 800W","especificaciones":"Fuente de poder; potencia 800W","cantidad":20,"unidad":"pieza"},
-   {"item":3,"descripcion":"Drum para impresora HP M203","especificaciones":"Drum para impresora HP M203; por unidad","cantidad":4,"unidad":"pieza"},
-   {"item":4,"descripcion":"Tambor Brother DR-411 negro","especificaciones":"Tambor para impresora Brother DR-411; color negro","cantidad":1,"unidad":"pieza"},
-   {"item":5,"descripcion":"Tambor Brother DR-3460 negro","especificaciones":"Tambor para impresora Brother DR-3460; color negro","cantidad":4,"unidad":"pieza"},
-   {"item":6,"descripcion":"Camara web USB 1080p","especificaciones":"Camara web; USB; 1080p","cantidad":10,"unidad":"pieza"},
-   {"item":7,"descripcion":"Teclado USB","especificaciones":"Teclado USB; por unidad","cantidad":44,"unidad":"pieza"},
-   {"item":8,"descripcion":"Memoria RAM DDR3 4GB","especificaciones":"Memoria RAM DDR3; capacidad 4GB","cantidad":15,"unidad":"pieza"},
-   {"item":9,"descripcion":"Estabilizador 500W","especificaciones":"Estabilizador; potencia 500W; por unidad","cantidad":15,"unidad":"pieza"},
-   {"item":10,"descripcion":"Fusor para impresora Brother 2270","especificaciones":"Fusor para maquina/impresora Brother 2270","cantidad":2,"unidad":"pieza"},
-   {"item":11,"descripcion":"Adaptador de energia 12V","especificaciones":"Adaptador de energia; capacidad 12 voltios","cantidad":10,"unidad":"pieza"},
-   {"item":12,"descripcion":"Mouse USB","especificaciones":"Mouse USB; por unidad","cantidad":60,"unidad":"pieza"},
-   {"item":13,"descripcion":"Parlantes USB","especificaciones":"Parlantes USB; por unidad","cantidad":20,"unidad":"pieza"},
-   {"item":14,"descripcion":"Audifonos con microfono","especificaciones":"Audifonos con microfono","cantidad":20,"unidad":"pieza"}
+ {"cuce":"24-0660-13-1463526-1-1","items":[
+   {"item":1,"descripcion":"Cinta aislante 3/4 negro 20m PVC","especificaciones":"Ancho 3/4 pulgada; color negro; longitud 20m; material PVC","cantidad":79,"unidad":"pieza"},
+   {"item":2,"descripcion":"Interruptor simple 220V 16A bipolar","especificaciones":"Corriente nominal 220V; polaridad bipolar; 16A; tipo simple","cantidad":19,"unidad":"pieza"},
+   {"item":3,"descripcion":"Foco LED 9W 220V blanco","especificaciones":"Foco LED; potencia 9W; voltaje 220V; color blanco","cantidad":30,"unidad":"pieza"},
+   {"item":4,"descripcion":"Tubo LED 9W 60cm blanco","especificaciones":"Transparente; luz blanca; largo 60cm; potencia 9W","cantidad":200,"unidad":"pieza"},
+   {"item":5,"descripcion":"Panel LED 60x60cm 60W blanco","especificaciones":"Panel LED de iluminacion 60x60cm; 60W; color blanco","cantidad":45,"unidad":"pieza"},
+   {"item":6,"descripcion":"Panel LED 18W redondo empotrar blanco","especificaciones":"Panel LED redondo; para empotrar; potencia 18W; color blanco","cantidad":150,"unidad":"pieza"},
+   {"item":7,"descripcion":"Cable alambre monopolar AWG 12 rollo 100m","especificaciones":"Cable para electricidad; numero 12 monopolar de cobre aislado; rollo 100m; 7 hilos","cantidad":4,"unidad":"rollo"},
+   {"item":8,"descripcion":"Cable alambre monopolar AWG 14 rollo 100m","especificaciones":"Cable para electricidad; numero 14 monopolar de cobre aislado; rollo 100m; 7 hilos","cantidad":4,"unidad":"rollo"},
+   {"item":9,"descripcion":"Clavija para enchufe 15A","especificaciones":"Enchufe; tipo clavija; amperaje 15A","cantidad":30,"unidad":"pieza"},
+   {"item":10,"descripcion":"Socket ceramico para foco","especificaciones":"Socket ceramico; para foco","cantidad":10,"unidad":"pieza"},
+   {"item":11,"descripcion":"Tubo corrugado 3/4 amarillo 25m","especificaciones":"Tubo corrugado; 3/4 pulgada; color amarillo; 25m; para electricidad","cantidad":3,"unidad":"rollo"},
+   {"item":12,"descripcion":"Pulsador de timbre sobrepuesto","especificaciones":"Pulsador de timbre; tipo sobrepuesto","cantidad":20,"unidad":"pieza"},
+   {"item":13,"descripcion":"Ducha electrica 220V resistencia cambiable","especificaciones":"Ducha electrica; 220V potencia maxima 7500W; resistencia cambiable","cantidad":1,"unidad":"pieza"}
  ]},
- {"cuce":"23-0660-08-1314762-1-1","items":[
-   {"item":1,"descripcion":"Alcohol liquido frasco 1L","especificaciones":"Alcohol liquido; envase frasco; contenido 1 litro","cantidad":160,"unidad":"frasco"},
-   {"item":2,"descripcion":"Desinfectante de ambiente spray 256g","especificaciones":"Desinfectante de ambiente; presentacion spray; 256g","cantidad":200,"unidad":"frasco"},
-   {"item":3,"descripcion":"Colcha trapeadora plomo 65x53cm","especificaciones":"Colcha trapeadora; color plomo; medidas 65x53cm; motivo liso","cantidad":127,"unidad":"unidad"},
-   {"item":4,"descripcion":"Pano franela naranja 0.35x0.35m","especificaciones":"Pano franela; color naranja; medidas 0.35x0.35m","cantidad":300,"unidad":"unidad"},
-   {"item":5,"descripcion":"Toalla de mano 0.60x0.35m","especificaciones":"Toalla de mano; diferentes colores; medidas 0.60x0.35m","cantidad":300,"unidad":"unidad"},
-   {"item":6,"descripcion":"Desinfectante de piso 1800ml","especificaciones":"Desinfectante de piso; presentacion 1800ml; tipo liquido","cantidad":240,"unidad":"unidad"},
-   {"item":7,"descripcion":"Escoba de PVC domestica","especificaciones":"Material PVC; 6 hileras; tipo domestica","cantidad":24,"unidad":"unidad"},
-   {"item":8,"descripcion":"Lustramuebles atomizador 850ml","especificaciones":"Lustramuebles; frasco atomizador; contenido 850ml","cantidad":200,"unidad":"frasco"},
-   {"item":9,"descripcion":"Limpiavidrios atomizador 930ml","especificaciones":"Limpiavidrios; frasco atomizador; contenido 930ml","cantidad":240,"unidad":"frasco"},
-   {"item":10,"descripcion":"Papel higienico blanco doble hoja","especificaciones":"Papel higienico; color blanco; 2 hojas; paquetes; 35x65cm","cantidad":2500,"unidad":"unidad"},
-   {"item":11,"descripcion":"Alcohol en gel 380g con gatillo","especificaciones":"Alcohol en gel; envase frasco con gatillo; 380g","cantidad":300,"unidad":"frasco"},
-   {"item":12,"descripcion":"Bolsa negra de basura 35x65cm","especificaciones":"Bolsa negra; paquetes; medidas 35x65cm","cantidad":200,"unidad":"paquete"},
-   {"item":13,"descripcion":"Lavandina frasco 1L","especificaciones":"Lavandina; presentacion frasco; 1 litro","cantidad":120,"unidad":"frasco"},
-   {"item":14,"descripcion":"Trapeador de goma mango madera","especificaciones":"Trapeador; material de goma; mango de madera","cantidad":20,"unidad":"unidad"},
-   {"item":15,"descripcion":"Basurero mediano tipo cesto","especificaciones":"Basurero; tamano mediano; tipo cesto","cantidad":48,"unidad":"unidad"},
-   {"item":16,"descripcion":"Ambientador en aerosol 360ml","especificaciones":"Ambientador; presentacion aerosol; 360ml; fragancia surtida","cantidad":200,"unidad":"frasco"},
-   {"item":17,"descripcion":"Detergente vajillero 1200ml","especificaciones":"Detergente vajillero; envase frasco; presentacion 1200ml","cantidad":105,"unidad":"bote"},
-   {"item":18,"descripcion":"Bolsa de yute 1 quintal","especificaciones":"Bolsa; material yute; 1 quintal","cantidad":110,"unidad":"unidad"},
-   {"item":19,"descripcion":"Esponja de poliuretano con fibra","especificaciones":"Esponja; material poliuretano; fibra sintetica","cantidad":60,"unidad":"unidad"},
-   {"item":20,"descripcion":"Ambientador envase carton surtido","especificaciones":"Ambientador; envase carton; fragancia surtida","cantidad":120,"unidad":"unidad"}
+ {"cuce":"24-0660-13-1464722-1-1","items":[
+   {"item":1,"descripcion":"Perfil solera 94x30x0.50mm x 2.00m","especificaciones":"Solera 94x30x0.50mm; largo 2.00m; aceros SYY","cantidad":107,"unidad":"pieza"},
+   {"item":2,"descripcion":"Perfil de aluminio en U para vidrio 6mm largo 2m","especificaciones":"Perfil de aluminio en U; para vidrio de 6mm; largo 2m; altura 210mm; color aluminio","cantidad":9,"unidad":"pieza"},
+   {"item":3,"descripcion":"Tornillo de 1 para drywall punta aguja","especificaciones":"Tornillo de 1 pulgada; para drywall; punta aguja","cantidad":5000,"unidad":"pieza"},
+   {"item":4,"descripcion":"Tornillo N6 x2 rosca fina","especificaciones":"Tornillo numero 6 x 2; rosca fina","cantidad":5000,"unidad":"pieza"},
+   {"item":5,"descripcion":"Chapa de tres golpes de sobreponer","especificaciones":"Chapa de 3 golpes; cuerpo de acero 1.5mm; dos pivotes triple avance; escudo protector; de sobreponer","cantidad":5,"unidad":"pieza"},
+   {"item":6,"descripcion":"Chapa de perfil de aluminio para embutir acero inoxidable","especificaciones":"20mm x 85mm; material vista acero inoxidable en frentes y cerraderos; altura de chapa 25cm; mango reforzado","cantidad":25,"unidad":"pieza"},
+   {"item":7,"descripcion":"Chapa de gavetero con divisiones","especificaciones":"Chapa de gavetero; con divisiones","cantidad":30,"unidad":"pieza"},
+   {"item":8,"descripcion":"Tubo de aluminio 5x2 rectangular 1mm","especificaciones":"Tubo de aluminio de 5x2 rectangular; 1mm de espesor","cantidad":30,"unidad":"pieza"},
+   {"item":9,"descripcion":"Chapa para puerta principal 3 golpes para embutir con palanca","especificaciones":"Chapa para puerta principal de 3 golpes; para embutir; con palanca","cantidad":null,"unidad":"pieza"},
+   {"item":10,"descripcion":"Tornillo autoperforante hexagonal 410 x 2","especificaciones":"Tornillo autoperforante hexagonal; 410 x 2","cantidad":null,"unidad":"pieza"},
+   {"item":11,"descripcion":"Remache pop 3/16 x 3/8","especificaciones":"Remache pop; 3/16 x 3/8","cantidad":null,"unidad":"pieza"},
+   {"item":12,"descripcion":"Abrazadera de 1/2 de acero","especificaciones":"Abrazaderas de 1/2; de acero","cantidad":null,"unidad":"pieza"},
+   {"item":13,"descripcion":"Celosia de aluminio para vidrios 50cm graduable","especificaciones":"Celosias para incorporar vidrios; 50cm de alto; graduable de extrusion; jambas de aluminio 6063-T5; con inserto de goma vinyl; sistema de palanca; seguro de cierre","cantidad":null,"unidad":"par"},
+   {"item":14,"descripcion":"Tachuela de acero bolsa 1000 unidades","especificaciones":"Tachuela de acero; 1000 unidades","cantidad":null,"unidad":"bolsa"},
+   {"item":15,"descripcion":"Clavo de 1 bolsa de kilo","especificaciones":"Clavo de 1 pulgada; bolsa de kilo","cantidad":11,"unidad":"bolsa"}
  ]},
- {"cuce":"23-0660-08-1356671-1-1","items":[
-   {"item":1,"descripcion":"Toner Brother TN-316BK negro","especificaciones":"Toner Brother TN-316BK; color negro; original","cantidad":null,"unidad":"pieza"},
-   {"item":2,"descripcion":"Tinta Epson 774 negro","especificaciones":"Tinta para Epson modelo 774; color negro","cantidad":null,"unidad":"pieza"},
-   {"item":3,"descripcion":"Tinta Brother BT501C azul 48.8ml","especificaciones":"Tinta Brother BT501C; color azul (cyan); 48.8ml; original","cantidad":null,"unidad":"pieza"},
-   {"item":4,"descripcion":"Tinta Brother BT501Y amarillo 48.8ml","especificaciones":"Tinta Brother BT501Y; color amarillo; 48.8ml; original","cantidad":null,"unidad":"pieza"},
-   {"item":5,"descripcion":"Tinta Brother BT501M rojo 48.8ml","especificaciones":"Tinta Brother BT501M; color rojo (magenta); 48.8ml; original","cantidad":null,"unidad":"pieza"},
-   {"item":6,"descripcion":"Tinta Brother BTD60BK negro 108ml","especificaciones":"Tinta Brother BTD60BK; color negro; 108ml; original","cantidad":null,"unidad":"pieza"},
-   {"item":7,"descripcion":"Toner HP 78A","especificaciones":"Toner HP 78A; negro","cantidad":null,"unidad":"pieza"},
-   {"item":8,"descripcion":"Toner Brother TN-3479 negro","especificaciones":"Toner Brother TN-3479; color negro","cantidad":null,"unidad":"pieza"}
+ {"cuce":"24-0660-13-1467006-1-1","items":[
+   {"item":1,"descripcion":"Teclado USB resistente a salpicaduras","especificaciones":"Accesorio para computador; tipo teclado; USB; diseno resistente a salpicaduras; teclado numerico de 10 teclas; indicador luminoso bloqueo numerico; cable 150cm","cantidad":163,"unidad":"pieza"},
+   {"item":2,"descripcion":"Mouse USB optico 1000dpi 3 botones","especificaciones":"Accesorio para computador; tipo mouse; USB; sensor optico 1000dpi; 3 botones; cable 180cm","cantidad":145,"unidad":"pieza"},
+   {"item":3,"descripcion":"Cabezal impresora Epson LQ-590 II","especificaciones":"Repuesto para impresora; tipo cabezal; modelo Epson LQ-590 II; original con holograma de originalidad","cantidad":15,"unidad":"pieza"},
+   {"item":4,"descripcion":"Cabezal impresora Epson LQ-590","especificaciones":"Repuesto para impresora; tipo cabezal; modelo Epson LQ-590; original con holograma de originalidad","cantidad":15,"unidad":"pieza"}
  ]},
- {"cuce":"23-0660-08-1363887-1-1","items":[
-   {"item":1,"descripcion":"Provision de repuestos de aires acondicionados","especificaciones":"Segunda provision de repuestos para aires acondicionados distrito Beni; capacitores de arranque y de trabajo (9000-36000 BTU), sensores de humedad y temperatura, relay sobrecarga, tableta universal, motores de ventilador, contactores, compresores rotativos; gestion 2023","cantidad":null,"unidad":"servicio"}
+ {"cuce":"24-0660-13-1467028-1-1","items":[
+   {"item":1,"descripcion":"Aceite de motor 20W50 galon 3.78L","especificaciones":"Aceite 20W50; galon de 3.78 litros","cantidad":31,"unidad":"galon"},
+   {"item":2,"descripcion":"Aceite de motor 15W40 galon 3.78L","especificaciones":"Aceite 15W40; galon de 3.78 litros","cantidad":10,"unidad":"galon"},
+   {"item":3,"descripcion":"Aceite de transmision 80W90 galon 3.78L","especificaciones":"Aceite 80W90; galon de 3.78 litros","cantidad":13,"unidad":"galon"},
+   {"item":4,"descripcion":"Aceite de transmision 85W140 galon 3.78L","especificaciones":"Aceite 85W140; galon de 3.78 litros","cantidad":12,"unidad":"galon"},
+   {"item":5,"descripcion":"Aceite CVT galon","especificaciones":"Aceite CVT; galon","cantidad":10,"unidad":"galon"},
+   {"item":6,"descripcion":"Filtro de aceite Toyota Corolla / Suzuki Baleno","especificaciones":"Filtro de aceite; para Toyota Corolla y Suzuki Baleno","cantidad":12,"unidad":"pieza"},
+   {"item":7,"descripcion":"Filtro de aceite Nissan Sentra 2012 / Tiida / Patrol Y61","especificaciones":"Filtro de aceite; para Nissan Sentra 2012, Tiida, Patrol Y61","cantidad":12,"unidad":"pieza"},
+   {"item":8,"descripcion":"Filtro de aceite Toyota Land Cruiser / Patrol Y60","especificaciones":"Filtro de aceite; para Toyota Land Cruiser y Patrol Y60","cantidad":12,"unidad":"pieza"},
+   {"item":9,"descripcion":"Filtro de aceite Toyota Runner / Cressida","especificaciones":"Filtro de aceite; para Toyota Runner y Cressida","cantidad":12,"unidad":"pieza"},
+   {"item":10,"descripcion":"Filtro de aceite Nissan Sentra 2000","especificaciones":"Filtro de aceite; para Nissan Sentra 2000","cantidad":8,"unidad":"pieza"}
  ]}
 ]

@@ -135,11 +135,22 @@ for fam, claves in p2.items():
             canon = min(grp, key=len)
             for k in grp: remap[k] = canon
 
+# FASE 2C (opcional): merge semántico por código explícito (si existe el mapa)
+import os as _os
+map2c = {}
+_f2c = _os.path.join(_os.path.dirname(__file__), "fase2_2c_map.json")
+if _os.path.exists(_f2c):
+    map2c = json.load(open(_f2c))
+    print(f"Fase 2C: aplicando {len(map2c)} fusiones por código", flush=True)
+def clave_final(k):
+    k2 = remap.get(k, k)          # 2A
+    return map2c.get(k2, k2)      # 2C
+
 # grupos finales
 grupos = defaultdict(list)   # clave_final -> [item]
 for k, its in buckets.items():
     if k == "sin_clave": continue
-    grupos[remap.get(k, k)].extend(its)
+    grupos[clave_final(k)].extend(its)
 clusters = {c: v for c, v in grupos.items() if len(v) >= 2}
 
 tot = len(items)

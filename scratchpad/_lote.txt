@@ -1,1958 +1,2095 @@
-### STORE: 176 hechos | PENDIENTES: 384 | muestro 10
+### STORE: 356 hechos | PENDIENTES: 204 | muestro 10
 
 ========================================================================
-CUCE: 23-0660-08-1384537-1-1
+CUCE: 24-0660-13-1481566-1-1
 ========================================================================
-LISTA DE REPUESTOS DE MOVILIDADES DE 4 RUEDAS
-PLACA- 3036 SXE
-
-Detalle CANT.
-
-Total | Marca arca
-P/U.
-Bs. Industria
-2800| JAPONESA
-1400| 2800| JAPONESA
-
-pp
-Eh
-[a]
-[2]
-
-eS
-u
-[=)
-
-mortiguadores delanteros
-mortiguadores traseros
-
-uego de rodamientos de punta de eje delantero | 48o| 960] JAPONESA
-uegos de retenes para el macero delantero completo JAPONESA
-
-Crucetas para el cardan de atrás JAPONESA
-APONESA
-Rodamientos central del cardan | sso|  55so]| 'APONESA
-
-uego de bujías completos | 100| 600| JAPONESA
-
-3
-u
-o
-
-JAPONESA
-
-uegos de pastillas de freno delantero
+ESPECIFICACIONES TÉCNICAS 
+PARA ADQUISICIÓN DE BIENES 
+ 
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES COMPLEMENTARIAS 
+Para ser llenado por el proponente 
+Para la calificación de la entidad 
+CARACTERÍSTICAS DE LA 
+PROPUESTA 
+(Manifestar aceptación, especificar y/o 
+adjuntar lo requerido) 
+CUMPLE 
+Observaciones (especificar por qué no cumple) 
+SI 
+NO 
+ 
+I. OBJETO DE LA CONTRATACIÓN 
+ 
+ 
+ 
+ADQUISICION DE CINTAS LQ590 PARA IMPRESORAS EPSON DE LAS OFICINAS DEL ORGANO JUDICIAL LA PAZ 
+II. CARACTERÍSTICAS GENERALES DEL BIEN 
+ 
+ 
+ 
+N° 
+Detalle  
+Unidad  
+Cantidad 
+Precio Unitario 
+Referencial (Bs) 
+Total 
+Detalle y Descripción 
+Cantidad 
+Precio Unitario 
+Ofertado 
+(Bs) 
+Total 
+1 
+Cinta para Impresora; Epson Lq-590; Tipo Carro Corto 
+pieza 
+280 
+140 
+39,200.00 
+Cinta 
+para 
+Impresora; 
+Epson Lq-590; Tipo Carro 
+Corto 
+280 
+140 
+39,200.00 
+Precio Total Referencial (Bs) 
+39,200.00 
+Precio Total (Bs) 
+39,200.00 
+III. CONDICIONES DEL PROCESO 
+A. REQUISITOS PARA TODOS LOS BIENES 
+1. Las cintas deben ser de primera calidad y originales de fábrica (Original de la marca de la impresora), debiendo cumplir con las Características 
+Técnicas solicitadas.  
+2. Las cintas requeridas deberán ser entregados en sus embalajes originales. 
+3. La Empresa Adjudicada, deberá entregar bienes nuevos, en ningún caso se recibirán bienes reciclados, reacondicionados, re ensamblados, 
+rellenados o en mal estado, no aceptándose productos de imitación. 
+4. Las tintas requeridas, además de ser originales, debe tener el Precinto de Garantía, Sello de Origen, (Sello de agua) u Holograma de Seguridad 
+5. Las cintas en su envase de presentación (caja) debe estar intacta sin daños ni abolladuras, debe llevar los stickers de seguridad original del 
+fabricante intactos. La bolsa o plástico de seguridad que contiene la cinta deberá ser original no deberá tener daños ni indicios de manipulación 
+para apertura. 
+(Manifestar  aceptación) 
+ 
+NUESTRA EMPRESA ACEPTA LO SOLICITADO 
+B.  GARANTÍA DEL(LOS) BIEN(ES)  
+ La empresa adjudicada deberá presentar el certificado de garantía por los insumos adjudicados (mínimo de 1 año), para cubrir todos los 
+defectos o fallas que presenten a partir de la entrega física del producto, mismo que deberá ser emitido a nombre del Órgano Judicial. 
+(Manifestar  aceptación) 
+ 
+NUESTRA EMPRESA ACEPTA LO SOLICITADO 
+         
+ 
+                
+       
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES COMPLEMENTARIAS 
+Para ser llenado por el proponente 
+Para la calificación de la entidad 
+CARACTERÍSTICAS DE LA 
+PROPUESTA 
+(Manifestar aceptación, especificar y/o 
+adjuntar lo requerido) 
+CUMPLE 
+Observaciones (especificar por qué no cumple) 
+SI 
+NO 
+ 
+C. PLAZO DE ENTREGA  
+• 
+3 días calendario computables a partir del día siguiente hábil de la suscripción del contrato y/o recepción de la orden de compra 
+(Manifestar  aceptación) 
+NUESTRA EMPRESA ACEPTA LO SOLICITADO 
+D. RÉGIMEN DE MULTAS 
+En caso de incumplimiento en el plazo de entrega, será pasible a una multa del 8*1000 del monto total adjudicado por día de retraso.  
+(Manifestar aceptación) 
+NUESTRA EMPRESA ACEPTA LO SOLICITADO 
+E. FORMA Y MEDIO DE PAGO  
+Contra entrega del bien a través de SIGEP, previa emisión de conformidad y recepción de la respectiva factura.  
+(Manifestar  aceptación) 
+ 
+NUESTRA EMPRESA ACEPTA LO SOLICITADO 
+F. LUGAR DE ENTREGA 
+Los bienes adjudicados deben ser entregados en instalaciones de la Sub unidad de Almacenes del Órgano Judicial en las direcciones ubicadas 
+en la ciudad de La Paz calle Yanacocha Nº 731 entre Av. Sucre y Calle Indaburo 
+ (Manifestar Aceptación) 
+NUESTRA EMPRESA ACEPTA LO SOLICITADO 
+G. FORMA DE ADJUDICACIÓN 
+Por el total. 
+ 
+H. MÉTODO DE EVALUACIÓN 
+Precio evaluado más bajo 
+ 
+I. MODALIDAD DE CONTRATACIÓN   
+Compra menor 
+ 
+J. OTROS 
+Las empresas proponentes deberán enviar sus propuestas en forma digital, hasta horas 14:30 del día establecido para la apertura de 
+propuestas del cronograma de actividades del Form. 110 del presente proceso, al correo institucional: compraslpz@organojudicial.gob.bo , 
+adicionalmente, deberá remitir una copia del correo electrónico enviado a los siguientes correos: mmzapana@organojudicial.gob.bo,  
+melszapana@gmail.com  
+(Manifestar aceptación) 
+NUESTRA EMPRESA ACEPTA LO SOLICITADO
+
+========================================================================
+CUCE: 24-0660-13-1481647-1-1
+========================================================================
+ESPECIFICACIONES TÉCNICAS
+PARA ADQUISICIÓN DE BIENES
+
+Para la calificación de la
+entidad
 
-O_ |Juegos de balatas de freno de atrás 780 JAPONESA
-uegos de anillas para el pistón JAPONESA
-Juegos de cubetas para las balatas l- 20] 80 ARGENTINA
-|_8so| 1700| JAPONESA |
-Juegos de muñones de suspensión superior e inferior Japonés | 920] 1840
-Juegos de muñones de dirección con brazo de cremarella y sool 1600
-capuchones
+Para ser llenado por el proponente
 
-6 210
-210/ 210
-Juegos de cable para bujías Japonesas | 900] 900| JAPONESA |
-Picos tabulares para el aro
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CARACTERÍSTICAS DE LA Observaciones
+CONDICIONES COMPLEMENTARIAS PROPUESTA ds
++ (Manifestar aceptación, especificar
+/o adjuntar lo requerido,
 
-ts de aceite 80 W 90 para caja y roster (6litros) 450 USA
-Lts. De aceite amatin N? 250 para corona atrás y adelante para | 75] 500]
-: : 75 USA
-cambios (8 litros)
+1. OBJETO DE LA CONTRATACIÓN
 
-3 | sol sol usa |
-Tasadores de correas 700| 700
-450] 450] JAPONESA |
-| 635| 635| JAPONESA |
-[3500] 3500| JAPONESA |
-3200| 3200
-Metros de manguera Hidráulica de retorno “Sencilla”
-Batería Yuassa Japonesa 1781/ 1781
-| so] so| ORIGINAL |
-3400| 3400| ORIGINAL |
+“ADQUISICION DE INSUMOS PARA IMPRESORAS BROTHER DEL ORGANO JUDICIAL LA PAZ”
 
-7 | as|  so| ORIGINAL |
-| 4oo| 400| ORIGINAL |
-Prensa de embrague 1 2500 | 2500| ORIGINAL |
+¡IL CARACTERÍSTICAS GENERALES DEL BIEN
 
-w w wlulwlwim]|w]|m N Nin] m [Infelejeje] e» feolejejeje Si o
-[v] winiejojwjo|= u N| e Jojuwojoly u |ajwinja
-al
+A. DETALLE Y REQUISITOS en BIEN(ES
 
+pa E] Precio ? Precio
+N* Detalle 2. 31.1% Detalle y Descripción a
+5 3 Referencial Total E Total
+(Bs) (Bs)
 
-*
+Tóner para Impresora
+1 | Brother; Modelo HL- pieza | 67 551.00 | 36,917.00
+L2320D; serie TN 660
+Toner para Impresora
 
-LISTA DE REPUESTOS DE MOVILIDADES DE 4 RUEDAS
-PLACA- 1142 PDY
+2 |Brother; Modelo HL- pieza | 12 1,063.00 | 12,756.00
+L5100DN Serie TN 3470
+oO Precio Total Referencial (Bs) E 49,673.00
+B. REQUISITOS PARA TODOS LOS BIENES
+1. El proveedor adjudicado deberá entregar los toners de acuerdo a lo
 
-Total | Marca arca
+especificado, en caso de no cumplir con lo requerido se devolverán los toners
+hasta que subsane las observaciones no eximiéndose de las multas por retraso.
 
-|_2 [Amortiguadores traseros | 2 | soo| 1800
-|3_ [Juego de rodamientos de punta de eje delantero | 2 | 5so| 1100] JAPONESA |
-|_4_ |Juegos de retenes para el macero delantero completo | 2 | 200] 400| JAPONESA |
-|_5_ [Crucetas para el cardan deatrás | 2 | aso] ooo| ¡aPONESA |
-| 6 |[Crucetas del cardan dela doble | 2 | aso| 900| JAPONESA |
-Rodamientos central del cardan 800| 800
-|_8 [Juego de bujías completos | 6 | sol aso| ¡aPONESA |
-| 9 |Juegos de pastillas de freno delantero | 1 | aso] aso usa |
-| 10 [Juegos de cubetas para las balatas_______..>.| a | 20 sol arGENTINA|
-165
-Picos tabulares para el aro lL-4 | 15]  60| ARGENTINA
+2. Los toners deben ser de primera calidad y originales de fábrica , debiendo
+cumplir con las Características Técnicas solicitadas. El toner adquirido debe tener
+certificado de garantía, calidad, originalidad, funcionamiento (debiendo cumplir
+con la capacidad de impresiones del fabricante) y reposición ante cualquier
+desperfecto de fábrica.
 
-100| 100
-| 18 [Reten de cigieñal trasero | 1 | «o0| aoo| ¡aPONESA |
-| 19 [Juego de soporte del motor son 4 piezas __________.n.| a | 400| 1600] JAPONESA |
-| 20 [Bombas de gasolina Japonesa Original. | 1 | 1800| 1800] JAPONESA |
-Bombas de aceite Japonés Original | 1 | 3200| 3200| JAPONESA |
-Bomba de agua Japonés Original
-| 23 [Metros de manguera Hidráulica de retorno “Sencilla” |-4 |  ss| 220| JAPONESA |
-| 24 [Batería Yuassa Japonesa | 1 | 1780/1780] JAPONESA |
-as Juegos de focos en a para luces, stop, guiñadores, la | aso] aso| Japonesa |
+3. Los toners requeridos deberán ser entregados en sus embalajes originales.
 
-parqueo, retro, alta, media y baja.
+4. El proveedor adjudicado, deberá entregar toners nuevos, en ningún caso se
+recibirán toners reciclados, reacondicionados, re ensamblados, rellenados o
+en mal estado: el tóner ofertado debe ser específico del modelo requerido.
 
-| 26 [Reparo de embrague maestro | 1 | 200] 200| saPONESA |
-| 27 [empaquetadura de motor completo | 1 | 3200/3200] orIGiNAL |
-| 28 |Rodamiento desplazador de embrague______..n.| 1 | aso| aso] orIGINAL |
-| 29 |Disco de embrague 1800| 1800
-| 30 | Prensa de embrague 2200| 2200
+5. el tipo de presentación requerido para el tóner debe ser en envase tipo caja,
+además, debe estar intacta sin daños ni abolladuras. La bolsa o plástico de
+seguridad que contiene el tóner deberá encontrarse sin indicios de manipulación
+para apertura y deberá tener todos sus accesorios de protección.
 
+6. Se procederá a la verificación aleatoria del estado del Cilindro, los mismos no
+deben tener manchas, marcas, ni rayas.
 
-LISTA DE REPUESTOS DE MOVILIDADES DE 4 RUEDAS
-PLACA- 564 HT
+7. El tóner ofertado deberá contar con certificación ISO 17025 y/o ISO 19752
 
-Detalle CANT.
+O" producto ofertado.
 
-Total | Marca arca
-P/U.
-Bs. Industria
+(Manifestar Aceptación)
 
-=
+C. GARANTÍA DEL(LOS) BIEN(ES)
 
-iltros de aceite de motor 5 AUTOTEC
+1. La empresa adjudicada deberá presentar el certificado de garantía por los toners
+adjudicados (mínimo de 1 año), para cubrir todos los defectos o fallas que presenten a
+partir de la entrega física del producto, mismo que deberá ser emitido a nombre del
+Órgano Judicial
 
-u
-mas
+(Manifestar Aceptación y Adjuntar lo requerido)
 
-pa pa mm ple
-2 ú =] S
-o o
+D. CONDICIONES COMPLEMENTARIAS
 
-iltros de gasolina 40 | JAPONESA
+1. El proveedor deberá presentar adjunto a la propuesta: el certificado emitido por el
+fabricante y/o mayoristas autorizados en Bolivia, mismo que debe señalar la garantía
+del producto en Bolivia, el mismo debe contar con el NUMERO DE CUCE Y
+NOMBRE DE LA INSTITUCION de la presente convocatoria en idioma español.
 
-uegos de cable para bujías Japonesas
+2. El proveedor debera contar con una experiencia general mínima de 2 años continuos
+en la provisión de tóners y/o suministros de impresoras (deberá adjuntar fotocopias
+simples de contratos y/u órdenes de compra, dos (2) por cada gestión que demuestren
+haber realizado la venta de los insumos, solo se tomará en cuenta la documentación de
+los últimos 2 años vencidos, es decir gestión 2023, 2022
 
-cos tabulares para el aro ARGENTINA
+|_(Manifestar Aceptación y Adjuntar lo requerido)
+TH. CONDICIONES DEL PROCESO
 
-Amortiguadores delanteros 700 | 1400
+A. PLAZO DE ENTREGA
 
-| so0 |1000| JAPONESA |
+. 5 días calendario computables a partir del día siguiente hábil de la
+suscripción del contrato y/o recepción de la orden de compra
+(Manifestar Aceptación)
 
-| 200 | 400 | JAPONESA |
 
-| 200 | 400 | JAPONESA |
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+CONDICIONES COMPLEMENTARIAS
 
-| 650 | 650 | JAPONESA |
+B. RÉGIMEN DE MULTAS
 
-| 300 | 300 | JAPONESA |
+Para la calificación de la
 
-7 200 | 400 | JAPONESA |
+Para ser llenado por el proponente entidad
 
-Juego de bujías completos 4 piezas 280
+CARA: RÍSTICAS DE LA Observaciones
+PROPUESTA eyed
+(Manifestar eran: bp car
+'/o adjuntar lo
 
-| 380 |
+En caso de incumplimiento en el plazo de entrega, será pasible a una multa del 8*1000 del
+monto total adjudicado por día de retraso.
+(Manifestar aceptación)
 
-1 500 | JAPONESA |
-capuchones
+C. FORMA Y MEDIO DE PAGO
 
-| AUTOTEC |
+Contra entrega del bien a través de SIGEP, previa emisión de conformidad y recepción de
+la respectiva factura.
+(Manifestar aceptación)
 
-| JAPONESA |
+D. LUGAR DE ENTREGA
 
-| NGK |
+Los bienes adjudicados deben ser entregados en instalaciones de la Sub unidad de
+Almacenes del Órgano Judicial ubicado en la calle Yanacocha N? 731 entre Av., Sucre y
+Calle Indaburo
 
-| ARGENTINA |
+|_(Manifestar Aceptación)
 
-| Usa |
+E. FORMA DE ADJUDICACIÓN
 
-w w N nin] N nNiniele lalalala] pla olla
-y] Plojojoiu|o b| w o
-o
+Por el item.
 
-ts.de aceite 80 w 90 para caja de roster ( 6 litros) USA
-orreas de alternador | 200 | USA
-| 80 |
-Tasadores de correas | 400 |
-250
-3 | 400 |
-| 600 |
-5 640
-Inyectores 1644| 6576
-7
-Bomba de agua Japonés Original 1280| 1280
-9 [Mangueras hidráulicas “Prensado de alta presión” 4 METROS 300 | 300 | ARGENTINA
-Metros de manguera Hidráulica de retorno “Sencilla” 124 ARGENTINA
-1 1780| 1780
-32
-Juegos de focos. en Hara para luces, stop, guiñadores, parqueo, 400 | 400 | ¿aPoNEsa |
-retro, alta, media y baja.
-35 |Reparo de embrague 120 | 240 | JAPONESA |
-Bornes de batería
-7 3100| 3100
-| 390 | 390 | JAPONESA |
-Prensa de embrague [2000| 2000 | JAPONESA |
+F. MÉTODO DE EVALUACIÓN
 
+recio evaluado más bajo
 
-LISTA DE REPUESTOS DE MOVILIDADES DE 4 RUEDAS
-VAGON. PLACA- 1142 LEA
+G. MODALIDAD DE CONTRATACIÓN
 
-Detalle P/
-mortiguadores delanteros
+Compra menor
 
-uegos de retenes para el macero delantero completo
-rucetas del cardan de la doble
+H. OTROS
 
-odamientos central del cardan
+Las empresas proponentes deberán enviar sus propuestas en forma digital, hasta horas
+14:30 del día establecido para la apertura de propuestas del cronograma de actividades del
+Form. 110 del presente proceso, al correo institucional:
+compraslpz(Worganojudicial.gob.bo , adicionalmente, deberá remitir una copia del correo
+electrónico enviado a los siguientes correos: mmzapana(Aorganojudicial.gob.bo, y
+melszapanaJgmail.com
 
-uego de correas de distribución completo
+(Manifestar aceptación)
 
-uego de bujías completos 4 PZAS.
 
-uegos de pastillas de freno delantero
+= DISTRIBUIDOR MAYORISTA PARA BOLIVIA
 
-Total | Marca arca
-Bs. | Industria
+WORK BETTER
+Multifuncionales — Impresoras — Etiquetadoras — Equipos de fax — Trituradoras de papel — Insumos
 
-70|taponesa _ |
-7
-Usa |
+PROFORMA INSUMOS BROTHER
 
-Cc
+Santa Cruz de la Sierra, 19 de Septiembre de 2024
 
->
-=
+N*: 343/2024
 
->
-R 1 pla
-O0|jnjw [2] uu
-u e
-Eh (53 Le) o
-= =
+Señores
 
-00
-[2]
-UY
+DIRECCION ADMINISTRATIVA FINANCIERA - ORGANO JUDICIAL - LA PAZ
 
-=
-==
+La Paz.-
+REF.: BROTHER - Toner
 
-=
-pa
-w
-N
-=
-
-a)
-NN
-8
-[2]
-=
-
-N
-00
-Oo
-=
-
-N
-ello
-
-yl
-
-a]
-==
-
-w m
-y PR
-[=) y
-
-py
-5]
-
-Usa
-Juegos de balatas de freno de atrás 617
-Juegos de anillas para el pistón O
-4 |Juegos de bujes de bandejas completo 1 7
+Toner KATUN - TN-660
+. 917,
+El Redimiento 2.600 paginas aprox. aia nacida
+Toner KATUN - TN-3470
+. .063, 2.756,
+Redimiento 12.000 paginas aprox. L1869,00 2H
 
 Pp
 
-356
+49:573,0
 
-165
-5
-700
-Usa |
+SON: CUARENTA Y NUEVE MIL SEISCIENTOS SETENTA Y TRES 00/100 BOLIVIANOS
 
-uegos de muñones de suspensión superior e inferior 1
-egos de muñones de dirección con brazo de cremarella y
+TIEMPO DE ENTREGA : 5 dias calendario
+VALIDEZ DE LA OFERTA : 30 dias calendario
+ORMA DE PAGO : Via SIGEP
+$-- DE ENTREGA: En sus Oficinas y/o Almacenes
+RECCION CONSIGNATARIO : B/Sirari C/Las Begonias ++ 205 - Santa Cruz REE
+TELEFONO DE REFERENCIA : 358-2028 / 799-03750 oa
+GARANTIA DEL PRODUCTO : 1 año
 
-apuchones
+A la espera de tenerlos pronto entre n
 
-iltros de aceite de motor
+========================================================================
+CUCE: 24-0660-13-1501307-1-1
+========================================================================
+LIBRERÍA PAPELERÍA Y ARTÍCULOS DE OFICINA “E&G” 
+DIRECCIÓN: AV. TUMUSLA N° 592- GALERÍA “HABANA” 1ER. PISO, OF. 13 (ZONA: 14 DE SEPTIEMBRE) CEL. 72528171 TEL 2452822-2452255 E-MAIL: 
+libreria_e_y_g@hotmail.com LA PAZ-BOLIVIA 
+ 
+ 
+ 
+ 
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES 
+COMPLEMENTARIAS 
+Para ser llenado por el proponente 
+Para la calificación de la 
+entidad 
+CARACTERÍSTICAS DE LA PROPUESTA 
+(Manifestar aceptación, especificar y/o adjuntar lo 
+requerido) 
+CUMPLE 
+Observaciones 
+(especificar por qué 
+no cumple) 
+SI 
+NO 
+I. OBJETO DE LA CONTRATACIÓN 
+ADQUISICION DE PAPEL (DIFERENTES TAMAÑOS) PARA OFICINAS DEL ORGANO JUDICIAL LA PAZ 
+II. CARACTERÍSTICAS GENERALES DEL BIEN 
+N° 
+Detalle 
+Unidad 
+Cantidad 
+Precio Unitario 
+Referencial 
+(Bs) 
+Total 
+Detalle y Descripción 
+Cantida 
+d 
+Precio 
+Unitario 
+Ofertado 
+(Bs) 
+Total 
+1 
+Papel Bond; Tamaño Oficio; Gramaje 75 
+Grs.; Color Blanco; Presentación Paquete 
+de 500 Hojas 
+paquete 
+740 
+53.20 
+39,368.00 
+Papel Bond; Tamaño Oficio; Gramaje 75 Grs.; 
+Color Blanco; Presentación Paquete de 500 
+Hojas 
+740 
+53.20 
+39,368.00 
+2 
+Papel multicolor para porta cubo; 
+medidas 9.5x9.5 cm 
+paquete 
+600 
+11.82 
+7,092.00 
+Papel multicolor para porta cubo; medidas 
+9.5x9.5 cm 
+600 
+11.82 
+7,092.00 
+Precio Total Referencial (Bs) 
+46,460.00 
+Precio Total (Bs) 
+46,460.00 
+III. CONDICIONES DEL PROCESO 
+A. REQUISITOS PARA TODOS LOS BIENES 
+1. 
+Para el ITEM 1 , el color debe ser color EXTRA BLANCO ALCALINO, además de ser papel 
+permanente para documentos. 
+2. 
+Para el ITEM N° 2, debe ser en paquete cerrado el cual deberá especificar el contenido 
+del paquete. 
+3. 
+Para todos los ITEMS, las empresas proponentes deberán contar con una experiencia 
+general mínima de 4 años continuos en la provisión de papel (deberá adjuntar copias simples 
+de ORDENES DE COMPRA Y/O CONTRATOS dos (2) por cada gestión que demuestren haber 
+realizado la venta de los materiales y/o suministros de escritorio), solo se tomará en cuenta la 
+documentación de los últimos 4 años vencidos, es decir gestión 2020, 2021, 2022 y 2023 
+(Manifestar Aceptación, adjuntar fotografías del producto ofertado y documentación 
+correspondiente) 
+ACEPTAMOS LO SOLICITADO 
+B. PLAZO DE ENTREGA 
+ESPECIFICACIONES TÉCNICAS 
+PARA ADQUISICIÓN DE BIENES 
+LIBRERÍA PAPELERÍA Y ARTÍCULOS DE OFICINA “E&G” 
+DIRECCIÓN: AV. TUMUSLA N° 592- GALERÍA “HABANA” 1ER. PISO, OF. 13 (ZONA: 14 DE SEPTIEMBRE) CEL. 72528171 TEL 2452822-2452255 E-MAIL: 
+libreria_e_y_g@hotmail.com LA PAZ-BOLIVIA 
+ 
+ 
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES 
+COMPLEMENTARIAS 
+Para ser llenado por el proponente 
+Para la calificación de la 
+entidad 
+CARACTERÍSTICAS DE LA PROPUESTA 
+(Manifestar aceptación, especificar y/o adjuntar lo 
+requerido) 
+CUMPLE 
+Observaciones 
+(especificar por qué 
+no cumple) 
+SI 
+NO 
+• 
+3 días calendario computables a partir del día siguiente hábil de la suscripción del contrato 
+y/o recepción de la orden de compra 
+(Manifestar aceptación) 
+ACEPTAMOS LO SOLICITADO 
+C. RÉGIMEN DE MULTAS 
+En caso de incumplimiento en el plazo de entrega, será pasible a una multa del 8*1000 del monto total 
+adjudicado por día de retraso. 
+(Manifestar aceptación) 
+ACEPTAMOS LO SOLICITADO 
+D. FORMA Y MEDIO DE PAGO 
+Contra entrega del bien a través de SIGEP, previa emisión de conformidad y recepción de la respectiva 
+factura. 
+(Manifestar aceptación) 
+ACEPTAMOS LO SOLICITADO 
+E. LUGAR DE ENTREGA 
+Los bienes adjudicados deben ser entregados en instalaciones de la Sub unidad de Almacenes del 
+Órgano Judicial en las direcciones ubicadas en la ciudad de La Paz calle Yanacocha Nº 731 entre Av, 
+Sucre y Calle Indaburo 
+(Manifestar Aceptación) 
+ACEPTAMOS LO SOLICITADO 
+F. FORMA DE ADJUDICACIÓN 
+Por item. 
+H. MÉTODO DE EVALUACIÓN 
+Precio evaluado más bajo 
+I. MODALIDAD DE CONTRATACIÓN 
+Compra menor 
+J. GARANTIA 
+LIBRERÍA PAPELERÍA Y ARTÍCULOS DE OFICINA “E&G” 
+DIRECCIÓN: AV. TUMUSLA N° 592- GALERÍA “HABANA” 1ER. PISO, OF. 13 (ZONA: 14 DE SEPTIEMBRE) CEL. 72528171 TEL 2452822-2452255 E-MAIL: 
+libreria_e_y_g@hotmail.com LA PAZ-BOLIVIA 
+ 
+ 
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES 
+COMPLEMENTARIAS 
+Para ser llenado por el proponente 
+Para la calificación de la 
+entidad 
+CARACTERÍSTICAS DE LA PROPUESTA 
+(Manifestar aceptación, especificar y/o adjuntar lo 
+requerido) 
+CUMPLE 
+Observaciones 
+(especificar por qué 
+no cumple) 
+SI 
+NO 
+• 
+El proponente deberá extender una NOTA DE GARANTIA debidamente firmada por su 
+representante legal, mediante la cual se comprometa y obligue ante Dirección 
+Administrativa y Financiera del Órgano Judicial Distrito La Paz a cubrir con las 
+características solicitadas del presente proceso, debiendo la empresa estar en 
+condiciones de reponer y/o reemplazar a simple requerimiento en un plazo máximo de 
+24 horas los bienes que estén con defecto y/o estén en mal estado y/o no cumplan con 
+las especificaciones técnicas requeridas, para lo cual el proponente deberá tener oficinas 
+(central o sucursales) en la ciudad de La Paz. Dichas instalaciones serán verificadas, si 
+la Comisión Calificadora ve por conveniente, para lo cual se requiere dirección exacta, 
+número de teléfono de referencia. 
+(Manifestar aceptación y adjuntar lo solicitado) 
+ACEPTAMOS LO SOLICITADO 
+K. OTROS 
+Las empresas proponentes deberán enviar sus propuestas en forma digital, hasta horas 09:00 del día 
+establecido para la apertura de propuestas del cronograma de actividades del Form. 110 del presente 
+proceso, al correo institucional: compraslpz@organojudicial.gob.bo , adicionalmente, deberá remitir 
+una copia del correo electrónico enviado a los siguientes correos: mmzapana@organojudicial.gob.bo, 
+melszapana@gmail.com 
+(Manifestar aceptación) 
+ACEPTAMOS LO SOLICITADO 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+YOVANA MEDINA ENCINAS 
+4852280 LP 
+PROPIETARIA
 
-iltros de gasolina
+========================================================================
+CUCE: 24-0660-13-1501607-1-1
+========================================================================
+ESPECIFICACIONES TÉCNICAS
+PARA ADQUISICIÓN DE BIENES
 
-uegos de cable para bujías Japonesas
-icos tabulares para el aro
-ts. De aceite 80 w 90 para caja de roster ( 5 litros)
+“Para la calificación de
 
-ts. De aceite amatin n” 250 para corona atrás y adelante para
-cambios (8 litros)
+Para ser llenado por el pro, te o
+za O la entidad
 
-orreas de alternador
+REQUISITOS NECESARIOS DE LOS BIENES Y LAS ARACTERÍST
+CONDICIONES COMPLEMENTARIAS RO
 
-orreas de la bomba y compresor
+(Manifestar aceptación, especificar -
+y/o adjuntar lo requerido)
 
-asadores de correas
+I. OBJETO DE LA CONTRATACIÓN
 
-eten de cigúeñal trasero
+"ADQUISICION DE LUBRICANTES PARA EL PARQUE AUTOMOTOR DEL ORGANO JUDICIAL - DISTRITO LA PAZ"
+ll. CARACTERÍSTICAS GENERALES DEL SERVICIO
+A. REQUISITOS DEL BIEN Y/O SERVICIO
+Precio Predio "| Precio
+. , . Unitario Total . . Unitario
+N DESCRIPCIONES Cantidad Aoreno Referencial Cantidad e
+(Bs) (Bs)
+ACEITE LUBRICANTE DE MOTOR 20W50
+1 | (5.785 litros) grado SAE 60 |310,00| 18.600,00 |
+ACEITE LUBRICANTE DE MOTOR 15W40
+(3.785 litros) grado SAE 64 310,00 19.840,00
+==
+ACEITE LUBRICANTE DE MOTOR 85W140
+3 (3.785 litros) grado SAE | 13 398,00 5.174,00 |
+ACEITE LUBRICANTE DE MOTOR 80W90
+4 | (5.785 litros) grado SAE 13 [398,00 5.174,00
+5 ACEITE CVT (4 litros) 2 550,00 1.100,00
+!
+TOTAL 49.888,00
 
-'ombas de gasolina Japonesa Original
+III. CONDICIONES DEL PROCESO
 
-Metros de manguera Hidráulica de retorno “Sencilla” (4
+3 días calendario computable partir del día siguiente hábil de la recepción
+de la orden de compra y/o servicio.
 
+(Manifestar Aceptación)
+
+B. LUGAR DONDE SE ENTREGARÁ LOS BIENES
+
+La entrega deberá realizarse en ambientes del Órgano Judicial, previa
+coordinación con el Lic. Luis Miguel Ticona Choque — Encargado de la
+Subunidad de Activos Fijos al número de celular 76209113.
+
+(Manifestar aceptación)
+C. EXPERIENCIA
+
+El proponente debe tener la experiencia Especifica de 2 ventas realizadas a
+Entidades Públicas.
+
+Con la finalidad de corroborar dicha experiencia debe presentar;
+
+Certificados de cumplimento de servicio o contrato, órdenes de compra y/o
+servicio, y/o Acta de recepción del servicio.
+
+(Adjuntar y presentar lo requerido)
+D. RÉGIMEN DE MULTAS
++ DABA
+
+8*1000 por día de retraso del monto total adjudicado.
+
+| (Manifestar aceptación) —
+E. FORMA Y MEDIO DE PAGO
+
+Contra prestación a través de SIGEP, previa emisión de conformidad de la
+Unidad Solicitante y recepción de la respectiva factura.
+
+(Manifestar Aceptación)
+
+——
+
+
+Para ser llenado
+
+CESARIOS DE LOS BIENES YLAS | CARACTERÍSTIC
+S COMPLEMENTARIAS AROPDESTA
+ke (Manifestar aceptación, espe
+y/o adjuntar lo requerido,
+
+F. CARACTERISTICAS DEL BIEN Y/O SERVICIO
+
+Los lubricantes deben ser originales (no falsificado, ni compatible).
+En caso de que los ítems no correspondan a lo solicitado para los
+vehículos, la empresa deberá realizar el cambio de las mismas por
+los correspondientes sin ningún tipo de costo adicional al
+contemplado en las proformas de cotización y/o facturas.
+
+Manifestar aceptación).
+G. FORMA DE ADJUDICACIÓN
+
+Por ITEM.
+H. CONDICIONES COMPLEMENTARIAS
+
+Las empresas proponentes deberán enviar su propuesta firmada en forma digital, hasta horas 9:00 del día establecido para la Apertura de
+Propuestas del Cronograma de Actividades del Formulario 110 del presente proceso, al correo institucional:
+compraslpzGorganojudicial.gob.bo, adicionalmente deberá enviar al siguiente correo electrónico: lticonaQorganojudicial.gob.bo
+
+CCLA
+Adj./ lo indicado
+cc. Archivo.
+
+NISSANPARTS
+
+REPUESTOS Y ACCESORIOS PARA VEHÍCULOS JAPONESES EN GENERAL
+MANTENIMIENTO Y REPARACION DE VEHICULOS AUTOMOTORES
+Calle/ Nicolás Acosta casi esq. Héroes del Acre N.2 477 Zona/ San Pedro
+Cel. 76720503 - 64117747
+
+Email: nissanpartslapazO gmail.com
+
+La Paz - Bolivia
+
+N.* 002345
+Señor(es): ORGANO JUDICIAL
+CANT. DETALLE P/UNIT. TOTAL
+
+60 GALON. ACEITE LUBRICANTE DE MOTOR 20W50 310 18.600.-
+| (3.785 litros) grado SAE |
+64 GALON. ACEITE LUBRICANTE DE MOTOR 15W40 | 310 19.840.- |
+1 (3.785 litros) grado SAE | | |
+
+13 GALON. ACEITE LUBRICANTE DE MOTOR 85W140 | 398 | 5.174.-
+(3.785 litros) grado SAE y: |
+13 GALON. ACEITE LUBRICANTE DE MOTOR 80W90 398 5.174.- |
+(3.785 litros) grado SAE | |
+2 GALON. ACEITE CVT (4 litros) 550 1.100.-
+
+Bs. 49.888.-
+
+FORMA DE PAGO CHEQUE O VIA SIGEP
+ASI MISMO SE ACEPTAN LAS DEMAS ESPECIFICACIONES TECNICAS ESTABLECIDA
+
+MNISSA
+LA PAZ
+RF STNS Y ACCFSE S OR
+PARA VEHICULOS JAPONESES Y Al
+eL 16720503
+
+SSANPARTS
+
+TIEMPO DE ENTREGA 3 DIAS CALENDARIO
+TIEMPO DE VALIDEZ DE LA PROFORMA 10 DIAS
+
+ESPECIFICACIONES TÉCNICAS
+PARA ADQUISICIÓN DE BIENES
+
+Para la calificación de
+Para ser llenado por el proponente nn entidad
+
+| CUMPLE | Obs:
+REQUISITOS NECESARIOS DE LOS BIENES Y LAS cia cumrismicis pe pk pers
+CONDICIONES COMPLEMENTARIAS PROPUESTA (éspéniñlc
+(Manifestar aceptación, especificar y/o ar por qué
+
+adjuntar lo requerido) no
+cumple)
+
+Il. OBJETO DE LA CONTRATACION
+
+"ADQUISICION DE LUBRICANTES PARA EL PARQUE AUTOMOTOR DEL ORGANO JUDICIAL - DISTRITO LA PAZ"
+
+II. CARACTERISTICAS GENERALES DEL SERVICIO
+
+A. REQUISITOS DEL BIEN Y/O SERVICIO
+
+Precio AAA
+Unitario Eso Unitario
+DESCRIPCIONES pestaña -| Refrens Referencial ETE
+ACEITE LUBRICANTE DE MOTOR 20W50 310,00
+(3.785 litros) grado SAE 18.600,00 310, o | noo
+ACEITE LUBRICANTE DE MOTOR 15W40
+(3.785 litros) grado SAE 19.840,00 310,00
+
+ACEITE LUBRICANTE DE MOTOR 80W90
+
+MI. CONDICIONES DEL PROCESO
+
+1 O e
+
+3 días calendario computable partir del día siguiente hábil de la
+recepción de la orden de compra y/o servicio.
+
+ACEPTO LAS CONDICIONES
+(Manifestar Aceptación)
+
+B. LUGAR DONDE SE ENTREGARÁ LOS BIENES des a
+
+La entrega deberá realizarse en ambientes del Organo Judicial, previa
+
+coordinación con el Lic. Luis Miguel Ticona Choque — Encargado de la
+
+Subunidad de Activos Fijos al número de celular 76209113. ACEPTO LAS CONDICIONES
+(Manifestar aceptación)
+
+ACEITE LUBRICANTE DE MOTOR 398,00
+85W140 (3.785 litros) grado SAE simo! 174,00| 13 398,00
+398, col sar
+
+
+Para ser llenado por el proponente Para e enti o de
+
+REQUISITOS NECESARIOS DE LOS BIENES Y LAS eta siete
+
+CONDICIONES COMPLEMENTARIAS PROPUESTA (especific
+(Manifestar aceptación, especificar y/o ar a qué
+adjuntar lo requerido)
+
+El proponente debe tener la experiencia Especifica de 2 ventas
+realizadas a Entidades Públicas.
+
+Con la finalidad de corroborar dicha experiencia debe presentar;
+
+Certificados de cumplimento de servicio o contrato, órdenes de compra ACEPTO LAS 
+
+========================================================================
+CUCE: 25-0660-06-1520745-1-1
+========================================================================
+m DISTRIBUIDORA "LAS CHURAS"
+
+LAS CHURAS Venta de material de construccion, ferreteria, Equipos
+
+E Material de limpieza, ropa de cama y otros materiales de bioseguridad industrial
+NIT:7201561018 A-23/01/2025
+
+SEÑORES: ORGANO JUDICIAL - REGIONAL TARIJA
+FECHA: 23/1/25
+
+Atendiendo su amable solicitud estamos enviando cotización de los productos requeridos, para nosotros es un placer poner nuestra empresa a su
+servicio.
+
+TEM DETALLE MATERIAL | CANTIDAD UNIDAD | VR. UNITARIO | VR.TOTAL
+BOLSA DE RESIDUOS; COLOR NEGRO; DIMENSION 35 X 65 CMS.:
+1 [ESPESOR GRUESO; PRESENTACIÓN PAQUETE DE 50 UNIDADES | TS 14,00 14:50
+BASURERO;TAMAÑO PEQUEÑO:MATERIAL PLÁSTICO; TIPO > ] A,
+e | no | PIEZA 16,00 16,00
+CEPILLO DE MANO; USO INODORO; MATERIAL BASE LARGO
+| 9 [PLÁSTICO CONBASE; TIPO DE CERDA SINTÉTICA y PIEZA O LEAL
+14 [LAVANDINA; ENVASE FRASCO; CONTENIDO 1 LTRS. 1 FRASCO 13,00 13,00
+. e ER * o— o Y A
+[Ts [TOALLA DE PAPEL: COLOR BLANCO; DIMENSIÓN 22 X 22 CMS.; ; ROLLO 20 Pq
+6 [PAPEL HIGIENICO: NÚMERO DE HOJAS 2; COLOR BLANCO; TIPO ; ono 300 200
+5 FAMILIA ROLLO o A] - » "
 |
+| DESINFECTANTE PARA AMBIENTES; CONTENIDO APROXIMADO 210
+7 [GR/360 ML.: PRESENTACIÓN AEROSOL; FRAGANCIA A ELEC y ES 16,00 16,00
+SOPAPA DE GOMA; TAMAÑO MEDIANO CON MANGO 7
+| 8 [PLASTICO: PRESENTACIÓN X UNIDAD o PIEZA 25,00 o
+[a [ESCOBA; MATERIAL PVC; NRO. DE HILERAS 6: TIPO DOMÉSTICA |] + PIEZA 25/00 | 2500
+10 — [AMBIESTADOR EN AEROSOL: CONTENIDO 340 ML: FRAGANCIA ;  RASCO 1300 1260
+E a A
+ESPONJA; MATERIAL ESPUMA DE POLIURETANO: ADITAMENTO
+11. |FIBRA SINTÉTICA CON ABRASIVO; MEDIDAS 110 X 75 X 20 MMS.; 1 PIEZA 6,00 6,00
+PRESENTACION PAQUETE DE 4 UNIDADES | | |
+42. [FRANELA PARA LIMPIEZA; MEDIDAS 0.35 X 0.35 MIS.; ] PIEZA a 250
+PRESENTACIÓN POR PIEZA o po” y
+13 [LUSTRAMUEBLES: CONTENIDO 360 ML.: ENVASE AEROSOL ] 1 FRASCO 28,00 28,00
+TRAPO REJILLA; COLOR BLANCO; DIMENSIÓN 40 X 40 CM;
+14 — [MATERIAL PURO ALGODON o y HA | 2150 5:50
+18 [RECOLECTOR DE BASURA; MATERIAL PLÁSTICO; TAMAÑO ; IZA 25,00 25.00
+GRANDE
+ARAGAN DE GOMA; MATERIAL BASE GOMA; MEDIDA 0.37 MIS.;
+: : : 16,00
+q 16 — ICONMANGO DE MADERA. E PIEZA a 5d
+17 TRAPO DE PISO; COLOR GRS; DIMENSIÓN 48 X 62 CMS. 1 PIEZA 5,50 5,50
+[8 [GUANTES PARA LIMPIEZA; MATERIAL LATEX; TAMAÑO ESTANDAR — || 1 PARES. | 10,00 10,00 |
+| JABON LIQUIDO; PRESENTACION FRASCO CON PIQUILLO;
+a II omeDOJ7OMi e 1 Di 12,50 12,50
+ALCOHOL EN GEL; ENVASE CON DISPENSADOR A PRESION:
+1.20 [PRESENTACION 390 ML | FRASCO 1290 17,39
 
-|
+VALIDEZ DE LA OFERTA 45 DIAS INCLUYE IMPUESTOS DE LEY Y TRANSPORTE
+CHEQUE A : FABIANA ARLETTE FERNANDEZ BARRIENTOS
+PAGO SIGEP: BANCO UNION 10000029171240 TIEMPO DE ENTREGA : 10 DIAS
 
-m
-p
-1
-[e]
-Nn
+TRESCIENTOS CINCUENTA 00/100 BOLIVIANOS
 
-Pl e aileieiejeje
+FABIANA ARLETTE FERNANDEZ BARRIENTOS
+TEL: 60268220 - 61874040
+DPT DE VENTAS
 
-ES
-ulo
-Ela
 
-E
-[2]
+Órgano Judicial
+Bolivia
 
-a |=
->]
+ESPECIFICACIONES TECNICAS Y PROPUESTAS
+
+ADQUISICION DE MATERIAL DE LIMPIEZA, PRIMER CUATRIMESTRE
+
+PROPUESTAS
+SOLICITADAS
+
+Bolsa de Residuos; Color Negro;
+Dimensión 35 x 65 Cms.; Espesor
+Grueso; Presentación Paquete
+de 50 Unidades
+
+Basurero; tamaño Pequeño;
+material Plástico; tipo Canastillo
+Circular
+
+Cepillo de Mano; Uso Inodoro;
+Material Base Largo Plástico con
+Base; Tipo de Cerda Sintética
+
+Lavandina; Envase Frasco;
+Contenido 1 Ltrs.
+
+Toalla de Papel; Color Blanco;
+Dimensión 22 x 22 Cms.;
+Presentación Rollo
+
+Papel Higiénico; Número de
+Hojas 2; Color Blanco; Tipo
+Familia Rollo
+
+Desinfectante para Ambientes;
+Contenido Aproximado 257 Grs.;
+Presentación Aerosol; Fragancia
+a Elec
+
+Sopapa de Goma; Tamaño
+Mediano con Mango de Madera;
+Presentación x Unidad
+
+Escoba; Material Pvc; Nro. de
+Hileras 6; Tipo Doméstica
+
+Ambientador en Aerosol;
+Contenido 360 MI.; Fragancia
+Surtida
+
+Ss
 o
-[2]
 
--
+Esponja; Material Espuma de
+Poliuretano; Aditamento Fibra
+Sintética con Abrasivo; Medidas
+110 x 75 x 20 Mms.
 
-560
+Franela para Limpieza; Medidas
+0.35 x 0.35 Mts.; Presentación
+Por Pieza
 
-Usa
-O6|usa__ |
+mn
 
-ponesa
-1644|Japonesa
+Lustramuebles; Contenido 360
+MI.; Envase Aerosol
 
-NE
-c| €
-nm mn
-|»
+.
+105)
 
-3
-4
-
-2)
-
-o
-a
-17]
-ES)
+Trapo Rejilla; Color Blanco;
+Dimensión 40 x 40 Cm; Material
+Puro Algodón
 
 pa
+
+Recolector de Basura; Material
+Plástico
+
+pus
+u
+
+PROPUESTAS
+
+DEL CUMPLE | NO CUMPLE
+
+PROPONENTE
+
+
+Órgano Judicial
+Bolivia
+
+ESPECIFICACIONES TECNICAS Y PROPUESTAS
+
+Aragan de Goma; Material Base
+16 Goma; Material Mango Madera;
+
+Medida 0.37 Mts.
+
+Trapo de Piso; Color Gris;
+
+Dimensión 50 x 60 Cms.
+
+Guantes para Limpieza; Material
+Latex; Tamaño Estandar
+
+Jaboncillo Liquido; Presentación
+19 Frasco con Piquillo; Contenido
+
+360 ml.
+
+Alcohol en Gel; Envase con
+
+Dispensador a Gatillo;
+
+Presentación 380 g.
+ESPECIFICACIONES TECNICAS ADICIONALES
+
+L
+El pago será efectuado una vez
+entregados el total del material
+adjudicado
+
+Material que se encuentre
+defectuoso será devuelto y deberá
+ser repuesto hasta 4 meses
+después de la adjudicación.
+(presentar carta de compromiso de
+reposición de material defectuoso)
+
+El material debe ser entregado
+máximo hasta 5 días calendario
+después de la suscripción del
+contrato y/o orden de compra
+(EXPRESAR CONFORMIDAD)
+
+VALIDEZ DELA PROPUESTA: 30
+dias(EXPRESAR
+CONFORMIDAD)
+
+La entrega se efectuará en la
+sección de ALMACENES ubicada
+en el Inmueble que se encuentra
+en la calle Delfin Pino, entre Av. La
+Paz y Raquel Darlach (ex oficinas
+de Derechos Reales]) de la
+Dirección Administrativa
+Financiera del Órgano Judicial
+Departamental de Tarija. (En caso
+de cambio de dirección, se hará
+conocer oportunamente)
+EXPRESAR CONFORMIDAD
+
+La adjudicación se realizara POR
+EL TOTAL, y el método de
+selección por el precio más bajo
+
+[TODO MATERIAL DEBE SER
+ORIGINAL Y DE PRIMERA
+CALIDAD (ACEPTAR
+CONFORMIDAD)
+
+========================================================================
+CUCE: 25-0660-06-1522482-1-1
+========================================================================
+BEBA | E.S.G.T.
+
+*_, Telf. Of.: 3-3298830
+| EMPRESA DE SERVICIOS GENERALES Y TECNOLOGICOS > pazQesgt.com.bo
+
+9 Santa Cruz, Zona San Juan de la Chacarilla,
+Calle Nro 6, Edificio “Alfredo”, PB Of. +41
+
+Santa Cruz, 4 de Febrero de 2025
+COTIZACION: ESGT_COT-0039-2025
+
+Señores
+DIRECCION ADMINISTRATIVA Y FINANCIERA - ORGANO JUDICIAL - TARIJA
+
+Tarija. -
+
+REF: COTIZACION — UNIDAD DE IMAGEN ORIGINAL PARA IMPRESORA LASER MONOCROMATICA.
+
+Distinguidos Señores:
+Por medio de la presente les hago llegar la cotización solicitada.
+
+PRECIO 0110)
+H DESCRIPCION CANT. UNIT.BS TOTAL Bs.
+UNIDAD IMAGEN ORIGINAL PARA IMPRESORA
+Marca: Lexmark
+
+Modelo: 56F0Z00
+
+Características:
+1 | Tecnología de Impresión: Láser Monocromático 12 1.940,00 | 23.280,00
+Subgrupo de Producto: Repuesto original para impresora
+Valor de Rendimiento: 60.000 Paginas
+
+Dispositivo Compatible: MS621dn
+
+Garantía: 1 año
+
+Le AIN 23.280,00
+
+TOTAL, LITERAL: Veintitrés Mil Doscientos Ochenta 00/100 Bolivianos
+Nota: Para resguardar el buen funcionamiento de su equipo y prolongar la vida útil, solicitar un Certificado emitido por el fabricante y/o
+Mayorista en Bolivia que señale la originalidad y la garantía del producto en el territorio boliviano. Mencionando el proceso en curso,
+mismo que será validado. Eviten dañar las impresoras.
+
+Esta cotización tiene una validez de 10 días Calendario, cualquier duda comunicarse con nosotros, estaremos
+gustosos de atenderlos.
+
+Los precios: Incluyen impuesto de ley
+
+Forma de pago: Vía Sigma
+Tiempo de entrega: 5 Días
+
+Ta ET "Ez ESS S.67
+
+1 d Paz Se NIT: 32969
+Gerente E.S.G.T. Er Bolivia
+
+COMPUTER INSIDE
+
+4v Relgeramo entre O comnor y Ejerero
+Telr [04]66 35106 - “0219985 Tanya 4 de febrero del 2025
+
+Srs
+ORGANO JUDICIAL DAF
+Proscnte
+
+COTIZACION
+
+DETALLE
+
+TAMBOR PARA LA IMPRESORA HP
+LASERJET PRO M203DW genérico
+TOTAL BS|
+
+INCLUYE IMPUESTOS DE LEY
+NIT: 176650023
+
+VALIDEZ DE LA OFERTA
+
+
+DISTRIBUIDOR MAYORISTA PARA BOLIVIA
+
+TECNODIGITAL brother KATUN
+
+at yourside
+
+WORK BETTER
+
+Multifuncionales — Impresoras — Etiquetadoras — Equipos de fax — Trituradoras de papel — Insumos
+
+PROFORMA INSUMOS BROTHER
+
+N*: 065 / 2025
+Santa Cruz de la Sierra, 05 de Febrero de 2025
+
+Señores
+ORGANO JUDICIAL - DAF TARIJA
+
+Tarija.-
+. REF.: BROTHER - Cotizacion de Drum
+
+DETALLE STOCK P. UNITARIO Bs. | P. TOTAL Bs.
+
+REPUESTO PARA IMPRESORA; TIPO TAMBOR; MODELO DE IMPRESORA BROTHER
+HL-6180 DW 3 Und. 1.695,00 5.085,00
+CODIGO: DR-720
+REPUESTO PARA IMPRESORA; TIPO TAMBOR; MODELO DE IMPRESORA BROTHER
+
+Und. 1.695,00 6.780,00
+CODIGO: DR-620
+DRUM PARA IMPRESORA; MARCA BROTHER; MODELO HL-6400 DW; SERIE DR-
+3460 2 Und. 1.979,00 3.958,00
+CODIGO: DR-3460
+
+HL-5340 DW
+
+15.323)
+
+SON: QUINCE MIL OCHOCIENTOS VEINTITRÉS 00/100 BOLIVIANOS
+
+brother  .
+TIEMPO DE ENTREGA : 15 dias calendario genuine
+VALIDEZ DE LA OFERTA : 30 dias calendario INK 8 TONER
+FORMA DE PAGO : via SIGEP ci
+LUGAR DE ENTREGA : En sus almacenes corrio ada
+GARANTIA DEL PRODUCTO : 1 año brother
+
+A la espera de tenerlos pronto entre nuestros clientes preferenciales, h
+atenciones que se merece.
+
+Telf.: 799-03750 Di
+
+sis o ¡TAL :
+Email: ventas1(tecnodigitalsrl.com o ( Ae
+B/Brigida C/Dr. Pablo Busch Nro. 215 / Santa Cruz - Bolivia
+
+
+AIR
+
+, A <<
+
+SOLICITUD DE ADQUISICION DE ACCESORIOS DE COMPUTADORAS
+E IMPRESORAS DEL ORGANO JUDICIAL DE TARIJA
+
+IL CARACTERISTICAS
+CARACTERÍSTICAS TÉCNICAS
+
+ITEM DETALLE
+REPUESTO PARA IMPRESORA; TIPO TAMBOR; MODELO DE IMPRESORA HP M203 DW
+- CODIGO: CF232A 32A
+REPUESTO PARA IMPRESORA; TIPO TAMBOR; MODELO DE IMPRESORA BROTHER HL-6180 DW
+- CODIGO: DR-720
+REPUESTO PARA IMPRESORA; TIPO TAMBOR; MODELO DE IMPRESORA BROTHER HL-5340 DW
+- CODIGO: DR-620
+DRUM PARA IMPRESORA; MARCA BROTHER; MODELO HL-6400 DW; SERIE DR-3460
+- CODIGO: DR-3460
+UNIDAD DE IMAGEN LEXMARK; MODELO DE IMPRESORA MS321 MS421
+
+-UNIDAD IMAGEN (TAMBOR) LEXMARK NEGRO CON CAPACIDAD DE 60.000 PAGINAS DE
+RENDIMIENTO.
+
+1. CONDICIONES REQUERIDAS
+
+PLAZO DE ENTREGA.
+
+Plazo de entrega: 10 días
+
+PRODUCTO
+
+Los periféricos deben ser productos originales de marcas reconocidas en el medio, no se aceptan genéricos.
+En el caso de repuestos de impresoras deben ser de la misma marca de la impresora para la cual se compra
+el accesorio.
+
+LUGAR DE ENTREGA DE LOS BIENES.
+
+Deberá entregarse sin cargo de envió, en la Av. La Paz $353, edif. Fiorela Betancur Piso 1 Oficina
+Informática. Órgano Judicial DAF
+
+GARANTÍAS O RETENCIONES
+
+Garantía 1 año.
+
+METODO DE SELECCIÓN Y ADJUDICACION
+Precio Evaluado más Bajo
+
+FORMA DE ADJUDICACION
+
+Por Ítems
+
+GARANTIAS
+
+No se solicita
+
+FORMALIZACION DE LA CONTRATACION
+Contratación menor
+
+PAGO DE ANTICIPO
+
+No corresponde
+
+DOCUMENTOS A PRESENTAR
+
+Certificado de originalidad, Certificación de rendimiento
+EXPERIENCIA INDISPENSABLE.
+
+Experiencia especifica en la venta de productos, mínimo de 1 año, (Presentar documentos de respaldo en
+fotocopia simple, a la presentación de la propuesta contratos, facturas, órdenes de compra, licencia de
+funcionamiento).
+
+Elaborado por:
+
+Av. La Paz 4353, Edifici Hérlla Betancur
+
+THE: 4591) 4 66 76197 - FAX (591) 4 66 43827
+
+========================================================================
+CUCE: 25-0660-06-1522935-1-1
+========================================================================
+Calle ingavi esq. Oconnor Cel: 72977349 Telf.66-73317
+
+NOTA DE COTIZACION
+CLIENTE: ORGANO JUDICIAL FECHA: — 28/1/2025
+
+T
+
+PRECIO | PRECIO |
+NE pen ¡UNITARIO| TOTAL |
+PANEL LED PARA EMPOTRAR 24 WTS MR
+
+ITEM ¡ CANT. UNID. DETALLE
+
+Lo 1 PZA |
+
+THREE. 47 | 47
+2 L- | PZA | PILAS AA SET DE 6 UNIDADES DURACELL PD
+3 Lo PZA! REFLECTOR SOWTS Iv e le
+a 1 pza. SPOT SOBREPONER 30WTS TIPO CILINDRO
+
+| _ CARCAZA BLANCA LUMIEMCIL laos | as
+5 1 PZA PANEL LED SOBREPONER 24 WTS ILV | as
+6 | Leza | PANEL LED 18 WTS EMPOTRAR MR
+
+AL THREE [3122131
+
+> za PANEL LED 18WTS SOBREPONER MR
+
+| o THREE 128 | 28
+' 1 pza | PANELLED G0WTS 60X60 SOBREPONER MR |
+
+| | THREE 250 250
+
+| | PANEL LED 60WTS 60X60 EMPOTRAR MR |
+
+
+ESPECIFICACIONES TECNICAS Y SOLICITADAS Y <=3 >
+PROPUESTAS SN
+
+Órgano Judicial
+Bolivia
+
+ADQUISICION DE MATERIAL DE ELECTRICO PRIMER
+CUATRIMESTRE 2025
+
+N? PROPUESTAS SOLICITADAS — |PROPUESTAS | CUMPLE NO
+DEL CUMPLE
+PROPONENTE
+
+EN
+
+Pila Seca; Medida Aa; Tension 1.5 Volt; Tipo
+Alcalina
+
+2 | Luminaria; Tipo Led, para Sobreponer; de 24
+Wats.
+
+3 | Luminaria; Tipo Led, para empotrar de 24
+Wats.
+
+4 | Luminaria; Tipo Led, para sobreponer de 18
+Wats.
+
+5 | Luminaria; Tipo Led, para empotrar de 18
+Wats.
+
+6 | Pantalla: tipo panel Led: Potencia 60 W; de
+60x60 cm para sobreponer
+
+7 | Pantalla: tipo panel Led: Potencia 60 W; de T
+60x60 cm; tipo de empotrar
+
+8 | Reflector 50 watts; tipo led
+
+9 |Luminaria de sobreponer; tipo spot de 30
+Wats tipo cilindro
+
+ESPECIFICACIONES TECNICAS ADICIONALES
+
+El pago será efectuado una vez
+entregados el total del material adjudicado |
+Material que se encuentre defectuoso |
+será devuelto y deberá ser repuesto hasta |
+4 meses después de la adjudicación. |
+(PRESENTAR CARTA DE |
+COMPROMISO DE REPOSICIÓN DE |
+MATERIAL DEFECTUOSO)
+
+El material debe ser entregado máximo
+hasta 5 días calendario después de la
+ORDEN DE COMPRA. (EXPRESAR
+CONFORMIDAD)
+
+VALIDEZ DELA PROPUESTA: 30 días
+(EXPRESAR CONFORMIDAD)
+
+La entrega se efectuará en la sección de |
+ALMACENES ubicada en el Inmueble que
+se encuentra en la calle Delfin Pino, entre
+Av. La Paz y Raquel Darlach (ex oficinas
+de Derechos Reales]) de la Dirección
+Administrativa Financiera del Órgano
+Judicial Departamental de Tarija. (En caso
+de cambio de dirección, se hará conocer
+
+
+ESPECIFICACIONES TECNICAS Y SOLICITADAS Y
+PROPUESTAS
+
+Órgano Judicial
+Bolivia
+
+oportunamente) EXPRESAR
+CONFORMIDAD
+
+La adjudicación se realizara POR EL
+TOTAL
+
+TODO MATERIAL DEBE SER ORIGINAL
+Y DE PRIMERA CALIDAD (ACEPTAR
+CONFORMIDAD)
+
+ORGANDIJUDICIAL DAF - TA
+
+========================================================================
+CUCE: 25-0660-06-1558166-1-1
+========================================================================
+” DISTRIBUIDORA "LAS CHURAS"
+
+LAS CHURAS Venta de material de construccion, ferreteria, Equipos
+Material de limpieza, ropa de cama y otros materiales de bioseguridad industrial | COTIZACIO,
+NIT:7201561018 19/05/2025
+
+SEÑORES: ORGANO JUDICIAL - REGIONAL TARIJA
+FECHA: 19/5/25
+
+Atendiendo su amable solicitud estamos enviando cotización de los productos requeridos, para nosotros es un placer poner nuestra empresa a su
+servicio.
+
+[mean PARA LIMPIEZA; MEDIDAS 0.35 X 0.35 MIS.
+PRESENTACIÓN POR PIEZA
+
+MESÓN 40 X 40 CM;
+
+| MATERIAL PURO ALGODON
+[ARAGAN DE GOMA; MATERIAL BASE GOMA; MEDIDA 0.37 MÍS.;
+o ¡CON MANGO.
+! [AMBIENTADOR EN AEROSOL;
+_SURTIDA
+
+[DETERGENTE GRANULADO DOMÉSTICO: ENVASE BOLSA;
+
+7 PRESENTACION 150 GRS. I
+8 LIMPIADORES MULTIUSOS; CONTENIDO 1050 ML. ENVASE” |
+
+9 FRASCO: TIPO LAVA VAJILLAS. 4
+
+9 UANTES PARA LIMPIEZA; MATERIAL LATEX; TAMAÑO.
+JABON LIQUIDO; PRESENTACION FRASCO CON PIQUILLO; | |
+
+10 — CONTENIDO 370 ML | y a |
+
+I [ALCOHOL EN GEL; ENVASE CON DISPENSADOR A PRESION; | I |
+A a ! 1 FRASCO 20,00. 20.00 |
+AN A  __—— >>
+[BOLSA DE RESIDUOS; COLOR NEGRO; DIMENSION 35 X 65 CMS.; |
+
+E _ [ESPESOR GRUESO; PRESENTACIÓN PAQUETE DE 50 UNIDADES ] E 18.00. ¡E
+
+I [CERA PARA PISOS DE MADERA, ENVASE FRASCO; CONTENIDO 1 |
+[19 TAS: ESTADO CREMOSA Lo a ¡a + 1.1
+1 | ] 1
+14 |DESINFECTANIE PARA AMBIENTES; CONTENIDO APROXIMADO 210 | , Frasco o 19.00 1
+
+I
+
+|
+
+| |Gr/a60. ML; : PRESENTACIÓN A AEROSOL; FRAGANCIA A ELEC | | |
+VALIDEZ DE LA OFERTA 45 DIAS INCLUYE IMPUESTOS DE LEY Y TRANSPORTE
+
+CHEQUE A : FABIANA ARLETTE FERNANDEZ BARRIENTOS
+PAGO SIGEP: BANCO UNION 10000029171240
+
+DOSCIENTOS CINCUENTA Y OCHO 00/100
+
+FABIANA ARLETTE FERNANDEZ BARRIENTOS
+TEL: 60268220 - 61874040
+DPT DE VENTAS
+
+DISTRIBUIDORA
+"LAS CHURAS”
+NiN7201561018
+-RO2GUToO 61874040
+
+abiana A. Fernández
+
+
+ESPECIFICACIONES TECNICAS Y PROPUESTAS
+
+Órgano Judicial
+
+Bolivia
+
+SEGUNDA ADQUISICION COMPLEMENTARIA DE MATERIAL DE
+LIMPIEZA, DEL PRIMER CUATRIMESTRE
+
+PROPUESTAS
+SOLICITADAS
+
+Esponja; Material Espuma de
+Poliuretano; Aditamento Fibra
+Sintética con Abrasivo; Medidas
+110 x 75 x 20 Mms.
+
+Franela para Limpieza; Medidas
+0.35 x 0.35 Mts.; Presentación
+Por Pieza
+
+Lustramuebles; Contenido 360
+MI.; Envase Aerosol
+
+Trapo Rejilla; Color Blanco;
+Dimensión 40 x 40 Cm; Material
+Puro Algodón
+
+Aragan de Goma; Material Base
+Goma; Material Mango Madera;
+Medida 0.37 Mts.
+
+Ambientador en Aerosol;
+Contenido 360 MI.; Fragancia
+Surtida
+
+Detergente granulado
+domestico; envase bolsa;
+presentación 150grs.
+
+Limpiadores
+Contenido 950  MI.;
+Frasco; Tipo Lava Vajillas
+
+Multiusos;
+Envase
+
+Guantes para Limpieza; Material
+Latex; Tamaño Estandar
+
+Jaboncillo Liquido; Presentación
+Frasco con Piquillo; Contenido
+360 ml.
+
+.
 o
 
-Jl
+Alcohol en Gel; Envase con
+Dispensador a Gatillo;
+Presentación 380 g.
+
+.
+
+Bolsa de Residuos; Color Negro;
+Dimensión 35 x 65 Cms.; Espesor
+Grueso; Presentación Paquete
+de 50 Unidades
+
+pas
+mn
+
+Cera para Pisos de Madera;
+envase frasco; Contenido 1Ltrs;
+Estado cremosa
+
+Pp
+
+Desinfectante para Ambientes;
+Contenido Aproximado 257 Grs.;
+Presentación Aerosol; Fragancia
+a Elec
+
+p
+
+PROPUESTAS
+
+DEL CUMPLE | NO CUMPLE
+
+PROPONENTE
+
+
+Órgano Judicial
+
+Bolivia
+
+ESPECIFICACIONES TECNICAS Y PROPUESTAS
+
+ESPECIFICACIONES TECNICAS ADICIONALES
+
+El pago será efectuado una vez
+entregados el total del material
+adjudicado
+
+Material que se encuentre
+defectuoso será devuelto y deberá
+ser repuesto hasta 4 meses
+después de la adjudicación.
+(presentar carta de compromiso de
+¡peposición de material defectuoso)
+E
+
+| material debe ser entregado
+máximo hasta 5 días calendario
+después de la suscripción del
+contrato y/o orden de compra
+((EXPRESAR CONFORMIDAD)
+
+VALIDEZ DELA PROPUESTA: 30
+dias(EXPRESAR
+CONFORMIDAD)
+
+La entrega se efectuará en la
+sección de ALMACENES ubicada
+en el Inmueble que se encuentra
+en la calle Delfin Pino, entre Av. La
+Paz y Raquel Darlach (ex oficinas
+de Derechos Reales]) de la
+Dirección Administrativa
+Financiera del Órgano Judicial
+Departamental de Tarija. (En caso
+de cambio de dirección, se hará
+conocer oportunamente)
+EXPRESAR CONFORMIDAD
+
+La formalización del proceso será
+mediante orden de compra
+
+La adjudicación se realizara POR
+EL TOTAL, y el método de
+selección por el precio más bajo
+TODO MATERIAL DEBE SER
+ORIGINAL Y DE PRIMERA
+CALIDAD (ACEPTAR
+CONFORMIDAD)
+
+Los documentos Requeridos para
+la Adjudicación
+
+- Fotocopia de cedula de identidad
+- Fotocopia del SIGEP en estado
+activo
+
+- Seprec si corresponde
+
+- NIT
+
+- Certificado de no adeudo en la
+GESTORA
+
+========================================================================
+CUCE: 25-0660-06-1611642-1-1
+========================================================================
+RAUL DEL CASTILLO ALTAMIRANO
+
+TARIJA, 06 DE NOVIEMBRE DE 2025
+
+PRO-FORMA - COTIZACIÓN
+Señor(es): ORGANO JUDICIAL - TARIJA
+Objeto: Adquisición de Utiles de Escritorio
+
+PRECIO
+UNITARIO
+
+Cantidad
+solicitada
+
+Unidad
+medida
+
+DESCRIPCIÓN DEL BIEN y/o MATERIAL
+
+Boligrafo; Tipo Desechable; Material Base Plástico; Trazo Medio; Color de Tinta
+Azul
+Cinta para Embalaje; Material Polipropileno; Medidas 48 Mm. x 50 Mts.; Largo 50
+
+pieza 1,51
+
+100 900,00
+
+M; Color Café
+Cinta para Embalaje; Medidas 48 Mms.; Color Transparente; Material 5.0
+Polipropileno; Largo 30 Yardas '
+
+=]
+
+2.500,00]
+
+Clips para Papeles; Presentación Caja de 100 Unidades; Material Metal; Número
+33 Mms.
+
+200 pieza Clips para Papeles; Presentación Caja de 50; Material Metálico; Número 78 Mms. 13,00|
+
+frasco Corrector Líquido; Envase Frasco; Contenido 18 MI
+
+i Cuaderno con Espiral/Bitacora; tapa Cartón; tipo de hoja cuadriculada, Tamaño
+peca Carta; presentación 100 hojas
+
+S
+
+3,51 700,00
+
+pieza
+
+2.600,00]
+390,00|
+1.250,00|
+
+250,00
+1.900,01
+
+750,00|
+2.200,00]
+
+900,00
+1.050,00]
+
+1
+
+=
+
+p Disco Compacto; Capacidad 4.7 Gb; Tipo Dvd+r 8x; Virgen Sin Caja
+
+Ca
+p Engrampadora: Capacidad 20 Hojas: Tamaño Grapas 24/6 38,00
+p stilete; Tamaño Grande 7,50
+
+pieza olders; Material Cartulina; Tamaño Oficio; Color Amarillo
+
+m
+
+a =
+2 2
+
++1
+
+O
+
+p
+p
+pieza
+p
+
+Libro de Referencia / Actas; Cant de Hojas 100 Unidad; Tamaño Oficio;
+
+3 3
+
+=]
+S
+
+w
+S
+S
+Se
+=
+a
+
+1.500,00|
+
+pieza Numerado Cada Página; Tipo de Hoja Rayada
+
+Libro de Referencia / Actas; Cant de Hojas 200; Tamaño Oficio; Numerado Cada
+Página; Tipo de Hoja Rayada C/margen
+
+e]
+
+400,00
+400,00
+900,00
+900,00
+1.050,00]
+350,00|
+2.750,00
+400,00|
+
+p Marcador; Punta Delgada; Trazo Fino; Color Negro 2,01
+
+Marcador; Punta Delgada; Trazo Fino; Color Rojo
+
+pieza
+p
+100 q
+100 . ástico; Ti
+
+frasco Pegamento Liquido: Envase Frasco: Contenido 50 MI 10,50
+p Regla Graduada; Longitud 30 Cm; Material Plástico; Tipo Plana 3,50
+p Resaltador; Trazo Grueso; Color Varios; Punta Bicelada
 
 pe]
 
-N
+5]
 o
+Ñ
+ES]
 
-220|Argenti
+p Sacagrapas; Material Agarradores Metal 8,0
+Tacos Post It; Color Neón Surtido; Dimensión 38.1 x 50.8 Mms.; Presentación
 
-========================================================================
-CUCE: 23-0660-08-1384568-1-1
-========================================================================
-TRINIDAD 13 DE NOVIEMRE DE 2023
+10,00 2.500,00
 
-A E O A A
-E > E E E E PA E E
-IPUR IRIAR CZICIIS
+250 Block Bolsa x 4 Tacos x 50 Hojas
 
-IIA LS TORN ARIES
-CZIARITREZAR MDMA AZ
+block Tacos Post It; Color Surtido; Dimensión 76 x 76 Mms.; Presentación Block x 100
+Hojas
 
-SEÑORES:
-ORGANO JUDICIAL D.A.F.
+p Tampo para Sellos; Material Plástico; Tamaño Mediano 17,50
+Tinta para Sello de Goma; Tipo Sin Aceite; Envase Frasco; Contenido 28 MI;
 
-PROFORMA DE REPUESTOS (ACCESORIOS) DE LOS AIRES ACONDICONADOS
+20,00
+Color Azul
 
-1. REPUESTOS (ACCESORIOS) DE AIRES ACONDICONADOS DESDE 9.000
-BTU/h — 60.000 BTU/h.
+1.000,00|
 
-| REE CEL: 79 O Z
-Alan Jústiñidho Zabala
-TECNICO BIO -TEMPERATURA
+S
 
-"sg 00'06p
-sg 00'0pZ
-sg 00'065
-sg 00'06p
-sg 00'061T
-sg 00'06€T
+875,00
 
-OQVNONIONO9V J4IV Vd Vd IVSYIAINN VLIFEVL | oz |
-4/8 000'p7 2P 3.12 JOSIYANOD |2P 210peJnuap e] ap JOJOWN El
-4/N.L8 000'8T 3p 2I.YOSIYANO) |2P 2/0pe¡ uan e] ap 103010 | sT |
-/n8 0000'ZT 2P 3.12 JOSIUANO) [9p P10peJ!1ua, e] ap 1030 | vT |
-*10S3IdUJO) [9p e10pe¡1uaa e] ap JOJO/N [ap sojuaruepoy | ET |
-4/8 000'09 ap uds ¡ap e10pejnuaa e] ap 103010 | OT |
+NN
+oo
 
-Y
+1.500,00|
 
-"sg 00'068 4/n8 000'9€ ap 1/ds [ap eopejnua, e] ap 1030] 6 |
-sg 00'0ys | 4/N.18 000'pz ap 31ds ¡op es0pejnua, e] ap 1030] 8 |
-sg 00'06p | 4/n.18 000'81 ap uds ¡op e10pejnuaa ey ap 1030pA| 2 |
-sg 00'0vb | 4/M.19 000'ZT 2p u1ds [ap esopejnuaa ej ap 10x0pA| 9 |
-58 O0'0TZ | OMNVS9OTA YO (28 - V OTHY ) 31NVYIWDIIIIY SWO| S |
-sg 00'0Lz | H/N.8 000'09 - 000'9€ - 000'pz 3P Opeuopuoxe ay "JOA Ob - OZZ 30 HOLIWINOD| y |
+Tinta para Sello de Goma, Tipo Sin Aceite; Envase Frasco; Contenido 28 MI,;
+Color Rojo
 
-[sg 00'0€T | H/N.L8 000'09 30 OUYNONIANOIV 3YIV SOIOVEVIOYINAN S 30 OPVEVHL 30 YOLIDVAVI
+38.290,01
 
-sg O0'0ZT | H/N.L8 000'9€ 30 OOVNOINIANOIV JYIV SO/OVWEVIOYINN SE 30 OIVAVYL 30 YOLIDVAVI
+1.000,00|
 
-H/N.L8 000'bZ 30 OOVNONIANOIV 38IV SOIQVEVIOYINAN € 30 OIVAVEL 30 YOLIDVAVI
+w
 
-H/N8 000'8T 30 OOVNONIANOIV 3YIV SOIOVEVIOYINN SZ 30 OIVEVEL 30 YOLIOVAV)
+S] DES alo >
 
-"sg 00'0TT H/N.18 000'Z1 30 OOVNONIANOIV 38/V SOIOVEVIOYINN Z 30 ONVAVEL 10 YOLIDVAVI
+o frasco
 
-H/N8 000'6 30 OOVNONIANOIV 38IV SOIOVEVIOYINAN ST 30 ONVAVeL 30 YOLIDVAVI
+w
+S
+7]
+S E ==]
 
-VNY31NI OVQINN - LAS 130 VIOAVILLNIA VI 30 YOLOMN 13 VUVA OVAVYL 30 SIYOLIDVAV)
+7]
+a
 
-[sa 00's9 | H/n.L8 000'09 30 OAVNONIANOIV 38/V SOIOVEVIOYIINN 8 30 ONVAVEL 10 YOLIDVAVI
-
-[sa 00'09 | H/N.L8 000'9€ 3d OAVNONIANOIV 38IV SOIOVEVIOYINA y 30 ONVAVHL 10 YOLIDVWAVI
-
-H/N.L8 000'b7 30 OOVNONIANODV 38IV SO/OVEVIOYINA SE 30 ONVAVHL 30 YOLIDVWAVI
-
-H/N18 000'81 30 OOVNOIDIANOIV 3Y4IV SOIOVEVIOYIIN E 30 OVEVL 30 YOLIDVAVI
-
-"sg 00'0S H/N18 000'Z1 30 OOVNONIANODV 3YIV SOIOVHVIOYINA SZ 30 ONVEV8L 30 YOLIDVAVI
-
-H/N.L8 000'6 30 OOVNONIANOIV 38IV SOIQWEVIOYINAN Z 30 OVEVEL 30 YOLIDVAVI
-VNY31X3 OVOINN - YOSIYANO) 130 VIOAVILNIA VI 30 YOLOWN 13 VUVd ONVAVHL 30 SIHOLIDVAVI
-
-H/N.L8 000'bZ 30 OOVNOIDIOANOIV 3YIV SOIOVUVIOYINAN 09 30 INONVHYV 30 YOLIDVAVI
-H/N.Lg 000'8T 30 OOVNONIONOIV J8IV SOIOVIVIOYINAN Oy 30 INONVYYV 30 YOLIDVAVI
-
-"sg 00'0pT H/N.8 000'ZT 30 OOVNONIANOIV 3YIV SOIOVEVIOYINN SE 3d INONVYYV 10 YOLIDVAVI
-H/N.La 000'6 30 OOVNONDIANOIV 3YIV SOIOVUVIOYINAN SZ 10 INONVYYV 30 YOLIDWAVI
-SOOUVNOIMMONOIV 3YIV 30 YOSIYUANO) VAVA INONVYYV 30 SIYOLIDVAVI
-[_olb3dd_ | -N
-
-(SO.1S3INd38) SOIVOSIDIV 30 OIDJYd
-
-4/n.8 000'09 3p opeuonipuosy aJiy eJed 0A1]8]04 JOSaJdWO) | 67 |
-y4/n18 000'9€ 3p opeuoipuoxy ay esed OA13e30J JOSaAdUO) | 87 |
-4/N.8 000'pz ap opeuonipuosy a.iy eJed 0A1]e304 JOSaJAWO) | 27 |
-4/n.18 000'8T ap opeuonipuoxy aJiy eJed 0A1]8]04 JOS3JAWO) | 97 |
-4/n.8 000'ZT ap opeuonipuoxy aJiy eJed 0A1]e]04 JOSaJd uo) | sz |
-OVOJINNH 30 YOSNIS| vz
-
-VUN.LVI3AINIL 30 YOSNIS| EZ
-VOYVIJ88OS 30 AV138| 27 |
-SOLLTOA ZT - 0ZZ 30 JOOVINYOISNVHL| TZ |
-
-
-ESPECIFICACIONES TÉCNICAS
-
-PROVISIÓN DE REPUESTOS Y ACCESORIOS PARA EQUIPOS DE AIRES ACONDICIONADOS DEL
-ÓRGANO JUDICIAL DISTRITO BENI GESTIÓN 2024.
-
-OBJETIVO
-
-La Dirección Administrativa y financiera del Beni, requiere la contratación de una Empresa que brinde el
-servicio de provisión de repuestos y accesorios para los equipos de aires acondicionados del Órgano Judicial
-en el Distrito Beni — capital y provincias.
-
-ESPECIFICACIONES TÉCNICAS REQUERIDAS
-
-¡A
-
-El proveedor mantendrá un stock de los repuestos y accesorios de tal manera que se pueda responder a
-todos los requerimientos de repuestos y accesorios de forma inmediata.
-
-2. El proveedor entregará los repuestos y accesorios requeridos en almacenes del Órgano Judicial Beni.
-
-3. Solo la unidad de almacenes del Órgano Judicial del Distrito de Beni, podrá realizar los pedidos de
-repuestos y accesorios a través del “formulario de solicitud de materiales de almacén" con el visto bueno
-del Operador del área de Activos Fijos.
-
-4. Todos los repuestos y accesorios deben ser originales de buena calidad y tener sus respectivas garantías
-de fábrica, en caso de detectarse falla en los repuestos el proveedor deberá cambiar la pieza en un
-plazo de 24 horas; Será el proveedor el encargado de hacer todas las gestiones para el cumplimiento de
-las mismas.
-
-5. Elproveedor presentara una persona responsable y con capacidad de decisión para servir de contacto
-con el Órgano Judicial Distrito Beni, ante cualquier eventualidad.
-
-6.  Elenvío de los repuestos y accesorios para las provincias, correrá por parte del proveedor.
-
-7. Cuando se soliciten repuestos no consignados en la lista de precios original, los precios de estos deberán
-ser consensuados con el Jefe Administrativo antes de su provisión.
-
-8. El proveedor deberá contar con una experiencia en el mercado mínima de 2 años en cuanto a la
-provisión de repuestos para aires acondicionados.
-
-9. El proveedor deberá contar con sucursal en la ciudad de Trinidad.
-
-TIEMPO DE VIGENCIA
-
-El tiempo de vigencia del contrato del servicio será desde la firma del contrato hasta el 31 de diciembre de
-2024 o hasta que se agote el monto contratado.
-
-LISTA DE CONSUMO DE REFERENCIA
-
-N* DESCRIPCIÓN
-
-1
-
-Capacitores De Arranque Para Compresor De Aire Acondicionados
-
-Capacitor De Arranque De 25 Microfaradios Aire Acondicionado De 9.000 Btu/H
-Capacitor De Arranque De 35 Microfaradios Aire Acondicionado De 12.000 Btu/H
-Capacitor De Arranque De 40 Microfaradios Aire Acondicionado De 18.000 Btu/H
-Capacitor De Arranque De 60 Microfaradios Aire Acondicionado De 24.000 Btu/H
-
-Capacitores De Trabajo Para El Motor De La Ventiladora Del Compresor - Unidad Externa
-Capacitor De Trabajo De 2 Microfaradios Aire Acondicionado De 9.000 Btu/H
-
-Capacitor De Trabajo 
-
-========================================================================
-CUCE: 23-0660-09-1302245-1-1
-========================================================================
-¿ N COBIJA
-
-SERVICIOS INFORMÁTICOS, VENTA DE ACCESORIOS CONSULTORÍAS EN LÍNEA
-MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE COMPUTADORAS E
-INSTALACION DE CAMARAS DE SEGURIDAD
-
-Calle: Oruro
-
-Cel.:79199019 q FO a O RMA
-
-Cobija -— Pando-— Bolivia
-
-Señor (es): ORGANO JUDICIAL DE PANDO
-
-MARCA DESCRIPSION CANTIDAD]| PRECIO | TOTAL | GARANTIA
-
--L y '
-
-Cincuenta Mil Bolivianos 00/100
-
-BROTHER ¡DRUM PARA IMPRESORA; TIPO TAMBOR PARA
-PROCEDEN |LEXMARK; MODELO 56F0Z00 MS421 Y MS321, MS621
-CIA JAPON |(DRUM - UNIDAD DE IMAGEN) ORIGINAL
-
-La garantia de los Accesorios esta especificado al final de cada fila, la garantia del funcionamiento de los
-Drum y tambien sera de 1 año despues de la entrega y firma del acta de conformidad, con la respetiva
-visita al Organo Judicial de Pando para la revision tecnica cada 6 meses para brindar el buen
-
-GARANTIA:
-
-funcionamiento y asi cubrir la garantia mencionada anteriormente.
-
-ESPECIFICACIONES TÉCNICAS Y CONDICIONES REQUERIDAS PARA LA ADQUISICION DE DRUM Y FUSORES PARA LAS
-
-JN
-
-MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE
-
-SERVICIOS INFORMÁTICOS, VENTA DE ACCESORIOS CONSULTORÍAS EN LÍNEA
-
-COMPUTADORAS E
-
-INSTALACION DE CAMARAS DE SEGURIDAD
-
-DIFERENTES IMPRESORAS DEL ORGANO JUDICIAL DE PANDO, LAS ESPECIFICACIONES TÉCNICAS REQUERIDAS, SON:
-
-N? DETALLE
-
-UNIDAD | CANTIDAD
-
-PRECIO U.
-Bs.
-
-TOTAL Bs. ACEPTACION DE LA EMPRESA
-
-Especificaciones Técnicas
-
-DRUM PARA IMPRESORA; TIPO TAMBOR PARA
-IMPRESORA LEXMARK; MODELO 56F0Z00 MS421 Y
-MS321 (DRUM - UNIDAD DE IMAGEN) ORIGINAL QUE
-INCLUYE ASISTENCIA INMEDIATA Y COLOCADO A LAS
-DIFERENTES IMPRESORAS TANTO EN PROVINCIAS
-COMO EN CAPITAL DEL ORGANO JUDICIAL DE
-
-PANDO.
-
-40 1250
-
-Piezas
-
-50.000
-
-TOTAL BS.
-
-50.000
-
-CONDICIONES ADICIONALES
-
-1. Plazo de Entrega
-
-El tiempo de entrega debe de ser inmediato a
-partir de la suscripción de la orden de compra o
-contrato.
-
-ACEPTACION DE LA EMPRESA
-
-Acepto El tiempo de entrega debe ser Inmediata
-a partir de la suscripción de la orden de compra
-
-2. Lugar de Entrega
-
-3.- Drum Colocado a las
-
-Los bienes deben ser entregados en las diferentes
-oficinas del tercer piso ubicado en Edificio del
-Tribunal Departamental de Justicia de Cobija-
-Pando Av. 16 de Julio N?2 152, para la verificación
-por parte de la comisión de recepción.
-
-Acepto entregados en las oficinas del tercer piso
-ubicado en Edificio del Tribunal Departamental
-de Justicia de Pando Av. 16 de Julio N2 152, para
-la verificación por parte de la comisión de
-recepción.
-
-La empresa adjudicada realizara el trabajo de | Acepto realizara el trabajo de Colocado de los
-
-Colocado de los Drum y prueba
-
-a cor
-
-de | Drum y Fusor prueba de funcionamiento a las
-
-
-JN
-
-SERVICIOS INFORMÁTICOS, VENTA DE ACCESORIOS CONSULTORÍAS EN LÍNEA
-
-MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE COMPUTADORAS E
-INSTALACION DE CAMARAS DE SEGURIDAD
-
-Impresoras
-
-funcionamiento a las diferentes impresoras que
-se encuentran con problemas, dentro del Tribunal
-de Justicia de Cobija como también en Juzgados
-mixtos de las provincias que se tiene como ser
-Porvenir. Puerto Rico y El Sena respectivamente,
-los pasajes estadías y viáticos correrán por parte
-de la empresa adjudicada
-
-diferentes Fotocopiadoras que se encuentran
-con problemas, dentro del Tribunal de Justicia de
-Cobija como también en Juzgados mixtos de las
-provincias que se tiene como ser Porvenir.
-Puerto Rico y El Sena respectivamente, los
-pasajes estadías y viáticos correrán por parte de
-la empresa adjudicada
-
-4. Garantías
-
-El proveedor deberá GARANTIZAR que los
-accesorios entregados son NUEVOS, y de calidad;
-en caso de que algún accesorio se encuentre
-dañado al momento de la entrega el proveedor
-se compromete a reparar el daño que puede
-haber ocurrido al momento de trasladar el
-accesorio.
-
-La garantía de los accesorios será como mínimo
-de 1 año por cualquier desperfecto que sufra los
-accesorios colocados como ser el Drum y Fusor
-deberán ser corregidos por el Proveedor.
-
-Acepto GARANTIZAR que los accesorios
-entregados son NUEVOS, y de calidad; en caso
-de que algún accesorio se encuentre dañado al
-momento de la entrega el proveedor se
-compromete a reparar el daño que puede
-haber ocurrido al momento de trasladar los
-accesorios.
-
-La garantía de los accesorios será como mínimo
-de 1 Año por cualquier desperfecto que sufra
-los accesorios. :
-
-5. Verificación de
-Especificaciones
-
-La verificación de los bienes solicitados se
-realizara según las especificaciones Técnicas
-solicitadas y los accesorios deberán de ser de
-marcas reconocidas para su aceptación o
-rechazo.
-
-Acepto verificación de los accesorios solicitados
-se realizara según las especificaciones Técnicas
-solicitadas y los accesorios deberán de ser de
-marcas reconocidas para su aceptación o
-rechazo.
-
-6. Validez de la Propuesta
-
-La propuesta presentada deberá tener un tiempo
-de validez de 10 días calendario mínimamente.
-
-Acepto La propuesta presentada deberá tener
-un tiempo de validez de 10 días calendario
-mínimamente
-
-7. Costos de Transporte
-
-Los costos o gastos de transporte, manipuleo u
-otros para la entrega de los activos en el lugar
-señalado, deberán ser totalmente cubiertos por el
-proveedor tanto en la capital Cobija como en los
-
-Acepto Los costos o gastos de transporte,
-manipuleo u otros para la entrega de los
-accesorios en el lugar señalado, deberán ser
-totalmente cubiertos por el proveedor tanto en
-
-
-JN
-
-SERVICIOS INFORMÁTICOS, VENTA DE ACCESORIOS CONSULTORÍAS EN LÍNEA
-MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE COMPUTADORAS E
-INSTALACION DE CAMARAS DE SEGURIDAD
-
-| Juzgados de las Provincias (Porvenir, Puerto rico y
-
-El Sena)
-
-8. Forma de Pago
-
-El pago se efectuará una vez realizada la
-aceptación y verificación del funcionamiento de
-todas las impresoras colocadas el Drum y Fusor
-por la comisión de recepción con la emisión de un
-informe de conformidad, previa presentación de
-la factura respectiva mediante transferencia a su
-cuenta vía SIGEP, por lo tanto para que el pago sea
-efectuado el proponente debe ser Beneficiario
-SIGEP.
-
-la capital Cobija como en los Juzgados de las
-Provincias (P
-
-========================================================================
-CUCE: 23-0660-09-1304985-1-1
-========================================================================
-PROFORMA
-
-DE: Dania Lopez Suarez Fecha: 10/2/2023
-DIR: C. Antono Antofagasta / B. Progreso
-CEL: 782-19388
-COBIJA-PANDO-BOLIVIA
-CLIENTE
-NOMBRE: ORGANO JUDICIAL - DAF
-DIRECCION : Av. 16 De Julio
-CIUDAD: Cobija
-TELEFONO: 842-2302
-
-Alcohol Etílico; Presentación Frasco de 1 Litro;
-Concentración 70* Debidamente sellados para
-almacenamente.
-
-Ambientador con Desinfectante en Aerosol; Contenido 360
-mil
-
-Medio de pago Según corresponda po |
-Tiempo de entrega INMEDIATA TOTAL (BS.) [ | 49.990,00
-Validez oferta
-
-e: Dania Lopez
-
-NIT 127550,
-Dania Lopez Suarez
-Gerente Propietaria
-
-
-ESPECIFICACIONES TÉCNICAS PARA BIENES
-
-PRIMERA ADQUISICIÓN DE MATERIAL DE BIOSEGURIDAD PARA EL ORGANO JUDICIAL DE
-PANDO GESTIÓN 2023.
-
-l CARACTERÍSTICAS DEL REQUERIMIENTO
-
-Alcohol Etílico; Presentación Frasco de 1 Litro; Concentración 70*
-Debidamente sellados para almacenamente.
-2 Ambientador con Desinfectante en Aerosol; Contenido 360 ml
-
-Frasco
-
-NOTA IMPORTANTE: LAS EMPRESAS QUE PRESENTEN SUS PROPUESTAS MEDIANTE EL RUPE, DEBEN
-CONSIDERAR COMO REQUISITO INDISPENSABLE, CUMPLIR CON TODOS LOS PUNTOS DE LA DESCRIPCIÓN
-REALIZADA EN LA COTIZACIÓN ADJUNTA DE LA OFERTA IDENTIFICADA DEL PROVEEDOR, DANDO ESTRICTO
-CUMPLIMIENTO DE LO INDICADO.
-
-Los bienes deberán ser entregados en un plazo no mayor a los 1 días calendario, a partir del día siguiente
-hábil de la firma de la Orden de Compra.
-
-El proveedor deberá GARANTIZAR que los productos entregados son DE PRIMERA CALIDAD, en caso de
-encontrar fallas en los bienes entregados, durante la recepción, distribución y/o utilización el proveedor debe
-reponer el ítem en un plazo máximo en 48 horas.
-
-AS de uN ENS
-
-Para la provisión de los bienes, el distribuidor deberá prever los recursos humanos, logísticos materiales y
-técnicos que se requieran para realizar la entrega adecuada, responsable y puntual en el lugar y plazos
-señalados.
-
-ll. REQUERIDAS PARA EL BIEN
-
-A
-
-Los bienes deben ser entregados en almacén de materiales y suministros ubicado en Edificio del Tribunal
-Departamental de Justicia de Cobija-Pando (3er Piso) Av. 16 de Julio N2 152, para la verificación por parte
-de la comisión de recepción.
-
-La modalidad de pago será vía SIGEP posterior a la entrega de la total de los ítems, conforme a los
-procedimientos administrativos internos del Órgano Judicial.
-
-Página 1 de 2
-
-ESPECIFICACIONES TÉCNICAS PARA BIENES
-
-EL proveedor deberá emitir la respectiva factura a nombre del Órgano Judicial “NIT 190754021”, en el
-momento de la entrega de los bienes.
-
-Luis A DE ALMACENES here let
-SIMA! EPARTAMEnTAS DE PANDO CHICIRA DPÚAL. ADRUMSTRATVA Y IUANCIERA DE PARDO
-UNGANG JUDICIAL - D.A F ORGANO JUDICIAL
-
-Cobija, 10 de febrero de 2023.
-
-Página 2 de 2
-
-========================================================================
-CUCE: 23-0660-09-1320122-1-1
-========================================================================
-SERVICIOS INFORMÁTICOS, VENTA DE ACCESORIOS CONSULTORÍAS EN LÍNEA
-MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE COMPUTADORAS E INSTALACION
-
-DE CAMARAS DE SEGURIDAD
-Calle: Oruro
-
-Cel.:79199019 sal RO F O R SU A
-
-Cobija -- Pando-— Bolivia
-
-Señor (es): ORGANO JUDICIAL DE PANDO
-
-CANTIDAD] PRECIO | TOTAL | GARANTIA
-
-— O
-
-MARCA DESCRIPSION
-
-ACCESORIO DRUM DR -420 PARA IMPRESORA BROTHER
-DCP-7065DN QUE INCLUYE ASISTENCIA TECNICA
-INMEDITA Y COLOCADO PARA LAS DIFRENTES
-IMPRESORAS.
-
-BROTHER
-PROCEDEN
-CIA JAPON
-
-ACCESORIO DRUM DR-720 PARA IMPRESORA
-BROTHER HL-6180DW
-
-DETALLES TÉCNICOS
-
-Tipo Original
-
-CARACTERÍSTICAS
-
-Compatibilidad DCP-8110DN, DCP-8150DN, DCP-8155DN,
-HL-5450DN, HL-5470DW, HL-5470DWT, HL-6180DW, HL-
-6180DWT, MFC-8510DN, MFC-8710DW, MFC-8910DW,
-MFC-8950DW, MFC-8950DWT
-
-Rendimiento de impresión 30000 páginas QUE INCLUYE
-ASISTENCIA TECNICA INMEDITA Y COLOCADO PARA LA
-DIFRENTES IMPRESORAS.
-
-BROTHER
-PROCEDEN
-CIA JAPON
-
-Tao]
-
-Drum y tambien sera de 2 año despues de la entrega y firma del acta de conformidad, con la respetiva
-visita al Organo Judicial de Pando SE REALIZARA LA ASISTENCIA TECNICA INMEDIATA Y LA SUSTITUCION
-DE LOS DRUM QUE SU INSTITUCION DETERMINE para brindar el buen funcionamiento y asi cubrir la
-
-garantia mencionada anteriormente.
-
-GARANTIA:
-
-1. ESPECIFICACIONES TÉCNICAS Y CONDICIONES REQUERIDAS PARA LA ADQUISICION DE DRUM
-
-LAS ESPECIFICACIONES TÉCNICAS REQUERIDAS, SON:
-
-ADQUISICION DE ACCESORIOS DRUM DR-420 PARA IMPRESORA BROTHER DCP - 7065DN KIM COMPLETO DRUM DR-720 PARA IMPRESORA BROTHER
-HL-6180DW QUE INCLUYE ASISTENCIA TECNICA INMEDITA Y COLOCADO A LAS DIFRENTES IMPRESORAS DEL ORGANO JUDICIAL DE PANDO, TANTO EN
-CAPITAL COMO EN PROVINCIAS GESTION 2023
-
-No DETALLE UNIDAD | CANTIDAD PRECIO Ú. |roraL Bs. | ACEPTACIÓN DE LA EMPRESA
-
-Especificaciones
-
-ACCESORIO DRUM DR -420 PARA IMPRESORA
-BROTHER DCP-7065DN QUE INCLUYE ]
-1 ASISTENCIA TECNICA INMEDITA Y COLOCADO | Pieza
-PARA LAS DIFRENTES IMPRESORAS. 15 1500 22500
-
-ACCESORIO DRUM DR-720 PARA IMPRESORA
-BROTHER HL-6180DW
-
-DETALLES TECNICOS
-
-Tipo Original
-
-CARACTERÍSTICAS
-
-Compatibilidad DCP-8110DN, DCP-8150DN, DCP-
-8155DN, HL-5450DN, HL-5470DW, HL-5470DWT, HL-
-6180DW, HL-6180DWT, MFC-8510DN, MFC-8710DW,
-MFC-8910DW, MFC-8950DW, MFC-8950DWT
-Rendimiento de impresión 30000 páginas QUE INCLUYE
-
-ASISTENCIA TECNICA INMEDITA Y COLOCADO PARA
-LAS DIFRENTES IMPRESORAS.
-
-TOTAL BS. 44.490
-
-15 1466 21990
-
-Pieza
-
-
-CONDICIONES ADICIONALES
-
-1. Plazo de Entrega
-
-2. Lugar de Entrega
-
-3.- DRUM Colocado a las
-Impresoras
-
-4. Garantías
-
-ACEPTACION DE LA EMPRESA
-
-El tiempo de entrega debe ser inmediato a partir
-de la suscripción de la orden de compra o
-contrato.
-
-Los accesorios deben ser entregados en las
-diferentes oficinas del tercer piso ubicado en
-Edificio del Tribunal Departamental de Justicia de
-Cobija-Pando Av. 16 de julio N2 152, para la
-verificación por parte de la comisión de recepción.
-
-La empresa adjudicada realizara el trabajo de
-Colocado de los Drum a las diferentes impresoras
-que se encuentran dentro del Tribunal de Justicia
-de Cobija como también en Juzgados mixtos de las
-provincias que se tiene como ser Porvenir. Puerto
-Rico y El Sena respectivamente, los pasajes
-estadías y viáticos correrán por parte de la
-empresa adjudicada
-
-El proveedor deberá GARANTIZAR que los
-accesorios entregados son NUEVOS, y de calidad;
-en caso de que algún accesorio se encuentre
-dañado al momento de la entrega el proveedor
-se compromete a reparar el daño que puede
-haber ocurrido al momento de trasladar el
-accesorio.
-
-
-La garantía de los accesorios será como mínimo
-de un año por cualquier desperfecto que sufra
-los accesorios colocados como ser el Drum
-deberán ser corregidos por el Proveedor durante
-el año de garantía de los accesorios Drum.
-
-5. Verificación de
-Especificaciones
-
-6. Validez de la Propuesta
-
-7. Costos de Transporte
-
-La verificación de los bienes solicitados se
-realizara según las especificaciones Técnicas
-solicitadas y los accesorios deberán de ser de
-marcas reconocidas para su aceptación o
-
-rechazo.
-La propuesta presentada deberá tener un tiempo
-
-de validez de 15 días calendario mínimamente.
-Los costos o gastos de transporte, manipuleo u
-otros para la entrega de los accesorios en el lugar
-señalado, deberán ser totalmente cubiertos por el
-proveedor tanto en la capital Cobija como en los
-Juzgados de las Provincias (Porvenir, Puerto rico y
-El Sena)
-
-8. Forma de Pago
-
-9. Forma de Adjudicación
-
-El pago se efectuará una vez realizada la
-aceptación y verificación del funcionamiento de
-todas las impresoras colocadas el Drum por la
-comisión de recepción con la emisión de un
-informe de conformidad, previa presentación de
-la factura respectiva mediante transferencia a su
-cuenta vía SIGEP, por lo tanto para que el pago sea
-efectuado el proponente debe ser Beneficiario
-SIGEP.
-
-Esta será por el total.
-
-10. Garantía Cumplimiento
-
-El importe de dicha garantía en caso de cualquier
-Incumplimiento contractual incurrido por el
-Proveedor será el 1x1000 sobre el importe total
-
-
-11.-Método de Evaluación
-
-12.- Residencia
-
-13.- Asistencia Técnica.
-
-de la adjudicación será pagado en favor de la
-Entidad, sin necesidad de ningún trámite o acción
-judicial a su solo requerimiento.
-
-Calidad Propuesta Técnica y Costo
-
-La empresa adjudicada deberá de contar con una
-oficina en la cuidad de Cobija para ello tendrá que
-presentar la licencia de funcionamiento de la'
-empresa indicando la ubicación de la avenida o
-calle. (Licencia de funcionamiento emitida por la
-alcaldía municipal de Cobija )
-
-La empresa adjudicada tendrá que dar una
-asistencia técnica inmediata por el tiempo de
-garantía de los accesorios que están dentro de las
-especificaciones técnicas.
-
-oO A
-
-
+m
 y
-
 a
-
-========================================================================
-CUCE: 23-0660-09-1320154-1-1
-========================================================================
-JioN
-
-SERVICIOS INFORMÁTICOS, VENTA DE ACCESORIOS CONSULTORÍAS EN LÍNEA
-MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE COMPUTADORAS E INSTALACION ll»
-DE CAMARAS DE SEGURIDAD
-Calle: Oruro
-
-Cel.:79199019 Pp RO = O RMA
-
-Cobija -— Pando-— Bolivia
-
-Señor (es): ORGANO JUDICIAL DE PANDO
-
-DESCRIPSION CANTIDAD] PRECIO TOTAL | GARANTIA
-
-FOTOCOPIADORA MARCA CANON MODELO IR
-1430/1435i, Serie GPR 54 Pantalla tactil en color de 5
-ulgadas, alimentador automatico, documentos
-paiE momaneo, Joc en 25 2000 | s0000
-dos caras , scaneo y envio
-
-ciencuenta mil Bolivianos 00/100
-
-La garantia de los Activos esta especificado al final de cada fila, la garantia del funcionamiento de las
-GARANTIA: [fotocopiadoras y tambien sera de 2 año despues de la entrega y firma del acta de conformidad, con la
-respetiva visita al Organo Judicial de Pando
-
-
-AS a
-
-
-ESPECIFICACIONES TÉCNICAS Y CONDICIONES REQUERIDAS PARA LA ADQUISICION DE DRUM PARA LAS DIFERENTES
-IMPRESORAS LAS ESPECIFICACIONES TECNICAS REQUERIDAS, SON:
-
-ADQUISICION DE ACCESORIOS DRUM FOTOCOPIADORA MOD IR 1430/1435i; SERIE GPR 54 (DRUM - UNIDAD DE IMAGEN) ORIGINAL PARA LOS
-DIFRENTES JUZGADOS TANTO CAPITAL COMO PROVINCIAS, QUE INCLUYE COLOCADO A LAS DIFRENTES FOTOCOPIADORAS
-
-No DETALLE UNIDAD | CANTIDAD | PRE2IOU- [TOTAL Bs. AREPTACIÓN DE LA EMPRESA
-
-Especificaciones
-DRUM PARA FOTOCOPIADORA; MARCA CANON;
-
-MODELO IR 1430/1435i; SERIE GPR 54
-
-Y” Unidad de tambor Technica BrandR GPR-54
-
-4 | Y Para uso en: Canon Imagerunner 1430J, 14351, piezA
-15435iF, 1435P. 25 2000 | 50.00,00
-
-y” Rendimiento: 35.500 páginas — OEM idéntico.
-
-TOTAL BS. 50.00,00
-
-CONDICIONES ADICIONALES ACEPTACION DE LA EMPRESA
-
-A
-
-1. Plazo de Entrega El tiempo de entrega debe de ser inmediato a
-partir de la suscripción de la orden de compra o
-
-contrato.
-
-2. Lugar de Entrega Los bienes deben ser entregados en las diferentes
-oficinas del tercer piso ubicado en Edificio del
-Tribunal Departamental de Justicia de Cobija-
-Pando Av. 16 de Julio N2 152, para la verificación
-por parte de la comisión de recepción.
-
-3.- Drum Colocado a las La empresa adjudicada realizara el trabajo de
-Fotocopiadoras Colocado de los Drum y prueba de
-funcionamiento a las diferentes Fotocopiadoras
-que se encuentran con problemas, dentro del
-Tribunal de Justicia de Cobija como también en
-Juzgados mixtos de las provincias que se tiene
-como ser Porvenir. Puerto Rico y El Sena
-respectivamente, los pasajes estadías y viáticos
-correrán por parte de la empresa adjudicada
-
-4. Garantías El proveedor deberá GARANTIZAR que los
-accesorios entregados son NUEVOS, y de calidad;
-en caso de que algún accesorio se encuentre
-dañado al momento de la entrega el proveedor
-se compromete a reparar el daño que puede
-haber ocurrido al momento de trasladar el
-accesorio.
-
-La garantía de los accesorios será como mínimo
-de un año por cualquier desperfecto que sufra
-los accesorios colocados como ser el Drum
-deberán ser corregidos por el Proveedor.
-
-5. Verificación de La verificación de los bienes solicitados se
-
-Especificaciones realizara según las especificaciones Técnicas
-solicitadas y los accesorios deberán de ser de
-marcas reconocidas para su aceptación o
-rechazo.
-
-
-a
-
-6. Validez de la Propuesta La propuesta presentada deberá tener un tiempo
-
-de validez de 15 días calendario mínimamente.
-7. Costos de Transporte Los costos o gastos de transporte, manipuleo u
-otros para la entrega de los Accesorios en el lugar
-señalado, deberán ser totalmente cubiertos por el
-proveedor tanto en la capital Cobija como en los
-Juzgados de las Provincias (Porvenir, Puerto rico y
-El Sena)
-
-8. Forma de Pago El pago se efectuará una vez realizada la
-aceptación y verificación del funcionamiento de
-todas las fotocopiadoras colocadas el Drum por la
-comisión de recepción con la emisión de un
-informe de conformidad, previa presentación de
-la factura respectiva mediante transferencia a su
-cuenta vía SIGEP, por lo tanto para que el pago sea
-efectuado el proponente debe ser Beneficiario
-SIGEP.
-
-9. Forma de Adjudicación Esta será por el total.
-
-10. Garantía Cumplimiento | El importe de dicha garantía en caso de cualquier
-Incumplimiento contractual incurrido por el
-Proveedor será del 7% sobre el importe total de
-la adjudicación será pagado en favor de la Entidad,
-sin necesidad de ningún trámite o acción judicial a
-su solo requerimiento.
-
-11.- Residencia La empresa adjudicada deberá de contar con una
-oficina en la cuidad de Cobija para ello tendrá que
-presentar la licencia de funcionamiento emitida
-por el Gobierno Autónomo Municipal de Cobija
-indicando la ubicación de la avenida o calle de
-
-funcionamiento.
-
-
-%
-
-12.-Método de Evaluación
-
-La empresa adjudicada tendrá que dar una
-asistencia técnica inmediata por el tiempo de
-garantía de los accesorios que están dentro de las
-especificaciones técnicas.
-
-13.- Asistencia Técnica.
-
-========================================================================
-CUCE: 23-0660-09-1320792-1-1
-========================================================================
-SERVICIOS INFORMÁTICOS, VENTA DE ACCESORIOS CONSULTORÍAS EN LÍNEA
-MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE COMPUTADORAS E
-INSTALACION DE CAMARAS DE SEGURIDAD
-
-Calle: Oruro
-
-Cel.:79199019 Pp RO F O RMA
-
-Cobija -— Pando-— Bolivia
-
-Señor (es): ORGANO JUDICIAL DE PANDO
-
-MARCA DESCRIPSION CANTIDAD]| PRECIO | TOTAL | GARANTIA
-
-50000 1AÑO
-
-La garantia de los Accesorios esta especificado al final de cada fila, la garantia del funcionamiento de los
-Drum y tambien sera de 1 año despues de la entrega y firma del acta de conformidad, con la respetiva
-visita al Organo Judicial de Pando para la revision tecnica cada 6 meses para brindar el buen
-funcionamiento y asi cubrir la garantia mencionada anteriormente.
-
-BROTHER |DRUM PARA IMPRESORA; TIPO TAMBOR PARA
-PROCEDEN |LEXMARK; MODELO 56F0Z00 MS421 Y MS321, MS621
-CIA JAPON |(DRUM - UNIDAD DE IMAGEN) ORIGINAL
-
-Cincuenta Mil Bolivianos 00/100
-
-GARANTIA:
-
-ESPECIFICACIONES TÉCNICAS Y CONDICIONES REQUERIDAS PARA LA ADQUISICION DE DRUM PARA LAS DIFERENTES
-
-IMPRESORAS DEL ORGANO JUDICIAL DE PANDO, LAS ESPECIFICACIONES TÉCNICAS REQUERIDAS, SON:
-
-Ne DETALLE UNIDAD | CANTIDAD | PRESIOU: [oral Bs. | ACEPTACIÓN DE LA EMPRESA
-Especificaciones
-ADQUISICION DE ACCESORIOS DRUM LEXMARK
-
-1 | MODELO 56FOZ00 MS421 Y MS321 (DRUM - UNIDAD | Piezas 40 1250 50.000
-
-DE IMAGEN) ORIGINAL PARA LOS DIFRENTES
-JUZGADOS TANTO CAPITAL COMO PROVINCIAS, QUE
-INCLUYE SOPORTE IMNEDIATO Y COLOCADO A LAS
-DIFRENTES IMPRESORAS
-
-TOTAL BS.
-
-50.000
-
-
-CONDICIONES ADICIONALES
-
-ACEPTACION DE LA EMPRESA
-
-1. Plazo de Entrega
-
-El tiempo de entrega debe de ser inmediato a
-partir de la suscripción de la orden de compra o
-contrato.
-
-2. Lugar de Entrega
-
-Los accesorios de Drum deben ser entregados en
-la oficina del tercer piso ubicado en Edificio del
-Tribunal Departamental de Justicia de Cobija-
-Pando área de Sistemas Av. 16 de Julio N2 152,
-para la verificación por parte de la comisión de
-recepción.
-
-3.- Drum Colocado a las
-Impresoras
-
-La empresa adjudicada realizara el trabajo de
-Colocado de los Drum Y prueba de
-funcionamiento a las diferentes impresoras que
-se encuentran con problemas, dentro del Tribunal
-de Justicia de Cobija como también en Juzgados
-mixtos de las provincias que se tiene como ser
-Porvenir. Puerto Rico y El Sena respectivamente,
-los pasajes estadías y viáticos correrán por parte
-de la empresa adjudicada
-
-,
-
-4. Garantías
-
-El proveedor deberá GARANTIZAR que los
-accesorios entregados son NUEVOS, y de calidad;
-en caso de que algún accesorio se encuentre
-dañado al momento de la entrega el proveedor
-se compromete a reparar el daño que puede
-haber ocurrido al momento de trasladar el
-accesorio.
-
-La garantía de los accesorios será como mínimo
-de 1 año por cualquier desperfecto que sufra los
-accesorios colocados como ser el Drum y Fusor
-deberán ser corregidos por el Proveedor.
-
-
-5. Verificación de
-Especificaciones
-
-La verificación de los bienes solicitados se
-realizara según las especificaciones Técnicas
-solicitadas y los accesorios deberán de ser de
-marcas reconocidas para su aceptación o
-rechazo.
-
-6. Validez de la Propuesta
-
-La propuesta presentada deberá tener un tiempo
-de validez de 10 días calendario mínimamente.
-
-7. Costos de Transporte
-
-Los costos o gastos de transporte, manipuleo u
-otros para la entrega de los activos en el lugar
-señalado, deberán ser totalmente cubiertos por el
-proveedor tanto en la capital Cobija como en los
-Juzgados de las Provincias (Porvenir, Puerto rico y
-El Sena)
-
-8. Forma de Pago
-
-El pago se efectuará una vez realizada la
-aceptación y verificación del funcionamiento de
-todas las impresoras colocadas el Drum y Fusor
-por la comisión de recepción con la emisión de un
-informe de conformidad, previa presentación de
-la factura respectiva mediante transferencia a su
-cuenta vía SIGEP, por lo tanto para que el pago sea
-efectuado el proponente debe ser Beneficiario
-SIGEP.
-
-9. Forma de Adjudicación
-
-Esta será por el total.
-
-10. Asistencia Técnica
-
-La empresa adjudicada beberá de dar la asistencia
-técnica inmediata el tiempo de garantía de los
-accesorios.
-
-11.-Método de Evaluación
-
-Calidad Propuesta Técnica y Costo
-
-12.- Residencia
-
-La empresa adjudicada deberá de contar con una
-oficina en la cuidad de Cobija para ello tendrá que
-
-
-presentar la licencia de funcionamiento emitido
-por el Gobierno Autónomo Municipal de Cobija,
-indicando la ubicación de la avenida o calle y
-numero.
-
-
--
-
-========================================================================
-CUCE: 23-0660-09-1321713-1-1
-========================================================================
-BOLBRAS
-
-INFORMATICA. PROFORMA
-
-DE: RODRIGO CACERES OCAMPO NIT. 12963924012
-
-DIR: Av. 27 de Mayo
-
-CEL: 75107144
-
-COBIJA-PANDO-BOLIVIA FECHA: 30/3/2023
-
-CLIENTE
-NOMBRE: ORGANO JUDICIAL - DÁF
-DIRECCION : Av. 16 De Julio
-CIUDAD: Cobija
-TELEFONO: ZAS A
-
-SILLON GIRATORIO SEMI EJECUTIVO:
-Base metálica con cubierta en pp ruedas en nylon.
-Mecanismo de doble palanca con 3 funciones:
-Regulación de altura del asiento
-
-Reclinación del respaldo
-
-Regulación de la altura del respaldo
-
-Posa brazos en pp con regulación de altura.
-anatómico con espuma de alto tráfico tapizados,
-respaldo en malla ergonómica con apoyo lumbar fijo.
-Con resistencia de peso hasta 180 kg.
-
-Color Gris oscuro o Negro
-
-MEDIDAS
-
-ALTURA TOTAL MINIMA: 100CM
-
-ALTURA TOTAL MAXIMA: 110CM
-
-ALTURA TOTAL MINIMA DEL ASIENTO: 50CM
-
-Medio de pago | SIGEP E
-Tiempo de entrega | SEGUN CONTRATO/ORDEN DE COMPRA
-Validez oferta | 30 DIAS
-
-| AÍN
-RODRIGO TA ECÍCASARO Os
-
-¿cores 740%
-Cl. 12963924 Ch. Pirlo
-peo A
-
-ESPECIFICACIONES TÉCNICAS PARA BIENES
-
-DA! ¿PANDO
-
+2
+S =
+
+g
+2
+8
+3
 El
-
-ESPECIFICACIONES TÉCNICAS Y CONDICIONES REQUERIDAS PARA EL BIEN A ADQUIRIR
-
-1. SILLONES SEMI EJECUTIVOS
-
-CARACTERÍSTICAS Y CONDICIONES TÉCNICAS SOLICITADAS
-
-CARACTERÍSTICAS PROPUESTAS POR
-EL PROPONENTE
-
-CANTIDAD 17
-SILLON GIRATORIO SEMI EJECUTIVO:
-> Base metálica con cubierta en pp ruedas en nylon.
-> Mecanismo de doble palanca con 3 funciones:
-> Regulación de altura del asiento
->  Reclinación del respaldo
-> Regulación de la altura del respaldo
-+ Posa brazos en pp con regulación de altura.
-+ anatómico con espuma de alto tráfico tapizados,
-> respaldo en malla ergonómica con apoyo lumbar fijo.
-> Con resistencia de peso hasta 180 kg.
-> Color Gris oscuro o Negro
-MEDIDAS
-
-> ALTURA TOTAL MÍNIMA: 100CM
-> ALTURA TOTAL MÁXIMA: 110CM
-> ALTURA TOTAL MÍNIMA DEL ASIENTO: 50CM
-
-DISEÑO DEL SILLON
-
-
-ESPECIFICACIONES TÉCNICAS PARA BIENES
-
-2. CONDICIONES ADICIONALES
-
-CARACTERÍSTICAS Y CONDICIONES TÉCNICAS CARACTERÍSTICAS PROPUESTAS
-SOLICITADAS POR EL PROPONENTE
-
-1. PLAZO DE ENTREGA
-
-El tiempo de entrega será de 20 días (Treinta días
-calendario) desde la suscripción del contrato del
-contrato.
-
-2. LUGAR DE ENTREGA
-
-Los bienes deben ser entregados por parte de la
-empresa en la ciudad de Cobija Pando, en el edificio
-principal del Tribunal Departamental de Justicia de
-Pando 4 Cuarto piso, ubicado en la Av. 16 de Julio NO
-152, Zona Central, para la verificación por parte de la
-comisión de recepción.
-
-3. GARANTÍAS
-GARANTÍAS TÉCNICAS
-
-La garantía de los sillones será como mínimo de 1 año
-por cualquier desperfecto que sufra.
-
-El proponente deberá extender una CARTA DE
-COMPROMISO debidamente firmada y sellada,
-mediante la cual se comprometa y obligue ante la
-Dirección Administrativa y Financiera de Pando, a cubrir
-la garantía de la “ADQUISICIÓN DE LOS SILLONES.
-
-El proveedor deberá GARANTIZAR que los productos
-entregados son NUEVOS, de primera CALIDAD; en caso
-de que algún sillón se encuentre damnificado al
-momento de la entrega el proveedor se compromete a
-reponer el daño que pueda haber ocurrido al momento
-de su traslado a su ubicación actual.
-
-4. FORMALIZACIÓN DE LA
-CONTRATACIÓN
-
-La entidad convocante formalizara la contratación
-mediante la suscripción del CONTRATO
-
-5. VALIDEZ DE LA PROPUESTA
-
-La propuesta presentada deberá tener un tiempo de
-validez de 30 días calendario mínimamente.
-
-6. FORMA DE ENTREGA
-
-AN
-
-“Los bienes adjudicados, deberán ser entregados en su
-totalidad, según el plazo y términos descritos en las
-A Especificaciones Técnicas.
-5/ + Al momento de la Recepción de los bienes, se
-realizará la verificación y revisión de cada uno
-de los bienes entregados según las
-especificaciones técnicas.
-+ El Proveedor, debe realizar el cambio o
-reposición en 48 horas de los bienes ue se
-
-
-ESPECIFICACIONES TÉCNICAS PARA BIENES
-
-encuentren dañados o con algún defecto al
-momento de la entrega.
-
-7. PRECIO DE LA PROPUESTA
-
-El precio de la propuesta deberá incluir todos los costos
-hasta la disposición final en las instalaciones indicadas,
-incluido todos los impuestos de Ley y transporte
-mediante la emisión de la correspondiente factura, de
-acuerdo a normas tributarias bolivianas.
-
-Los costos o gastos de transporte, manipuleo u otros
-para la entrega de los bienes en el lugar señalado,
-deberán ser totalmente cubiertos por el proveedor.
-
-8. FORMA DE PAGO
-
-El pago se efectuará una vez realizada la aceptación y
-recepción definitiva por la comisión de recepción,
-previa presentación de la factura respectiva mediante
-la transferencia a su cuenta vía SIGEP, por lo tanto
-para que el pago sea efectuado el proponente debe ser
-Beneficiario SIGEP.
-
-9. FORMA DE ADJUDICACIÓN
-
-Esta será POR EL TOTAL.
-
+a
 E
+3
+E
+E
+E
+E
+<
+á
 
-10. MULTAS
+Tiempo de Entrega: Inmediato
+Validez de la Cotización: 15 días
 
-El proveedor está obligado a cumplir con la entrega de
-los bienes según las características y plazos
-establecidas en las Especificaciones Técnicas, caso
-contrario la Entidad aplicara al Proveedor una multa
-por cada día de atraso en el plazo de entrega de 5 por
-1.000 del monto de los bienes entregados con retraso.
+RAUL D) ¡ASTILLO ALTAMIRANO
+NIT 1782136011
 
-11. LUGAR DE RESIDENCIA DEL PROVEEDOR
+PROPONENTE
+Dirección: Calle Colon N* 437
 
-El proveedor deberá tener lugar de residencia en la
-ciudad de Cobija Pando, (Casa matriz o sucursal)
-adjuntar documento de respaldo.
+rat conz07 RAUL DEL CASTILLO ALTAMIRANO
 
-xi Na ss
-MENO TUDICI AL PAN
+ESPECIFICACIONES TECNICAS =3
 
-========================================================================
-CUCE: 23-0660-09-1331023-1-1
-========================================================================
-JN o
+Órgano Judicial
+rgano Judicia DAF-TARIJA
+Bolivia cai pe
 
-SERVICIOS INFORMÁTICOS, VENTA DE ACCESORIOS CONSULTORÍAS EN LÍNEA
-MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE COMPUTADORAS E
-E INSTALACION DE CAMARAS DE SEGURIDAD
-: Oruro
+ADQUISICION DE MATERIAL DE ESCRITORIO PARA El ORGANO JUDICIAL DE TARIJA
+CORRESPONDIENTE AL TERCER CUATRIMESTRE GESTION 2025
 
-Cel.:79199019 q RO FO RMA
+CARACTERÍSTICAS Y CONDICIONES TÉCNICAS REQUERIDAS DE LOS BIENES
 
-Cobija -— Pando-- Bolivia
+FORMALIZACIÓN DE LA CONTRATACIÓN
+La contratación se formalizará mediante la suscripción de la Orden de Compra
 
-Señor (es): ORGANO JUDICIAL DE PANDO
+MÉTODO DE SELECCIÓN Y ADJUDICACIÓN
+El método de selección y adjudicación a ser aplicado es: Precio Evaluado Más Bajo por
+el total.
 
-ACCESORIOS DRUM DR 3460 IMPRESORA BROTHER HL -
+VALIDEZ DE LA PROPUESTA.
+La propuesta tendrá una validez de (15) días calendario, que se computará a partir de
+la fecha fijada para la apertura de propuestas.
 
-BROTHER L5100DW (DRUM - UNIDAD DE IMAGEN)
+PRECIO REFERENCIAL
 
-PROCEDEN
-CIA JAPON
+El precio referencial total establecido de: Bs. 38,290,00 (Treinta Ocho Mil Doscientos
+Noventa 00/100 bolivianos).
 
-Cuarenta nueve Mil novecientos ochenta Bolivianos 00/100
+CARACTERÍSTICAS Y CONDICIONES TÉCNICAS REQUERIDAS DE LOS BIENES
 
-La garantia de los Accesorios esta especificado al final de cada fila, la garantia del funcionamiento de los
-Drum y Fusor tambien sera de 1 año despues de la entrega y firma del acta de conformidad, con la
-respetiva visita al Organo Judicial de Pando para la revision tecnica cada 3 meses para brindar el buen
-funcionamiento y asi cubrir la garantia mencionada anteriormente.
+PRECIO REFERENCIAL
+El precio referencial total es de Bs. 38,290,00 (Treinta Ocho Mil Doscientos Noventa 00/100
 
-GARANTIA:
+bolivianos).
 
+Boligrafo; Tipo Desechable; Material
+Base Plástico; Trazo Medio; Color de
+Tinta Azul
+Cinta para Embalaje; Material
+Polipropileno; Medidas 48 Mm. x 50 Mts.;
+Largo 50 M; Color Café
+Cinta para Embalaje; Medidas 48 Mms.;
+Color Transparente; Material
 
-1. ESPECIFICACIONES TÉCNICAS Y CONDICIONES REQUERIDAS PARA LA ADQUISICION DE DRUM
+Polipropileno; Largo 30 Yardas
+Clips para Papeles; Presentación Caja
+de 100 Unidades; Material Metal; Número
 
-LAS ESPECIFICACIONES TÉCNICAS REQUERIDAS, SON:
+CANTIDAD
 
-ADQUISICION DE ACCESORIOS DRUM DR 3460 IMPRESORA BROTHER HL - L5100DW (DRUM - UNIDAD DE IMAGEN), DRUM 32A PARA IMPRESORA HP
-LASERJET PRO M203DW ORIGINAL PARA LOS DIFRENTES JUZGADOS TANTO CAPITAL COMO PROVINCIAS, QUE INCLUYE COLOCADO A LAS DIFRENTES
+Clips para Papeles; Presentación Caja
 
-IMPRESORAS.
+Ll UNIDAD |
 
-ACEPTACION DE LA EMPRESA
+pieza
+de 50; Material Metálico; Número 78
+| tes |
 
-PRECIO U.
-Bs.
+Corrector Líquido; Envase Frasco;
+a Contenido 18 MI. frasco
 
-DETALLE UNIDAD | CANTIDAD
-
-Especificaciones
-
-ACCESORIOS DRUM DR 3460 IMPRESORA BROTHER HL
-L5100DW (DRUM - UNIDAD DE IMAGEN)
-
-1749 34980
-
-DRUM 32A PARA IMPRESORA HP LASERJET PRO
-M203DW
-(DRUM - UNIDAD DE IMAGEN)
-
-750 15000
-
-TOTAL BS. 49.980
-
-
-CONDICIONES ADICIONALES ACEPTACION DE LA EMPRESA
-
-1. Plazo de Entrega El tiempo de entrega debe ser inmediato a partir
-de la suscripción de la orden de compra o
-contrato.
-Los accesorios deben ser entregados en las
-diferentes oficinas del tercer piso ubicado en
-Edificio del Tribunal Departamental de Justicia de
-Cobija-Pando Av. 16 de julio N2 152, para la
-verificación por parte de la comisión de recepción.
-La empresa adjudicada realizara el trabajo de
-Colocado de los Drum a las diferentes impresoras
-que se encuentran dentro del Tribunal de Justicia
-de Cobija como también en Juzgados mixtos de las
-provincias que se tiene como ser Porvenir. Puerto
-Rico y El Sena respectivamente, los pasajes
-estadías y viáticos correrán por parte de la
-empresa adjudicada
-El proveedor deberá GARANTIZAR que los
-accesorios entregados son NUEVOS, y de calidad;
-en caso de que algún accesorio se encuentre
-dañado al momento de la entrega el proveedor
-se compromete a reparar el daño que puede
-haber ocurrido al momento de trasladar el
-accesorio.
-
-La garantía de los accesorios será como mínimo
-de un año por cualquier desperfecto que sufra
-los accesorios colocados como ser el Drum
-deberán ser corregidos por el Proveedor durante
-el año de garantía de los accesorios Drum.
-
-2. Lugar de Entrega
-
-3.- Drum Colocado a las
-diferentes Impresoras
-
-4. Garantías
-
-La verificación de los bienes solicitados se
-realizara según las especificaciones Técnicas
-
-5. Verificación de
+Cuaderno con Espiral/Bitacora; tapa
+Cartón; tipo de hoja cuadriculada,
+Tamaño Carta; presentación 100 hojas
 
 
-Especificaciones
+| : ESPECIFICACIONES TECNICAS =3
+Órgano Judicial a
+Bolivia Bt
 
-6. Validez de la Propuesta
+Disco Compacto; Capacidad 4.7 Gb; Tipo
+Dvd+r 8x; Virgen Sin Caja
 
-7. Costos de Transporte
+8 100
+Engrampadora: Capacidad 20 Hojas: .
+ol Tamaño Grapas 24/6 pieza 50
 
-8. Forma de Pago
+Folders; Material Cartulina; Tamaño .
+Grapas; Material Metal; Número 23/8; .
+12 Presentación Paquete x 10 Cajitas 100
 
-9. Forma de Adjudicación Esta será por el total.
+13 Grapas; Material Metálico; Número 24/6; iezá 300
+Presentación 1000 x Caja P
 
-10. Garantía Cumplimiento
+Lapiz; Color Negro; Número Hb; leza 500
+Aditamento con Borrador P
+Lapiz; Color Rojo; Número Hb; :
 
-11.- Residencia
+Libro de Referencia / Actas; Cant de
+Hojas 100 Unidad; Tamaño Oficio;
 
-solicitadas y los accesorios deberán de ser de
-marcas reconocidas para su aceptación o
-rechazo.
+Numerado Cada Página; Tipo de Hoja
+Rayada
+Libro de Referencia / Actas; Cant de
+Hojas 200; Tamaño Oficio; Numerado
+Cada Página; Tipo de Hoja Rayada
 
-La propuesta presentada deberá tener un tiempo
-de validez de 15 días calendario mínimamente.
-Los costos o gastos de transporte, manipuleo u
-otros para la entrega de los accesorios en el lugar
-señalado, deberán ser totalmente cubiertos por el
-proveedor tanto en la capital Cobija como en los
-Juzgados de las Provincias (Porvenir, Puerto rico y
-El Sena)
+C/margen
 
-El pago se efectuará una vez realizada la
-aceptación y verificación del funcionamiento de
-todas las impresoras colocadas el Drum por la
-comisión de recepción con la emisión de un
-informe de conformidad, previa presentación de
-la factura respectiva mediante transferencia a su
-cuenta vía SIGEP, por lo tanto para que el pago sea
-efectuado el proponente debe ser Beneficiario
-SIGEP.
+16
 
-El importe de dicha garantía en caso de cualquier
-Incumplimiento contractual incurrido por el
-Proveedor será el 1x1000 sobre el importe total
-de la adjudicación será pagado en favor de la
-Entidad, sin necesidad de ningún trámite o acción
-judicial a su solo requerimiento.
+17
 
-La empresa adjudicada deberá de contar con una
-oficina en la cuidad de Cobija para ello tendrá que
-presentar la licencia de funcionamiento de la
-empresa indicando la ubicación de la avenida o
+Marcador; Punta Delgada; Trazo Fino; 7
+Color Negro p
+Marcador; Punta Delgada; Trazo Fino; leza
+Color Rojo p
+Marcador; Punta Redonda; Trazo leza
+Grueso; Color Negro p
+Marcador; Punta Redondo; Trazo leza
+Grueso; Color Rojo p
+Pegamento Liquido: Envase Frasco:
 
+Contenido 50 MI (aseo
+Regla Graduada; Longitud 30 Cm;
 
-o
+Material Plástico; Tipo Plana
 
+Resaltador; Trazo Grueso; Color Varios; leza
+Punta Bicelada p
 
-12.- Asistencia Técnica.
+Tacos Post It; Color Neón Surtido;
+Dimensión 38.1 x 50.8 Mms.;
 
-calle. (Licencia de funcionamiento emitida por la
-alcaldía municipal de Cobija )
+Presentación Bolsa x 4 Tacos x 50 Hojas
+Tacos Post It; Color Surtido; Dimensión
+76 x 76 Mms.; Presentación Block x 100
+Hojas
 
-La empresa adjudicada tendrá que dar una
-asistencia técnica inmediata por el tiempo de
-garantía de los accesorios que están dentro de las
-especificaciones técnicas.
+18
+19
+20
+
+22
+
+N
+pS
+
+26
+
+27
+
+Tampo para Sellos; Material Plástico; ieza
+Tamaño Mediano p
+
+Tinta para Sello de Goma; Tipo Sin
+
+Aceite; Envase Frasco; Contenido 28 MI.;
+Co
 
 ========================================================================
-CUCE: 23-0660-09-1331030-1-1
+CUCE: 25-0660-06-1613481-1-1
 ========================================================================
-SERVICIOS INFORMÁTICOS, VENTA DE ACCESORIOS CONSULTORÍAS EN LÍNEA
-MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE COMPUTADORAS E
-E INSTALACION DE CAMARAS DE SEGURIDAD
-alle: Oruro
+DISTRIBUIDORA "LAS CHURAS"
+Venta de material de construccion, ferreteria, Equipos o
+Material de limpieza, ropa de cama y otros materiales de bioseguridad industrial ! COTIZACION ]
+NIT:7201561018 | A-10/11/2025 |
 
-Cel.:79199019 p RO E O E MÍ A
+ss
+LAS CHURAS
 
-Cobija -— Pando-— Bolivia
+DISTRIBUIDORA
 
-Señor (es): ORGANO JUDICIAL DE PANDO
+SEÑORES: ORGANO JUDICIAL - REGIONAL TARIJA
+FECHA: 10/11/25
 
-DESCRIPSION CANTIDAD| PRECIO | TOTAL | GARANTIA
+Atendiendo su amable solicitud estamos enviando cotización de los productos requeridos, para nosotros es un placer poner nuestra empresa a su
+servicio.
+¡TEM | DETALLE MATERIAL
 
-ACCESORIOS JUEGO DE TAMBOR DR-221 CL PARA
-PROCEDEN 25 2000 | 50000
-CIA JAPON
+EN ñ | CANTIDAD [| UNIDAD |
+ESPONJA; MATERIAL ESPUMA DE POLIURETANO; ADITAMENTO
 
-cincuenta Mil Bolivianos 00/100
+FRASCO; TIPO LAVA VAJILLAS
 
-La garantia de los Accesorios esta especificado al final de cada fila, la garantia del funcionamiento de los
-D Fusor tambien sera de 1 año despues de la ent firma del acta de conformidad, con la
-GARANTIA: rum y Fusor tambien sera pu entrega y el acta de c
+1 FIBRASINTÉTICA CON ABRASIVO; MEDIDAS 110 X 75 X 20 MMS A EA d nl
+[FRANELA PARA LIMPIEZA; MEDIDAS 0.35 X 0.35 I
+2 PRESENTACIÓN POR PIEZA | 120 | PIEZA 7,50 | 900,00
+3____ LUSTRAMUEBLES: CONTENIDO 380 ML.: ENVASE AEROSOL 1150 | FRASCO. 30,00 4.500,00 |
+ARAGAN DE GOMA; MATERIAL BASE GOMA: MEDIDA 0.37 MIS.: l
+2 [CONMANGO DEMADERA. E oe
+E PUBENTSCOR EN AEROSOL; CONTENIDO 360 ML.: FRAGANCIA | 500 l prasco 1d 1200/00
+“DETERGENTE GRANULADO DOMESTICO: ENVASE BOLSA: I I |
+S PRESENTACION 150 GRS. 900 | EN] 2109 y  F8s0:00
+S LIMPIADORES MULTIUSOS; CONTENIDO 1050 ML.: ENVASE 30 Un rasco 23100 7480/00
 
-respetiva visita al Organo Judicial de Pando para la revision tecnica cada 3 meses para brindar el buen
+8 GUANTES PARA LIMPIEZA; MATERIAL LATEX: 300. PARES 1200 00
+5 ion ppemco FRASCO CON PIQUILLO; a A O O
+40 a no CON DISPENSADOR A PRESION: 10 IS 20,00 390000
+42 los PARA FSOS SEAS ENVASE FRASCO: CONTENIDO 1 | a FRASCO BO | 20000
+18 DESINFECTANTE PARA AMBIENTES; CONTENIDO APROXIMADO 210 | 300 | FRÁSCO 550 EE0 00 |
 
-funcionamiento y asi cubrir la garantia mencionada anteriormente.
+GR/360 ML.; PRESENTACIÓN AEROSOL; FRAGANCIA A ELEC
 
+VALIDEZ DE LA OFERTA 45 DIAS INCLUYE IMPUESTOS DE LEY Y TRANSPORTE
+CHEQUE A : FABIANA ARLETTE FERNANDEZ BARRIENTOS
+PAGO SIGEP: BANCO UNION 10000029171240 TIEMPO DE ENTREGA : 5 DIAS
+| LVA 16% |
+CUARENTA Y CINCO MIL CIEN 00/100 BOLIVIANOS ENAAOn
 
-ES
-Í e, a E *
-Y 5d A
-a .
+45.100,00
 
+FABIANA ARLETTE FERNANDEZ BARRIENTOS
+TEL: 60268220 - 61874040
+DPT DE VENTAS
 
-1. ESPECIFICACIONES TÉCNICAS Y CONDICIONES REQUERIDAS PARA LA ADQUISICION DE DRUM
+BARRIO AEROPUERTO AV. JAIME PAZ ZAMORA N*3224 TELEFONOS: 60268220-61874040 CORREO: O Ml
 
-LAS ESPECIFICACIONES TÉCNICAS REQUERIDAS, SON:
+ESPECIFICACIONES TECNICAS Y PROPUESTAS =A )
 
-ADQUISICION DE ACCESORIOS JUEGO DE TAMBOR DR-221 CL PARA IMPRESORAS BROTHER HL-3170CDW (4 - UNIDADES DE IMAGEN DE TAMBOR)
-ORIGINAL PARA LOS DIFRENTES JUZGADOS TANTO CAPITAL COMO PROVINCIAS, QUE INCLUYE COLOCADO A LAS DIFRENTES IMPRESORAS
+DAF-TARIA
 
-Ne DETALLE UNIDAD | CANTIDAD PRECIO U. roraL Bs. | ACEPTACIÓN DE LA EMPRESA
+Órgano Judicial
+Bolivia
 
-4
-| Ñ o o
+ADQUISICION DE MATERIAL DE LIMPIEZA PARA EL ORGANO JUDICIAL, TERCER
+CUATRIMESTRE GESTION 2025
 
-TOTAL BS. 50.000
+CARACTERÍSTICAS Y CONDICIONES TÉCNICAS REQUERIDAS DE LOS BIENES
 
-Especificaciones
+FORMALIZACIÓN DE LA CONTRATACIÓN
+La contratación se formalizará mediante la suscripción de la Orden de Compra
 
-ACCESORIOS JUEGO DE TAMBOR DR-221 CL PARA
-IMPRESORAS BROTHER HL-3170CDW (4 - UNIDADES DE
-IMAGEN DE TAMBOR) ORIGINAL)
+MÉTODO DE SELECCIÓN Y ADJUDICACIÓN
+El método de selección y adjudicación a ser aplicado es: Precio Evaluado Más Bajo
+por el total.
 
+VALIDEZ DE LA PROPUESTA.
+La propuesta tendrá una validez de (15) días calendario, que se computará a partir
 
-CONDICIONES ADICIONALES
+de la fecha fijada para la apertura de propuestas.
+PRECIO REFERENCIAL
 
-1. Plazo de Entrega
+El precio referencial total establecido de: Bs. 45,100,00 (Cuarenta y Cinco Mil Cien
+00/100 bolivianos).
 
-El tiempo de entrega debe ser inmediato a partir
-de la suscripción de la orden de compra o
-contrato.
+CARACTERÍSTICAS Y CONDICIONES TÉCNICAS REQUERIDAS DE LOS BIENES
 
-2. Lugar de Entrega
+PRECIO REFERENCIAL
+El precio referencial total es de Bs. 45,100,00 (Cuarenta y Cinco Mil Cien 00/100
 
-3.- TAMBOR DR-221
-Colocado a las diferentes
-Impresoras
-
-4. Garantías
-
-Los accesorios deben ser entregados en las
-diferentes oficinas del tercer piso ubicado en
-Edificio del Tribunal Departamental de Justicia de
-Cobija-Pando Av. 16 de julio N2 152, para la
-verificación por parte de la comisión de recepción.
-La empresa adjudicada realizara el trabajo de
-Colocado de los TAMBOR DR-221 a las diferentes
-impresoras que se encuentran dentro del Tribunal
-de Justicia de Cobija como también en Juzgados
-mixtos de las provincias que se tiene como ser
-Porvenir. Puerto Rico y El Sena respectivamente,
-los pasajes estadías y viáticos correrán por parte
-de la empresa adjudicada
-
-El proveedor deberá GARANTIZAR que los
-accesorios entregados son NUEVOS, y de calidad;
-en caso de que algún accesorio se encuentre
-dañado al momento de la entrega el proveedor
-se compromete a reparar el daño que puede
-haber ocurrido al momento de trasladar el
-accesorio.
-
-La garantía de los accesorios será como mínimo
-de un año por cualquier desperfecto que sufra
-los accesorios colocados como ser el TAMBOR DR-
-221 deberán ser corregidos por el Proveedor
-durante el año de garantía de los accesorios
-TAMBOR DR-221.
-
-ACEPTACION DE LA EMPRESA
-
-
-5. Verificación de
-Especificaciones
-
-La verificación de los bienes solicitados se
-realizara según las especificaciones Técnicas
-solicitadas y los accesorios deberán de ser de
-marcas reconocidas para su aceptación o
-rechazo.
-
-6. Validez de la Propuesta La propuesta presentada deberá tener un tiempo
-de validez de 15 días calendario mínimamente.
-
-7. Costos de Transporte Los costos o gastos de transporte, manipuleo u
-otros para la entrega de los accesorios en el lugar
-señalado, deberán ser totalmente cubiertos por el
-proveedor tanto en la capital Cobija como en los
-Juzgados de las Provincias (Porvenir, Puerto rico y
-El Sena)
-
-8. Forma de Pago El pago se efectuará una vez realizada la
-aceptación y verificación del funcionamiento de
-todas las impresoras colocadas el TAMBOR DR-221
-por la comisión de recepción con la emisión de un
-informe de conformidad, previa presentación de
-la factura respectiva mediante transferencia a su
-cuenta vía SIGEP, por lo tanto para que el pago sea
-efectuado el proponente debe ser Beneficiario
-SIGEP.
-
-9. Forma de Adjudicación Esta será por el total.
-
-10. Garantía Cumplimiento | El importe de dicha garantía en caso de cualquier
-Incumplimiento contractual incurrido por el
-Proveedor será el 1x1000 sobre el importe total
-de la adjudicación será pagado en favor de la
-Entidad, sin necesidad de ningún trámite o acción
-judicial a su solo requerimiento.
-
-11.- Residencia La empresa adjudicada deberá de contar con una
-oficina en la cuidad de Cobija para ello tendrá que
-
-ÑO
-
-12.- Asistencia Técnica.
-
-presentar la licencia de funcionamiento de la
-empresa indicando la ubicación de la avenida o
-calle. (Licencia de funcionamiento emitida por la
-alcaldía municipal de Cobija )
-
-La empresa adjudicada tendrá que dar una
-asistencia técnica inmediata por el tiempo de
-garantía de los accesorios que están dentro de las
-especificaciones técnicas.
+bolivianos).
+N? Descripción del Artículo Cantidad | Unidad Ei Total
+Esponja; Material Espuma de Poliuretano; Aditamento
+Fibra Sintética con Abrasivo; Medidas 110 x 75 x 20
+1|Mms. 200 pieza 2,30| 460,00
+Franela para Limpieza; Medidas 0.35 x 0.35 Mts.;
+2 |Presentación Por Pieza 120| _ pieza 7,50| 900,00
+3 |Lustramuebles; Contenido 360 MI.; Envase Aerosol 150| frasco| 30,00| 4.500,00
+Aragan de Goma; Material Base Goma; Material Mango
+4 | Madera; Medida 0.37 Mts. 90 pieza| 26,00| 2.340,00
+Ambientador en Aerosol; Contenido 360 MI.; Fragancia
+5 |Surtida 300| frasco| 14,00 | 4.200,00
+Detergente Granulado Doméstico; Envase Bolsa;
+6 |Presentación 150 Grs. 300 bolsa 5,50| 1.650,00
+Limpiadores Multiusos; Contenido 950 MI.; Envase
+7 | Frasco; Tipo Lava Vajillas 150 frasco| 23,00| 3.450,00
+Guantes para Limpieza; Material Latex; Tamaño
+8 | Estandar 300 par 12,00| 3.600,00
+Jaboncillo Liquido; Presentación Frasco con Piquillo;
+9| Contenido 360 ml. 350 pieza 15,00| 5.250,00
+Alcohol en Gel; Envase con Dispensador a Gatillo;
+10 | Presentación 380 g. 195| frasco| 20,00| 3.900,00
 
 
-[e
+ESPECIFICACIONES TECNICAS Y PROPUESTAS =A |
+
+Órgano Judicial
+
+Bolivia y
+Bolsa de Residuos; Color Negro; Dimension 35 x 65
+Cms.; Espesor Grueso; Presentación Paquete de 50
+11 | Unidades 300 |paquete| 19,00| 5.700,00
+Cera para Pisos de Madera; Envase Frasco; Contenido 1
+12 | Ltrs.; Estado Cremosa 50| frasco| 48,00| 2.400,00
+Desinfectante para Ambientes; Contenido Aproximado
+13|257 Grs.; Presentación Aerosol; Fragancia a Elec 300| frasco| 22,50| 6.750,00
+TOTAL
+BOLIVIANOS: cad
+
+CARACTERÍSTICAS TÉCNICAS
+
+CARACTERÍSTICAS Y CONDICIONES TÉCNICAS REQUERIDAS DE LOS BIENES
+
+PLAZO DE ENTREGA.
+
+El proveedor entregará los bienes, máximo hasta 5 días calendario,
+computable a partir del día siguiente hábil de la suscripción de la Orden
+de Compra. (EXPRESAR CONFORMIDAD).
+
+GARANTIA.
+
+Garantía del proveedor; el proponente adjudicado debe presentar al
+momento de la presentación de documentos, un “CERTIFICADO DE
+GARANTÍA Y COMPROMISO” de la reposición del o los bienes entregados
+como mínimo de un año, en caso de existir material defectuoso debe ser
+sustituidos a su costo, dentro del plazo máximo de 24 horas, a partir de su
+notificación. Así mismo el costo de transporte para la reposición del bien
+defectuoso correrá por parte del proveedor (Manifestar Aceptación)
+
+LUGAR DE ENTREGA.
+
+La entrega se efectuará en la sección de ALMACENES ubicada en el
+Inmueble que se encuentra en la Av. La Paz N* 353 Edificio Betancur -
+Dirección Administrativa Financiera del Órgano Judicial Departamental
+de Tarija, entre las calles Delfín Pino y Ciro Trigo de la ciudad de Tarija. (En
+caso de cambio de dirección, se hará conocer oportunamente)
+EXPRESAR CONFORMIDAD.
+
+FORMA DE PAGO.
+
+El pago se realizará por única vez vía SIGEP, previa presentación de
+Informe de Conformidad (emitido por el responsable o comisión de
+recepción), Nota de Ingreso (emitido por Almacenes para materiales o
+Bienes de consumo) y remisión de la factura correspondiente.
+
+MULTAS.
+
+Se aplicará una multa del 1 x 1000 sobre el importe total de la
+adjud
 

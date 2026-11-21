@@ -1,0 +1,12 @@
+Leyendo hist_items…
+  hist_items: 9427
+Fase 2C: aplicando 319 fusiones por código
+Pre-keyer + 2A:  grupos>=2 = 1306 | ítems en cluster = 6087 (64.6%)
+Auditoría familia (item vs grupo) en claves de riesgo: 27 mismatch
+
+--write: reconstruyendo canónicos desde cero…
+  · hist_items.producto_canonico_id -> NULL (todas)
+  · hist_productos_canonicos vaciada
+  · 1306 canónicos creados
+
+LISTO FASE 1. canónicos: 1306 | hist_items asignados: 6087
