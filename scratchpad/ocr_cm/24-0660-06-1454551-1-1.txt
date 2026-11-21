@@ -1,0 +1,507 @@
+Tecnologia Flexible, Completa y Escalable
+
+GROCOMs..
+
+Cotización
+Cliente: Codigo: 0J2406
+ORGANO JUDICIAL Fecha: 8/7/2024 15:08
+Validez de la oferta: 30 dias habiles
+Cliente ID: EP-T-005
+Encargado: Ing. Jose R. Mamani Arias
+Ingenieria, Aplicaciones y
+Division: Ventas
+
+CCTV IP
+
+Nombre/detalle
+
+64 CH NVR, 8Hdds, 4CH HDMI Disponible Caracteristicas Principales:
+Resolución Max. : 18MP Soporta 64 canales IP. Soporta 8 bahias de HDD
+de máximo 10Tb cada una. Soporta 2 puertos USB 2.0 y un puerto USB 3.0
+Reproducción : 16 canales simultaneos. Compresión soportada: H.265 + /
+XR64/8GE H.265 / H.264 Soporta P2P Usuarios Simultaneos en linea.
+4 1 Salida de video en 8K ultra alta definición. . 22590 22590
+N3 Admite hasta 16 canales con reconocimiento facial mediante cámaras que
+admiten detección de rostros Admite hasta 4 canales con reconocimiento
+facial utilizando cámaras que no admiten detección de rostros
+Garantia: 5 años
+Certificado NDAA
+
+XE52CGE TD-9554C1(D/PEMR2)) 5MP Full Color Al Turret
+
+N3 Disponiblelmagen a color 24/7 / POE / 30m IR / dWDR / Micro SD / IP67 /
+Lente 2.8mm / Micrófono Integrado / Grabacion de Video en la Nube / Metal
+Lente: 2.8 mm (108.99).
+O LUX (LED ON) Funciones: 3D DNR / dWDR / HLC / BLC / Defog / ROI.
+Distancia IR: 20-30m. Compresión soportada: H.265+ / H.265 / H.264+ /
+
+2 3 H.264. Videoanaliticos integrados (deteccion facial, cuerpo humano y 2470 7410
+
+vehículo) Soporta grabación/notificación por cuerpo humano o vehículo.
+Para uso en P2P es necesario un NVR/DVR.
+1P67 (interior / exterior). Soporta grabacion en la nube Garantia: 5 años
+Certificado NDAA
+
+Sub Total 30000
+Descuento
+Total 30000
+
+Observaciones
+
+
+ESPECIFICACIONES TÉCNICAS PARA ADQUISICION DE EQUIPO PARA
+ALMACENAMIENTO DE GRABACIONES Y CAMARAS DIGITALES CON
+DETECCION FACIAL PARA EL CENTRO DE VIGILANCIA DEL TDJ DE TARIJA
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES
+COMPLEMENTARIAS
+
+A. DETALLE Y REQUISITOS DEL(LOS) BIEN(ES)
+
+Características y condiciones técnicas solicitadas (*) Cumple/No Cumple
+
+| ITEM $1 EQUIPO DE GRABACION DE 64 CANALES
+T
+
+MARCA:
+¡(Especificar lo requerido)
+
+¡ MODELO:
+| (Especificar lo requerido)
+
+1-3 [CANTIDAD: 1 unidad.
+|(Especificar lo requerido)
+
+1.4 [CAMARA DE RED:
+| - ENTRADAS: 64.
+po- RESOLUCIÓN: 16MP hasta CIF.
+| - PROTOCOLOS: ONVIF.
+____(Manifestar aceptación y especificar lo requerido) _
+1.5 |[DESCODIFICACIÓN SALIDA LOCAL:
+| - HDMIl: 7680x<432060, 7680x4320930, 3840x21604030, 1920x1080,
+| 1280x1024,1024x768. (Cuando la resolución de salida del puerto de salida
+HDMI] está en 8K, el puerto de salida HDMI2 esta no disponible)
+HDMI2: 3840x2160460,3840x2160930, 1920x1080, 1280x1024,1024x768 |
+- HDMI3: 3840x21604060,3840x21604030, 1920x1080, 1280x1024, 1024x768 |
+- HDMI4: 1920x1080, 1280x1024,1024x768
+- VGA: 1920x1080, 1280x1024,1024x768(HDMI1 y VGA tienen la misma
+fuente de salida de video).
+_ [Manifestar aceptación y especificar lo requerido)
+1.6 | DESCODIFICACIÓN VISUALIZACIÓN MULTIPANTALLA:
+|. Salida principal: 1/4/6/8/9/13/16/25/32/36/64.
+| - Salida Auxiliar 1: 1/4/6/8/9/13/16/25/32/36.
+| - Salida Auxiliar 2: 1/4/6/8/9/13/16.
+| - Salida Auxiliar 3: 1/4/6/8/9/13/16.
+- Máximo: 132(64,32,16,16).
+¡((Manifestar aceptación y especificar lo requerido) _______
+
+|
+
+DESCODIFICACIÓN RESOLUCIÓN: 16MP hasta CIF.
+[(Manifestar aceptación y especificar lo requerido)
+
+[SISTEMA OPERATIVO INCORPORADO: Linux. y
+|(Manifestar aceptación y especificar! lo requerido)!
+
+- COMPRESIÓN: H.264/H.265/H.265+/H.2658
+
+- ANCHO DE BANDA DE LA RED: Incoming: 640 Mbps, Outgoing: 640
+Mbps.
+
+- CUADROS POR SEGUNDO: N:30FPS; F:25FPS.
+
+1.10 ROSTRO:
+- RENDIMIENTO DE DETECCIÓN DE ROSTROS(IA POR CÁMARA 1P): 64
+canales.
+- RENDIMIENTO DE DETECCIÓN DE ROSTROS(IA POR DISPOSITIVO): 4
+Canales.
+
+- CAPACIDAD DE COMPARACIÓN: 36 imágenes por segundo. |
+
+- BASE DE DATOS DE IMÁGENES DE ROSTROS: 32 Bibliotecas 10000 |
+imágenes de caras.
+
+| - BÚSQUEDA DE IMÁGENES POR ROSTROS: Admite búsquedas de
+imágenes por rostro.
+
+- GESTIÓN DE BASE DE DATOS: Agregar, borrar, modificar y buscar
+
+_imágenes de rostros.
+
+TELF: +(591) 4 66 76197 - FAX +(597) 4 66 43827 TARIJA BOLIVA Av. La Paz 11353, Edificio Fiorella Betancur
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES
+
+COMPLEMENTARIAS
+
+AÑADIR IMAGENES DE ROSTRO: Agrega imágenes de rostros a través
+APP, Web o importación externa.
+COMPARACIÓN DE IMÁGENES DE CARAS: Admite alarma de
+reconocimiento facial exitosa y alarma de coincidencia de extraños.
+
+- SEGUIMIENTO: Visualización de seguimiento en un mapa.
+GRAFICO ESTADÍSTICO DE INFORMACIÓN: Grafico de Barras.
+MODO ESTADÍSTICO DE INFORMACIÓN: Estadísticas por día, semana,
+mes, trimestre y periodo personalizado.
+
+FE -ISIS DE ESTRUCTURA DE VIDEO:
+
+- CLASIFICACIÓN HUMANO /VEHÍCULO(IA POR CÁMARA IP): 64 canales.
+
+- CLASIFICACIÓN HUMANO /VEHÍCULO(IA POR DISPOSITIVO): 8 canales.
+gs DE ATRIBUTOS HUMANOS/VEHÍCULOS: Si.
+
+OTRAS FUNCIONES:
+- OJO DE PEZ: Admite la corrección de distorsión de ojo de pez a través de
+
+NVR/Web Client/APP Móvil
+
+Rep dal DE PLACA(IA POR CÁMARA IP): Si.
+
+OTRAS FUNCIONES:
+- OJO DE PEZ: Admite la corrección de distorsión de ojo de pez a través de
+NVR/Web Client/APP Móvil
+
+| - RECONOCIMIENTO DE PLACA(IA POR CÁMARA IP): Si.
+
+o ¡(Manifestar aceptación y especificar lo requerido) _
+1.14 CONEXIÓN DE RED:
+
+- PROTOCOLOS: TCP/IP, HTTP, HTTPS, 802.1x, FTP, DHCP, DDNS, RTP,
+RTSP, RTCP, NTP, UPnP, SMTP, IPv6, UDP, WebSocket, PPPoE, SNMP,
+IGMP.
+
+- INTERFACES: RJ45 10/100/1000Mbps x2.
+
+- CONEXIÓN DE CLIENTE MAXIMO: 128 usuarios.
+
+—_Manifestar. pptación ' y especificar lo requerido) 0%
+| DISPOSITIVO MÓVIL COMPATIBLES: Sistemas operativos de ¡OS y Android.
+
+(Manifestar aceptación y especificar lo ado!
+
+|
+|
+|
+
+|
+|
+|
+|
+|
+|
+|
+|
+
+|
+|
+l
+|
+
+Q__ > —_ _m— ————_——.
+
+|
+
+ALMACENAMIENTO:
+
+INTERFACE HDD: Sata x 8, máximos 10TB por HDD.
+
+- TIPO RAID: RAID 0, 1,5,6,10.
+
+- INTERFACE eSATA: 2.
+CERTIFICADOS: CE, FCC.
+CUMPLE CON NDAA: Si.
+PROTECCIÓN MEDIO AMBIENTAL: Directiva EU RoHS,
+Poor 12/19/EU, Directiva 94/62/EC, REACH(EC1907/2006).
+
+ITEM 42 CAMARA DE SEGURIDAD DE 5MP COMPATIBLE CON NDAA
+
+1 MARCA:
+| ¡(Especificar lo requerido) |
+
+ecificar lo requerido)
+
+¡CANTIDAD: 3 unidades.
+(Especificar lo requerido)
+
+3MP(2304x 1296 ), rd (1920x 1080), 720P (280-720 ), D1, CIF, 480x240.
+¡(Manifestar a
+
+44), 4MP (2592x 1520), 2K (2560x 1440),
+
+[SENSOR DE IMAGEN: í 1 2.7" CMOS.
+|Blanifeztar aceptación y especificar l lo ) requerido).
+
+Iris fijo.
+Manifestar aceptación y especificaru lo p negueridol
+
+9 ¡MONTURA DEL LENTE: M12.
+end ación Y especificar lo inma l
+
+TELF.: +(591) 4 66 76197 - FAX +(591) 4 66 43827 TARIJA BOLIVA Av. La Paz 1353, Edificio Fiorella Betancur
+
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES
+COMPLEMENTARIAS
+
+¡AJUSTE DE ANGULO: Pan: 0*-360"; Tilt:0”-75"R; otation: 0*-
+(Manifestar aceptación y especificar lo requerido):
+
+E
+
+RANGO DE LUZ BLANCA: 20 a 30 metros.
+(Manifestar aceptación: y especificar l lo requerido),
+
+| PROTECCIÓN: P67.
+|(Manifestar aceptación y especificar lo ) requerido),
+
+2 >
+|[CERTIFICACIÓN:
+¡(Manifestar aceptación y especificar lo requerido).
+
+IT RATE: 64 Kbps - 8 Mbps, TIPO: VBR / CBR.
+Blenifestar aportación y especificar lo ta
+
+jynamic, Sharpness, Image Flip, Image Mirror, NR, etc. adjustable through
+¡ent software or web browser.
+
+PROTOCOLO DE RED: UDP, IPv4, , IPV6, DHCP, NTP, RTSP, RTP, RTCP,. PPPOE,
+DDNS, SMTP, FTP, SNMP, HTTP, 802.1x, UPnP, HTTPs, QoS.
+' lo requerido). _
+1CH audio input; 1 CH built-in MIC.
+MenVestar aceptación y especificar lo irequerido)
+
+MAIN STREAM: 5MP/4MP/2K/3MP/1080P / 720P( 60Hz : 1 - 30fps;
+50Hz: 1-25fps ).
+SUB STREAM: 720P/D1/CIF/480x240 (60Hz : 1 - 30fps; 50Hz: 1-25fps ).
+THIRD STREAM: D1/CIF/480x240 (60Hz : 1 - 30fps; 50Hz: 1-25fps ).
+- (Manifestar aceptación y especificar lo requerido) _
+COMPRESIÓN DE VIDEO:
+- MAIN STREAM: H.265+ / H.265 / H.264+ / H.264.
+- SUB STREAM: H.265+ / H.265 / H.264+ / H.264 / MJPEG.
+- THIRD STREAM: H.265+ / H.265 / H.264+ / H.264 / MJPEG.
+_lfManifestar aceptación y especificar lo requerido)
+ANALISIS INTELIGENTE(EVENTOS INTELIGENTES):
+- PROTECCIÓN PERIMETRAL: Cruce de línea, intrusión(clasificación de
+personas /vehículos de motor/vehículos no motorizados). |
+- CONTEO DE OBJETIVOS: Conteo de personas, vehículos motorizados, |
+vehículos no motorizados que cruzan la línea. |
+- DETECCIÓN DE EXCEPCIONES: Cambio de escena, desenfoque de video y |
+detección de color de video.
+- DETECCIÓN DE ROSTROS: Detección de rostros y captura de rostros.
+_¡(Manifestar aceptación y especificar lo requerido)
+
+[
+AAA AA + e
+
+MONITOREO REMOTO: Búsqueda Web, Control Remoto CMS.
+CONEXIÓN EN LÍNEA: Admite monitoreo simultaneo hasta 10 usuarios,
+admite transmisión en tiempo real de múltiples transmisiones.
+PROTOCOLO DE INTERFAZ: ONVIF. !
+ALMACENAMIENTO: Almacenamiento remoto en Red, almacenamiento en |
+tarjeta micro SD.
+
+ALARMA INTELIGENTE: Detección de Movimiento, tarjeta micro SD Error,
+tarjeta micro SD llena.
+
+La entidad se reserva el derecho de hacer las pruebas correspondientes a los equipos|
+entregados, por tanto, no se aceptarán equipos REFURBISHED (restaurados,
+reacondicionados). Así como la revisión de lo requerido.(Especificar y/o Manifestar
+¡Aceptación) |
+
+- El proveedor. deberá brindar Asistencia Técnica c: lo esta sea requerida y estar|
+acorde al horario de trabajo vigente en el Órgano Judicial, en los lugares donde se
+encuentren instalados los equipos. Por lo que la empresa adjudicada debe tener|
+
+TELF: 899 4, 66 76197 - FAX HD 4 664 13827 TARIJA BOLIVA Av. La Paz 1353, Edificio Fiorella Betancur
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES
+COMPLEMENTARIAS
+
+personal en la capital de Tarija. (Especificar y/o Manifestar Aceptación y adjuntar
+lo requerido)
+
+GARANTÍA DEL(LOS) BIEN(ES) E
+Especificar Garantía mínima 1 año, computable a partir de la recepción efectuada por|
+parte de la Comisión de Recepción (Presentar certificado del proveedor indicando la|
+entidad convocante y el proceso referido, el certificado será validado por la entidad).
+(Especificar y/o Manifestar Aceptación, Adjuntar lo requerido y carta de
+compromiso).
+
+CONDICIONES COMPLEMENTARIAS
+
+Marca: Cada equipo deberá poseer un identificador visible original de la marca.
+(Especificar y/o manifestar aceptación)
+
+echo,
+a través de la Comisión de Recepción, de realisar la verificación, inspecciones, pruebas
+ly recepción a las partes, accesorios y/o componentes, mismas que deben ser
+reemplazadas en el transcurso de 72 horas en caso de encontrar algún problema.
+(Manifestar y adjuntar carta de aceptación).
+
+través de la Comisión de Recepción, de) realizar la verificación, inspecciones, pruebas y|
+recepción de equipos y sus partes, como proceso previo a la emisión del Informe de
+
+de verificación e inspección
+de los equipos, el Proveedor tiene la obligación de salvar cualquier observación, sea esta|
+de entrega de partes o de funcionamiento de equipos o software suministrados. |
+(Especificar y/o Adjuntar carta de aceptación) |
+Embalaje. El proveedor debe garantizar que los equipos sean! garantizados en medios]
+de embalaje que garantice el trasporte seguro y adecuado del equipo, hasta el Órgano
+Judicial y luego al lugar de instalación. (Especificar y/o manifestar aceptación)
+
+oficinas del Órgano Judicial Distrito Tarija, corren por cuenta del Proveedor.
+(Especificar y/o manifestar aceptación)
+
+EXPERIENCIA ESPECIFICA DE LA EMPRESA A SER CONTRATADA
+
+1. Experiencia General. El Proponente deberá contar con una experiencia en el
+rubro de dos (2) años como mínimo, dicha experiencia deberá estar
+acreditada con su Registro de Comercio y NIT en fotocopia simple la cual
+deberá ir adjunta una vez sea adjudicada.
+
+Experiencia Específica. El proponente deberá contar con dos (2) años o más
+de antigúedad certificada en la distribución/venta de productos similares.
+(Presentar documentos de respaldo en fotocopia simple, luego de haber |
+sido adjudicado, como ser contratos o certificados de cumplimiento de |
+contrato o copias de facturas o formulario 500 u órdenes de compra).
+
+(Especificar y adjuntar lo requerido)
+
+PLAZO Y FORMA DE ENTREGA
+
+|
+|
+|
+|
+|
+|
+|
+
+Los equipos deben ser entregados, revisados e instalados, en el plazo máximo de cuatro
+(4) días, computables a partir del siguiente día a la firma de la orden de compra.
+(Presentar carta de aceptación).
+
+Los equipos deben ser entregados, en cajas por equipo, con su protección contra golpes|
+y agua, mediante bolsas y protectores anti golpe.
+
+(Manifestar Aceptación).
+
+TELF.: +(591) 4 66 76197 - FAX +(591) 4 66 43827 TARIJA BOLIVA Av. La Paz 11353, Edificio Fiorella Betancur
+
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES
+COMPLEMENTARIAS
+
+El proponente adjudicado debe garantizar el funcionamiento de los equipos,
+hasta la conclusión del plazo establecido de un (1) año de garantía a partir de
+la firma del contrato de los equipos instalados.
+
+T
+|
+
+(Adjuntar carta de compromiso)
+C. RÉGIMEN DE MULTAS :
+
+8*1000 por r día calendario de retraso del monto total adjudicado.
+(Manifestar Aceptación)
+D. FORMA Y MEDIO DE PAGO
+
+Contra entrega del bien a través de SIGEP, previa emisión de conformidad (comisión del
+recepción) y recepción de la respectiva factura.
+
+(Manifestar Aceptación). |
+a
+
+E. LUGAR DE ENTREGA Y RECEPCION DEL BIEN
+
+Los bienes serán entregados en las oficinas de la Dirección Administrativa y
+
+|
+Financiera del Distrito de Tarija ubicadas en Av. La Paz $353 entre calle Delfín Pino y |
+|
+|
+|
+|
+
+Ciro Trigo, Edificio Fiorella primer piso Unidad de Activos fijos, en presencia de la
+comisión de recepción. LA RECEPCIÓN SERÁ POR LA TOTALIDAD DE LOS
+EQUIPOS.
+
+|
+|
+Posterior a la recepción se debe proceder a la instalación de equipos en los lugares |
+solicitados. |
+
+F. INSTALACION Y CONFIGURACIÓN
+
+Después de la recepción de los equipos y su debido registro en el sistema de Activos
+Fijos y asignados los códigos de control respectivos, se procederá a la instalación y
+configuración de los mismos en las ubicaciones designadas y a la configuración de los | |
+equipos, de acuerdo con las siguientes especificaciones:
+
++ GRABADOR DE VIDEO NVR DE 64 CANALES |
+
+1. Tarija - Edificio Central TDJ - Planta Baja, Bloque A; Rack de cámaras de
+seguridad en el DataCenter.
+
++ CAMARA DE SEGURIDAD DE 5MP COMPATIBLE CON NDAA |
+|
+l
+
+Tarija - Edificio Civil - Planta Baja, Ingreso Ascensor calle Bolívar: Ubicación
+específica para la instalación.
+
+Tarija - Edificio Civil - Planta Baja, Ingreso Ascensor calle Ingavi: Ubicación |
+específica para la instalación.
+
+Tarija - Edificio Civil - Planta Baja, Ingreso Puerta principal Frontis del
+edificio; Ubicación específica para la instalación.
+
+Adicionalmente, se establece que el equipo grabador de video NVR de 64 canales debe
+tener instalados seis discos de las siguientes características:
+
+CANTIDAD: 6 unidades.
+
+CAPACIDAD: 6 TB (Línea PURPLE 24/7).
+
+OPERATIVIDAD: 24/7 ininterrumpida.
+
+CONEXIÓN: SATA.
+
+FORMATO: 3.5 pulgadas.
+
+VELOCIDAD DE TRANSFERENCIA: Búfer a host: 6Gb/s, Host a/desde
+disco: Hasta 175 MB/s.
+
+VELOCIDAD DE ROTACIÓN: (RPM) 5400rpm.
+
+COMPATIBILIDAD: Hasta 64 cámaras por disco para sistemas
+videovigilancia y seguridad con más de ocho compartimentos.
+DIMENSIONES (LARGO, ANCHO Y ALTO): 5.79" x 4” x 1.03”.
+CERTIFICACIONES: BSMI, ICES-003/NMB-003, CE, FCC, KC, Maghreb,
+RCM, UKCA, VCCI, CB-Scheme, TUV, UL.
+
+La entidad se reserva el derecho de revisar si los equipos cuentan con los accesorios|
+requeridos para el funcionamiento directo y hacer las pruebas correspondientes a los|
+equipos entregados, por tanto, no se aceptarán equipos sin los accesorios solicitados. |
+|
+|
+|
+
+TELF: 4(591) 4 66 76197 - FAX +(597) 4 66 43827 TARIJA BOLIVA Av. La Paz 11353, Edificio Fiorella Betancur
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES
+COMPLEMENTARIAS
+
+H. MÉTODO DE EVALUACIÓN
+
+Precio Evaluado Más Bajo o
+
+I. FORMALIZACION DEL PROCESO
+
+Orden de compra.
+
+Tarija, 08 de julio de 2024
+
+TELF: +(597) 4 66 76197 - FAX +(591) 4 66 43827 TARIJA BOLIVA Av. La Paz 11353, Edificio Fiorella Betancur

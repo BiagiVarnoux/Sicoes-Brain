@@ -1,0 +1,76 @@
+[
+ {"cuce":"23-0660-07-1388674-1-1","items":[
+   {"item":1,"descripcion":"Archivador de palanca plastificado oficio lomo ancho","especificaciones":"Archivador de palanca; plastificado; tamano oficio; lomo ancho","cantidad":3333,"unidad":"pieza"}
+ ]},
+ {"cuce":"23-0660-07-1392981-1-1","items":[
+   {"item":1,"descripcion":"Panel LED 60x60cm sobreponer","especificaciones":"Foco tipo panel LED 60x60cm; de sobreponer; 50/60Hz; perfil blanco; 220V","cantidad":100,"unidad":"pieza"},
+   {"item":2,"descripcion":"Panel LED 30x30cm sobreponer","especificaciones":"Foco tipo panel LED 30x30cm; de sobreponer; 50/60Hz; perfil blanco; 220V","cantidad":167,"unidad":"pieza"},
+   {"item":3,"descripcion":"Panel LED 30x120cm sobreponer","especificaciones":"Foco tipo panel LED 30x120cm; de sobreponer; 50/60Hz; perfil blanco; 220V","cantidad":30,"unidad":"pieza"},
+   {"item":4,"descripcion":"Panel LED 30x120cm empotrar","especificaciones":"Foco tipo panel LED 30x120cm; de empotrar; 50/60Hz; perfil blanco; 220V","cantidad":40,"unidad":"pieza"}
+ ]},
+ {"cuce":"23-0660-07-1393522-1-1","items":[
+   {"item":1,"descripcion":"Compresor semihermetico alternativo 180000 BTU","especificaciones":"Compresor semihermetico alternativo; 180000 BTU; marca Bitzer Ecoline mod 12Y/4TES; R-22-417A; 380V 50-60Hz","cantidad":1,"unidad":"pieza"},
+   {"item":2,"descripcion":"Filtro tipo nucleo D-48","especificaciones":"Filtro tipo nucleo; modelo D-48","cantidad":4,"unidad":"pieza"}
+ ]},
+ {"cuce":"23-0660-07-1394519-1-1","items":[
+   {"item":1,"descripcion":"Gas refrigerante R-410A garrafa 11.30kg","especificaciones":"Gas refrigerante/freon R-410A; garrafa color rosada; peso 11.30kg","cantidad":8,"unidad":"garrafa"},
+   {"item":2,"descripcion":"Gas refrigerante R-417A garrafa 11.30kg","especificaciones":"Gas refrigerante/freon R-417A; garrafa color plomo; peso 11.30kg","cantidad":27,"unidad":"garrafa"}
+ ]},
+ {"cuce":"23-0660-08-1299486-1-1","items":[
+   {"item":1,"descripcion":"Provision de repuestos y accesorios para aires acondicionados","especificaciones":"Servicio de provision bajo demanda distrito Beni; capacitores de arranque (25/35/40/60 microfaradios para AC 9000/12000/18000/24000 BTU) y de trabajo (2/2.5/3/3.5/4 microfaradios); gas refrigerante; motores de ventilador; contactores; tableta universal; sensores; gestion 2023","cantidad":null,"unidad":"servicio"}
+ ]},
+ {"cuce":"23-0660-08-1303613-1-1","items":[
+   {"item":1,"descripcion":"Repuestos para movilidades de cuatro ruedas","especificaciones":"Lista de repuestos para vehiculos (placas 371-TSD, 653-ARK, 456-RNP, 1142-LEA, 564-IT): amortiguadores, rodamientos, crucetas, correas de distribucion, bujias, pastillas y balatas de freno, munones de suspension y direccion, filtros, bombas de gasolina/aceite, bateria, alternador, arranque, inyectores","cantidad":null,"unidad":"servicio"}
+ ]},
+ {"cuce":"23-0660-08-1305482-1-1","items":[
+   {"item":1,"descripcion":"Disco duro 1TB SATA","especificaciones":"Disco duro 1TB; interfaz SATA","cantidad":15,"unidad":"pieza"},
+   {"item":2,"descripcion":"Fuente de poder 800W","especificaciones":"Fuente de poder; potencia 800W","cantidad":20,"unidad":"pieza"},
+   {"item":3,"descripcion":"Drum para impresora HP M203","especificaciones":"Drum para impresora HP M203; por unidad","cantidad":4,"unidad":"pieza"},
+   {"item":4,"descripcion":"Tambor Brother DR-411 negro","especificaciones":"Tambor para impresora Brother DR-411; color negro","cantidad":1,"unidad":"pieza"},
+   {"item":5,"descripcion":"Tambor Brother DR-3460 negro","especificaciones":"Tambor para impresora Brother DR-3460; color negro","cantidad":4,"unidad":"pieza"},
+   {"item":6,"descripcion":"Camara web USB 1080p","especificaciones":"Camara web; USB; 1080p","cantidad":10,"unidad":"pieza"},
+   {"item":7,"descripcion":"Teclado USB","especificaciones":"Teclado USB; por unidad","cantidad":44,"unidad":"pieza"},
+   {"item":8,"descripcion":"Memoria RAM DDR3 4GB","especificaciones":"Memoria RAM DDR3; capacidad 4GB","cantidad":15,"unidad":"pieza"},
+   {"item":9,"descripcion":"Estabilizador 500W","especificaciones":"Estabilizador; potencia 500W; por unidad","cantidad":15,"unidad":"pieza"},
+   {"item":10,"descripcion":"Fusor para impresora Brother 2270","especificaciones":"Fusor para maquina/impresora Brother 2270","cantidad":2,"unidad":"pieza"},
+   {"item":11,"descripcion":"Adaptador de energia 12V","especificaciones":"Adaptador de energia; capacidad 12 voltios","cantidad":10,"unidad":"pieza"},
+   {"item":12,"descripcion":"Mouse USB","especificaciones":"Mouse USB; por unidad","cantidad":60,"unidad":"pieza"},
+   {"item":13,"descripcion":"Parlantes USB","especificaciones":"Parlantes USB; por unidad","cantidad":20,"unidad":"pieza"},
+   {"item":14,"descripcion":"Audifonos con microfono","especificaciones":"Audifonos con microfono","cantidad":20,"unidad":"pieza"}
+ ]},
+ {"cuce":"23-0660-08-1314762-1-1","items":[
+   {"item":1,"descripcion":"Alcohol liquido frasco 1L","especificaciones":"Alcohol liquido; envase frasco; contenido 1 litro","cantidad":160,"unidad":"frasco"},
+   {"item":2,"descripcion":"Desinfectante de ambiente spray 256g","especificaciones":"Desinfectante de ambiente; presentacion spray; 256g","cantidad":200,"unidad":"frasco"},
+   {"item":3,"descripcion":"Colcha trapeadora plomo 65x53cm","especificaciones":"Colcha trapeadora; color plomo; medidas 65x53cm; motivo liso","cantidad":127,"unidad":"unidad"},
+   {"item":4,"descripcion":"Pano franela naranja 0.35x0.35m","especificaciones":"Pano franela; color naranja; medidas 0.35x0.35m","cantidad":300,"unidad":"unidad"},
+   {"item":5,"descripcion":"Toalla de mano 0.60x0.35m","especificaciones":"Toalla de mano; diferentes colores; medidas 0.60x0.35m","cantidad":300,"unidad":"unidad"},
+   {"item":6,"descripcion":"Desinfectante de piso 1800ml","especificaciones":"Desinfectante de piso; presentacion 1800ml; tipo liquido","cantidad":240,"unidad":"unidad"},
+   {"item":7,"descripcion":"Escoba de PVC domestica","especificaciones":"Material PVC; 6 hileras; tipo domestica","cantidad":24,"unidad":"unidad"},
+   {"item":8,"descripcion":"Lustramuebles atomizador 850ml","especificaciones":"Lustramuebles; frasco atomizador; contenido 850ml","cantidad":200,"unidad":"frasco"},
+   {"item":9,"descripcion":"Limpiavidrios atomizador 930ml","especificaciones":"Limpiavidrios; frasco atomizador; contenido 930ml","cantidad":240,"unidad":"frasco"},
+   {"item":10,"descripcion":"Papel higienico blanco doble hoja","especificaciones":"Papel higienico; color blanco; 2 hojas; paquetes; 35x65cm","cantidad":2500,"unidad":"unidad"},
+   {"item":11,"descripcion":"Alcohol en gel 380g con gatillo","especificaciones":"Alcohol en gel; envase frasco con gatillo; 380g","cantidad":300,"unidad":"frasco"},
+   {"item":12,"descripcion":"Bolsa negra de basura 35x65cm","especificaciones":"Bolsa negra; paquetes; medidas 35x65cm","cantidad":200,"unidad":"paquete"},
+   {"item":13,"descripcion":"Lavandina frasco 1L","especificaciones":"Lavandina; presentacion frasco; 1 litro","cantidad":120,"unidad":"frasco"},
+   {"item":14,"descripcion":"Trapeador de goma mango madera","especificaciones":"Trapeador; material de goma; mango de madera","cantidad":20,"unidad":"unidad"},
+   {"item":15,"descripcion":"Basurero mediano tipo cesto","especificaciones":"Basurero; tamano mediano; tipo cesto","cantidad":48,"unidad":"unidad"},
+   {"item":16,"descripcion":"Ambientador en aerosol 360ml","especificaciones":"Ambientador; presentacion aerosol; 360ml; fragancia surtida","cantidad":200,"unidad":"frasco"},
+   {"item":17,"descripcion":"Detergente vajillero 1200ml","especificaciones":"Detergente vajillero; envase frasco; presentacion 1200ml","cantidad":105,"unidad":"bote"},
+   {"item":18,"descripcion":"Bolsa de yute 1 quintal","especificaciones":"Bolsa; material yute; 1 quintal","cantidad":110,"unidad":"unidad"},
+   {"item":19,"descripcion":"Esponja de poliuretano con fibra","especificaciones":"Esponja; material poliuretano; fibra sintetica","cantidad":60,"unidad":"unidad"},
+   {"item":20,"descripcion":"Ambientador envase carton surtido","especificaciones":"Ambientador; envase carton; fragancia surtida","cantidad":120,"unidad":"unidad"}
+ ]},
+ {"cuce":"23-0660-08-1356671-1-1","items":[
+   {"item":1,"descripcion":"Toner Brother TN-316BK negro","especificaciones":"Toner Brother TN-316BK; color negro; original","cantidad":null,"unidad":"pieza"},
+   {"item":2,"descripcion":"Tinta Epson 774 negro","especificaciones":"Tinta para Epson modelo 774; color negro","cantidad":null,"unidad":"pieza"},
+   {"item":3,"descripcion":"Tinta Brother BT501C azul 48.8ml","especificaciones":"Tinta Brother BT501C; color azul (cyan); 48.8ml; original","cantidad":null,"unidad":"pieza"},
+   {"item":4,"descripcion":"Tinta Brother BT501Y amarillo 48.8ml","especificaciones":"Tinta Brother BT501Y; color amarillo; 48.8ml; original","cantidad":null,"unidad":"pieza"},
+   {"item":5,"descripcion":"Tinta Brother BT501M rojo 48.8ml","especificaciones":"Tinta Brother BT501M; color rojo (magenta); 48.8ml; original","cantidad":null,"unidad":"pieza"},
+   {"item":6,"descripcion":"Tinta Brother BTD60BK negro 108ml","especificaciones":"Tinta Brother BTD60BK; color negro; 108ml; original","cantidad":null,"unidad":"pieza"},
+   {"item":7,"descripcion":"Toner HP 78A","especificaciones":"Toner HP 78A; negro","cantidad":null,"unidad":"pieza"},
+   {"item":8,"descripcion":"Toner Brother TN-3479 negro","especificaciones":"Toner Brother TN-3479; color negro","cantidad":null,"unidad":"pieza"}
+ ]},
+ {"cuce":"23-0660-08-1363887-1-1","items":[
+   {"item":1,"descripcion":"Provision de repuestos de aires acondicionados","especificaciones":"Segunda provision de repuestos para aires acondicionados distrito Beni; capacitores de arranque y de trabajo (9000-36000 BTU), sensores de humedad y temperatura, relay sobrecarga, tableta universal, motores de ventilador, contactores, compresores rotativos; gestion 2023","cantidad":null,"unidad":"servicio"}
+ ]}
+]

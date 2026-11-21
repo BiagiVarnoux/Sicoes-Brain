@@ -1,0 +1,110 @@
+PROFORMA
+
+ens
+dministrativa y financiera Potosi
+
+Williams Reno Costas Sánchez
+
+EFE Dirección a.
+
+Rodas
+
+1 591 60447947
+
+Potosi lacional
+
+PROPUESTA DE SWITHING JUNIPER
+JUNIPER EX2300-24T
+
+Switch de 24 Puertos BASE T
+EX2300-24T, incluye:
+EX2300-24P/24T/24MP
+5 + four-port SFP/SFP+ uplinks)
+
+Transceivers no incluidos,
+
+* DRAM 2 GB (EX2300.-24
+806
+Swiches as a si
+
+lABTIP
+Jal Chassis interconnect to
+gle logical device (EX2300
+
+link up to four
+487)
+
+Posee Funcionalidades Layer2.
+
+aximum MAC addresses in hardware: 16 000
+
+* Number of VLANs supported: 4093 (2044 active VLAN)
+» Range of possible VLAN IDs: 1-4094
+
+* Layer 2 Protocol Tunneting (L2PT)
+
+bie 802.1x (IEEE 802,1X: Pon Access Control)
+
+Caracteristicas Adicionales
+Posee Funcionalidades Layer] (IPv4)
+ARP entries: 1,500 y
+um number of IPy4 unicast mutes in hardware 512
+
+prefixes; 4,096 host routes
+mber of IPy4 muticast routes in hardwaro: 2,048
+groups; 2,048 multicast routes
+* Routing Protocols: RIP v1/v2, OSPF v1/v2
+* Static routing
+* Routing policy
+
+Maximum n
+
+ber a
+
+SVC-COR-EX23-24T (año)
+1 de fabnca a equipo ofertado, para siluaciones de falla del
+dispositivo
+
+Incluye Garantia
+
+»o tambien para mitigar inconvenien
+| equipo
+
+para e ¡a provisional: as5 mientras se revisa el
+equipo afectado y/o procesa RMA
+
+se dispondra un
+
+Incluye Actualizacion de Firmware (Ultima Version)
+
+NOTA: Los precios estan expresados en
+
+SubTotal: MES 49.800,92
+
+1 Es 49.800,92
+
+Moneda Nacional e incluyen impuestos de ley
+
+CONDICIONES GENERALES
+
+EX2300-241 (Entrega Inmediata Hasta Entrega Stock)
+
+A Garantia de Fabrica (1Sdias) contra OC Nombre del Comercial a Cargo
+
+20 días Alexander Rodas
+Validez de la Oferta
+
+Productos y servicios
+
+Entregables: Cargo
+Lugar de Entrega Oficina de cliente Asesor Comercial de Ciberseguridad y TI
+Forma de Pago: Contra entrega oMai!
+Garantia 12 meses de Garantia de Fabrica aereas co:
+
+/xhilio Mármmtasanovasdabala
+REPRESENTANTE LEGAI
+FO TiSISCOTEC S.A
+
+Em lo
+
+veww.slycoteccom

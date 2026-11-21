@@ -1,0 +1,233 @@
+Cotización Refencial N*
+
+COT-229A/2024 Fecha:
+Gracias por la confianza e interés en las soluciones que tenemos en PROCOM para ofrecerle, abajo encontrara
+
+15-mar-2024
+en detalle la cotización solicitada
+
+Cliente DIRECCION ADMINISTRATIVA Y FINANCIERA -
+ORGANO JUDICIAL CHUQUISACA
+
+Contacto
+
+Realizado Por Alejandra Barrios - abarriosOprocom.com.bo
+
+SOLUCIÓN/PRODUCTO CANTIDAD PRECIO UNITARIO  SUB-TOTAL Bs.
+
+YEALINK | SIP-T30P
+
+1 [TELEFONO IP POE T30P*1 LINEA SIP *2 PUERTOS ETH10/100MBPS *DC5V *DISPLAY 2,3"
+*5 TECLAS PROGRAMABLES *CONFERENCIA DE 5 VIAS*INCLUYE FUENTE
+
+23.868,00
+
+Comentarios
+
+Términos Generales
+
+Precios: Expresado en Bolivianos, incluye IVA y entrega en oficinas de cliente en Sucre
+Validez: 15 días
+
+Entrega:
+
+5 días calendario de confirmada OC. En Stock y sujeto a rotación
+Forma de Pago:
+
+Mediante Sigep
+
+Willy Cruz Mur
+Gerente General y Representante Legal
+
+000060608 0
+
+PROCOM LTDA - www.procom.com.bo
+
+Pag. 1de1
+
+ESPECIFICACIONES TÉCNICAS
+
+ADQUISICION DE EQUIPOS DE COMUNICACION (TELEFONOS IP) PARA EL
+
+ITEM 1:
+
+TRIBUNAL DEPARTAMENTAL DE JUSTICIA DE CHUQUISACA
+
+TELEFONOS IP
+
+ESPECIFICACIONES TÉCNICAS Y CONDICIONES TÉCNICAS REQUERIDAS DEL BIEN
+
+ESPECIFICACIONES GENERALES
+ITEM 1: TELEFONOS IP
+
+Marca Yealink
+
+1.2
+13
+
+Modelo Sip-T30P
+
+Procedencia: China
+
+1.4 |Cantidad: 51 Unidades.
+
+1.5
+
+Características:
+
+Debe soportar hasta una cuenta SIP.
+
+Firmware unificado y soporte YDMP/YMCS
+
+Voz HD: auricular HD, altavoz HD y filtro inteligente de ruido
+
+Deberá soportar minimamente el protocolo SIP y los códecs de audio PCMU (G.711A), PCMA (G.711p),
+G.723.1, G.729, G.729A, G.729B, G.729AB, G.726, iLBC
+
+Deberá ser plug-8-play (no debiendo realizar ninguna configuración en el mismo durante el despliegue)
+Deberá contar con pantalla LCD de 132 x 64 pixeles mínimamente.
+
+Deberá contar con un switch integrado de 2 puertos Ethernet RJ45 10/100 Base-T para el teléfono y una
+PC
+
+Deberá contar con teclas fijas para las funciones: transferir llamadas, llamada en espera, re-discado,
+silencio, control de volumen y altavoz.
+
+Deberá contar con alguna funcionalidad para el ahorro de energía en horarios donde los teléfonos no
+estén siendo usados.
+
+Soporte de aprovisionamiento vía FTP/TFTP/HTTP/HTTPS
+
+Alimentación a través de PoE IEEE 802.3 af y adaptador de energía.
+
+1.6
+
+[ci al
+
+Funciones de llamada:
++ Desvío de llamadas
+Captura de llamadas
+Llamada en espera
+Transferencia de llamadas
+Conferencia
+Captura de llamadas grupales
+Indicador de mensaje o llamada en espera
+Volver a marcar
+
+1.7
+2
+
+Cada equipo deberá incluir:
++ su adaptador de energía original
+
+GARANTIA DEL BIEN
+
+Pra
+2.1
+
+3 |ASISTENCIA TÉCNICA
+
+El tiempo de la garantía, servicios de soporte y actualizaciones, tanto para hardware como
+software, no deberá ser menor a un (1) año, computable a partir de la recepción definitiva.
+
+3.1
+
+aran
+
+Servicios propios del fabricante habilitados tanto por software y hardware.
+
+El soporte nivel software deber cumplir:
++ Acceso total y directo al centro de servicio técnico directo del fabricante.
+
+de + Acceso a actualizaciones de software para todos los dispositivos y usuarios de la solución a la
+última versión disponible por el fabricante.
+3.4 Se requiere soporte de software para los teléfonos con el fin de tener acceso a los últimos firmware y bug
+ze fixes.
+
+3.5 |El nivel exigido es de 8x5 con reposición de partes de no más de 24 horas.
+
+3.6 |El proveedor deberá tener oficinas propias en Bolivia, para que puedan brindar soporte técnico en línea.
+Se requieren para el soporte técnico correctivo de hardware tiempos de respuesta de máximo 4 (cuatro)
+
+3.7 |horas hábiles a partir de haber reportado el problema, durante todo el periodo de garantía y sin costo
+adicional para la institución.
+El soporte deberá incluir todos los requerimientos de la institución, en los que se refiere a tareas de |
+
+3.8 | administración, afinamiento de configuraciones y/o solución de problemas, durante el periodo de garantía |
+
+El equipo deben ser buena calidad (original) y cumplir con las características técnicas solicitadas, la marca
+e industria son de cumplimiento obligatorio
+
+y sin costo adicional.
+3.9
+
+
+4 |INSPECCION O PRUEBAS
+
+La entidad se reserva, el derecho de realizar la verificación, inspecciones, pruebas y recepción del proceso
+previo a recepción definitiva, por tanto, no se aceptarán equipos REFURBISHED (restaurados,
+reacondicionados).
+
+5 [CONDICIONES COMPLEMENTARIAS
+
+Marca. Cada equipo deberá poseer un identificador visible original de la marca solicitada.
+
+Apertura de empaques y verificación. El Órgano Judicial se reserva el derecho, a través de la Comisión
+de Recepción, de realizar la verificación, inspecciones, pruebas y recepción de equipos y sus partes, como
+proceso previo a la emisión del Informe de Conformidad.
+
+ES Observaciones a la entrega de bienes. Durante la etapa de verificación e inspección de los equipos, el
+
+Proveedor tiene la obligación de salvar cualquier observación, sea esta de entrega de partes o de
+funcionamiento de equipos o software suministrados.
+
+Embalaje. El Proveedor debe garantizar que los equipos sean transportados en medios de embalaje
+seguros que garanticen el arribo seguro y adecuado de los equipos, hasta las oficinas del Tribunal
+Departamental de Justicia de Chuquisaca.
+
+Medios de Transporte. Los medios de trasporte hasta la entrega de los equipos en la oficina indicada,
+corren por cuenta del Proveedor.
+
+6 [CARACTERISTICAS GENERALES DE LA EMPRESA PROPONENTE
+
+Experiencia General. El proponente deberá contar con tres (3) años o más de experiencia en el mercado
+6.1 nacional, en la provisión de soluciones similares a la requerida por la institución (adjuntar copia de facturas,
+a órdenes de compra o contratos que demuestren dicha experiencia).
+(en caso de adjudicación Documentacion que deberá ser presentada para la formalizacion )
+Certificaciones: La empresa proponente deberá presentar adjunto a su propuesta; un certificado de
+6.2 Comercializador y/o Distribuidor Autorizado, emitido por el fabricante y/o mayorista autorizado para Bolivia.
+50 El certificado debe hacer mención a la entidad convocante y al código del proceso de contratación (CUCE).
+(en caso de adjudicación Documentación que deberá ser presentada para la formalizacion )
+
+7 [CONDICIONES DEL PROCESO
+
+7.1 Método de Selección y Adjudicación: Precio evaluado mas bajo (Consulta de Precios), bajo la condición
+Ñ de cumplimiento con las especificaciones técnicas solicitadas.
+
+7.2  |Forma de Adjudicación: Por ítem
+
+7.3 Formalización de la Contratación: El presente proceso de contratación se formalizará mediante la
+E emisión de Orden de Compra.
+Régimen de multas:
++ El proveedor está obligado a cumplir con la entrega de los bienes, según las características
+establecidas en las especificaciones técnicas, caso contrario, la Entidad aplicara una multa del 8*1000
+del monto total adjudicado, por día de retraso de los equipos entregados con atraso.
+
+7.4 + Las multas serán cobradas mediante descuentos por la ENTIDAD, al pago correspondiente a la
+recepción de los EQUIPOS o en la liquidación del contrato.
+
++ Entodos los casos de resolución de contrato por causas atribuibles al PROVEEDOR, la ENTIDAD no
+podrá cobrar multas que excedan el veinte por ciento (20%) del monto total del contrato.
+
+7.5 Plazo de entrega: Los equipos deben ser entregados en el plazo máximo de cinco (5) días calendario,
+e computables a partir del siguiente día hábil a la Orden de Compra.
+
+Lugar de Entrega: Los equipos adjudicados deberán ser entregados, en Deposito de la Sub-Unidad de
+7.6 | Activos Fijos del Tribunal Departamental de Justicia de Chuquisaca (Av. Venezuela esq. Ladislao cabrera
+S/N).
+
+7.7 | Forma de entrega: La entrega de los bienes adjudicados deberá ser por pieza.
+
+Forma y Medio de Pago: Pago total de los Ítems adjudicados, se realizará mediante transferencia
+7.8 |bancaria a través de SIGEP, una vez entregados los bienes, previa conformidad de la unidad de recepcion,
+y recepcion de la respectiva factura (NIT 190754021).

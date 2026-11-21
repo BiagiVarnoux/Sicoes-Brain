@@ -1,0 +1,34 @@
+CUCEs total 571 | pendientes 571 | workers 2
+  20/571 | 108s | ~5.4s/cuce | últ: 22-0660-07-1248906-1-1 [ocr] 4144c
+  40/571 | 271s | ~6.8s/cuce | últ: 22-0660-09-1233464-1-1 [ocr] 8109c
+  60/571 | 373s | ~6.2s/cuce | últ: 22-0660-10-1248345-1-1 [ocr] 6034c
+  80/571 | 478s | ~6.0s/cuce | últ: 22-0660-11-1262085-1-1 [ocr] 2565c
+  100/571 | 563s | ~5.6s/cuce | últ: 22-0660-12-1204906-1-1 [ocr] 4161c
+  120/571 | 702s | ~5.8s/cuce | últ: 22-0660-13-1262842-1-1 [texto] 1930c
+  140/571 | 889s | ~6.3s/cuce | últ: 23-0660-06-1344375-1-1 [ocr] 2610c
+/Users/fabriziocuellar/Sicoes-Brain/scraper/venv/lib/python3.13/site-packages/PIL/Image.py:3578: DecompressionBombWarning: Image size (89759995 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+/Users/fabriziocuellar/Sicoes-Brain/scraper/venv/lib/python3.13/site-packages/PIL/Image.py:3578: DecompressionBombWarning: Image size (101035550 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.
+  warnings.warn(
+  160/571 | 1063s | ~6.6s/cuce | últ: 23-0660-07-1363036-1-1 [texto] 7075c
+  180/571 | 1217s | ~6.8s/cuce | últ: 23-0660-08-1356671-1-1 [ocr] 2922c
+  200/571 | 1472s | ~7.4s/cuce | últ: 23-0660-10-1313885-1-1 [ocr] 5772c
+  220/571 | 1659s | ~7.5s/cuce | últ: 23-0660-11-1309647-1-1 [ocr] 4304c
+  240/571 | 1784s | ~7.4s/cuce | últ: 23-0660-11-1384083-1-1 [ocr] 3256c
+  260/571 | 1978s | ~7.6s/cuce | últ: 23-0660-13-1338803-1-1 [ocr] 11094c
+  280/571 | 2167s | ~7.7s/cuce | últ: 24-0660-07-1405151-1-1 [texto] 8647c
+  300/571 | 2298s | ~7.7s/cuce | últ: 24-0660-07-1496979-1-1 [ocr] 5329c
+  320/571 | 2505s | ~7.8s/cuce | últ: 24-0660-09-1480885-1-1 [ocr] 6794c
+  340/571 | 2709s | ~8.0s/cuce | últ: 24-0660-11-1422563-1-1 [ocr] 2959c
+  360/571 | 2924s | ~8.1s/cuce | últ: 24-0660-13-1459842-1-1 [ocr] 18530c
+  380/571 | 3121s | ~8.2s/cuce | últ: 25-0660-07-1528484-2-1 [ocr] 3997c
+  400/571 | 3224s | ~8.1s/cuce | últ: 25-0660-07-1613455-1-1 [texto] 3521c
+  420/571 | 3388s | ~8.1s/cuce | últ: 25-0660-10-1520043-1-1 [ocr] 4477c
+  440/571 | 3520s | ~8.0s/cuce | últ: 25-0660-11-1610985-1-1 [ocr] 2775c
+  460/571 | 3704s | ~8.1s/cuce | últ: 25-0660-13-1570540-1-1 [ocr] 9421c
+  480/571 | 3870s | ~8.1s/cuce | últ: 26-0660-07-1630404-2-1 [ocr] 4803c
+  500/571 | 4034s | ~8.1s/cuce | últ: 26-0660-07-1687740-1-1 [ocr] 6996c
+  520/571 | 4226s | ~8.1s/cuce | últ: 26-0660-10-1645386-1-1 [ocr] 6867c
+  540/571 | 4328s | ~8.0s/cuce | últ: 26-0660-12-1643738-1-1 [texto] 756c
+  560/571 | 4421s | ~7.9s/cuce | últ: 26-0660-13-1667819-1-1 [ocr] 3833c
+LISTO OCR. 571 CUCEs procesados en 4453s

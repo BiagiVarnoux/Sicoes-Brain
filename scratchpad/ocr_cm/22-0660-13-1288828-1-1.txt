@@ -1,0 +1,731 @@
+x8
+(5) DEJRED Almacenamiento sobre Ethernet:
+
+MODELO DE ESPECIFICACIONES TÉCNICAS
+PARA ADQUISICIÓN DE BIENES
+
+Para ser llenado por el proponente paraila cid dela
+CUMPLE
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CARACTERÍSTICAS DE LA Observaciones
+CONDICIONES COMPLEMENTARIAS PROPUESTA (especificar el
+(Manifestar aceptación, especificar y/o | sI porqué no
+adjuntar lo requerido) cumple)
+
+1. OBJETO DE LA CONTRATACIÓN
+
+ADQUISICIÓN DE OTROS REPUESTOS Y ACCESORIOS TECNOLOGICOS PARA EL ÓRGANO JUDICIAL LA PAZ
+
+II. CARACTERÍSTICAS GENERALES DEL(LOS) BIEN(ES)
+
+A. DETALLE Y REQUISITOS DEL(LOS) BIEN(ES)
+
+Marca y Modelo: (Especificar) Cantid Precio Total i Precio Total
+Capacidad: 32 GB cada módulo, con | ad dro Cantidad Wa
+
+bancos de 2Rx4.
+
+Factor de Forma: RDIMM
+
+Tipo: DDR4
+
+Corrección de error: ECC
+Velocidad: 2400
+
+1. Rango de Transferencia: 2666MHz
+MEMORI | Numero de pines: 288
+
+A RAM Densidad: 8G 2 3,022.00
+Temperatura: 09 C- 859 C
+
+El voltaje deberá ser de 1.2V
+Compatibilidad: Deber ser
+compatible con el servidor DELL
+POWEREDGE R630
+
+(Especificar y Manifestar
+Aceptación)
+
+Marca y Modelo: (Especificar)
+
+Se requiere Puertos Dual 10G/1G
+SFP+, adicionalmente deberá contar
+con dos puertos RJ-45 de 1 Gb.
+Velocidad de datos por puerto:
+10/1GbE (Puertos SFP) y 1 GbE
+(Puertos RJ-45)
+
+Velocidad y amplitud de la
+ranura: 5.0 GT/s, x8 o x16 carril
+Tipo de interfaz de sistema: PCle
+v2.0 (5.0 GT/s)
+
+Arquitectura de bus de E/S: PCIe2
+
+TARJETA 1 5,600.00
+
+¡SCSI, FCOE, NFS
+Compatibilidad: Deber ser
+compatible con el servidor DELL
+POWEREDGE R630
+
+Deberá traer instalado dos módulos
+SFP, tipo multimodo de 10GB,
+compatibles a la tarjeta de red
+ofertado.
+
+(Especificar y Manifestar
+Aceptación)
+
+Salida de potencia total: 750W
+Factor de forma: 1U
+
+Rango de entrada: 100-240V 10-5SA
+50-60HZ
+
+Rango de salida: +12.2V - 61.47A
++ 12VSB — 3.0A
+
+3. Tipo de salida: Corredor dorado
+FUENTE (conector de 19 pares)
+
+DE PFC: Sí
+
+PODER Eficiencia energética: 94% Pico
+Certificación: 80 Plus platino
+Compatibilidad: Deber ser
+compatible con el servidor DELL
+POWEREDGE R630
+
+(Especificar y Manifestar
+Aceptación)
+
+1 6.499,38
+
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+CONDICIONES COMPLEMENTARIAS
+
+Para ser llenado por el proponente
+
+CARACTERÍSTICAS DE LA
+PROPUESTA
+(Manifestar aceptación, especificar y/o
+
+adjuntar lo requerido)
+
+Para la calificación de la
+entidad
+
+(especificar el
+porqué no
+cumple)
+
+Marca y Modelo: (Especificar)
+
+Bahía Compatible: 2.5”
+
+Capacidad de Almacenamiento:
+
+300 GB
+
+Interfaz: SAS
+
+Velocidad de transferencia: 12
+
+Gb/s.
+
+Tipo de unidad compatible: HDD
+
+Velocidad de Rotación: 10000 rpm 2
+
+Caddy: Cada Disco Duro deberá
+
+contar con su respectivo Caddy de
+
+2.5” para ingreso a Ranuras.
+
+Compatibilidad: Deber ser
+
+compatible con el servidor DELL NX
+
+3230
+
+(Especificar y Manifestar
+Aceptación)
+
+4. DISCO
+DURO
+300 GB
+
+8.840,00
+
+Marca y Modelo: (Especificar)
+Bahía Compatible: 2.5”
+Capacidad de Almacenamiento: 1
+TB
+
+Interfaz: SAS
+
+Velocidad de transferencia: 6
+Gb/s.
+
+Tipo de unidad compatible: HDD
+Cache: 64 MB
+
+Velocidad de Rotación: 7200 rpm
+Caddy: Cada Disco Duro deberá
+contar con su respectivo Caddy de
+2.5” para ingreso a Ranuras.
+Compatibilidad: Deber ser
+compatible con el servidor DELL
+POWEREDGE R630
+
+(Especificar y Manifestar
+
+5. DISCO
+DURO 1
+TB
+
+3 19.896,00
+
+B. INSTALACIÓN DEL BIEN
+
+A | ira ES
+
+NO APLICA
+¡53
+
+C. INSPECCIÓN, PRUEBAS O MUESTRAS
+
+LY
+
+NO APLICA
+
+D. PROVISIÓN DE REPUESTOS/INSUMOS Y OTROS
+
+El ofertante deberá contar con stock del bien ofertado con la
+finalidad de efectuar la reposición en caso que sea necesario.
+(Manifestar Aceptación)
+
+E. GARANTÍA DEL(LOS) BIEN(ES)
+
+Se solicita un año mínimo de garantía del bien que esté
+debidamente certificado por el proveedor.
+
+En caso de bienes defectuosos la empresa está en la
+obligación de reponer los mismos en un plazo de cinco (5)
+días calendario. (Manifestar aceptación)
+
+F. CONDICIONES COMPLEMENTARIAS
+
+Medios de Transporte.
+
+Los medios de trasporte hasta la entrega del equipo, en nuestras
+oficinas corren por cuenta del proveedor. (Manifestar
+aceptación).
+
+Certificado.
+El proponente deberá adjuntar un certificado que acredite que los
+accesorios ofertados son compatibles con dispositivos Dell
+
+Manifestar aceptación).
+III. CONDICIONES DEL PROCESO
+
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+CONDICIONES COMPLEMENTARIAS
+
+A. PLAZO DE ENTREGA
+
+Para ser llenado por el proponente
+
+CARACTERÍSTICAS DE LA
+PROPUESTA
+(Manifestar aceptación, especificar y/o
+adjuntar lo requerido)
+
+Para la calificación de la
+entidad ,
+
+(especificar el
+porqué no
+
+1 día calendario computable a partir del día siguiente hábil de la
+suscripción de la orden de compra y/o servicio. (Manifestar
+
+Aceptación)
+
+B. RÉGIMEN DE MULTAS
+
+8*1000 por día calendario de retraso del monto total adjudicado
+(Manifestar Aceptación)
+¡ect
+
+C. FORMA Y MEDIO DE PAGO
+
+Contra entrega del bien a través de SIGEP, previa emisión de
+conformidad y recepción de la respectiva factura. (Manifestar
+Aceptación)
+
+D. LUGAR DE ENTREGA Y RECEPCION DEL BIEN
+
+Los accesorios requeridos deben ser entregados en la Unidad de
+Almacenes Ubicado en la Calle Yanacocha Casi esq. Sucre Nro. 731,
+debiendo coordinar previamente con el Ing. Marco Lima (Cel.
+79564477). RECEPCION SERA POR LA TOTALIDAD DE LOS ÍTEMS
+
+ADJUDICADOS (Manifestar Aceptación)
+
+E. FORMA DE ADJUDICACIÓN
+
+Por items
+
+F. OTROS
+
+Asistencia técnica.
+
+El proveedor deberá brindar asistencia técnica cuando esta sea
+requerida y estar acorde al horario de trabajo vigente en el Órgano
+Judicial (Manifestar aceptación).
+
+1. CONDICIONES COMPLEMENTARIAS
+
+Las empresas proponentes deberán enviar sus propuestas en forma
+digital, hasta horas 14:30 del día establecido para la Apertura de
+Propuestas del Cronograma de Actividades del Formulario 110 del
+presente proceso, al correo institucional:
+
+nojudici , adicionalmente deberá remitir
+una copia del correo electrónico enviado a los correos:
+
+limaG judici
+hi il
+Y h i
+l il.com
+
+| (Manifestar Aceptación)
+
+
+SERY
+
+CLIENTE: Organo Judicial DAF- La Paz
+
+DIRECCION: C/ Potosi, Edificio Anexo B
+
+COTIZACION N?2 109
+Fecha: 06 de diciembre de 2022
+
+En atención a su solicitud de cotización, detallamos lo siguiente:
+
+Son: Cuarenta y Tres Mil Ochocientos Cincuenta y Siete 38/100 bolivianos
+
+Validez de la oferta : 15 días calendario
+Tiempo de entrega : 1 día calendario
+Forma de pago : SIGEP
+
+Av Perlferica Nro. 777 - Cél: 719:
+Rolande Alvaro Figueredo Quistas
+
+ITEM DETALLE | UNIDAD | CANTIDAD | P/UNITARIO TOTAL
+1_ | Memoria RAM 32 GB 2Rx4 PC4-2400T-RB1-11 | Pieza 2 IN 1.511,00 3.022,00
+S [Tarjeta de Red dual, 2 puertos 10 GBase-T 10GbE Pieza
+microlp Intel X El 5.600,00 5.600,00
+3 Fuente de Poder 750 Watts, MAX AC Current Pleza
+10A-5A d 6.499,38 6.499,38
+Disco Duro HDD SAS 300 GB 15 K de 2.5”” Pieza 2 ] 4.420,00 8.840,00
+5 |Disco Duro HDD SAS 1 TB 7.2 k de 2.5” Pieza 3 6,632,00 19.896,00
+TOTAL GENERAL en Bolivianos 43.857,38
+
+Dirección. Av. Juan José Torrez N?. 777- Zona 3 de mayo Cel.: 71910205- Correo rolo_fvc(Whotmail.com La Paz-Bolivia
+
+
+MODELO DE ESPECIFICACIONES TÉCNICAS
+
+PARA ADQUISICIÓN DE BIENES
+
+I. OBJETO DE LA CONTRATACIÓN
+
+II. CARACTERÍST
+BIEN(ES)
+
+A. DETALLE Y REQUISITOS DEL(LOS) BIEN(ES)
+
+ICAS
+
+GENERALES
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+CONDICIONES COMPLEMENTARIAS
+
+DEL(LOS)
+
+Para ser llenado por el proponente
+
+Para la calificación de la
+entidad
+
+CARACTERÍSTICAS DE LA PROPUESTA
+(Manifestar aceptación, especificar y/o adjuntar lo
+
+requerido)
+
+ADQUISICIÓN DE OTROS REPUESTOS Y ACCESORIOS TECNOLOGICOS PARA EL ÓRGANO JUDICIAL LA PAZ
+
+CUMPLE
+
+Observacion
+es
+(especificar el
+porqué no
+cumple)
+
+Almacenamiento sobre
+Ethernet: ¡SCSI, FCOE, NFS
+Compatibilidad: Deber ser
+compatible con el servidor
+DELL POWEREDGE R630
+Deberá traer instalado dos
+módulos SFP, tipo
+multimodo de 10GB,
+compatibles a la tarjeta de
+red ofertado.
+
+(Especificar y Manifestar
+Aceptación)
+
+DELL POWEREDGE R630
+La tarjeta de red incluye dos
+módulos SFP, tipo multimodo
+de 10GB, mismos que son
+compatibles a la tarjeta de red
+ofertada.
+
+Serv Jireh manifiesta
+aceptación, y aclara que la
+tarjeta de red es
+compatible con el Servidor
+y los módulos también son
+compatibles con la tarjeta
+de red, y cumple todo lo
+detallado.
+
+Marca y Modelo: Cantid | PrecioTotal | Marca y Modelo: SK Hynix, | cantia | Precio Total
+(Especificar) ad Pecejo"! | HMAB4GR7MFR4N-UH TD | ad rd
+Capacidad: 32 GB cada AA 1722
+módulo, con bancos de Capacidad: 32 GB cada
+2Rx4. módulo, con bancos de 2Rx4.
+Factor de Forma: RDIMM Factor de Forma: RDIMM
+Ú Tipo: DDR4 Tipo: DDR4
+Corrección de error: ECC Corrección de error: ECC
+Velocidad: 2400 Velocidad: 2400
+Rango de Transferencia: Rango de Transferencia:
+1. 2666MHz 2666MHz
+MEMORIA | Numero de pines: 288 Numero de pines: 288
+RAM Densidad: 8G 2 3,022.00 Densidad: 8G
+Temperatura: 09 C- 850 C mee: Temperatura: 09 C- 850 C 2 3,022.00
+El voltaje deberá ser de 1.2V El voltaje deberá ser de 1.2V
+Compatibilidad: Deber ser Compatibilidad: Deber ser
+compatible con el servidor compatible con el servidor
+DELL POWEREDGE R630 DELL POWEREDGE R630
+pe y Manifestar Serv  Jireh manifiesta
+aceptación, y aclara que la
+memoria RAM ofertada es
+compatible con el Servidor
+cumple todo lo detallado.
+Marca y Modelo: Marca y Modelo: INTEL
+(Especificar) KCC-REM-CPU-G63668
+Se requiere Puertos Dual Puertos Dual 10G/1G SFP+,
+10G/1G SFP+, adicionalmente cuenta con dos
+adicionalmente deberá puertos RJ-45 de 1 Gb.
+contar con dos puertos RJ- Velocidad de datos por
+9) 45 de 1 Gb. puerto: 10/1GbE (Puertos
+Velocidad de datos por SFP) y 1 GbE (Puertos RJ-45)
+puerto: 10/1GbE (Puertos Velocidad y amplitud de la
+SFP) y 1 GbE (Puertos RJ- ranura: 5.0 GT/s, x8 o x16
+45) carril
+Velocidad y amplitud de Tipo de interfaz de
+la ranura: 5.0 GT/s, x8 o sistema: PCIe v2.0 (5.0 GT/s)
+x16 carril Arquitectura de bus de
+Tipo de interfaz de E/S: PCIe2 x8
+2 sistema: PCIe v2.0 (5.0 Almacenamiento sobre
+E GT/s) Ethernet: ¡SCSI, FCOE, NFS
+pati Arquitectura de bus de 1 5,600.00 | Compatibilidad: Deber ser 1 5,600.00
+E/S: PCIe2 x8 compatible con el servidor
+
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+
+CONDICIONES COMPLEMENTARIAS
+
+requerido)
+
+Para ser llenado por el proponente
+
+CARACTERÍSTICAS DE LA PROPUESTA
+(Manifestar aceptación, especificar y/o adjuntar lo
+
+Para la calificación de la
+entidad
+
+Salida de potencia total:
+750W
+
+Factor de forma: 1U
+Rango de entrada: 100-
+240V 10-5A 50-60HZ
+Rango de salida: +12.2V -
+61.47A + 12VSB — 3.0A
+Tipo de salida: Corredor
+dorado (conector de 19
+pares)
+
+3. FUENTE | PFC: Sí
+
+Salida de potencia total:
+750W
+
+Factor de forma: 1U
+Rango de entrada: 100-
+240V 10-5A 50-60HZ
+
+Rango de salida: +12.2V -
+61.47A + 12VSB — 3.04
+
+Tipo de salida: Corredor
+dorado (conector de 19 pares)
+PFC: Sí
+
+Eficiencia energética: 94%
+
+deberá contar con su
+respectivo Caddy de 2.5”
+para ingreso a Ranuras.
+Compatibilidad: Deber ser
+compatible con el servidor
+DELL POWEREDGE R630
+(Especificar y Manifestar
+Aceptación)
+
+todo lo detallado.
+
+cuenta con su respectivo
+Caddy de 2.5” para ingreso a
+Ranuras de servidores.
+Compatibilidad: Deber ser
+compatible con el servidor
+DELL POWEREDGE R630
+
+Serv  Jireh manifiesta
+aceptación, y aclara que el
+disco duro es compatible
+con el Servidor, y cumple
+
+DE PODER | Eficiencia energética: 6.499,38 Pico 6.499,38
+94% Pico Certificación: 80 Plus platino
+Certificación: 80 Plus Compatibilidad: Deber ser
+platino compatible con el servidor
+Compatibilidad: Deber ser DELL POWEREDGE R630
+DEL POWEREDGE RG30 Serv Jireh manifiesta
+(Especificar y Manifestar aceptación, y aclara que la
+Aceptación) fuente ; de poder es
+
+compatible con el Servidor,
+
+| y cumple todo lo detallado.
+Marca y Modelo: Marca y Modelo: DELL,
+(Especificar) ST300MM0008
+Bahía Compatible: 2.5” Bahía Compatible: 2.5”
+Capacidad de Capacidad de
+Almacenamiento: 300 GB Almacenamiento: 300 GB
+Interfaz: SAS Interfaz: SAS
+Velocidad de Velocidad de
+transferencia: 12 Gb/s. transferencia: 12 Gb/s.
+Tipo de unidad Tipo de unidad compatible:
+compatible: HDD HDD
+Velocidad de Rotación: Velocidad de Rotación:
+
+4. DISCO | 10000 rpm 10000 rpm
+
+DURO 300 | Caddy: Cada Disco Duro 8.840,00 | Caddy: Cada Disco Duro 8.840,00
+
+GB deberá contar con su cuenta con su respectivo
+respectivo Caddy de 2.5” Caddy de 2.5” para ingreso a
+para ingreso a Ranuras. Ranuras de servidores.
+Compatibilidad: Deber ser Compatibilidad: Deber ser
+compatible con el servidor compatible con el servidor
+DELL NX 3230 DELL NX 3230
+posaroivae po Serv  Jireh manifiesta
+
+aceptación, y aclara que el
+disco duro es compatible
+con el Servidor, y cumple
+todo lo detallado.
+Marca y Modelo: Marca y Modelo: DELL,
+(Especificar) ST91000640SS
+Bahía Compatible: 2.5” Bahía Compatible: 2.5”
+Capacidad de Capacidad de
+Almacenamiento: 1 TB Almacenamiento: 1 TB
+Interfaz: SAS Interfaz: SAS
+Velocidad de Velocidad de
+transferencia: 6 Gb/s. transferencia: 6 Gb/s.
+Tipo de unidad Tipo de unidad compatible:
+compatible: HDD HDD
+Cache: 64 MB Cache: 64 MB
+
+5. Disco | Velocidad de Rotación: Velocidad de Rotación:
+7200 rpm 7200 rpm
+
+bo E Caddy: Cada Disco Duro iia Caddy: Cada Disco Duro 19.896,00
+
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+CONDICIONES COMPLEMENTARIAS
+
+B. INSTALACIÓN DEL BIEN
+
+Para ser llenado por el proponente
+
+el
+
+CARACTERÍSTICAS DE LA PROPUESTA
+
+(Manifestar aceptación, especificar y/o adjuntar lo (especificar el
+requerido) SI |NO porqué no
+cumple)
+
+Para la calificación de la
+entidad
+
+NO APLICA
+
+C. INSPECCIÓN, PRUEBAS O MUESTRAS
+
+NO APLICA
+
+D. PROVISIÓN DE REPUESTOS/INSUMOS Y OTROS
+
+El ofertante deberá contar con stock del bien ofertado con
+la finalidad de efectuar la reposición en caso que sea
+necesario. (Manifestar Aceptación)
+
+Serv Jireh manifiesta aceptación
+
+E. GARANTÍA DEL(LOS) BIEN(ES)
+
+Se solicita un año mínimo de garantía del bien que esté
+debidamente certificado por el proveedor.
+
+Qe caso de bienes defectuosos la empresa está en la
+
+obligación de reponer los mismos en un plazo de
+
+cinco (5) días calendario. (Manifestar aceptación)
+
+Serv Jireh manifiesta aceptación
+
+F. CONDICIONES COMPLEMENTARIAS
+
+Medios de Transporte.
+
+Los medios de trasporte hasta la entrega del equipo, en
+nuestras oficinas corren por cuenta del proveedor.
+(Manifestar aceptación).
+
+Certificado.
+
+El proponente deberá adjuntar un certificado que acredite
+que los accesorios ofertados son compatibles con
+tación).
+111. CONDICIONES DEL PROCESO
+
+dispositivos Dell (Manifestar ace
+
+A. PLAZO DE ENTREGA
+
+Medios de transporte: Serv Jireh manifiesta
+aceptación
+
+Certificado: Serv Jireh manifiesta aceptación
+
+IMPONE
+
+1 día calendario computable a partir del día siguiente hábil
+de la suscripción de la orden de compra y/o servicio.
+
+Serv Jireh manifiesta aceptación
+
+Otomo Aceptación)
+B. RÉGIMEN DE MULTAS
+
+8*1000 por día calendario de retraso del monto total
+adjudicado (Manifestar Aceptación)
+
+Serv Jireh manifiesta aceptación
+
+C. FORMA Y MEDIO DE PAGO
+
+Contra entrega del bien a través de SIGEP, previa emisión
+de conformidad y recepción de la respectiva factura.
+(Manifestar Aceptación)
+
+Serv Jireh manifiesta aceptación
+
+D. LUGAR DE ENTREGA Y RECEPCION DEL BIEN
+
+Los accesorios requeridos deben ser entregados en la
+Unidad de Almacenes Ubicado en la Calle Yanacocha Casi
+esq. Sucre Nro. 731, debiendo coordinar previamente con
+el Ing. Marco Lima (Cel. 79564477). RECEPCIÓN SERÁ POR
+LA TOTALIDAD DE LOS ITEMS ADJUDICADOS (Manifestar
+Aceptación)
+
+Serv Jireh manifiesta aceptación
+
+E. FORMA DE ADJUDICACIÓN
+
+Por items
+
+F. OTROS
+
+
+EE
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+CONDICIONES COMPLEMENTARIAS
+
+Asistencia técnica.
+
+El proveedor deberá brindar asistencia técnica cuando esta
+sea requerida y estar acorde al horario de trabajo vigente
+en el Organo Judicial (Manifestar aceptación).
+
+Para ser llenado por el proponente
+
+CARACTERÍSTICAS DE LA PROPUESTA
+(Manifestar aceptación, especificar y/o adjuntar lo
+requerido)
+
+Para la calificación de la
+entidad
+
+Serv Jireh manifiesta aceptación
+
+1. CONDICIONES COMPLEMENTARIAS
+
+Las empresas proponentes deberán enviar sus propuestas
+en forma digital, hasta horas 14:30 del día establecido para
+la Apertura de Propuestas del Cronograma de Actividades
+del Formulario 110 del presente proceso, al correo
+institucional: compraslpzGorganojudicial.gob.bo,
+adicionalmente deberá remitir una copia del correo
+electrónico enviado a los correos:
+
+lima.f mail.com
+Oia
+
+| (Manifestar Aceptación)
+
+Serv Jireh manifiesta aceptación
+
+Ay Periferica Neo. 777 + Cel: 71910205
+Rolando Alvaro Figueredo Quistart

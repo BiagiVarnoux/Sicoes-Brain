@@ -1,0 +1,557 @@
+MODELO DE ESPECIFICACIONES TÉCNICAS 
+PARA ADQUISICIÓN DE BIENES 
+ 
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS 
+CONDICIONES COMPLEMENTARIAS 
+Para ser llenado por el proponente 
+Para la calificación de la 
+entidad 
+CARACTERÍSTICAS DE LA PROPUESTA 
+(Manifestar aceptación, especificar y/o adjuntar lo 
+requerido) 
+CUMPLE Observacio
+nes 
+(especificar 
+el porqué no 
+cumple) 
+SI 
+NO 
+I. OBJETO DE LA CONTRATACIÓN 
+ 
+ 
+ 
+ 
+ADQUISICIÓN DE ACCESORIOS PARA SERVIDORES DE DATOS PARA EL ORGANO JUDICIAL LAPAZ 
+II. 
+CARACTERÍSTICAS 
+GENERALES 
+DEL(LOS) 
+BIEN(ES) 
+ 
+ 
+ 
+ 
+A. DETALLE Y REQUISITOS DEL(LOS) BIEN(ES) 
+ 
+ 
+ 
+ 
+1. 
+MEMORIA 
+RAM 
+Memoria RAM tipo: DDR4 
+Unidades. 
+Marca y Modelo: 
+(Especificar) 
+Capacidad: 32 GB cada 
+módulo, con bancos de 2Rx4. 
+Factor de Forma: RDIMM 
+Tipo de Bus: PC4-21300 
+Corrección de error: ECC 
+Rango de Transferencia: 
+2666MHz 
+Numero de pines: 288 
+El voltaje deberá ser de 1.2V 
+Deber ser compatible con el 
+servidor SuperMicro SYS-
+2028TP-DC1TR 
+(Especificar y/o 
+Manifestar Aceptación) 
+Cantid
+ad 
+Precio 
+Unitario 
+Referencial 
+(Bs) 
+Memoria RAM tipo: 
+DDR4 
+Unidades. 
+Marca y Modelo: Hynix -  
+HMA84GR7MFR4N-UH 
+Capacidad: 32 GB cada 
+módulo, con bancos de 
+2Rx4. 
+Factor de Forma: RDIMM 
+Tipo de Bus: PC4-21300 
+Corrección de error: ECC 
+Rango de Transferencia: 
+2666MHz 
+Numero de pines: 288 
+El voltaje es de 1.2V 
+Es compatible con el 
+servidor SuperMicro SYS-
+2028TP-DC1TR 
+La empresa Groupcisc 
+centro empresarial 
+acepta y cumple con 
+esta cláusula. 
+Cantidad 
+Precio 
+Unitario 
+Ofertado 
+(Bs) 
+ 
+ 
+ 
+16 
+19,997.60 
+16 
+19,997.60 
+ 
+           
+ 
+                                                        
+ 
+ 
+                
+       
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS 
+CONDICIONES COMPLEMENTARIAS 
+Para ser llenado por el proponente 
+Para la calificación de la 
+entidad 
+CARACTERÍSTICAS DE LA PROPUESTA 
+(Manifestar aceptación, especificar y/o adjuntar lo 
+requerido) 
+CUMPLE Observacio
+nes 
+(especificar 
+el porqué no 
+cumple) 
+SI 
+NO 
+2. TARJETA 
+DE RED 
+Marca y Modelo: 
+(Especificar) 
+Se requiere Puertos Dual 
+10G/1G SFP+ 
+Velocidad de datos por 
+puerto: 10/1GbE 
+Velocidad y amplitud de la 
+ranura: 5.0 GT/s, x8 o x16 
+carril  
+Tipo de interfaz de 
+sistema: PCIe v2.0 (5.0 
+GT/s) 
+Arquitectura de bus de 
+E/S: PCIe2 x8 
+Almacenamiento sobre 
+Ethernet: iSCSI, FCoE, NFS 
+Deber ser compatible con el 
+servidor SuperMicro SYS-
+2028TP-DC1TR. 
+Deberá traer instalado dos 
+módulos SFP, tipo multimodo 
+de 10GB, compatibles a la 
+tarjeta de red ofertado. 
+(Especificar y/o 
+Manifestar Aceptación) 
+2 
+11,301.64 
+Marca y Modelo: INTEL 
+X520-DA2 
+Puertos Dual 10G/1G 
+SFP+ 
+Velocidad de datos por 
+puerto: 10/1GbE 
+Velocidad y amplitud de 
+la ranura: 5.0 GT/s, x8 o 
+x16 carril  
+Tipo de interfaz de 
+sistema: PCIe v2.0 (5.0 
+GT/s) 
+Arquitectura de bus de 
+E/S: PCIe2 x8 
+Almacenamiento sobre 
+Ethernet: iSCSI, FCoE, 
+NFS 
+Es compatible con el 
+servidor SuperMicro SYS-
+2028TP-DC1TR. 
+Trae instalado dos módulos 
+SFP, tipo multimodo de 
+10GB, compatibles a la 
+tarjeta de red. 
+La empresa Groupcisc 
+centro empresarial 
+acepta y cumple con 
+esta cláusula. 
+2 
+11,301.64 
+ 
+ 
+ 
+           
+ 
+                                                        
+ 
+ 
+                
+       
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS 
+CONDICIONES COMPLEMENTARIAS 
+Para ser llenado por el proponente 
+Para la calificación de la 
+entidad 
+CARACTERÍSTICAS DE LA PROPUESTA 
+(Manifestar aceptación, especificar y/o adjuntar lo 
+requerido) 
+CUMPLE Observacio
+nes 
+(especificar 
+el porqué no 
+cumple) 
+SI 
+NO 
+3. FUENTE 
+DE PODER 
+Salida de potencia total: 
+920W 
+Factor de forma: 1U 
+Características de la 
+Fuente: 
++5V -> N/A 
++12V -> 75A 
++3,3 V -> N/A 
+5V en espera -> 4A 
+Rango de voltaje de 
+entrada: 100-127Vac / 200-
+240Vac / 200-240Vdc (solo 
+CCC) 
+Rango de frecuencia de 
+entrada: 50-60Hz 
+Tipo de salida: Corredor 
+dorado (conector de 19 
+pares) 
+PFC: Sí 
+Corriente de voltaje: 100-
+127Vac / 11A - 8.5A 200-
+240Vac / 5.5A - 4.5A 200-
+240Vdc 5.5A - 4.5A (solo 
+CCC) 
+Eficiencia energética: 94% 
+Pico 
+Certificación 80 Plus: 80 
+más platino 
+(Especificar y/o 
+Manifestar Aceptación) 
+1 
+6.700,36 
+Salida de potencia total: 
+920W 
+Factor de forma: 1U 
+Características de la 
+Fuente: 
++5V -> N/A 
++12V -> 75A 
++3,3 V -> N/A 
+5V en espera -> 4A 
+Rango de voltaje de 
+entrada: 100-127Vac / 
+200-240Vac / 200-240Vdc 
+(solo CCC) 
+Rango de frecuencia de 
+entrada: 50-60Hz 
+Tipo de salida: Corredor 
+dorado (conector de 19 
+pares) 
+PFC: Sí 
+Corriente de voltaje: 
+100-127Vac / 11A - 8.5A 
+200-240Vac / 5.5A - 4.5A 
+200-240Vdc 5.5A - 4.5A 
+(solo CCC) 
+Eficiencia energética: 
+94% Pico 
+Certificación 80 Plus: 80 
+más platino 
+La empresa Groupcisc 
+centro empresarial 
+acepta y cumple con 
+esta cláusula. 
+1 
+6.700,36 
+ 
+ 
+ 
+TOTAL 
+38.000.00 
+ 
+ 
+ 
+ 
+ 
+B. INSTALACIÓN DEL BIEN 
+ 
+ 
+ 
+ 
+NO APLICA 
+ 
+ 
+ 
+ 
+C. INSPECCIÓN, PRUEBAS O MUESTRAS 
+ 
+ 
+ 
+ 
+NO APLICA 
+ 
+ 
+ 
+ 
+D. PROVISIÓN DE REPUESTOS/INSUMOS Y OTROS 
+ 
+ 
+ 
+ 
+El ofertante deberá contar con stock del bien ofertado con 
+la finalidad de efectuar la reposición en caso que sea 
+necesario. (Manifestar Aceptación) 
+La 
+empresa 
+Groupcisc 
+centro 
+empresarial acepta y cumple con esta 
+cláusula. 
+ 
+ 
+ 
+E. GARANTÍA DEL(LOS) BIEN(ES)  
+ 
+ 
+ 
+ 
+Se solicita un año mínimo de garantía del bien que esté 
+debidamente certificado por el proveedor. 
+En caso de bienes defectuosos la empresa está en la 
+obligación de reponer los mismos en un plazo de 
+cinco (5) días calendario. (Manifestar aceptación) 
+La 
+empresa 
+Groupcisc 
+centro 
+empresarial acepta y cumple con esta 
+cláusula. 
+ 
+ 
+ 
+F. CONDICIONES COMPLEMENTARIAS  
+ 
+ 
+ 
+ 
+           
+ 
+                                                        
+ 
+ 
+                
+       
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS 
+CONDICIONES COMPLEMENTARIAS 
+Para ser llenado por el proponente 
+Para la calificación de la 
+entidad 
+CARACTERÍSTICAS DE LA PROPUESTA 
+(Manifestar aceptación, especificar y/o adjuntar lo 
+requerido) 
+CUMPLE Observacio
+nes 
+(especificar 
+el porqué no 
+cumple) 
+SI 
+NO 
+Medios de Transporte. 
+Los medios de trasporte hasta la entrega del equipo, en 
+nuestras oficinas corren por cuenta del proveedor. 
+(Manifestar aceptación). 
+ 
+Certificado. 
+El proponente deberá adjuntar un certificado que acredite 
+que los accesorios ofertados son compatibles con 
+dispositivos SuperMicro (Manifestar aceptación). 
+La 
+empresa 
+Groupcisc 
+centro 
+empresarial acepta y cumple con esta 
+cláusula. 
+ 
+La 
+empresa 
+Groupcisc 
+centro 
+empresarial acepta y cumple con esta 
+cláusula. 
+ 
+ 
+ 
+III. CONDICIONES DEL PROCESO 
+ 
+ 
+ 
+ 
+A. PLAZO DE ENTREGA 
+ 
+ 
+ 
+ 
+5 días calendario computables a partir del día siguiente 
+hábil de la suscripción de la orden de compra y/o servicio. 
+(Manifestar Aceptación) 
+La 
+empresa 
+Groupcisc 
+centro 
+empresarial acepta y cumple con esta 
+cláusula. 
+ 
+ 
+ 
+B. RÉGIMEN DE MULTAS 
+ 
+ 
+ 
+ 
+8*1000 por día calendario de retraso del monto total 
+adjudicado (Manifestar Aceptación) 
+La 
+empresa 
+Groupcisc 
+centro 
+empresarial acepta y cumple con esta 
+cláusula. 
+ 
+ 
+ 
+C. FORMA Y MEDIO DE PAGO 
+ 
+ 
+ 
+ 
+Contra entrega del bien a través de SIGEP, previa emisión 
+de conformidad y recepción de la respectiva factura. 
+(Manifestar Aceptación) 
+La 
+empresa 
+Groupcisc 
+centro 
+empresarial acepta y cumple con esta 
+cláusula. 
+ 
+ 
+ 
+D. LUGAR DE ENTREGA Y RECEPCION DEL BIEN 
+ 
+ 
+ 
+ 
+Los accesorios requeridos deben ser entregados en la 
+Unidad de Almacenes Ubicado en la Calle Yanacocha Casi 
+esq. Sucre Nro. 731, debiendo coordinar previamente con 
+el Ing. Marco Lima (Cel. 79564477). RECEPCIÓN SERÁ POR 
+LA TOTALIDAD DE LOS ÍTEMS ADJUDICADOS (Manifestar 
+Aceptación) 
+La 
+empresa 
+Groupcisc 
+centro 
+empresarial acepta y cumple con esta 
+cláusula. 
+ 
+ 
+ 
+E. FORMA DE ADJUDICACIÓN 
+ 
+ 
+ 
+ 
+Por items 
+ 
+ 
+ 
+ 
+F. OTROS 
+ 
+ 
+ 
+ 
+Asistencia técnica.  
+ 
+El proveedor deberá brindar asistencia técnica cuando esta 
+sea requerida y estar acorde al horario de trabajo vigente 
+en el Órgano Judicial (Manifestar aceptación). 
+La 
+empresa 
+Groupcisc 
+centro 
+empresarial acepta y cumple con esta 
+cláusula. 
+ 
+ 
+ 
+I. CONDICIONES COMPLEMENTARIAS 
+ 
+ 
+ 
+ 
+           
+ 
+                                                        
+ 
+ 
+                
+       
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS 
+CONDICIONES COMPLEMENTARIAS 
+Para ser llenado por el proponente 
+Para la calificación de la 
+entidad 
+CARACTERÍSTICAS DE LA PROPUESTA 
+(Manifestar aceptación, especificar y/o adjuntar lo 
+requerido) 
+CUMPLE Observacio
+nes 
+(especificar 
+el porqué no 
+cumple) 
+SI 
+NO 
+Las empresas proponentes deberán enviar sus propuestas 
+en forma digital, hasta horas 14:30 del día establecido para 
+la Apertura de Propuestas del Cronograma de Actividades 
+del Formulario 110 del presente proceso, al correo 
+institucional: 
+compraslpz@organojudicial.gob.bo, 
+adicionalmente deberá remitir una copia del correo 
+electrónico enviado a los correos: 
+ 
+lima.fmarco@gmail.com  
+malima@organojudicial.gob.bo 
+lothagbb@gmail.com 
+eddytavo95@hotmail.com 
+malvarezv90@gmail.com 
+ 
+(Manifestar Aceptación) 
+La 
+empresa 
+Groupcisc 
+centro 
+empresarial acepta y cumple con esta 
+cláusula.                                                      
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ing. Marcelo Quisbert 
+Gerente Comercial 
+GROUPCISC CENTRO EMPRESARIAL S.R.L.

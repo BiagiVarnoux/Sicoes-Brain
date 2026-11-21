@@ -1,0 +1,402 @@
+ESPECIFICACIONES TÉCNICAS
+PARA CONTRATACIÓN DE BIENES
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES COMPLEMENTARIAS
+
+I. OBJETO DE LA CONTRATACIÓN
+
+ADQUISICIÓN DE SISTEMA DE AUDIO PARA EL EDIFICIO ANEXO “B” DEL ÓRGANO JUDICIAL DISTRITO LA PAZ
+
+II. CARACTERÍSTICAS GENERALES DEL(LOS) BIEN(ES)
+
+pa: DETALLE Y REQUISITOS DEL(LOS) BIEN(ES)
+1. Marca: (Especificar) Precio Piéclo
+2. Modelo: (Especificar) Unidad | Cantidad | Referencial Total (Bs)
+3. Cantidad: 2 Unidades. (Especificar) (Bs)
+
+(Manifestar aceptación y/o especificar lo requerido)
+4. Activo o pasivo: Pasivo
+(Manifestar aceptación y/o especificar lo requerido)
+5. Respuesta frecuente: 80Hz-20KHz
+(Manifestar aceptación y/o especificar lo requerido)
+6. Patrón de cobertura: Vertical 20 * (1.5 kHz - 16 kHz, +/- 10
+2) Horizontal 150 * (ave, 1 kHz - 4 kHz, +/- 20 9)
+(Manifestar aceptación y/o especificar lo requerido)
+7. Sensibilidad: 93 dB (modo de voz, 2 kHz - 14 kHz) 89 dB
+(modo de música, 300 Hz - 18 kHz)
+(Manifestar aceptación y/o especificar lo requerido)
+1 :RARLANTES 8. Capacidad de potencia: 150W (pico de 600W), 2 horas
+(ajuste de 802): 100W (pico de 400W), 100 horas Pieza 2 9.000,00 18.000,00
+(Manifestar aceptación y/o especificar lo requerido)
+9. Nivel máximo de presión sonora (SPL): Modo de voz:
+promedio continuo de 115dB (pico 121) Modo de música:
+promedio continuo de 111dB (pico 117)
+(Manifestar aceptación y/o especificar lo requerido)
+10. Sensibilidad nominal: 93dB (modo de voz, 2Hz - 14KHz),
+89dB (modo de música, 300Hz - 18KHz)
+(Manifestar aceptación y/o especificar lo requerido)
+11. Impedancia: 8%
+(Manifestar aceptación y/o especificar lo requerido)
+12. Altavoz 8 x 2 "(50 mm): rango completo
+(Manifestar aceptación y/o especificar lo requerido)
+Marca: (Especificar) |
+Modelo: (Especificar)
+Cantidad: 1 Unidad. (Especificar)
+Sensibilidad: 1.4Vrms (para una potencia nominal completa a
+4 ohmios)
+(Manifestar aceptación y/o especificar lo requerido)
+5. Canales de Salida: 2
+(Manifestar aceptación y/o especificar lo requerido)
+6. Potencia nominal en 4 Q u 8 S; 1kHz, < 0.5% THD: 120 W
+(Manifestar aceptación y/o especificar lo requerido)
+7. Respuesta de frecuencia: + 0dB, 1dB
+(Manifestar aceptación y/o especificar lo requerido)
+odia 8 pu re ruido: > 97 dB (a .775Vrms de sensibilidad, Pieza 1 6.500,00 6.500,00
+(Manifestar aceptación y/o especificar lo requerido)
+9. Distorsión de la intermodulación: <0.3%
+10. (Manifestar aceptación y/o especificar lo requerido
+11, Factor de amortiguamiento: (8 ohmios, 10 Hz a 400 Hz) >
+200
+(Manifestar aceptación y/o especificar lo requerido)
+12. Diafonía: A 1 kHz > 85 dB, a 20 KHz > 55 dB
+(Manifestar aceptación y/o especificar lo requerido)
+13. THD: < 0.5%
+(Manifestar aceptación y/o especificar lo requerido)
+14. Nivel máximo de entrada: +22 dBu (nominal)
+_(Manifestar aceptación y/o especificar lo requerido)
+
+EUA
+
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS CONDICIONES COMPLEMENTARIAS
+
+Marca: (Especificar)
+Modelo: (Especificar)
+Cantidad: 1 Unidad. (Especificar)
+Tipo: Analógico
+(Manifestar aceptación y/o especificar lo requerido)
+Canales: 10
+(Manifestar aceptación y/o especificar lo requerido)
+6. Conectividad de la computadora: USB (2 x 2)
+
+(Manifestar aceptación y/o especificar lo requerido)
+7. Entradas - Preamplificadores de micrófono: 6 x XLR
+
+(Manifestar aceptación y/o especificar lo requerido)
+8. Phantom Power: Sí
+
+(Manifestar aceptación y/o especificar lo requerido)
+9. Entradas - Línea: 8 x TRS, 2 x RCA
+
+(Manifestar aceptación y/o especificar lo requerido) Pieza al 4.000,00 4.000,00
+10. Entradas - Otro: 1 x 1/4 "(pedal)
+
+(Manifestar aceptación y/o especificar lo requerido)
+11. Salidas - Principal: 2 x XLR
+
+(Manifestar aceptación y/o especificar lo requerido)
+12. Salidas - Otro: 2 x RCA
+
+(Manifestar aceptación y/o especificar lo requerido)
+13. Envíos Aux: 1 x Pre, 1 x Publicación
+
+(Manifestar aceptación y/o especificar lo requerido)
+14. USB: 1 x Tipo B
+
+(Manifestar aceptación y/o especificar lo requerido)
+15. Bandas de ecualización: 3 bandas, 7 bandas (gráfico estéreo)
+
+(Manifestar aceptación y/o especificar lo requerido)
+16. Efectos: Sí
+(Manifestar aceptación y/o especificar lo requerido) ]
+
+SO y
+
+y
+
+3.
+MEZCLADOR
+
+1. Marca: (Especificar)
+2. Modelo: (Especificar)
+3. Cantidad: 2 Unidades. (Especificar)
+
+TRANSMISOR DE MANO
+
+Anchura de banda de selección: 30,5 MHz
+
+Modulación: FM
+
+Potencia de transmisión RF: 10, 30 ó 50 mw
+
+Espurios: < 70 dBcAntena: Antena dipolo integrada
+
+Banda pasante de audio: 35 — 20.000 Hz
+
+Coeficiente de distorsión no lineal: <0,7% típico con
+dispersión nominal/1 kHz
+
+Relación señal/ruido (ponderación A) 120 dB(A)
+
+Cabezal de micrófono: HT 470 D5: micrófono dinámico
+(supercardioide)HT 470 C5: micrófono de condensador
+(cardioide)
+
+9. Presión sonora máx.: HT 470 D5: < 140 dB
+
+4. SPLRequerimientos de energía: 2 pilas AA LR6, 1.5V, alcalinas
+MICROFONO Pieza 2 4.500,00 9.000,00
+INALAMBRICO (Manifestar aceptación y/o especificar lo requerido)
+
+DER IE
+
+eS
+
+RECEPTOR DE RACK INALAMBRICO
+
+Anchura de banda de selección: 30,5 MHz
+
+Modulación: FM
+
+Sensibilidad: 6 dBV / -100 dBm
+
+Principio del receptor: Superheterodino
+
+Sistema de diversidad: Diversidad espacial con control pC
+Banda pasante de audio: 35 — 20.000 Hz
+
+Relación señal a ruido: 120 dB(A)
+
+Salidas de audio: Balanceada en salida XLR, conmutable a -30
+ó 0 dBm
+
+9. Nivel de salida de audio: +9 dBu (máx.)
+
+10. Entradas de antena: 2 enchufes BNC de 50 ohmios
+
+11. Sistema de tono piloto para la supresión del ruido
+
+12. Debe incluir su adaptador.
+
+A AA
+
+(Manifestar aceptación y/o especificar lo requerido) l
+
+
+1. Marca: (Especificar)
+2. Modelo: (Especificar)
+3. Cantidad: 2 Unidades. (Especificar)
+4. Transductor: Condensador
+
+(Manifestar aceptación y/o especificar lo requerido)
+5. Patrón polar: Cardioide
+
+(Manifestar aceptación y/o especificar lo requerido)
+6. Respuesta frecuente: 50 Hz a 17 kHz
+
+(Manifestar aceptación y/o especificar lo requerido)
+7. Rango dinámico (típico): 94 dB, (carga de 1 kW)
+
+A (Manifestar aceptación y/o especificar lo requerido)
+
+MICROFONO 8. Relación de señal a ruido: 65.0 dB (referenciado Q 94 dB >
+
+CUELLO DE SPL) Pieza 2 3.475,00 6.950,00
+GANZO (Manifestar aceptación y/o especificar lo requerido)
+
+9. Máximo nivel de sonido de entrada: 123,0 dB (1 kHz O 1%
+
+THD, 1 kW de carga)
+
+(Manifestar aceptación y/o especificar lo requerido)
+10. Requerimientos de energía: Fantasma, (11 a 52v, DC)
+
+(Manifestar aceptación y/o especificar lo requerido)
+11. Impedancia de salida: 150 ohmios, (180 ohmios reales a 1
+
+kHz)
+
+(Manifestar aceptación y/o especificar lo requerido)
+12. Conectores de salida: Tipo XLR-3M
+
+Manifestar aceptación y/o especificar lo requerido)
+
+PA RE HAL A cd LA pi a]
+
+Se solicita un año mínimo de garantía del bien que esté debidamente certificado por el proveedor.
+En caso de bienes defectuosos la empresa está en la obligación de reponer los mismos en un plazo de cinco (5) días calendario.
+(Manifestar aceptación)
+
+p—
+
+Asistencia técnica.
+El proveedor deberá brindar asistencia técnica cuando esta sea requerida y estar acorde al horario de trabajo vigente en el Órgano Judicial
+(Manifestar aceptación).
+
+Medios de Transporte.
+Los medios de trasporte hasta la entrega del equipo, en nuestras oficinas corren por cuenta del proveedor. (Manifestar aceptación).
+
+III. CONDICIONES DEL PROCESO
+
+Los equipos deben ser entregados para su inspección y prueba, en el plazo máximo de dos (2) días calendario, computables a partir del
+siguiente día hábil de la suscripción de la orden de compra. (Manifestar aceptación).
+
+8*1000 por día de retraso del monto total adjudicado. (Manifestar aceptación)
+
+través de SIGEP, previa emisión de conformidad y recepción de la respectiva factura. (Manifestar aceptación)
+
+Contra prestación de servicio a
+
+leberán enviar sus propuestas en forma digital, hasta horas 14:31 establecido para la Apertura de Propuestas |
+del Cronograma de Actividades del Formulario 110 del presente proceso, al correo institucional: comprasipzGorganojudicial.gob.bo,
+adicionalmente deberá enviar a los siguientes correos electrónicos:
+
+(Manifestar aceptación)
+
+
+VIZion.netS.R.L. E
+
+Comercialización de Equipos de Provección yor
+Mantenimiento Preventivo Correctivo de Equipos Audiovisuales 13 años a su servicio
+
+La Paz, 1 de julio de 2022
+CITE /8339/22
+Señor (es): Órgano Judicial
+Ref.: Cotización de Instalación
+Mediante la presente hago llegar la cotización de Instalación Anexo B.
+
+CARACTERISTICAS TECNICAS INSTALACION DE EQUIPO DE
+SONIDO
+
+Unitario Total
+
+e E
+
+6500.00
+
+Modelo: CBT100
+
+Parlante de tecnología Columna Array lineal
+Rango de Frecuencia de 80hz — 20khz
+Impedancia 8 ohms
+
+Rango de poder 325w(1300w de roptura)2hrs,
+200w(800w roptura) 100hrs
+
+Dimensiones 1000 x 98.5 x 153 mm
+
+Peso 7.2kg
+
+CROWN XLS-2500 AMPLIFICADOR
+CLASE D 775W
+
+Características:
+Amplificador Class D de 775 Wa 4 ohms/ 440 Wa
+8 ohms
+
+Alto rendimiento, ligero amplificador Class-D
+impulsado por Tecnología DriveCore”"
+
+Sistema Crossover integrado PureBand'" que
+asegura la transición sin fisuras de baja frecuencia
+a conductores de alta frecuencia
+
+Los limitadores integrados Peak X"" proporcionan
+máxima salida y a la vez protegen los altavoces
+Entradas XLR, 1/4" SDSq, RCA que aseguran la
+compatibilidad con cualquier fuente
+
+Las entradas 1/4" pueden ser utilizadas como
+"loop-thrus” para distribuir señal a otros
+amplificadores
+
+Eficientes ventiladores de aire forzado que
+previenen la excesiva acumulación térmica
+Entradas XLR balanceados electrónicamente;
+salidas con posición vinculante, aislantes y Speakon
+(0)
+
+Controles de nivel de precisión, interruptor de
+encendido, LED de encendido y seis LEDs que
+indican la señal, clip y falla para cada canal
+
+Crown
+
+mu
+
+6500.00
+
+Calle Murillo No 1223 Of. 2 tel. fax 591-2-2118607 u hatsapp 70686581 - 79145763 email vizionnet(vacelerate.com
+
+mnnmvizion.met. bo
+
+
+a VIzion.netS.R.L. (A
+
+-
+Comercialización de Equipos de Provección yor
+Mantenimiento Preventivo Correctivo de Equipos Audiovisuales 13 años a su servicio
+
+Canales 10
+
+SoundcraftY) Ghost Preamps 6
+
+Soundcraft00000 Sapphyre EQ 3 Band
+
+Usb interfas 2
+
+Auxiliar 3
+
+Marca AKG Set Micrófono Inalámbrico
+
+Modelo Wms470 Vocal Set DS
+
+Rango de sintonización de 30.5 MHz.
+
+Receptor de diversidad de cajas metálicas de
+
+medio 19.
+
+Función de configuración automática diseñada
+Micrófono inalámbrico para operadores menos experimentados.
+
+Hasta 16 frecuencias preprogramadas por grupo.
+
+Pilot Tone previene el ruido de arranque
+
+inesperado.
+
+Enlace infrarrojo de todos los datos de frecuencia 4:00.00 20.00
+y configuración al transmisor.
+
+Monitoreo del estado de la batería del transmisor.
+
+Funciones de advertencia programables usando
+
+una retroiluminación de pantalla de dos colores
+para indicar condiciones de operación críticas
+(batería baja, pico de audio, baja RF).
+Compatible con divisores de antena WMS 4500,
+fuentes de alimentación y antenas direccionales y
+omnidireccionales de alta calidad.
+
+4000.00 4000.00
+
+Micrófono cuello de ganso
+
+Marca Shure modelo MX418dc
+
+TERMINOS DE VENTA:
+
+VALIDEZ DELA OFERTA: 10 DÍAS CALENDARIO
+TIEMPO DE ENTREGA: 2 DIAS CALENDARIO
+TIEMPO DE GARANTIA: 1 AÑO.
+
+FORMA DE PAGO: SIGEP o CHEQUE
+
+NOTA. - Los precios son en bolivianos e incluyen impuestos de ley.
+Sin más por el momento y esperando que nuestros precios sean convenientes para usted, me
+despido muy atentamente,
+
+Calle Murillo No 1225 Of. 2 tel fax 591-2-2118607 whatsapp 70686581 - 79145763 email vizionner(Wacelerate.com
+nnnmvizion.ner. bo

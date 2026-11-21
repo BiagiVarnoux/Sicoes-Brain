@@ -1,0 +1,192 @@
+Especificar Garantía rnímma 1 año, computable a partir de la recepción efectuada por parte de la Com1s1ón de ŉecepc1ón 
+(Presentar certificado del fabncante indicando la entidad convocante y el proceso refendo, el certificado sera validado 
+por la entidad). 
+E. CONDICIONES COMPLEMENTARIAS 
+Marca: cada equipo deberá poseer un identificador v1s1ble ongmal de la marca.
+Apertura de empaques y verificación: El Organo Judicial se reserva el derecho, a través de la Com1s1ón de 
+Recepoón: de realizar la venficación, inspecciones, pruebas y recepción de equipos y sus partes, como proceso previo 
+a la emIsIon del Informe de Conformidad. 
+Observaciones a la entrega de bienes: Durante la etapa de venficac1ón e inspección de los equipos, el Proveedor 
+tiene la obligación de salvar cualquier observación, sea esta de entrega de partes o de func1onam1ento de equipos o 
+software suministrados. 
+Embalaje. El proveedor debe garantizar que los equipos sean garantizados en medios de embala¡e que garantice el 
+trasoorte sequro v adecuado del eauInn hasta el Oraano Judicial. 
+Medios de Transporte: Los medios de trasporte hasta la entrega del equipo, en las oficinas del Organo Jud1c1al 
+Distrito Santa Cruz, corren por cuenta del Proveedor. 
+U. CARACTERÍSTICAS GENERALES DE LA EMPRESA 
+A. EXPERIENCIA ESPECIFICA DE LA EMPRESA A SER CONTRATADA 
+1. Experiencia General. El proponente deberá contar con 1 (año} año o más de expenencIa como d1stnbu1dor de la marca orertada 
+(ad¡untar copia de contratos, órdenes de compra o certificados de cumplimiento de contrato}. 
+2. Experiencia Específica. El proponente deberá contar con 1 (año} año o más de anbguedad certificada en la d1str1buoón/venta 
+de productos similares, se deberá acompañar la propuesta de cerbficado em1bdo por el rabncante y/o mayonsta autonzado para 
+Bolivta indicando la expenenoa, ding1do a la enbdad convocante y proceso de rererenoa. (el cerbficado será validado por la entidad}
+Al respecto la Enbdad se rese,va el derecho a realizar la verificación del cerbficado correspondiente. 
+m. CONDICIONES DEL PROCESO 
+A. PLAZO DE ENTREGA 
+Los equipos deben ser entregados, en el plazo máximo de cinco (5) días calendario, computables a partir del 
+siguiente día de la firma del contrato Administrativo u orden de compra. 
+B. RÉGIMEN DE MULTAS 
+7• 1000 por día calendario de retraso del monto total ad¡ud1cado 
+C. FORMA Y MEDIO DE PAGO 
+Contra entrega del bien a través de SIGEP, prevta emisión de conrormldad (comisión de recepoón} y recepoón de la respectiva 
+factura. 
+O. LUGAR DE ENTREGA Y RECEPCION DEL BIEN 
+Los bienes serán entregados en Acbvos fiJos Av. Uruguay Esq. Monseñor RIvero, Subsuelo Palaoo de lusboa 
+LA RECEPCIÓN SERÁ POR LA TOTALIDAD DE LOS EQUIPOS. 
+E. FORMAUZACÓN DE LA CONTRATACÓN 
+Se realizará mediante contrato administrativo u orden de compra. 
+F. FORMA DE ADJUDICACIÓN 
+Por el Total 
+G. MÉTODO DE EVALUACIÓN 
+Preoo Evaluado Más Ba10 
+ 
+ll ¡¡su$ Hlt.lOOJS yca,,,r,ml 
+D.A.F. • SCZ
+
+
+==== PDF ====
+
+PROPUESTA
+Validez de la oferta 30 dias
+Rochi Servicios
+Av. Marcelo Terceros Banzer 214
+773-98907
+cdickrochi@gmail.com
+https://www.rochionline.com/
+NIT : 1596738016
+Facturación Dirección
+ORGANO JUDICIAL
+N°855
+23-08-2023
+Nº Producto
+Cantidad
+Precio
+Valor Total
+1
+HL-L5100DN
+HL-L5100DN
+Impresora
+Tecnología de impresión
+Láser monocromático
+Velocidad de impresión Max. Negro
+42 ppm
+Resoluciones de la impresión máxima (dpi) Hasta 1.200 x 1.200 dpi
+Impresión Dúplex Estandar
+Sí
+Capacidad Estandard de Papel (hojas)
+250 hojas
+Capacidad Opcional de Papel (hojas)
+LT-5500‡ (250 hojas x3) o LT-6500‡ 
+(520 hojas x2)
+Bandeja multiuso Bandeja multipropósito con capacidad para 50 hojas
+Interfaz/interfaces Estandard
+Ethernet y USB 2.0 de alta velocidad
+Controlador de Impresión Windows®, Mac OS® y Linux
+Emulación(es)
+PCL6, BR-Script3‡, IBM Proprinter, Epson FX, PDF Version 
+1.7, XPS Version 1.0
+Seguridad de impresión
+Sí
+Ciclo de Trabajo Mensual Max. Hasta 50.000 páginas
+Volumen de Impresión Mensual Recomendado
+Hasta 3.500 páginas
+Primera página impresa
+Menos de 7,2 segundos
+Memoria Estándar (MB)
+256 MB
+Trabajo en red
+Sí
+Otro
+Protocolos de Red Compatibles (IPv4)
+ARP, RARP, BOOTP, DHCP, 
+APIPA(Auto IP), WINS/NetBIOS name resolution, DNS Resolver, mDNS, 
+LLMNR responder, LPR/LPD, Custom Raw Port/Port9100, IPP/IPPS, FTP 
+Server, TELNET Server, HTTP/HTTPS server, TFTP client y server, SMTP 
+Client, SNMPv1/v2c/ v3, ICMP, Web Services (Print), CIFS client, SNTP 
+client
+Protocolo de Red (IPv6)
+NDP, RA, DNS resolver, mDNS, LLMNR responder, 
+LPR/LPD, Custom Raw Port/Port9100, IPP/IPPS, FTP Server,TELNET Server, 
+HTTP/HTTPS server, TFTP client y server, SMTP Client, SNMPv1/v2c, 
+ICMPv6, Web Services (Print), CIFS Client, SNTP Client,
+Papel Recomendado Común, bond, sobres (hasta 10), etiquetas, papel 
+reciclado, papel de colores, membrete
+Pantalla LCD Retroiluminada de 1 línea
+Velocidad del Procesador (CPU Processor)
+800 MHz
+Fuentes Incluidas
+66 fuentes expandibles, 12 fuentes bitmap, 13 
+códigos de barras (PCL); 66 fuentes expandibles (BR-Script3)
+Modo «Ahorro de Tóner»
+Sí
+Tipos de papel
+Común, bond, sobres (hasta 10), etiquetas, papel 
+reciclado, papel de colores, membrete
+Manejo de Papel Carta, legal, ejecutivo, A4, A5, A6
+Tamaño de Papel – Bandeja multiuso
+Carta, legal, ejecutivo, A4, A5, A6, 
+sobres, tamaños especiales (3,0″ a 8,5″ de ancho y 5,0″ a 14″ de largo)
+Bandeja para Papel -Peso del papel 16 a 32 lb (bond)
+Bandeja para Papel multiuso -Peso del papel
+16 a 53 lb (bond)
+Capacidad de Papel – Salida (hojas)
+150 hojas
+Fuente de energía
+CA 220 V 50/60 Hz
+Energy Star
+Sí
+Consumo de energia En reposo/Preparada/Imprimiendo 
+(Sleep/Ready/Printing)
+6,7 W (modo Ahorro de energía: 1,3 W)/32 
+W/620 W
+Temperaturas Operativas 50 a 91 °F
+Margen de Humedad Operativa
+20% a 80% (sin condensación)
+Ruido (Preparada/Imprimiendo)
+34 dB/52 dB
+Dimensiones de la Unidad (Ancho x Profundidad x Alto)
+14,7″ x 15,3″ x 
+10,0″
+Dimensiones de la Caja/Carton (Ancho x Profundidad x Alto)
+19,1″ x 17,7″ 
+x 14,8″
+Peso de la Unidad
+23,5 lb
+Peso de la Caja/Carton
+28,3 lb
+Contenido de la Caja/Cartón
+(1) Cartucho de tóner de rendimiento 
+estándar (3,000 págs. aprox‡), (1) unidad de tambor DR-3460 (rend. 
+aprox.de 50.000 págs.‡), CD-ROM de instalación, cable de alimentación de 
+CA, Guía de configuración rápida
+Garantía Limitada de 1 año
+14.00
+pza.
+2,759.00
+38,626.00
+Total :
+14.00
+-
+38,626.00
+Tenga en cuenta
+Total :
+BOB 38,626.00
+1. Todos los equipos nuevos tienen garantia de 1 año en el territorio de Bolvia, 
+la garantia es por defectos de fabricacion y no asi por uso. no incluye costos 
+de mantenimiento.
+Todos los precios indicados, incluyen la factura correspondiente
+En caso de otras ciudades diferentes a Santa Cruz de la Sierra, consultar 
+respecto a los costos de envio y/o entrega de su mercaderia
+Para mayor informacion y caracerisitcas tecnicas de los equipos/insumos 
+cotizados, por favor consulte www.rochionline.com 
+Gran total
+BOB 38,626.00
+Christian Dick
+Firma
+A nombre de
+ROCHI SERVICIOS
+Datos bancarios
+BANCO UNION,CAJA DE AHORROS EN 
+BOLIVIANOS
+Otros detalles
+1 00000 12703042

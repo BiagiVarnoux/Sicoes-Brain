@@ -1,0 +1,287 @@
+ESPECIFICACIONES TECNICAS
+
+ITEM 1 - Mini PC Windows
+
+Cantidad: 2
+Procesador igual o superior Core ¡5 8va generación memoria
+
+Gráficos HD (integrados) Gráficos UHD 630
+
+Adaptadores y cables: Cable DisplayPort, Adaptador DisplayPort a DVI-D, Adaptador
+DisplayPort to HDMI True 4K, Adaptador DisplayPort a VGA, Adaptador USB-C a USB 3.0,
+Adaptador USB a puerto serie
+
+ITEM 2 - Monitor Táctil 15 pulgadas
+
+Tecnología y capacidad táctil: SAW (IntelliTouchO) de ondas acústicas de superficie) - Táctil
+simple 1. Pantalla: TFT LCD de 15.6” diagonal, matriz activa (LED) 213.
+
+Resolución: 1366 x 768 213.
+
+Relación de aspecto: 16:9 213.
+
+Área activa: 13,4" x 7,6" / 344 mm x 194 mm 213.
+
+Número de colores: 16.7 millones 213.
+
+Brillo (típico): Panel LCD: 220; IntelliTouch: 180 nits 213.
+
+Tiempo de respuesta-total (típico): 8 ms 213.
+
+Razón de contraste: 400:1 213.
+
+Interfaz táctil: USB 213.
+
+Consumo de energía (típico): Encendido (solo monitor): 8.1W; Sueño (monitor + adaptador
+AC/DC a 230V/50Hz): 1.44W; Apagado (monitor + adaptador AC/DC a 230V/50Hz): 0.56W
+213.
+
+Controles OSD: menú, arriba, abajo, seleccionar; Configuraciones: Brillo, contraste, reloj,
+fase, posición H, posición V, autoajuste, nitidez, temperatura de color, tiempo de espera OSD,
+idioma OSD, restaurar valores predeterminados
+
+Cantidad: 2 )
+
+TIPO DE IMPRESIÓN: Método de impresión Impresión térmica de líneas. Tecnología Línea
+
+térmica.
+
+FUENTES Y ESTILOS: Velocidad de impresión 150 mm/s., Capacidad de la columna recibo
+
+Ancho de papel 80 mm, 48 / 64.Tamaño de letra 0,88 mm (ancho) x 2,13 mm (alto) / 1,25
+
+mm (ancho) x 3 mm (alto).Registro de caracteres 95 alfanumérico, 18 internacional, 128 x
+
+43 gráfico. Caracteres por pulgada 22,6 cpp / 16,9 cpp. Densidad de puntos 203 ppp x 203
+
+ppp. Impresión color Monocromo.
+
+PAPEL: Tipos papel Recibo Formato de papel, rollo de papel 79,50 + 0,50 (ancho) mm x
+
+diám. 83,00 mm,575,00 + 5,00 (ancho) mm x diám. 83,00 mm (opcional).
+
+INTERFACES: RS-232, Apertura de cajón.
+
+ENCENDIDO: Fuente de alimentación Alimentación interna. Tensión de servicio 24 Ms
+
+Temperatura Operación 5%C - 45*C, almacenamiento -10%C - 50*C.
+
+FIABILIDAD: Fiabilidad 60.000.000 MCBF (líneas), 360.000 MTBF (horas). Duración útil auto
+impresora 15.000.000 líneas. Duración útil cabezal
+
+JON ADH. Y FINANCIERADAF
+JUDICIAL. - SANTA CRUZ
+
+ES
+PpoRTE ANO
+— ZO2CION ADM, *. SANTA CRUZ
+
+Unidad de corte Corte parcial. Sensores Sensor de fin de papel, Sensor de tapa abierta.
+Incluye Papel de 58 mm de ancho, placa guía, Controladores y utilidades (CD), Equipo, Cable
+de
+
+alimentación, Tapa del botón de conexión, Pies de goma, Instrucciones de instalación,
+
+Rollo de papel térmico, Manual de usuario (CD), Soporte para montaje en pared.
+
+Especificar marca:
+Especificar modelo:
+
+Cantidad: 2 Unidades.
+
+Tamaño de pantalla: 50 pulgadas o superior
+
+Tecnología de pantalla: LED
+
+Diseño de Pantalla: Full screen
+
+Nivel de definición: Full HD o superior
+
+Resolución de pantalla: Mínimo 1920 x 1080 pixeles o superior
+Sistema interactivo: Android
+
+Puerto HDMI: Mínimo 2 o superior
+
+Puertos USB: Mínimo 1 o superior
+
+Puerto Ethernet: Opcional
+
+Wi-Fi: Opcional
+
+Reproduce formato(s) de audio
+
+Reproduce formato(s) de video
+
+Reproduce formato(s) de imagen
+
+Tecnología Smart TV
+Incluye: Control remoto, cable de alimentación y manual de usuario
+
+Garantía mínima de un (1) año para todo el equipo y sus componentes, computable a partir de
+Ja recepción definitiva.
+
+En caso de que algún equipo presente fallas o una de sus partes que no funcione
+
+| correctamente, el proveedor entregará en calidad de reemplazo provisional, un equipo similar
+al que presenta fallas en un plazo máximo de un día después de la visita técnica.
+
+El Proveedor deberá brindar asistencia técnica cuando esta sea requerida durante el tiempo de
+vigencia de la garantía, misma que deberá estar acorde al horario de trabajo vigente del
+Tribunal Departamental de Justicia de Santa Cruz.
+
+La entidad se reserva el derecho de hacer las pruebas correspondientes a los equipos
+entregados, por tanto, no se aceptarán equipos  REFURBISHED (restaurados,
+reacondicionados). $
+
+os
+
+3| Marca. Cada equipo deberá poseer un identificador visible original de la marca.
+
+a,
+a
+
+Apertura de empaques y verificación. El Órgano Judicial se reserva el derecho, a través de
+la Comisión de Recepción, de realizar la verificación, inspecciones, pruebas y recepción de
+equipos y sus partes, como proceso previo a la emisión del Informe de Conformidad.
+
+5
+
+2%,
+es
+E
+
+Observaciones a la entrega de bienes. Durante la etapa de verificación e inspección de los
+equipos, el Proveedor tiene la obligación de salvar cualquier observación, sea esta de entrega
+de partes o de funcionamiento de equipos o software suministrados.
+
+Embalaje. El Proveedor debe garantizar que los equipos sean transportados en medios de
+embalaje seguros que garanticen el arribo seguro y adecuado de los equipos, hasta Las Oficinas
+de la Sub Unidad de Almacén del Órgano Judicial de Santa Cruz, ubicada en el subsuelo del
+Palacio de Justicia, Av. Uruguay esq. Mons. Rivero.
+
+
+Medios de Transporte. Los medios de trasporte hasta la entrega de los equipos en la oficina
+indicada, corren por cuenta del Proveedor.
+CONDICIONES DEL PROCESO
+Método de Selección y Adjudicación: Precio evaluado más bajo en moneda nacional
+(Subasta Electrónica), bajo la condición de cumplimiento con las especificaciones técnicas
+solicitadas.
+Forma de Adjudicación: Por ITEM
+Formalización de la Contratación: El presente proceso de contratación se formalizará
+mediante la emisión de Orden de Compra.
+Garantías: Los equipos deberán contar con una garantía para todo el equipo y sus
+componentes, contra todo tipo de fallas, mínima de un (1) año calendario, computables a
+partir de la recepción definitiva.
+Formalización de la Contratación: En el presente proceso de contratación él se formalizará
+mediante la emisión de Orden de Compra.
+Régimen de multas:
+
+La multa se aplicará del 8*1000 del monto total adjudicado, por día de retraso de los
+equipos entregados con atraso.
+
+Las multas serán cobradas mediante descuentos por la ENTIDAD, al pago
+correspondiente a la recepción de los EQUIPOS o en la liquidación del contrato y/o Orden de
+Compra.
+
+En todos los casos de resolución de contrato por causas atribuibles al PROVEEDOR, la
+ENTIDAD no podrá cobrar multas que excedan el veinte por ciento (20%) del monto total del
+contrato y/o Orden de Compra.
+
+Plazo de entrega: Los equipos adjudicados deben ser entregados en el plazo máximo de cinco
+(5) días calendario, computables a partir del siguiente día de la emisión de la Orden de Compra.
+
+Lugar de Entrega: Los ITEMS deberán ser entregados en Oficinas de la Sub Unidad de
+Almacén del Órgano Judicial de Santa Cruz, ubicada en el subsuelo del Palacio de Justicia, Av.
+Uruguay esq. Mons. Rivero.
+
+Forma de entrega: La entrega de los bienes adjudicados deberá ser por pieza.
+
+Forma y Medio de Pago: Pago total del Ítem o Ítems adjudicados que se realizará mediante
+transferencia bancaria a través del SIGEP, una vez entregados los bienes; previa conformidad
+de la comisión de recepción, y recepción de la respectiva factura
+
+olor Carias uterrez
+lo oe SISTEMAS INFORMATICOS Y
+COMUNICACIONES
+DIRECCION: ADM. Y FINANCIERAD.A.F
+ORGANO JUDICIAL + SANTA CRUZ
+|
+
+REGION 45
+SANO JUDiGin-
+
+==== PDF ====
+
+ 
+Correo: seg.elec.mc@gmail.com-cel:(+591) 65862331 
+Dir.: km 14 ½ carretera a Cotoca  
+Santa Cruz-Bolivia 
+ 
+ 
+Santa Cruz, 29 de enero de 2024 
+ 
+Señores: 
+Órgano Judicial D.A.F. 
+Presente. – 
+ 
+Ref.: COTIZACION KIT DE LLAMADOR PARA EL ORGANO JUDICIAL DISTRITO SANTA CRUZ      
+ 
+De mi consideración: 
+ 
+Mediante la presente, pongo a su disposición la cotización solicitada por su prestigiosa institución. 
+  
+ COTIZACION   
+ 
+ 
+Nota: ítem sujetos a confirmación en stock. 
+ 
+Los precios detallados anteriormente incluyen todos los impuestos de ley. 
+ 
+TÉRMINOS DE VENTA  
+ 
+• 
+Lugar de Entrega: Los productos se entregarán en sus instalaciones 
+• 
+Tiempo de Entrega: Se realizará en 3 días calendario  
+• 
+Forma de pago: Mediante sistema Sigep. 
+• 
+Cotización valida: Por 30 días a partir de su emisión.  
+Agradeciendo la confianza que usted deposita en nosotros, quedo a su disposición para cualquier consulta. 
+Sin otro particular la saludo con las consideraciones que le ameritan. 
+ 
+ 
+ITEM 
+CONCEPTO 
+UNIDAD 
+CANT. 
+PRECIO 
+UNITARIO 
+PRECIO 
+TOTAL BS. 
+ 
+1 
+MINI PC WINDOWS 10  
+UNIDAD 
+2 
+5.700,00.- 
+11.400,00.- 
+2 
+MONITOR TACTIL 15“ 
+UNIDAD 
+2 
+7.700,00.- 
+15.400,00.- 
+3 
+INPRESORA TERMICA EPSON T20   
+UNIDAD 
+2 
+2.800,00.- 
+5.600,00.- 
+4 
+TV 50” 4K 
+UNIDAD 
+2 
+4.200,00 
+8.400,00.- 
+TOTAL, EXPRESADO EN BOLIVIANOS  40.800,00.-

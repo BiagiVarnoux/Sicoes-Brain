@@ -1,0 +1,492 @@
+MODELO DE ESPECIFICACIONES TÉCNICAS
+PARA ADQUISICIÓN DE BIENES
+
+Para ser llenado por el proponente
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+CONDICIONES COMPLEMENTARIAS
+
+CARACTERÍSTICAS DE LA
+PROPUESTA
+(Manifestar aceptación, especificar y/o
+adjuntar lo requerido)
+
+1. OBJETO DE LA CONTRATACIÓN
+ADQUISICION DE ACCESORIOS PARA EQUIPOS DE COMPUTACIÓN ORGANO JUDICIAL LA PAZ
+
+11. CARACTERÍSTICAS GENERALES DEL(LOS) BIEN(ES)
+
+A. DETALLE Y REQUISITOS DEL(LOS) BIEN(ES)
+
+Para la calificación de la
+entidad
+
+Observaciones
+(especificar el
+porqué no
+cumple)
+
+DISCOS 480GB
+
+1. Tipo ATX Cantia | Precio Total ] Precio Total
+2. Potencia mínima de 850 watts 220 V. | ad mr 8 Cantidas a
+1. 3. 1 conector 4 pin CPU r +12V2 DC
+FUENTE | 4. 1 Molex IDE
+DE 5. Mínimamente 3 Conectores Sata
+PODER — [6.1 Motherboard 20+4 pin 15 | 4.200,00
+O (Especificar y/o Manifestar
+Aceptación)
+2 1. Tipo: DDR3.
+" 2. Capacidad: 8 GB
+Pl? 3. Frecuencia minima: 2660 Mhz 5 2.490,00
+DE 8 GB 4. Conexión: 288-pin DIMM : L
+DDR3 (Especificar y/o Manifestar
+Aceptación) _]
+3 1. Tipo: DDR3.
+: 2. Capacidad: 4 GB
+aaa, de Frecuencia minima: 2660 Mhz 5 1.750,00
+DE 4 GB 4. Conexión: 288-pin DIMM : k
+DDR3 (Especificar y/o Manifestar
+Aceptación)
+4 1. Tipo: DDR4.
+: 2. Capacidad: 8 GB
+e, Su Frecuencia minima: 2660 Mhz 4 1.680,00
+DE 8 GB 4. Conexión: 288-pin DIMM : E
+DDR4 (Especificar y/o Manifestar
+Aceptación)
+5 1. Tipo: DDR4.
+, 2. Capacidad: 4 GB
+adi”? 3. Frecuencia minima: 2660 Mhz 12 4.320,00
+OQ»: 4 GB 4. Conexión: 288-pin DIMM : e
+DDR4 (Especificar y/o Manifestar
+Aceptación)
+6 1. Tipo de interfaz: Sata.
+DISCOS 2. Capacidad de almacenamiento: 17B
+DUROS 3 Unidad de Tamaño de búfer: 64 MB
+HDD DE 1 4. Velocidad de Transferencia: 6 GB/s 10 4.500,00
+TB 5. Velocidad de Rotación: 7200 rpm
+INTERNO (Especificar y/o Manifestar
+Aceptación)
+1. Tipo de interfaz: Sata.
+7 2. Capacidad de almacenamiento:
+
+SOLIDOS | 3. Tecnología de almacenamiento: SSD 13 6.110,00
+480 (Especificar y/o Manifestar
+
+Aceptación)
+8. 1. Adaptador PCI 10/100/1000 Mbps
+TARJETA | (Especificar y/o Manifestar 14 1.750,00
+DERED | Aceptación)
+
+1. Tipo de memoria: Micro SD
+9 2. Capacidad de almacenamiento: 64GB
+MICRO 3. Sistema operativo compatible:
+SSsD Android, 1OS, Windows 50 4.750,00
+64GB 4, Clase: 10
+
+(Especificar y/o Manifestar
+Aceptación)
+
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+CONDICIONES COMPLEMENTARIAS
+
+1. Tipo: Hub USB 3.0
+2. Cantidad de Entradas: mínimamente
+4 de 3.0
+
+3. Velocidad de Transferencia: hasta 5
+Gbps
+
+10.
+HUB USB
+
+12 1.800,00
+
+Para ser llenado por el proponente
+
+(Especificar y/o Manifestar)
+
+1. Lector y grabador: CD-DVD
+2. Conexión: mínimamente USB 3.0
+
+11. (compatible con USB 2.0)
+LECTOR |3. Velocidad de lectura/escritura DVD 6 1.740,00
+CD/DVD |8K
+(Especificar y/o Manifestar
+A ción
+12 1. Capacidad de Almacenamiento: 2 TB
+DISCO 2. Tipo: Externo
+3. Interfaz: mínimamente USB 3.0
+O (compatible con USB 2.0) 27 14.850,00
+(Especificar y/o Manifestar
+DE 2 TB Aceptación
+
+B. INSTALACIÓN DEL BIEN
+
+Para la calificación de la
+entidad
+
+NO APLICA
+
+C. INSPECCIÓN, PRUEBAS O MUESTRAS
+
+NO APLICA
+
+El ofertante deberá contar con stock del bien ofertado con la
+finalidad de efectuar la reposición en caso que sea necesario.
+(Manifestar Aceptación)
+
+D. PROVISIÓN DE REPUESTOS/INSUMOS Y OTROS |
+
+E. GARANTÍA DEL(LOS) BIEN(ES)
+Se solicita un año mínimo de garantía del bien que esté
+
+debidamente certificado por el proveedor.
+
+En caso de bienes defectuosos la empresa está en la
+obligación de reponer los mismos en un plazo de cinco (5)
+días calendario. (Manifestar aceptación)
+
+F. CONDICIONES COMPLEMENTARIAS
+
+Medios de Transporte.
+
+Los medios de trasporte hasta la entrega del equipo, en nuestras
+oficinas corren por cuenta del proveedor. (Manifestar
+aceptación).
+
+111. CONDICIONES DEL PROCESO
+
+A. PLAZO DE ENTREGA
+
+1 día calendario computable a partir del día siguiente hábil de la
+suscripción de la orden de compra y/o servicio. (Manifestar
+Aceptación)
+
+B. RÉGIMEN DE MULTAS
+
+(Manifestar Aceptación)
+
+8*1000 por día calendario de retraso del monto total adjudicado
+
+C. FORMA Y MEDIO DE PAGO
+
+Contra entrega del bien a través de SIGEP, previa emisión de
+conformidad y recepción de la respectiva factura. (Manifestar
+Aceptación) _
+
+D. LUGAR DE ENTREGA Y RECEPCION DEL BIEN
+
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+CONDICIONES COMPLEMENTARIAS
+
+Almacenes Ubicado en la Calle Yanacocha Casi esq. Sucre Nro. 731,
+debiendo coordinar previamente con el Ing. Marco Lima (Cel.
+
+79564477). RECEPCION SERA POR LA TOTALIDAD DE LOS ÍTEMS
+ADJUDICADOS (Manifestar Aceptación)
+
+E. FORMA DE ADJUDICACIÓN
+
+Por items
+
+F. OTROS
+Asistencia técnica.
+
+El proveedor deberá brindar asistencia técnica cuando esta sea
+requerida y estar acorde al horario de trabajo vigente en el Organo
+
+Los accesorios requeridos deben ser entregados en la Unidad de
+
+Para ser llenado por el proponente
+
+CARACTERÍSTICAS DE LA
+PROPUESTA
+(Manifestar aceptación, especificar y/o
+adjuntar lo requerido)
+
+Judicial (Manifestar aceptación).
+1. CONDICIONES COMPLEMENTARIAS
+
+Para la calificación de la
+entidad
+
+(especificar el
+porqué no
+
+Las empresas proponentes deberán enviar sus propuestas en forma
+digital, hasta horas 14:30 del día establecido para la Apertura de
+Propuestas del Cronograma de Actividades del Formulario 110 del
+presente proceso, al correo institucional:
+
+judicial. adicionalmente deberá remitir
+una copia del correo electrónico enviado a los correos:
+
+| (Manifestar Aceptación)
+
+
+SERY
+
+COTIZACION N?2 108
+Fecha: 06 de diciembre de 2022
+
+CLIENTE: Organo Judicial DAF- La Paz
+
+DIRECCION: C/ Potosi, Edificio Anexo B
+
+En atención a su solicitud de cotización, detallamos lo siguiente:
+
+| ITEM | DETALLE UNIDAD | CANTIDAD | P/UNITARIO TOTAL
+
+1 Fuente de poder 850 Watts Pieza 15 280,00 4.200,00
+2 | Memorias RAM 8 GB DDR3 Pieza | 5 498,00] 2.490,00
+3 |Memorias RAM 4 GB DDR3 Pieza 5 350,00 1.750,00
+4  |Memorias RAM 8 GB DDR4 Pieza 4 420,00 1.680,00
+5 | Memorias RAM 4 GB DDR4 Pieza 12 360,00 | 4.320,00
+6 | Discos Duros 1 Tb | Pieza 10 450,00 4.500,00
+7 | Discos Solidos 480 | Pleza 13 470,00 6.110,00
+8 |Tarjeta de Red Pieza 14 125,00 1.750,00
+9 | Micro SSD 64 Gb Pieza so | 95,00 4.750,00
+10 | HUB USB Pieza 12 150,00 | 1.800,00
+11 |Lector CD/DVD _|| Pieza 6 290,00 1.740,00
+12 | Discos duros 2 tb externo Pieza 27 550,00 14.850,00
+
+TOTAL GENERAL en Bolivianos 49.940,00
+
+Son: Cuarenta y Nueve Mil Novecientos Cuarenta 00/100 bolivianos
+
+Validez de la oferta : 15 días calendario
+Tiempo de entrega : 1 día calendario
+Forma de pago 3 SIGEP
+
+Ll
+Ay. Períferica Nro. 777 + Cel: 71910205
+
+Dirección. Av. Juan José Torrez N*. 777- Zona 3 de mayo Cel.: 71910205- Correo rolo_fvc(0hotmail.com La Paz-Bolivia
+
+
+MODELO DE ESPECIFICACIONES TÉCNICAS
+PARA ADQUISICION DE BIENES
+
+Para ser llenado por el proponente
+
+Para la calificación de la
+entidad
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS pacos
+CONDICIONES COMPLEMENTARIAS CARACTERÍSTICAS DE LA PROPUESTA .
+(Manifestar aceptación, especificar y/o adjuntar lo (especificar el
+requerido)
+I. OBJETO DE LA CONTRATACIÓN
+ADQUISICION DE ACCESORIOS PARA EQUIPOS DE COMPUTACIÓN ORGANO JUDICIAL LA PAZ
+II. CARACTERÍSTICAS GENERALES DEL(LOS) BIEN(ES)
+A. DETALLE Y REQUISITOS DEL(LOS) BIEN(ES)
+1. Tipo ATX Cantia | Precio Total Cantia | Precio Total |
+2. Potencia mínima de 850 watts ad TOS ad ros o
+220 V.
+3. 1 conector 4 pin CPU r +12V2
+1. FUENTE | DC Serv Jireh manifiesta
+DE PODER |4. 1 Molex IDE tació
+5. Mínimamente 3 Conectores Sata 15 4.200,00 On
+6. 1 Motherboard 20+4 pin
+(Especificar y/o Manifestar
+Aceptación)
+1. Tipo: DDR3.
+2. 2. Capacidad: 8 GB
+MEMORIA |3. Frecuencia minima: 2660 Mhz Serv Jireh nifiesta
+RAM DE 8 |4. Conexión: 288-pin DIMM a tión
+GB DDR3 | (Especificar y/o Manifestar
+Aceptación)
+1. Tipo: DDR3.
+3. 2. Capacidad: 4 GB
+MEMORIA |3. Frecuencia minima: 2660 Mhz Jireh ifi
+RAM DE 4.| 4. Conexión: 288-pin DIMM A a
+GB DDR3 | (Especificar y/o Manifestar
+Aceptación)
+1. Tipo: DDR4.
+4. 2. Capacidad: 8 GB
+MEMORIA | 3. Frecuencia minima: 2660 Mhz Serv Jireh ¡fi
+RAM DE 8 4. Conexión: 288-pin DIMM a lt
+GB DDR4 | (Especificar y/o Manifestar
+Aceptación) [o
+1. Tipo: DDR4.
+a. 2. Capacidad: 4 GB
+¡ORIA |3. Frecuencia minima: 2660 Mhz Serv Jireh ifiesta
+RAM DE 4| 4. Conexión: 288-pin DIMM A ln
+GB DDR4 | (Especificar y/o Manifestar
+Aceptación) |
+1. Tipo de interfaz: Sata.
+2. Capacidad de almacenamiento: 1
+TB
+DUROS o | 3. Unidad de Tamaño de búfer: 64
+MB i Ñ
+Serv Jireh manifiesta
+> DDE 1 4. Velocidad de Transferencia: 6 10 4.500,00 aceptación A
+INTERNO |CB/S
+5. Velocidad de Rotación: 7200 rpm
+(Especificar y/o Manifestar
+Aceptación)
+1. Tipo de interfaz: Sata.
+2. Capacidad de almacenamiento:
+7. DISCOS | 480GB . .
+SOLIDOS |3. Tecnología de 13 | 6.110,00 | Serv Jireh manifiesta
+480 almacenamiento: SSD aceptación
+(Especificar y/o Manifestar
+Aceptación)
+8 1. Adaptador PCI 10/100/1000
+; Mbps
+TARJETA . , Serv Jireh manifiesta
+DE RED (Especificar y/o Manifestar 14 1730/00 aceptación
+Aceptación)
+
+
+Para la calificación de la
+
+Para ser llenado por el proponente entidad
+
+CARACTERÍSTICAS DE LA PROPUESTA
+(Manifestar aceptación, especificar y/o adjuntar lo
+requerido)
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+CONDICIONES COMPLEMENTARIAS
+
+1. Tipo de memoria: Micro SD
+2. Capacidad de almacenamiento:
+> 3.95 bl
+p 3. Sistema operativo compatible: Serv Jireh manifiesta
+MICRO ; a 50 4.750,00
+Android, 1OS, Windows id
+S5D 64G8 4, Clase: 10 ió
+(Especificar y/o Manifestar
+Aceptación)
+1. Tipo: Hub USB 3.0
+2. Cantidad de Entradas:
+e usg | '"ínimamente 4 de 3.0 12 1.800,00 Serv Jireh manifiesta
+3. Velocidad de Transferencia: 2% aceptación
+hasta 5 Gbps
+| (Especificar y/o Manifestar)
+1. Lector y grabador: CD-DVD
+2. Conexión: mínimamente USB 3.0
+11. (compatible con USB 2.0) .
+LECTOR — |3. Velocidad de lectura/escritura 6 1.740,00 | Serv Jireh manifiesta
+CD/DVD  |DVD8K aceptación
+(Especificar y/o Manifestar
+U Aceptación)
+1. Capacidad de Almacenamiento: 2
+12. TB
+DISCO 2. Tipo: Externo l
+DURO 3. Interfaz: mínimamente USB 3.0 | 27 | 14.850,00 | Serv Jireh manifiesta
+EXTERNO | (compatible con USB 2.0) aceptación
+DE 2TB (Especificar y/o Manifestar
+NN
+B. INSTALACIÓN DEL BIEN
+
+NO APLICA
+
+C. INSPECCIÓN, PRUEBAS O MUESTRAS
+
+NO APLICA
+
+D. PROVISIÓN DE REPUESTOS/INSUMOS Y OTROS
+
+El ofertante deberá contar con stock del bien ofertado con la
+finalidad de efectuar la reposición en caso que sea necesario. | Serv Jireh manifiesta aceptación
+Ó Manifestar Aceptación)
+
+E. GARANTÍA DEL(LOS) BIEN(ES)
+
+Se solicita un año mínimo de garantía del bien que esté
+debidamente certificado por el proveedor.
+
+En caso de bienes defectuosos la empresa está en la| sery Jireh manifiesta aceptación
+obligación de reponer los mismos en un plazo de cinco (5)
+días calendario. (Manifestar aceptación)
+
+F. CONDICIONES COMPLEMENTARIAS
+
+Medios de Transporte.
+
+Los medios de trasporte hasta la entrega del equipo, en nuestras .
+oficinas corren por cuenta del proveedor. (Manifestar| Serv Jireh manifiesta aceptación
+aceptación).
+
+III. CONDICIONES DEL PROCESO
+
+—
+
+A. PLAZO DE ENTREGA
+
+1 día calendario computable a partir del día siguiente hábil de la
+suscripción de la orden de compra y/o servicio. (Manifestar | Serv Jireh manifiesta aceptación
+| Aceptación)
+
+B. RÉGIMEN DE MULTAS
+
+8*1000 por día calendario de retraso del monto total adjudicado
+os Aceptación) Serv Jireh manifiesta aceptación
+[e
+
+FORMA Y MEDIO DE PAGO
+
+
+REQUISITOS NECESARIOS DEL(LOS) BIEN(ES) Y LAS
+CONDICIONES COMPLEMENTARIAS
+
+Contra entrega del bien a través de SIGEP, previa emisión de
+conformidad y recepción de la respectiva factura. (Manifestar
+
+Para ser llenado por el proponente
+
+CARACTERÍSTICAS DE LA PROPUESTA
+(Manifestar aceptación, especificar y/o adjuntar lo
+requerido)
+
+Para la calificación de la
+entidad
+
+a Serv Jireh manifiesta aceptación
+Aceptación)
+D. LUGAR DE ENTREGA Y RECEPCION DEL BIEN E
+Los accesorios requeridos deben ser entregados en la Unidad de
+Almacenes Ubicado en la Calle Yanacocha Casi esq. Sucre Nro.
+731, debiendo coordinar previamente con el Ing. Marco Lima Serv Jireh manifiesta aceptación
+(Cel. 79564477). R El R TA D L
+Mm ADJUD: Manifestar Aceptación)
+E. FORMA DE ADJUDICACIÓN
+
+Por items
+
+¡a
+F. OTROS
+
+a” técnica.
+
+El proveedor deberá brindar asistencia técnica cuando esta sea
+requerida y estar acorde al horario de trabajo vigente en el
+Organo Judicial (Manifestar aceptación).
+
+Serv Jireh manifiesta aceptación
+
+1. CONDICIONES COMPLEMENTARIAS
+
+Las empresas proponentes deberán enviar sus propuestas en
+forma digital, hasta horas 14:30 del día establecido para la
+Apertura de Propuestas del Cronograma de Actividades del
+Formulario 110 del presente proceso, al correo institucional:
+judici. adicionalmente deberá
+remitir una copia del correo electrónico enviado a los correos:
+
+eddytavo95 O hotmail.com
+malvarezv90Ogmail.com
+
+Serv Jireh manifiesta aceptación
+
+A Aceptación)
+
+Neo. 177 + Cel; 71919205
+
+Perlferica A 2
+*otendo Alvaro Figuereaa Cuisiser!

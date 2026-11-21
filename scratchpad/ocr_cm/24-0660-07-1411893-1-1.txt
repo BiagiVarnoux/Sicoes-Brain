@@ -1,0 +1,334 @@
+Correo: seg.elec.mc@gmail.com-cel:(+591) 65862331 
+Dir.: km 14 ½ carretera a Cotoca  
+Santa Cruz-Bolivia 
+ 
+Santa Cruz, 22 de febrero de 2024 
+Señores 
+Órgano Judicial D.A.F. 
+Presente. – 
+ 
+Ref.: Cotización de kit de Sistema de Cámaras de seguridad CCTV IP 2MP 
+ 
+De mi consideración: 
+ 
+Mediante la presente, pongo a su disposición la cotización solicitada por su prestigiosa institución. 
+  
+ COTIZACIÓN DE KIT CAMARAS DE SEGURIDAD  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Los precios detallados anteriormente incluyen todos los impuestos de ley. 
+ 
+TÉRMINOS DE VENTA 
+ 
+• 
+Garantía: Del producto valida por 1 año calendario, contra desperfectos de fabricación. 
+• 
+Lugar de Entrega: Los productos serán entregados en sus instalaciones. 
+• 
+Tiempo de entrega: Se realizará en 5 días calendario después de la recepción de la orden de 
+compra. 
+• 
+Forma de pago: Mediante sistema Sigep. 
+• 
+Cotización valida: Por 30 días a partir de su emisión.  
+Agradeciendo la confianza que usted deposita en nosotros, quedo a su disposición para cualquier consulta. 
+Sin otro particular la saludo con las consideraciones que le ameritan. 
+ 
+ 
+ 
+ 
+ 
+                                                                                                                              
+ 
+ITEM CANT 
+DETALLE  
+PRECIO UNIT. 
+Bs. 
+PRECIO 
+TOTAL Bs. 
+1 
+4 
+El kit de cámaras de seguridad incluye: 
+ 1 GRABADOR IP NVR DE 16 CH. 
+ 4 CAMARA IP DE 2MP  
+ 1 DISCO DURO (HDD) DE 6 T. 
+ 1 MONITOR DE 24” FHD 
+ 1 SWITCH PoE DE 8 PUERTOS 
+ 1 UPS DE 1000 VA/600 W 
+11.920,50.- 
+47.682,00.- 
+TOTAL BOLIVIANOS 
+47.682,00.- 
+
+
+==== PDF ====
+
+ESPECIFICACIONES TÉCNICAS
+
+CARACTERISTICAS TECNICAS:
+ESPECIFICACIONES GENERALES:
+
+Marca: No especificada
+Cantidad requerida: 4 KIT DE EQUIPOS DE VIDEO VIGILANCIA
+
+CADA EQUIPO DE VIDEO VIGILANCIA CUENTA CON LO SIGUIENTE: 4 Camaras ip, 1 grabador, 1 monitor, 1 Disco duro, 1 Switch, 1 UPS, Se detalla las
+especificaciones técnicas
+
+CAMARA IP
+
+Cantidad
+CÁMARA de 2 MP o superior
+Sensor de Imagen 1/2.8 “ Progresivo Scan CMOS
+
+Resolución 1920 x 1080 o superior
+Huminación Mínima Color: 0,001 lux (2) (F1.0 AGC ON), 0 Lux con luz
+
+Tiempo de Obturacion 1/3sa1/100.000 s
+
+Imagen a color 24 / 7 horas al da 7 dias a la semana
+
+LENTE
+
+Longitud focal y campo de [2 8 mm», horizantal 106", campo de visión vertical 57”, campo de visión diagonal 126”.
+
+Montura de Lente Mam
+
+<
+E
+S
+S
+
+Tipo de iris
+Al
+
+l
+
+Profundidad de Campo 2.8mm Fondo 44m, O:17m, R:8m, 1:4m
+
+ILUMINADOR LEDS
+
+Tipo de Luz Suplementaria Luz Blanca
+
+Luz suplementaria Inteligente si
+
+VIDEO
+
+50 Hz:25fps (1920x1080, 1280x720)
+
+60 Hz: 30fps(1920x1080, 1280x720'
+
+50 Hz:25fps (640x480, 640x360)
+
+60 Hz: 30fps(640x480, 640x360
+
+Corriente principal: H.265+/H.265/H.264+/H.264
+Subtransmisión: H.265/H.264/MJPEG
+
+Tipo h.264 Perfil Básico, Perfil Principal, Perfil Alto
+OA. En
+hc
+
+Convencional
+
+Compresión de Video
+
+Bitrate de video
+
+Vista en Vivo simultanea Hasta 6 canales
+> á Hasta 32 usuarios
+Úsuado aufición 3 niveles de usuario: administrador, operador y usuario
+Amplio Rango Dinámico WDR Digital
+Interruptor Día/Noche Día, Noche, automático, Horario
+Mejora de Imagen BLC,HLC,3D,DNR
+Inez DA AR y
+, é
+
+: Ing, e
+PEREGOAAÓ ygagutrre ENG/DE SISTEMAS : Y
+TEÓNICO MANTEÑÍM1 O
+SOPORTE INFORMATICO * DIRECCION ADHA. Y FINANCIERADAF
+
+DIRECCION ADM, Y FINANCIERA iria ds
+URSANO JUDICIAL - SANTA CRUZ
+
+Interfaz Ethernet 1 puerto Ethernet auto adaptativo k45 10M/100M
+
+Micrófono integrado
+
+Si
+caos EDO EA MENS
+
+Alarma de soporte de detección de movimiento que se activa mediante tipos de objetivo específicos: humano o vehículos,
+alarma de manipulación de video.
+
+Almacenamiento abordo Juego de tarjeta de memoria integrada, compatible con micrash, tarjeta reSDHC, micro SDXC, hasta 256 GB
+
+Evento Básico
+
+Cargar en FTP/tarjeta de memoria(F)centro de vigilancia necesario, envía correo electrónico, activar grabacion captura de
+disparo.
+
+Ea A CA EA
+Alimentación: POE (802.3af), 12 V DC /300 Ma
+
+Metal y Plastico
+
+GRABADOR NVR
+DETECCIÓN DE
+
+MOVIMIENTO
+
+Análisis Humano/Vehículo 4-ch
+
+VIDEO Y AUDIO
+
+16 canales de video IP
+Entrada de Video IP
+
+Ancho de Banda Entrante 160Mbps
+Salida HDMI 1canal 4k (4096x2160//30 Hz, 4k(3840x2160)/30 Hz, 2k(2560x1440/60 Hz.
+
+al
+
+Salida VGA 1 canal 1920x 1080/60 Hz, 1280x1040/60 Hz, 1280x720 Hz.
+Formato de Decodificación H.265+, h.265, H.264+, H.264
+
+Resolución de Grabación 8MP/6MP/SMP/4MP/3MP/1080P/UXGA/720P/VGA/A4GIF/DCIF/CIF/QCIF
+
+Tipo de flujo Audio y Video
+
+RED
+
+Protocolos de Red TCP/1P,ICMP,DHCP,DNS,HTTP,RFT,RTSP,NTP,IGMP,IPv6,UDP,QoS,FTF,SMTP,SSL/TLS,UPnP,
+Interfaz de Rad 1,Interfaz Ethernet auto adaptativa RJ-45 10/100/1000 Mbps
+
+INTERFAZ AUXILIAR
+
+Sata 2 interfaz Sata
+
+Capacidad Hasta 8 TB de capacidad por disco
+
+Interfaz USB EEN
+
+GENERAL
+
+Fuente de alimentación 12 VCC,3.33 A
+
+Consumo 15 W (sin disco duro)
+Se A O
+
+MONITOR
+Cantidad 4
+DISCO DURO
+Cantidad 4
+Capacidad: 6 TB o superior
+Trabajo 24/7 bajo consumo y alto rendimiento
+
+o lo A A y. 7 CARA SO
+
+do MANTEN
+sorbRre NEO cienA
+RES JUDICIAL - SANTA CRU
+
+
+SWITCH
+
+Cantidad 4
+
+8 puertos POE o superior
+
+Velocidad Puerto: 10/100 o superior para cables UTP Categoría 6 o superior
+
+UPS
+
+Cantidad
+
+Capacidad 1000 VA/600W
+Voltaje 220 VAC
+
+Mínimo 40 minutos
+
+Tiempo de Autonomía
+
+Termo fusible de protección, Autoverificación de Batería
+
+B. INSPECCION Y PRUEBAS
+
+La entidad se reserva el derecho de hacer las pruebas correspondientes a los equipos entregados, por tanto, no se aceptarán equipos REFURBISHED (restaurados,
+reacondicionados).
+
+La empresa oferente deberá presentar un documento que certifique que los equipos hardware ofertados sean totalmente nuevos, que no sean reacondicionados ni
+usados y que cuentan con la garantía respectiva
+
+C. ASISTENCIA TÉCNICA
+
+Se requiere un nivel de soporte 24x7 y se debe contar con reposición de partes críticas en un plazo no mayor a 72 horas durante el periodo que dure la garantía.
+
+El equipo ofertado deberá contar con todos sus accesorios y licencias necesarios para el buen funcionamiento del mismo acorde a las especificaciones técnicas
+
+requeridas.
+
+D. GARANTÍA TECNICA DEL(LOS) BIEN(ES)
+
+La garantía del equipo ofertado contra todo tipo de fallas deberá ser por el periodo de 1 año calendario de todo el equipamiento ofertado, a partir de la recepción
+definitiva. (Presentar certificado indicando la entidad convocante y el proceso referido, el certificado será validado por la entidad).
+
+E. CONDICIONES COMPLEMENTARIAS
+
+Marca: Cada equipo deberá poseer un identificador visible original de la marca.
+Las cámaras IP y los Grabadores NVR deberán ser de la misma Marca ofertada para garantizar su correcto funcionamiento, no se aceptarán distintas marcas
+
+Apertura de empaques y verificación: El Órgano Judicial se reserva el derecho, a través de la Comisión de Recepción, de realizar la verificación, inspecciones,
+pruebas y recepción de equipos y sus partes, como proceso previo a la emisión del Informe de Conformidad.
+
+Observaciones a la entrega de bienes: Durante la etapa de verificación e inspección de los equipos, el Proveedor tiene la obligación de salvar cualquier
+observación, sea esta de entrega de partes o de funcionamiento de equipos.
+
+E El proveedor debe garantizar que los equipos sean garantizados en medios de embalaje que garantice el trasporte seguro y adecuado del equipo, hasta el
+
+gano Judicial,
+
+Medios de Transporte: Los medios de trasporte hasta la entrega del equipo, en las oficinas del Órgano Judicial Distrito Santa Cruz, corren por cuenta del
+Proveedor.
+
+A. PLAZO DE ENTREGA
+[| Los equipos deben ser entregados, en el plazo máximo de cinco (5) días calendario, computables a partir del siguiente día a la firma del contrato Administrativo.
+
+B. REGIMEN DE MULTAS
+
+7*1000 por día calendario de retraso del monto total adjudicado
+
+C. FORMA Y MEDIO DE PAGO
+
+Contra entrega del bien a través de SIGEP, previa emisión de conformidad (comisión de recepción), informe técnico de la empresa de la instalación realizada y
+recepción de la respectiva factura.
+
+I'D. LUGAR DE ENTREGA Y RECEPCION DEL BIEN.
+
+|| Los bienes serán entregados en el Depósito de Activos Fijos ubicado en la av. Uruguay esq. Monseñor Rivero subsuelo de Palacio de justicia en presencia de la
+|| comisión de recepción. |
+LA RECEPCIÓN SERÁ POR LA TOTALIDAD DE LOS EQUIPOS.
+
+PENAS AA REE EROS
+Precio Evaluado Más Bajo 705 TETAS | DERE ASS
+
+Ing Q 7 vo Guienez
+
+PE SISTEMAS INFORMATI
+
+/ COMUNICACIONES
+DIBÉCCION ADM. Y FINANCIERA D.AF
+ORGANO JUDICIAL - SANTA CRUZ

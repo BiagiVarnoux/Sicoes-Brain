@@ -1,0 +1,210 @@
+1. CARACTERÍSTICAS GENERALES DEL(LOS) BIEN(ES)
+
+¡A. DETALLE Y REQUISITOS DEL(LOS) BIEN(ES)
+
+CARACTERISTICAS TECNICAS
+
+1 Se debe adjuntar fichas técnicas o links del fabricante para la verificación de cumplimiento de las características
+técnicas solicitadas y propuestas. e
+1.1 Marca: _ — E
+1.2  |Modelo: o 2.
+1.3  |Cantidad: 2 Unidades. — _
+1.4 Capacidad: 6000 VA/ 6000 W__ o Superior. Online. -
+1.5 Link oficial del fabricante de UPS: _ — -
+1.6  |[Tipo de Montaje Montaje en Torre (ruedas y pernos de sujeción obligatorio).
+ENTRADA
+e Rango Voltaje en Transf .: 220 VCA/230 VCA/240 VCA
++ Rango de entrada 110VAC - 288VAC
+100% load0>176VAC
+90% load()>154VAC
+75% load(0D>132VAC
+50% load()>110VAC
+e Línea de transferencia baja : 110 VCA
+1.7 . -Línea de recuperación baja 121 VCA
+: . -Transferencia alta de línea 288 VCA
+. -Línea de alta recuperación 281 VCA
++e Rango de Frecuencia: 40-70HZ Automático y Configurable. Frecuencia alta.
+e Voltaje de entrada nominal : 30A./220V
+e Factor de potencia de entrada > 0,99
+e Distorsión de la corriente de entrada  <4%
+Confirmar aceptación y enviar link de la página del fabricante para verificación.
+SALIDA
+e Salida de voltaje: 220 VCA/230 VCA/240 VCA
++ Regulación de Voltaje: +/-1%
+e Frecuencia en modo Batería: 50 Hz +/- 0.1 Hz Predeterminado
+18 e Distorsión de voltaje < 1% THD, carga lineal
+| < 5% THD, carga no lineal
+Confirmar aceptación y enviar link de la página del fabricante para verificación.
+SOBRECARGA
+e Modo Inversor Verificable en página web.
+105%-110%: transfer to bypass after 10 min
+111%-125%: transfer to bypass after 1 min
+126%-150%: transfer to bypass after 30 sec.
+1.9 + Modo Bypass Verificable en página web .
+Less than 125%: long time running
+126% to 130% :Shutdown in 5 mins
+131% to 150% :Shutdown in 1 mins
+> 150% :Shutdown in 200 ms
+Confirmar aceptación.
+EFICIENCIA
+e Eco Modo 98%
+e.  95%(100%load
+1.10 e Ruido (a 1 m de distancia) <58dB
+Confirmar aceptación y enviar link de la página del fabricante para verificación.
+
+IACACIONE:
+DR Y FINANCIERA D.A.F.
+¡CIAL - SANTA CRUZ
+
+
+BATERIAS
++ Tipo de Baterías Sellada de Libre Mantenimiento VRLA-AG
+e  16PCS por defecto, 20PCS configurables
+1.11 e 4,5 minutos con 80 % de carga
+e Corriente de Carga 1A (configurable)
+Confirmar aceptación y enviar link de la página del fabricante para verificación.
+INDICADORES
+1.12 e LCD +LEDEstado del UPS, Entrada y salida de voltaje, nivel de carga y batería, etc.
+: e Alarmas sonoras
+e___ Modo Batería, Baja batería, sobrecarga, Falla, etc
+COMUNICACIÓN
+1.13 El UPS debe incluir: Puerto Usb, RS323, EPO, Slot inteligente, Bypass manual interno, térmico de salida: 63A., Térmico
+: Bypass, cold start,.
+e Llave bpass raqueable 63A., externa con 4 tomas Nemas ( adjuntar fotografía de Llave Bypass para efectos de
+verificación)
+1.14
+1.15
+
+e Certificación de Calidad: ¡SO 9001, 14001, CNAS, OHSAS, TUV, UL actualizadas, y verificables en la página web del fabricante. (adjuntar
+certificados y link para verificación en página oficial del fabricante.
+
+e  Laentidad se reserva el derecho de hacer las pruebas correspondientes a los equipos entregados, por tanto, no se aceptarán equipos
+REFURBISHED (restaurados, reacondicionados).
+
+- El proveedor deberá brindar Asistencia Técnica cuando esta sea requerida y estar acorde al horario de trabajo vigente en el Órgano
+Judicial.
+
+- La marca ofertada debe contar con un Centro Autorizado de Servicio en la ciudad de Santa Cruz, indicar dirección, teléfono y adjuntar
+certificado emitido por el fabricante indicando la información del y el proceso de referencia. (el certificado será validado por la entidad
+
+Especificar Garantía mínima 2 año, computable a partir de la recepción efectuada por parte de la Comisión de Recepción (Presentar
+certificado del fabricante y/o mayorista en Bolivia, indicando la entidad convocante y el proceso referido, el certificado será validado por
+la entidad).
+
+Marca: Cada equipc deberá poseer un identificador visible original de la marca.
+
+Sustancias Controladas: El proponente debe incluir certificado de Sustancias Controladas digital actualizado, para Manipulación de
+Sustancias peligrosas para Baterías secas y selladas que vienen en el UPS. Adjuntar Certificado.
+
+Apertura de empaques y verificación: El Órgano Judicial se reserva el derecho, a través de la Comisión de Recepción, de realizar la 1
+verificación, inspecciones, pruebas y recepción de equipos y sus partes, como proceso previo a la emisión del Informe de Conformidad.
+
+Observaciones a la entrega de bienes: Durante la etapa de verificación e inspección de los equipos, el Proveedor tiene la obligación
+de salvar cualquier observación, sea esta de entrega de partes o de funcionamiento de equipos o software suministrados en un plazo
+mínimo de 1 dia calendario. Manifestar aceptación.
+
+Embalaje. El proveedor debe garantizar que los equipos sean garantizados en medios de embalaje que garantice el transporte seguro
+_y adecuado del equipo, hasta el Órgano Judicial. -
+
+Medios de Transporte: Los medios de transporte hasta la entrega del equipo, en las oficinas del Órgano Judicial Distrito Santa Cruz,
+
+corren por cuenta del Proveedor.
+
+A
+
+1. Experiencia General. El proponente deberá contar con 2 (dos) años o más de experiencia como distribuidor de la marca ofertada
+(adjuntar copia de contratos, órdenes de compra o certificados de cumplimiento de contrato u órdenes de compra). Tener oficina
+central o en Santa Cruz con NIT, y Matricula de Comercio superior a 1 año para efectos de garantía 24/7.
+
+2. Experiencia Específica. El proponente deberá contar con 2 (dos) años o más de antigijedad certificada en la distribución/venta de
+productos similares, se deberá acompañar a la propuesta el certificado emitido por el fabricante y/o mayorista autorizado en Bolivia
+indicando la experiencia, dirigido a la entidad convocante y proceso de referencia. (el certificado será validado por la entidad) Al
+respecto la Entidad se reserva el derecho a realizar la verificación del certificado correspondiente.
+
+
+Los equipos deben ser entregados, en el plazo máximo de diez días (10 ) calendario, computables a partir del siguiente día hábil a la firma
+
+del Contrato Administrativo.
+
+El proponente adjudicado para la
+o del 3.5% según corresponda.
+
+suscripción del contrato deberá presentar una Boleta de garantía de cumplimiento de contrato del 7%
+
+7*1000 por día calendario de retraso del monto total adjudicado
+
+Contra entrega del bien a través de SIGEP, previa emisión de conformidad (comisión de recepción) y recepción de la respectiva factura.
+
+El proponente será responsable de realizar la instalación del equipo UPS adquirido y de la
+ambiente de Cámara Gesell Portachuelo y Cámara Gesel
+
+Se realizará mediante contrato administrativo
+
+Por el Total.
+
+| Buena Vista.
+
+puesta en funcionamiento de los mismos, en el
+
+PRECIO EVALUADO MÁS BAJO
+
+==== PDF ====
+
+DICOR
+
+o
+importaciones invt
+
+Santa Cruz, 26 de julio de 2024
+Señores:
+
+DAF SCZ E
+SANTA CRUZ DE LA SIERR. Ml y
+Presente:
+
+COTIZACION No.78/2024
+
+Tema: UPS de 6KVA
+De acuerdo a solicitud le paso la cotización requerida:
+
+Ítem : Descripción Cantidad Precio TOTAL
+Unit. Bs
+1 |Marca:INVT  Modelo:HT1106XS 2 24800,00 | 49600,00
+
+UPS ONLINE monofásico de 6 Kva/6Kw/6.000Va.
+
+Gabinete Interno con 16 Baterías 12V/7Ah. Slot SNMP, USB
+Port, Pantalla Digital, Factor de Potencia 1, Frecuencia 40-70
+Hz, Regulación de voltage de 110-288Vac, PF> 99%. Pantalla
+LCD/LED. Tipo Torre. Paralelo hasta 4 unidades.
+
+Incluye:
+
++ Llave Bypass externo, raqueable, para UPS de 6 y 10
+KVA, para mantenimiento futuro sin apagar los
+equipos. :
+
++ Puesto en marcha en PUEBLOS.
+
+A e
+
+Son: Cuarenta y nueve mil seiscientos y 00/100 bolivianos
+
+CONDICIONES DE VENTA
+
+Tiempo de entrega :5 días calendario o antes. :
+Tiempo de la oferta : 60 días calendario.
+Forma de pago : SIGEP
+
+Garantía :24 meses A
+Lugar de entrega ; COMUNIDADES que indique ADMINISTRACION
+
+Incluyen IMPUESTOS DE LEY. :
+Sin otro, en particular mes es grato saludarlo.
+
+Telefax: 3 3575767
+
+Santa Cruz: Calle Aguilillo No. 4160, Telefax: 3575767, Cel: 757-84660. Mail: gerencia(Odicor.com.bo
+Cochabamba: Calle Argentina No. 12, Tamayo. Cel: 759-66031. Mail: comercialOdicor.com.bo
+La Paz: Calle Abel Iturralde No, 01, Zona San Lorenzo, celular: 788-10810
+www.dicor.com.bo

@@ -1,0 +1,381 @@
+familias atributo a consolidar: 220
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ✗ Groq key #2/7 HTTP 400: {"error":{"message":"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":""}}
+
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ✗ Groq key #2/7 HTTP 400: {"error":{"message":"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":""}}
+
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ✗ Groq key #1/7 HTTP 400: {"error":{"message":"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":""}}
+
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+  1/220 familias (claves mapeadas 230)
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ✗ Groq key #2/7 HTTP 400: {"error":{"message":"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":""}}
+
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #2/7: sin cupo DIARIO (TPD). Cambio a otra cuenta (6 con cupo).
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #1/7: sin cupo DIARIO (TPD). Cambio a otra cuenta (5 con cupo).
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ✗ Groq key #4/7 HTTP 400: {"error":{"message":"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":""}}
+
+      ✗ Groq key #4/7 HTTP 400: {"error":{"message":"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":""}}
+
+      ✗ Groq key #4/7 HTTP 400: {"error":{"message":"Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":""}}
+
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+  16/220 familias (claves mapeadas 994)
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+  31/220 familias (claves mapeadas 1295)
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #3/7: sin cupo DIARIO (TPD). Cambio a otra cuenta (4 con cupo).
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #4/7: sin cupo DIARIO (TPD). Cambio a otra cuenta (3 con cupo).
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+  46/220 familias (claves mapeadas 1477)
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+  61/220 familias (claves mapeadas 1618)
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+  76/220 familias (claves mapeadas 1725)
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+  91/220 familias (claves mapeadas 1806)
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+  106/220 familias (claves mapeadas 1875)
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+  121/220 familias (claves mapeadas 1933)
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #5/7: sin cupo DIARIO (TPD). Cambio a otra cuenta (2 con cupo).
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+  136/220 familias (claves mapeadas 1978)
+      ⚠ Groq key #7/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #7/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #7/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #7/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #7/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #7/7: 429 TPM; cambio a otra cuenta.
+      ⚠ Groq key #6/7: sin cupo DIARIO (TPD). Cambio a otra cuenta (1 con cupo).
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+  151/220 familias (claves mapeadas 2023)
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+  166/220 familias (claves mapeadas 2053)
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+  181/220 familias (claves mapeadas 2083)
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+  196/220 familias (claves mapeadas 2113)
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+  211/220 familias (claves mapeadas 2143)
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+      ⚠ Groq key #7/7: 429 rate limit; espero 30s...
+LISTO 2B. claves mapeadas: 2161

@@ -1,0 +1,58 @@
+1
+30
+COD.CLIENTE: 0-003
+COTIZACION
+NOMBRE: Organo Judicial DAF-CH
+N° 10-78/25
+DIRECCION: Av. Venezuela esq. Ladislao Cabrera Zona Ex Estación
+TELEFONO: 64-61600
+E-MAIL: -
+VALIDO HASTA
+NIT: -
+03/09/2025
+CIUDAD: SUCRE
+De mi mayor consideracion, le hacemos llegar la cotización de lo(s) siguiente(s) producto(s):
+ITEM
+CODIGO
+DESCRIPCION
+CANT. UNID.
+P.UNIT.
+P.TOTAL
+1
+BAT-LP190-LO
+Baterias de 12V9AH, libre de mantenimiento Modelo LP12-9.0, 
+Marca: LEOCH, industria china. Incluye puesta en marcha en los 
+equipos UPS en la ciudad de Sucre
+75
+Pza.
+416,00
+31.200,00
+     
+SON: Treinta y Un Mil Doscientos 00/100 Bolivianos
+SUBTOTAL Bs.:
+31.200,00
+DESCUENTO %:
+0,00
+TOTAL Bs.:
+31.200,00
+Lugar Entrega:
+Almacenes del Cliente
+NOTA:
+Oscar Leonardo Tambare Serrano
+Gerente General
+Cel.: 75438701
+leotambare@saitecbolivia.com
+Cotización Aceptada
+https://www.saitecbolivia.com
+lunes, 4 de agosto de 2025
+Dir. Calle Sargento Tejerina Nº 289 esq. Av. Canada
+NIT: 3860700016 Cel.: 75438701 - 77126188
+www.saitecbolivia.com
+Validez: 
+30 días calendario
+Garantia:
+12 meses
+Plazo Entrega:
+10 dias calendario
+Forma de Pago:
+Transferencia o cheque
