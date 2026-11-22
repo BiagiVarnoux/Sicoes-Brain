@@ -76,23 +76,60 @@ const PROCESO_COLS =
 const ITEM_COLS =
   'id,cuce,nro_item,unspsc_codigo,descripcion,unidad_medida,cantidad,precio_referencial,precio_adjudicado,monto_total,proveedor,estado_recepcion,cantidad_recibida,monto_ejecutado,fecha_entrega,entidad_codigo,modalidad,fecha_publicacion,producto_canonico_id'
 
-/** Lee una tabla completa salteando el tope de 1000 filas de PostgREST. */
+/** Lee una tabla completa salteando el tope de 1000 filas de PostgREST.
+ *  Primero pide el `count` exacto y luego descarga todas las páginas EN PARALELO,
+ *  en vez de encadenarlas una tras otra. Para hist_items (~9k filas = 10 páginas)
+ *  esto convierte ~10 viajes secuenciales en uno solo de latencia. */
 async function fetchAll<T>(table: string, columns: string): Promise<T[]> {
   const pageSize = 1000
-  const all: T[] = []
-  for (let from = 0; ; from += pageSize) {
-    const { data, error } = await supabase
-      .from(table)
-      .select(columns)
-      .range(from, from + pageSize - 1)
-    if (error || !data || data.length === 0) break
-    all.push(...(data as T[]))
-    if (data.length < pageSize) break
+  const head = await supabase.from(table).select(columns, { count: 'exact', head: true })
+  const total = head.count ?? 0
+  if (head.error || total === 0) {
+    // Fallback: la tabla no soporta count (o es chica) → una sola página.
+    const { data } = await supabase.from(table).select(columns).range(0, pageSize - 1)
+    return (data as T[]) ?? []
   }
-  return all
+  const nPages = Math.ceil(total / pageSize)
+  const pages = await Promise.all(
+    Array.from({ length: nPages }, (_, i) =>
+      supabase
+        .from(table)
+        .select(columns)
+        .range(i * pageSize, i * pageSize + pageSize - 1)
+        .then((r) => (r.data as T[]) ?? []),
+    ),
+  )
+  return pages.flat()
+}
+
+// ─── Caché en proceso ────────────────────────────────────────────────────────
+// Las tablas hist_* las puebla un scraper aparte con poca frecuencia, así que no
+// tiene sentido re-descargarlas (~14 viajes a Supabase, varios MB) en cada
+// navegación. Guardamos el resultado en memoria del proceso con un TTL; el botón
+// "Actualizar" del histórico la invalida vía `bustHistCache()`. En Vercel la
+// instancia caliente reusa este caché entre requests de una misma sesión, que es
+// justo donde se sentía la lentitud.
+const HIST_TTL_MS = 5 * 60 * 1000
+let histCache: { at: number; promise: Promise<HistData> } | null = null
+
+/** Invalida el caché en proceso para forzar una re-descarga en el próximo render. */
+export function bustHistCache(): void {
+  histCache = null
 }
 
 export async function getHistData(): Promise<HistData> {
+  const now = Date.now()
+  if (histCache && now - histCache.at < HIST_TTL_MS) return histCache.promise
+  const promise = fetchHistData()
+  histCache = { at: now, promise }
+  // Si la descarga falla, no dejamos el rechazo cacheado.
+  promise.catch(() => {
+    if (histCache?.promise === promise) histCache = null
+  })
+  return promise
+}
+
+async function fetchHistData(): Promise<HistData> {
   const [procesos, items, canonRows] = await Promise.all([
     fetchAll<HistProceso>('hist_procesos', PROCESO_COLS),
     fetchAll<HistItem>('hist_items', ITEM_COLS),

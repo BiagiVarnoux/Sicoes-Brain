@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useTransition } from 'react'
 
+import { refreshHist } from '@/app/historico/actions'
+
 const TABS = [
   { href: '/historico', label: 'Resumen', exact: true },
   { href: '/historico/producto', label: 'Productos' },
@@ -42,7 +44,7 @@ export default function HistTabs() {
         })}
       </nav>
       <button
-        onClick={() => startTransition(() => router.refresh())}
+        onClick={() => startTransition(async () => { await refreshHist(); router.refresh() })}
         disabled={isPending}
         className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-gray-600
                    rounded-lg hover:bg-gray-100 disabled:opacity-60 transition-colors"
