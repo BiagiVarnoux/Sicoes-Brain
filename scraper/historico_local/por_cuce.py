@@ -74,7 +74,7 @@ async def locate(page, nav, num, var1, var2):
     return [c for c in raw if tuple(c.split('-')[3:6]) == (num, var1, var2)]
 
 
-async def capture_one(page, nav, converter, num, var1, var2, roots):
+async def capture_one(page, nav, converter, num, var1, var2, roots, forms_only=None):
     tag = f'{num}-{var1}-{var2}'
     matches = await locate(page, nav, num, var1, var2)
     if not matches:
@@ -102,13 +102,15 @@ async def capture_one(page, nav, converter, num, var1, var2, roots):
         print(f'  {cuce}: aparece en la tabla pero no pasa el filtro (estado/modalidad fuera de alcance)', flush=True)
         return 1
     print(f'  {cuce} -> {entity} {year}', flush=True)
-    ok = await base.process(page, row, root, nav, converter)
+    if forms_only and not [f for f in row.get('forms', []) if base._formnum(f['label']) in forms_only]:
+        print(f'    (sin FORM{"/".join(sorted(forms_only))} anunciado todavía — nada que recapturar)', flush=True)
+    ok = await base.process(page, row, root, nav, converter, forms_only=forms_only)
     if not ok and base.needs_recovery(root, cuce):
         print('    Recuperación: re-buscando el proceso por convocatoria…', flush=True)
         if cuce in await locate(page, nav, num, var1, var2):
             row = await pick_row()
             if row is not None:
-                ok = await base.process(page, row, root, nav, converter)
+                ok = await base.process(page, row, root, nav, converter, forms_only=forms_only)
     manifest = json.loads((root / cuce / 'manifest.json').read_text())
     status = manifest['status'] if ok else 'PARCIAL'
     rep = roots.setdefault(str(root), {})
@@ -118,7 +120,7 @@ async def capture_one(page, nav, converter, num, var1, var2, roots):
     return 0 if ok else 1
 
 
-async def capture(entries, converter, startup_seconds=0):
+async def capture(entries, converter, startup_seconds=0, forms_map=None, forms_default=None):
     from playwright.async_api import async_playwright
     nav = base.original_functions('primary')
     nav.setdefault('_timings', []).append({'phase': 'brave_startup', 'seconds': startup_seconds, 'status': 'OK'})
@@ -136,7 +138,8 @@ async def capture(entries, converter, startup_seconds=0):
         await base.configure_downloads(context, page, staging)
         for num, var1, var2 in entries:
             try:
-                rc = await capture_one(page, nav, converter, num, var1, var2, roots)
+                fo = (forms_map or {}).get(num, forms_default)
+                rc = await capture_one(page, nav, converter, num, var1, var2, roots, fo)
             except base.BrowserUnavailable:
                 raise
             except Exception as exc:  # un proceso que falla no tumba a los demás
@@ -151,23 +154,61 @@ async def capture(entries, converter, startup_seconds=0):
     return status
 
 
+def _formset(texto):
+    """Conjunto de nros de form (3 dígitos) desde un csv/espacios. Ej "100,500" -> {'100','500'}."""
+    nums = set(re.findall(r'\d{3}', texto or ''))
+    if not nums:
+        raise ValueError(f'forms inválidos: {texto!r} (se esperan nros de 3 dígitos como 100,200,500)')
+    return nums
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument('cuces', nargs='+',
+    p.add_argument('cuces', nargs='*',
                    help='Nº de convocatoria (1199042), con variante (1199042-1-2) o CUCE completo')
     p.add_argument('--check', action='store_true',
                    help='Listar lo que se buscaría y verificar dependencias, sin conectar')
+    p.add_argument('--forms', default=None,
+                   help='Captura SOLO estos forms (csv de nros, ej "100,200,500"); omite DBC/oferta. '
+                        'Aplica a todos los CUCE que no estén en --forms-file.')
+    p.add_argument('--solo-form500', action='store_true',
+                   help='Atajo de --forms 500 (solo la recepción/entrega).')
+    p.add_argument('--forms-file', default=None,
+                   help='Archivo con "CUCE<espacio o TAB>forms_csv" por línea (# = comentario). '
+                        'Define la lista de CUCE y, por cada uno, qué forms recapturar.')
     args = p.parse_args()
+
+    forms_default = _formset(args.forms) if args.forms else ({'500'} if args.solo_form500 else None)
+    forms_map, cuces = {}, list(args.cuces)
+    if args.forms_file:
+        with open(args.forms_file, encoding='utf-8') as fh:
+            lineas = fh.readlines()
+        for linea in lineas:
+            linea = linea.split('#', 1)[0].strip()
+            if not linea:
+                continue
+            tok = linea.replace(',', ' ').split()
+            cuce_tok, nums = tok[0], tok[1:]
+            cuces.append(cuce_tok)
+            if nums:
+                try:
+                    forms_map[parse_entry(cuce_tok)[0]] = _formset(' '.join(nums))
+                except ValueError as exc:
+                    p.error(f'{cuce_tok}: {exc}')
+    if not cuces:
+        p.error('indicá CUCE(s) en la línea o con --forms-file')
     try:
-        entries = parse_all(args.cuces)
+        entries = parse_all(cuces)
     except ValueError as exc:
         p.error(str(exc))
 
     converter = base.dependencies()
     print('Convocatorias por capturar:')
     for num, var1, var2 in entries:
-        print(f'  {num}-{var1}-{var2}')
+        fo = forms_map.get(num, forms_default)
+        detalle = f'  solo FORM {",".join(sorted(fo))}' if fo else '  (todos los forms + DBC/oferta)'
+        print(f'  {num}-{var1}-{var2}{detalle}')
     if args.check:
         print('Dependencias disponibles. Sin conexiones.')
         return
@@ -175,7 +216,7 @@ def main():
     started = time.monotonic()
     base.prepare_brave()
     elapsed = time.monotonic() - started
-    raise SystemExit(asyncio.run(capture(entries, converter, elapsed)))
+    raise SystemExit(asyncio.run(capture(entries, converter, elapsed, forms_map, forms_default)))
 
 
 if __name__ == '__main__':

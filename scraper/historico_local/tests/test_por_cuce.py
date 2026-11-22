@@ -50,8 +50,10 @@ class DispatchTests(unittest.TestCase):
     def test_capture_receives_parsed_entries(self):
         seen = {}
 
-        async def fake_capture(entries, converter, startup):
+        async def fake_capture(entries, converter, startup, forms_map=None, forms_default=None):
             seen['entries'] = entries
+            seen['forms_map'] = forms_map
+            seen['forms_default'] = forms_default
             return 0
 
         argv = ['por_cuce', '1199042-1-2', '23-0660-11-1333011-1-1']
@@ -65,6 +67,49 @@ class DispatchTests(unittest.TestCase):
         self.assertEqual(ctx.exception.code, 0)
         self.assertEqual(seen['entries'],
                          [('1199042', '1', '2'), ('1333011', '1', '1')])
+        # Sin flags de forms: comportamiento intacto (captura todo).
+        self.assertIsNone(seen['forms_default'])
+        self.assertEqual(seen['forms_map'], {})
+
+    def _run_main(self, argv):
+        seen = {}
+
+        async def fake_capture(entries, converter, startup, forms_map=None, forms_default=None):
+            seen.update(entries=entries, forms_map=forms_map, forms_default=forms_default)
+            return 0
+
+        with patch('scraper.historico_local.historico_http_directo.dependencies',
+                   return_value=object()), \
+             patch('scraper.historico_local.historico_http_directo.prepare_brave'), \
+             patch('scraper.historico_local.por_cuce.capture', side_effect=fake_capture), \
+             patch('sys.argv', argv):
+            with self.assertRaises(SystemExit) as ctx:
+                pc.main()
+        self.assertEqual(ctx.exception.code, 0)
+        return seen
+
+    def test_solo_form500_sets_default(self):
+        seen = self._run_main(['por_cuce', '1199042-1-2', '--solo-form500'])
+        self.assertEqual(seen['forms_default'], {'500'})
+        self.assertEqual(seen['forms_map'], {})
+
+    def test_forms_flag_parses_csv(self):
+        seen = self._run_main(['por_cuce', '1199042-1-2', '--forms', '100,200,500'])
+        self.assertEqual(seen['forms_default'], {'100', '200', '500'})
+
+    def test_forms_file_maps_per_cuce(self):
+        import tempfile, os
+        fd, path = tempfile.mkstemp(suffix='.txt')
+        try:
+            os.write(fd, b'# comentario\n22-0660-10-1199042-1-2  500\n1333011-1-1 100,500\n')
+            os.close(fd)
+            seen = self._run_main(['por_cuce', '--forms-file', path])
+        finally:
+            os.unlink(path)
+        self.assertEqual(seen['entries'],
+                         [('1199042', '1', '2'), ('1333011', '1', '1')])
+        self.assertEqual(seen['forms_map'], {'1199042': {'500'}, '1333011': {'100', '500'}})
+        self.assertIsNone(seen['forms_default'])
 
 
 if __name__ == '__main__':

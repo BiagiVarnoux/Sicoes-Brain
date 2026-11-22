@@ -149,7 +149,51 @@ def _req(url, key, path, method="GET", body=None, prefer=None):
         return r.read()
 
 
-def write_supabase(url, key, procesos, items, batch=500):
+def fetch_canonico_actual(url, key):
+    """Mapa (cuce,nro_item) → (producto_canonico_id, especificaciones) de hist_items.
+    El reload reemplaza todo; esto permite re-pegar la canonicalización (etapa 6) y
+    las specs (etapa 3) para no perderlas. Claves con varias filas se omiten (no se
+    adivina cuál canónico va). Lee paginado."""
+    from collections import defaultdict
+    pids = defaultdict(set); especs = defaultdict(set); offset = 0
+    while True:
+        raw = _req(url, key, "hist_items?select=cuce,nro_item,producto_canonico_id,"
+                   f"especificaciones&limit=1000&offset={offset}")
+        rows = json.loads(raw)
+        for r in rows:
+            k = (r["cuce"], r["nro_item"])
+            if r.get("producto_canonico_id") is not None:
+                pids[k].add(r["producto_canonico_id"])
+            if r.get("especificaciones"):
+                especs[k].add(r["especificaciones"])
+        if len(rows) < 1000:
+            break
+        offset += len(rows)
+    out = {}
+    # Se preserva solo cuando el valor es inequívoco (una sola opción para la clave).
+    for k in set(pids) | set(especs):
+        pid = next(iter(pids[k])) if len(pids[k]) == 1 else None
+        espec = next(iter(especs[k])) if len(especs[k]) == 1 else None
+        if pid is not None or espec is not None:
+            out[k] = (pid, espec)
+    return out
+
+
+def write_supabase(url, key, procesos, items, batch=500, preservar_canonico=True):
+    # Preserva producto_canonico_id/especificaciones (etapas 3 y 6) a través del
+    # reemplazo total: se re-pegan por (cuce,nro_item) antes de reinsertar.
+    if preservar_canonico:
+        prev = fetch_canonico_actual(url, key)
+        reasig = 0
+        for it in items:
+            k = (it["cuce"], it["nro_item"])
+            if k in prev:
+                pid, espec = prev[k]
+                if pid is not None and not it.get("producto_canonico_id"):
+                    it["producto_canonico_id"] = pid; reasig += 1
+                if espec and not it.get("especificaciones"):
+                    it["especificaciones"] = espec
+        print(f"  preservando canónicos: {reasig} ítems re-pegados por (cuce,nro_item)", flush=True)
     # Orden por FK: items dependen de procesos. Reemplazo total del histórico.
     print("  borrando hist_items…", flush=True)
     _req(url, key, "hist_items?id=gt.0", method="DELETE", prefer="return=minimal")

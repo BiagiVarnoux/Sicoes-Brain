@@ -62,7 +62,7 @@ def field_name(header,form):
         if 'adjudicado' in h:return 'precio_unitario_adjudicado'
         if 'contratado' in h or form in ('200','220'):return 'precio_unitario_contratado'
         return 'precio_unitario_documentado'
-    if 'total' in h or 'monto real ejecutado' in h:
+    if 'total' in h or 'ejecutado' in h:
         if 'ejecutado' in h:return 'monto_real_ejecutado'
         if 'preseleccionado' in h:return 'importe_total_preseleccionado'
         if 'referencial' in h:return 'precio_total_referencial'

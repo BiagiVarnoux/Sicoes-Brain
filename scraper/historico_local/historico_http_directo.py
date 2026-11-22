@@ -367,8 +367,15 @@ def nth_link(links,label,occurrence=0):
     return group[occurrence]['token']
 
 
-def targets(row):
-    docs=[('FORM',f['label'],f['token']) for f in collapse_forms(row.get('forms',[]))]
+def _formnum(label):
+    m=re.search(r'\d{3}',label or '');return m.group() if m else None
+
+
+def targets(row,forms_only=None):
+    forms=collapse_forms(row.get('forms',[]))
+    if forms_only:forms=[f for f in forms if _formnum(f['label']) in forms_only]
+    docs=[('FORM',f['label'],f['token']) for f in forms]
+    if forms_only:return docs                       # solo los forms pedidos: nada de DBC/oferta ni anexos
     wanted='oferta' if row['modalidad']=='CM' else 'documento base'
     selected=[a for a in row.get('archivos',[]) if wanted in a.get('label','').lower()]
     docs.extend(('OFFER' if row['modalidad']=='CM' else 'DBC',a['label'],a['token']) for a in selected)
@@ -376,7 +383,7 @@ def targets(row):
     return docs
 
 
-async def process(page,row,root,nav,converter,missing_only=False):
+async def process(page,row,root,nav,converter,missing_only=False,forms_only=None):
     folder=root/row['cuce'];folder.mkdir(parents=True,exist_ok=True)
     manifest=folder/'manifest.json'
     report=json.loads(manifest.read_text()) if manifest.exists() else {'cuce':row['cuce'],'documents':{}}
@@ -387,7 +394,7 @@ async def process(page,row,root,nav,converter,missing_only=False):
     nav['_active_row']=row
     nav['_http_folder']=folder/'http';nav['_http_folder'].mkdir(exist_ok=True)
     seen_labels={}
-    for position,(kind,label,token) in enumerate(targets(row)):
+    for position,(kind,label,token) in enumerate(targets(row,forms_only)):
         occurrence=seen_labels.get((kind,label),0);seen_labels[(kind,label)]=occurrence+1
         print(f'    {label}: preparando',flush=True)
         key=f'{kind}:{label}:{position}';doc=report['documents'].setdefault(key,{'label':label,'kind':kind,'versions':[],'attempts':[]})
