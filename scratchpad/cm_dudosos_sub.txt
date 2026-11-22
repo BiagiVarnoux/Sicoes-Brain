@@ -1,0 +1,39 @@
+25-0660-08-1608340-1-1	Tabla de especificaciones con numeros/items desordenados por OCR (items 5-11), cantidades por item incierta, orden posiblemente desalineado
+25-0660-09-1521974-1-1	Cantidad "2500" en OCR glued con precio 50000 total; derive cantidad=25 por patron de otros CUCE similares, no confirmado
+25-0660-09-1595729-1-1	RAM DDR3/DDR4 sin cantidad visible en tabla OCR (solo el disco SSD tiene cantidad=20 clara)
+25-0660-09-1612255-1-1	Cantidades OCR ilegibles "2050"/"2500" glued con precios, no se pudo derivar cantidad confiable para ningun item
+25-0660-09-1618849-1-1	Cantidad "3570" en OCR no coincide con total literal "treinta mil bolivianos" vs total numerico 49980, cantidad indeterminada
+25-0660-10-1520043-1-1	Tabla de aceites/lubricantes con columnas OCR mezcladas, cantidades de varios items (2,5,6) no se pudieron derivar con confianza
+25-0660-10-1539332-1-1	Primeras filas de la cotizacion totalmente ilegibles en el OCR (nombres y cantidades garabateados), se bundlea como lote generico
+25-0660-10-1549294-1-1	Proforma y DBC con columnas de cantidad cortadas/perdidas para la mayoria de los 22 items de material de escritorio; solo se pudo derivar cantidad de 5 items
+25-0660-10-1577961-1-1	Item 5 con descripcion parcialmente ilegible en el OCR ("Eolo pe AO COLOR ADULL"), cantidad estimada por aritmetica de precio total
+25-0660-10-1602686-1-1	Item 3 (alcohol en gel) con la fila de cantidad cortada en el OCR de la tabla DBC, no se pudo determinar
+25-0660-10-1617208-1-1	Item 6 (toner HP P2035N) con fila de cantidad cortada en el OCR, no se pudo determinar
+25-0660-11-1529910-1-1	Tabla de material electrico con columnas de cantidad/precio mezcladas por el OCR, mayoria de items (1,2,3,4,5) sin cantidad confiable
+25-0660-12-1528643-1-1	Proforma de llantas sin columna de cantidad legible en el OCR (solo numero de item), cantidad indeterminada para los 5 items
+25-0660-13-1607673-1-1	Tabla de ~78 herramientas con numeracion y cantidades totalmente desalineadas por el OCR; bundleado como lote generico, requiere revision humana del DBC original
+26-0660-06-1627055-1-1	Cantidad total de aires acondicionados no confirmada explicitamente en el DBC extraido (proforma muestra 3 marcas a 1 unidad cada una, total no coincide con precio referencial); se asumio 6 por patron de CUCEs similares
+26-0660-06-1644617-1-1	DBC con placeholders "especificar la cantidad requerida" sin cantidad real asignada para los 12 items; precio referencial total conocido (Bs 39.960 por lotes) pero sin desglose
+26-0660-07-1639025-1-1	Items 1-4 (hojas membretadas) con cantidades totalmente desalineadas/ilegibles por el OCR de la tabla principal; se bundlearon en un solo item con cantidad null, items 5 y 6 (sobres) tomados de proforma separada con confianza alta
+26-0660-07-1675535-1-1	DBC truncado en el texto extraido: items 10-15 (mopa, recolector, detergente, sacasarro, franela, guante) no aparecen en la cotizacion adjunta visible, se copiaron descripciones de un proceso analogo (1644556) sin cantidad confirmada; item 2 (balde) con cantidad ilegible en el OCR
+26-0660-07-1682568-1-1	Cotizacion EVELIN truncada en el texto extraido tras item 8 (trapo), items 9-15 (cepillo, mopa, recolector, detergente, sacasarro, franela, guante) sin cantidad confirmada, descripciones tomadas de DBC analogo
+26-0660-08-1638223-1-1	Contrato de precios unitarios para sellos sin cantidad total fija (entrega parcial segun requerimiento durante la gestion); bundleado como lote generico
+26-0660-08-1638245-1-2	Tabla de 21 repuestos de aire acondicionado con OCR muy garbled en columnas cantidad/precio; items 11-14 (motores de ventilador) sin cantidad determinable, items 9-10 (compresores) estimados por aritmetica de precio total
+26-0660-08-1641864-1-1	Proforma y DBC con numeracion de items desalineada (13 lineas en proforma vs 12 items en DBC); varios items (tambor DR-3609, audifono, estabilizador, camara web, mouse) sin cantidad confirmada en el texto OCR
+26-0660-09-1635507-2-1	Item 3 (CO2 recarga extintores) mezclado con un servicio de retiro/traslado/instalacion con conteos de piezas (68 y 56) que no corresponden a cantidad de CO2; se bundleo como servicio sin cantidad
+26-0660-09-1669497-1-1	Tabla de 11 accesorios de computacion con OCR muy garbled en columna cantidad (numeros sueltos sin asociacion clara a filas); solo items 1,3,4 tienen cantidad confiable
+26-0660-09-1676860-1-1	Equipamiento audio/video/vigilancia camara Gesell sin columna de cantidad explicita por item en el texto OCR; se asumio cantidad 1 para los 7 items (instalacion unica de sala)
+26-0660-10-1631306-1-1	Cotizacion de papel continuo sin desglose de cantidad por item visible en el OCR (solo total Bs49998), ambos items con cantidad null
+26-0660-10-1643554-1-1	Items 10 (foco LED 18W empotrar) y 12 (cable cobre N10) con cantidad ilegible en el OCR de la tabla
+26-0660-10-1645386-1-1	Item 5 (televisor 55 pulgadas) mencionado en las especificaciones pero sin cotizacion ni cantidad visible en el documento
+26-0660-10-1654984-1-1	Tabla de hilos y tela cortada en el OCR tras el item 1; items 2 y 3 sin cantidad confirmada (solo precio total general de Bs 25.789,20 para los 3 items)
+26-0660-10-1668100-1-1	Cantidad del item 1 (cable Ethernet) derivada de un numero suelto "7" en OCR muy degradado, no se pudo confirmar contra una tabla clara
+26-0660-11-1651208-1-1	El bloque OCR de este CUCE incluye un segundo documento (cartuchos Canon PG-35/CLI-36 y referencia a tintas Epson) que podria no pertenecer a este proceso; se omitio por ambiguedad, solo se registraron los 3 toners de fotocopiadora claramente asociados al titulo del DBC
+26-0660-12-1644502-1-1	No se encontro tabla de especificaciones tecnicas con cantidad explicita por item en el OCR extraido (solo proformas individuales de TV 75", TV 55" y barra de sonido); se asumio cantidad 1 por item
+26-0660-13-1628766-1-1	Item 1 (tinta recarga Epson M100) sin cantidad clara en el OCR; se derivo que el total restante (49976-46200=3776) corresponde a este item pero sin precio unitario confiable para calcular cantidad
+26-0660-13-1649949-1-1	Item 2 (aragan de goma) con cantidad "3" en el OCR que no coincide con el producto (3*25=75, no 1300); se derivo cantidad=52 por aritmetica de precio total, no confirmado
+26-0660-13-1657302-1-1	Cantidad del item 1 no visible directamente en la tabla DBC (se tomo de la proforma via aritmetica total/precio=20); items 5 y 19 (llave de paso) con numeracion ambigua en el OCR
+26-0660-13-1675987-1-1	Documento sin tabla de items/cantidades extraible por OCR (solo encabezado de la empresa vendedora), bundleado como lote generico sin cantidad
+26-0660-13-1677504-1-1	Item 1 (cinta Epson LQ-590) sin cantidad visible en el OCR de la tabla DBC ni de la cotizacion adjunta
+26-0660-13-1684190-1-1	Varios items (2,3) con cantidad derivada por aritmetica total/precio unitario ya que la columna de cantidad no se veia directamente en el OCR de la tabla DBC
+26-0660-13-1684220-1-1	Documento sin tabla de items/cantidades extraible por OCR (solo encabezado de la empresa vendedora), bundleado como lote generico sin cantidad
