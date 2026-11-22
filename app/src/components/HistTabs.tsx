@@ -11,7 +11,6 @@ const TABS = [
   { href: '/historico/producto', label: 'Productos' },
   { href: '/historico/demanda-demo', label: 'Demanda (demo)' },
   { href: '/historico/proveedor', label: 'Proveedores' },
-  { href: '/historico/analisis', label: 'Análisis' },
 ]
 
 /** Sub-pestañas del módulo Histórico + botón para actualizar los datos. */
