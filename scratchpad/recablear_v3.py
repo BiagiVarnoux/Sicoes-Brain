@@ -135,16 +135,21 @@ for fam, claves in p2.items():
             canon = min(grp, key=len)
             for k in grp: remap[k] = canon
 
-# FASE 2C (opcional): merge semántico por código explícito (si existe el mapa)
+# FASE 2E (superset de 2C): merge por código explícito, CROSS-FAMILIA (si existe el mapa).
+# 2E ⊇ 2C (mismas uniones intra-familia + las cross-familia como DK-2205). Si falta 2E, cae a 2C.
 import os as _os
-map2c = {}
+map2m = {}
+_f2e = _os.path.join(_os.path.dirname(__file__), "fase2_2e_map.json")
 _f2c = _os.path.join(_os.path.dirname(__file__), "fase2_2c_map.json")
-if _os.path.exists(_f2c):
-    map2c = json.load(open(_f2c))
-    print(f"Fase 2C: aplicando {len(map2c)} fusiones por código", flush=True)
+if _os.path.exists(_f2e):
+    map2m = json.load(open(_f2e))
+    print(f"Fase 2E: aplicando {len(map2m)} fusiones por código (cross-familia)", flush=True)
+elif _os.path.exists(_f2c):
+    map2m = json.load(open(_f2c))
+    print(f"Fase 2C: aplicando {len(map2m)} fusiones por código", flush=True)
 def clave_final(k):
     k2 = remap.get(k, k)          # 2A
-    return map2c.get(k2, k2)      # 2C
+    return map2m.get(k2, k2)      # 2E (o 2C de fallback)
 
 # grupos finales
 grupos = defaultdict(list)   # clave_final -> [item]

@@ -1,0 +1,1641 @@
+{
+ "dr720": {
+  "familias": [
+   "impresora",
+   "tambores",
+   "unidades"
+  ],
+  "n_claves": 3,
+  "n_items": 12,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tambores para impresoras o faxes o fotocopiadoras REPUESTO PARA IMPRESORA · TIPO TAMBOR · MODEL"
+ },
+ "hl6180": {
+  "familias": [
+   "computador",
+   "fusores",
+   "impresora",
+   "mantenimiento",
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 16,
+  "n_items": 27,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tambores para impresoras o faxes o fotocopiadoras REPUESTO PARA IMPRESORA · TIPO TAMBOR · MODEL"
+ },
+ "dr3460": {
+  "familias": [
+   "tambores",
+   "toner",
+   "unidades"
+  ],
+  "n_claves": 4,
+  "n_items": 27,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tambores para impresoras o faxes o fotocopiadoras DRUM PARA IMPRESORA · MARCA BROTHER, MODELO H"
+ },
+ "hl6400": {
+  "familias": [
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 2,
+  "n_items": 16,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tambores para impresoras o faxes o fotocopiadoras DRUM PARA IMPRESORA · MARCA BROTHER, MODELO H"
+ },
+ "hojas200": {
+  "familias": [
+   "blocs",
+   "formatos",
+   "libros",
+   "papel"
+  ],
+  "n_claves": 6,
+  "n_items": 15,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Formatos o libros de control LIBRO DE ACTAS · CANT DE HOJAS 200 PAGS. · TAMAÑO OFICIO CON INDIC"
+ },
+ "largo100": {
+  "familias": [
+   "cinta",
+   "hilado",
+   "pegamentos",
+   "rollos"
+  ],
+  "n_claves": 16,
+  "n_items": 41,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Cinta transparente Cinta para Embalaje · Medidas 48 Mms. · Color Transparente · Material Polipr"
+ },
+ "lq550": {
+  "familias": [
+   "etiquetas",
+   "papel"
+  ],
+  "n_claves": 7,
+  "n_items": 17,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Papel de notas autoadhesivas PAPEL AUTOADHESIVO, 62 MM X 30.48 M · IMPRESORA BROTHER LQ 550/570"
+ },
+ "de500": {
+  "familias": [
+   "cable",
+   "ceras",
+   "limpiadores",
+   "lubricantes",
+   "papel",
+   "protectores",
+   "reciclaje"
+  ],
+  "n_claves": 69,
+  "n_items": 148,
+  "colores": [
+   "amarillo",
+   "negro"
+  ],
+  "ejemplo": "Papel para impresora o fotocopiadora PAPEL BOND TAMAÑO OFICIO · GRAMAJE 75 GRS. · COLOR BLANCO "
+ },
+ "lq590": {
+  "familias": [
+   "cabezales",
+   "cinta",
+   "impresora",
+   "impresoras",
+   "mantenimiento",
+   "suministros",
+   "tinta",
+   "toner"
+  ],
+  "n_claves": 39,
+  "n_items": 85,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Cinta de impresora CINTA PARA IMPRESORA · EPSON LQ-590 · TIPO CARRO CORTO"
+ },
+ "bt5001": {
+  "familias": [
+   "correctores",
+   "tinta"
+  ],
+  "n_claves": 11,
+  "n_items": 17,
+  "colores": [
+   "amarillo",
+   "cyan",
+   "magenta"
+  ],
+  "ejemplo": "Kits de correctores de fase o inyección de tinta REFIL BROTHER COLOR AMARILLO PARA IMPRESORA BT"
+ },
+ "de50": {
+  "familias": [
+   "bolsas",
+   "candados",
+   "cemento",
+   "chinches",
+   "clips",
+   "led",
+   "reflectores",
+   "sujetadores",
+   "tachuelas"
+  ],
+  "n_claves": 21,
+  "n_items": 59,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Bolsas de basura Bolsa de Residuos · Color Negro · Dimension 35 x 65 Cms. · Espesor Grueso · Pr"
+ },
+ "de70": {
+  "familias": [
+   "correctores",
+   "lamparas"
+  ],
+  "n_claves": 9,
+  "n_items": 13,
+  "colores": [
+   "amarillo",
+   "cyan",
+   "magenta",
+   "negro"
+  ],
+  "ejemplo": "Kits de correctores de fase o inyección de tinta REFIL EPSON L355 CYAN CAPACIDAD PARA 180 PAGIN"
+ },
+ "de100": {
+  "familias": [
+   "alambre",
+   "almacenamiento",
+   "blocs",
+   "cinta",
+   "clips",
+   "folder",
+   "grapa",
+   "papel",
+   "reflectores",
+   "rollos",
+   "sujetador",
+   "sujetadores",
+   "virutas"
+  ],
+  "n_claves": 43,
+  "n_items": 86,
+  "colores": [
+   "amarillo",
+   "negro"
+  ],
+  "ejemplo": "Clips para papel CLIPS PARA PAPELES · MATERIAL · METAL · NUMERO · 4 · DE 33 MM · PRESENTACION ·"
+ },
+ "de370": {
+  "familias": [
+   "desinfectante",
+   "desinfectantes",
+   "productos"
+  ],
+  "n_claves": 3,
+  "n_items": 8,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Desinfectantes para uso doméstico Desinfectante para Manos · Tipo Líquido Sanitizador de Manos "
+ },
+ "hl3170": {
+  "familias": [
+   "reveladores",
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 9,
+  "n_items": 78,
+  "colores": [
+   "amarillo",
+   "cyan",
+   "magenta",
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax Toner Para Impresora · Marca Brother · Modelo HL-3170 CDW · Serie T"
+ },
+ "ms321": {
+  "familias": [
+   "mantenimiento",
+   "reveladores",
+   "tambores",
+   "toner",
+   "unidades"
+  ],
+  "n_claves": 21,
+  "n_items": 168,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax TONER PARA IMPRESORA · MARCA LEXMARK · MODELO MS 321 · SERIE 56F400"
+ },
+ "hl5340": {
+  "familias": [
+   "fusores",
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 9,
+  "n_items": 26,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax TONER PARA IMPRESORA · MODELO DE IMPRESORA BROTHER HL 5340 D · COLO"
+ },
+ "ir1435": {
+  "familias": [
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 7,
+  "n_items": 15,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax Toner Para Fotocopiadora · Marca Canon · Modelo IR 1435 I · Serie G"
+ },
+ "gpr54": {
+  "familias": [
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 2,
+  "n_items": 19,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax Toner Para Fotocopiadora · Marca Canon · Modelo IR 1435 I · Serie G"
+ },
+ "ms821dn": {
+  "familias": [
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 3,
+  "n_items": 16,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax Toner para Impresora · Marca Lexmark MS821dn · Modelo 58D4H00. Colo"
+ },
+ "ms810": {
+  "familias": [
+   "mantenimiento",
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 6,
+  "n_items": 15,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax Toner para Impresora · Marca Lexmark MS810 – MS812dn · Serie 52D4H0"
+ },
+ "de25": {
+  "familias": [
+   "acoples",
+   "contactores",
+   "grapadoras",
+   "insertos",
+   "rejillas",
+   "torres"
+  ],
+  "n_claves": 8,
+  "n_items": 15,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Grapadoras ENGRAPADORA DE ESCRITORIO CORCHETERA STAPLER CM-70 · CAPACIDAD DE 25 HOJAS · TAMAÑO "
+ },
+ "58d0z00": {
+  "familias": [
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 2,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax Repuesto para Impresora · Tipo Tambor para Lexmark · Modelo 58D0Z00"
+ },
+ "hojas100": {
+  "familias": [
+   "blocs",
+   "cortadoras",
+   "formatos",
+   "libros",
+   "papel",
+   "sujetador",
+   "sujetadores",
+   "toner"
+  ],
+  "n_claves": 29,
+  "n_items": 54,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Papel libros o cuadernos para bitácoras LIBRO DE ACTAS · CANT DE HOJAS 100 UNIDAD · TAMANO OFIC"
+ },
+ "de20": {
+  "familias": [
+   "canaletas",
+   "cemento",
+   "cinta",
+   "contenedor",
+   "contenedores",
+   "destornilladores",
+   "dispensador",
+   "gabinetes",
+   "led",
+   "montaje",
+   "tijeras",
+   "yeso"
+  ],
+  "n_claves": 14,
+  "n_items": 22,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Dispensador de solución de limpieza y accesorios Basureros · Tamaño Grande de 20 Lts. · Materia"
+ },
+ "de1000": {
+  "familias": [
+   "formularios",
+   "limpiadores",
+   "papel"
+  ],
+  "n_claves": 9,
+  "n_items": 22,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Papel en formas continuas PAPEL CONTINUO QUIMICO 9 1/2 x 11 x 3 x 5.1/2, PRESENTACION CAJA DE 1"
+ },
+ "rollo20": {
+  "familias": [
+   "cinta",
+   "pelicula",
+   "rollos"
+  ],
+  "n_claves": 5,
+  "n_items": 12,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Cinta transparente Cinta Adhesiva · Ancho 18 Mms. · Largo Rollo 20 Mts. · Material Polipropilen"
+ },
+ "ancho18": {
+  "familias": [
+   "cinta",
+   "pelicula",
+   "rollos"
+  ],
+  "n_claves": 13,
+  "n_items": 24,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Cinta transparente Cinta Adhesiva · Ancho 18 Mms. · Largo Rollo 20 Mts. · Material Polipropilen"
+ },
+ "peso90": {
+  "familias": [
+   "higiene",
+   "jabones",
+   "limpieza",
+   "productos"
+  ],
+  "n_claves": 4,
+  "n_items": 7,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Kits de limpieza para uso general Jaboncillo · Envase Barra · Fragancia Surtida · Peso 90 Grs."
+ },
+ "de32": {
+  "familias": [
+   "grabadoras",
+   "memoria"
+  ],
+  "n_claves": 5,
+  "n_items": 12,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Memoria flash (nand) Memoria Flash Drive · Usb de 32 Gb"
+ },
+ "de16": {
+  "familias": [
+   "computador",
+   "enchufe",
+   "marcador",
+   "memoria",
+   "pen",
+   "tarjeta"
+  ],
+  "n_claves": 7,
+  "n_items": 11,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Memoria flash FLASH MEMORY DE 16 GB"
+ },
+ "de900": {
+  "familias": [
+   "limpiadores",
+   "productos",
+   "pulidores",
+   "transformador"
+  ],
+  "n_claves": 4,
+  "n_items": 5,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Productos de lavandería Jabon en Polvo · Presentación Bolsa de 900 Grs."
+ },
+ "rollo30": {
+  "familias": [
+   "cinta",
+   "husos",
+   "papel",
+   "rollos",
+   "sujetadores"
+  ],
+  "n_claves": 7,
+  "n_items": 20,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Papel para fax PAPEL PARA FAX, ANCHO 216 MM x 30 M LONGITUD ROLLO 30 M"
+ },
+ "ms610de": {
+  "familias": [
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 4,
+  "n_items": 9,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax Toner para Impresora Lexmark · Modelo MS610DE · Serie 504U · Color "
+ },
+ "btd60bk": {
+  "familias": [
+   "tinta",
+   "toner"
+  ],
+  "n_claves": 3,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax REFIL BROTHER (ORIGINAL) COLOR NEGRO PARA IMPRESORA BTD60BK"
+ },
+ "de55": {
+  "familias": [
+   "boligrafo",
+   "televisores"
+  ],
+  "n_claves": 4,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Bolígrafos BOLIGRAFO · TIPO DESECHABLE · MATERIAL BASE PLASTICO · TRAZO MEDIO · COLOR DE TINTA "
+ },
+ "alto40": {
+  "familias": [
+   "maquina",
+   "maquinas"
+  ],
+  "n_claves": 14,
+  "n_items": 23,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Máquinas perforadoras o para unir papel PERFORADORA · ALTO 40 HOJAS · NRO. DE PERFORACIONES 2(5"
+ },
+ "de60": {
+  "familias": [
+   "barras",
+   "compresores",
+   "lampara",
+   "lamparas",
+   "losas",
+   "reveladores",
+   "tambores",
+   "torres",
+   "varilla"
+  ],
+  "n_claves": 14,
+  "n_items": 15,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tambores para impresoras o faxes o fotocopiadoras UNIDAD DE IMAGEN ORIGINAL LEXMARK MODELO · 56"
+ },
+ "56f0z00": {
+  "familias": [
+   "tambores",
+   "toner",
+   "unidades"
+  ],
+  "n_claves": 4,
+  "n_items": 32,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tambores para impresoras o faxes o fotocopiadoras UNIDAD DE IMAGEN ORIGINAL LEXMARK MODELO · 56"
+ },
+ "ms321dn": {
+  "familias": [
+   "mantenimiento",
+   "toner",
+   "unidades"
+  ],
+  "n_claves": 4,
+  "n_items": 9,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Kit de mantenimiento de impresoras Kit de Mantenimiento para Impresora · Marca Lexmark · Modelo"
+ },
+ "ms621dn": {
+  "familias": [
+   "mantenimiento",
+   "toner",
+   "unidades"
+  ],
+  "n_claves": 4,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Kit de mantenimiento de impresoras Kit de Mantenimiento para Impresora · Marca Lexmark · Modelo"
+ },
+ "ms421dn": {
+  "familias": [
+   "fusores",
+   "mantenimiento",
+   "toner",
+   "unidades"
+  ],
+  "n_claves": 8,
+  "n_items": 10,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Kit de mantenimiento de impresoras Kit de Mantenimiento para Impresora · Marca Lexmark · Modelo"
+ },
+ "ms421": {
+  "familias": [
+   "fuentes",
+   "fusores",
+   "mantenimiento",
+   "placa",
+   "reveladores",
+   "tambores",
+   "toner",
+   "unidades"
+  ],
+  "n_claves": 22,
+  "n_items": 55,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tambores para impresoras o faxes o fotocopiadoras REPUESTO PARA IMPRESORA · TIPO TAMBOR PARA LE"
+ },
+ "dk2205": {
+  "familias": [
+   "etiquetas",
+   "rollos",
+   "toner"
+  ],
+  "n_claves": 10,
+  "n_items": 18,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Etiquetas auto adhesivas Etiqueta Continua autoadhesiva · Para impresoras brother a DK 2205 · D"
+ },
+ "de750": {
+  "familias": [
+   "cortadoras",
+   "papel"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Papel en formas continuas Papel continuo medidas 9 ½ x 11 x 4 x 5,5 gramaje 56 gr presentación "
+ },
+ "pg210": {
+  "familias": [
+   "tinta",
+   "toner"
+  ],
+  "n_claves": 5,
+  "n_items": 6,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Cartuchos de tinta CARTUCHO PG 210 (ORIGINAL) COLOR NEGRO · PARA IMPRESORA CANON"
+ },
+ "de12": {
+  "familias": [
+   "aires",
+   "almohadillas",
+   "amarres",
+   "clips",
+   "led",
+   "llave",
+   "llaves",
+   "luminaria",
+   "luz",
+   "sierras",
+   "sujetador",
+   "sujetadores",
+   "torres"
+  ],
+  "n_claves": 32,
+  "n_items": 41,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Clips para carpetas o bulldog SUJETA PAPELES · TAMAÑO 51 MM. · TIPO BULLDOG, PRESENTACIÓN CAJA "
+ },
+ "ms621": {
+  "familias": [
+   "mantenimiento",
+   "tambores",
+   "unidades"
+  ],
+  "n_claves": 4,
+  "n_items": 5,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Unidades de fotoconductores o imágenes Unidad de Imagen Lexmark Nro. Parte 56F0Z00 Rendimiento "
+ },
+ "ms521": {
+  "familias": [
+   "mantenimiento",
+   "unidades"
+  ],
+  "n_claves": 3,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Unidades de fotoconductores o imágenes Unidad de Imagen Lexmark Nro. Parte 56F0Z00 Rendimiento "
+ },
+ "de650": {
+  "familias": [
+   "computador",
+   "unidades"
+  ],
+  "n_claves": 5,
+  "n_items": 6,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Kits de accesorios de computador ACCESORIO PARA COMPUTADOR · TIPO FUENTE DE PODER DE 650 - 850 "
+ },
+ "rj45": {
+  "familias": [
+   "aparato",
+   "cable",
+   "concentrador",
+   "dispositivo",
+   "enchufe",
+   "equipo",
+   "grabadora",
+   "probador",
+   "roseta",
+   "sistema",
+   "unidades"
+  ],
+  "n_claves": 11,
+  "n_items": 12,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Equipo conector de terminal de cable Conector RJ-45"
+ },
+ "so15337": {
+  "familias": [
+   "cinta",
+   "toner"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax \"Cinta para Impresora · Epson Lq-590 · Tipo Carro Corto CARACTERIST"
+ },
+ "ancho19": {
+  "familias": [
+   "cinta",
+   "husos",
+   "rollos"
+  ],
+  "n_claves": 6,
+  "n_items": 19,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Cinta de transferencia adhesiva Cinta Adhesiva · Ancho 19 Mms. · Largo Rollo 30 Mts. · Material"
+ },
+ "largo200": {
+  "familias": [
+   "cinta",
+   "hilado"
+  ],
+  "n_claves": 3,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Cinta para empaquetar Cinta de Embalaje · Medidas 4,5 cm. · Color Transparente · Largo 200 Yard"
+ },
+ "pp70": {
+  "familias": [
+   "grapadoras",
+   "maquinas"
+  ],
+  "n_claves": 3,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Máquinas perforadoras Perforadora · Alto PP70 Hojas · Nro. de Perforaciones 2"
+ },
+ "ip2700": {
+  "familias": [
+   "tinta",
+   "toner"
+  ],
+  "n_claves": 5,
+  "n_items": 7,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Cartuchos de tinta CARTUCHO PG 210 COLOR NEGRO (ORIGINAL) PARA IMPRESORA IP 2700"
+ },
+ "de250": {
+  "familias": [
+   "estado",
+   "impresoras",
+   "lamparas",
+   "unidades"
+  ],
+  "n_claves": 4,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Unidades de disco duro ACCESORIO PARA COMPUTADOR · TIPO DISCO SOLIDO INTERNO SSD DE 2,5\" · CAPA"
+ },
+ "de18": {
+  "familias": [
+   "aires",
+   "clips",
+   "cortadoras",
+   "dispositivo",
+   "dispositivos",
+   "lamparas",
+   "led",
+   "luminaria",
+   "sierras",
+   "torres"
+  ],
+  "n_claves": 20,
+  "n_items": 29,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Clips para papel ESTILETE · TAMAÑO MEDIANO · CUCHILLA ANCHA METALICO CON FRENO DE 18 CM (ISOFIT"
+ },
+ "cl211": {
+  "familias": [
+   "tinta",
+   "toner"
+  ],
+  "n_claves": 4,
+  "n_items": 5,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Cartuchos de tinta CARTUCHO CL 211 VARIOS COLORES · PARA IMPRESORA CANON"
+ },
+ "de180": {
+  "familias": [
+   "compresores",
+   "contenedor",
+   "papel"
+  ],
+  "n_claves": 3,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Papeles cartulina CARTULINA TIPO LISA GRAMAJE DE 180 GRS. COLOR SUTIDO · TAMAÑO 100*65 CMS PRES"
+ },
+ "bt501c": {
+  "familias": [
+   "tinta",
+   "toner"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "cyan",
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax REFIL BROTHER (ORIGINAL) COLOR CYAN PARA IMPRESORA BT501C"
+ },
+ "azul28": {
+  "familias": [
+   "recubrimiento",
+   "repuestos"
+  ],
+  "n_claves": 4,
+  "n_items": 6,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Repuestos de tinta TINTA PARA SELLO AZUL 28 ML"
+ },
+ "jet1606": {
+  "familias": [
+   "fusores",
+   "impresora",
+   "mantenimiento"
+  ],
+  "n_claves": 5,
+  "n_items": 5,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Kit de mantenimiento de impresoras REPUESTO PARA IMPRESORA · TIPO DE REPUESTO FILM FUSOR · MODE"
+ },
+ "de75": {
+  "familias": [
+   "grapa",
+   "papel",
+   "televisores"
+  ],
+  "n_claves": 9,
+  "n_items": 9,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Grapas Grapas · Material Metálico · Número 24/6 · Presentación 1000 x Caja (CAPACIDAD DE GRAPAD"
+ },
+ "de30": {
+  "familias": [
+   "canaletas",
+   "candados",
+   "led",
+   "reglas",
+   "repuestos",
+   "tinta"
+  ],
+  "n_claves": 10,
+  "n_items": 12,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Reglas REGLA DE 30 CM"
+ },
+ "dr2340": {
+  "familias": [
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 3,
+  "n_items": 13,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tambores para impresoras o faxes o fotocopiadoras DRUM PARA IMPRESORA · MARCA BROTHER, SERIE DR"
+ },
+ "ms610": {
+  "familias": [
+   "fusores",
+   "mantenimiento",
+   "tambores",
+   "unidades"
+  ],
+  "n_claves": 7,
+  "n_items": 15,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Kit de mantenimiento de impresoras Kit de mantenimiento para impresora MS610"
+ },
+ "metal30": {
+  "familias": [
+   "regla",
+   "reglas"
+  ],
+  "n_claves": 2,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Reglas t REGLAS MATERIAL METAL 30 CM, TIPO PLANA"
+ },
+ "cf232a": {
+  "familias": [
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 2,
+  "n_items": 6,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax Drum para Impresora · Marca HP · Serie CF232A · HP 32A"
+ },
+ "hp32a": {
+  "familias": [
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 2,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax Drum para Impresora · Marca HP · Serie CF232A · HP 32A"
+ },
+ "lq590ii": {
+  "familias": [
+   "cabezales",
+   "computador"
+  ],
+  "n_claves": 2,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Cabezales de impresión REPUESTO PARA IMPRESORA · TIPO DE REPUESTO CABEZAL · MODELO DE IMPRESORA"
+ },
+ "de10": {
+  "familias": [
+   "almohadilla",
+   "bolsas",
+   "cinta",
+   "cortadoras",
+   "esponjas",
+   "llaves",
+   "papel",
+   "sistema"
+  ],
+  "n_claves": 10,
+  "n_items": 11,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Bolsas de basura Bolsa de Residuos · Color Plomo · Dimensión 90 x 110 cm. · Capacidad 140 Litro"
+ },
+ "de240": {
+  "familias": [
+   "estado",
+   "unidades"
+  ],
+  "n_claves": 2,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Unidad de estado sólido ssd ACCESORIO PARA COMPUTADOR · TIPO DISCO SOLIDO INTERNO SSD DE 2,5\" ·"
+ },
+ "ms811dn": {
+  "familias": [
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 3,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax Toner para Impresora · Marca Lexmark · Modelo MS811DN · Serie 524 H"
+ },
+ "de90": {
+  "familias": [
+   "heladera",
+   "sobres"
+  ],
+  "n_claves": 3,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Sobres Sobre Manila · Tamaño Oficio · Formato Color Café de 90 Grs."
+ },
+ "de24": {
+  "familias": [
+   "aires",
+   "conmutadores",
+   "dispositivo",
+   "equipo",
+   "impresoras",
+   "led",
+   "luminaria",
+   "panel",
+   "paneles",
+   "plafones",
+   "replicadores",
+   "torres",
+   "transmisor"
+  ],
+  "n_claves": 26,
+  "n_items": 33,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Luminaria LED de diodo emisor de luz LUMINARIA · TIPO LED · PARA SOBREPONER · DE 24 WATS"
+ },
+ "peso125": {
+  "familias": [
+   "jabones",
+   "limpiador",
+   "limpieza",
+   "servicios"
+  ],
+  "n_claves": 6,
+  "n_items": 8,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Jabones JABONCILLO · ENVASE BARRA · FRAGANCIA SURTIDA · PESO 125 GRS."
+ },
+ "cr2032": {
+  "familias": [
+   "pilas",
+   "unidades"
+  ],
+  "n_claves": 2,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Pilas alcalinas PILA · TIPO CR 2032"
+ },
+ "ir1643": {
+  "familias": [
+   "tambores",
+   "toner"
+  ],
+  "n_claves": 3,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tóner para impresoras o fax Tóner para Fotocopiadora, Marca y Modelo · Canon IR 1643 · Serie T0"
+ },
+ "de360": {
+  "familias": [
+   "alcoholes",
+   "desinfectante",
+   "equipos",
+   "glicerina",
+   "interruptor",
+   "limpieza",
+   "traperos"
+  ],
+  "n_claves": 10,
+  "n_items": 15,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Kits de limpieza para uso general ALCOHOL EN GEL · ENVASE CON DISPENSADOR A GATILLO · FRASCO DE"
+ },
+ "de22": {
+  "familias": [
+   "conjuntos",
+   "herramientas",
+   "paneles"
+  ],
+  "n_claves": 3,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Conjuntos generales de herramientas JUEGO DE TUBOS O DADO DE 22 PZAS 1/2"
+ },
+ "de36": {
+  "familias": [
+   "aires",
+   "torres"
+  ],
+  "n_claves": 4,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Accesorios para torres de enfriamiento Motor de ventilados del Split de 36.00 BTU/h"
+ },
+ "bt501m": {
+  "familias": [
+   "tinta",
+   "toner"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "magenta",
+   "negro"
+  ],
+  "ejemplo": "Cartuchos de tinta TINTA BROTHER BT501M COLOR ROJO"
+ },
+ "epson774": {
+  "familias": [
+   "repuestos",
+   "tinta",
+   "toner"
+  ],
+  "n_claves": 3,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Repuestos de tinta Tinta Epson 774"
+ },
+ "cable10": {
+  "familias": [
+   "electricos",
+   "toma"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Accesorios eléctricos ALARGADOR DE CORRIENTE · LARGO DE CABLE 10 MTS. · NUMERO DE TOMA CORRIENT"
+ },
+ "de18w": {
+  "familias": [
+   "barras",
+   "lampara",
+   "lamparas",
+   "led"
+  ],
+  "n_claves": 6,
+  "n_items": 6,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Lámparas fluorescentes PANEL LED DE 18W REDONDO DE EMPOTRAR - Potencia de 18 W · color Blanco"
+ },
+ "de48": {
+  "familias": [
+   "dimers",
+   "equipo",
+   "paneles",
+   "replicadores",
+   "transmisor"
+  ],
+  "n_claves": 5,
+  "n_items": 5,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Paneles de control eléctrico para generadores SWICTH DE 48 PUERTOS POE"
+ },
+ "de40": {
+  "familias": [
+   "maquinas",
+   "paneles",
+   "pegamentos",
+   "torres"
+  ],
+  "n_claves": 6,
+  "n_items": 6,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Maquinas para el marcado láser DISTANCIOMETRO DE 40 MTS"
+ },
+ "de15": {
+  "familias": [
+   "computadores",
+   "conjuntos",
+   "enchufes",
+   "gabinetes",
+   "iluminacion",
+   "rejilla"
+  ],
+  "n_claves": 6,
+  "n_items": 6,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Rejilla de acero REJILLAS DE PISO Rejilla de piso de aluminio de 15 x 15 cm"
+ },
+ "dr3609": {
+  "familias": [
+   "tambores",
+   "unidades"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tambores para impresoras o faxes o fotocopiadoras TAMBOR BROTHER DR 3609"
+ },
+ "de220v": {
+  "familias": [
+   "actuador",
+   "duchas"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Kit de actuador Actuador electromecánico · Tensión de alimentación de 220V"
+ },
+ "polvo640": {
+  "familias": [
+   "desinfectantes",
+   "limpiadores"
+  ],
+  "n_claves": 2,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Desinfectantes para uso doméstico DETERGENTE EN POLVO 640 GR"
+ },
+ "de120": {
+  "familias": [
+   "barras",
+   "paneles"
+  ],
+  "n_claves": 3,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Paneles MATERIAL ELÉCTRICO · PANEL LED TIPO RECTANGULAR DE 40 W · MEDIDAS DE 120 CM X 30 CM"
+ },
+ "hl5450": {
+  "familias": [
+   "fusores",
+   "toner"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Fusores FUSOR BROTHER HL 5450- HL 6180"
+ },
+ "dcp7065dn": {
+  "familias": [
+   "impresora",
+   "tambores"
+  ],
+  "n_claves": 2,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Tambores para impresoras o faxes o fotocopiadoras ACCESORIOS COMPLETO DRUM DR-420 PARA IMPRESOR"
+ },
+ "ancho20": {
+  "familias": [
+   "conducto",
+   "ducto"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Ducto de cableado CABLEDUCTO Largo 2 Mts 20*10 C/A - Cableducto Eléctrico · Largo 2 Mts. · Anch"
+ },
+ "alto10": {
+  "familias": [
+   "conducto",
+   "dispositivos",
+   "ducto"
+  ],
+  "n_claves": 5,
+  "n_items": 5,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Ducto de cableado CABLEDUCTO Largo 2 Mts 20*10 C/A - Cableducto Eléctrico · Largo 2 Mts. · Anch"
+ },
+ "de35": {
+  "familias": [
+   "polietileno",
+   "torres"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Polietileno BOLSAS NEGRAS DE 35 X 65 CM. PRESENTACION PAQUETE"
+ },
+ "led60": {
+  "familias": [
+   "lampara",
+   "lamparas"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Lámpara LED de diodo emisor de luz PANEL LED 60*60 SOBREPONER"
+ },
+ "de360ml": {
+  "familias": [
+   "alcoholes",
+   "limpieza"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Kits de limpieza para uso general ALCOHOL EN GEL · ENVASE CON DISPENSADOR A GATILLO · FRASCO DE"
+ },
+ "hl5100": {
+  "familias": [
+   "fusores",
+   "placas",
+   "tarjetas",
+   "toner"
+  ],
+  "n_claves": 6,
+  "n_items": 8,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Placas PLACA DE CONTACTO P/HL5100"
+ },
+ "bt501y": {
+  "familias": [
+   "tinta",
+   "toner"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "amarillo"
+  ],
+  "ejemplo": "Tóner para impresoras o fax REFIL BROTHER (ORIGINAL) COLOR AMARILLO PARA IMPRESORA BT501Y"
+ },
+ "ssd512": {
+  "familias": [
+   "computador",
+   "unidades"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Unidades de disco duro DISCO DURO SSD 512 GB interfaz de host · sata 3.0"
+ },
+ "ma12": {
+  "familias": [
+   "altoparlantes",
+   "soporte"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Soporte de pared WMB-MA12/MA12EX BI-PIVOT BRACKET"
+ },
+ "hasta80": {
+  "familias": [
+   "desague",
+   "escaneres"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Escáneres ESCANER DE TRÁFICO ALTO. -TIPO DE ESCÁNER · ADF (ALIMENTADOR AUTOMÁTICO DE DOCUMENTOS"
+ },
+ "canon1435": {
+  "familias": [
+   "almohadillas",
+   "lamparas"
+  ],
+  "n_claves": 3,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Almohadillas o filtros limpiadores de fusores TIPO DE REPUESTO RODILLO DE SEPARACION PAPEL C1 P"
+ },
+ "nom16": {
+  "familias": [
+   "dispositivos",
+   "interruptor",
+   "interruptores",
+   "placas"
+  ],
+  "n_claves": 4,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Interruptor de lámpara INTERRUPTOR ELECTRICO - Interruptor Eléctrico · Corriente Nom 220 Volts."
+ },
+ "nom220": {
+  "familias": [
+   "dispositivos",
+   "interruptor",
+   "interruptores",
+   "placas"
+  ],
+  "n_claves": 4,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Interruptor de lámpara INTERRUPTOR ELECTRICO - Interruptor Eléctrico · Corriente Nom 220 Volts."
+ },
+ "de17": {
+  "familias": [
+   "computadores",
+   "herramientas"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Caja de herramientas CAJA DE HERRAMIENTAS DE 17\" REFORZADA"
+ },
+ "de850": {
+  "familias": [
+   "pulidores",
+   "unidades"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Pulidores o ceras para muebles LUSTRA MUEBLE DE 850 ML ENVASE CON ATOMIZADOR"
+ },
+ "xerox4622": {
+  "familias": [
+   "fusores",
+   "toner"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Fusores FUSOR XEROX 4622"
+ },
+ "de300": {
+  "familias": [
+   "desinfectante",
+   "limpiadores"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Desinfectante de manos ALCOHOL EN GEL DE 300 ML LIZ"
+ },
+ "ir1435i": {
+  "familias": [
+   "correas",
+   "rollos",
+   "tambores"
+  ],
+  "n_claves": 4,
+  "n_items": 4,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Correas de impresoras, fax o fotocopiadoras KIT DE MANTENIMIENTO MODELO CANON IR 1435i"
+ },
+ "hl6180dw": {
+  "familias": [
+   "componentes",
+   "fusores",
+   "impresora",
+   "tambores"
+  ],
+  "n_claves": 5,
+  "n_items": 5,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Fusores RODILLO DE PRESION BROTHER HL-6180DW"
+ },
+ "alto16": {
+  "familias": [
+   "canaletas",
+   "dispositivos"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Canaletas para cables CABLEDUCTO ELECTRICO · LARGO 2 M · ESPESOR 25 MM · ALTO 16 MM · MATERIAL "
+ },
+ "de60000": {
+  "familias": [
+   "compresores",
+   "reveladores"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Reveladores para impresoras o fotocopiadoras UNIDAD DE IMAGEN LEXMARK · MODELO D EIMPRESORA MS "
+ },
+ "largo60": {
+  "familias": [
+   "lampara",
+   "lamparas"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Lámpara LED de diodo emisor de luz TUBO LED DE 9W - Transparente · Luz blanca · largo 60 cm."
+ },
+ "rollo100m": {
+  "familias": [
+   "cable",
+   "rollos"
+  ],
+  "n_claves": 3,
+  "n_items": 3,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Cable de bronce CABLE DE ALAMBRE MONOPOLAR AWG #12 - Cobre Aislado · Rollo 100m · 7 hilos"
+ },
+ "de63": {
+  "familias": [
+   "dispositivos",
+   "ferreteria"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Dispositivos y accesorios de cableado eléctrico TERMICO · MATERIAL PLASTICO · CORRIENTE DE 63 A"
+ },
+ "de50mm": {
+  "familias": [
+   "candados",
+   "clips"
+  ],
+  "n_claves": 2,
+  "n_items": 2,
+  "colores": [
+   "negro"
+  ],
+  "ejemplo": "Clips para papel CLIP METALICO DE 50MM PRESENTACION CAJITA DE 100 UNIDADES"
+ }
+}
