@@ -21,15 +21,25 @@ load_dotenv('/Users/fabriziocuellar/Sicoes-Brain/monitor/.env')
 U = os.environ["SUPABASE_URL"].rstrip("/"); K = os.environ["SUPABASE_KEY"]
 H = {"apikey": K, "Authorization": f"Bearer {K}", "Content-Type": "application/json"}
 
+import time as _time
+def _urlopen_retry(req, intentos=5):
+    # reintenta ante resets/errores transitorios (Errno 54, timeouts) con backoff
+    for i in range(intentos):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as x:
+                return x.read()
+        except (urllib.error.URLError, ConnectionError) as e:
+            if i == intentos - 1:
+                raise
+            _time.sleep(1.5 * (i + 1))
 def _get(path):
     r = urllib.request.Request(f"{U}/rest/v1/{path}", headers=H)
-    with urllib.request.urlopen(r, timeout=120) as x: return json.loads(x.read())
+    return json.loads(_urlopen_retry(r))
 def _req(method, path, body=None, extra=None):
     data = json.dumps(body).encode() if body is not None else None
     h = dict(H); h.update(extra or {})
     r = urllib.request.Request(f"{U}/rest/v1/{path}", data=data, method=method, headers=h)
-    with urllib.request.urlopen(r, timeout=120) as x:
-        raw = x.read(); return json.loads(raw) if raw else None
+    raw = _urlopen_retry(r); return json.loads(raw) if raw else None
 
 # ---------------- pre-keyer (idéntico a pipeline_v2) ----------------
 def strip_acc(s): return "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn")

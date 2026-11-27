@@ -65,11 +65,28 @@ scraper/venv/bin/python scratchpad/recablear_v5.py --write      # (dry-run sin -
 `recablear_v5` hace NULL de todas las asignaciones + DELETE de los canónicos + recrea.
 Para volver al agrupado anterior: `scratchpad/recablear_v4.py --write`.
 
-## Límites conocidos / cómo mejorar
+## Reglas finas por familia
 
-- El normalizador genérico aún separa commodities por atributos secundarios (ej. papel
-  continuo por nº de caja 1000/1500 → 42 grupos en vez de ~4). Una **regla fina por
-  familia** (keyear solo por dimensiones+copias) los colapsaría más. Se agregan en
-  `normalizador.py` sin tocar el resto; es por-familia (finito), nunca por-ítem.
+Cuando el normalizador genérico separa de más (keyea por atributo secundario), se agrega
+una **regla por familia** en `normalizador.py` (`firma_familia` → dispatch). Se escribe
+UNA vez por familia-commodity, nunca por ítem.
+
+- **Papel continuo** (`_firma_papel_continuo`): identidad = `ancho x alto x nº de copias`.
+  Ignora gramaje (55/56/70), nº de caja (750/1000/1500), "químico/blanco/troquelado/
+  desglose" y el troquelado 5½. Resultado: papel continuo **42 → 8 canónicos** (los 3
+  productos reales 9½×11 en ×2/×3/×4 concentran 95 de 108 ítems). Solo aplica si la
+  familia es papel (evita falsos positivos como una impresora que menciona "papel continuo").
+
+Próximas candidatas (si se ven feas en el dashboard): limpieza, cable/eléctrico, muebles.
+
+## Robustez de red
+
+`recablear_v3._urlopen_retry` reintenta (5×, backoff) ante resets transitorios
+(Errno 54 / timeouts). Sin esto, un reset a mitad del PATCH dejaba la DB en estado
+**parcial** (canónicos creados pero ítems a medio asignar). El rebuild es idempotente:
+ante cualquier estado parcial, re-correr `recablear_v5.py --write` lo deja consistente.
+
+## Límites conocidos
+
 - 50 ítems quedan provisionales por descripción vaga ("PERFORADORA", "ESPONJA"): correcto
   que pidan revisión; no se fuerzan.

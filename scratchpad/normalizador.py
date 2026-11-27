@@ -63,7 +63,55 @@ def _canon_medida(t):
     t = re.sub(rf'{num}(?:x{num}){{1,3}}', repl, t)
     return t
 
+# ─── Reglas finas POR FAMILIA (identidad real, ignoran empaque/ruido) ──────────
+# Se escriben UNA vez por familia-commodity; nunca por item. Si una regla aplica,
+# su firma manda sobre la clave generica (que separaria por gramaje/caja/etc.).
+
+def _frac(t):
+    """'9 1/2'->9.5, '91/2'->9.5, '1/2'->0.5."""
+    t = t.replace('½', '1/2').replace('¼', '1/4').replace('¾', '3/4')
+    t = re.sub(r'(\d+)\s+(\d)/(\d)', lambda m: f"{int(m.group(1))+int(m.group(2))/int(m.group(3)):g}", t)
+    t = re.sub(r'(\d)(\d)/(\d)(?!\d)', lambda m: f"{int(m.group(1))+int(m.group(2))/int(m.group(3)):g}", t)  # 91/2
+    t = re.sub(r'(?<!\d)(\d)/(\d)', lambda m: f"{int(m.group(1))/int(m.group(2)):g}", t)
+    return t
+
+def _firma_papel_continuo(t):
+    """Papel continuo (formas continuas): identidad = ancho x alto x nº de copias/partes.
+    Ignora gramaje, nº de caja, 'quimico/blanco/troquelado/desglose', troquelado 5½.
+    Busca la medida AxBx(C) directo, sin importar dónde esté (el orden varía)."""
+    if 'continuo' not in t:
+        return None
+    s = _frac(t)
+    # patrón de medida: N x N (x N (x N)) con 'x' o '*' como separador, espacios opcionales
+    m = re.search(r'(\d+(?:\.\d+)?)\s*[x*]\s*(\d+(?:\.\d+)?)'
+                  r'(?:\s*[x*]\s*(\d+(?:\.\d+)?))?(?:\s*[x*]\s*(\d+(?:\.\d+)?))?', s)
+    if not m:
+        return None                       # sin medida -> que lo tome la clave generica
+    nums = [float(g) for g in m.groups() if g is not None]
+    ancho, alto = nums[0], nums[1]
+    # copias = primer entero 1..8 tras ancho/alto (el troquelado 5.5 es fracción, se ignora)
+    copias = next((int(n) for n in nums[2:] if n == int(n) and 1 <= n <= 8), None)
+    return f"papel|continuo|{ancho:g}x{alto:g}|{copias or '?'}cop"
+
+def firma_familia(desc):
+    """Firma fina si alguna regla por familia aplica; si no, None (usa clave generica)."""
+    t = strip_acc((desc or '').lower())
+    # solo si la familia es papel (evita falsos positivos: impresora que menciona 'papel continuo')
+    fam, _ = _clave_generica(desc)
+    if fam == 'papel':
+        f = _firma_papel_continuo(t)
+        if f:
+            return f
+    return None
+
 def clave(desc):
+    """Clave canonica. Primero reglas finas por familia; si no, clave generica."""
+    f = firma_familia(desc)
+    if f:
+        return f.split('|')[0], f
+    return _clave_generica(desc)
+
+def _clave_generica(desc):
     """Clave de agrupacion canonica generica. Devuelve (familia, clave) o (None, None)."""
     t = strip_acc((desc or '').lower())
     t = _canon_medida(t)
