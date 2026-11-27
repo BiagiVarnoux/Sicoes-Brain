@@ -237,6 +237,19 @@ def main():
         print("ERROR: faltan SUPABASE_URL / SUPABASE_KEY (monitor/.env o entorno)", file=sys.stderr)
         sys.exit(1)
     write_supabase(url, key, procesos, items)
+    recanonizar()
+
+
+def recanonizar():
+    """Re-canoniza hist_items tras la carga: firma estructurada (SKU) + normalizador
+    genérico de atributos + singletons confiables. Automatiza lo que antes era un
+    recableado manual — los ítems nuevos entran ya agrupados en su producto canónico,
+    y solo quedan 'provisionales' los de descripción genuinamente vaga.
+    Reconstrucción idempotente; ver scratchpad/recablear_v5.py y docs/CANONICALIZACION.md."""
+    import subprocess
+    script = ROOT / "scratchpad" / "recablear_v5.py"
+    print("\nRe-canonizando (recablear_v5: normalizador + firma SKU)…", flush=True)
+    subprocess.run([sys.executable, str(script), "--write"], check=True)
 
 
 if __name__ == "__main__":
