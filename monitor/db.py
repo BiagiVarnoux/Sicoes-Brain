@@ -202,25 +202,13 @@ def registrar_corrida(fecha_corrida: str, fecha_desde: str | None = None,
         print(f"      ⚠ No se pudo registrar la corrida en radar_corridas: {e}", flush=True)
 
 
-def limpiar_storage_descartados() -> int:
-    """Borra los archivos del bucket Storage y limpia los campos dbc_* de las
-    convocatorias descartadas que aún tengan archivos. Devuelve filas afectadas."""
-    import json as _json
-    import urllib.parse as _up
-    BUCKET = "dbc"
-    # 1) obtener CUCEs descartados con archivos
-    req = urllib.request.Request(
-        f"{SUPABASE_URL}/rest/v1/{TABLA}?descartado=eq.true&dbc_archivos=not.is.null&select=cuce",
-        headers=_headers(),
-    )
-    try:
-        _s, body = _urlopen_retry(req, timeout=15)
-        cuces = [r["cuce"] for r in _json.loads(body) if r.get("cuce")]
-    except Exception as e:
-        print(f"      ⚠ limpiar_storage_descartados (query): {e}", flush=True)
-        return 0
+def _borrar_storage_cuces(cuces: list) -> int:
+    """Lista y borra del bucket 'dbc' todos los objetos de los CUCE dados,
+    listando el bucket por prefijo (no depende del puntero dbc_archivos, así
+    también barre huérfanos cuyo puntero ya se limpió). Devuelve CUCE procesados."""
     if not cuces:
         return 0
+    BUCKET = "dbc"
     h_storage = {"apikey": SUPABASE_KEY, "Authorization": f"Bearer {SUPABASE_KEY}",
                  "Content-Type": "application/json"}
     borrados = 0
@@ -228,28 +216,48 @@ def limpiar_storage_descartados() -> int:
         try:
             req_list = urllib.request.Request(
                 f"{SUPABASE_URL}/storage/v1/object/list/{BUCKET}",
-                data=_json.dumps({"prefix": f"{cuce}/", "limit": 100}).encode(),
+                data=json.dumps({"prefix": f"{cuce}/", "limit": 100}).encode(),
                 method="POST", headers=h_storage,
             )
-            objs = _json.loads(urllib.request.urlopen(req_list, timeout=20).read())
+            objs = json.loads(urllib.request.urlopen(req_list, timeout=20).read())
             prefixes = [f"{cuce}/{o['name']}" for o in objs if o.get("name")]
             if prefixes:
                 req_del = urllib.request.Request(
                     f"{SUPABASE_URL}/storage/v1/object/{BUCKET}",
-                    data=_json.dumps({"prefixes": prefixes}).encode(),
+                    data=json.dumps({"prefixes": prefixes}).encode(),
                     method="DELETE", headers=h_storage,
                 )
                 urllib.request.urlopen(req_del, timeout=20).read()
             borrados += 1
         except Exception as e:
-            print(f"      ⚠ limpiar_storage_descartados ({cuce}): {e}", flush=True)
+            print(f"      ⚠ _borrar_storage_cuces ({cuce}): {e}", flush=True)
+    return borrados
+
+
+def limpiar_storage_descartados() -> int:
+    """Borra los archivos del bucket Storage y limpia los campos dbc_* de las
+    convocatorias descartadas que aún tengan archivos. Devuelve filas afectadas."""
+    # 1) obtener CUCEs descartados con archivos
+    req = urllib.request.Request(
+        f"{SUPABASE_URL}/rest/v1/{TABLA}?descartado=eq.true&dbc_archivos=not.is.null&select=cuce",
+        headers=_headers(),
+    )
+    try:
+        _s, body = _urlopen_retry(req, timeout=15)
+        cuces = [r["cuce"] for r in json.loads(body) if r.get("cuce")]
+    except Exception as e:
+        print(f"      ⚠ limpiar_storage_descartados (query): {e}", flush=True)
+        return 0
+    if not cuces:
+        return 0
+    borrados = _borrar_storage_cuces(cuces)
     # 2) limpiar campos en la DB
     if borrados:
         url = (f"{SUPABASE_URL}/rest/v1/{TABLA}"
                f"?descartado=eq.true&dbc_archivos=not.is.null")
         payload = {"dbc_archivos": None, "dbc_path": None, "dbc_descargado": False}
         req_patch = urllib.request.Request(
-            url, data=_json.dumps(payload).encode(),
+            url, data=json.dumps(payload).encode(),
             method="PATCH", headers=_headers({"Prefer": "return=minimal"}),
         )
         try:
@@ -260,21 +268,36 @@ def limpiar_storage_descartados() -> int:
 
 
 def limpiar_documentos_vencidos() -> int:
-    """Borra los documentos (archivos, dbc_archivos, dbc_path) de convocatorias
-    cuya fecha_presentacion ya pasó. Devuelve el número de filas afectadas."""
-    url = (f"{SUPABASE_URL}/rest/v1/{TABLA}"
-           f"?fecha_presentacion=lt.{__import__('datetime').date.today().isoformat()}")
-    payload = {"archivos": None, "dbc_archivos": None, "dbc_path": None, "dbc_descargado": False}
+    """Borra del Storage y limpia los campos dbc_* de convocatorias cuya
+    fecha_presentacion ya pasó. Borra los archivos ANTES de limpiar el puntero
+    (si no, el archivo queda huérfano para siempre). Devuelve CUCE con archivos
+    borrados."""
+    hoy = __import__('datetime').date.today().isoformat()
+    # 1) CUCE vencidos que todavía tienen archivos -> borrar del Storage primero
     req = urllib.request.Request(
-        url, data=__import__('json').dumps(payload).encode(),
-        method="PATCH", headers=_headers({"Prefer": "return=minimal,count=exact"}),
+        f"{SUPABASE_URL}/rest/v1/{TABLA}"
+        f"?fecha_presentacion=lt.{hoy}&dbc_archivos=not.is.null&select=cuce",
+        headers=_headers(),
     )
     try:
-        status, _body = _urlopen_retry(req)
-        return 0
+        _s, body = _urlopen_retry(req, timeout=15)
+        cuces = [r["cuce"] for r in json.loads(body) if r.get("cuce")]
     except Exception as e:
-        print(f"      ⚠ limpiar_documentos_vencidos falló: {e}", flush=True)
-        return 0
+        print(f"      ⚠ limpiar_documentos_vencidos (query): {e}", flush=True)
+        cuces = []
+    borrados = _borrar_storage_cuces(cuces)
+    # 2) limpiar campos en la DB (de todos los vencidos)
+    url = f"{SUPABASE_URL}/rest/v1/{TABLA}?fecha_presentacion=lt.{hoy}"
+    payload = {"archivos": None, "dbc_archivos": None, "dbc_path": None, "dbc_descargado": False}
+    req_patch = urllib.request.Request(
+        url, data=json.dumps(payload).encode(),
+        method="PATCH", headers=_headers({"Prefer": "return=minimal"}),
+    )
+    try:
+        _urlopen_retry(req_patch)
+    except Exception as e:
+        print(f"      ⚠ limpiar_documentos_vencidos (patch): {e}", flush=True)
+    return borrados
 
 
 def marcar_dbc(cuce: str, dbc_path: str, dbc_archivos: list | None = None,
